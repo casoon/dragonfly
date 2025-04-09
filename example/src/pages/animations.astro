@@ -30,144 +30,110 @@ import Layout from '../layouts/Layout.astro';
     <h2>Grundlegende Animationen</h2>
     <p>Einfache Animationen für grundlegende Interaktionen.</p>
     
-    <div class="demo-grid grid cols-2 md:cols-3 gap-4">
-      <div class="fade-in demo-item">
+    <div class="demo-grid">
+      <div class="demo-item">
         <h3>Fade In</h3>
+        <div class="animation-box gradient-1 fade-in">Fade In</div>
         <code>&lt;div class="fade-in"&gt;...&lt;/div&gt;</code>
       </div>
-      <div class="fade-out demo-item">
+      
+      <div class="demo-item">
         <h3>Fade Out</h3>
+        <div class="animation-box gradient-2 fade-out">Fade Out</div>
         <code>&lt;div class="fade-out"&gt;...&lt;/div&gt;</code>
       </div>
-      <div class="slide-in-left demo-item">
-        <h3>Slide In Left</h3>
-        <code>&lt;div class="slide-in-left"&gt;...&lt;/div&gt;</code>
+      
+      <div class="demo-item">
+        <h3>Slide In</h3>
+        <div class="animation-box gradient-3 slide-in">Slide In</div>
+        <code>&lt;div class="slide-in"&gt;...&lt;/div&gt;</code>
       </div>
-      <div class="slide-in-right demo-item">
-        <h3>Slide In Right</h3>
-        <code>&lt;div class="slide-in-right"&gt;...&lt;/div&gt;</code>
-      </div>
-      <div class="slide-in-top demo-item">
-        <h3>Slide In Top</h3>
-        <code>&lt;div class="slide-in-top"&gt;...&lt;/div&gt;</code>
-      </div>
-      <div class="slide-in-bottom demo-item">
-        <h3>Slide In Bottom</h3>
-        <code>&lt;div class="slide-in-bottom"&gt;...&lt;/div&gt;</code>
+      
+      <div class="demo-item">
+        <h3>Slide Out</h3>
+        <div class="animation-box gradient-4 slide-out">Slide Out</div>
+        <code>&lt;div class="slide-out"&gt;...&lt;/div&gt;</code>
       </div>
     </div>
   </section>
 
   <section class="demo-section">
-    <h2>Interaktive Animationen</h2>
-    <p>Animationen, die auf Benutzerinteraktionen reagieren.</p>
+    <h2>Fancy Animationen</h2>
+    <p>Spezielle Animationen für auffällige Effekte.</p>
     
-    <div class="demo-grid grid cols-2 md:cols-3 gap-4">
-      <div class="hover-scale demo-item">
-        <h3>Hover Scale</h3>
-        <code>&lt;div class="hover-scale"&gt;...&lt;/div&gt;</code>
-      </div>
-      <div class="hover-rotate demo-item">
-        <h3>Hover Rotate</h3>
-        <code>&lt;div class="hover-rotate"&gt;...&lt;/div&gt;</code>
-      </div>
-      <div class="hover-bounce demo-item">
-        <h3>Hover Bounce</h3>
-        <code>&lt;div class="hover-bounce"&gt;...&lt;/div&gt;</code>
-      </div>
-    </div>
-  </section>
-
-  <section class="demo-section">
-    <h2>Fortgeschrittene Animationen</h2>
-    <p>Komplexere Animationen für besondere Effekte.</p>
-    
-    <div class="demo-grid grid cols-2 md:cols-3 gap-4">
-      <div class="bounce demo-item">
+    <div class="demo-grid">
+      <div class="demo-item">
         <h3>Bounce</h3>
+        <div class="animation-box gradient-5 bounce">Bounce</div>
         <code>&lt;div class="bounce"&gt;...&lt;/div&gt;</code>
       </div>
-      <div class="pulse demo-item">
-        <h3>Pulse</h3>
-        <code>&lt;div class="pulse"&gt;...&lt;/div&gt;</code>
-      </div>
-      <div class="spin demo-item">
-        <h3>Spin</h3>
-        <code>&lt;div class="spin"&gt;...&lt;/div&gt;</code>
-      </div>
-      <div class="float demo-item">
-        <h3>Float</h3>
-        <code>&lt;div class="float"&gt;...&lt;/div&gt;</code>
-      </div>
-      <div class="shake demo-item">
+      
+      <div class="demo-item">
         <h3>Shake</h3>
+        <div class="animation-box gradient-6 shake">Shake</div>
         <code>&lt;div class="shake"&gt;...&lt;/div&gt;</code>
       </div>
-      <div class="glow demo-item">
+      
+      <div class="demo-item">
+        <h3>Spin</h3>
+        <div class="animation-box gradient-7 spin">Spin</div>
+        <code>&lt;div class="spin"&gt;...&lt;/div&gt;</code>
+      </div>
+      
+      <div class="demo-item">
+        <h3>Pulse</h3>
+        <div class="animation-box gradient-8 pulse">Pulse</div>
+        <code>&lt;div class="pulse"&gt;...&lt;/div&gt;</code>
+      </div>
+    </div>
+  </section>
+
+  <section class="demo-section">
+    <h2>Benutzerdefinierte Animationen</h2>
+    <p>Spezielle Animationen für besondere Anwendungsfälle.</p>
+    
+    <div class="demo-grid">
+      <div class="demo-item">
+        <h3>Float</h3>
+        <div class="animation-box gradient-9 float">Float</div>
+        <code>&lt;div class="float"&gt;...&lt;/div&gt;</code>
+      </div>
+      
+      <div class="demo-item">
         <h3>Glow</h3>
+        <div class="animation-box gradient-10 glow">Glow</div>
         <code>&lt;div class="glow"&gt;...&lt;/div&gt;</code>
       </div>
     </div>
   </section>
 
   <section class="demo-section">
-    <h2>Animations-Utility-Klassen</h2>
+    <h2>Utility-Klassen</h2>
     <p>Kontrollieren Sie die Animationen mit diesen Utility-Klassen.</p>
     
-    <div class="demo-grid grid cols-1 md:cols-2 gap-4">
+    <div class="demo-grid">
       <div class="demo-item">
         <h3>Geschwindigkeit</h3>
-        <ul>
-          <li><code>animate-slow</code> - Langsame Animation</li>
-          <li><code>animate-normal</code> - Normale Geschwindigkeit</li>
-          <li><code>animate-fast</code> - Schnelle Animation</li>
-        </ul>
+        <div class="animation-box gradient-11 fade-in animation-slow">Langsam</div>
+        <code>&lt;div class="animation-slow"&gt;...&lt;/div&gt;</code>
       </div>
+      
       <div class="demo-item">
         <h3>Wiederholung</h3>
-        <ul>
-          <li><code>animate-once</code> - Einmalige Ausführung</li>
-          <li><code>animate-infinite</code> - Endlose Wiederholung</li>
-          <li><code>animate-repeat-2</code> - Zweimalige Ausführung</li>
-          <li><code>animate-repeat-3</code> - Dreimalige Ausführung</li>
-        </ul>
+        <div class="animation-box gradient-12 bounce animation-infinite">Unendlich</div>
+        <code>&lt;div class="animation-infinite"&gt;...&lt;/div&gt;</code>
       </div>
+      
       <div class="demo-item">
         <h3>Verzögerung</h3>
-        <ul>
-          <li><code>animate-delay-100</code> - 100ms Verzögerung</li>
-          <li><code>animate-delay-200</code> - 200ms Verzögerung</li>
-          <li><code>animate-delay-300</code> - 300ms Verzögerung</li>
-        </ul>
+        <div class="animation-box gradient-13 fade-in animation-delay">Verzögert</div>
+        <code>&lt;div class="animation-delay"&gt;...&lt;/div&gt;</code>
       </div>
+      
       <div class="demo-item">
-        <h3>Timing-Funktion</h3>
-        <ul>
-          <li><code>animate-ease</code> - Standard Timing</li>
-          <li><code>animate-ease-in</code> - Langsamer Start</li>
-          <li><code>animate-ease-out</code> - Langsames Ende</li>
-          <li><code>animate-ease-in-out</code> - Langsamer Start und Ende</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section class="demo-section">
-    <h2>Beispiel: Kombinierte Animationen</h2>
-    <p>Kombinieren Sie verschiedene Animationen und Utility-Klassen für komplexe Effekte.</p>
-    
-    <div class="demo-grid">
-      <div class="fade-in hover-scale animate-delay-200 demo-item">
-        <h3>Fade In + Hover Scale</h3>
-        <code>&lt;div class="fade-in hover-scale animate-delay-200"&gt;...&lt;/div&gt;</code>
-      </div>
-      <div class="slide-in-left pulse animate-infinite demo-item">
-        <h3>Slide In + Pulse</h3>
-        <code>&lt;div class="slide-in-left pulse animate-infinite"&gt;...&lt;/div&gt;</code>
-      </div>
-      <div class="float glow animate-slow demo-item">
-        <h3>Float + Glow</h3>
-        <code>&lt;div class="float glow animate-slow"&gt;...&lt;/div&gt;</code>
+        <h3>Timing</h3>
+        <div class="animation-box gradient-14 bounce animation-ease-in-out">Ease In Out</div>
+        <code>&lt;div class="animation-ease-in-out"&gt;...&lt;/div&gt;</code>
       </div>
     </div>
   </section>
@@ -191,7 +157,6 @@ import Layout from '../layouts/Layout.astro';
     padding: var(--size-4);
     background: var(--gray-1);
     border-radius: var(--radius-2);
-    text-align: center;
   }
 
   .demo-item code {
@@ -204,11 +169,6 @@ import Layout from '../layouts/Layout.astro';
     font-size: var(--font-size-0);
   }
 
-  .demo-item h3 {
-    margin: 0 0 var(--size-2) 0;
-    font-size: var(--font-size-2);
-  }
-
   .demo-section h2 {
     margin-bottom: var(--size-4);
   }
@@ -218,13 +178,71 @@ import Layout from '../layouts/Layout.astro';
     color: var(--gray-7);
   }
 
-  .demo-item ul {
-    text-align: left;
-    margin: 0;
-    padding-left: var(--size-4);
+  .animation-box {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    border-radius: var(--radius-2);
+    margin: var(--size-4) 0;
   }
 
-  .demo-item li {
-    margin: var(--size-2) 0;
+  .gradient-1 {
+    background: linear-gradient(45deg, var(--blue-5), var(--indigo-5));
+  }
+
+  .gradient-2 {
+    background: linear-gradient(45deg, var(--violet-5), var(--purple-5));
+  }
+
+  .gradient-3 {
+    background: linear-gradient(45deg, var(--pink-5), var(--red-5));
+  }
+
+  .gradient-4 {
+    background: linear-gradient(45deg, var(--orange-5), var(--yellow-5));
+  }
+
+  .gradient-5 {
+    background: linear-gradient(45deg, var(--lime-5), var(--green-5));
+  }
+
+  .gradient-6 {
+    background: linear-gradient(45deg, var(--teal-5), var(--cyan-5));
+  }
+
+  .gradient-7 {
+    background: linear-gradient(45deg, var(--blue-6), var(--indigo-6));
+  }
+
+  .gradient-8 {
+    background: linear-gradient(45deg, var(--violet-6), var(--purple-6));
+  }
+
+  .gradient-9 {
+    background: linear-gradient(45deg, var(--pink-6), var(--red-6));
+  }
+
+  .gradient-10 {
+    background: linear-gradient(45deg, var(--orange-6), var(--yellow-6));
+  }
+
+  .gradient-11 {
+    background: linear-gradient(45deg, var(--lime-6), var(--green-6));
+  }
+
+  .gradient-12 {
+    background: linear-gradient(45deg, var(--teal-6), var(--cyan-6));
+  }
+
+  .gradient-13 {
+    background: linear-gradient(45deg, var(--blue-7), var(--indigo-7));
+  }
+
+  .gradient-14 {
+    background: linear-gradient(45deg, var(--violet-7), var(--purple-7));
   }
 </style> 
