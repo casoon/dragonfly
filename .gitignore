@@ -1,0 +1,34 @@
+# Node modules & logs
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build output (z. B. wenn du bundlest)
+dist/
+build/
+.temp/
+
+# IDEs & Editor-Settings
+.vscode/
+.idea/
+*.swp
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# Environment & Auth
+.env
+.env.local
+
+# Optional für Mac/Linux/Windows-spezifische Dateien
+*.bak
+*.tmp
+
+# Git
+.git/
+
+# Test coverage / Cache
+coverage/
+.cache/

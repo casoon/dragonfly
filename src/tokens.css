@@ -1,0 +1,5 @@
+:root {
+  --brand-color: var(--indigo-6);
+  --brand-hover: var(--indigo-7);
+  --border-radius: 8px;
+}

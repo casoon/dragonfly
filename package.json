@@ -1,0 +1,26 @@
+{
+  "name": "casoon-ui-lib",
+  "version": "1.0.0",
+  "description": "UI-Bibliothek mit Open Props, Basis-Komponenten, Effekten und Alpine/Motion-Unterstützung",
+  "exports": {
+    "./reset.css": "./src/reset.css",
+    "./tokens.css": "./src/tokens.css",
+    "./grid.css": "./src/grid.css",
+    "./effects.css": "./src/effects.css",
+    "./components/Button.astro": "./src/components/Button.astro",
+    "./components/Grid.astro": "./src/components/Grid.astro",
+    "./components/Container.astro": "./src/components/Container.astro"
+  },
+  "keywords": ["astro", "css", "ui", "components", "open-props", "alpinejs", "motion"],
+  "author": "Jörn Seidel",
+  "license": "MIT",
+  "peerDependencies": {
+    "alpinejs": "^3.14.9",
+    "motion": "^12.6.3"
+  },
+  "devDependencies": {
+    "alpinejs": "^3.14.9",
+    "motion": "^12.6.3",
+    "open-props": "^1.7.15"
+  }
+}
