@@ -23,7 +23,7 @@ npm install ../pfad/zu/casoon-ui-lib
 ### CSS-Dateien importieren
 
 ```css
-/* z. B. in src/styles/global.css */
+/* z. B. in src/styles/global.layout */
 @import 'casoon-ui-lib/reset.css';
 @import 'casoon-ui-lib/tokens.css';
 @import 'casoon-ui-lib/grid.css';

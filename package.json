@@ -4,8 +4,7 @@
   "description": "UI-Bibliothek mit Open Props, Basis-Komponenten, Effekten und Alpine/Motion-Unterstützung",
   "exports": {
     "./reset.css": "./src/reset.css",
-    "./tokens.css": "./src/tokens.css",
-    "./grid.css": "./src/grid.css",
+    "./tokens.css": "./src/animations.css",
     "./effects.css": "./src/effects.css",
     "./components/Button.astro": "./src/components/Button.astro",
     "./components/Grid.astro": "./src/components/Grid.astro",

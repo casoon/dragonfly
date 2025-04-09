@@ -1,0 +1,90 @@
+/* global.layout */
+
+@import 'open-props/style';
+@import 'open-props/normalize';
+@import 'open-props/open-props.min.css';
+
+/* Layout */
+@import 'layout/_grid.css';
+@import 'layout/_utility.css';
+@import 'layout/_typography.css';
+
+/* Custom Properties */
+:root {
+    /* Hauptfarben */
+    --color-primary: #267DF4;
+    --color-primary-light: rgba(38, 125, 244, 0.7);
+    --color-primary-dark: #1b5ab3;
+
+    /* Neutrale Farben */
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-dark: #2b2f35;
+    --color-gray-light: #f8f8f8;
+    --color-gray-medium: #666666;
+    --color-gray-dark: #333333;
+
+    /* Funktionale Farben */
+    --color-background: var(--color-white);
+    --color-text: var(--color-gray-dark);
+    --color-text-light: var(--color-gray-medium);
+    --color-link: var(--color-primary);
+    --color-link-hover: var(--color-primary-dark);
+
+    /* Typografie */
+    --font-family-primary: 'Arial', sans-serif;
+    --font-family-secondary: 'Georgia', serif;
+
+    /* Schriftgrößen */
+    --font-size-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+    --font-size-sm: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
+    --font-size-base: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
+    --font-size-md: clamp(1.125rem, 1rem + 0.625vw, 1.25rem);
+    --font-size-lg: clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);
+    --font-size-xl: clamp(1.5rem, 1.3rem + 1vw, 2rem);
+    --font-size-xxl: clamp(2rem, 1.6rem + 2vw, 2.625rem);
+    --font-size-huge: clamp(2.5rem, 2rem + 2.5vw, 3rem);
+
+    /* Zeilenhöhen */
+    --line-height-tight: 1.2;
+    --line-height-normal: 1.5;
+    --line-height-relaxed: 1.7;
+
+    /* Buchstabenabstände */
+    --letter-spacing-tight: -0.5px;
+    --letter-spacing-normal: 0px;
+    --letter-spacing-wide: 1px;
+    --letter-spacing-wider: 2px;
+
+    /* Spacing */
+    --header-height: 4rem;
+    --footer-height: 4rem;
+
+    /* Transitions */
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+
+    /* Z-Index Layers */
+    --z-header: 100;
+    --z-overlay: 200;
+    --z-modal: 300;
+    --z-tooltip: 400;
+
+    /* Layout */
+    --container-padding: clamp(20px, 5vw, 40px);
+}
+
+/* Base Styles */
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-color: var(--gray-1);
+    color: var(--gray-9);
+    line-height: var(--font-lineheight-3);
+}
