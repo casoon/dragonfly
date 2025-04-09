@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casoon UI Library - Beispielprojekt</title>
+    <link rel="stylesheet" href="https://unpkg.com/open-props"/>
+    <link rel="stylesheet" href="https://unpkg.com/open-props/normalize.min.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/open-props/buttons.min.css"/>
+    <link rel="stylesheet" href="../src/base.css">
+    <link rel="stylesheet" href="../src/animations.css">
+    <link rel="stylesheet" href="../src/effects.css">
+    <link rel="stylesheet" href="../src/layout/_grid.css">
+    <link rel="stylesheet" href="../src/layout/_typography.css">
+    <style>
+        body {
+            padding: var(--size-4);
+            max-width: var(--size-content-3);
+            margin: 0 auto;
+        }
+        .demo-section {
+            margin: var(--size-8) 0;
+            padding: var(--size-4);
+            border: 1px solid var(--gray-3);
+            border-radius: var(--radius-2);
+        }
+        .demo-grid {
+            display: grid;
+            gap: var(--size-4);
+            margin: var(--size-4) 0;
+        }
+        .demo-item {
+            padding: var(--size-4);
+            background: var(--gray-1);
+            border-radius: var(--radius-2);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Casoon UI Library</h1>
+        <p>Eine moderne, flexible UI-Bibliothek mit Fokus auf Animationen, Effekte und responsive Layouts.</p>
+    </header>
+
+    <section class="demo-section">
+        <h2>Über diese Bibliothek</h2>
+        <p>Die Casoon UI Library ist eine vielseitige UI-Bibliothek, die sowohl in Astro JS Projekten als auch in anderen Webprojekten eingesetzt werden kann:</p>
+        
+        <div class="grid cols-1 md:cols-2 gap-4">
+            <div class="demo-item">
+                <h3>Astro JS Integration</h3>
+                <p>Optimiert für Astro JS mit speziellen Komponenten wie FontLoader und Layout.</p>
+                <p>Beispiel: <code>import { FontLoader } from 'casoon-ui-lib/components';</code></p>
+            </div>
+            <div class="demo-item">
+                <h3>CSS-Only Verwendung</h3>
+                <p>Kann auch ohne Astro JS verwendet werden, nur mit CSS-Klassen.</p>
+                <p>Beispiel: <code>&lt;link rel="stylesheet" href="path/to/casoon-ui-lib/dist/styles.css"&gt;</code></p>
+            </div>
+        </div>
+    </section>
+
+    <section class="demo-section">
+        <h2>Animationen</h2>
+        <div class="demo-grid grid cols-2 md:cols-3">
+            <div class="fade-in demo-item">Fade In</div>
+            <div class="slide-in-left demo-item">Slide In</div>
+            <div class="bounce demo-item">Bounce</div>
+            <div class="spin demo-item">Spin</div>
+            <div class="pulse demo-item">Pulse</div>
+            <div class="float demo-item">Float</div>
+        </div>
+    </section>
+
+    <section class="demo-section">
+        <h2>Effekte</h2>
+        <div class="demo-grid grid cols-1 md:cols-2">
+            <div class="neon-text demo-item">Neon Text</div>
+            <div class="glitch-text demo-item">Glitch Text</div>
+            <div class="gradient-text demo-item">Gradient Text</div>
+            <div class="text-3d demo-item">3D Text</div>
+        </div>
+    </section>
+
+    <section class="demo-section">
+        <h2>Responsive Grid</h2>
+        <div class="grid cols-1 sm:cols-2 md:cols-3 gap-4">
+            <div class="demo-item">Spalte 1</div>
+            <div class="demo-item">Spalte 2</div>
+            <div class="demo-item">Spalte 3</div>
+            <div class="col-span-1 sm:col-span-2 md:col-span-3 demo-item">Volle Breite</div>
+        </div>
+    </section>
+
+    <section class="demo-section">
+        <h2>Typografie</h2>
+        <div class="demo-grid">
+            <h1 class="text-4xl">Überschrift 1</h1>
+            <h2 class="text-3xl">Überschrift 2</h2>
+            <h3 class="text-2xl">Überschrift 3</h3>
+            <p class="text-lg">Normaler Text</p>
+            <blockquote class="pull-quote">Ein schönes Zitat</blockquote>
+        </div>
+    </section>
+
+    <footer>
+        <p>Weitere Beispiele und Dokumentation finden Sie im <a href="https://github.com/casoon/casoon-ui-lib">GitHub Repository</a>.</p>
+    </footer>
+</body>
+</html> 

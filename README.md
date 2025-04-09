@@ -1,94 +1,78 @@
 # Casoon UI Library
 
-Eine moderne UI-Bibliothek basierend auf OpenProps, die wiederverwendbare Komponenten, Animationen und Effekte für Webanwendungen bietet.
+Eine moderne, flexible UI-Bibliothek mit Fokus auf Animationen, Effekte und responsive Layouts.
 
-## 🚀 Features
+## 🚀 Hauptmerkmale
 
-- **Animationen**: Von einfachen Fade-Effekten bis zu komplexen Bewegungsabläufen
-- **Visuelle Effekte**: Neon-Glühen, Glitch-Effekte, Gradient-Text und mehr
-- **Grid-System**: Flexibles, responsives Layout-System
-- **Typografie**: Umfassendes Typografie-System mit speziellen Formaten
-- **OpenProps Integration**: Nutzt die Vorteile von OpenProps für konsistentes Design
+- **Flexible Integration**: 
+  - Optimiert für Astro JS Projekte mit speziellen Astro-Komponenten
+  - Kann auch in anderen Webprojekten verwendet werden
+  - Modulare CSS-Struktur für einfache Anpassung
+
+- **Animationen & Effekte**:
+  - Umfangreiche Animationsbibliothek
+  - Spezielle Effekte (Neon, Glitch, etc.)
+  - Performance-optimiert
+
+- **Responsive Design**:
+  - Mobile-first Ansatz
+  - Flexible Grid-Systeme
+  - Responsive Typografie
+
+- **Moderne Features**:
+  - CSS Custom Properties
+  - OpenProps Integration
+  - Dark Mode Support
 
 ## 📦 Installation
 
-```bash
-# Über npm
-npm install casoon-ui-lib
+### Für Astro JS Projekte
 
-# Oder direkt von GitHub
-npm install github:casoon/casoon-ui-lib
+```bash
+npm install casoon-ui-lib
 ```
 
-## 🛠️ Verwendung
+### Für andere Projekte
 
-Importieren Sie die gewünschten Styles in Ihrem Projekt:
+```bash
+npm install casoon-ui-lib
+```
 
-```css
-/* Über CDN */
-@import 'https://cdn.jsdelivr.net/gh/casoon/casoon-ui-lib/src/base.css';
-@import 'https://cdn.jsdelivr.net/gh/casoon/casoon-ui-lib/src/animations.css';
-@import 'https://cdn.jsdelivr.net/gh/casoon/casoon-ui-lib/src/effects.css';
+## 🛠 Verwendung
 
-/* Oder lokal nach Installation */
-@import 'casoon-ui-lib/src/base.css';
-@import 'casoon-ui-lib/src/animations.css';
-@import 'casoon-ui-lib/src/effects.css';
+### In Astro JS Projekten
+
+```astro
+---
+import { FontLoader } from 'casoon-ui-lib/components';
+---
+
+<FontLoader 
+  fontFamily="Inter"
+  fontPath="/fonts"
+  weights={[400, 700]}
+  styles={['normal', 'italic']}
+/>
+```
+
+### In anderen Projekten
+
+```html
+<link rel="stylesheet" href="path/to/casoon-ui-lib/dist/styles.css">
 ```
 
 ## 📚 Dokumentation
 
-### Animationen
+Detaillierte Dokumentation und Beispiele finden Sie im [Example-Projekt](example/).
 
-Verwenden Sie vordefinierte Animationen mit einfachen CSS-Klassen:
+## 🎨 Beispiel-Projekt
 
-```html
-<div class="fade-in">Element erscheint sanft</div>
-<div class="slide-in-left">Element gleitet von links ein</div>
-<div class="bounce">Element springt</div>
-```
-
-### Visuelle Effekte
-
-Fügen Sie spezielle Effekte zu Ihren Elementen hinzu:
-
-```html
-<h1 class="neon-text">Neon-Effekt</h1>
-<p class="glitch-text">Glitch-Effekt</p>
-<div class="gradient-text">Gradient-Text</div>
-```
-
-### Grid-System
-
-Nutzen Sie das flexible Grid-System für responsive Layouts:
-
-```html
-<div class="grid">
-  <div class="col-span-1">Spalte 1</div>
-  <div class="col-span-2">Spalte 2</div>
-</div>
-```
-
-### Typografie
-
-Verwenden Sie das Typografie-System für konsistente Textgestaltung:
-
-```html
-<h1 class="text-4xl font-bold">Große Überschrift</h1>
-<p class="text-lg">Normaler Text</p>
-<blockquote class="pull-quote">Zitat</blockquote>
-```
-
-## 🎯 Beispiele
-
-Besuchen Sie unsere [Beispielseite](https://casoon.github.io/casoon-ui-lib/examples/) für interaktive Demos und weitere Verwendungsbeispiele.
-
-## 🛡️ Browser-Support
-
-- Chrome (neueste)
-- Firefox (neueste)
-- Safari (neueste)
-- Edge (neueste)
+Das [Example-Projekt](example/) demonstriert:
+- Integration in Astro JS
+- Verwendung der Astro-Komponenten
+- CSS-Only Implementierung
+- Responsive Design
+- Animationen und Effekte
 
 ## 📝 Lizenz
 
