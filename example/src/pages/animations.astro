@@ -5,50 +5,226 @@ import Layout from '../layouts/Layout.astro';
 <Layout title="Animationen">
   <h1>Animationen</h1>
   
-  <p>
-    Die Casoon UI Library bietet eine Vielzahl von Animationen, die mit OpenProps 
-    erstellt wurden. Hier sind einige Beispiele:
-  </p>
-
-  <div class="grid" style="--grid-cols: 1; --grid-cols-md: 2; gap: var(--size-4); margin-top: var(--size-6);">
-    <div class="card">
-      <h2>Fade-Effekte</h2>
-      <div class="demo-box fade-in">Fade In</div>
-      <div class="demo-box fade-out">Fade Out</div>
+  <section class="demo-section">
+    <h2>Verwendete CSS-Imports</h2>
+    <div class="demo-item">
+      <h3>Basis-Animationen</h3>
+      <code>@import '../styles/animations.css';</code>
+      <p>Enthält grundlegende Animationen wie Fade, Slide und Bounce.</p>
     </div>
 
-    <div class="card">
-      <h2>Slide-Effekte</h2>
-      <div class="demo-box slide-in-left">Slide In Left</div>
-      <div class="demo-box slide-in-right">Slide In Right</div>
+    <div class="demo-item">
+      <h3>OpenProps</h3>
+      <code>@import 'open-props/style';</code>
+      <p>Bietet CSS-Variablen für Animationen und Timing-Funktionen.</p>
     </div>
 
-    <div class="card">
-      <h2>Bounce & Shake</h2>
-      <div class="demo-box bounce">Bounce</div>
-      <div class="demo-box shake">Shake</div>
+    <div class="demo-item">
+      <h3>Utility-Klassen</h3>
+      <code>@import '../styles/utilities.css';</code>
+      <p>Enthält Hilfsklassen für Animationen und Übergänge.</p>
     </div>
+  </section>
 
-    <div class="card">
-      <h2>Spin & Pulse</h2>
-      <div class="demo-box spin">Spin</div>
-      <div class="demo-box pulse">Pulse</div>
+  <section class="demo-section">
+    <h2>Grundlegende Animationen</h2>
+    <p>Einfache Animationen für grundlegende Interaktionen.</p>
+    
+    <div class="demo-grid grid cols-2 md:cols-3 gap-4">
+      <div class="fade-in demo-item">
+        <h3>Fade In</h3>
+        <code>&lt;div class="fade-in"&gt;...&lt;/div&gt;</code>
+      </div>
+      <div class="fade-out demo-item">
+        <h3>Fade Out</h3>
+        <code>&lt;div class="fade-out"&gt;...&lt;/div&gt;</code>
+      </div>
+      <div class="slide-in-left demo-item">
+        <h3>Slide In Left</h3>
+        <code>&lt;div class="slide-in-left"&gt;...&lt;/div&gt;</code>
+      </div>
+      <div class="slide-in-right demo-item">
+        <h3>Slide In Right</h3>
+        <code>&lt;div class="slide-in-right"&gt;...&lt;/div&gt;</code>
+      </div>
+      <div class="slide-in-top demo-item">
+        <h3>Slide In Top</h3>
+        <code>&lt;div class="slide-in-top"&gt;...&lt;/div&gt;</code>
+      </div>
+      <div class="slide-in-bottom demo-item">
+        <h3>Slide In Bottom</h3>
+        <code>&lt;div class="slide-in-bottom"&gt;...&lt;/div&gt;</code>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <style>
-    .card {
-      padding: var(--size-4);
-      border: 1px solid var(--gray-3);
-      border-radius: var(--radius-2);
-    }
+  <section class="demo-section">
+    <h2>Interaktive Animationen</h2>
+    <p>Animationen, die auf Benutzerinteraktionen reagieren.</p>
+    
+    <div class="demo-grid grid cols-2 md:cols-3 gap-4">
+      <div class="hover-scale demo-item">
+        <h3>Hover Scale</h3>
+        <code>&lt;div class="hover-scale"&gt;...&lt;/div&gt;</code>
+      </div>
+      <div class="hover-rotate demo-item">
+        <h3>Hover Rotate</h3>
+        <code>&lt;div class="hover-rotate"&gt;...&lt;/div&gt;</code>
+      </div>
+      <div class="hover-bounce demo-item">
+        <h3>Hover Bounce</h3>
+        <code>&lt;div class="hover-bounce"&gt;...&lt;/div&gt;</code>
+      </div>
+    </div>
+  </section>
 
-    .demo-box {
-      padding: var(--size-4);
-      margin: var(--size-2) 0;
-      background: var(--gray-1);
-      border-radius: var(--radius-2);
-      text-align: center;
-    }
-  </style>
-</Layout> 
+  <section class="demo-section">
+    <h2>Fortgeschrittene Animationen</h2>
+    <p>Komplexere Animationen für besondere Effekte.</p>
+    
+    <div class="demo-grid grid cols-2 md:cols-3 gap-4">
+      <div class="bounce demo-item">
+        <h3>Bounce</h3>
+        <code>&lt;div class="bounce"&gt;...&lt;/div&gt;</code>
+      </div>
+      <div class="pulse demo-item">
+        <h3>Pulse</h3>
+        <code>&lt;div class="pulse"&gt;...&lt;/div&gt;</code>
+      </div>
+      <div class="spin demo-item">
+        <h3>Spin</h3>
+        <code>&lt;div class="spin"&gt;...&lt;/div&gt;</code>
+      </div>
+      <div class="float demo-item">
+        <h3>Float</h3>
+        <code>&lt;div class="float"&gt;...&lt;/div&gt;</code>
+      </div>
+      <div class="shake demo-item">
+        <h3>Shake</h3>
+        <code>&lt;div class="shake"&gt;...&lt;/div&gt;</code>
+      </div>
+      <div class="glow demo-item">
+        <h3>Glow</h3>
+        <code>&lt;div class="glow"&gt;...&lt;/div&gt;</code>
+      </div>
+    </div>
+  </section>
+
+  <section class="demo-section">
+    <h2>Animations-Utility-Klassen</h2>
+    <p>Kontrollieren Sie die Animationen mit diesen Utility-Klassen.</p>
+    
+    <div class="demo-grid grid cols-1 md:cols-2 gap-4">
+      <div class="demo-item">
+        <h3>Geschwindigkeit</h3>
+        <ul>
+          <li><code>animate-slow</code> - Langsame Animation</li>
+          <li><code>animate-normal</code> - Normale Geschwindigkeit</li>
+          <li><code>animate-fast</code> - Schnelle Animation</li>
+        </ul>
+      </div>
+      <div class="demo-item">
+        <h3>Wiederholung</h3>
+        <ul>
+          <li><code>animate-once</code> - Einmalige Ausführung</li>
+          <li><code>animate-infinite</code> - Endlose Wiederholung</li>
+          <li><code>animate-repeat-2</code> - Zweimalige Ausführung</li>
+          <li><code>animate-repeat-3</code> - Dreimalige Ausführung</li>
+        </ul>
+      </div>
+      <div class="demo-item">
+        <h3>Verzögerung</h3>
+        <ul>
+          <li><code>animate-delay-100</code> - 100ms Verzögerung</li>
+          <li><code>animate-delay-200</code> - 200ms Verzögerung</li>
+          <li><code>animate-delay-300</code> - 300ms Verzögerung</li>
+        </ul>
+      </div>
+      <div class="demo-item">
+        <h3>Timing-Funktion</h3>
+        <ul>
+          <li><code>animate-ease</code> - Standard Timing</li>
+          <li><code>animate-ease-in</code> - Langsamer Start</li>
+          <li><code>animate-ease-out</code> - Langsames Ende</li>
+          <li><code>animate-ease-in-out</code> - Langsamer Start und Ende</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="demo-section">
+    <h2>Beispiel: Kombinierte Animationen</h2>
+    <p>Kombinieren Sie verschiedene Animationen und Utility-Klassen für komplexe Effekte.</p>
+    
+    <div class="demo-grid">
+      <div class="fade-in hover-scale animate-delay-200 demo-item">
+        <h3>Fade In + Hover Scale</h3>
+        <code>&lt;div class="fade-in hover-scale animate-delay-200"&gt;...&lt;/div&gt;</code>
+      </div>
+      <div class="slide-in-left pulse animate-infinite demo-item">
+        <h3>Slide In + Pulse</h3>
+        <code>&lt;div class="slide-in-left pulse animate-infinite"&gt;...&lt;/div&gt;</code>
+      </div>
+      <div class="float glow animate-slow demo-item">
+        <h3>Float + Glow</h3>
+        <code>&lt;div class="float glow animate-slow"&gt;...&lt;/div&gt;</code>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .demo-section {
+    margin: var(--size-8) 0;
+    padding: var(--size-4);
+    border: 1px solid var(--gray-3);
+    border-radius: var(--radius-2);
+  }
+
+  .demo-grid {
+    display: grid;
+    gap: var(--size-4);
+    margin: var(--size-4) 0;
+  }
+
+  .demo-item {
+    padding: var(--size-4);
+    background: var(--gray-1);
+    border-radius: var(--radius-2);
+    text-align: center;
+  }
+
+  .demo-item code {
+    display: block;
+    margin-top: var(--size-2);
+    padding: var(--size-2);
+    background: var(--gray-2);
+    border-radius: var(--radius-1);
+    font-family: var(--font-mono);
+    font-size: var(--font-size-0);
+  }
+
+  .demo-item h3 {
+    margin: 0 0 var(--size-2) 0;
+    font-size: var(--font-size-2);
+  }
+
+  .demo-section h2 {
+    margin-bottom: var(--size-4);
+  }
+
+  .demo-section p {
+    margin-bottom: var(--size-4);
+    color: var(--gray-7);
+  }
+
+  .demo-item ul {
+    text-align: left;
+    margin: 0;
+    padding-left: var(--size-4);
+  }
+
+  .demo-item li {
+    margin: var(--size-2) 0;
+  }
+</style> 

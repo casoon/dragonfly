@@ -2,6 +2,14 @@
 
 Eine moderne, flexible UI-Bibliothek mit Fokus auf Animationen, Effekte und responsive Layouts.
 
+## Features
+
+- 🎨 Umfangreiche Typographie-Systeme
+- 📱 Responsive Grid-System
+- ✨ Animierte Effekte
+- 🎭 Visuelle Effekte
+- 🛠️ Utility-Klassen
+
 ## 🚀 Hauptmerkmale
 
 - **Flexible Integration**: 
@@ -89,3 +97,7 @@ Beiträge sind willkommen! Bitte lesen Sie unsere [Contributing Guidelines](CONT
 ## 📞 Support
 
 Bei Fragen oder Problemen öffnen Sie bitte ein [Issue](https://github.com/casoon/casoon-ui-lib/issues).
+
+## 🌐 Homepage
+
+Besuchen Sie die Homepage des Erstellers unter [www.casoon.de](https://www.casoon.de).

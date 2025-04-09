@@ -2,54 +2,237 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Visuelle Effekte">
+<Layout title="Effekte">
+  <h1>Effekte</h1>
+
+  <section class="demo-section">
+    <h2>Verwendete CSS-Imports</h2>
+    <div class="demo-item">
+      <h3>Visuelle Effekte</h3>
+      <code>@import '../styles/effects.css';</code>
+      <p>Enthält alle visuellen Effekte wie Neon, Glitch und 3D-Effekte.</p>
+    </div>
+
+    <div class="demo-item">
+      <h3>OpenProps</h3>
+      <code>@import 'open-props/style';</code>
+      <p>Bietet CSS-Variablen für Farben, Schatten und Filter.</p>
+    </div>
+
+    <div class="demo-item">
+      <h3>Utility-Klassen</h3>
+      <code>@import '../styles/utilities.css';</code>
+      <p>Enthält Hilfsklassen für Effekte und Übergänge.</p>
+    </div>
+  </section>
+
   <h1>Visuelle Effekte</h1>
   
-  <p>
-    Die Casoon UI Library bietet eine Vielzahl von visuellen Effekten für 
-    besondere Design-Elemente. Hier sind einige Beispiele:
-  </p>
-
-  <div class="grid" style="--grid-cols: 1; --grid-cols-md: 2; gap: var(--size-4); margin-top: var(--size-6);">
-    <div class="card">
-      <h2>Neon-Effekte</h2>
-      <h3 class="neon-text">Neon Text</h3>
-      <h3 class="neon-text-pink">Neon Pink</h3>
-      <h3 class="neon-text-blue">Neon Blue</h3>
+  <section class="demo-section">
+    <h2>Neon-Effekte</h2>
+    <p>Leuchtende Text- und Rahmen-Effekte im Neon-Stil.</p>
+    
+    <div class="demo-grid grid cols-1 md:cols-2 gap-4">
+      <div class="demo-item">
+        <h3 class="neon-text">Neon Text</h3>
+        <code>&lt;h3 class="neon-text"&gt;Neon Text&lt;/h3&gt;</code>
+      </div>
+      <div class="demo-item">
+        <h3 class="neon-text-pink">Neon Pink</h3>
+        <code>&lt;h3 class="neon-text-pink"&gt;Neon Pink&lt;/h3&gt;</code>
+      </div>
+      <div class="demo-item">
+        <h3 class="neon-text-blue">Neon Blue</h3>
+        <code>&lt;h3 class="neon-text-blue"&gt;Neon Blue&lt;/h3&gt;</code>
+      </div>
+      <div class="demo-item">
+        <h3 class="neon-text-green">Neon Green</h3>
+        <code>&lt;h3 class="neon-text-green"&gt;Neon Green&lt;/h3&gt;</code>
+      </div>
     </div>
+  </section>
 
-    <div class="card">
-      <h2>Glitch-Effekte</h2>
-      <h3 class="glitch-text">Glitch Text</h3>
-      <h3 class="glitch-text-red">Glitch Red</h3>
-      <h3 class="glitch-text-blue">Glitch Blue</h3>
+  <section class="demo-section">
+    <h2>Glitch-Effekte</h2>
+    <p>Digitale Störungseffekte für einen futuristischen Look.</p>
+    
+    <div class="demo-grid grid cols-1 md:cols-2 gap-4">
+      <div class="demo-item">
+        <h3 class="glitch-text">Glitch Text</h3>
+        <code>&lt;h3 class="glitch-text"&gt;Glitch Text&lt;/h3&gt;</code>
+      </div>
+      <div class="demo-item">
+        <h3 class="glitch-text-hover">Glitch Hover</h3>
+        <code>&lt;h3 class="glitch-text-hover"&gt;Glitch Hover&lt;/h3&gt;</code>
+      </div>
+      <div class="demo-item">
+        <h3 class="glitch-text-animated">Glitch Animated</h3>
+        <code>&lt;h3 class="glitch-text-animated"&gt;Glitch Animated&lt;/h3&gt;</code>
+      </div>
     </div>
+  </section>
 
-    <div class="card">
-      <h2>Gradient-Text</h2>
-      <h3 class="gradient-text">Gradient Text</h3>
-      <h3 class="gradient-text-rainbow">Rainbow Gradient</h3>
-      <h3 class="gradient-text-sunset">Sunset Gradient</h3>
+  <section class="demo-section">
+    <h2>Gradient-Effekte</h2>
+    <p>Farbverläufe und spezielle Text-Effekte.</p>
+    
+    <div class="demo-grid grid cols-1 md:cols-2 gap-4">
+      <div class="demo-item">
+        <h3 class="gradient-text">Gradient Text</h3>
+        <code>&lt;h3 class="gradient-text"&gt;Gradient Text&lt;/h3&gt;</code>
+      </div>
+      <div class="demo-item">
+        <h3 class="gradient-text-rainbow">Rainbow Text</h3>
+        <code>&lt;h3 class="gradient-text-rainbow"&gt;Rainbow Text&lt;/h3&gt;</code>
+      </div>
+      <div class="demo-item">
+        <h3 class="gradient-text-animated">Animated Gradient</h3>
+        <code>&lt;h3 class="gradient-text-animated"&gt;Animated Gradient&lt;/h3&gt;</code>
+      </div>
     </div>
+  </section>
 
-    <div class="card">
-      <h2>3D-Effekte</h2>
-      <h3 class="text-3d">3D Text</h3>
-      <h3 class="text-3d-shadow">3D Shadow</h3>
-      <h3 class="text-3d-emboss">3D Emboss</h3>
+  <section class="demo-section">
+    <h2>3D-Effekte</h2>
+    <p>Räumliche Effekte für mehr Tiefe.</p>
+    
+    <div class="demo-grid grid cols-1 md:cols-2 gap-4">
+      <div class="demo-item">
+        <h3 class="text-3d">3D Text</h3>
+        <code>&lt;h3 class="text-3d"&gt;3D Text&lt;/h3&gt;</code>
+      </div>
+      <div class="demo-item">
+        <h3 class="text-3d-hover">3D Hover</h3>
+        <code>&lt;h3 class="text-3d-hover"&gt;3D Hover&lt;/h3&gt;</code>
+      </div>
+      <div class="demo-item">
+        <h3 class="text-3d-animated">3D Animated</h3>
+        <code>&lt;h3 class="text-3d-animated"&gt;3D Animated&lt;/h3&gt;</code>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <style>
-    .card {
-      padding: var(--size-4);
-      border: 1px solid var(--gray-3);
-      border-radius: var(--radius-2);
-    }
+  <section class="demo-section">
+    <h2>Spezielle Effekte</h2>
+    <p>Einzigartige visuelle Effekte für besondere Anlässe.</p>
+    
+    <div class="demo-grid grid cols-1 md:cols-2 gap-4">
+      <div class="demo-item">
+        <h3 class="text-shadow">Text Shadow</h3>
+        <code>&lt;h3 class="text-shadow"&gt;Text Shadow&lt;/h3&gt;</code>
+      </div>
+      <div class="demo-item">
+        <h3 class="text-outline">Text Outline</h3>
+        <code>&lt;h3 class="text-outline"&gt;Text Outline&lt;/h3&gt;</code>
+      </div>
+      <div class="demo-item">
+        <h3 class="text-blur">Text Blur</h3>
+        <code>&lt;h3 class="text-blur"&gt;Text Blur&lt;/h3&gt;</code>
+      </div>
+      <div class="demo-item">
+        <h3 class="text-glow">Text Glow</h3>
+        <code>&lt;h3 class="text-glow"&gt;Text Glow&lt;/h3&gt;</code>
+      </div>
+    </div>
+  </section>
 
-    h3 {
-      margin: var(--size-4) 0;
-      font-size: var(--font-size-3);
-    }
-  </style>
-</Layout> 
+  <section class="demo-section">
+    <h2>Effekt-Utility-Klassen</h2>
+    <p>Kontrollieren Sie die Effekte mit diesen Utility-Klassen.</p>
+    
+    <div class="demo-grid grid cols-1 md:cols-2 gap-4">
+      <div class="demo-item">
+        <h3>Intensität</h3>
+        <ul>
+          <li><code>effect-strong</code> - Starker Effekt</li>
+          <li><code>effect-medium</code> - Mittlere Intensität</li>
+          <li><code>effect-soft</code> - Sanfter Effekt</li>
+        </ul>
+      </div>
+      <div class="demo-item">
+        <h3>Animation</h3>
+        <ul>
+          <li><code>effect-animated</code> - Animierter Effekt</li>
+          <li><code>effect-pulse</code> - Pulsierender Effekt</li>
+          <li><code>effect-hover</code> - Hover-Effekt</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="demo-section">
+    <h2>Beispiel: Kombinierte Effekte</h2>
+    <p>Kombinieren Sie verschiedene Effekte für einzigartige Ergebnisse.</p>
+    
+    <div class="demo-grid">
+      <div class="demo-item">
+        <h3 class="neon-text effect-strong text-3d">Neon + 3D</h3>
+        <code>&lt;h3 class="neon-text effect-strong text-3d"&gt;Neon + 3D&lt;/h3&gt;</code>
+      </div>
+      <div class="demo-item">
+        <h3 class="gradient-text effect-animated text-shadow">Gradient + Shadow</h3>
+        <code>&lt;h3 class="gradient-text effect-animated text-shadow"&gt;Gradient + Shadow&lt;/h3&gt;</code>
+      </div>
+      <div class="demo-item">
+        <h3 class="glitch-text effect-strong text-glow">Glitch + Glow</h3>
+        <code>&lt;h3 class="glitch-text effect-strong text-glow"&gt;Glitch + Glow&lt;/h3&gt;</code>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .demo-section {
+    margin: var(--size-8) 0;
+    padding: var(--size-4);
+    border: 1px solid var(--gray-3);
+    border-radius: var(--radius-2);
+  }
+
+  .demo-grid {
+    display: grid;
+    gap: var(--size-4);
+    margin: var(--size-4) 0;
+  }
+
+  .demo-item {
+    padding: var(--size-4);
+    background: var(--gray-1);
+    border-radius: var(--radius-2);
+    text-align: center;
+  }
+
+  .demo-item code {
+    display: block;
+    margin-top: var(--size-2);
+    padding: var(--size-2);
+    background: var(--gray-2);
+    border-radius: var(--radius-1);
+    font-family: var(--font-mono);
+    font-size: var(--font-size-0);
+  }
+
+  .demo-item h3 {
+    margin: 0 0 var(--size-2) 0;
+    font-size: var(--font-size-2);
+  }
+
+  .demo-section h2 {
+    margin-bottom: var(--size-4);
+  }
+
+  .demo-section p {
+    margin-bottom: var(--size-4);
+    color: var(--gray-7);
+  }
+
+  .demo-item ul {
+    text-align: left;
+    margin: 0;
+    padding-left: var(--size-4);
+  }
+
+  .demo-item li {
+    margin: var(--size-2) 0;
+  }
+</style> 

@@ -2,91 +2,341 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Typografie">
-  <h1>Typografie</h1>
+<Layout title="Typographie">
+  <h1>Typographie</h1>
   
-  <p>
-    Die Casoon UI Library bietet ein umfassendes Typografie-System mit 
-    responsiven Schriftgrößen und speziellen Textformaten. Hier sind einige Beispiele:
-  </p>
+  <section class="demo-section">
+    <h2>Verwendete CSS-Imports</h2>
+    <div class="demo-item">
+      <h3>Grundlegende Typographie</h3>
+      <code>@import '../styles/typography.css';</code>
+      <p>Enthält Basis-Typographie-Styles wie Schriftfamilien, Größen und Gewichte.</p>
+    </div>
 
-  <div class="space-y-8">
-    <section>
-      <h2>Schriftgrößen</h2>
-      <div class="space-y-4">
-        <p class="text-xs">Extra Small (xs)</p>
-        <p class="text-sm">Small (sm)</p>
-        <p class="text-base">Base</p>
-        <p class="text-lg">Large (lg)</p>
-        <p class="text-xl">Extra Large (xl)</p>
-        <p class="text-2xl">2XL</p>
-        <p class="text-3xl">3XL</p>
-        <p class="text-4xl">4XL</p>
+    <div class="demo-item">
+      <h3>Responsive Typographie</h3>
+      <code>@import '../styles/responsive.css';</code>
+      <p>Enthält responsive Anpassungen für verschiedene Bildschirmgrößen.</p>
+    </div>
+
+    <div class="demo-item">
+      <h3>Utility-Klassen</h3>
+      <code>@import '../styles/utilities.css';</code>
+      <p>Enthält Hilfsklassen für Text-Ausrichtung, Farben und spezielle Formate.</p>
+    </div>
+  </section>
+
+  <section class="demo-section">
+    <h2>Schriftfamilien</h2>
+    <p>Verfügbare Schriftfamilien und ihre Anwendung.</p>
+    
+    <div class="demo-grid">
+      <div class="demo-item">
+        <h3 class="font-sans">Sans-Serif (Standard)</h3>
+        <p class="font-sans">Die Standard-Schriftfamilie für moderne, saubere Designs.</p>
+        <code>&lt;p class="font-sans"&gt;...&lt;/p&gt;</code>
       </div>
-    </section>
-
-    <section>
-      <h2>Schriftgewichte</h2>
-      <div class="space-y-4">
-        <p class="font-thin">Thin (100)</p>
-        <p class="font-light">Light (300)</p>
-        <p class="font-normal">Normal (400)</p>
-        <p class="font-medium">Medium (500)</p>
-        <p class="font-semibold">Semi Bold (600)</p>
-        <p class="font-bold">Bold (700)</p>
-        <p class="font-black">Black (900)</p>
+      
+      <div class="demo-item">
+        <h3 class="font-serif">Serif</h3>
+        <p class="font-serif">Traditionelle Schrift mit Serifen für klassische Designs.</p>
+        <code>&lt;p class="font-serif"&gt;...&lt;/p&gt;</code>
       </div>
-    </section>
-
-    <section>
-      <h2>Spezielle Formate</h2>
-      <div class="space-y-8">
-        <div>
-          <h3>Pull Quote</h3>
-          <blockquote class="pull-quote">
-            Dies ist ein Beispiel für ein Pull Quote, das besonders hervorgehoben wird.
-          </blockquote>
-        </div>
-
-        <div>
-          <h3>Initiale</h3>
-          <p class="has-initial">
-            Dies ist ein Beispiel für einen Text mit einer Initiale am Anfang.
-            Die Initiale wird besonders hervorgehoben und größer dargestellt.
-          </p>
-        </div>
-
-        <div>
-          <h3>Highlighted Text</h3>
-          <p>
-            Dies ist ein Beispiel für <span class="highlight">hervorgehobenen Text</span> 
-            innerhalb eines Absatzes.
-          </p>
-        </div>
+      
+      <div class="demo-item">
+        <h3 class="font-mono">Monospace</h3>
+        <p class="font-mono">Feste Breite für Code und technische Inhalte.</p>
+        <code>&lt;p class="font-mono"&gt;...&lt;/p&gt;</code>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section>
-      <h2>Responsive Typografie</h2>
-      <div class="space-y-4">
-        <p class="text-base md:text-lg lg:text-xl">
-          Dieser Text passt sich der Bildschirmgröße an. Auf mobilen Geräten ist er 
-          kleiner, auf größeren Bildschirmen wird er größer.
-        </p>
-        <h3 class="text-xl md:text-2xl lg:text-3xl">
-          Responsive Überschrift
-        </h3>
+  <section class="demo-section">
+    <h2>Überschriften</h2>
+    <p>Vordefinierte Überschriften-Stile von h1 bis h6.</p>
+    
+    <div class="demo-grid">
+      <div class="demo-item">
+        <h1>Überschrift 1</h1>
+        <code>&lt;h1&gt;...&lt;/h1&gt;</code>
       </div>
-    </section>
-  </div>
+      
+      <div class="demo-item">
+        <h2>Überschrift 2</h2>
+        <code>&lt;h2&gt;...&lt;/h2&gt;</code>
+      </div>
+      
+      <div class="demo-item">
+        <h3>Überschrift 3</h3>
+        <code>&lt;h3&gt;...&lt;/h3&gt;</code>
+      </div>
+      
+      <div class="demo-item">
+        <h4>Überschrift 4</h4>
+        <code>&lt;h4&gt;...&lt;/h4&gt;</code>
+      </div>
+      
+      <div class="demo-item">
+        <h5>Überschrift 5</h5>
+        <code>&lt;h5&gt;...&lt;/h5&gt;</code>
+      </div>
+      
+      <div class="demo-item">
+        <h6>Überschrift 6</h6>
+        <code>&lt;h6&gt;...&lt;/h6&gt;</code>
+      </div>
+    </div>
+  </section>
 
-  <style>
-    .space-y-4 > * + * {
-      margin-top: var(--size-4);
-    }
+  <section class="demo-section">
+    <h2>Schriftgrößen</h2>
+    <p>Verfügbare Schriftgrößen-Klassen.</p>
+    
+    <div class="demo-grid">
+      <div class="demo-item">
+        <p class="text-xs">Extra kleine Schrift (text-xs)</p>
+        <code>&lt;p class="text-xs"&gt;...&lt;/p&gt;</code>
+      </div>
+      
+      <div class="demo-item">
+        <p class="text-sm">Kleine Schrift (text-sm)</p>
+        <code>&lt;p class="text-sm"&gt;...&lt;/p&gt;</code>
+      </div>
+      
+      <div class="demo-item">
+        <p class="text-base">Standard Schrift (text-base)</p>
+        <code>&lt;p class="text-base"&gt;...&lt;/p&gt;</code>
+      </div>
+      
+      <div class="demo-item">
+        <p class="text-lg">Große Schrift (text-lg)</p>
+        <code>&lt;p class="text-lg"&gt;...&lt;/p&gt;</code>
+      </div>
+      
+      <div class="demo-item">
+        <p class="text-xl">Extra große Schrift (text-xl)</p>
+        <code>&lt;p class="text-xl"&gt;...&lt;/p&gt;</code>
+      </div>
+      
+      <div class="demo-item">
+        <p class="text-2xl">XXL Schrift (text-2xl)</p>
+        <code>&lt;p class="text-2xl"&gt;...&lt;/p&gt;</code>
+      </div>
+    </div>
+  </section>
 
-    .space-y-8 > * + * {
-      margin-top: var(--size-8);
-    }
-  </style>
-</Layout> 
+  <section class="demo-section">
+    <h2>Schriftstile</h2>
+    <p>Verschiedene Schriftstile und -gewichte.</p>
+    
+    <div class="demo-grid">
+      <div class="demo-item">
+        <p class="font-light">Leichte Schrift (font-light)</p>
+        <code>&lt;p class="font-light"&gt;...&lt;/p&gt;</code>
+      </div>
+      
+      <div class="demo-item">
+        <p class="font-normal">Normale Schrift (font-normal)</p>
+        <code>&lt;p class="font-normal"&gt;...&lt;/p&gt;</code>
+      </div>
+      
+      <div class="demo-item">
+        <p class="font-medium">Mittlere Schrift (font-medium)</p>
+        <code>&lt;p class="font-medium"&gt;...&lt;/p&gt;</code>
+      </div>
+      
+      <div class="demo-item">
+        <p class="font-semibold">Halbfett (font-semibold)</p>
+        <code>&lt;p class="font-semibold"&gt;...&lt;/p&gt;</code>
+      </div>
+      
+      <div class="demo-item">
+        <p class="font-bold">Fett (font-bold)</p>
+        <code>&lt;p class="font-bold"&gt;...&lt;/p&gt;</code>
+      </div>
+      
+      <div class="demo-item">
+        <p class="italic">Kursiv (italic)</p>
+        <code>&lt;p class="italic"&gt;...&lt;/p&gt;</code>
+      </div>
+    </div>
+  </section>
+
+  <section class="demo-section">
+    <h2>Text-Ausrichtung</h2>
+    <p>Verschiedene Möglichkeiten der Text-Ausrichtung.</p>
+    
+    <div class="demo-grid">
+      <div class="demo-item">
+        <p class="text-left">Links ausgerichteter Text (text-left)</p>
+        <code>&lt;p class="text-left"&gt;...&lt;/p&gt;</code>
+      </div>
+      
+      <div class="demo-item">
+        <p class="text-center">Zentrierter Text (text-center)</p>
+        <code>&lt;p class="text-center"&gt;...&lt;/p&gt;</code>
+      </div>
+      
+      <div class="demo-item">
+        <p class="text-right">Rechts ausgerichteter Text (text-right)</p>
+        <code>&lt;p class="text-right"&gt;...&lt;/p&gt;</code>
+      </div>
+      
+      <div class="demo-item">
+        <p class="text-justify">Blocksatz (text-justify)</p>
+        <code>&lt;p class="text-justify"&gt;...&lt;/p&gt;</code>
+      </div>
+    </div>
+  </section>
+
+  <section class="demo-section">
+    <h2>Spezielle Text-Formate</h2>
+    <p>Besondere Text-Formatierungen für spezielle Anwendungsfälle.</p>
+    
+    <div class="demo-grid">
+      <div class="demo-item">
+        <p class="lead">Lead-Paragraph - Hervorgehobener Einleitungstext mit größerer Schrift und Zeilenabstand.</p>
+        <code>&lt;p class="lead"&gt;...&lt;/p&gt;</code>
+      </div>
+      
+      <div class="demo-item">
+        <p class="small">Kleiner Text - Für Fußnoten und Nebentext.</p>
+        <code>&lt;p class="small"&gt;...&lt;/p&gt;</code>
+      </div>
+      
+      <div class="demo-item">
+        <p class="highlight">Hervorgehobener Text - Für wichtige Stellen im Text.</p>
+        <code>&lt;p class="highlight"&gt;...&lt;/p&gt;</code>
+      </div>
+      
+      <div class="demo-item">
+        <p class="initialism">Initialism - Für Abkürzungen.</p>
+        <code>&lt;p class="initialism"&gt;...&lt;/p&gt;</code>
+      </div>
+      
+      <div class="demo-item">
+        <p class="drop-cap">Drop Cap - Großer Anfangsbuchstabe für den ersten Absatz.</p>
+        <code>&lt;p class="drop-cap"&gt;...&lt;/p&gt;</code>
+      </div>
+      
+      <div class="demo-item">
+        <blockquote class="pull-quote">
+          Pull Quote - Hervorgehobenes Zitat aus dem Text.
+        </blockquote>
+        <code>&lt;blockquote class="pull-quote"&gt;...&lt;/blockquote&gt;</code>
+      </div>
+    </div>
+  </section>
+
+  <section class="demo-section">
+    <h2>Text-Farben</h2>
+    <p>Vordefinierte Text-Farben für verschiedene Anwendungsfälle.</p>
+    
+    <div class="demo-grid">
+      <div class="demo-item">
+        <p class="text-primary">Primäre Textfarbe</p>
+        <code>&lt;p class="text-primary"&gt;...&lt;/p&gt;</code>
+      </div>
+      
+      <div class="demo-item">
+        <p class="text-secondary">Sekundäre Textfarbe</p>
+        <code>&lt;p class="text-secondary"&gt;...&lt;/p&gt;</code>
+      </div>
+      
+      <div class="demo-item">
+        <p class="text-accent">Akzent-Textfarbe</p>
+        <code>&lt;p class="text-accent"&gt;...&lt;/p&gt;</code>
+      </div>
+      
+      <div class="demo-item">
+        <p class="text-success">Erfolgs-Textfarbe</p>
+        <code>&lt;p class="text-success"&gt;...&lt;/p&gt;</code>
+      </div>
+      
+      <div class="demo-item">
+        <p class="text-warning">Warnungs-Textfarbe</p>
+        <code>&lt;p class="text-warning"&gt;...&lt;/p&gt;</code>
+      </div>
+      
+      <div class="demo-item">
+        <p class="text-error">Fehler-Textfarbe</p>
+        <code>&lt;p class="text-error"&gt;...&lt;/p&gt;</code>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .demo-section {
+    margin: var(--size-8) 0;
+    padding: var(--size-4);
+    border: 1px solid var(--gray-3);
+    border-radius: var(--radius-2);
+  }
+
+  .demo-grid {
+    display: grid;
+    gap: var(--size-4);
+    margin: var(--size-4) 0;
+  }
+
+  .demo-item {
+    padding: var(--size-4);
+    background: var(--gray-1);
+    border-radius: var(--radius-2);
+  }
+
+  .demo-item code {
+    display: block;
+    margin-top: var(--size-2);
+    padding: var(--size-2);
+    background: var(--gray-2);
+    border-radius: var(--radius-1);
+    font-family: var(--font-mono);
+    font-size: var(--font-size-0);
+  }
+
+  .demo-section h2 {
+    margin-bottom: var(--size-4);
+  }
+
+  .demo-section p {
+    margin-bottom: var(--size-4);
+    color: var(--gray-7);
+  }
+
+  .lead {
+    font-size: var(--font-size-4);
+    line-height: 1.5;
+  }
+
+  .small {
+    font-size: var(--font-size-0);
+  }
+
+  .highlight {
+    background-color: var(--yellow-1);
+    padding: var(--size-1);
+    border-radius: var(--radius-1);
+  }
+
+  .initialism {
+    font-size: var(--font-size-0);
+    text-transform: uppercase;
+  }
+
+  .drop-cap::first-letter {
+    font-size: var(--font-size-6);
+    float: left;
+    margin-right: var(--size-2);
+    line-height: 1;
+  }
+
+  .pull-quote {
+    font-size: var(--font-size-4);
+    font-style: italic;
+    padding: var(--size-4);
+    border-left: 4px solid var(--gray-3);
+    margin: var(--size-4) 0;
+  }
+</style> 

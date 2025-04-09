@@ -52,31 +52,38 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </div>
 
-  <style>
-    .card {
-      padding: var(--size-4);
-      border: 1px solid var(--gray-3);
-      border-radius: var(--radius-2);
-      transition: transform var(--transition-slow);
-    }
+  <div class="card" style="margin-top: var(--size-6); text-align: center;">
+    <p>
+      Besuchen Sie die Homepage des Erstellers unter 
+      <a href="https://www.casoon.de" target="_blank" rel="noopener">www.casoon.de</a>
+    </p>
+  </div>
+</Layout>
 
-    .card:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-3);
-    }
+<style>
+  .card {
+    padding: var(--size-4);
+    border: 1px solid var(--gray-3);
+    border-radius: var(--radius-2);
+    transition: transform var(--transition-slow);
+  }
 
-    .button {
-      display: inline-block;
-      padding: var(--size-2) var(--size-4);
-      background: var(--indigo-5);
-      color: white;
-      text-decoration: none;
-      border-radius: var(--radius-2);
-      transition: background var(--transition-slow);
-    }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-3);
+  }
 
-    .button:hover {
-      background: var(--indigo-6);
-    }
-  </style>
-</Layout> 
+  .button {
+    display: inline-block;
+    padding: var(--size-2) var(--size-4);
+    background: var(--indigo-5);
+    color: white;
+    text-decoration: none;
+    border-radius: var(--radius-2);
+    transition: background var(--transition-slow);
+  }
+
+  .button:hover {
+    background: var(--indigo-6);
+  }
+</style> 
