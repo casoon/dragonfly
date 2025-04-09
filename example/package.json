@@ -1,0 +1,19 @@
+{
+  "name": "casoon-ui-lib-examples",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "5.6.1",
+    "@astrojs/alpinejs": "^0.3.1",
+    "casoon-ui-lib": "github:casoon/casoon-ui-lib",
+    "motion": "^12.6.3",
+    "open-props": "^1.7.15"
+  }
+} 

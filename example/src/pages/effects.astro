@@ -1,0 +1,55 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Visuelle Effekte">
+  <h1>Visuelle Effekte</h1>
+  
+  <p>
+    Die Casoon UI Library bietet eine Vielzahl von visuellen Effekten für 
+    besondere Design-Elemente. Hier sind einige Beispiele:
+  </p>
+
+  <div class="grid" style="--grid-cols: 1; --grid-cols-md: 2; gap: var(--size-4); margin-top: var(--size-6);">
+    <div class="card">
+      <h2>Neon-Effekte</h2>
+      <h3 class="neon-text">Neon Text</h3>
+      <h3 class="neon-text-pink">Neon Pink</h3>
+      <h3 class="neon-text-blue">Neon Blue</h3>
+    </div>
+
+    <div class="card">
+      <h2>Glitch-Effekte</h2>
+      <h3 class="glitch-text">Glitch Text</h3>
+      <h3 class="glitch-text-red">Glitch Red</h3>
+      <h3 class="glitch-text-blue">Glitch Blue</h3>
+    </div>
+
+    <div class="card">
+      <h2>Gradient-Text</h2>
+      <h3 class="gradient-text">Gradient Text</h3>
+      <h3 class="gradient-text-rainbow">Rainbow Gradient</h3>
+      <h3 class="gradient-text-sunset">Sunset Gradient</h3>
+    </div>
+
+    <div class="card">
+      <h2>3D-Effekte</h2>
+      <h3 class="text-3d">3D Text</h3>
+      <h3 class="text-3d-shadow">3D Shadow</h3>
+      <h3 class="text-3d-emboss">3D Emboss</h3>
+    </div>
+  </div>
+
+  <style>
+    .card {
+      padding: var(--size-4);
+      border: 1px solid var(--gray-3);
+      border-radius: var(--radius-2);
+    }
+
+    h3 {
+      margin: var(--size-4) 0;
+      font-size: var(--font-size-3);
+    }
+  </style>
+</Layout> 

@@ -1,0 +1,92 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Typografie">
+  <h1>Typografie</h1>
+  
+  <p>
+    Die Casoon UI Library bietet ein umfassendes Typografie-System mit 
+    responsiven Schriftgrößen und speziellen Textformaten. Hier sind einige Beispiele:
+  </p>
+
+  <div class="space-y-8">
+    <section>
+      <h2>Schriftgrößen</h2>
+      <div class="space-y-4">
+        <p class="text-xs">Extra Small (xs)</p>
+        <p class="text-sm">Small (sm)</p>
+        <p class="text-base">Base</p>
+        <p class="text-lg">Large (lg)</p>
+        <p class="text-xl">Extra Large (xl)</p>
+        <p class="text-2xl">2XL</p>
+        <p class="text-3xl">3XL</p>
+        <p class="text-4xl">4XL</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Schriftgewichte</h2>
+      <div class="space-y-4">
+        <p class="font-thin">Thin (100)</p>
+        <p class="font-light">Light (300)</p>
+        <p class="font-normal">Normal (400)</p>
+        <p class="font-medium">Medium (500)</p>
+        <p class="font-semibold">Semi Bold (600)</p>
+        <p class="font-bold">Bold (700)</p>
+        <p class="font-black">Black (900)</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Spezielle Formate</h2>
+      <div class="space-y-8">
+        <div>
+          <h3>Pull Quote</h3>
+          <blockquote class="pull-quote">
+            Dies ist ein Beispiel für ein Pull Quote, das besonders hervorgehoben wird.
+          </blockquote>
+        </div>
+
+        <div>
+          <h3>Initiale</h3>
+          <p class="has-initial">
+            Dies ist ein Beispiel für einen Text mit einer Initiale am Anfang.
+            Die Initiale wird besonders hervorgehoben und größer dargestellt.
+          </p>
+        </div>
+
+        <div>
+          <h3>Highlighted Text</h3>
+          <p>
+            Dies ist ein Beispiel für <span class="highlight">hervorgehobenen Text</span> 
+            innerhalb eines Absatzes.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Responsive Typografie</h2>
+      <div class="space-y-4">
+        <p class="text-base md:text-lg lg:text-xl">
+          Dieser Text passt sich der Bildschirmgröße an. Auf mobilen Geräten ist er 
+          kleiner, auf größeren Bildschirmen wird er größer.
+        </p>
+        <h3 class="text-xl md:text-2xl lg:text-3xl">
+          Responsive Überschrift
+        </h3>
+      </div>
+    </section>
+  </div>
+
+  <style>
+    .space-y-4 > * + * {
+      margin-top: var(--size-4);
+    }
+
+    .space-y-8 > * + * {
+      margin-top: var(--size-8);
+    }
+  </style>
+</Layout> 

@@ -1,0 +1,54 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Animationen">
+  <h1>Animationen</h1>
+  
+  <p>
+    Die Casoon UI Library bietet eine Vielzahl von Animationen, die mit OpenProps 
+    erstellt wurden. Hier sind einige Beispiele:
+  </p>
+
+  <div class="grid" style="--grid-cols: 1; --grid-cols-md: 2; gap: var(--size-4); margin-top: var(--size-6);">
+    <div class="card">
+      <h2>Fade-Effekte</h2>
+      <div class="demo-box fade-in">Fade In</div>
+      <div class="demo-box fade-out">Fade Out</div>
+    </div>
+
+    <div class="card">
+      <h2>Slide-Effekte</h2>
+      <div class="demo-box slide-in-left">Slide In Left</div>
+      <div class="demo-box slide-in-right">Slide In Right</div>
+    </div>
+
+    <div class="card">
+      <h2>Bounce & Shake</h2>
+      <div class="demo-box bounce">Bounce</div>
+      <div class="demo-box shake">Shake</div>
+    </div>
+
+    <div class="card">
+      <h2>Spin & Pulse</h2>
+      <div class="demo-box spin">Spin</div>
+      <div class="demo-box pulse">Pulse</div>
+    </div>
+  </div>
+
+  <style>
+    .card {
+      padding: var(--size-4);
+      border: 1px solid var(--gray-3);
+      border-radius: var(--radius-2);
+    }
+
+    .demo-box {
+      padding: var(--size-4);
+      margin: var(--size-2) 0;
+      background: var(--gray-1);
+      border-radius: var(--radius-2);
+      text-align: center;
+    }
+  </style>
+</Layout> 

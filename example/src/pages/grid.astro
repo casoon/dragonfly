@@ -1,0 +1,66 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Grid-System">
+  <h1>Grid-System</h1>
+  
+  <p>
+    Das Grid-System der Casoon UI Library basiert auf OpenProps und bietet 
+    flexible, responsive Layout-Möglichkeiten. Hier sind einige Beispiele:
+  </p>
+
+  <div class="space-y-8">
+    <section>
+      <h2>Einfaches Grid</h2>
+      <div class="grid" style="--grid-cols: 3; gap: var(--size-4);">
+        <div class="demo-box">Spalte 1</div>
+        <div class="demo-box">Spalte 2</div>
+        <div class="demo-box">Spalte 3</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Responsive Grid</h2>
+      <div class="grid" style="--grid-cols: 1; --grid-cols-md: 2; --grid-cols-lg: 4; gap: var(--size-4);">
+        <div class="demo-box">Spalte 1</div>
+        <div class="demo-box">Spalte 2</div>
+        <div class="demo-box">Spalte 3</div>
+        <div class="demo-box">Spalte 4</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Grid mit Spans</h2>
+      <div class="grid" style="--grid-cols: 4; gap: var(--size-4);">
+        <div class="demo-box" style="grid-column: span 2;">Span 2</div>
+        <div class="demo-box">Normal</div>
+        <div class="demo-box">Normal</div>
+        <div class="demo-box" style="grid-column: span 3;">Span 3</div>
+        <div class="demo-box">Normal</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Grid mit Gaps</h2>
+      <div class="grid" style="--grid-cols: 3; gap: var(--size-8);">
+        <div class="demo-box">Großer Gap</div>
+        <div class="demo-box">Großer Gap</div>
+        <div class="demo-box">Großer Gap</div>
+      </div>
+    </section>
+  </div>
+
+  <style>
+    .demo-box {
+      padding: var(--size-4);
+      background: var(--gray-1);
+      border-radius: var(--radius-2);
+      text-align: center;
+    }
+
+    .space-y-8 > * + * {
+      margin-top: var(--size-8);
+    }
+  </style>
+</Layout> 

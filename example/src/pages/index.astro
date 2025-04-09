@@ -1,0 +1,82 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Casoon UI Library - Beispiele">
+  <h1>Casoon UI Library - Beispiele</h1>
+  
+  <p>
+    Willkommen zur Casoon UI Library! Diese Bibliothek bietet eine Sammlung von 
+    wiederverwendbaren Komponenten, Animationen und Effekten für moderne Webanwendungen.
+  </p>
+
+  <div class="grid" style="--grid-cols: 1; --grid-cols-md: 2; gap: var(--size-4); margin-top: var(--size-6);">
+    <div class="card">
+      <h2>Animationen</h2>
+      <p>
+        Entdecken Sie unsere Sammlung von Animationen, von einfachen Fade-Effekten 
+        bis hin zu komplexen Bewegungsabläufen. Alle Animationen sind mit OpenProps 
+        erstellt und vollständig anpassbar.
+      </p>
+      <a href="/casoon-ui-lib/examples/animations/" class="button">Animationen ansehen</a>
+    </div>
+
+    <div class="card">
+      <h2>Visuelle Effekte</h2>
+      <p>
+        Beeindruckende visuelle Effekte wie Neon-Glühen, Glitch-Effekte und 
+        Gradient-Text. Perfekt für auffällige Überschriften und besondere 
+        Design-Elemente.
+      </p>
+      <a href="/casoon-ui-lib/examples/effects/" class="button">Effekte ansehen</a>
+    </div>
+
+    <div class="card">
+      <h2>Grid-System</h2>
+      <p>
+        Unser flexibles Grid-System basiert auf OpenProps und bietet responsive 
+        Layout-Möglichkeiten für jede Bildschirmgröße. Mit zahlreichen Utility-Klassen 
+        für die präzise Kontrolle des Layouts.
+      </p>
+      <a href="/casoon-ui-lib/examples/grid/" class="button">Grid-System ansehen</a>
+    </div>
+
+    <div class="card">
+      <h2>Typografie</h2>
+      <p>
+        Eine umfassende Typografie-System mit responsiven Schriftgrößen, 
+        verschiedenen Schriftfamilien und speziellen Textformaten wie 
+        Pull-Quotes und Initialen.
+      </p>
+      <a href="/casoon-ui-lib/examples/typography/" class="button">Typografie ansehen</a>
+    </div>
+  </div>
+
+  <style>
+    .card {
+      padding: var(--size-4);
+      border: 1px solid var(--gray-3);
+      border-radius: var(--radius-2);
+      transition: transform var(--transition-slow);
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-3);
+    }
+
+    .button {
+      display: inline-block;
+      padding: var(--size-2) var(--size-4);
+      background: var(--indigo-5);
+      color: white;
+      text-decoration: none;
+      border-radius: var(--radius-2);
+      transition: background var(--transition-slow);
+    }
+
+    .button:hover {
+      background: var(--indigo-6);
+    }
+  </style>
+</Layout> 

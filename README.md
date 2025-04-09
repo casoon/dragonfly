@@ -13,7 +13,11 @@ Eine moderne UI-Bibliothek basierend auf OpenProps, die wiederverwendbare Kompon
 ## 📦 Installation
 
 ```bash
+# Über npm
 npm install casoon-ui-lib
+
+# Oder direkt von GitHub
+npm install github:casoon/casoon-ui-lib
 ```
 
 ## 🛠️ Verwendung
@@ -21,13 +25,15 @@ npm install casoon-ui-lib
 Importieren Sie die gewünschten Styles in Ihrem Projekt:
 
 ```css
-/* Basis-Styles */
-@import 'casoon-ui-lib/reset.css';
-@import 'casoon-ui-lib/base.css';
+/* Über CDN */
+@import 'https://cdn.jsdelivr.net/gh/casoon/casoon-ui-lib/src/base.css';
+@import 'https://cdn.jsdelivr.net/gh/casoon/casoon-ui-lib/src/animations.css';
+@import 'https://cdn.jsdelivr.net/gh/casoon/casoon-ui-lib/src/effects.css';
 
-/* Optional: Animationen und Effekte */
-@import 'casoon-ui-lib/animations.css';
-@import 'casoon-ui-lib/effects.css';
+/* Oder lokal nach Installation */
+@import 'casoon-ui-lib/src/base.css';
+@import 'casoon-ui-lib/src/animations.css';
+@import 'casoon-ui-lib/src/effects.css';
 ```
 
 ## 📚 Dokumentation
@@ -75,7 +81,7 @@ Verwenden Sie das Typografie-System für konsistente Textgestaltung:
 
 ## 🎯 Beispiele
 
-Besuchen Sie unsere [Beispielseite](examples/index.html) für interaktive Demos und weitere Verwendungsbeispiele.
+Besuchen Sie unsere [Beispielseite](https://casoon.github.io/casoon-ui-lib/examples/) für interaktive Demos und weitere Verwendungsbeispiele.
 
 ## 🛡️ Browser-Support
 
