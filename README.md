@@ -1,72 +1,97 @@
-# casoon-ui-lib
+# Casoon UI Library
 
-Eine wiederverwendbare UI-Bibliothek für Astro-Projekte, basierend auf Open Props. Enthält Design-Tokens, CSS-Utilities, Animationen und wiederverwendbare Komponenten (z. B. Grid, Container, Button). Ideal für eigene Projekte oder als Basis für Design-Systeme.
+Eine moderne UI-Bibliothek basierend auf OpenProps, die wiederverwendbare Komponenten, Animationen und Effekte für Webanwendungen bietet.
 
-## Features
+## 🚀 Features
 
-- 🎨 Design-Tokens auf Basis von Open Props (Farben, Abstände, Größen, Fonts)
-- ⚡ CSS-Utilities für Layout und Effekte
-- 🧩 Wiederverwendbare Komponenten als `.astro`-Dateien
-- 🤝 Unterstützung für Alpine.js und Motion One als `peerDependencies`
-- 🌐 Bereit zur Veröffentlichung auf npm oder GitHub
+- **Animationen**: Von einfachen Fade-Effekten bis zu komplexen Bewegungsabläufen
+- **Visuelle Effekte**: Neon-Glühen, Glitch-Effekte, Gradient-Text und mehr
+- **Grid-System**: Flexibles, responsives Layout-System
+- **Typografie**: Umfassendes Typografie-System mit speziellen Formaten
+- **OpenProps Integration**: Nutzt die Vorteile von OpenProps für konsistentes Design
 
-## Installation
+## 📦 Installation
 
 ```bash
 npm install casoon-ui-lib
-# oder lokal während der Entwicklung
-npm install ../pfad/zu/casoon-ui-lib
 ```
 
-## Verwendung
+## 🛠️ Verwendung
 
-### CSS-Dateien importieren
+Importieren Sie die gewünschten Styles in Ihrem Projekt:
 
 ```css
-/* z. B. in src/styles/global.layout */
+/* Basis-Styles */
 @import 'casoon-ui-lib/reset.css';
-@import 'casoon-ui-lib/tokens.css';
-@import 'casoon-ui-lib/grid.css';
+@import 'casoon-ui-lib/base.css';
+
+/* Optional: Animationen und Effekte */
+@import 'casoon-ui-lib/animations.css';
 @import 'casoon-ui-lib/effects.css';
 ```
 
-### Komponenten verwenden
+## 📚 Dokumentation
 
-```astro
----
-import Grid from 'casoon-ui-lib/components/Grid.astro';
----
+### Animationen
 
-<Grid columns={3}>
-  <div>Item 1</div>
-  <div>Item 2</div>
-  <div>Item 3</div>
-</Grid>
+Verwenden Sie vordefinierte Animationen mit einfachen CSS-Klassen:
+
+```html
+<div class="fade-in">Element erscheint sanft</div>
+<div class="slide-in-left">Element gleitet von links ein</div>
+<div class="bounce">Element springt</div>
 ```
 
-## Voraussetzung
+### Visuelle Effekte
 
-Das Host-Projekt muss folgende Abhängigkeiten selbst installieren:
+Fügen Sie spezielle Effekte zu Ihren Elementen hinzu:
 
-```bash
-npm install alpinejs motion
+```html
+<h1 class="neon-text">Neon-Effekt</h1>
+<p class="glitch-text">Glitch-Effekt</p>
+<div class="gradient-text">Gradient-Text</div>
 ```
 
-## Entwicklung lokal
+### Grid-System
 
-```bash
-git clone https://github.com/dein-name/casoon-ui-lib.git
-cd casoon-ui-lib
-npm install
+Nutzen Sie das flexible Grid-System für responsive Layouts:
+
+```html
+<div class="grid">
+  <div class="col-span-1">Spalte 1</div>
+  <div class="col-span-2">Spalte 2</div>
+</div>
 ```
 
-## Veröffentlichen auf npm
+### Typografie
 
-```bash
-npm login
-npm publish --access public
+Verwenden Sie das Typografie-System für konsistente Textgestaltung:
+
+```html
+<h1 class="text-4xl font-bold">Große Überschrift</h1>
+<p class="text-lg">Normaler Text</p>
+<blockquote class="pull-quote">Zitat</blockquote>
 ```
 
----
+## 🎯 Beispiele
 
-MIT Lizenz – Viel Spaß beim Bauen 🛠️
+Besuchen Sie unsere [Beispielseite](examples/index.html) für interaktive Demos und weitere Verwendungsbeispiele.
+
+## 🛡️ Browser-Support
+
+- Chrome (neueste)
+- Firefox (neueste)
+- Safari (neueste)
+- Edge (neueste)
+
+## 📝 Lizenz
+
+MIT
+
+## 🤝 Beitragen
+
+Beiträge sind willkommen! Bitte lesen Sie unsere [Contributing Guidelines](CONTRIBUTING.md) für Details.
+
+## 📞 Support
+
+Bei Fragen oder Problemen öffnen Sie bitte ein [Issue](https://github.com/casoon/casoon-ui-lib/issues).
