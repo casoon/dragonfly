@@ -14,7 +14,6 @@
 .text-center { text-align: center; }
 .text-left { text-align: left; }
 .text-right { text-align: right; }
-
 .flex { display: flex; }
 .items-center { align-items: center; }
 .justify-center { justify-content: center; }
@@ -29,3 +28,4 @@
 
 .overflow-hidden { overflow: hidden; }
 .overflow-auto { overflow: auto; }
+
