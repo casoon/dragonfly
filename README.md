@@ -74,6 +74,10 @@ Das [Example-Projekt](example/) demonstriert:
 - Responsive Design
 - Animationen und Effekte
 
+## 🌐 Live Demo
+
+Eine Live-Demo der Bibliothek ist auf [GitHub Pages](https://casoon.github.io/casoon-ui-lib/) verfügbar.
+
 ## 📝 Lizenz
 
 MIT
