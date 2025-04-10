@@ -1,6 +1,6 @@
 @import "open-props";
 
-/* Basis Animationen */
+/* Animations */
 .fade-in {
     animation: var(--animation-fade-in);
 }
@@ -9,37 +9,12 @@
     animation: var(--animation-fade-out);
 }
 
-/* Slide Animationen mit Richtungen */
-.slide-in-up {
-    animation: var(--animation-slide-in-up);
+.slide-in {
+    animation: var(--animation-slide-in);
 }
 
-.slide-in-down {
-    animation: var(--animation-slide-in-down);
-}
-
-.slide-in-left {
-    animation: var(--animation-slide-in-left);
-}
-
-.slide-in-right {
-    animation: var(--animation-slide-in-right);
-}
-
-.slide-out-up {
-    animation: var(--animation-slide-out-up);
-}
-
-.slide-out-down {
-    animation: var(--animation-slide-out-down);
-}
-
-.slide-out-left {
-    animation: var(--animation-slide-out-left);
-}
-
-.slide-out-right {
-    animation: var(--animation-slide-out-right);
+.slide-out {
+    animation: var(--animation-slide-out);
 }
 
 /* Fancy Animationen */
@@ -86,8 +61,7 @@
     }
 }
 
-/* Erweiterte Utility Klassen */
-/* Timing */
+/* Utility Klassen für Animationen */
 .animate-slow {
     animation-duration: 1s;
 }
@@ -96,87 +70,10 @@
     animation-duration: 0.3s;
 }
 
-.animate-very-slow {
-    animation-duration: 2s;
-}
-
-.animate-very-fast {
-    animation-duration: 0.15s;
-}
-
-/* Wiederholung */
 .animate-infinite {
     animation-iteration-count: infinite;
 }
 
 .animate-once {
     animation-iteration-count: 1;
-}
-
-.animate-twice {
-    animation-iteration-count: 2;
-}
-
-/* Verzögerung */
-.animate-delay-100 {
-    animation-delay: 100ms;
-}
-
-.animate-delay-200 {
-    animation-delay: 200ms;
-}
-
-.animate-delay-300 {
-    animation-delay: 300ms;
-}
-
-.animate-delay-500 {
-    animation-delay: 500ms;
-}
-
-/* Timing-Funktionen */
-.animate-ease {
-    animation-timing-function: ease;
-}
-
-.animate-ease-in {
-    animation-timing-function: ease-in;
-}
-
-.animate-ease-out {
-    animation-timing-function: ease-out;
-}
-
-.animate-ease-in-out {
-    animation-timing-function: ease-in-out;
-}
-
-.animate-linear {
-    animation-timing-function: linear;
-}
-
-/* Füllmodus */
-.animate-forwards {
-    animation-fill-mode: forwards;
-}
-
-.animate-backwards {
-    animation-fill-mode: backwards;
-}
-
-.animate-both {
-    animation-fill-mode: both;
-}
-
-/* Richtung */
-.animate-reverse {
-    animation-direction: reverse;
-}
-
-.animate-alternate {
-    animation-direction: alternate;
-}
-
-.animate-alternate-reverse {
-    animation-direction: alternate-reverse;
 }

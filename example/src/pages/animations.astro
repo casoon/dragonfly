@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { ScrollAnimation, createStaggerAnimation } from '../../../src/utils/scroll-animation';
 ---
 
 <Layout title="Animationen">
@@ -9,7 +10,7 @@ import Layout from '../layouts/Layout.astro';
     <h2>Verwendete CSS-Imports</h2>
     <div class="demo-item">
       <h3>Basis-Animationen</h3>
-      <code>@import '../styles/animations.css';</code>
+      <code>@import 'casoon-ui-lib/animations.css';</code>
       <p>Enthält grundlegende Animationen wie Fade, Slide und Bounce.</p>
     </div>
 
@@ -21,7 +22,7 @@ import Layout from '../layouts/Layout.astro';
 
     <div class="demo-item">
       <h3>Utility-Klassen</h3>
-      <code>@import '../styles/utilities.css';</code>
+      <code>@import 'casoon-ui-lib/base.css';</code>
       <p>Enthält Hilfsklassen für Animationen und Übergänge.</p>
     </div>
   </section>
@@ -30,7 +31,7 @@ import Layout from '../layouts/Layout.astro';
     <h2>Grundlegende Animationen</h2>
     <p>Einfache Animationen für grundlegende Interaktionen.</p>
     
-    <div class="demo-grid">
+    <div class="demo-grid grid cols-2 md:cols-3 gap-4">
       <div class="demo-item">
         <h3>Fade In</h3>
         <div class="animation-box gradient-1 fade-in">Fade In</div>
@@ -61,7 +62,7 @@ import Layout from '../layouts/Layout.astro';
     <h2>Fancy Animationen</h2>
     <p>Spezielle Animationen für auffällige Effekte.</p>
     
-    <div class="demo-grid">
+    <div class="demo-grid grid cols-2 md:cols-3 gap-4">
       <div class="demo-item">
         <h3>Bounce</h3>
         <div class="animation-box gradient-5 bounce">Bounce</div>
@@ -92,7 +93,7 @@ import Layout from '../layouts/Layout.astro';
     <h2>Benutzerdefinierte Animationen</h2>
     <p>Spezielle Animationen für besondere Anwendungsfälle.</p>
     
-    <div class="demo-grid">
+    <div class="demo-grid grid cols-2 md:cols-3 gap-4">
       <div class="demo-item">
         <h3>Float</h3>
         <div class="animation-box gradient-9 float">Float</div>
@@ -111,7 +112,7 @@ import Layout from '../layouts/Layout.astro';
     <h2>Utility-Klassen</h2>
     <p>Kontrollieren Sie die Animationen mit diesen Utility-Klassen.</p>
     
-    <div class="demo-grid">
+    <div class="demo-grid grid cols-2 md:cols-3 gap-4">
       <div class="demo-item">
         <h3>Geschwindigkeit</h3>
         <div class="animation-box gradient-11 fade-in animation-slow">Langsam</div>
@@ -139,6 +140,35 @@ import Layout from '../layouts/Layout.astro';
   </section>
 </Layout>
 
+<script>
+  // Initialisiere Scroll-Animationen
+  document.addEventListener('DOMContentLoaded', () => {
+    // Einzelne Animationen
+    const animationElements = document.querySelectorAll('[data-animation]');
+    animationElements.forEach(element => {
+      new ScrollAnimation({
+        target: element,
+        animation: element.getAttribute('data-animation') as any,
+        direction: element.getAttribute('data-direction') as any,
+        once: false
+      });
+    });
+
+    // Gestaffelte Animationen für Demo-Grids
+    const demoGrids = document.querySelectorAll('.demo-grid');
+    demoGrids.forEach(grid => {
+      createStaggerAnimation(
+        Array.from(grid.querySelectorAll('.animation-box')),
+        {
+          animation: 'fade',
+          delay: 0.1,
+          once: false
+        }
+      );
+    });
+  });
+</script>
+
 <style>
   .demo-section {
     margin: var(--size-8) 0;
@@ -148,8 +178,6 @@ import Layout from '../layouts/Layout.astro';
   }
 
   .demo-grid {
-    display: grid;
-    gap: var(--size-4);
     margin: var(--size-4) 0;
   }
 

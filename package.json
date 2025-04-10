@@ -9,18 +9,26 @@
     "./animations.css": "./src/animations.css",
     "./components/Button.astro": "./src/components/Button.astro",
     "./components/Grid.astro": "./src/components/Grid.astro",
-    "./components/Container.astro": "./src/components/Container.astro"
+    "./components/Container.astro": "./src/components/Container.astro",
+    "./utils/scroll-animation": {
+      "types": "./src/utils/scroll-animation.ts",
+      "import": "./src/utils/scroll-animation.ts",
+      "require": "./dist/utils/scroll-animation.js"
+    }
   },
   "keywords": ["astro", "css", "ui", "components", "open-props", "alpinejs", "motion"],
   "author": "Jörn Seidel",
   "license": "MIT",
   "peerDependencies": {
     "alpinejs": "^3.14.9",
-    "motion": "^12.6.3"
+    "motion": "12.6.3",
+    "open-props": "^1.7.15"
   },
   "devDependencies": {
     "alpinejs": "^3.14.9",
     "motion": "^12.6.3",
-    "open-props": "^1.7.15"
+    "open-props": "^1.7.15",
+    "typescript": "^5.3.3",
+    "@types/node": "^20.11.19"
   }
 }
