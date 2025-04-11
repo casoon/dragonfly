@@ -1,0 +1,30 @@
+:root {
+  /* Forest Theme */
+  --color-primary: #2e7d32;
+  --color-primary-light: #4caf50;
+  --color-primary-dark: #1b5e20;
+  
+  --color-secondary: #795548;
+  --color-secondary-light: #a1887f;
+  --color-secondary-dark: #5d4037;
+  
+  --color-accent: #8bc34a;
+  --color-accent-light: #9ccc65;
+  --color-accent-dark: #689f38;
+  
+  --color-success: #43a047;
+  --color-warning: #ffa000;
+  --color-error: #e53935;
+  --color-info: #1e88e5;
+  
+  /* Grayscale */
+  --color-gray-100: #f1f8e9;
+  --color-gray-200: #dcedc8;
+  --color-gray-300: #c5e1a5;
+  --color-gray-400: #aed581;
+  --color-gray-500: #9ccc65;
+  --color-gray-600: #7cb342;
+  --color-gray-700: #689f38;
+  --color-gray-800: #558b2f;
+  --color-gray-900: #33691e;
+} 

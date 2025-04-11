@@ -1,0 +1,30 @@
+:root {
+  /* Ocean Theme */
+  --color-primary: #1a73e8;
+  --color-primary-light: #4285f4;
+  --color-primary-dark: #1557b0;
+  
+  --color-secondary: #34a853;
+  --color-secondary-light: #5cb85c;
+  --color-secondary-dark: #2d8a3d;
+  
+  --color-accent: #00bcd4;
+  --color-accent-light: #26c6da;
+  --color-accent-dark: #0097a7;
+  
+  --color-success: #00c853;
+  --color-warning: #ffd600;
+  --color-error: #ff1744;
+  --color-info: #00b0ff;
+  
+  /* Grayscale */
+  --color-gray-100: #f5f7fa;
+  --color-gray-200: #e4e7eb;
+  --color-gray-300: #cbd2d9;
+  --color-gray-400: #9aa5b1;
+  --color-gray-500: #7b8794;
+  --color-gray-600: #616e7c;
+  --color-gray-700: #52606d;
+  --color-gray-800: #3e4c59;
+  --color-gray-900: #323f4b;
+} 

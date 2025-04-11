@@ -1,0 +1,30 @@
+:root {
+  /* Spring Theme */
+  --color-primary: #4caf50;
+  --color-primary-light: #81c784;
+  --color-primary-dark: #388e3c;
+  
+  --color-secondary: #ffeb3b;
+  --color-secondary-light: #fff176;
+  --color-secondary-dark: #fbc02d;
+  
+  --color-accent: #4dd0e1;
+  --color-accent-light: #80deea;
+  --color-accent-dark: #26c6da;
+  
+  --color-success: #4caf50;
+  --color-warning: #ffc107;
+  --color-error: #f44336;
+  --color-info: #2196f3;
+  
+  /* Grayscale */
+  --color-gray-100: #e8f5e9;
+  --color-gray-200: #c8e6c9;
+  --color-gray-300: #a5d6a7;
+  --color-gray-400: #81c784;
+  --color-gray-500: #66bb6a;
+  --color-gray-600: #4caf50;
+  --color-gray-700: #43a047;
+  --color-gray-800: #388e3c;
+  --color-gray-900: #2e7d32;
+} 
