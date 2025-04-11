@@ -32,6 +32,11 @@ jobs:
           mkdir -p docs/css/components
           cp -r components/*.css docs/css/components/
 
+      - name: 📂 Copy Base to /docs/css/base
+        run: |
+          mkdir -p docs/css/base
+          cp -r base/*.css docs/css/base/
+
       - name: ✅ Commit and push changes
         run: |
           git config user.name "GitHub Actions"

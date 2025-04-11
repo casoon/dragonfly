@@ -36,13 +36,3 @@ defaults:
       type: "examples"
     values:
       layout: "default" 
-
-include:
-  - css/_reset.css
-  - css/_layout.css
-  - css/_typography.css
-  - css/_utilities.css
-  - css/_components.css
-  - css/_forms.css
-  - css/_smooth-scroll.css
-  - css/_tokens.css
