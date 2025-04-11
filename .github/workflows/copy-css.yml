@@ -3,8 +3,9 @@ name: Copy CSS to /docs
 on:
   push:
     branches:
-      - main
-
+      - main  # passe ggf. deinen Branchnamen an
+  workflow_dispatch:  # 👈 Damit kannst du die Action manuell starten
+  
 jobs:
   copy-and-commit:
     runs-on: ubuntu-latest
