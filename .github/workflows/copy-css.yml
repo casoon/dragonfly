@@ -17,11 +17,15 @@ jobs:
       - name: 📥 Checkout repository
         uses: actions/checkout@v3
 
-      - name: 🗂 Create /docs/css if needed
-        run: mkdir -p docs/css
+      - name: 📂 Copy CSS to /docs/css
+        run: |
+          mkdir -p docs/css
+          cp -r *.css docs/css/
 
-      - name: 📄 Copy CSS files to /docs/css
-        run: cp -r *.css docs/css/
+      - name: 📂 Copy Themes to /docs/css/themes
+        run: |
+          mkdir -p docs/css/themes
+          cp -r themes/*.css docs/css/themes/
 
       - name: ✅ Commit and push changes
         run: |
