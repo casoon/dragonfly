@@ -1,0 +1,877 @@
+/* Hamburger Variables */
+:root {
+  --hamburger-width: 2rem;
+  --hamburger-height: 1.5rem;
+  --hamburger-line-height: 2px;
+  --hamburger-line-color: var(--color-text);
+  --hamburger-line-color-active: var(--color-primary);
+  --hamburger-transition: all var(--transition-normal);
+}
+
+/* Base Hamburger */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: var(--hamburger-width);
+  height: var(--hamburger-height);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: var(--z-50);
+}
+
+.hamburger-line {
+  width: 100%;
+  height: var(--hamburger-line-height);
+  background: var(--hamburger-line-color);
+  transition: var(--hamburger-transition);
+  transform-origin: left center;
+}
+
+/* Hamburger Variants */
+/* Classic */
+.hamburger-classic .hamburger-line {
+  transform-origin: center;
+}
+
+.hamburger-classic.active .hamburger-line:nth-child(1) {
+  transform: translateY(calc(var(--hamburger-height) / 2 - var(--hamburger-line-height) / 2)) rotate(45deg);
+}
+
+.hamburger-classic.active .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-classic.active .hamburger-line:nth-child(3) {
+  transform: translateY(calc(-1 * (var(--hamburger-height) / 2 - var(--hamburger-line-height) / 2))) rotate(-45deg);
+}
+
+/* Arrow */
+.hamburger-arrow .hamburger-line {
+  transform-origin: left center;
+}
+
+.hamburger-arrow.active .hamburger-line:nth-child(1) {
+  transform: rotate(45deg);
+}
+
+.hamburger-arrow.active .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-arrow.active .hamburger-line:nth-child(3) {
+  transform: rotate(-45deg);
+}
+
+/* Close */
+.hamburger-close .hamburger-line {
+  transform-origin: center;
+}
+
+.hamburger-close.active .hamburger-line:nth-child(1) {
+  transform: rotate(45deg);
+}
+
+.hamburger-close.active .hamburger-line:nth-child(2) {
+  transform: rotate(-45deg);
+}
+
+.hamburger-close.active .hamburger-line:nth-child(3) {
+  opacity: 0;
+}
+
+/* Menu Styles */
+/* Fullscreen Menu */
+.menu-fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: var(--color-background);
+  z-index: var(--z-40);
+  transform: translateX(-100%);
+  transition: var(--hamburger-transition);
+}
+
+.menu-fullscreen.active {
+  transform: translateX(0);
+}
+
+.menu-fullscreen .menu-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 2rem;
+}
+
+/* Slide Menu */
+.menu-slide {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 80%;
+  max-width: 20rem;
+  height: 100vh;
+  background: var(--color-background);
+  z-index: var(--z-40);
+  transform: translateX(-100%);
+  transition: var(--hamburger-transition);
+  box-shadow: var(--shadow-lg);
+}
+
+.menu-slide.active {
+  transform: translateX(0);
+}
+
+.menu-slide .menu-content {
+  padding: 2rem;
+}
+
+/* Overlay Menu */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: var(--z-40);
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--hamburger-transition);
+}
+
+.menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.menu-overlay .menu-content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80%;
+  max-width: 20rem;
+  height: 100%;
+  background: var(--color-background);
+  transform: translateX(100%);
+  transition: var(--hamburger-transition);
+}
+
+.menu-overlay.active .menu-content {
+  transform: translateX(0);
+}
+
+/* Menu Items */
+.menu-item {
+  display: block;
+  padding: 1rem;
+  color: var(--color-text);
+  text-decoration: none;
+  transition: var(--hamburger-transition);
+}
+
+.menu-item:hover {
+  color: var(--color-primary);
+  background: var(--color-background-hover);
+}
+
+.menu-item.active {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+/* Menu Header */
+.menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.menu-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+/* Menu Footer */
+.menu-footer {
+  padding: 1rem;
+  border-top: 1px solid var(--color-border);
+}
+
+/* Menu Variants */
+/* Light */
+.menu-light {
+  background: white;
+}
+
+.menu-light .menu-item {
+  color: var(--color-text);
+}
+
+.menu-light .menu-item:hover {
+  background: var(--color-background-hover);
+}
+
+/* Dark */
+.menu-dark {
+  background: var(--color-background-dark);
+}
+
+.menu-dark .menu-item {
+  color: var(--color-text-light);
+}
+
+.menu-dark .menu-item:hover {
+  background: var(--color-background-hover-dark);
+}
+
+/* Primary */
+.menu-primary {
+  background: var(--color-primary);
+}
+
+.menu-primary .menu-item {
+  color: white;
+}
+
+.menu-primary .menu-item:hover {
+  background: var(--color-primary-light);
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .menu-fullscreen,
+  .menu-slide,
+  .menu-overlay {
+    width: 50%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .menu-fullscreen,
+  .menu-slide,
+  .menu-overlay {
+    width: 33.333333%;
+  }
+}
+
+/* Animations */
+@keyframes menuSlideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes menuSlideOut {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes menuFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes menuFadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* Accessibility */
+.hamburger:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--color-primary-light);
+}
+
+.hamburger:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .hamburger,
+  .menu-fullscreen,
+  .menu-slide,
+  .menu-overlay,
+  .menu-content {
+    transition: none;
+  }
+}
+
+/* 3D Animations */
+.hamburger-3d {
+  perspective: 1000px;
+}
+
+.hamburger-3d .hamburger-line {
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+.hamburger-3d.active .hamburger-line:nth-child(1) {
+  transform: rotateX(45deg) translateY(0.5rem);
+}
+
+.hamburger-3d.active .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-3d.active .hamburger-line:nth-child(3) {
+  transform: rotateX(-45deg) translateY(-0.5rem);
+}
+
+/* Spin Animation */
+.hamburger-spin .hamburger-line {
+  transition: transform 0.3s ease;
+}
+
+.hamburger-spin.active .hamburger-line:nth-child(1) {
+  transform: rotate(45deg) translate(0.2rem, 0.2rem);
+}
+
+.hamburger-spin.active .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-spin.active .hamburger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(0.2rem, -0.2rem);
+}
+
+/* Menu Positions */
+/* Right */
+.menu-right {
+  left: auto;
+  right: 0;
+  transform: translateX(100%);
+}
+
+.menu-right.active {
+  transform: translateX(0);
+}
+
+/* Top */
+.menu-top {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  transform: translateY(-100%);
+}
+
+.menu-top.active {
+  transform: translateY(0);
+}
+
+/* Bottom */
+.menu-bottom {
+  top: auto;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  transform: translateY(100%);
+}
+
+.menu-bottom.active {
+  transform: translateY(0);
+}
+
+/* Nested Menus */
+.menu-nested {
+  position: relative;
+}
+
+.menu-nested .submenu {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  background: var(--color-background);
+  transform: translateX(0);
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--hamburger-transition);
+}
+
+.menu-nested .submenu.active {
+  transform: translateX(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Custom Icons */
+.hamburger-icon {
+  position: relative;
+}
+
+.hamburger-icon::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1.5rem;
+  height: 1.5rem;
+  background: currentColor;
+  mask: var(--icon-menu);
+  -webkit-mask: var(--icon-menu);
+}
+
+/* Hover Effects */
+.menu-item-hover {
+  position: relative;
+  overflow: hidden;
+}
+
+.menu-item-hover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-primary);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: -1;
+}
+
+.menu-item-hover:hover::before {
+  transform: translateX(0);
+}
+
+.menu-item-hover:hover {
+  color: white;
+}
+
+/* Gradient Background */
+.menu-gradient {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+}
+
+/* Glass Effect */
+.menu-glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Animated Background */
+.menu-animated-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.menu-animated-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
+  animation: gradient-shift 3s ease infinite;
+  z-index: -1;
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Morphing Animation */
+.hamburger-morph {
+  position: relative;
+}
+
+.hamburger-morph .hamburger-line {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hamburger-morph.active .hamburger-line:nth-child(1) {
+  transform: translateY(0.5rem) rotate(45deg);
+  width: 1.5rem;
+}
+
+.hamburger-morph.active .hamburger-line:nth-child(2) {
+  transform: scaleX(0.5);
+  opacity: 0;
+}
+
+.hamburger-morph.active .hamburger-line:nth-child(3) {
+  transform: translateY(-0.5rem) rotate(-45deg);
+  width: 1.5rem;
+}
+
+/* Ripple Effect */
+.menu-item-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.menu-item-ripple::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, var(--color-primary) 10%, transparent 10.01%);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transform: scale(10, 10);
+  opacity: 0;
+  transition: transform 0.5s, opacity 1s;
+}
+
+.menu-item-ripple:active::after {
+  transform: scale(0, 0);
+  opacity: 0.3;
+  transition: 0s;
+}
+
+/* Scroll Animations */
+.menu-scroll {
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+.menu-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+
+.menu-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.menu-scroll::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  .menu-mobile {
+    touch-action: pan-y pinch-zoom;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .menu-mobile .menu-item {
+    padding: 1.5rem;
+    font-size: 1.1rem;
+  }
+
+  .menu-mobile .menu-header {
+    padding: 1.5rem;
+  }
+}
+
+/* Touch Gestures */
+.menu-touch {
+  touch-action: pan-y;
+}
+
+.menu-touch .menu-content {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.menu-touch.swipe-left .menu-content {
+  transform: translateX(-100%);
+}
+
+.menu-touch.swipe-right .menu-content {
+  transform: translateX(0);
+}
+
+/* Loading States */
+.menu-loading .menu-item {
+  position: relative;
+  color: transparent;
+  background: linear-gradient(90deg, var(--color-background-hover) 25%, var(--color-background) 50%, var(--color-background-hover) 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Staggered Animation */
+.menu-stagger .menu-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+}
+
+.menu-stagger.active .menu-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.menu-stagger.active .menu-item:nth-child(1) { transition-delay: 0.1s; }
+.menu-stagger.active .menu-item:nth-child(2) { transition-delay: 0.2s; }
+.menu-stagger.active .menu-item:nth-child(3) { transition-delay: 0.3s; }
+.menu-stagger.active .menu-item:nth-child(4) { transition-delay: 0.4s; }
+.menu-stagger.active .menu-item:nth-child(5) { transition-delay: 0.5s; }
+
+/* Split Animation */
+.menu-split {
+  position: relative;
+  overflow: hidden;
+}
+
+.menu-split::before,
+.menu-split::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background: var(--color-background);
+  transition: transform 0.5s ease;
+}
+
+.menu-split::before {
+  left: 0;
+  transform: translateX(-100%);
+}
+
+.menu-split::after {
+  right: 0;
+  transform: translateX(100%);
+}
+
+.menu-split.active::before {
+  transform: translateX(0);
+}
+
+.menu-split.active::after {
+  transform: translateX(0);
+}
+
+/* 3D Parallax Effect */
+.menu-parallax {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.menu-parallax .menu-content {
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+.menu-parallax:hover .menu-content {
+  transform: translateZ(50px) rotateX(5deg) rotateY(5deg);
+}
+
+/* Custom Cursor Effects */
+.menu-cursor {
+  cursor: none;
+}
+
+.menu-cursor .menu-item {
+  position: relative;
+}
+
+.menu-cursor .menu-item::before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: var(--color-primary);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.3s ease;
+  pointer-events: none;
+}
+
+.menu-cursor .menu-item:hover::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Sound Effects (CSS-only) */
+.menu-sound .menu-item {
+  position: relative;
+}
+
+.menu-sound .menu-item::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: radial-gradient(circle, var(--color-primary) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.menu-sound .menu-item:active::after {
+  opacity: 0.3;
+  animation: sound-wave 0.5s ease-out;
+}
+
+@keyframes sound-wave {
+  0% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+/* Interactive Hover States */
+.menu-interactive .menu-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.menu-interactive .menu-item::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: var(--color-primary);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+  z-index: -1;
+}
+
+.menu-interactive .menu-item:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.menu-interactive .menu-item span {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.menu-interactive .menu-item:hover span {
+  color: white;
+}
+
+/* Micro Interactions */
+.menu-micro .menu-item {
+  position: relative;
+}
+
+.menu-micro .menu-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-primary);
+  transition: width 0.3s ease;
+}
+
+.menu-micro .menu-item:hover::after {
+  width: 100%;
+}
+
+.menu-micro .menu-item:active {
+  transform: scale(0.95);
+}
+
+/* Magnetic Effect */
+.menu-magnetic .menu-item {
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.menu-magnetic .menu-item:hover {
+  transform: translateY(-5px);
+}
+
+/* Glitch Effect */
+.menu-glitch .menu-item {
+  position: relative;
+}
+
+.menu-glitch .menu-item::before,
+.menu-glitch .menu-item::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-background);
+}
+
+.menu-glitch .menu-item::before {
+  left: 2px;
+  text-shadow: -2px 0 var(--color-primary);
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+
+.menu-glitch .menu-item::after {
+  left: -2px;
+  text-shadow: -2px 0 var(--color-secondary);
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim2 5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+  0% {
+    clip: rect(42px, 9999px, 44px, 0);
+  }
+  5% {
+    clip: rect(12px, 9999px, 59px, 0);
+  }
+  /* ... weitere Keyframes ... */
+}
+
+@keyframes glitch-anim2 {
+  0% {
+    clip: rect(42px, 9999px, 44px, 0);
+  }
+  5% {
+    clip: rect(12px, 9999px, 59px, 0);
+  }
+  /* ... weitere Keyframes ... */
+} 
