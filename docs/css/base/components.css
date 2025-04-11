@@ -1,7 +1,7 @@
 /* Components Imports */
-@import url('./components/button.css');
-@import url('./components/card.css');
-@import url('./components/badge.css');
+@import url('components/button.css');
+@import url('components/card.css');
+@import url('components/badge.css');
 
 /* Component Variables */
 :root {
