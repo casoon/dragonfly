@@ -1,0 +1,38 @@
+title: Casoon UI Library
+description: Eine moderne, responsive UI-Bibliothek für Webanwendungen
+baseurl: "/casoon-ui-lib"
+url: "https://casoon.github.io"
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+
+# Collections
+collections:
+  foundation:
+    output: true
+  components:
+    output: true
+  examples:
+    output: true
+
+# Defaults
+defaults:
+  -
+    scope:
+      path: ""
+      type: "foundation"
+    values:
+      layout: "default"
+  -
+    scope:
+      path: ""
+      type: "components"
+    values:
+      layout: "default"
+  -
+    scope:
+      path: ""
+      type: "examples"
+    values:
+      layout: "default" 

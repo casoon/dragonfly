@@ -22,10 +22,15 @@ casoon-ui-lib/
 ├── core.css           # Importiert Basis-Module und ausgewählte Komponenten
 ├── components/        # Einzelne Komponenten
 ├── themes/            # Design-Themes
+├── docs/              # Dokumentation
 ├── .gitignore
 ├── CONTRIBUTING.md    # Beitragsrichtlinien
 └── README.md
 ```
+
+## Dokumentation
+
+Die vollständige Dokumentation ist unter [https://casoon.github.io/casoon-ui-lib/](https://casoon.github.io/casoon-ui-lib/) verfügbar.
 
 ## CSS-Module
 
@@ -76,18 +81,24 @@ casoon-ui-lib/
 ### Verzeichnisse
 - `components/`: Einzelne Komponenten
 - `themes/`: Design-Themes
+- `docs/`: Dokumentation
 
 ## Verwendung
 
 1. Importieren Sie die `core.css` in Ihr Projekt, um die Basis-Module und ausgewählte Komponenten zu laden:
 ```html
-<link rel="stylesheet" href="path/to/core.css">
+<link rel="stylesheet" href="https://casoon.github.io/casoon-ui-lib/core.css">
 ```
 
 2. Oder importieren Sie einzelne Module nach Bedarf:
 ```html
-<link rel="stylesheet" href="path/to/_components.css">
-<link rel="stylesheet" href="path/to/_forms.css">
+<link rel="stylesheet" href="https://casoon.github.io/casoon-ui-lib/_reset.css">
+<link rel="stylesheet" href="https://casoon.github.io/casoon-ui-lib/_tokens.css">
+<link rel="stylesheet" href="https://casoon.github.io/casoon-ui-lib/_typography.css">
+<link rel="stylesheet" href="https://casoon.github.io/casoon-ui-lib/_layout.css">
+<link rel="stylesheet" href="https://casoon.github.io/casoon-ui-lib/_utilities.css">
+<link rel="stylesheet" href="https://casoon.github.io/casoon-ui-lib/sidebar.css">
+<link rel="stylesheet" href="https://casoon.github.io/casoon-ui-lib/_hamburger.css">
 ```
 
 ## Entwicklung
@@ -102,3 +113,7 @@ Für Details zur Mitarbeit am Projekt, lesen Sie bitte [CONTRIBUTING.md](CONTRIB
 ## Lizenz
 
 [MIT License](LICENSE)
+
+## Über Casoon
+
+[Casoon](https://www.casoon.de) bietet individuelle Lösungen für Designsysteme, Web-Apps und E-Commerce – mit Fokus auf Performance, Wartbarkeit und und ansprechendes Design.

@@ -1,0 +1,82 @@
+---
+layout: default
+title: Dashboard
+---
+
+<section class="section">
+    <h1>{{ page.title }}</h1>
+    <p class="lead">Ein Beispiel-Dashboard mit verschiedenen UI-Komponenten.</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="card">
+            <h3>Statistik 1</h3>
+            <p class="text-4xl font-bold">1,234</p>
+            <p class="text-sm text-gray-500">+12% seit letztem Monat</p>
+        </div>
+        <div class="card">
+            <h3>Statistik 2</h3>
+            <p class="text-4xl font-bold">567</p>
+            <p class="text-sm text-gray-500">+8% seit letztem Monat</p>
+        </div>
+        <div class="card">
+            <h3>Statistik 3</h3>
+            <p class="text-4xl font-bold">890</p>
+            <p class="text-sm text-gray-500">+15% seit letztem Monat</p>
+        </div>
+        <div class="card">
+            <h3>Statistik 4</h3>
+            <p class="text-4xl font-bold">1,234</p>
+            <p class="text-sm text-gray-500">+5% seit letztem Monat</p>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
+        <div class="card">
+            <h3>Aktivitäten</h3>
+            <div class="activity-list">
+                <div class="activity-item">
+                    <div class="activity-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="activity-content">
+                        <p>Neuer Benutzer registriert</p>
+                        <span class="text-sm text-gray-500">Vor 5 Minuten</span>
+                    </div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="activity-content">
+                        <p>Neue Bestellung eingegangen</p>
+                        <span class="text-sm text-gray-500">Vor 15 Minuten</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Kürzliche Transaktionen</h3>
+            <div class="transaction-list">
+                <div class="transaction-item">
+                    <div class="transaction-info">
+                        <p>Transaktion #1234</p>
+                        <span class="text-sm text-gray-500">Vor 2 Stunden</span>
+                    </div>
+                    <div class="transaction-amount">
+                        <p class="font-bold">€99.99</p>
+                    </div>
+                </div>
+                <div class="transaction-item">
+                    <div class="transaction-info">
+                        <p>Transaktion #1235</p>
+                        <span class="text-sm text-gray-500">Vor 3 Stunden</span>
+                    </div>
+                    <div class="transaction-amount">
+                        <p class="font-bold">€149.99</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> 

@@ -1,0 +1,123 @@
+---
+layout: default
+title: Badge
+---
+
+<section id="overview" class="section">
+    <h2>{{ page.title }}</h2>
+    <p>Kleine Informationsanzeigen für Status, Zählungen oder Kennzeichnungen.</p>
+</section>
+
+<section id="basic" class="section">
+    <h3>Basis Badge</h3>
+    <div class="example">
+        <div class="badge-examples">
+            <span class="badge">Standard</span>
+            <span class="badge badge-primary">Primär</span>
+            <span class="badge badge-secondary">Sekundär</span>
+            <span class="badge badge-success">Erfolg</span>
+            <span class="badge badge-warning">Warnung</span>
+            <span class="badge badge-error">Fehler</span>
+        </div>
+    </div>
+    <pre><code>&lt;span class="badge"&gt;Standard&lt;/span&gt;
+&lt;span class="badge badge-primary"&gt;Primär&lt;/span&gt;
+&lt;span class="badge badge-secondary"&gt;Sekundär&lt;/span&gt;
+&lt;span class="badge badge-success"&gt;Erfolg&lt;/span&gt;
+&lt;span class="badge badge-warning"&gt;Warnung&lt;/span&gt;
+&lt;span class="badge badge-error"&gt;Fehler&lt;/span&gt;</code></pre>
+</section>
+
+<section id="pill" class="section">
+    <h3>Pill Badge</h3>
+    <div class="example">
+        <div class="badge-examples">
+            <span class="badge badge-pill">Pill</span>
+            <span class="badge badge-pill badge-primary">Primär</span>
+            <span class="badge badge-pill badge-secondary">Sekundär</span>
+        </div>
+    </div>
+    <pre><code>&lt;span class="badge badge-pill"&gt;Pill&lt;/span&gt;
+&lt;span class="badge badge-pill badge-primary"&gt;Primär&lt;/span&gt;
+&lt;span class="badge badge-pill badge-secondary"&gt;Sekundär&lt;/span&gt;</code></pre>
+</section>
+
+<section id="outline" class="section">
+    <h3>Outline Badge</h3>
+    <div class="example">
+        <div class="badge-examples">
+            <span class="badge badge-outline">Outline</span>
+            <span class="badge badge-outline badge-primary">Primär</span>
+            <span class="badge badge-outline badge-secondary">Sekundär</span>
+        </div>
+    </div>
+    <pre><code>&lt;span class="badge badge-outline"&gt;Outline&lt;/span&gt;
+&lt;span class="badge badge-outline badge-primary"&gt;Primär&lt;/span&gt;
+&lt;span class="badge badge-outline badge-secondary"&gt;Sekundär&lt;/span&gt;</code></pre>
+</section>
+
+<section id="sizes" class="section">
+    <h3>Größen</h3>
+    <div class="example">
+        <div class="badge-examples">
+            <span class="badge badge-sm">Klein</span>
+            <span class="badge">Standard</span>
+            <span class="badge badge-lg">Groß</span>
+        </div>
+    </div>
+    <pre><code>&lt;span class="badge badge-sm"&gt;Klein&lt;/span&gt;
+&lt;span class="badge"&gt;Standard&lt;/span&gt;
+&lt;span class="badge badge-lg"&gt;Groß&lt;/span&gt;</code></pre>
+</section>
+
+<section id="icons" class="section">
+    <h3>Badge mit Icons</h3>
+    <div class="example">
+        <div class="badge-examples">
+            <span class="badge">
+                <i class="icon">🔔</i>
+                Benachrichtigungen
+            </span>
+            <span class="badge badge-primary">
+                <i class="icon">📧</i>
+                Nachrichten
+            </span>
+        </div>
+    </div>
+    <pre><code>&lt;span class="badge"&gt;
+    &lt;i class="icon"&gt;🔔&lt;/i&gt;
+    Benachrichtigungen
+&lt;/span&gt;
+&lt;span class="badge badge-primary"&gt;
+    &lt;i class="icon"&gt;📧&lt;/i&gt;
+    Nachrichten
+&lt;/span&gt;</code></pre>
+</section>
+
+<section id="javascript" class="section">
+    <h3>JavaScript-Integration</h3>
+    <p>Beispiel für die dynamische Aktualisierung von Badges:</p>
+    <pre><code>const badge = document.querySelector('.badge');
+
+// Badge-Text aktualisieren
+badge.textContent = 'Neuer Text';
+
+// Badge-Klasse ändern
+badge.classList.remove('badge-primary');
+badge.classList.add('badge-success');
+
+// Badge anzeigen/verstecken
+badge.style.display = 'none'; // Verstecken
+badge.style.display = 'inline-block'; // Anzeigen</code></pre>
+</section>
+
+<section id="alpine" class="section">
+    <h3>Alpine.js Integration</h3>
+    <p>Beispiel für die Verwendung mit Alpine.js:</p>
+    <pre><code>&lt;span 
+    class="badge" 
+    x-data="{ count: 0 }"
+    x-text="count"
+    @click="count++"&gt;
+&lt;/span&gt;</code></pre>
+</section> 

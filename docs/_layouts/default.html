@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} - {{ site.title }}</title>
+    <link rel="stylesheet" href="{{ site.baseurl }}/../core.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}/../hamburger.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}/../sidebar.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}/styles.css">
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body>
+    <div class="sidebar" x-data="sidebar" :class="{ 'sidebar-collapsed': !isOpen }">
+        <div class="sidebar-header">
+            <h1>Casoon UI</h1>
+            <button class="hamburger hamburger--squeeze" type="button" @click="toggle" :class="{ 'is-active': !isOpen }">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="{{ site.baseurl }}/">Übersicht</a></li>
+                <li>
+                    <span class="nav-section">Grundlagen</span>
+                    <ul>
+                        {% for page in site.foundation %}
+                        <li><a href="{{ page.url | relative_url }}">{{ page.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                <li>
+                    <span class="nav-section">Komponenten</span>
+                    <ul>
+                        {% for page in site.components %}
+                        <li><a href="{{ page.url | relative_url }}">{{ page.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                <li>
+                    <span class="nav-section">Beispiele</span>
+                    <ul>
+                        {% for page in site.examples %}
+                        <li><a href="{{ page.url | relative_url }}">{{ page.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <main class="main-content">
+        {{ content }}
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p><a href="https://www.casoon.de">Casoon</a> bietet individuelle Lösungen für Designsysteme, Web-Apps und E-Commerce – mit Fokus auf Performance, Wartbarkeit und Ästhetik.</p>
+        </div>
+    </footer>
+
+    <script src="{{ site.baseurl }}/docs.js"></script>
+</body>
+</html> 

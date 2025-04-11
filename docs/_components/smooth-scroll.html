@@ -1,0 +1,102 @@
+---
+layout: default
+title: Smooth Scroll
+---
+
+<section id="overview" class="section">
+    <h2>{{ page.title }}</h2>
+    <p>Sanftes Scrollen zu Ankern und Elementen auf der Seite.</p>
+</section>
+
+<section id="basic" class="section">
+    <h3>Basis Smooth Scroll</h3>
+    <div class="example">
+        <div class="smooth-scroll-example">
+            <nav>
+                <a href="#section1" class="smooth-scroll">Abschnitt 1</a>
+                <a href="#section2" class="smooth-scroll">Abschnitt 2</a>
+                <a href="#section3" class="smooth-scroll">Abschnitt 3</a>
+            </nav>
+            <div id="section1" class="scroll-section">Abschnitt 1</div>
+            <div id="section2" class="scroll-section">Abschnitt 2</div>
+            <div id="section3" class="scroll-section">Abschnitt 3</div>
+        </div>
+    </div>
+    <pre><code>&lt;nav&gt;
+    &lt;a href="#section1" class="smooth-scroll"&gt;Abschnitt 1&lt;/a&gt;
+    &lt;a href="#section2" class="smooth-scroll"&gt;Abschnitt 2&lt;/a&gt;
+    &lt;a href="#section3" class="smooth-scroll"&gt;Abschnitt 3&lt;/a&gt;
+&lt;/nav&gt;
+
+&lt;div id="section1" class="scroll-section"&gt;Abschnitt 1&lt;/div&gt;
+&lt;div id="section2" class="scroll-section"&gt;Abschnitt 2&lt;/div&gt;
+&lt;div id="section3" class="scroll-section"&gt;Abschnitt 3&lt;/div&gt;</code></pre>
+</section>
+
+<section id="options" class="section">
+    <h3>Scroll-Optionen</h3>
+    <div class="example">
+        <div class="smooth-scroll-options">
+            <button class="btn btn-primary" data-scroll="top">Nach oben scrollen</button>
+            <button class="btn btn-primary" data-scroll="bottom">Nach unten scrollen</button>
+            <button class="btn btn-primary" data-scroll="element" data-target="#target">Zu Element scrollen</button>
+            <div id="target" class="scroll-target">Ziel-Element</div>
+        </div>
+    </div>
+    <pre><code>&lt;button class="btn btn-primary" data-scroll="top"&gt;Nach oben scrollen&lt;/button&gt;
+&lt;button class="btn btn-primary" data-scroll="bottom"&gt;Nach unten scrollen&lt;/button&gt;
+&lt;button class="btn btn-primary" data-scroll="element" data-target="#target"&gt;Zu Element scrollen&lt;/button&gt;
+&lt;div id="target" class="scroll-target"&gt;Ziel-Element&lt;/div&gt;</code></pre>
+</section>
+
+<section id="offset" class="section">
+    <h3>Offset-Anpassung</h3>
+    <div class="example">
+        <div class="smooth-scroll-offset">
+            <a href="#offset-section" class="smooth-scroll" data-offset="100">Mit Offset scrollen</a>
+            <div id="offset-section" class="scroll-section">Abschnitt mit Offset</div>
+        </div>
+    </div>
+    <pre><code>&lt;a href="#offset-section" class="smooth-scroll" data-offset="100"&gt;Mit Offset scrollen&lt;/a&gt;
+&lt;div id="offset-section" class="scroll-section"&gt;Abschnitt mit Offset&lt;/div&gt;</code></pre>
+</section>
+
+<section id="javascript" class="section">
+    <h3>JavaScript-Integration</h3>
+    <p>Beispiel für die manuelle Initialisierung und Konfiguration:</p>
+    <pre><code>// Smooth Scroll initialisieren
+const smoothScroll = new SmoothScroll({
+    // Scroll-Geschwindigkeit in Millisekunden
+    speed: 800,
+    // Offset für fixierte Header
+    offset: 100,
+    // Easing-Funktion
+    easing: 'easeInOutCubic'
+});
+
+// Zu einem Element scrollen
+smoothScroll.scrollTo('#target');
+
+// Event-Listener für Scroll-Events
+document.addEventListener('scrollStart', () => {
+    console.log('Scroll gestartet');
+});
+
+document.addEventListener('scrollEnd', () => {
+    console.log('Scroll beendet');
+});</code></pre>
+</section>
+
+<section id="browser" class="section">
+    <h3>Browser-Kompatibilität</h3>
+    <p>Der Smooth-Scroll-Effekt wird von allen modernen Browsern unterstützt. Für ältere Browser wird ein Fallback auf das Standard-Scrollverhalten verwendet.</p>
+    <div class="compatibility">
+        <ul>
+            <li>Chrome: ✓ Unterstützt</li>
+            <li>Firefox: ✓ Unterstützt</li>
+            <li>Safari: ✓ Unterstützt</li>
+            <li>Edge: ✓ Unterstützt</li>
+            <li>IE11: Fallback</li>
+        </ul>
+    </div>
+</section> 

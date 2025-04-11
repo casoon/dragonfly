@@ -1,0 +1,155 @@
+---
+layout: default
+title: Sidebar
+---
+
+<section id="overview" class="section">
+    <h2>{{ page.title }}</h2>
+    <p>Eine responsive Seitenleiste für Navigation und Inhalte.</p>
+</section>
+
+<section id="basic" class="section">
+    <h3>Basis Sidebar</h3>
+    <div class="example">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h3>Seitenleiste</h3>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#">Link 1</a></li>
+                    <li><a href="#">Link 2</a></li>
+                    <li><a href="#">Link 3</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <pre><code>&lt;div class="sidebar"&gt;
+    &lt;div class="sidebar-header"&gt;
+        &lt;h3&gt;Seitenleiste&lt;/h3&gt;
+    &lt;/div&gt;
+    &lt;nav class="sidebar-nav"&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Link 1&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Link 2&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Link 3&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/nav&gt;
+&lt;/div&gt;</code></pre>
+</section>
+
+<section id="collapsible" class="section">
+    <h3>Zusammenklappbare Sidebar</h3>
+    <div class="example">
+        <div class="sidebar collapsible">
+            <div class="sidebar-header">
+                <h3>Seitenleiste</h3>
+                <button class="toggle-sidebar">Toggle</button>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#">Link 1</a></li>
+                    <li><a href="#">Link 2</a></li>
+                    <li><a href="#">Link 3</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <pre><code>&lt;div class="sidebar collapsible"&gt;
+    &lt;div class="sidebar-header"&gt;
+        &lt;h3&gt;Seitenleiste&lt;/h3&gt;
+        &lt;button class="toggle-sidebar"&gt;Toggle&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;nav class="sidebar-nav"&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Link 1&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Link 2&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Link 3&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/nav&gt;
+&lt;/div&gt;</code></pre>
+</section>
+
+<section id="nested" class="section">
+    <h3>Verschachtelte Navigation</h3>
+    <div class="example">
+        <div class="sidebar">
+            <nav class="sidebar-nav">
+                <ul>
+                    <li>
+                        <a href="#">Hauptmenü 1</a>
+                        <ul>
+                            <li><a href="#">Untermenü 1.1</a></li>
+                            <li><a href="#">Untermenü 1.2</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Hauptmenü 2</a>
+                        <ul>
+                            <li><a href="#">Untermenü 2.1</a></li>
+                            <li><a href="#">Untermenü 2.2</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <pre><code>&lt;div class="sidebar"&gt;
+    &lt;nav class="sidebar-nav"&gt;
+        &lt;ul&gt;
+            &lt;li&gt;
+                &lt;a href="#"&gt;Hauptmenü 1&lt;/a&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;Untermenü 1.1&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;Untermenü 1.2&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;a href="#"&gt;Hauptmenü 2&lt;/a&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;Untermenü 2.1&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;Untermenü 2.2&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/nav&gt;
+&lt;/div&gt;</code></pre>
+</section>
+
+<section id="alpine" class="section">
+    <h3>Alpine.js Integration</h3>
+    <p>Beispiel für die Verwendung mit Alpine.js:</p>
+    <pre><code>&lt;div class="sidebar" x-data="{ open: false }"&gt;
+    &lt;div class="sidebar-header"&gt;
+        &lt;h3&gt;Seitenleiste&lt;/h3&gt;
+        &lt;button @click="open = !open"&gt;Toggle&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;nav class="sidebar-nav" x-show="open"&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Link 1&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Link 2&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Link 3&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/nav&gt;
+&lt;/div&gt;</code></pre>
+</section>
+
+<section id="javascript" class="section">
+    <h3>JavaScript-Integration</h3>
+    <p>Beispiel für die manuelle Steuerung der Sidebar:</p>
+    <pre><code>const sidebar = document.querySelector('.sidebar');
+const toggleButton = document.querySelector('.toggle-sidebar');
+
+toggleButton.addEventListener('click', () => {
+    sidebar.classList.toggle('collapsed');
+});
+
+// Responsive Verhalten
+window.addEventListener('resize', () => {
+    if (window.innerWidth < 768) {
+        sidebar.classList.add('collapsed');
+    } else {
+        sidebar.classList.remove('collapsed');
+    }
+});</code></pre>
+</section> 

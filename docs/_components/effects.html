@@ -1,0 +1,98 @@
+---
+layout: default
+title: Effects
+---
+
+<section id="overview" class="section">
+    <h2>{{ page.title }}</h2>
+    <p>Visuelle Effekte für verbesserte Benutzerinteraktionen und Animationen.</p>
+</section>
+
+<section id="hover" class="section">
+    <h3>Hover-Effekte</h3>
+    <div class="example">
+        <div class="hover-effects">
+            <button class="btn btn-primary hover-scale">Hover Scale</button>
+            <button class="btn btn-primary hover-rotate">Hover Rotate</button>
+            <button class="btn btn-primary hover-shadow">Hover Shadow</button>
+        </div>
+    </div>
+    <pre><code>&lt;button class="btn btn-primary hover-scale"&gt;Hover Scale&lt;/button&gt;
+&lt;button class="btn btn-primary hover-rotate"&gt;Hover Rotate&lt;/button&gt;
+&lt;button class="btn btn-primary hover-shadow"&gt;Hover Shadow&lt;/button&gt;</code></pre>
+</section>
+
+<section id="transitions" class="section">
+    <h3>Übergänge</h3>
+    <div class="example">
+        <div class="transition-effects">
+            <button class="btn btn-primary transition-all">Transition All</button>
+            <button class="btn btn-primary transition-color">Transition Color</button>
+            <button class="btn btn-primary transition-transform">Transition Transform</button>
+        </div>
+    </div>
+    <pre><code>&lt;button class="btn btn-primary transition-all"&gt;Transition All&lt;/button&gt;
+&lt;button class="btn btn-primary transition-color"&gt;Transition Color&lt;/button&gt;
+&lt;button class="btn btn-primary transition-transform"&gt;Transition Transform&lt;/button&gt;</code></pre>
+</section>
+
+<section id="shadows" class="section">
+    <h3>Schatten</h3>
+    <div class="example">
+        <div class="shadow-effects">
+            <div class="shadow-sm">Kleiner Schatten</div>
+            <div class="shadow">Standard Schatten</div>
+            <div class="shadow-lg">Großer Schatten</div>
+        </div>
+    </div>
+    <pre><code>&lt;div class="shadow-sm"&gt;Kleiner Schatten&lt;/div&gt;
+&lt;div class="shadow"&gt;Standard Schatten&lt;/div&gt;
+&lt;div class="shadow-lg"&gt;Großer Schatten&lt;/div&gt;</code></pre>
+</section>
+
+<section id="opacity" class="section">
+    <h3>Transparenz</h3>
+    <div class="example">
+        <div class="opacity-effects">
+            <div class="opacity-25">25% Transparenz</div>
+            <div class="opacity-50">50% Transparenz</div>
+            <div class="opacity-75">75% Transparenz</div>
+        </div>
+    </div>
+    <pre><code>&lt;div class="opacity-25"&gt;25% Transparenz&lt;/div&gt;
+&lt;div class="opacity-50"&gt;50% Transparenz&lt;/div&gt;
+&lt;div class="opacity-75"&gt;75% Transparenz&lt;/div&gt;</code></pre>
+</section>
+
+<section id="blur" class="section">
+    <h3>Weichzeichnung</h3>
+    <div class="example">
+        <div class="blur-effects">
+            <div class="blur-sm">Leichte Weichzeichnung</div>
+            <div class="blur">Standard Weichzeichnung</div>
+            <div class="blur-lg">Starke Weichzeichnung</div>
+        </div>
+    </div>
+    <pre><code>&lt;div class="blur-sm"&gt;Leichte Weichzeichnung&lt;/div&gt;
+&lt;div class="blur"&gt;Standard Weichzeichnung&lt;/div&gt;
+&lt;div class="blur-lg"&gt;Starke Weichzeichnung&lt;/div&gt;</code></pre>
+</section>
+
+<section id="javascript" class="section">
+    <h3>JavaScript-Integration</h3>
+    <p>Beispiel für die dynamische Anwendung von Effekten:</p>
+    <pre><code>const element = document.querySelector('.element');
+
+// Hover-Effekt hinzufügen
+element.addEventListener('mouseenter', () => {
+    element.classList.add('hover-scale');
+});
+
+// Hover-Effekt entfernen
+element.addEventListener('mouseleave', () => {
+    element.classList.remove('hover-scale');
+});
+
+// Übergangseffekt hinzufügen
+element.classList.add('transition-all');</code></pre>
+</section> 
