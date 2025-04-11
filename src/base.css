@@ -1,8 +1,9 @@
 /* global.layout */
 
-@import 'open-props/style';
-@import 'open-props/normalize';
-@import 'open-props/open-props.min.css';
+
+@import url('open-props/style');
+@import url('open-props/normalize');
+@import url('open-props/open-props.min.css');
 
 /* Layout */
 @import 'layout/_grid.css';
@@ -15,15 +16,15 @@
     --primary: #3B82F6;    /* Modern Blue */
     --primary-dark: #2563EB;
     --primary-light: #60A5FA;
-    
+
     --secondary: #10B981;  /* Emerald Green */
     --secondary-dark: #059669;
     --secondary-light: #34D399;
-    
+
     --accent: #8B5CF6;     /* Violet */
     --accent-dark: #7C3AED;
     --accent-light: #A78BFA;
-    
+
     /* Neutral Colors */
     --gray-0: #FFFFFF;
     --gray-50: #F9FAFB;
@@ -37,18 +38,18 @@
     --gray-800: #1F2937;
     --gray-900: #111827;
     --gray-1000: #030712;
-    
+
     /* Status Colors */
     --success: #10B981;
     --warning: #F59E0B;
     --error: #EF4444;
     --info: #3B82F6;
-    
+
     /* Typography */
     --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     --font-serif: Georgia, Cambria, 'Times New Roman', Times, serif;
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
-    
+
     /* Spacing */
     --size-1: 0.25rem;
     --size-2: 0.5rem;
@@ -67,7 +68,7 @@
     --size-48: 12rem;
     --size-56: 14rem;
     --size-64: 16rem;
-    
+
     /* Border Radius */
     --radius-1: 0.125rem;
     --radius-2: 0.25rem;
@@ -76,19 +77,19 @@
     --radius-5: 0.75rem;
     --radius-6: 1rem;
     --radius-full: 9999px;
-    
+
     /* Shadows */
     --shadow-1: 0 1px 2px 0 rgb(0 0 0 / 0.05);
     --shadow-2: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
     --shadow-3: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
     --shadow-4: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
     --shadow-5: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-    
+
     /* Transitions */
     --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
     --transition-normal: 300ms cubic-bezier(0.4, 0, 0.2, 1);
     --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
-    
+
     /* Z-Index */
     --z-0: 0;
     --z-10: 10;
@@ -234,7 +235,7 @@ img {
     html {
         font-size: 14px;
     }
-    
+
     h1 { font-size: 2rem; }
     h2 { font-size: 1.75rem; }
     h3 { font-size: 1.5rem; }
@@ -249,21 +250,21 @@ img {
         background-color: white;
         color: black;
     }
-    
+
     a {
         text-decoration: underline;
     }
-    
+
     img {
         max-width: 100% !important;
         page-break-inside: avoid;
     }
-    
+
     h1, h2, h3, h4, h5, h6 {
         page-break-after: avoid;
         page-break-inside: avoid;
     }
-    
+
     p, ul, ol {
         orphans: 3;
         widows: 3;
@@ -286,12 +287,12 @@ img {
         --gray-900: #F9FAFB;
         --gray-1000: #FFFFFF;
     }
-    
+
     body {
         color: var(--gray-900);
         background-color: var(--gray-50);
     }
-    
+
     h1, h2, h3, h4, h5, h6 {
         color: var(--gray-900);
     }

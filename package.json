@@ -2,33 +2,64 @@
   "name": "casoon-ui-lib",
   "version": "1.0.0",
   "description": "UI-Bibliothek mit Open Props, Basis-Komponenten, Effekten und Alpine/Motion-Unterstützung",
+  "type": "module",
+  "style": "casoon-ui.min.css",
+  "main": "dist/casoon-ui.cjs",
+  "module": "dist/casoon-ui.module.js",
+  "types": "dist/casoon-ui.module.d.ts",
+  "files": [
+    "dist",
+    "src",
+    "components",
+    "utils"
+  ],
   "exports": {
-    "./reset.css": "./src/reset.css",
+    ".": {
+      "import": "./dist/casoon-ui.module.js",
+      "require": "./dist/casoon-ui.cjs",
+      "types": "./dist/casoon-ui.module.d.ts",
+      "default": "./dist/casoon-ui.cjs"
+    },
+    "./style": "./casoon-ui.min.css",
     "./base.css": "./src/base.css",
+    "./reset.css": "./src/reset.css",
     "./effects.css": "./src/effects.css",
     "./animations.css": "./src/animations.css",
-    "./components/Button.astro": "./src/components/Button.astro",
-    "./components/Grid.astro": "./src/components/Grid.astro",
-    "./components/Container.astro": "./src/components/Container.astro",
+    "./components/Button.astro": "./components/Button.astro",
+    "./components/Grid.astro": "./components/Grid.astro",
+    "./components/Container.astro": "./components/Container.astro",
     "./utils/scroll-animation": {
-      "types": "./src/utils/scroll-animation.ts",
-      "import": "./src/utils/scroll-animation.ts",
-      "require": "./dist/utils/scroll-animation.js"
+      "import": "./utils/scroll-animation.ts",
+      "types": "./utils/scroll-animation.ts"
     }
   },
-  "keywords": ["astro", "css", "ui", "components", "open-props", "alpinejs", "motion"],
-  "author": "Jörn Seidel",
-  "license": "MIT",
+  "keywords": [
+    "astro",
+    "css",
+    "ui",
+    "components",
+    "open-props",
+    "alpinejs",
+    "motion"
+  ],
   "peerDependencies": {
+    "open-props": "^1.7.15",
     "alpinejs": "^3.14.9",
-    "motion": "12.6.3",
-    "open-props": "^1.7.15"
+    "motion": "^12.6.3"
   },
   "devDependencies": {
-    "alpinejs": "^3.14.9",
-    "motion": "^12.6.3",
-    "open-props": "^1.7.15",
-    "typescript": "^5.3.3",
-    "@types/node": "^20.11.19"
+    "postcss": "^8.5.3",
+    "postcss-cli": "^11.0.1",
+    "postcss-import": "^16.1.0",
+    "postcss-preset-env": "^10.1.5",
+    "cssnano": "^7.0.6",
+    "typescript": "^5.8.3",
+    "@types/node": "^22.14.0"
+  },
+  "scripts": {
+    "build:css": "postcss src/index.css -o dist/casoon-ui.min.css",
+    "build:js": "cp src/index.js dist/casoon-ui.module.js && cp src/index.js dist/casoon-ui.cjs",
+    "build:types": "tsc",
+    "build": "npm run build:css && npm run build:js && npm run build:types"
   }
 }

@@ -1,9 +1,7 @@
-@import "open-props";
-
 /* Neon Text Effekte */
 .neon-text {
     color: var(--color-primary);
-    text-shadow: 
+    text-shadow:
         0 0 5px var(--color-primary),
         0 0 10px var(--color-primary),
         0 0 20px var(--color-primary);
@@ -12,7 +10,7 @@
 
 .neon-text-secondary {
     color: var(--color-secondary);
-    text-shadow: 
+    text-shadow:
         0 0 5px var(--color-secondary),
         0 0 10px var(--color-secondary),
         0 0 20px var(--color-secondary);
@@ -21,7 +19,7 @@
 
 .neon-text-accent {
     color: var(--color-accent);
-    text-shadow: 
+    text-shadow:
         0 0 5px var(--color-accent),
         0 0 10px var(--color-accent),
         0 0 20px var(--color-accent);
@@ -31,13 +29,13 @@
 /* Neon Animationen */
 @keyframes neon-pulse {
     0%, 100% {
-        text-shadow: 
+        text-shadow:
             0 0 5px currentColor,
             0 0 10px currentColor,
             0 0 20px currentColor;
     }
     50% {
-        text-shadow: 
+        text-shadow:
             0 0 10px currentColor,
             0 0 20px currentColor,
             0 0 30px currentColor;
@@ -59,7 +57,7 @@
 
 @keyframes neon-flicker {
     0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-        text-shadow: 
+        text-shadow:
             0 0 5px currentColor,
             0 0 10px currentColor,
             0 0 20px currentColor;
@@ -75,7 +73,7 @@
 }
 
 .neon-text-hover:hover {
-    text-shadow: 
+    text-shadow:
         0 0 10px currentColor,
         0 0 20px currentColor,
         0 0 30px currentColor;
@@ -84,7 +82,7 @@
 /* Neon Border Effekte */
 .neon-border {
     border: 2px solid var(--color-primary);
-    box-shadow: 
+    box-shadow:
         0 0 5px var(--color-primary),
         0 0 10px var(--color-primary),
         inset 0 0 5px var(--color-primary);
@@ -93,13 +91,13 @@
 
 @keyframes neon-border-pulse {
     0%, 100% {
-        box-shadow: 
+        box-shadow:
             0 0 5px currentColor,
             0 0 10px currentColor,
             inset 0 0 5px currentColor;
     }
     50% {
-        box-shadow: 
+        box-shadow:
             0 0 10px currentColor,
             0 0 20px currentColor,
             inset 0 0 10px currentColor;
