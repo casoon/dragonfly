@@ -27,6 +27,11 @@ jobs:
           mkdir -p docs/css/themes
           cp -r themes/*.css docs/css/themes/
 
+      - name: 📂 Copy Components to /docs/css/components
+        run: |
+          mkdir -p docs/css/components
+          cp -r components/*.css docs/css/components/
+
       - name: ✅ Commit and push changes
         run: |
           git config user.name "GitHub Actions"

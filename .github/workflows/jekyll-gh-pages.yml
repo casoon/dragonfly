@@ -2,7 +2,8 @@ name: Deploy Jekyll site from /docs to GitHub Pages
 
 on:
   push:
-    branches: [master]  # oder dein default branch, z. B. "main"
+    branches:
+      - master  # passe ggf. deinen Branchnamen an
   workflow_dispatch:    # manuelles Ausführen ermöglichen
 
 permissions:
