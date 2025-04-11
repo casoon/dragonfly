@@ -1,0 +1,28 @@
+name: Copy CSS to /docs
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  copy-and-commit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v3
+
+      - name: 🗂 Create /docs/css if needed
+        run: mkdir -p docs/css
+
+      - name: 📄 Copy CSS files to /docs/css
+        run: cp -r *.css docs/css/
+
+      - name: ✅ Commit and push changes
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add docs/css
+          git commit -m "🧹 Auto-copy CSS files to /docs/css" || echo "No changes to commit"
+          git push
