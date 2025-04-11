@@ -27,10 +27,10 @@ jobs:
           mkdir -p docs/css/themes
           cp -r themes/*.css docs/css/themes/
 
-      - name: 📂 Copy Components to /docs/css/components
+      - name: 📂 Copy Components to /docs/css/base/components
         run: |
-          mkdir -p docs/css/components
-          cp -r components/*.css docs/css/components/
+          mkdir -p docs/css/base/components
+          cp -r base/components/*.css docs/css/base/components/
 
       - name: 📂 Copy Base to /docs/css/base
         run: |

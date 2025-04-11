@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - master  # passe ggf. deinen Branchnamen an
+    paths:
+    - 'docs/**'
   workflow_dispatch:    # manuelles Ausführen ermöglichen
 
 permissions:
