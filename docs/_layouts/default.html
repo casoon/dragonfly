@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ page.title }} - {{ site.title }}</title>
-    <link rel="stylesheet" href="{{ site.baseurl }}/../core.css">
-    <link rel="stylesheet" href="{{ site.baseurl }}/../hamburger.css">
-    <link rel="stylesheet" href="{{ site.baseurl }}/../sidebar.css">
+    <title>{{ page.title }} - Casoon UI Library</title>
+    <link rel="stylesheet" href="https://casoon.github.io/casoon-ui-lib/core.css">
+    <link rel="stylesheet" href="https://casoon.github.io/casoon-ui-lib/hamburger.css">
+    <link rel="stylesheet" href="https://casoon.github.io/casoon-ui-lib/sidebar.css">
     <link rel="stylesheet" href="{{ site.baseurl }}/styles.css">
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://unpkg.com/alpinejs" defer></script>
 </head>
 <body>
     <div class="sidebar" x-data="sidebar" :class="{ 'sidebar-collapsed': !isOpen }">
