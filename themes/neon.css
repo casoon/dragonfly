@@ -1,0 +1,30 @@
+:root {
+  /* Neon Theme */
+  --color-primary: #00ff00;
+  --color-primary-light: #33ff33;
+  --color-primary-dark: #00cc00;
+  
+  --color-secondary: #ff00ff;
+  --color-secondary-light: #ff33ff;
+  --color-secondary-dark: #cc00cc;
+  
+  --color-accent: #00ffff;
+  --color-accent-light: #33ffff;
+  --color-accent-dark: #00cccc;
+  
+  --color-success: #00ff00;
+  --color-warning: #ffff00;
+  --color-error: #ff0000;
+  --color-info: #0000ff;
+  
+  /* Grayscale */
+  --color-gray-100: #ffffff;
+  --color-gray-200: #e6e6e6;
+  --color-gray-300: #cccccc;
+  --color-gray-400: #b3b3b3;
+  --color-gray-500: #999999;
+  --color-gray-600: #808080;
+  --color-gray-700: #666666;
+  --color-gray-800: #4d4d4d;
+  --color-gray-900: #333333;
+} 

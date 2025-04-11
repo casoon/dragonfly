@@ -1,34 +1,55 @@
-# Node modules & logs
-node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# Build output (z. B. wenn du bundlest)
-dist/
-build/
-.temp/
-
-# IDEs & Editor-Settings
-.vscode/
-.idea/
-*.swp
-
-# System Files
+# Betriebssystem Dateien
 .DS_Store
 Thumbs.db
+desktop.ini
 
-# Environment & Auth
+# IDE und Editor Dateien
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Node.js
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# Build und Distribution
+dist/
+build/
+*.min.css
+*.min.css.map
+
+# Dependencies
+.cache/
+.temp/
+
+# Test und Coverage
+coverage/
+.nyc_output/
+
+# Environment
 .env
 .env.local
+.env.*.local
 
-# Optional für Mac/Linux/Windows-spezifische Dateien
+# Logs
+logs/
+*.log
+
+# Temporäre Dateien
+tmp/
+temp/
+
+# Dokumentation
+docs/_build/
+site/
+
+# Sonstiges
 *.bak
 *.tmp
-
-# Git
-.git/
-
-# Test coverage / Cache
-coverage/
-.cache/
+*.temp
