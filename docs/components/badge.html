@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Badge - Casoon UI Library</title>
+    <link rel="stylesheet" href="../../_reset.css">
+    <link rel="stylesheet" href="../../_tokens.css">
+    <link rel="stylesheet" href="../../_typography.css">
+    <link rel="stylesheet" href="../../_layout.css">
+    <link rel="stylesheet" href="../../_utilities.css">
+    <link rel="stylesheet" href="../../_sidebar.css">
+    <link rel="stylesheet" href="../../_hamburger.css">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h1>Casoon UI</h1>
+            <button class="hamburger hamburger--squeeze" type="button">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="../index.html">← Zurück zur Übersicht</a></li>
+                <li><a href="#overview">Übersicht</a></li>
+                <li><a href="#variants">Varianten</a></li>
+                <li><a href="#sizes">Größen</a></li>
+                <li><a href="#usage">Verwendung</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <main class="main-content">
+        <section id="overview" class="section">
+            <h2>Badge</h2>
+            <p>Die Badge-Komponente wird verwendet, um kleine Informationsblöcke oder Statusindikatoren anzuzeigen.</p>
+        </section>
+
+        <section id="variants" class="section">
+            <h3>Varianten</h3>
+            <div class="example">
+                <span class="badge">Standard</span>
+                <span class="badge badge-primary">Primary</span>
+                <span class="badge badge-secondary">Secondary</span>
+                <span class="badge badge-success">Success</span>
+                <span class="badge badge-warning">Warning</span>
+                <span class="badge badge-error">Error</span>
+                <span class="badge badge-info">Info</span>
+            </div>
+            <pre><code>&lt;span class="badge"&gt;Standard&lt;/span&gt;
+&lt;span class="badge badge-primary"&gt;Primary&lt;/span&gt;
+&lt;span class="badge badge-secondary"&gt;Secondary&lt;/span&gt;
+&lt;span class="badge badge-success"&gt;Success&lt;/span&gt;
+&lt;span class="badge badge-warning"&gt;Warning&lt;/span&gt;
+&lt;span class="badge badge-error"&gt;Error&lt;/span&gt;
+&lt;span class="badge badge-info"&gt;Info&lt;/span&gt;</code></pre>
+        </section>
+
+        <section id="sizes" class="section">
+            <h3>Größen</h3>
+            <div class="example">
+                <span class="badge badge-sm">Klein</span>
+                <span class="badge">Mittel</span>
+                <span class="badge badge-lg">Groß</span>
+            </div>
+            <pre><code>&lt;span class="badge badge-sm"&gt;Klein&lt;/span&gt;
+&lt;span class="badge"&gt;Mittel&lt;/span&gt;
+&lt;span class="badge badge-lg"&gt;Groß&lt;/span&gt;</code></pre>
+        </section>
+
+        <section id="usage" class="section">
+            <h3>Verwendung</h3>
+            <p>Badges können in verschiedenen Kontexten verwendet werden:</p>
+            <div class="example">
+                <h4>Mit Buttons</h4>
+                <button class="btn">
+                    Benachrichtigungen
+                    <span class="badge badge-primary">3</span>
+                </button>
+
+                <h4>Mit Icons</h4>
+                <span class="icon">🔔</span>
+                <span class="badge badge-error">5</span>
+
+                <h4>Mit Text</h4>
+                <p>
+                    Neuer Artikel
+                    <span class="badge badge-success">Neu</span>
+                </p>
+
+                <h4>Mit Cards</h4>
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Projekt Status</h3>
+                        <span class="badge badge-warning">In Bearbeitung</span>
+                    </div>
+                    <div class="card-body">
+                        <p>Projektbeschreibung...</p>
+                    </div>
+                </div>
+            </div>
+            <pre><code>&lt;!-- Mit Buttons --&gt;
+&lt;button class="btn"&gt;
+    Benachrichtigungen
+    &lt;span class="badge badge-primary"&gt;3&lt;/span&gt;
+&lt;/button&gt;
+
+&lt;!-- Mit Icons --&gt;
+&lt;span class="icon"&gt;🔔&lt;/span&gt;
+&lt;span class="badge badge-error"&gt;5&lt;/span&gt;
+
+&lt;!-- Mit Text --&gt;
+&lt;p&gt;
+    Neuer Artikel
+    &lt;span class="badge badge-success"&gt;Neu&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;!-- Mit Cards --&gt;
+&lt;div class="card"&gt;
+    &lt;div class="card-header"&gt;
+        &lt;h3&gt;Projekt Status&lt;/h3&gt;
+        &lt;span class="badge badge-warning"&gt;In Bearbeitung&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="card-body"&gt;
+        &lt;p&gt;Projektbeschreibung...&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </section>
+    </main>
+
+    <script src="../docs.js"></script>
+</body>
+</html> 

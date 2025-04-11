@@ -16,8 +16,14 @@ casoon-ui-lib/
 ├── _tokens.css        # Design Tokens
 ├── _typography.css    # Typografie-System
 ├── _utilities.css     # Utility-Klassen
+├── animations.css     # Animations-Effekte
+├── sidebar.css        # Sidebar-Komponente
+├── slider.css         # Slider-Komponente
 ├── core.css           # Importiert Basis-Module und ausgewählte Komponenten
+├── components/        # Einzelne Komponenten
+├── themes/            # Design-Themes
 ├── .gitignore
+├── CONTRIBUTING.md    # Beitragsrichtlinien
 └── README.md
 ```
 
@@ -46,6 +52,8 @@ casoon-ui-lib/
   - Buttons
   - Cards
   - Badges
+- `sidebar.css`: Sidebar-Komponente
+- `slider.css`: Slider-Komponente
 
 ### Formulare
 - `_forms.css`: Formularelemente
@@ -59,10 +67,15 @@ casoon-ui-lib/
 - `_effects.css`: Spezialeffekte
   - Neon-Effekte
   - Animationen
+- `animations.css`: Animations-Effekte
 
 ### Navigation
 - `_hamburger.css`: Hamburger-Menü-Varianten
 - `_smooth-scroll.css`: Scroll-Effekte
+
+### Verzeichnisse
+- `components/`: Einzelne Komponenten
+- `themes/`: Design-Themes
 
 ## Verwendung
 
@@ -83,6 +96,8 @@ casoon-ui-lib/
 2. Installieren Sie die Abhängigkeiten (falls vorhanden)
 3. Bearbeiten Sie die CSS-Dateien nach Bedarf
 4. Kompilieren Sie die Dateien (falls ein Build-Prozess eingerichtet ist)
+
+Für Details zur Mitarbeit am Projekt, lesen Sie bitte [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Lizenz
 

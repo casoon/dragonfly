@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animations - Casoon UI Library</title>
+    <link rel="stylesheet" href="../../_reset.css">
+    <link rel="stylesheet" href="../../_tokens.css">
+    <link rel="stylesheet" href="../../_typography.css">
+    <link rel="stylesheet" href="../../_layout.css">
+    <link rel="stylesheet" href="../../_utilities.css">
+    <link rel="stylesheet" href="../../_sidebar.css">
+    <link rel="stylesheet" href="../../_hamburger.css">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h1>Casoon UI</h1>
+            <button class="hamburger hamburger--squeeze" type="button">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="../index.html">← Zurück zur Übersicht</a></li>
+                <li><a href="#overview">Übersicht</a></li>
+                <li><a href="#fade">Fade-Animationen</a></li>
+                <li><a href="#slide">Slide-Animationen</a></li>
+                <li><a href="#scale">Scale-Animationen</a></li>
+                <li><a href="#rotate">Rotations-Animationen</a></li>
+                <li><a href="#custom">Benutzerdefinierte Animationen</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <main class="main-content">
+        <section id="overview" class="section">
+            <h2>Animations</h2>
+            <p>Die Animations-Komponenten bieten verschiedene Animationseffekte für Elemente.</p>
+        </section>
+
+        <section id="fade" class="section">
+            <h3>Fade-Animationen</h3>
+            <div class="example">
+                <div class="animation-fade-in">
+                    <p>Fade In Animation</p>
+                </div>
+                <div class="animation-fade-out">
+                    <p>Fade Out Animation</p>
+                </div>
+            </div>
+            <pre><code>&lt;div class="animation-fade-in"&gt;
+    &lt;p&gt;Fade In Animation&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class="animation-fade-out"&gt;
+    &lt;p&gt;Fade Out Animation&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+        </section>
+
+        <section id="slide" class="section">
+            <h3>Slide-Animationen</h3>
+            <div class="example">
+                <div class="animation-slide-in">
+                    <p>Slide In Animation</p>
+                </div>
+                <div class="animation-slide-out">
+                    <p>Slide Out Animation</p>
+                </div>
+            </div>
+            <pre><code>&lt;div class="animation-slide-in"&gt;
+    &lt;p&gt;Slide In Animation&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class="animation-slide-out"&gt;
+    &lt;p&gt;Slide Out Animation&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+        </section>
+
+        <section id="scale" class="section">
+            <h3>Scale-Animationen</h3>
+            <div class="example">
+                <div class="animation-scale-in">
+                    <p>Scale In Animation</p>
+                </div>
+                <div class="animation-scale-out">
+                    <p>Scale Out Animation</p>
+                </div>
+            </div>
+            <pre><code>&lt;div class="animation-scale-in"&gt;
+    &lt;p&gt;Scale In Animation&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class="animation-scale-out"&gt;
+    &lt;p&gt;Scale Out Animation&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+        </section>
+
+        <section id="rotate" class="section">
+            <h3>Rotations-Animationen</h3>
+            <div class="example">
+                <div class="animation-rotate">
+                    <p>Rotations-Animation</p>
+                </div>
+                <div class="animation-spin">
+                    <p>Spin-Animation</p>
+                </div>
+            </div>
+            <pre><code>&lt;div class="animation-rotate"&gt;
+    &lt;p&gt;Rotations-Animation&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class="animation-spin"&gt;
+    &lt;p&gt;Spin-Animation&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+        </section>
+
+        <section id="custom" class="section">
+            <h3>Benutzerdefinierte Animationen</h3>
+            <div class="example">
+                <div class="animation-custom">
+                    <p>Benutzerdefinierte Animation</p>
+                </div>
+            </div>
+            <pre><code>/* CSS für benutzerdefinierte Animation */
+@keyframes custom-animation {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.animation-custom {
+    animation: custom-animation 2s infinite;
+}</code></pre>
+        </section>
+    </main>
+
+    <script src="../docs.js"></script>
+</body>
+</html> 

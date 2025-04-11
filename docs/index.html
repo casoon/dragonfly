@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casoon UI Library - Dokumentation</title>
+    <link rel="stylesheet" href="core.css">
+    <link rel="stylesheet" href="hamburger.css">
+    <link rel="stylesheet" href="sidebar.css">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body>
+    <div class="sidebar" x-data="sidebar" :class="{ 'sidebar-collapsed': !isOpen }">
+        <div class="sidebar-header">
+            <h1>Casoon UI</h1>
+            <button class="hamburger hamburger--squeeze" type="button" @click="toggle" :class="{ 'is-active': !isOpen }">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="#overview">Übersicht</a></li>
+                <li>
+                    <span class="nav-section">Grundlagen</span>
+                    <ul>
+                        <li><a href="foundation/tokens.html">Design Tokens</a></li>
+                        <li><a href="foundation/typography.html">Typografie</a></li>
+                        <li><a href="foundation/layout.html">Layout</a></li>
+                        <li><a href="foundation/utilities.html">Utilities</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="nav-section">Komponenten</span>
+                    <ul>
+                        <li><a href="components/button.html">Buttons</a></li>
+                        <li><a href="components/card.html">Cards</a></li>
+                        <li><a href="components/badge.html">Badges</a></li>
+                        <li><a href="components/forms.html">Formulare</a></li>
+                        <li><a href="components/sidebar.html">Sidebar</a></li>
+                        <li><a href="components/hamburger.html">Hamburger Menu</a></li>
+                        <li><a href="components/slider.html">Slider</a></li>
+                        <li><a href="components/effects.html">Effekte</a></li>
+                        <li><a href="components/smooth-scroll.html">Smooth Scroll</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="nav-section">Beispiele</span>
+                    <ul>
+                        <li><a href="examples/dashboard.html">Dashboard</a></li>
+                        <li><a href="examples/landing.html">Landing Page</a></li>
+                        <li><a href="examples/form.html">Formular</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <main class="main-content">
+        <section id="overview" class="section">
+            <h1>Casoon UI Library</h1>
+            <p class="lead">Eine moderne, responsive UI-Bibliothek für Webanwendungen.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="card">
+                    <h3>Grundlagen</h3>
+                    <p>Die Basis der UI-Bibliothek mit Design Tokens, Typografie und Layout-Systemen.</p>
+                    <ul class="list-disc pl-4 mt-2">
+                        <li><a href="foundation/tokens.html">Design Tokens</a></li>
+                        <li><a href="foundation/typography.html">Typografie</a></li>
+                        <li><a href="foundation/layout.html">Layout</a></li>
+                        <li><a href="foundation/utilities.html">Utilities</a></li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Komponenten</h3>
+                    <p>Vorgefertigte UI-Komponenten für schnelle Entwicklung.</p>
+                    <ul class="list-disc pl-4 mt-2">
+                        <li><a href="components/button.html">Buttons</a></li>
+                        <li><a href="components/card.html">Cards</a></li>
+                        <li><a href="components/badge.html">Badges</a></li>
+                        <li><a href="components/forms.html">Formulare</a></li>
+                        <li><a href="components/sidebar.html">Sidebar</a></li>
+                        <li><a href="components/hamburger.html">Hamburger Menu</a></li>
+                        <li><a href="components/slider.html">Slider</a></li>
+                        <li><a href="components/effects.html">Effekte</a></li>
+                        <li><a href="components/smooth-scroll.html">Smooth Scroll</a></li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Beispiele</h3>
+                    <p>Praktische Beispiele für die Verwendung der Komponenten.</p>
+                    <ul class="list-disc pl-4 mt-2">
+                        <li><a href="examples/dashboard.html">Dashboard</a></li>
+                        <li><a href="examples/landing.html">Landing Page</a></li>
+                        <li><a href="examples/form.html">Formular</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-8">
+                <h2>Installation</h2>
+                <p>Fügen Sie die folgenden CSS-Dateien in Ihr Projekt ein:</p>
+                <pre><code>&lt;link rel="stylesheet" href="path/to/_reset.css"&gt;
+&lt;link rel="stylesheet" href="path/to/_tokens.css"&gt;
+&lt;link rel="stylesheet" href="path/to/_typography.css"&gt;
+&lt;link rel="stylesheet" href="path/to/_layout.css"&gt;
+&lt;link rel="stylesheet" href="path/to/_utilities.css"&gt;
+&lt;link rel="stylesheet" href="path/to/sidebar.css"&gt;
+&lt;link rel="stylesheet" href="path/to/hamburger.css"&gt;</code></pre>
+            </div>
+        </section>
+    </main>
+
+    <script src="docs.js"></script>
+</body>
+</html> 

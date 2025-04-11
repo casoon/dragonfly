@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout - Casoon UI Library</title>
+    <link rel="stylesheet" href="../../_reset.css">
+    <link rel="stylesheet" href="../../_tokens.css">
+    <link rel="stylesheet" href="../../_typography.css">
+    <link rel="stylesheet" href="../../_layout.css">
+    <link rel="stylesheet" href="../../_utilities.css">
+    <link rel="stylesheet" href="../../_sidebar.css">
+    <link rel="stylesheet" href="../../_hamburger.css">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h1>Casoon UI</h1>
+            <button class="hamburger hamburger--squeeze" type="button">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="../index.html">← Zurück zur Übersicht</a></li>
+                <li><a href="#overview">Übersicht</a></li>
+                <li><a href="#container">Container</a></li>
+                <li><a href="#grid">Grid-System</a></li>
+                <li><a href="#columns">Spalten</a></li>
+                <li><a href="#gaps">Abstände</a></li>
+                <li><a href="#responsive">Responsive Design</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <main class="main-content">
+        <section id="overview" class="section">
+            <h2>Layout</h2>
+            <p>Die Layout-Komponenten bieten grundlegende Strukturen für das Seitenlayout.</p>
+        </section>
+
+        <section id="container" class="section">
+            <h3>Container</h3>
+            <div class="example">
+                <div class="container">
+                    <p>Standard Container mit maximaler Breite</p>
+                </div>
+                <div class="container-fluid">
+                    <p>Fluid Container mit voller Breite</p>
+                </div>
+            </div>
+            <pre><code>&lt;div class="container"&gt;
+    &lt;p&gt;Standard Container mit maximaler Breite&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class="container-fluid"&gt;
+    &lt;p&gt;Fluid Container mit voller Breite&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+        </section>
+
+        <section id="grid" class="section">
+            <h3>Grid-System</h3>
+            <div class="example">
+                <div class="grid grid-cols-12 gap-4">
+                    <div class="col-span-12">Volle Breite</div>
+                    <div class="col-span-6">Halbe Breite</div>
+                    <div class="col-span-6">Halbe Breite</div>
+                    <div class="col-span-4">Ein Drittel</div>
+                    <div class="col-span-4">Ein Drittel</div>
+                    <div class="col-span-4">Ein Drittel</div>
+                </div>
+            </div>
+            <pre><code>&lt;div class="grid grid-cols-12 gap-4"&gt;
+    &lt;div class="col-span-12"&gt;Volle Breite&lt;/div&gt;
+    &lt;div class="col-span-6"&gt;Halbe Breite&lt;/div&gt;
+    &lt;div class="col-span-6"&gt;Halbe Breite&lt;/div&gt;
+    &lt;div class="col-span-4"&gt;Ein Drittel&lt;/div&gt;
+    &lt;div class="col-span-4"&gt;Ein Drittel&lt;/div&gt;
+    &lt;div class="col-span-4"&gt;Ein Drittel&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </section>
+
+        <section id="columns" class="section">
+            <h3>Spalten</h3>
+            <div class="example">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div>Spalte 1</div>
+                    <div>Spalte 2</div>
+                    <div>Spalte 3</div>
+                </div>
+            </div>
+            <pre><code>&lt;div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"&gt;
+    &lt;div&gt;Spalte 1&lt;/div&gt;
+    &lt;div&gt;Spalte 2&lt;/div&gt;
+    &lt;div&gt;Spalte 3&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </section>
+
+        <section id="gaps" class="section">
+            <h3>Abstände</h3>
+            <div class="example">
+                <div class="grid grid-cols-3 gap-2">
+                    <div>Kleiner Abstand</div>
+                    <div>Kleiner Abstand</div>
+                    <div>Kleiner Abstand</div>
+                </div>
+                <div class="grid grid-cols-3 gap-4">
+                    <div>Mittlerer Abstand</div>
+                    <div>Mittlerer Abstand</div>
+                    <div>Mittlerer Abstand</div>
+                </div>
+                <div class="grid grid-cols-3 gap-8">
+                    <div>Großer Abstand</div>
+                    <div>Großer Abstand</div>
+                    <div>Großer Abstand</div>
+                </div>
+            </div>
+            <pre><code>&lt;div class="grid grid-cols-3 gap-2"&gt;
+    &lt;div&gt;Kleiner Abstand&lt;/div&gt;
+    &lt;div&gt;Kleiner Abstand&lt;/div&gt;
+    &lt;div&gt;Kleiner Abstand&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="grid grid-cols-3 gap-4"&gt;
+    &lt;div&gt;Mittlerer Abstand&lt;/div&gt;
+    &lt;div&gt;Mittlerer Abstand&lt;/div&gt;
+    &lt;div&gt;Mittlerer Abstand&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="grid grid-cols-3 gap-8"&gt;
+    &lt;div&gt;Großer Abstand&lt;/div&gt;
+    &lt;div&gt;Großer Abstand&lt;/div&gt;
+    &lt;div&gt;Großer Abstand&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </section>
+
+        <section id="responsive" class="section">
+            <h3>Responsive Design</h3>
+            <div class="example">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <div>Responsive Item</div>
+                    <div>Responsive Item</div>
+                    <div>Responsive Item</div>
+                    <div>Responsive Item</div>
+                </div>
+            </div>
+            <pre><code>&lt;div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"&gt;
+    &lt;div&gt;Responsive Item&lt;/div&gt;
+    &lt;div&gt;Responsive Item&lt;/div&gt;
+    &lt;div&gt;Responsive Item&lt;/div&gt;
+    &lt;div&gt;Responsive Item&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            <p>Breakpoints:</p>
+            <ul>
+                <li>sm: 640px</li>
+                <li>md: 768px</li>
+                <li>lg: 1024px</li>
+                <li>xl: 1280px</li>
+                <li>2xl: 1536px</li>
+            </ul>
+        </section>
+    </main>
+
+    <script src="../docs.js"></script>
+</body>
+</html> 
