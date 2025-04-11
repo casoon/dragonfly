@@ -6,23 +6,30 @@ Eine modulare CSS-Bibliothek für moderne Webanwendungen.
 
 ```
 casoon-ui-lib/
-├── _components.css    # UI-Komponenten (Buttons, Cards, Badges)
-├── _effects.css       # Spezialeffekte (Neon, Animationen)
-├── _forms.css         # Formularelemente
-├── _hamburger.css     # Hamburger-Menü-Varianten
-├── _layout.css        # Layout-System (Grid, Flexbox)
-├── _reset.css         # CSS Reset
-├── _smooth-scroll.css # Scroll-Effekte
-├── _tokens.css        # Design Tokens
-├── _typography.css    # Typografie-System
-├── _utilities.css     # Utility-Klassen
+├── base/              # Basis-Module
+│   ├── tokens.css     # Design Tokens
+│   ├── reset.css      # CSS Reset
+│   ├── typography.css # Typografie-System
+│   ├── layout.css     # Layout-System
+│   ├── utilities.css  # Utility-Klassen
+│   ├── components.css # Basis-Komponenten
+│   ├── forms.css      # Formularelemente
+│   └── smooth-scroll.css # Scroll-Effekte
 ├── animations.css     # Animations-Effekte
+├── effects.css        # Spezialeffekte
+├── hamburger.css      # Hamburger-Menü
 ├── sidebar.css        # Sidebar-Komponente
 ├── slider.css         # Slider-Komponente
-├── core.css           # Importiert Basis-Module und ausgewählte Komponenten
-├── components/        # Einzelne Komponenten
-├── themes/            # Design-Themes
+├── core.css           # Importiert Basis-Module
 ├── docs/              # Dokumentation
+│   ├── _components/   # Komponenten-Dokumentation
+│   ├── _foundation/   # Basis-Module Dokumentation
+│   ├── _examples/     # Beispiele
+│   ├── _layouts/      # Jekyll Layouts
+│   ├── css/           # CSS für Dokumentation
+│   ├── _config.yml    # Jekyll Konfiguration
+│   └── index.html     # Startseite
+├── themes/            # Design-Themes
 ├── .gitignore
 ├── CONTRIBUTING.md    # Beitragsrichtlinien
 └── README.md
@@ -35,70 +42,52 @@ Die vollständige Dokumentation ist unter [https://casoon.github.io/casoon-ui-li
 ## CSS-Module
 
 ### Core
-- `core.css`: Importiert folgende Module:
-  - `_reset.css`
-  - `_tokens.css`
-  - `_typography.css`
-  - `_layout.css`
-  - `_utilities.css`
-  - `_components.css`
-  - `_forms.css`
-  - `_smooth-scroll.css`
+- `core.css`: Importiert folgende Basis-Module:
+  - `base/tokens.css`
+  - `base/reset.css`
+  - `base/typography.css`
+  - `base/layout.css`
+  - `base/utilities.css`
+  - `base/components.css`
+  - `base/forms.css`
+  - `base/smooth-scroll.css`
 
-### Basis
-- `_reset.css`: Moderner CSS Reset
-- `_tokens.css`: Design Tokens (Farben, Schatten, etc.)
-- `_typography.css`: Typografie-System
-- `_layout.css`: Layout-System (Grid, Flexbox)
-- `_utilities.css`: Utility-Klassen
+### Basis-Module (base/)
+- `tokens.css`: Design Tokens (Farben, Schatten, etc.)
+- `reset.css`: Moderner CSS Reset
+- `typography.css`: Typografie-System
+- `layout.css`: Layout-System (Grid, Flexbox)
+- `utilities.css`: Utility-Klassen
+- `components.css`: Basis-Komponenten
+- `forms.css`: Formularelemente
+- `smooth-scroll.css`: Scroll-Effekte
 
 ### Komponenten
-- `_components.css`: UI-Komponenten
-  - Buttons
-  - Cards
-  - Badges
+- `animations.css`: Animations-Effekte
+- `effects.css`: Spezialeffekte
+- `hamburger.css`: Hamburger-Menü
 - `sidebar.css`: Sidebar-Komponente
 - `slider.css`: Slider-Komponente
 
-### Formulare
-- `_forms.css`: Formularelemente
-  - Inputs
-  - Checkboxes
-  - Radios
-  - Selects
-  - Textareas
-
-### Effekte
-- `_effects.css`: Spezialeffekte
-  - Neon-Effekte
-  - Animationen
-- `animations.css`: Animations-Effekte
-
-### Navigation
-- `_hamburger.css`: Hamburger-Menü-Varianten
-- `_smooth-scroll.css`: Scroll-Effekte
-
 ### Verzeichnisse
-- `components/`: Einzelne Komponenten
+- `docs/`: Dokumentation (Jekyll-basiert)
 - `themes/`: Design-Themes
-- `docs/`: Dokumentation
 
 ## Verwendung
 
-1. Importieren Sie die `core.css` in Ihr Projekt, um die Basis-Module und ausgewählte Komponenten zu laden:
+1. Importieren Sie die `core.css` in Ihr Projekt, um die Basis-Module zu laden:
 ```html
 <link rel="stylesheet" href="https://casoon.github.io/casoon-ui-lib/core.css">
 ```
 
 2. Oder importieren Sie einzelne Module nach Bedarf:
 ```html
-<link rel="stylesheet" href="https://casoon.github.io/casoon-ui-lib/_reset.css">
-<link rel="stylesheet" href="https://casoon.github.io/casoon-ui-lib/_tokens.css">
-<link rel="stylesheet" href="https://casoon.github.io/casoon-ui-lib/_typography.css">
-<link rel="stylesheet" href="https://casoon.github.io/casoon-ui-lib/_layout.css">
-<link rel="stylesheet" href="https://casoon.github.io/casoon-ui-lib/_utilities.css">
+<link rel="stylesheet" href="https://casoon.github.io/casoon-ui-lib/base/tokens.css">
+<link rel="stylesheet" href="https://casoon.github.io/casoon-ui-lib/base/typography.css">
+<link rel="stylesheet" href="https://casoon.github.io/casoon-ui-lib/base/layout.css">
+<link rel="stylesheet" href="https://casoon.github.io/casoon-ui-lib/base/utilities.css">
 <link rel="stylesheet" href="https://casoon.github.io/casoon-ui-lib/sidebar.css">
-<link rel="stylesheet" href="https://casoon.github.io/casoon-ui-lib/_hamburger.css">
+<link rel="stylesheet" href="https://casoon.github.io/casoon-ui-lib/hamburger.css">
 ```
 
 ## Entwicklung
