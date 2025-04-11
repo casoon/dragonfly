@@ -6,6 +6,9 @@ on:
       - master  # passe ggf. deinen Branchnamen an
   workflow_dispatch:  # 👈 Damit kannst du die Action manuell starten
 
+permissions:
+  contents: write  # 🔓 Erlaubt Push zurück ins Repo
+
 jobs:
   copy-and-commit:
     runs-on: ubuntu-latest
