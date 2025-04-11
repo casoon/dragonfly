@@ -12,32 +12,39 @@ title: Startseite
     <h2>Installation</h2>
     <p>Fügen Sie die CSS-Datei in Ihrem HTML-Dokument ein:</p>
     <div class="example">
-        <pre><code>&lt;link rel="stylesheet" href="https://casoon.github.io/casoon-ui-lib/core.css"&gt;</code></pre>
+        <div class="example-header">
+            <span class="example-title">HTML</span>
+            <button class="button button-sm button-outline" onclick="copyCode('install-code')">
+                <span class="icon">📋</span>
+                <span class="button-text">Kopieren</span>
+            </button>
+        </div>
+        <pre><code id="install-code">&lt;link rel="stylesheet" href="https://casoon.github.io/casoon-ui-lib/core.css"&gt;</code></pre>
     </div>
 </div>
 
 <div class="section">
     <h2>Grundlagen</h2>
     <div class="component-grid">
-        <a href="{{ site.baseurl }}/core/overview" class="component-card">
+        <a href="{{ site.baseurl }}/core/grundlagen" class="component-card">
             <h3>Übersicht</h3>
-            <p>Grundlegende Konzepte und Design-Tokens</p>
+            <p>Grundlegende Konzepte und Design-Tokens der Bibliothek.</p>
         </a>
         <a href="{{ site.baseurl }}/core/tokens" class="component-card">
             <h3>Design Tokens</h3>
-            <p>Farben, Typografie, Abstände und mehr</p>
+            <p>Farben, Typografie, Abstände und mehr.</p>
         </a>
         <a href="{{ site.baseurl }}/core/typography" class="component-card">
             <h3>Typografie</h3>
-            <p>Schriftarten, Größen und Gewichte</p>
+            <p>Schriftarten, Größen und Text-Styles.</p>
         </a>
         <a href="{{ site.baseurl }}/core/layout" class="component-card">
             <h3>Layout</h3>
-            <p>Grid-System und Layout-Komponenten</p>
+            <p>Container, Grid-System und responsive Design.</p>
         </a>
         <a href="{{ site.baseurl }}/core/utilities" class="component-card">
             <h3>Utilities</h3>
-            <p>Hilfreiche Utility-Klassen</p>
+            <p>Hilfreiche Utility-Klassen für schnelles Styling.</p>
         </a>
     </div>
 </div>
@@ -45,29 +52,33 @@ title: Startseite
 <div class="section">
     <h2>Komponenten</h2>
     <div class="component-grid">
+        <a href="{{ site.baseurl }}/components/komponenten" class="component-card">
+            <h3>Übersicht</h3>
+            <p>Alle verfügbaren UI-Komponenten im Überblick.</p>
+        </a>
         <a href="{{ site.baseurl }}/components/button" class="component-card">
             <h3>Buttons</h3>
-            <p>Verschiedene Button-Varianten</p>
+            <p>Verschiedene Button-Varianten und -Zustände.</p>
         </a>
         <a href="{{ site.baseurl }}/components/card" class="component-card">
             <h3>Cards</h3>
-            <p>Karten-Komponenten</p>
+            <p>Flexible Karten-Komponenten für Inhalte.</p>
         </a>
         <a href="{{ site.baseurl }}/components/badge" class="component-card">
             <h3>Badges</h3>
-            <p>Status- und Label-Badges</p>
+            <p>Status- und Label-Badges.</p>
         </a>
         <a href="{{ site.baseurl }}/components/sidebar" class="component-card">
             <h3>Sidebar</h3>
-            <p>Navigations-Sidebar</p>
+            <p>Navigations-Sidebar mit verschiedenen Optionen.</p>
         </a>
         <a href="{{ site.baseurl }}/components/slider" class="component-card">
             <h3>Slider</h3>
-            <p>Range-Slider Komponente</p>
+            <p>Range-Slider für numerische Eingaben.</p>
         </a>
         <a href="{{ site.baseurl }}/components/animations" class="component-card">
             <h3>Animationen</h3>
-            <p>Verschiedene Animationen</p>
+            <p>Verschiedene Animationen und Übergänge.</p>
         </a>
     </div>
 </div>
@@ -77,15 +88,37 @@ title: Startseite
     <div class="component-grid">
         <a href="{{ site.baseurl }}/examples/forms" class="component-card">
             <h3>Formulare</h3>
-            <p>Formular-Komponenten</p>
+            <p>Beispiele für verschiedene Formular-Layouts.</p>
         </a>
         <a href="{{ site.baseurl }}/examples/effects" class="component-card">
             <h3>Effekte</h3>
-            <p>Spezialeffekte und Hover-States</p>
+            <p>Demonstration verschiedener UI-Effekte.</p>
         </a>
         <a href="{{ site.baseurl }}/examples/smooth-scroll" class="component-card">
             <h3>Smooth Scroll</h3>
-            <p>Sanfte Scroll-Effekte</p>
+            <p>Beispiele für sanfte Scroll-Effekte.</p>
         </a>
     </div>
-</div> 
+</div>
+
+<script>
+function copyCode(elementId) {
+    const codeElement = document.getElementById(elementId);
+    const text = codeElement.textContent;
+    
+    navigator.clipboard.writeText(text).then(() => {
+        const button = codeElement.closest('.example').querySelector('.button');
+        const originalText = button.querySelector('.button-text').textContent;
+        
+        button.querySelector('.button-text').textContent = 'Kopiert!';
+        button.classList.add('button-success');
+        
+        setTimeout(() => {
+            button.querySelector('.button-text').textContent = originalText;
+            button.classList.remove('button-success');
+        }, 2000);
+    }).catch(err => {
+        console.error('Fehler beim Kopieren:', err);
+    });
+}
+</script> 
