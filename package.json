@@ -1,1 +1,24 @@
- 
+{
+  "name": "casoon-ui-lib",
+  "version": "1.0.0",
+  "description": "Ein modernes CSS-Framework mit Fokus auf Performance und Zugänglichkeit",
+  "main": "core.css",
+  "scripts": {
+    "lint": "stylelint \"**/*.css\" --ignore-path .stylelintignore",
+    "test": "npm run lint"
+  },
+  "keywords": [
+    "css",
+    "framework",
+    "ui",
+    "design-system",
+    "accessibility"
+  ],
+  "author": "Casoon",
+  "license": "MIT",
+  "devDependencies": {
+    "stylelint": "^16.2.1",
+    "stylelint-config-standard": "^36.0.0",
+    "stylelint-declaration-strict-value": "^1.9.1"
+  }
+} 

@@ -1,192 +1,161 @@
 /**
- * Select-Komponenten
+ * Select
  * 
- * Diese Datei enthält verschiedene Stile für Select-Felder.
- * Die Komponenten sind performant optimiert und berücksichtigen reduzierte Bewegung.
- * 
- * Verwendung:
- * 
- * 1. Basis-Select:
- * <div class="select-group">
- *   <label class="select-label">Label</label>
- *   <select class="select">
- *     <option value="">Bitte wählen</option>
- *     <option value="1">Option 1</option>
- *     <option value="2">Option 2</option>
- *   </select>
- *   <div class="select-help">Hilfetext</div>
- * </div>
- * 
- * 2. Select mit Icon:
- * <div class="select-group">
- *   <label class="select-label">Label</label>
- *   <div class="select-wrapper">
- *     <select class="select select--icon">
- *       <option value="">Bitte wählen</option>
- *     </select>
- *     <span class="select-icon">▼</span>
- *   </div>
- * </div>
- * 
- * 3. Select mit Validierung:
- * <div class="select-group select-group--error">
- *   <label class="select-label">Label</label>
- *   <select class="select">
- *     <option value="">Bitte wählen</option>
- *   </select>
- *   <div class="select-error">Fehlermeldung</div>
- * </div>
- * 
- * Technische Details:
- * - Verwendet CSS-Variablen für Farben und Größen
- * - Optimiert mit will-change und transform
- * - Responsive Anpassungen für mobile Geräte
- * - Reduzierte Bewegung wird berücksichtigt
+ * Diese Datei enthält die Select-Styles des Systems.
+ * Die Styles sind in @layer components organisiert.
  */
 
-/* Basis-Select */
-.select-group {
-    margin-bottom: var(--spacing-md);
-}
-
-.select-label {
-    display: block;
-    margin-bottom: var(--spacing-xs);
-    font-weight: var(--font-weight-medium);
-    color: var(--color-text);
-}
-
-.select-wrapper {
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-
-.select {
-    width: 100%;
-    padding: var(--spacing-sm) var(--spacing-md);
-    padding-right: calc(var(--spacing-md) * 2 + 1em);
-    border: 1px solid var(--color-border);
-    border-radius: var(--border-radius-sm);
-    background: var(--color-background);
-    color: var(--color-text);
-    font-size: var(--font-size-base);
-    line-height: 1.5;
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    cursor: pointer;
-    transition: all var(--transition-fast);
-}
-
-.select:focus {
-    outline: none;
-    border-color: var(--color-primary);
-    box-shadow: 0 0 0 2px var(--color-primary-light);
-}
-
-.select:disabled {
-    background: var(--color-background-secondary);
-    cursor: not-allowed;
-    opacity: 0.7;
-}
-
-/* Select-Icon */
-.select-icon {
-    position: absolute;
-    right: var(--spacing-md);
-    color: var(--color-text-secondary);
-    pointer-events: none;
-}
-
-/* Select-Größen */
-.select--sm {
-    padding: var(--spacing-xs) var(--spacing-sm);
-    padding-right: calc(var(--spacing-sm) * 2 + 1em);
-    font-size: var(--font-size-sm);
-}
-
-.select--lg {
-    padding: var(--spacing-md) var(--spacing-lg);
-    padding-right: calc(var(--spacing-lg) * 2 + 1em);
-    font-size: var(--font-size-lg);
-}
-
-/* Select-Varianten */
-.select--outline {
-    background: transparent;
-    border-color: var(--color-border);
-}
-
-.select--filled {
-    background: var(--color-background-secondary);
-    border-color: transparent;
-}
-
-.select--underline {
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid var(--color-border);
-    border-radius: 0;
-    padding-left: 0;
-    padding-right: calc(var(--spacing-md) * 2 + 1em);
-}
-
-/* Select-Zustände */
-.select-group--error .select {
-    border-color: var(--color-error);
-}
-
-.select-group--error .select:focus {
-    box-shadow: 0 0 0 2px var(--color-error-light);
-}
-
-.select-group--success .select {
-    border-color: var(--color-success);
-}
-
-.select-group--success .select:focus {
-    box-shadow: 0 0 0 2px var(--color-success-light);
-}
-
-.select-error {
-    margin-top: var(--spacing-xs);
-    font-size: var(--font-size-sm);
-    color: var(--color-error);
-}
-
-.select-help {
-    margin-top: var(--spacing-xs);
-    font-size: var(--font-size-sm);
-    color: var(--color-text-secondary);
-}
-
-/* Select-Optionen */
-.select option {
-    padding: var(--spacing-sm);
-    background: var(--color-background);
-    color: var(--color-text);
-}
-
-.select option:disabled {
-    color: var(--color-text-secondary);
-}
-
-/* Responsive Anpassungen */
-@media (max-width: var(--breakpoint-sm)) {
+@layer components {
+    /* Select Base */
     .select {
+        width: 100%;
+        padding: var(--spacing-sm);
         font-size: var(--font-size-base);
+        color: var(--color-gray-900);
+        background-color: var(--color-white);
+        border: 1px solid var(--color-gray-300);
+        border-radius: var(--border-radius-md);
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
     }
-    
-    .select--sm,
-    .select--lg {
-        font-size: var(--font-size-base);
-    }
-}
 
-/* Reduzierte Bewegung */
-@media (prefers-reduced-motion: reduce) {
-    .select {
-        transition: none;
+    .select:focus {
+        outline: none;
+        border-color: var(--color-primary-500);
+        box-shadow: 0 0 0 3px var(--color-primary-100);
+    }
+
+    /* Select Icon */
+    .select-icon {
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+
+    .select-icon-right {
+        flex-direction: row-reverse;
+    }
+
+    .select-icon .select {
+        padding-right: var(--spacing-xl);
+    }
+
+    .select-icon-right .select {
+        padding-right: var(--spacing-sm);
+        padding-left: var(--spacing-xl);
+    }
+
+    .select-icon-element {
+        position: absolute;
+        right: var(--spacing-sm);
+        color: var(--color-gray-400);
+        pointer-events: none;
+    }
+
+    .select-icon-right .select-icon-element {
+        right: auto;
+        left: var(--spacing-sm);
+    }
+
+    /* Select Sizes */
+    .select-sm {
+        padding: var(--spacing-xs);
+        font-size: var(--font-size-sm);
+    }
+
+    .select-lg {
+        padding: var(--spacing-md);
+        font-size: var(--font-size-lg);
+    }
+
+    /* Select Variants */
+    .select-outline {
+        background-color: transparent;
+        border: 1px solid var(--color-gray-300);
+    }
+
+    .select-filled {
+        background-color: var(--color-gray-100);
+        border: 1px solid var(--color-gray-200);
+    }
+
+    .select-underline {
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid var(--color-gray-300);
+        border-radius: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    /* Select States */
+    .select-group-error .select {
+        border-color: var(--color-error-500);
+    }
+
+    .select-group-error .select:focus {
+        border-color: var(--color-error-500);
+        box-shadow: 0 0 0 3px var(--color-error-100);
+    }
+
+    .select-group-success .select {
+        border-color: var(--color-success-500);
+    }
+
+    .select-group-success .select:focus {
+        border-color: var(--color-success-500);
+        box-shadow: 0 0 0 3px var(--color-success-100);
+    }
+
+    .select-group-disabled .select {
+        background-color: var(--color-gray-100);
+        border-color: var(--color-gray-200);
+        color: var(--color-gray-500);
+        cursor: not-allowed;
+    }
+
+    /* Select Group */
+    .select-group {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-xs);
+    }
+
+    .select-group-label {
+        font-size: var(--font-size-sm);
+        font-weight: var(--font-weight-medium);
+        color: var(--color-gray-700);
+    }
+
+    .select-group-help {
+        font-size: var(--font-size-sm);
+        color: var(--color-gray-500);
+    }
+
+    .select-group-error .select-group-help {
+        color: var(--color-error-600);
+    }
+
+    .select-group-success .select-group-help {
+        color: var(--color-success-600);
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+        .select-sm {
+            padding: var(--spacing-xs);
+            font-size: var(--font-size-sm);
+        }
+
+        .select-lg {
+            padding: var(--spacing-md);
+            font-size: var(--font-size-lg);
+        }
+    }
+
+    /* Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+        .select {
+            transition: none;
+        }
     }
 } 

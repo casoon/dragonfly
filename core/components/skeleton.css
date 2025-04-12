@@ -1,150 +1,108 @@
 /**
- * Skeleton-Komponenten
+ * Skeleton
  * 
- * Diese Datei enthält verschiedene Stile für Ladeplatzhalter.
- * Die Komponenten sind performant optimiert und berücksichtigen reduzierte Bewegung.
- * 
- * Verwendung:
- * 
- * 1. Basis-Skeleton:
- * <div class="skeleton">
- *   <div class="skeleton-item"></div>
- *   <div class="skeleton-item"></div>
- *   <div class="skeleton-item"></div>
- * </div>
- * 
- * 2. Skeleton mit Validierung:
- * <div class="skeleton skeleton--error">
- *   <div class="skeleton-item"></div>
- *   <div class="skeleton-item"></div>
- *   <div class="skeleton-item"></div>
- *   <span class="skeleton-error">Fehlermeldung</span>
- * </div>
- * 
- * 3. Skeleton mit Animation:
- * <div class="skeleton skeleton--animated">
- *   <div class="skeleton-item"></div>
- *   <div class="skeleton-item"></div>
- *   <div class="skeleton-item"></div>
- * </div>
- * 
- * Technische Details:
- * - Verwendet CSS-Variablen für Farben und Größen
- * - Optimiert mit will-change und transform
- * - Responsive Anpassungen für mobile Geräte
- * - Reduzierte Bewegung wird berücksichtigt
+ * Diese Datei enthält die Skeleton-Styles des Systems.
+ * Die Styles sind in @layer components organisiert.
  */
 
-/* Basis-Skeleton */
-.skeleton {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-sm);
-}
-
-.skeleton-item {
-    width: 100%;
-    height: 20px;
-    background-color: var(--color-border);
-    border-radius: var(--border-radius-sm);
-    animation: skeleton-pulse 1.5s ease-in-out infinite;
-}
-
-/* Skeleton-Zustände */
-.skeleton--error .skeleton-item {
-    background-color: var(--color-error-light);
-}
-
-.skeleton--success .skeleton-item {
-    background-color: var(--color-success-light);
-}
-
-.skeleton--warning .skeleton-item {
-    background-color: var(--color-warning-light);
-}
-
-.skeleton--info .skeleton-item {
-    background-color: var(--color-info-light);
-}
-
-/* Skeleton-Varianten */
-.skeleton--striped .skeleton-item {
-    background-image: linear-gradient(
-        45deg,
-        rgba(255, 255, 255, 0.15) 25%,
-        transparent 25%,
-        transparent 50%,
-        rgba(255, 255, 255, 0.15) 50%,
-        rgba(255, 255, 255, 0.15) 75%,
-        transparent 75%,
-        transparent
-    );
-    background-size: 1rem 1rem;
-}
-
-.skeleton--animated .skeleton-item {
-    animation: skeleton-pulse 1.5s ease-in-out infinite;
-}
-
-/* Skeleton-Größen */
-.skeleton--sm .skeleton-item {
-    height: 16px;
-}
-
-.skeleton--lg .skeleton-item {
-    height: 24px;
-}
-
-/* Skeleton-Fehler */
-.skeleton-error {
-    display: block;
-    margin-top: var(--spacing-xs);
-    font-size: var(--font-size-sm);
-    color: var(--color-error);
-}
-
-/* Skeleton-Gruppen */
-.skeleton-group {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-sm);
-}
-
-.skeleton-group--horizontal {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: var(--spacing-md);
-}
-
-/* Skeleton-Animation */
-@keyframes skeleton-pulse {
-    0% {
-        opacity: 0.6;
+@layer components {
+    /* Skeleton Base */
+    .skeleton {
+        background-color: var(--color-gray-200);
+        border-radius: var(--border-radius-md);
+        position: relative;
+        overflow: hidden;
     }
-    50% {
-        opacity: 0.8;
-    }
-    100% {
-        opacity: 0.6;
-    }
-}
 
-/* Responsive Anpassungen */
-@media (max-width: var(--breakpoint-sm)) {
-    .skeleton-group--horizontal {
-        flex-direction: column;
+    /* Skeleton States */
+    .skeleton-error {
+        background-color: var(--color-error-100);
+    }
+
+    .skeleton-success {
+        background-color: var(--color-success-100);
+    }
+
+    .skeleton-warning {
+        background-color: var(--color-warning-100);
+    }
+
+    .skeleton-info {
+        background-color: var(--color-info-100);
+    }
+
+    /* Skeleton Variants */
+    .skeleton-striped {
+        background-image: linear-gradient(
+            45deg,
+            rgb(0 0 0 / 15%) 25%,
+            transparent 25%,
+            transparent 50%,
+            rgb(0 0 0 / 15%) 50%,
+            rgb(0 0 0 / 15%) 75%,
+            transparent 75%,
+            transparent
+        );
+        background-size: 1rem 1rem;
+    }
+
+    /* Skeleton Animation */
+    .skeleton-animated {
+        animation: skeleton-pulse 1.5s ease-in-out infinite;
+    }
+
+    @keyframes skeleton-pulse {
+        0% {
+            opacity: 0.6;
+        }
+        50% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0.6;
+        }
+    }
+
+    /* Skeleton Sizes */
+    .skeleton-sm {
+        height: 1rem;
+    }
+
+    .skeleton-lg {
+        height: 2rem;
+    }
+
+    /* Skeleton Group */
+    .skeleton-group {
+        display: flex;
         gap: var(--spacing-sm);
     }
-}
 
-/* Reduzierte Bewegung */
-@media (prefers-reduced-motion: reduce) {
-    .skeleton-item {
-        animation: none;
+    .skeleton-group-horizontal {
+        flex-flow: row wrap;
     }
 
-    .skeleton--animated .skeleton-item {
-        animation: none;
+    .skeleton-group-vertical {
+        flex-flow: column nowrap;
+    }
+
+    /* Skeleton Item */
+    .skeleton-item {
+        flex: 1;
+        min-width: 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+        .skeleton-group-horizontal {
+            flex-flow: column nowrap;
+        }
+    }
+
+    /* Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+        .skeleton-animated {
+            animation: none;
+        }
     }
 } 

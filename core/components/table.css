@@ -1,207 +1,245 @@
 /**
- * Tabellen-Komponenten
+ * Table
  * 
- * Diese Datei enthält verschiedene Stile für Tabellen.
- * Die Komponenten sind performant optimiert und berücksichtigen reduzierte Bewegung.
- * 
- * Verwendung:
- * 
- * 1. Basis-Tabelle:
- * <table class="table">
- *   <thead>
- *     <tr>
- *       <th>Spalte 1</th>
- *       <th>Spalte 2</th>
- *     </tr>
- *   </thead>
- *   <tbody>
- *     <tr>
- *       <td>Daten 1</td>
- *       <td>Daten 2</td>
- *     </tr>
- *   </tbody>
- * </table>
- * 
- * 2. Sortierbare Tabelle:
- * <table class="table table--sortable">
- *   <thead>
- *     <tr>
- *       <th class="table-sort" data-sort="column1">Spalte 1</th>
- *       <th class="table-sort" data-sort="column2">Spalte 2</th>
- *     </tr>
- *   </thead>
- *   <tbody>
- *     <tr>
- *       <td data-column="column1">Daten 1</td>
- *       <td data-column="column2">Daten 2</td>
- *     </tr>
- *   </tbody>
- * </table>
- * 
- * 3. Responsive Tabelle:
- * <div class="table-responsive">
- *   <table class="table">
- *     <!-- Tabelleninhalt -->
- *   </table>
- * </div>
- * 
- * Technische Details:
- * - Verwendet CSS-Variablen für Farben und Größen
- * - Optimiert mit will-change und transform
- * - Responsive Anpassungen für mobile Geräte
- * - Reduzierte Bewegung wird berücksichtigt
+ * Diese Datei enthält die Table-Styles des Systems.
+ * Die Styles sind in @layer components organisiert.
  */
 
-/* Basis-Tabelle */
-.table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: var(--spacing-lg);
-    background: var(--color-background);
-    color: var(--color-text);
-}
-
-.table th,
-.table td {
-    padding: var(--spacing-md);
-    text-align: left;
-    border-bottom: 1px solid var(--color-border);
-}
-
-.table th {
-    font-weight: var(--font-weight-bold);
-    background: var(--color-background-secondary);
-}
-
-/* Tabellen-Varianten */
-.table--striped tbody tr:nth-child(odd) {
-    background: var(--color-background-secondary);
-}
-
-.table--hover tbody tr:hover {
-    background: var(--color-background-tertiary);
-}
-
-.table--compact th,
-.table--compact td {
-    padding: var(--spacing-sm);
-}
-
-.table--bordered th,
-.table--bordered td {
-    border: 1px solid var(--color-border);
-}
-
-/* Sortierbare Tabellen */
-.table--sortable th {
-    cursor: pointer;
-    user-select: none;
-}
-
-.table-sort {
-    position: relative;
-    padding-right: var(--spacing-lg);
-}
-
-.table-sort::after {
-    content: '';
-    position: absolute;
-    right: var(--spacing-sm);
-    top: 50%;
-    transform: translateY(-50%);
-    width: 0;
-    height: 0;
-    border-left: 4px solid transparent;
-    border-right: 4px solid transparent;
-    border-top: 4px solid var(--color-text-secondary);
-    transition: transform var(--transition-fast);
-}
-
-.table-sort[data-sort-direction="asc"]::after {
-    transform: translateY(-50%) rotate(180deg);
-}
-
-.table-sort[data-sort-direction="desc"]::after {
-    transform: translateY(-50%);
-}
-
-/* Responsive Tabellen */
-.table-responsive {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    margin-bottom: var(--spacing-lg);
-}
-
-@media (max-width: var(--breakpoint-sm)) {
-    .table-responsive {
-        margin: 0 calc(-1 * var(--spacing-md));
-        padding: 0 var(--spacing-md);
+@layer components {
+    /* Table Base */
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        border-spacing: 0;
+        background-color: var(--color-white);
     }
-    
-    .table--stacked {
-        display: block;
-    }
-    
-    .table--stacked thead {
-        display: none;
-    }
-    
-    .table--stacked tbody,
-    .table--stacked tr,
-    .table--stacked td {
-        display: block;
-    }
-    
-    .table--stacked tr {
-        margin-bottom: var(--spacing-md);
-        border: 1px solid var(--color-border);
-    }
-    
-    .table--stacked td {
+
+    .table th,
+    .table td {
         padding: var(--spacing-sm);
-        border: none;
-        border-bottom: 1px solid var(--color-border);
+        border-bottom: 1px solid var(--color-gray-200);
+        text-align: left;
     }
-    
-    .table--stacked td:last-child {
-        border-bottom: none;
+
+    .table th {
+        font-weight: var(--font-weight-medium);
+        color: var(--color-gray-700);
+        background-color: var(--color-gray-50);
     }
-    
-    .table--stacked td::before {
-        content: attr(data-label);
-        display: block;
-        font-weight: var(--font-weight-bold);
-        margin-bottom: var(--spacing-xs);
+
+    .table td {
+        color: var(--color-gray-900);
     }
-}
 
-/* Tabellen-Zustände */
-.table--loading {
-    position: relative;
-}
+    /* Table Variants */
+    .table-bordered th,
+    .table-bordered td {
+        border: 1px solid var(--color-gray-200);
+    }
 
-.table--loading::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(var(--color-background-rgb), 0.8);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+    .table-striped tbody tr:nth-child(odd) {
+        background-color: var(--color-gray-50);
+    }
 
-.table--empty td {
-    text-align: center;
-    padding: var(--spacing-xl);
-    color: var(--color-text-secondary);
-}
+    .table-hover tbody tr:hover {
+        background-color: var(--color-gray-100);
+    }
 
-/* Reduzierte Bewegung */
-@media (prefers-reduced-motion: reduce) {
-    .table-sort::after {
-        transition: none;
+    /* Table Sizes */
+    .table-sm th,
+    .table-sm td {
+        padding: var(--spacing-xs);
+        font-size: var(--font-size-sm);
+    }
+
+    .table-lg th,
+    .table-lg td {
+        padding: var(--spacing-md);
+        font-size: var(--font-size-lg);
+    }
+
+    /* Table States */
+    .table-success {
+        background-color: var(--color-success-50);
+    }
+
+    .table-error {
+        background-color: var(--color-error-50);
+    }
+
+    .table-warning {
+        background-color: var(--color-warning-50);
+    }
+
+    .table-info {
+        background-color: var(--color-info-50);
+    }
+
+    /* Table Responsive */
+    .table-responsive {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Table Context */
+    @media (max-width: 640px) {
+        .table {
+            display: block;
+        }
+
+        .table thead {
+            display: none;
+        }
+
+        .table tbody {
+            display: block;
+        }
+
+        .table tr {
+            display: block;
+            margin-bottom: var(--spacing-md);
+            border: 1px solid var(--color-gray-200);
+            border-radius: var(--border-radius-md);
+        }
+
+        .table td {
+            display: block;
+            text-align: right;
+            padding: var(--spacing-sm);
+            border-bottom: 1px solid var(--color-gray-200);
+        }
+
+        .table td::before {
+            content: attr(data-label);
+            float: left;
+            font-weight: var(--font-weight-medium);
+            color: var(--color-gray-700);
+        }
+
+        .table td:last-child {
+            border-bottom: 0;
+        }
+    }
+
+    /* Table Dark */
+    .table-dark {
+        background-color: var(--color-gray-900);
+        color: var(--color-white);
+    }
+
+    .table-dark th {
+        background-color: var(--color-gray-800);
+        color: var(--color-white);
+    }
+
+    .table-dark td {
+        color: var(--color-gray-100);
+    }
+
+    .table-dark.table-striped tbody tr:nth-child(odd) {
+        background-color: rgb(0 0 0 / 20%);
+    }
+
+    .table-dark.table-hover tbody tr:hover {
+        background-color: rgb(0 0 0 / 30%);
+    }
+
+    /* Table Sortable */
+    .table-sortable th {
+        cursor: pointer;
+        position: relative;
+        padding-right: var(--spacing-md);
+    }
+
+    .table-sortable th::after {
+        content: '';
+        position: absolute;
+        right: var(--spacing-xs);
+        top: 50%;
+        transform: translateY(-50%);
+        width: 0;
+        height: 0;
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-bottom: 6px solid var(--color-gray-400);
+        transition: transform var(--transition-normal);
+    }
+
+    .table-sortable th[data-sort="asc"]::after {
+        transform: translateY(-50%) rotate(180deg);
+    }
+
+    .table-sortable th[data-sort="desc"]::after {
+        transform: translateY(-50%);
+    }
+
+    /* Table Stacked */
+    @media (max-width: 640px) {
+        .table-stacked {
+            display: block;
+        }
+
+        .table-stacked thead {
+            display: none;
+        }
+
+        .table-stacked tbody {
+            display: block;
+        }
+
+        .table-stacked tr {
+            display: block;
+            margin-bottom: var(--spacing-md);
+            border: 1px solid var(--color-gray-200);
+            border-radius: var(--border-radius-md);
+        }
+
+        .table-stacked td {
+            display: block;
+            text-align: right;
+            padding: var(--spacing-sm);
+            border: none;
+            border-bottom: 1px solid var(--color-gray-200);
+        }
+
+        .table-stacked td::before {
+            content: attr(data-label);
+            float: left;
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-gray-700);
+        }
+
+        .table-stacked td:last-child {
+            border-bottom: none;
+        }
+    }
+
+    /* Table Loading */
+    .table-loading {
+        position: relative;
+    }
+
+    .table-loading::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-color: rgba(255, 255, 255, 0.8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Table Empty */
+    .table-empty td {
+        text-align: center;
+        padding: var(--spacing-xl);
+        color: var(--color-gray-500);
+    }
+
+    /* Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+        .table-sortable th::after {
+            transition: none;
+        }
     }
 } 
