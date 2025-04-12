@@ -1,0 +1,155 @@
+/**
+ * Filter-Effekte
+ * 
+ * Verwendung:
+ * <div class="blur-sm">Leicht unscharf</div>
+ * <div class="brightness-110">Heller</div>
+ * <div class="filter-vintage">Vintage-Look</div>
+ * 
+ * Varianten:
+ * - blur: Unschärfe-Effekte
+ * - brightness: Helligkeit
+ * - contrast: Kontrast
+ * - grayscale: Graustufen
+ * - hue-rotate: Farbton-Rotation
+ * - invert: Invertierung
+ * - saturate: Sättigung
+ * - sepia: Sepia-Effekt
+ * - backdrop-blur: Hintergrund-Unschärfe
+ */
+
+/* Unschärfe-Effekte */
+.blur-sm {
+    filter: blur(4px);
+    will-change: filter;
+}
+
+.blur-md {
+    filter: blur(8px);
+    will-change: filter;
+}
+
+.blur-lg {
+    filter: blur(12px);
+    will-change: filter;
+}
+
+/* Helligkeit */
+.brightness-50 { filter: brightness(0.5); }
+.brightness-75 { filter: brightness(0.75); }
+.brightness-90 { filter: brightness(0.9); }
+.brightness-110 { filter: brightness(1.1); }
+.brightness-125 { filter: brightness(1.25); }
+.brightness-150 { filter: brightness(1.5); }
+
+/* Kontrast */
+.contrast-50 { filter: contrast(0.5); }
+.contrast-75 { filter: contrast(0.75); }
+.contrast-90 { filter: contrast(0.9); }
+.contrast-110 { filter: contrast(1.1); }
+.contrast-125 { filter: contrast(1.25); }
+.contrast-150 { filter: contrast(1.5); }
+
+/* Graustufen */
+.grayscale {
+    filter: grayscale(100%);
+    will-change: filter;
+}
+
+/* Farbton-Rotation */
+.hue-rotate-15 { filter: hue-rotate(15deg); }
+.hue-rotate-30 { filter: hue-rotate(30deg); }
+.hue-rotate-60 { filter: hue-rotate(60deg); }
+.hue-rotate-90 { filter: hue-rotate(90deg); }
+.hue-rotate-180 { filter: hue-rotate(180deg); }
+
+/* Invertierung */
+.invert {
+    filter: invert(100%);
+    will-change: filter;
+}
+
+/* Sättigung */
+.saturate-50 { filter: saturate(0.5); }
+.saturate-75 { filter: saturate(0.75); }
+.saturate-90 { filter: saturate(0.9); }
+.saturate-110 { filter: saturate(1.1); }
+.saturate-125 { filter: saturate(1.25); }
+.saturate-150 { filter: saturate(1.5); }
+
+/* Sepia */
+.sepia {
+    filter: sepia(100%);
+    will-change: filter;
+}
+
+/* Hintergrund-Unschärfe */
+.backdrop-blur-sm {
+    backdrop-filter: blur(4px);
+    will-change: backdrop-filter;
+}
+
+.backdrop-blur-md {
+    backdrop-filter: blur(8px);
+    will-change: backdrop-filter;
+}
+
+.backdrop-blur-lg {
+    backdrop-filter: blur(12px);
+    will-change: backdrop-filter;
+}
+
+/* Komplexe Filter */
+.filter-vintage {
+    filter: sepia(50%) brightness(90%) contrast(110%);
+    will-change: filter;
+}
+
+.filter-dramatic {
+    filter: contrast(120%) brightness(110%) saturate(110%);
+    will-change: filter;
+}
+
+.filter-cold {
+    filter: brightness(90%) contrast(110%) hue-rotate(180deg);
+    will-change: filter;
+}
+
+.filter-warm {
+    filter: brightness(110%) contrast(110%) hue-rotate(-20deg);
+    will-change: filter;
+}
+
+/* SVG-Filter */
+.svg-filter-blur {
+    filter: url('#blur');
+}
+
+.svg-filter-glow {
+    filter: url('#glow');
+}
+
+.svg-filter-distortion {
+    filter: url('#distortion');
+}
+
+/* Responsive Anpassungen */
+@media (max-width: var(--breakpoint-sm)) {
+    .blur-lg,
+    .backdrop-blur-lg {
+        filter: blur(8px);
+    }
+}
+
+/* Reduzierte Bewegung */
+@media (prefers-reduced-motion: reduce) {
+    .blur-sm,
+    .blur-md,
+    .blur-lg,
+    .backdrop-blur-sm,
+    .backdrop-blur-md,
+    .backdrop-blur-lg {
+        filter: none;
+        backdrop-filter: none;
+    }
+} 

@@ -1,0 +1,161 @@
+/**
+ * Interaktionseffekte
+ * 
+ * Verwendung:
+ * <div class="draggable">Ziehbare Elemente</div>
+ * <div class="drop-target">Ziel für Drag & Drop</div>
+ * <div class="swipe-container">Swipe-Container</div>
+ * 
+ * Varianten:
+ * - draggable: Ziehbare Elemente
+ * - drop-target: Ziel für Drag & Drop
+ * - swipe-container: Swipe-Container
+ * - touch-feedback: Touch-Feedback
+ * - focus-ring: Fokus-Ring
+ * - disabled: Deaktivierte Elemente
+ * - loading: Ladezustand
+ */
+
+/* Drag & Drop */
+.draggable {
+    cursor: grab;
+    user-select: none;
+    will-change: transform;
+}
+
+.draggable:active {
+    cursor: grabbing;
+}
+
+.drag-feedback {
+    opacity: 0.5;
+    transform: scale(0.95);
+    transition: all var(--transition-fast);
+    will-change: transform, opacity;
+}
+
+.drop-target {
+    border: 2px dashed var(--color-border);
+    background: var(--color-background-secondary);
+    transition: all var(--transition-normal);
+    will-change: border-color, background-color;
+}
+
+.drop-target.drag-over {
+    border-color: var(--color-primary);
+    background: var(--color-primary-light);
+}
+
+/* Swipe */
+.swipe-container {
+    overflow: hidden;
+    position: relative;
+    will-change: transform;
+}
+
+.swipe-item {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: transform var(--transition-normal);
+    will-change: transform;
+}
+
+/* Touch-Feedback */
+.touch-feedback {
+    position: relative;
+    overflow: hidden;
+    will-change: transform;
+}
+
+.touch-feedback::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease-out, height 0.3s ease-out;
+    will-change: width, height;
+}
+
+.touch-feedback:active::after {
+    width: 200%;
+    height: 200%;
+}
+
+/* Fokus-Ring */
+.focus-ring {
+    outline: none;
+    position: relative;
+    will-change: box-shadow;
+}
+
+.focus-ring:focus {
+    box-shadow: 0 0 0 3px var(--color-primary-light);
+}
+
+/* Deaktivierte Elemente */
+.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+    user-select: none;
+    will-change: opacity;
+}
+
+/* Ladezustand */
+.loading {
+    position: relative;
+    pointer-events: none;
+    will-change: opacity;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    animation: loading 1.5s infinite;
+    will-change: transform;
+}
+
+@keyframes loading {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Responsive Anpassungen */
+@media (max-width: var(--breakpoint-sm)) {
+    .draggable {
+        touch-action: none;
+    }
+    
+    .swipe-container {
+        touch-action: pan-x;
+    }
+}
+
+/* Reduzierte Bewegung */
+@media (prefers-reduced-motion: reduce) {
+    .draggable,
+    .drag-feedback,
+    .drop-target,
+    .swipe-item,
+    .touch-feedback::after,
+    .loading::after {
+        transition: none;
+        animation: none;
+    }
+} 
