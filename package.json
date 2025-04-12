@@ -1,6 +1,6 @@
 {
   "name": "casoon-ui-lib",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Ein modernes CSS-Framework mit Fokus auf Performance und Zugänglichkeit",
   "main": "core.css",
   "scripts": {

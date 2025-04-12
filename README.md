@@ -1,108 +1,162 @@
 # Casoon UI Library
 
-Eine modulare CSS-Bibliothek für moderne Webanwendungen.
+Eine moderne und flexible UI-Bibliothek für Webanwendungen.
 
-## Projektstruktur
+## Verzeichnisstruktur
 
 ```
 casoon-ui-lib/
-├── base/              # Basis-Module
-│   ├── tokens.css     # Design Tokens
-│   ├── reset.css      # CSS Reset
-│   ├── typography.css # Typografie-System
-│   ├── layout.css     # Layout-System
-│   ├── utilities.css  # Utility-Klassen
-│   ├── components.css # Basis-Komponenten
-│   ├── forms.css      # Formularelemente
-│   └── smooth-scroll.css # Scroll-Effekte
-├── animations.css     # Animations-Effekte
-├── effects.css        # Spezialeffekte
-├── hamburger.css      # Hamburger-Menü
-├── sidebar.css        # Sidebar-Komponente
-├── slider.css         # Slider-Komponente
-├── core.css           # Importiert Basis-Module
-├── docs/              # Dokumentation
-│   ├── _components/   # Komponenten-Dokumentation
-│   ├── _foundation/   # Basis-Module Dokumentation
-│   ├── _examples/     # Beispiele
-│   ├── _layouts/      # Jekyll Layouts
-│   ├── css/           # CSS für Dokumentation
-│   ├── _config.yml    # Jekyll Konfiguration
-│   └── index.html     # Startseite
-├── themes/            # Design-Themes
-├── .gitignore
-├── CONTRIBUTING.md    # Beitragsrichtlinien
-└── README.md
+├── core/                      # Kern-Styles
+│   ├── components/            # Komponenten-Styles
+│   │   ├── alert.css
+│   │   ├── avatar.css
+│   │   ├── badge.css
+│   │   ├── button.css
+│   │   ├── card.css
+│   │   ├── checkbox.css
+│   │   ├── chip.css
+│   │   ├── divider.css
+│   │   ├── dropdown.css
+│   │   ├── form.css
+│   │   ├── header.css
+│   │   ├── input.css
+│   │   ├── list.css
+│   │   ├── modal.css
+│   │   ├── nav.css
+│   │   ├── pagination.css
+│   │   ├── popover.css
+│   │   ├── progress.css
+│   │   ├── radio.css
+│   │   ├── select.css
+│   │   ├── sidebar.css
+│   │   ├── slider.css
+│   │   ├── switch.css
+│   │   ├── table.css
+│   │   ├── tabs.css
+│   │   ├── textarea.css
+│   │   ├── toast.css
+│   │   └── tooltip.css
+│   ├── colors.css             # Farbvariablen
+│   ├── components.css         # Komponenten-Basis
+│   ├── forms.css              # Formular-Styles
+│   ├── layout.css             # Layout-Styles
+│   ├── reset.css              # CSS Reset
+│   ├── smooth-scroll.css      # Smooth Scroll
+│   ├── tokens.css             # Design Tokens
+│   ├── typography.css         # Typografie
+│   └── utilities.css          # Utility-Klassen
+├── effects/                   # Effekt-Styles
+├── themes/                    # Theme-Styles
+├── animations.css             # Animations-Styles
+├── core.css                   # Haupt-CSS-Datei
+├── effects.css                # Effekt-Styles
+├── hamburger.css              # Hamburger-Menü
+├── sidebar.css                # Sidebar-Styles
+└── slider.css                 # Slider-Styles
 ```
 
-## Dokumentation
+## Layer-Organisation
 
-Die vollständige Dokumentation ist unter [https://casoon.github.io/casoon-ui-lib/](https://casoon.github.io/casoon-ui-lib/) verfügbar.
+Die Styles sind in verschiedene Layer organisiert:
 
-## CSS-Module
+### Base Layer
+Grundlegende Styles:
+- Reset
+- Tokens
+- Forms
+- Smooth Scroll
+- Colors
+- Typography
+- Layout
 
-### Core
-- `core.css`: Importiert folgende Basis-Module:
-  - `base/tokens.css`
-  - `base/reset.css`
-  - `base/typography.css`
-  - `base/layout.css`
-  - `base/utilities.css`
-  - `base/components.css`
-  - `base/forms.css`
-  - `base/smooth-scroll.css`
+### Components Layer
+Komponenten-Styles:
+- Alert
+- Avatar
+- Badge
+- Button
+- Card
+- Checkbox
+- Chip
+- Divider
+- Dropdown
+- Form
+- Header
+- Input
+- List
+- Modal
+- Nav
+- Pagination
+- Popover
+- Progress
+- Radio
+- Select
+- Sidebar
+- Slider
+- Switch
+- Table
+- Tabs
+- Textarea
+- Toast
+- Tooltip
 
-### Basis-Module (base/)
-- `tokens.css`: Design Tokens (Farben, Schatten, etc.)
-- `reset.css`: Moderner CSS Reset
-- `typography.css`: Typografie-System
-- `layout.css`: Layout-System (Grid, Flexbox)
-- `utilities.css`: Utility-Klassen
-- `components.css`: Basis-Komponenten
-- `forms.css`: Formularelemente
-- `smooth-scroll.css`: Scroll-Effekte
+### Utilities Layer
+Utility-Klassen für:
+- Display
+- Flexbox
+- Grid
+- Position
+- Spacing
+- Typography
 
-### Komponenten
-- `animations.css`: Animations-Effekte
-- `effects.css`: Spezialeffekte
-- `hamburger.css`: Hamburger-Menü
-- `sidebar.css`: Sidebar-Komponente
-- `slider.css`: Slider-Komponente
+### Effects Layer
+Effekt-Styles:
+- Blur
+- Glass
+- Frost
+- Hover
+- Active
+- Focus
+- Disabled
 
-### Verzeichnisse
-- `docs/`: Dokumentation (Jekyll-basiert)
-- `themes/`: Design-Themes
+### Animations Layer
+Animations-Styles:
+- Fade
+- Slide
+- Scale
+- Hamburger
+- Sidebar
+- Slider
+
+## Installation
+
+```bash
+npm install casoon-ui-lib
+```
 
 ## Verwendung
 
-1. Importieren Sie die `core.css` in Ihr Projekt, um die Basis-Module zu laden:
 ```html
-<link rel="stylesheet" href="https://casoon.github.io/casoon-ui-lib/core.css">
-```
-
-2. Oder importieren Sie einzelne Module nach Bedarf:
-```html
-<link rel="stylesheet" href="https://casoon.github.io/casoon-ui-lib/base/tokens.css">
-<link rel="stylesheet" href="https://casoon.github.io/casoon-ui-lib/base/typography.css">
-<link rel="stylesheet" href="https://casoon.github.io/casoon-ui-lib/base/layout.css">
-<link rel="stylesheet" href="https://casoon.github.io/casoon-ui-lib/base/utilities.css">
-<link rel="stylesheet" href="https://casoon.github.io/casoon-ui-lib/sidebar.css">
-<link rel="stylesheet" href="https://casoon.github.io/casoon-ui-lib/hamburger.css">
+<link rel="stylesheet" href="node_modules/casoon-ui-lib/core.css">
 ```
 
 ## Entwicklung
 
-1. Klonen Sie das Repository
-2. Installieren Sie die Abhängigkeiten (falls vorhanden)
-3. Bearbeiten Sie die CSS-Dateien nach Bedarf
-4. Kompilieren Sie die Dateien (falls ein Build-Prozess eingerichtet ist)
+```bash
+# Dependencies installieren
+npm install
 
-Für Details zur Mitarbeit am Projekt, lesen Sie bitte [CONTRIBUTING.md](CONTRIBUTING.md).
+# Stylelint ausführen
+npm run lint
+
+# Stylelint mit Autofix ausführen
+npm run lint:fix
+```
+
+## Contributing
+
+Bitte lesen Sie [CONTRIBUTING.md](CONTRIBUTING.md) für Details zu unserem Code of Conduct und den Prozess für Pull Requests.
 
 ## Lizenz
 
-[MIT License](LICENSE)
-
-## Über Casoon
-
-[Casoon](https://www.casoon.de) bietet individuelle Lösungen für Designsysteme, Web-Apps und E-Commerce – mit Fokus auf Performance, Wartbarkeit und und ansprechendes Design.
+Dieses Projekt ist unter der MIT-Lizenz lizenziert - siehe die [LICENSE](LICENSE) Datei für Details.
