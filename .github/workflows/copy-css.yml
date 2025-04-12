@@ -4,6 +4,12 @@ on:
   push:
     branches:
       - master  # passe ggf. deinen Branchnamen an
+    paths:
+      - 'base/**'
+      - 'themes/**'
+      - '*.css'
+      - '*.md'
+      - '!docs/**' # keine Reaktion auf Änderungen innerhalb von /docs
   workflow_dispatch:  # 👈 Damit kannst du die Action manuell starten
 
 permissions:
@@ -27,15 +33,17 @@ jobs:
           mkdir -p docs/css/themes
           cp -r themes/*.css docs/css/themes/
 
-      - name: 📂 Copy Components to /docs/css/base/components
+      - name: 📂 Copy Base to /docs/css/core
         run: |
-          mkdir -p docs/css/base/components
-          cp -r base/components/*.css docs/css/base/components/
+          mkdir -p docs/css/core
+          cp -r core/*.css docs/css/core/
 
-      - name: 📂 Copy Base to /docs/css/base
+      - name: 📂 Copy Components to /docs/css/core/components
         run: |
-          mkdir -p docs/css/base
-          cp -r base/*.css docs/css/base/
+          mkdir -p docs/css/core/components
+          cp -r core/components/*.css docs/css/core/components/
+
+
 
       - name: ✅ Commit and push changes
         run: |
