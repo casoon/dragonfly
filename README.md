@@ -1,132 +1,145 @@
 # Casoon UI Library
 
-Eine moderne und flexible UI-Bibliothek für Webanwendungen.
+Ein schlankes Design-System für CASOON-Projekte, optimiert für moderne Webentwicklung mit Astro JS und LightningCSS.
+
+## Über das Projekt
+
+Die Casoon UI Library ist ein internes Design-System, das als Basis für Kundenprojekte von CASOON dient. Es bietet:
+
+- Eine konsistente Grundlage für neue Projekte
+- Wiederverwendbare Komponenten und Styles
+- Optimierte Integration mit Astro JS und LightningCSS
+- Unterstützung für SSR und CSS-Streaming
+- Vermeidung von Code-Duplikation über Projektgrenzen hinweg
+
+> **Hinweis**: Dieses Design-System ist bewusst schlank gehalten und erhebt nicht den Anspruch, mit umfangreichen Frameworks wie Tailwind zu konkurrieren. Es dient als solide Basis für die spezifischen Anforderungen von CASOON-Projekten.
 
 ## Verzeichnisstruktur
 
 ```
 casoon-ui-lib/
-├── core/                      # Kern-Styles
-│   ├── components/            # Komponenten-Styles
-│   │   ├── alert.css
-│   │   ├── avatar.css
-│   │   ├── badge.css
-│   │   ├── button.css
-│   │   ├── card.css
-│   │   ├── checkbox.css
-│   │   ├── chip.css
-│   │   ├── divider.css
-│   │   ├── dropdown.css
-│   │   ├── form.css
-│   │   ├── header.css
-│   │   ├── input.css
-│   │   ├── list.css
-│   │   ├── modal.css
-│   │   ├── nav.css
-│   │   ├── pagination.css
-│   │   ├── popover.css
-│   │   ├── progress.css
-│   │   ├── radio.css
-│   │   ├── select.css
-│   │   ├── sidebar.css
-│   │   ├── slider.css
-│   │   ├── switch.css
-│   │   ├── table.css
-│   │   ├── tabs.css
-│   │   ├── textarea.css
-│   │   ├── toast.css
-│   │   └── tooltip.css
-│   ├── colors.css             # Farbvariablen
-│   ├── components.css         # Komponenten-Basis
-│   ├── forms.css              # Formular-Styles
-│   ├── layout.css             # Layout-Styles
-│   ├── reset.css              # CSS Reset
-│   ├── smooth-scroll.css      # Smooth Scroll
-│   ├── tokens.css             # Design Tokens
-│   ├── typography.css         # Typografie
-│   └── utilities.css          # Utility-Klassen
-├── effects/                   # Effekt-Styles
-├── themes/                    # Theme-Styles
-├── animations.css             # Animations-Styles
-├── core.css                   # Haupt-CSS-Datei
-├── effects.css                # Effekt-Styles
-├── hamburger.css              # Hamburger-Menü
-├── sidebar.css                # Sidebar-Styles
-└── slider.css                 # Slider-Styles
+├── core.css              # Haupt-CSS-Datei mit Layer-Imports
+├── modules/              # CSS-Module für Komponenten
+├── layers/              # CSS-Layer für Grundfunktionen
+├── icons/               # Icon-Styles
+└── themes/              # Theme-Varianten
 ```
 
-## Layer-Organisation
+## Verwendung
 
-Die Styles sind in verschiedene Layer organisiert:
+### 1. Core CSS
 
-### Base Layer
-Grundlegende Styles:
-- Reset
-- Tokens
-- Forms
-- Smooth Scroll
-- Colors
-- Typography
-- Layout
+Die `core.css` ist die Hauptdatei, die alle Layer und Module importiert. Sie ist in verschiedene Layer organisiert:
 
-### Components Layer
-Komponenten-Styles:
-- Alert
-- Avatar
-- Badge
-- Button
-- Card
-- Checkbox
-- Chip
-- Divider
-- Dropdown
-- Form
-- Header
-- Input
-- List
-- Modal
-- Nav
-- Pagination
-- Popover
-- Progress
-- Radio
-- Select
-- Sidebar
-- Slider
-- Switch
-- Table
-- Tabs
-- Textarea
-- Toast
-- Tooltip
+```css
+@layer base {
+    /* Grundlegende Styles */
+    @import url('layers/reset.css');
+    @import url('layers/tokens.css');
+    @import url('layers/forms.css');
+    @import url('layers/smooth-scroll.css');
+    @import url('layers/colors.css');
+    @import url('layers/typography.css');
+    @import url('layers/layout.css');
+}
 
-### Utilities Layer
-Utility-Klassen für:
-- Display
-- Flexbox
-- Grid
-- Position
-- Spacing
-- Typography
+@layer icons {
+    /* Icon-Styles */
+    @import url('icons/base.css');
+}
 
-### Effects Layer
-Effekt-Styles:
-- Blur
-- Glass
-- Frost
-- Hover
-- Active
-- Focus
-- Disabled
+@layer utilities {
+    /* Utility-Klassen */
+    @import url('layer/utilities.css');
+}
 
-### Animations Layer
-Animations-Styles:
-- Fade
-- Slide
-- Scale
-- Hamburger
-- Sidebar
-- Slider
+@layer animations {
+    /* Animationen */
+    @import url('layers/animations.css');
+}
+
+@layer effects {
+    /* Effekte */
+    @import url('layers/effects.css');
+}
+```
+
+### 2. CSS-Module
+
+Die Module im `modules/` Verzeichnis sind für einzelne Komponenten und können in Astro-Komponenten verwendet werden:
+
+```astro
+---
+import styles from 'casoon-ui-lib/modules/button.module.css';
+---
+
+<button class={styles.button}>Klick mich</button>
+```
+
+Verfügbare Module:
+- `avatar.module.css`
+- `badge.module.css`
+- `blog.module.css`
+- `button.module.css`
+- `card.module.css`
+- `checkbox.module.css`
+- `chip.module.css`
+- `code.module.css`
+- `footer.module.css`
+- `form.module.css`
+- `hamburger.module.css`
+- `header.module.css`
+- `input.module.css`
+- `modal.module.css`
+- `progress.module.css`
+- `radio.module.css`
+- `select.module.css`
+- `sidebar.module.css`
+- `skeleton.module.css`
+- `slider.module.css`
+- `spinner.module.css`
+- `switch.module.css`
+- `table.module.css`
+- `textarea.module.css`
+
+### 3. CSS-Layer
+
+Die Layer im `layers/` Verzeichnis enthalten grundlegende Styles:
+
+- `reset.css`: CSS-Reset
+- `tokens.css`: Design-Tokens
+- `forms.css`: Formular-Styles
+- `smooth-scroll.css`: Sanftes Scrollen
+- `colors.css`: Farbpalette
+- `typography.css`: Typografie
+- `layout.css`: Layout-System
+- `utilities.css`: Utility-Klassen
+- `animations.css`: Animationen
+- `effects.css`: Effekte
+- `components.css`: Komponenten-Styles
+- `icons.css`: Icon-Styles
+
+## Integration mit Astro
+
+Die Bibliothek ist speziell für die Verwendung mit Astro JS optimiert:
+
+```astro
+---
+import 'casoon-ui-lib/core.css';
+import styles from 'casoon-ui-lib/modules/button.module.css';
+---
+
+<button class={styles.button}>
+  Klick mich
+</button>
+```
+
+### Vorteile der Integration
+
+- **SSR-Optimiert**: Styles werden serverseitig gerendert
+- **CSS-Streaming**: Effiziente Auslieferung von Styles
+- **Modulare Komponenten**: Einfache Integration in Astro-Komponenten
+- **Performance**: Optimierte CSS-Ausgabe durch LightningCSS
 
 ## Installation
 
@@ -134,29 +147,23 @@ Animations-Styles:
 npm install casoon-ui-lib
 ```
 
-## Verwendung
+## Features
 
-```html
-<link rel="stylesheet" href="node_modules/casoon-ui-lib/core.css">
-```
+- 🎨 Schlankes, modulares CSS-System
+- 🚀 Performance-optimiert für SSR
+- ♿️ Barrierefrei
+- 📱 Responsive
+- 🎭 Theme-Support
+- 🎯 Utility-First
+- 🎨 Konsistentes Design-System
 
-## Entwicklung
+## Browser-Support
 
-```bash
-# Dependencies installieren
-npm install
-
-# Stylelint ausführen
-npm run lint
-
-# Stylelint mit Autofix ausführen
-npm run lint:fix
-```
-
-## Contributing
-
-Bitte lesen Sie [CONTRIBUTING.md](CONTRIBUTING.md) für Details zu unserem Code of Conduct und den Prozess für Pull Requests.
+- Chrome (letzte 2 Versionen)
+- Firefox (letzte 2 Versionen)
+- Safari (letzte 2 Versionen)
+- Edge (letzte 2 Versionen)
 
 ## Lizenz
 
-Dieses Projekt ist unter der MIT-Lizenz lizenziert - siehe die [LICENSE](LICENSE) Datei für Details.
+MIT
