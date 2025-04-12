@@ -1,33 +1,33 @@
 /* Design Tokens */
 :root {
     /* Colors */
-    --color-primary: #0066cc;
-    --color-primary-light: #3399ff;
-    --color-primary-dark: #004d99;
+    --color-primary: var(--color-blue-500);
+    --color-primary-light: var(--color-blue-400);
+    --color-primary-dark: var(--color-blue-600);
     
-    --color-secondary: #6c757d;
-    --color-secondary-light: #8e9ba4;
-    --color-secondary-dark: #495057;
+    --color-secondary: var(--color-gray-500);
+    --color-secondary-light: var(--color-gray-400);
+    --color-secondary-dark: var(--color-gray-600);
     
-    --color-accent: #ff6b6b;
-    --color-accent-light: #ff8e8e;
-    --color-accent-dark: #ff5252;
+    --color-accent: var(--color-gold-500);
+    --color-accent-light: var(--color-gold-400);
+    --color-accent-dark: var(--color-gold-600);
     
-    --color-success: #28a745;
-    --color-warning: #ffc107;
-    --color-error: #dc3545;
-    --color-info: #17a2b8;
+    --color-success: var(--color-green-500);
+    --color-warning: var(--color-yellow-500);
+    --color-error: var(--color-red-500);
+    --color-info: var(--color-blue-500);
     
     /* Grayscale */
-    --color-gray-100: #f8f9fa;
-    --color-gray-200: #e9ecef;
-    --color-gray-300: #dee2e6;
-    --color-gray-400: #ced4da;
-    --color-gray-500: #adb5bd;
-    --color-gray-600: #6c757d;
-    --color-gray-700: #495057;
-    --color-gray-800: #343a40;
-    --color-gray-900: #212529;
+    --color-gray-100: var(--color-gray-100);
+    --color-gray-200: var(--color-gray-200);
+    --color-gray-300: var(--color-gray-300);
+    --color-gray-400: var(--color-gray-400);
+    --color-gray-500: var(--color-gray-500);
+    --color-gray-600: var(--color-gray-600);
+    --color-gray-700: var(--color-gray-700);
+    --color-gray-800: var(--color-gray-800);
+    --color-gray-900: var(--color-gray-900);
     
     /* Typography */
     --font-family-base: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -106,4 +106,12 @@
     --z-40: 40;
     --z-50: 50;
     --z-auto: auto;
-  } 
+
+    /* Breakpoints */
+    --breakpoint-xs: 639px;  /* Extra Small - max-width */
+    --breakpoint-sm: 640px;  /* Small */
+    --breakpoint-md: 768px;  /* Medium */
+    --breakpoint-lg: 1024px; /* Large */
+    --breakpoint-xl: 1280px; /* Extra Large */
+    --breakpoint-2xl: 1536px; /* 2X Large */
+} 

@@ -350,7 +350,7 @@
 .ease-in-out { transition-timing-function: var(--transition-timing); }
 
 /* Responsive */
-@media (min-width: 640px) {
+@media (min-width: var(--breakpoint-sm)) {
   .sm\:block { display: block; }
   .sm\:hidden { display: none; }
   .sm\:text-center { text-align: center; }
@@ -358,7 +358,7 @@
   .sm\:p-4 { padding: var(--space-4); }
 }
 
-@media (min-width: 768px) {
+@media (min-width: var(--breakpoint-md)) {
   .md\:block { display: block; }
   .md\:hidden { display: none; }
   .md\:text-center { text-align: center; }
@@ -366,7 +366,7 @@
   .md\:p-4 { padding: var(--space-4); }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: var(--breakpoint-lg)) {
   .lg\:block { display: block; }
   .lg\:hidden { display: none; }
   .lg\:text-center { text-align: center; }
@@ -374,7 +374,7 @@
   .lg\:p-4 { padding: var(--space-4); }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: var(--breakpoint-xl)) {
   .xl\:block { display: block; }
   .xl\:hidden { display: none; }
   .xl\:text-center { text-align: center; }
