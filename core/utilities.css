@@ -1,3 +1,192 @@
+/**
+ * Utilities
+ * 
+ * Diese Datei enthält die Utility-Styles des Systems.
+ * Die Styles sind in @layer utilities organisiert.
+ */
+
+@layer utilities {
+    /* Display */
+    .block {
+        display: block;
+    }
+
+    .inline-block {
+        display: inline-block;
+    }
+
+    .inline {
+        display: inline;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    /* Position */
+    .relative {
+        position: relative;
+    }
+
+    .absolute {
+        position: absolute;
+    }
+
+    .fixed {
+        position: fixed;
+    }
+
+    .sticky {
+        position: sticky;
+    }
+
+    /* Z-Index */
+    .z-0 {
+        z-index: 0;
+    }
+
+    .z-10 {
+        z-index: 10;
+    }
+
+    .z-20 {
+        z-index: 20;
+    }
+
+    .z-30 {
+        z-index: 30;
+    }
+
+    .z-40 {
+        z-index: 40;
+    }
+
+    .z-50 {
+        z-index: 50;
+    }
+
+    /* Overflow */
+    .overflow-auto {
+        overflow: auto;
+    }
+
+    .overflow-hidden {
+        overflow: hidden;
+    }
+
+    .overflow-scroll {
+        overflow: scroll;
+    }
+
+    .overflow-visible {
+        overflow: visible;
+    }
+
+    /* Cursor */
+    .cursor-pointer {
+        cursor: pointer;
+    }
+
+    .cursor-not-allowed {
+        cursor: not-allowed;
+    }
+
+    .cursor-wait {
+        cursor: wait;
+    }
+
+    /* Opacity */
+    .opacity-0 {
+        opacity: 0;
+    }
+
+    .opacity-25 {
+        opacity: 0.25;
+    }
+
+    .opacity-50 {
+        opacity: 0.5;
+    }
+
+    .opacity-75 {
+        opacity: 0.75;
+    }
+
+    .opacity-100 {
+        opacity: 1;
+    }
+
+    /* Pointer Events */
+    .pointer-events-none {
+        pointer-events: none;
+    }
+
+    .pointer-events-auto {
+        pointer-events: auto;
+    }
+
+    /* User Select */
+    .select-none {
+        user-select: none;
+    }
+
+    .select-text {
+        user-select: text;
+    }
+
+    /* Visibility */
+    .visible {
+        visibility: visible;
+    }
+
+    .invisible {
+        visibility: hidden;
+    }
+
+    /* Responsive Utilities */
+    @media (max-width: var(--breakpoint-sm)) {
+        .sm\:hidden {
+            display: none;
+        }
+
+        .sm\:block {
+            display: block;
+        }
+
+        .sm\:flex {
+            display: flex;
+        }
+    }
+
+    @media (max-width: var(--breakpoint-md)) {
+        .md\:hidden {
+            display: none;
+        }
+
+        .md\:block {
+            display: block;
+        }
+
+        .md\:flex {
+            display: flex;
+        }
+    }
+
+    @media (max-width: var(--breakpoint-lg)) {
+        .lg\:hidden {
+            display: none;
+        }
+
+        .lg\:block {
+            display: block;
+        }
+
+        .lg\:flex {
+            display: flex;
+        }
+    }
+}
+
 /* Utility Variables */
 :root {
   /* Spacing Scale */
@@ -23,13 +212,20 @@
 
 /* Utility Classes */
 /* Display */
-.block { display: block; }
-.inline-block { display: inline-block; }
-.inline { display: inline; }
 .flex { display: flex; }
 .inline-flex { display: inline-flex; }
 .grid { display: grid; }
-.hidden { display: none; }
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
 
 /* Visibility */
 .visible { visibility: visible; }

@@ -1,128 +1,296 @@
 ---
 layout: default
-title: Startseite
+title: Dokumentation
+description: Willkommen in der Dokumentation des Casoon UI Designsystems
 ---
 
-<div class="section">
-    <h1>Casoon UI Library</h1>
-    <p>Eine modulare CSS-Bibliothek für moderne Webanwendungen.</p>
-</div>
+<div class="docs-layout">
+    <aside class="sidebar">
+        <nav class="nav">
+            <div class="nav-section">
+                <h3 class="nav-title">Grundlagen</h3>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="/docs/foundation" class="nav-link">Design-Tokens</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/docs/foundation/typography" class="nav-link">Typografie</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/docs/foundation/colors" class="nav-link">Farben</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/docs/foundation/spacing" class="nav-link">Abstände</a>
+                    </li>
+                </ul>
+            </div>
 
-<div class="section">
-    <h2>Installation</h2>
-    <p>Fügen Sie die CSS-Dateien in Ihrem HTML-Dokument ein:</p>
-    <div class="example">
-        <div class="example-header">
-            <span class="example-title">HTML</span>
-            <button class="button button-sm button-outline" onclick="copyCode('install-code')">
-                <span class="icon">📋</span>
-                <span class="button-text">Kopieren</span>
-            </button>
+            <div class="nav-section">
+                <h3 class="nav-title">Komponenten</h3>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="/docs/components/avatar" class="nav-link">Avatar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/docs/components/badge" class="nav-link">Badge</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/docs/components/button" class="nav-link">Button</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/docs/components/card" class="nav-link">Card</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/docs/components/form" class="nav-link">Form</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/docs/components/input" class="nav-link">Input</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/docs/components/modal" class="nav-link">Modal</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/docs/components/select" class="nav-link">Select</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/docs/components/table" class="nav-link">Table</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/docs/components/tooltip" class="nav-link">Tooltip</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="nav-section">
+                <h3 class="nav-title">Muster</h3>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="/docs/patterns/forms" class="nav-link">Formulare</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/docs/patterns/navigation" class="nav-link">Navigation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/docs/patterns/layouts" class="nav-link">Layouts</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </aside>
+
+    <main class="content">
+        <div class="header">
+            <h1 class="title">{{ page.title }}</h1>
+            <p class="description">{{ page.description }}</p>
         </div>
-        <pre><code id="install-code">&lt;!-- Core Styles -->
-&lt;link rel="stylesheet" href="https://casoon.github.io/casoon-ui-lib/core.css"&gt;
 
-&lt;!-- Komponenten -->
-&lt;link rel="stylesheet" href="https://casoon.github.io/casoon-ui-lib/animations.css"&gt;
-&lt;link rel="stylesheet" href="https://casoon.github.io/casoon-ui-lib/slider.css"&gt;
-&lt;link rel="stylesheet" href="https://casoon.github.io/casoon-ui-lib/sidebar.css"&gt;
-&lt;link rel="stylesheet" href="https://casoon.github.io/casoon-ui-lib/hamburger.css"&gt;
-&lt;link rel="stylesheet" href="https://casoon.github.io/casoon-ui-lib/effects.css"&gt;</code></pre>
-    </div>
+        <div class="section">
+            <h2 class="section-title">Willkommen</h2>
+            <p>Dies ist die Dokumentation des Casoon UI Designsystems. Hier finden Sie alle Informationen zu den Komponenten, Mustern und Grundlagen des Systems.</p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Schnellstart</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3 class="card-title">Installation</h3>
+                    <p>Installieren Sie das Designsystem über npm oder yarn.</p>
+                    <div class="code-block">
+                        <pre><code>npm install @casoon/ui</code></pre>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">Verwendung</h3>
+                    <p>Importieren Sie die Styles in Ihr Projekt.</p>
+                    <div class="code-block">
+                        <pre><code>@import '@casoon/ui/core/components.css';</code></pre>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">Beispiel</h3>
+                    <p>Verwenden Sie die Komponenten in Ihrem HTML.</p>
+                    <div class="code-block">
+                        <pre><code>&lt;button class="button"&gt;Klick mich&lt;/button&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 </div>
 
-<div class="section">
-    <h2>Grundlagen</h2>
-    <div class="component-grid">
-        <a href="{{ site.baseurl }}/_core/grundlagen" class="component-card">
-            <h3>Übersicht</h3>
-            <p>Grundlegende Konzepte und Design-Tokens der Bibliothek.</p>
-        </a>
-        <a href="{{ site.baseurl }}/_core/tokens" class="component-card">
-            <h3>Design Tokens</h3>
-            <p>Farben, Typografie, Abstände und mehr.</p>
-        </a>
-        <a href="{{ site.baseurl }}/_core/typography" class="component-card">
-            <h3>Typografie</h3>
-            <p>Schriftarten, Größen und Text-Styles.</p>
-        </a>
-        <a href="{{ site.baseurl }}/_core/layout" class="component-card">
-            <h3>Layout</h3>
-            <p>Container, Grid-System und responsive Design.</p>
-        </a>
-        <a href="{{ site.baseurl }}/_core/utilities" class="component-card">
-            <h3>Utilities</h3>
-            <p>Hilfreiche Utility-Klassen für schnelles Styling.</p>
-        </a>
-    </div>
-</div>
-
-<div class="section">
-    <h2>Komponenten</h2>
-    <div class="component-grid">
-        <a href="{{ site.baseurl }}/_components/komponenten" class="component-card">
-            <h3>Übersicht</h3>
-            <p>Alle verfügbaren UI-Komponenten im Überblick.</p>
-        </a>
-        <a href="{{ site.baseurl }}/_components/animations" class="component-card">
-            <h3>Animationen</h3>
-            <p>Verschiedene Animationen und Übergänge.</p>
-        </a>
-        <a href="{{ site.baseurl }}/_components/slider" class="component-card">
-            <h3>Slider</h3>
-            <p>Range-Slider für numerische Eingaben.</p>
-        </a>
-        <a href="{{ site.baseurl }}/_components/sidebar" class="component-card">
-            <h3>Sidebar</h3>
-            <p>Navigations-Sidebar mit verschiedenen Optionen.</p>
-        </a>
-        <a href="{{ site.baseurl }}/_components/hamburger" class="component-card">
-            <h3>Hamburger-Menü</h3>
-            <p>Responsives Menü für mobile Navigation.</p>
-        </a>
-        <a href="{{ site.baseurl }}/_components/effects" class="component-card">
-            <h3>Effekte</h3>
-            <p>Verschiedene visuelle Effekte und Interaktionen.</p>
-        </a>
-    </div>
-</div>
-
-<div class="section">
-    <h2>Beispiele</h2>
-    <div class="component-grid">
-        <a href="{{ site.baseurl }}/_examples/forms" class="component-card">
-            <h3>Formulare</h3>
-            <p>Beispiele für verschiedene Formular-Layouts.</p>
-        </a>
-        <a href="{{ site.baseurl }}/_examples/effects" class="component-card">
-            <h3>Effekte</h3>
-            <p>Demonstration verschiedener UI-Effekte.</p>
-        </a>
-        <a href="{{ site.baseurl }}/_examples/smooth-scroll" class="component-card">
-            <h3>Smooth Scroll</h3>
-            <p>Beispiele für sanfte Scroll-Effekte.</p>
-        </a>
-    </div>
-</div>
-
-<script>
-function copyCode(elementId) {
-    const codeElement = document.getElementById(elementId);
-    const text = codeElement.textContent;
-    
-    navigator.clipboard.writeText(text).then(() => {
-        const button = codeElement.closest('.example').querySelector('.button');
-        const originalText = button.querySelector('.button-text').textContent;
-        
-        button.querySelector('.button-text').textContent = 'Kopiert!';
-        button.classList.add('button-success');
-        
-        setTimeout(() => {
-            button.querySelector('.button-text').textContent = originalText;
-            button.classList.remove('button-success');
-        }, 2000);
-    }).catch(err => {
-        console.error('Fehler beim Kopieren:', err);
-    });
+<style>
+/* Layout */
+.docs-layout {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    min-height: 100vh;
 }
-</script> 
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 100vh;
+    padding: var(--spacing-lg);
+    border-right: 1px solid var(--color-border);
+    overflow-y: auto;
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.nav-section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.nav-title {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.nav-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-item {
+    display: flex;
+}
+
+.nav-link {
+    width: 100%;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: var(--font-size-base);
+    color: var(--color-text);
+    text-decoration: none;
+    border-radius: var(--border-radius-sm);
+    transition: var(--transition-fast);
+}
+
+.nav-link:hover {
+    background-color: var(--color-background-hover);
+    color: var(--color-primary);
+}
+
+.nav-link.active {
+    background-color: var(--color-primary);
+    color: var(--color-text-inverse);
+}
+
+/* Content */
+.content {
+    margin-left: 300px;
+    padding: var(--spacing-xl);
+}
+
+.header {
+    margin-bottom: var(--spacing-xl);
+}
+
+.title {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+    margin-bottom: var(--spacing-sm);
+}
+
+.description {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+}
+
+.section {
+    margin-bottom: var(--spacing-xl);
+}
+
+.section-title {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text);
+    margin-bottom: var(--spacing-lg);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.card {
+    padding: var(--spacing-lg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-lg);
+    transition: var(--transition-fast);
+}
+
+.card:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.card-title {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text);
+    margin-bottom: var(--spacing-sm);
+}
+
+.code-block {
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-md);
+    background-color: var(--color-background-dark);
+    border-radius: var(--border-radius-md);
+    overflow-x: auto;
+}
+
+.code-block pre {
+    margin: 0;
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-inverse);
+}
+
+/* Responsive */
+@media (max-width: var(--breakpoint-lg)) {
+    .docs-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .content {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: var(--breakpoint-sm)) {
+    .content {
+        padding: var(--spacing-md);
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style> 

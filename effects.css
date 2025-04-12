@@ -24,4 +24,90 @@
 /* Effekte */
 @import url('effects/neon.css');
 @import url('effects/filters.css');
-@import url('effects/interactions.css'); 
+@import url('effects/interactions.css');
+
+/**
+ * Effects
+ * 
+ * Diese Datei enthält die Effect-Styles des Systems.
+ * Die Styles sind in @layer effects organisiert.
+ */
+
+@layer effects {
+    /* Hover Effects */
+    .hover-scale {
+        transition: transform var(--transition-normal);
+    }
+
+    .hover-scale:hover {
+        transform: scale(1.05);
+    }
+
+    .hover-rotate {
+        transition: transform var(--transition-normal);
+    }
+
+    .hover-rotate:hover {
+        transform: rotate(5deg);
+    }
+
+    .hover-shadow {
+        transition: box-shadow var(--transition-normal);
+    }
+
+    .hover-shadow:hover {
+        box-shadow: var(--shadow-md);
+    }
+
+    /* Focus Effects */
+    .focus-ring {
+        transition: box-shadow var(--transition-normal);
+    }
+
+    .focus-ring:focus {
+        box-shadow: 0 0 0 3px var(--color-primary-500);
+        outline: none;
+    }
+
+    /* Active Effects */
+    .active-scale {
+        transition: transform var(--transition-normal);
+    }
+
+    .active-scale:active {
+        transform: scale(0.95);
+    }
+
+    /* Disabled Effects */
+    .disabled-opacity {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+
+    /* Loading Effects */
+    .loading-spinner {
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    /* Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+        .hover-scale,
+        .hover-rotate,
+        .hover-shadow,
+        .focus-ring,
+        .active-scale,
+        .loading-spinner {
+            transition: none;
+            animation: none;
+        }
+    }
+} 

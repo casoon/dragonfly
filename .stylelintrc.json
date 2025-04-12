@@ -1,0 +1,17 @@
+{
+  "extends": "stylelint-config-standard",
+  "plugins": ["stylelint-declaration-strict-value"],
+  "rules": {
+    "scale-unlimited/declaration-strict-value": [
+      ["/color/", "font-family", "font-weight", "z-index"],
+      {
+        "ignoreValues": {
+          "/color/": ["transparent", "inherit", "currentColor"],
+          "font-family": ["inherit", "system-ui", "sans-serif"],
+          "font-weight": ["inherit", "normal", "bold"],
+          "z-index": ["inherit", "auto"]
+        }
+      }
+    ]
+  }
+} 
