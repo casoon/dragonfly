@@ -1,1 +1,111 @@
- 
+/**
+ * Slider
+ * 
+ * Diese Datei enthält die Slider-Styles des Systems.
+ * Die Styles sind in @layer components organisiert.
+ */
+
+@layer components {
+    /* Slider Base */
+    .slider {
+        position: relative;
+        width: 100%;
+        height: 4px;
+        background-color: var(--color-gray-200);
+        border-radius: var(--border-radius-full);
+        cursor: pointer;
+    }
+
+    .slider-track {
+        position: absolute;
+        height: 100%;
+        background-color: var(--color-primary-500);
+        border-radius: var(--border-radius-full);
+    }
+
+    .slider-thumb {
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        background-color: var(--color-white);
+        border: 2px solid var(--color-primary-500);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        cursor: grab;
+    }
+
+    .slider-thumb:active {
+        cursor: grabbing;
+    }
+
+    /* Slider States */
+    .slider-disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+
+    .slider-disabled .slider-thumb {
+        cursor: not-allowed;
+    }
+
+    /* Slider Variants */
+    .slider-error .slider-track {
+        background-color: var(--color-error-500);
+    }
+
+    .slider-error .slider-thumb {
+        border-color: var(--color-error-500);
+    }
+
+    .slider-success .slider-track {
+        background-color: var(--color-success-500);
+    }
+
+    .slider-success .slider-thumb {
+        border-color: var(--color-success-500);
+    }
+
+    /* Slider Sizes */
+    .slider-sm {
+        height: 2px;
+    }
+
+    .slider-sm .slider-thumb {
+        width: 12px;
+        height: 12px;
+    }
+
+    .slider-lg {
+        height: 6px;
+    }
+
+    .slider-lg .slider-thumb {
+        width: 20px;
+        height: 20px;
+    }
+
+    /* Slider Group */
+    .slider-group {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+
+    .slider-group-horizontal {
+        flex-flow: row wrap;
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+        .slider-group-horizontal {
+            flex-flow: column nowrap;
+        }
+    }
+
+    /* Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+        .slider-thumb {
+            transition: none;
+        }
+    }
+} 

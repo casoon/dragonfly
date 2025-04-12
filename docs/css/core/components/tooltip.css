@@ -1,12 +1,12 @@
 /**
- * Tooltip-Komponenten
+ * Tooltip
  * 
- * Diese Datei enthält Styles für Tooltip-Komponenten.
- * Die Komponenten sind in @layer components organisiert.
+ * Diese Datei enthält die Tooltip-Styles des Systems.
+ * Die Styles sind in @layer components organisiert.
  */
 
 @layer components {
-    /* Basis-Tooltip */
+    /* Tooltip Base */
     .tooltip {
         position: relative;
         display: inline-block;
@@ -15,155 +15,148 @@
     .tooltip-content {
         position: absolute;
         z-index: var(--z-index-tooltip);
-        padding: 0.5rem 0.75rem;
+        padding: var(--spacing-xs) var(--spacing-sm);
         font-size: var(--font-size-sm);
-        color: var(--color-text-inverse);
-        background-color: var(--color-text);
-        border-radius: var(--component-border-radius);
-        white-space: nowrap;
+        color: var(--color-white);
+        background-color: var(--color-gray-900);
+        border-radius: var(--border-radius-sm);
         opacity: 0;
         visibility: hidden;
-        transition: all var(--component-transition);
+        transition: opacity 0.2s ease, visibility 0.2s ease;
     }
 
-    /* Tooltip-Positionen */
-    .tooltip-content[data-position="top"] {
-        bottom: 100%;
-        left: 50%;
-        transform: translateX(-50%) translateY(-0.5rem);
-    }
-
-    .tooltip-content[data-position="right"] {
-        top: 50%;
-        left: 100%;
-        transform: translateX(0.5rem) translateY(-50%);
-    }
-
-    .tooltip-content[data-position="bottom"] {
-        top: 100%;
-        left: 50%;
-        transform: translateX(-50%) translateY(0.5rem);
-    }
-
-    .tooltip-content[data-position="left"] {
-        top: 50%;
-        right: 100%;
-        transform: translateX(-0.5rem) translateY(-50%);
-    }
-
-    /* Tooltip-Trigger */
-    .tooltip:hover .tooltip-content,
-    .tooltip:focus .tooltip-content,
-    .tooltip:focus-within .tooltip-content {
+    .tooltip:hover .tooltip-content {
         opacity: 1;
         visibility: visible;
-        transform: translateX(-50%) translateY(0);
     }
 
-    .tooltip:hover .tooltip-content[data-position="right"],
-    .tooltip:focus .tooltip-content[data-position="right"],
-    .tooltip:focus-within .tooltip-content[data-position="right"] {
-        transform: translateX(0) translateY(-50%);
+    /* Tooltip Positions */
+    .tooltip-top .tooltip-content {
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-bottom: var(--spacing-xs);
     }
 
-    .tooltip:hover .tooltip-content[data-position="left"],
-    .tooltip:focus .tooltip-content[data-position="left"],
-    .tooltip:focus-within .tooltip-content[data-position="left"] {
-        transform: translateX(0) translateY(-50%);
+    .tooltip-right .tooltip-content {
+        top: 50%;
+        left: 100%;
+        transform: translateY(-50%);
+        margin-left: var(--spacing-xs);
     }
 
-    /* Tooltip-Varianten */
-    .tooltip-content[data-variant="error"] {
-        background-color: var(--color-error);
+    .tooltip-bottom .tooltip-content {
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-top: var(--spacing-xs);
     }
 
-    .tooltip-content[data-variant="success"] {
-        background-color: var(--color-success);
+    .tooltip-left .tooltip-content {
+        top: 50%;
+        right: 100%;
+        transform: translateY(-50%);
+        margin-right: var(--spacing-xs);
     }
 
-    .tooltip-content[data-variant="warning"] {
-        background-color: var(--color-warning);
-    }
-
-    .tooltip-content[data-variant="info"] {
-        background-color: var(--color-info);
-    }
-
-    /* Tooltip mit Pfeil */
+    /* Tooltip Arrow */
     .tooltip-content::after {
         content: '';
         position: absolute;
         width: 0;
         height: 0;
-        border: 0.375rem solid transparent;
+        border: 6px solid transparent;
     }
 
-    .tooltip-content[data-position="top"]::after {
-        bottom: -0.75rem;
+    .tooltip-top .tooltip-content::after {
+        bottom: 0;
         left: 50%;
         transform: translateX(-50%);
-        border-top-color: var(--color-text);
+        border-top-color: var(--color-gray-900);
+        border-bottom: none;
     }
 
-    .tooltip-content[data-position="right"]::after {
-        left: -0.75rem;
+    .tooltip-right .tooltip-content::after {
+        left: 0;
         top: 50%;
         transform: translateY(-50%);
-        border-right-color: var(--color-text);
+        border-left-color: var(--color-gray-900);
+        border-right: none;
     }
 
-    .tooltip-content[data-position="bottom"]::after {
-        top: -0.75rem;
+    .tooltip-bottom .tooltip-content::after {
+        top: 0;
         left: 50%;
         transform: translateX(-50%);
-        border-bottom-color: var(--color-text);
+        border-bottom-color: var(--color-gray-900);
+        border-top: none;
     }
 
-    .tooltip-content[data-position="left"]::after {
-        right: -0.75rem;
+    .tooltip-left .tooltip-content::after {
+        right: 0;
         top: 50%;
         transform: translateY(-50%);
-        border-left-color: var(--color-text);
+        border-right-color: var(--color-gray-900);
+        border-left: none;
     }
 
-    /* Tooltip-Varianten mit Pfeil */
-    .tooltip-content[data-variant="error"]::after {
-        border-top-color: var(--color-error);
-        border-right-color: var(--color-error);
-        border-bottom-color: var(--color-error);
-        border-left-color: var(--color-error);
+    /* Tooltip States */
+    .tooltip-error .tooltip-content {
+        background-color: var(--color-error-500);
     }
 
-    .tooltip-content[data-variant="success"]::after {
-        border-top-color: var(--color-success);
-        border-right-color: var(--color-success);
-        border-bottom-color: var(--color-success);
-        border-left-color: var(--color-success);
+    .tooltip-error .tooltip-content::after {
+        border-top-color: var(--color-error-500);
+        border-left-color: var(--color-error-500);
+        border-right-color: var(--color-error-500);
+        border-bottom-color: var(--color-error-500);
     }
 
-    .tooltip-content[data-variant="warning"]::after {
-        border-top-color: var(--color-warning);
-        border-right-color: var(--color-warning);
-        border-bottom-color: var(--color-warning);
-        border-left-color: var(--color-warning);
+    .tooltip-success .tooltip-content {
+        background-color: var(--color-success-500);
     }
 
-    .tooltip-content[data-variant="info"]::after {
-        border-top-color: var(--color-info);
-        border-right-color: var(--color-info);
-        border-bottom-color: var(--color-info);
-        border-left-color: var(--color-info);
+    .tooltip-success .tooltip-content::after {
+        border-top-color: var(--color-success-500);
+        border-left-color: var(--color-success-500);
+        border-right-color: var(--color-success-500);
+        border-bottom-color: var(--color-success-500);
     }
 
-    /* Responsive Anpassungen */
-    @media (max-width: var(--breakpoint-sm)) {
+    .tooltip-warning .tooltip-content {
+        background-color: var(--color-warning-500);
+    }
+
+    .tooltip-warning .tooltip-content::after {
+        border-top-color: var(--color-warning-500);
+        border-left-color: var(--color-warning-500);
+        border-right-color: var(--color-warning-500);
+        border-bottom-color: var(--color-warning-500);
+    }
+
+    .tooltip-info .tooltip-content {
+        background-color: var(--color-info-500);
+    }
+
+    .tooltip-info .tooltip-content::after {
+        border-top-color: var(--color-info-500);
+        border-left-color: var(--color-info-500);
+        border-right-color: var(--color-info-500);
+        border-bottom-color: var(--color-info-500);
+    }
+
+    /* Tooltip Responsive */
+    @media (max-width: 640px) {
         .tooltip-content {
-            font-size: var(--font-size-xs);
-            padding: 0.375rem 0.5rem;
+            display: none;
+        }
+
+        .tooltip:hover .tooltip-content {
+            display: block;
         }
     }
 
-    /* Reduzierte Bewegung */
+    /* Reduced Motion */
     @media (prefers-reduced-motion: reduce) {
         .tooltip-content {
             transition: none;

@@ -1,206 +1,165 @@
 /**
- * Input-Komponenten
+ * Input
  * 
- * Diese Datei enthält verschiedene Stile für Input-Felder.
- * Die Komponenten sind performant optimiert und berücksichtigen reduzierte Bewegung.
- * 
- * Verwendung:
- * 
- * 1. Basis-Input:
- * <div class="input-group">
- *   <label class="input-label">Label</label>
- *   <input type="text" class="input" placeholder="Platzhalter" />
- *   <div class="input-help">Hilfetext</div>
- * </div>
- * 
- * 2. Input mit Icon:
- * <div class="input-group">
- *   <label class="input-label">Label</label>
- *   <div class="input-wrapper">
- *     <span class="input-icon">🔍</span>
- *     <input type="text" class="input input--icon" placeholder="Suchen" />
- *   </div>
- * </div>
- * 
- * 3. Input mit Validierung:
- * <div class="input-group input-group--error">
- *   <label class="input-label">Label</label>
- *   <input type="text" class="input" />
- *   <div class="input-error">Fehlermeldung</div>
- * </div>
- * 
- * Technische Details:
- * - Verwendet CSS-Variablen für Farben und Größen
- * - Optimiert mit will-change und transform
- * - Responsive Anpassungen für mobile Geräte
- * - Reduzierte Bewegung wird berücksichtigt
+ * Diese Datei enthält die Input-Styles des Systems.
+ * Die Styles sind in @layer components organisiert.
  */
 
-/* Basis-Input */
-.input-group {
-    margin-bottom: var(--spacing-md);
-}
-
-.input-label {
-    display: block;
-    margin-bottom: var(--spacing-xs);
-    font-weight: var(--font-weight-medium);
-    color: var(--color-text);
-}
-
-.input-wrapper {
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-
-.input {
-    width: 100%;
-    padding: var(--spacing-sm) var(--spacing-md);
-    border: 1px solid var(--color-border);
-    border-radius: var(--border-radius-sm);
-    background: var(--color-background);
-    color: var(--color-text);
-    font-size: var(--font-size-base);
-    line-height: 1.5;
-    transition: all var(--transition-fast);
-}
-
-.input:focus {
-    outline: none;
-    border-color: var(--color-primary);
-    box-shadow: 0 0 0 2px var(--color-primary-light);
-}
-
-.input::placeholder {
-    color: var(--color-text-secondary);
-}
-
-/* Input mit Icon */
-.input-icon {
-    position: absolute;
-    left: var(--spacing-md);
-    color: var(--color-text-secondary);
-    pointer-events: none;
-}
-
-.input--icon {
-    padding-left: calc(var(--spacing-md) * 2 + 1em);
-}
-
-.input-icon--right {
-    left: auto;
-    right: var(--spacing-md);
-}
-
-.input--icon-right {
-    padding-right: calc(var(--spacing-md) * 2 + 1em);
-    padding-left: var(--spacing-md);
-}
-
-/* Input-Größen */
-.input--sm {
-    padding: var(--spacing-xs) var(--spacing-sm);
-    font-size: var(--font-size-sm);
-}
-
-.input--lg {
-    padding: var(--spacing-md) var(--spacing-lg);
-    font-size: var(--font-size-lg);
-}
-
-/* Input-Varianten */
-.input--outline {
-    background: transparent;
-    border-color: var(--color-border);
-}
-
-.input--filled {
-    background: var(--color-background-secondary);
-    border-color: transparent;
-}
-
-.input--underline {
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid var(--color-border);
-    border-radius: 0;
-    padding-left: 0;
-    padding-right: 0;
-}
-
-/* Input-Zustände */
-.input-group--error .input {
-    border-color: var(--color-error);
-}
-
-.input-group--error .input:focus {
-    box-shadow: 0 0 0 2px var(--color-error-light);
-}
-
-.input-group--success .input {
-    border-color: var(--color-success);
-}
-
-.input-group--success .input:focus {
-    box-shadow: 0 0 0 2px var(--color-success-light);
-}
-
-.input-group--disabled .input {
-    background: var(--color-background-secondary);
-    cursor: not-allowed;
-    opacity: 0.7;
-}
-
-.input-error {
-    margin-top: var(--spacing-xs);
-    font-size: var(--font-size-sm);
-    color: var(--color-error);
-}
-
-.input-help {
-    margin-top: var(--spacing-xs);
-    font-size: var(--font-size-sm);
-    color: var(--color-text-secondary);
-}
-
-/* Input-Typen */
-.input[type="number"] {
-    -moz-appearance: textfield;
-}
-
-.input[type="number"]::-webkit-outer-spin-button,
-.input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-.input[type="search"] {
-    -webkit-appearance: none;
-}
-
-.input[type="search"]::-webkit-search-decoration,
-.input[type="search"]::-webkit-search-cancel-button,
-.input[type="search"]::-webkit-search-results-button,
-.input[type="search"]::-webkit-search-results-decoration {
-    -webkit-appearance: none;
-}
-
-/* Responsive Anpassungen */
-@media (max-width: var(--breakpoint-sm)) {
+@layer components {
+    /* Input Base */
     .input {
+        width: 100%;
+        padding: var(--spacing-sm);
         font-size: var(--font-size-base);
+        color: var(--color-gray-900);
+        background-color: var(--color-white);
+        border: 1px solid var(--color-gray-300);
+        border-radius: var(--border-radius-md);
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
     }
-    
-    .input--sm,
-    .input--lg {
-        font-size: var(--font-size-base);
-    }
-}
 
-/* Reduzierte Bewegung */
-@media (prefers-reduced-motion: reduce) {
-    .input {
-        transition: none;
+    .input:focus {
+        outline: none;
+        border-color: var(--color-primary-500);
+        box-shadow: 0 0 0 3px var(--color-primary-100);
+    }
+
+    .input::placeholder {
+        color: var(--color-gray-400);
+    }
+
+    /* Input Icon */
+    .input-icon {
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+
+    .input-icon-right {
+        flex-direction: row-reverse;
+    }
+
+    .input-icon .input {
+        padding-right: var(--spacing-xl);
+    }
+
+    .input-icon-right .input {
+        padding-right: var(--spacing-sm);
+        padding-left: var(--spacing-xl);
+    }
+
+    .input-icon-element {
+        position: absolute;
+        right: var(--spacing-sm);
+        color: var(--color-gray-400);
+        pointer-events: none;
+    }
+
+    .input-icon-right .input-icon-element {
+        right: auto;
+        left: var(--spacing-sm);
+    }
+
+    /* Input Sizes */
+    .input-sm {
+        padding: var(--spacing-xs);
+        font-size: var(--font-size-sm);
+    }
+
+    .input-lg {
+        padding: var(--spacing-md);
+        font-size: var(--font-size-lg);
+    }
+
+    /* Input Variants */
+    .input-outline {
+        background-color: transparent;
+        border: 1px solid var(--color-gray-300);
+    }
+
+    .input-filled {
+        background-color: var(--color-gray-100);
+        border: 1px solid var(--color-gray-200);
+    }
+
+    .input-underline {
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid var(--color-gray-300);
+        border-radius: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    /* Input States */
+    .input-group-error .input {
+        border-color: var(--color-error-500);
+    }
+
+    .input-group-error .input:focus {
+        border-color: var(--color-error-500);
+        box-shadow: 0 0 0 3px var(--color-error-100);
+    }
+
+    .input-group-success .input {
+        border-color: var(--color-success-500);
+    }
+
+    .input-group-success .input:focus {
+        border-color: var(--color-success-500);
+        box-shadow: 0 0 0 3px var(--color-success-100);
+    }
+
+    .input-group-disabled .input {
+        background-color: var(--color-gray-100);
+        border-color: var(--color-gray-200);
+        color: var(--color-gray-500);
+        cursor: not-allowed;
+    }
+
+    /* Input Group */
+    .input-group {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-xs);
+    }
+
+    .input-group-label {
+        font-size: var(--font-size-sm);
+        font-weight: var(--font-weight-medium);
+        color: var(--color-gray-700);
+    }
+
+    .input-group-help {
+        font-size: var(--font-size-sm);
+        color: var(--color-gray-500);
+    }
+
+    .input-group-error .input-group-help {
+        color: var(--color-error-600);
+    }
+
+    .input-group-success .input-group-help {
+        color: var(--color-success-600);
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+        .input-sm {
+            padding: var(--spacing-xs);
+            font-size: var(--font-size-sm);
+        }
+
+        .input-lg {
+            padding: var(--spacing-md);
+            font-size: var(--font-size-lg);
+        }
+    }
+
+    /* Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+        .input {
+            transition: none;
+        }
     }
 } 

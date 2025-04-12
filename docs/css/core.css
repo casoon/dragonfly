@@ -6,20 +6,16 @@
  * - base: Grundlegende Styles (Colors, Typography)
  * - components: Komponenten-Styles
  * - utilities: Utility-Klassen
- * - themes: Theme-Styles
- * - effects: Effekt-Styles
- * - hamburger: Hamburger-Menü-Styles
- * - animations: Animations-Styles
  */
 
-/* Separate Imports für einzeln auswählbare Dateien */
-@import url('core/reset.css');
-@import url('core/tokens.css');
-@import url('core/forms.css');
-@import url('core/smooth-scroll.css');
+
 
 @layer base {
     /* Base Layer Imports */
+    @import url('core/reset.css');
+    @import url('core/tokens.css');
+    @import url('core/forms.css');
+    @import url('core/smooth-scroll.css');
     @import url('core/colors.css');
     @import url('core/typography.css');
 }
@@ -34,4 +30,27 @@
     @import url('core/utilities.css');
 }
 
+@layer sidebar {
+    /* Sidebar Imports */
+    @import url('sidebar.css');
+}
 
+@layer slider {
+    /* Slider Imports */
+    @import url('slider.css');
+}
+
+@layer hamburger {
+    /* Hamburger Imports */
+    @import url('hamburger.css');
+}
+
+@layer animations {
+    /* Animations Imports */
+    @import url('animations.css');
+}
+
+@layer effects {
+    /* Effects Imports */
+    @import url('effects.css');
+}   

@@ -1,162 +1,107 @@
 /**
- * Spinner-Komponenten
+ * Spinner
  * 
- * Diese Datei enthält verschiedene Stile für Ladeanimationen.
- * Die Komponenten sind performant optimiert und berücksichtigen reduzierte Bewegung.
- * 
- * Verwendung:
- * 
- * 1. Basis-Spinner:
- * <div class="spinner">
- *   <div class="spinner-circle"></div>
- *   <span class="spinner-label">Laden...</span>
- * </div>
- * 
- * 2. Spinner mit Validierung:
- * <div class="spinner spinner--error">
- *   <div class="spinner-circle"></div>
- *   <span class="spinner-label">Fehler</span>
- *   <span class="spinner-error">Fehlermeldung</span>
- * </div>
- * 
- * 3. Spinner mit Animation:
- * <div class="spinner spinner--animated">
- *   <div class="spinner-circle"></div>
- *   <span class="spinner-label">Laden...</span>
- * </div>
- * 
- * Technische Details:
- * - Verwendet CSS-Variablen für Farben und Größen
- * - Optimiert mit will-change und transform
- * - Responsive Anpassungen für mobile Geräte
- * - Reduzierte Bewegung wird berücksichtigt
+ * Diese Datei enthält die Spinner-Styles des Systems.
+ * Die Styles sind in @layer components organisiert.
  */
 
-/* Basis-Spinner */
-.spinner {
-    position: relative;
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: var(--spacing-sm);
-}
-
-.spinner-circle {
-    width: 24px;
-    height: 24px;
-    border: 2px solid var(--color-border);
-    border-top-color: var(--color-primary);
-    border-radius: 50%;
-    animation: spinner-rotate 1s linear infinite;
-}
-
-.spinner-label {
-    font-size: var(--font-size-sm);
-    color: var(--color-text-light);
-}
-
-/* Spinner-Zustände */
-.spinner--error .spinner-circle {
-    border-top-color: var(--color-error);
-}
-
-.spinner--success .spinner-circle {
-    border-top-color: var(--color-success);
-}
-
-.spinner--warning .spinner-circle {
-    border-top-color: var(--color-warning);
-}
-
-.spinner--info .spinner-circle {
-    border-top-color: var(--color-info);
-}
-
-/* Spinner-Varianten */
-.spinner--striped .spinner-circle {
-    border-image: linear-gradient(
-        45deg,
-        rgba(255, 255, 255, 0.15) 25%,
-        transparent 25%,
-        transparent 50%,
-        rgba(255, 255, 255, 0.15) 50%,
-        rgba(255, 255, 255, 0.15) 75%,
-        transparent 75%,
-        transparent
-    );
-    border-image-slice: 1;
-}
-
-.spinner--animated .spinner-circle {
-    animation: spinner-rotate 1s linear infinite;
-}
-
-/* Spinner-Größen */
-.spinner--sm .spinner-circle {
-    width: 16px;
-    height: 16px;
-}
-
-.spinner--sm .spinner-label {
-    font-size: var(--font-size-xs);
-}
-
-.spinner--lg .spinner-circle {
-    width: 32px;
-    height: 32px;
-}
-
-.spinner--lg .spinner-label {
-    font-size: var(--font-size-base);
-}
-
-/* Spinner-Fehler */
-.spinner-error {
-    display: block;
-    margin-top: var(--spacing-xs);
-    font-size: var(--font-size-sm);
-    color: var(--color-error);
-}
-
-/* Spinner-Gruppen */
-.spinner-group {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-sm);
-}
-
-.spinner-group--horizontal {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: var(--spacing-md);
-}
-
-/* Spinner-Animation */
-@keyframes spinner-rotate {
-    from {
-        transform: rotate(0deg);
+@layer components {
+    /* Spinner Base */
+    .spinner {
+        display: inline-block;
+        width: 2rem;
+        height: 2rem;
+        border: 3px solid var(--color-gray-200);
+        border-radius: 50%;
+        border-top-color: var(--color-gray-700);
+        animation: spinner-rotate 1s linear infinite;
     }
-    to {
-        transform: rotate(360deg);
-    }
-}
 
-/* Responsive Anpassungen */
-@media (max-width: var(--breakpoint-sm)) {
-    .spinner-group--horizontal {
-        flex-direction: column;
+    /* Spinner States */
+    .spinner-error {
+        border-color: var(--color-error-100);
+        border-top-color: var(--color-error-500);
+    }
+
+    .spinner-success {
+        border-color: var(--color-success-100);
+        border-top-color: var(--color-success-500);
+    }
+
+    .spinner-warning {
+        border-color: var(--color-warning-100);
+        border-top-color: var(--color-warning-500);
+    }
+
+    .spinner-info {
+        border-color: var(--color-info-100);
+        border-top-color: var(--color-info-500);
+    }
+
+    /* Spinner Variants */
+    .spinner-striped {
+        background-image: linear-gradient(
+            45deg,
+            rgb(0 0 0 / 15%) 25%,
+            transparent 25%,
+            transparent 50%,
+            rgb(0 0 0 / 15%) 50%,
+            rgb(0 0 0 / 15%) 75%,
+            transparent 75%,
+            transparent
+        );
+        background-size: 1rem 1rem;
+    }
+
+    /* Spinner Animation */
+    .spinner-animated {
+        animation: spinner-rotate 1s linear infinite;
+    }
+
+    @keyframes spinner-rotate {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    /* Spinner Sizes */
+    .spinner-sm {
+        width: 1rem;
+        height: 1rem;
+        border-width: 2px;
+    }
+
+    .spinner-lg {
+        width: 3rem;
+        height: 3rem;
+        border-width: 4px;
+    }
+
+    /* Spinner Group */
+    .spinner-group {
+        display: flex;
         gap: var(--spacing-sm);
     }
-}
 
-/* Reduzierte Bewegung */
-@media (prefers-reduced-motion: reduce) {
-    .spinner-circle {
-        animation: none;
+    .spinner-group-horizontal {
+        flex-flow: row wrap;
     }
 
-    .spinner--animated .spinner-circle {
-        animation: none;
+    .spinner-group-vertical {
+        flex-flow: column nowrap;
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+        .spinner-group-horizontal {
+            flex-flow: column nowrap;
+        }
+    }
+
+    /* Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+        .spinner-animated {
+            animation: none;
+        }
     }
 } 
