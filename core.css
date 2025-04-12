@@ -6,51 +6,38 @@
  * - base: Grundlegende Styles (Colors, Typography)
  * - components: Komponenten-Styles
  * - utilities: Utility-Klassen
+ * - effects: Effekt-Styles
+ * - animations: Animations-Styles
  */
-
-
 
 @layer base {
     /* Base Layer Imports */
-    @import url('core/reset.css');
-    @import url('core/tokens.css');
-    @import url('core/forms.css');
-    @import url('core/smooth-scroll.css');
-    @import url('core/colors.css');
-    @import url('core/typography.css');
+    @import url('layers/reset.css');
+    @import url('layers/tokens.css');
+    @import url('layers/forms.css');
+    @import url('layers/smooth-scroll.css');
+    @import url('layers/colors.css');
+    @import url('layers/typography.css');
+    @import url('layers/layout.css');
+
 }
 
-@layer components {
-    /* Component Imports */
-    @import url('core/components.css');
+@layer icons {
+    /* Utility Imports */
+    @import url('icons/base.css');
 }
 
 @layer utilities {
     /* Utility Imports */
-    @import url('core/utilities.css');
-}
-
-@layer sidebar {
-    /* Sidebar Imports */
-    @import url('sidebar.css');
-}
-
-@layer slider {
-    /* Slider Imports */
-    @import url('slider.css');
-}
-
-@layer hamburger {
-    /* Hamburger Imports */
-    @import url('hamburger.css');
+    @import url('layer/utilities.css');
 }
 
 @layer animations {
     /* Animations Imports */
-    @import url('animations.css');
+    @import url('layers/animations.css');
 }
 
 @layer effects {
     /* Effects Imports */
-    @import url('effects.css');
+    @import url('layers/effects.css');
 }   

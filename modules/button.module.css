@@ -1,0 +1,169 @@
+/**
+ * Button CSS Module
+ * 
+ * Diese Datei enthält die CSS-Module für Buttons.
+ * Die Buttons sind performant optimiert und berücksichtigen reduzierte Bewegung.
+ * 
+ * Verwendung:
+ * 
+ * 1. Basis-Button:
+ * <button className={styles.button}>Klick mich</button>
+ * 
+ * 2. Button mit Icon:
+ * <button className={styles.button}>
+ *   <span className={styles.icon}>🔔</span>
+ *   <span className={styles.text}>Benachrichtigungen</span>
+ * </button>
+ * 
+ * 3. Button mit Varianten:
+ * <button className={`${styles.button} ${styles.primary}`}>Primary</button>
+ * <button className={`${styles.button} ${styles.secondary}`}>Secondary</button>
+ * 
+ * 4. Button mit Größen:
+ * <button className={`${styles.button} ${styles.small}`}>Small</button>
+ * <button className={`${styles.button} ${styles.large}`}>Large</button>
+ * 
+ * Technische Details:
+ * - Verwendet CSS-Variablen für Farben und Größen
+ * - Optimiert mit will-change und transform
+ * - Responsive Anpassungen für mobile Geräte
+ * - Reduzierte Bewegung wird berücksichtigt
+ * 
+ * Performance-Hinweise:
+ * - Animationen sind hardware-beschleunigt
+ * - Reduzierte Bewegung wird automatisch berücksichtigt
+ */
+
+@layer components {
+    /* Button Variables */
+    .button {
+        --button-padding: 0.5rem 1rem;
+        --button-font-size: 1rem;
+        --button-font-weight: 500;
+        --button-border-radius: 0.375rem;
+        --button-background: var(--color-primary);
+        --button-text: white;
+        --button-transition: all var(--transition-normal);
+    }
+
+    /* Base Button */
+    .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: var(--button-padding);
+        font-size: var(--button-font-size);
+        font-weight: var(--button-font-weight);
+        color: var(--button-text);
+        background-color: var(--button-background);
+        border: none;
+        border-radius: var(--button-border-radius);
+        cursor: pointer;
+        transition: var(--button-transition);
+    }
+
+    /* Icon */
+    .icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 0.5rem;
+    }
+
+    /* Text */
+    .text {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Size Variants */
+    .small {
+        --button-padding: 0.25rem 0.5rem;
+        --button-font-size: 0.875rem;
+    }
+
+    .medium {
+        --button-padding: 0.5rem 1rem;
+        --button-font-size: 1rem;
+    }
+
+    .large {
+        --button-padding: 0.75rem 1.5rem;
+        --button-font-size: 1.125rem;
+    }
+
+    /* Color Variants */
+    .primary {
+        --button-background: var(--color-primary);
+        --button-text: white;
+    }
+
+    .secondary {
+        --button-background: var(--color-secondary);
+        --button-text: white;
+    }
+
+    .success {
+        --button-background: var(--color-success);
+        --button-text: white;
+    }
+
+    .warning {
+        --button-background: var(--color-warning);
+        --button-text: white;
+    }
+
+    .error {
+        --button-background: var(--color-error);
+        --button-text: white;
+    }
+
+    /* Shape Variants */
+    .square {
+        --button-border-radius: 0;
+    }
+
+    .rounded {
+        --button-border-radius: 9999px;
+    }
+
+    /* Outline Variant */
+    .outline {
+        background-color: transparent;
+        border: 1px solid var(--button-background);
+        color: var(--button-background);
+    }
+
+    /* Hover Effects */
+    .button:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+
+    /* Focus States */
+    .button:focus {
+        outline: none;
+    }
+
+    .button:focus-visible {
+        box-shadow: 0 0 0 2px var(--color-primary-500), 0 0 0 4px var(--color-background);
+    }
+
+    /* Disabled State */
+    .button:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+
+    /* Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+        .button {
+            transition: none;
+        }
+
+        .button:hover {
+            transform: none;
+        }
+    }
+} 

@@ -1,0 +1,55 @@
+/**
+ * Heroicons CSS
+ * 
+ * Diese Datei enthält die CSS-Klassen für die Heroicons.
+ * Die Styles sind in @layer components organisiert.
+ */
+
+@layer components {
+    /* Heroicons Basis */
+    .heroicon {
+        @apply icon;
+    }
+
+    /* Heroicons Outline */
+    .heroicon-outline {
+        stroke-width: 1.5;
+        fill: none;
+    }
+
+    /* Heroicons Solid */
+    .heroicon-solid {
+        stroke-width: 0;
+        fill: currentColor;
+    }
+
+    /* Heroicons Mini */
+    .heroicon-mini {
+        stroke-width: 1.5;
+        fill: currentColor;
+    }
+
+    /* Heroicons Micro */
+    .heroicon-micro {
+        stroke-width: 1.5;
+        fill: currentColor;
+    }
+
+    /* Heroicons 24 */
+    .heroicon-24 {
+        stroke-width: 1.5;
+        fill: none;
+    }
+
+    /* Heroicons 20 */
+    .heroicon-20 {
+        stroke-width: 1.5;
+        fill: none;
+    }
+
+    /* Heroicons 16 */
+    .heroicon-16 {
+        stroke-width: 1.5;
+        fill: none;
+    }
+} 

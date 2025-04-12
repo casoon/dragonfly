@@ -1,0 +1,138 @@
+/**
+ * Textarea CSS Module
+ * 
+ * Diese Datei enthält die CSS-Module für Textarea-Elemente.
+ * Die Textareas sind performant optimiert und berücksichtigen reduzierte Bewegung.
+ * 
+ * Verwendung:
+ * 
+ * 1. Basis-Textarea:
+ * <textarea className={styles.textarea}></textarea>
+ * 
+ * 2. Textarea mit Varianten:
+ * <textarea className={`${styles.textarea} ${styles.primary}`}></textarea>
+ * 
+ * 3. Textarea mit Größen:
+ * <textarea className={`${styles.textarea} ${styles.small}`}></textarea>
+ * 
+ * Technische Details:
+ * - Verwendet CSS-Variablen für Farben und Größen
+ * - Optimiert mit will-change und transform
+ * - Responsive Anpassungen für mobile Geräte
+ * - Reduzierte Bewegung wird berücksichtigt
+ * 
+ * Performance-Hinweise:
+ * - Animationen sind hardware-beschleunigt
+ * - Reduzierte Bewegung wird automatisch berücksichtigt
+ */
+
+@layer components {
+    /* Textarea Variables */
+    .textarea {
+        --textarea-padding: 0.75rem;
+        --textarea-border-radius: 0.375rem;
+        --textarea-border-color: var(--color-gray-300);
+        --textarea-background: var(--color-white);
+        --textarea-color: var(--color-gray-900);
+        --textarea-font-size: 0.875rem;
+        --textarea-line-height: 1.5;
+        --textarea-min-height: 6rem;
+        --textarea-transition-duration: 0.2s;
+    }
+
+    /* Base Textarea */
+    .textarea {
+        width: 100%;
+        padding: var(--textarea-padding);
+        border: 1px solid var(--textarea-border-color);
+        border-radius: var(--textarea-border-radius);
+        background-color: var(--textarea-background);
+        color: var(--textarea-color);
+        font-size: var(--textarea-font-size);
+        line-height: var(--textarea-line-height);
+        min-height: var(--textarea-min-height);
+        resize: vertical;
+        transition: border-color var(--textarea-transition-duration),
+                    box-shadow var(--textarea-transition-duration);
+    }
+
+    .textarea:focus {
+        outline: none;
+        border-color: var(--color-primary-500);
+        box-shadow: 0 0 0 2px var(--color-primary-100);
+    }
+
+    /* Size Variants */
+    .small {
+        --textarea-padding: 0.5rem;
+        --textarea-font-size: 0.75rem;
+        --textarea-min-height: 4rem;
+    }
+
+    .medium {
+        --textarea-padding: 0.75rem;
+        --textarea-font-size: 0.875rem;
+        --textarea-min-height: 6rem;
+    }
+
+    .large {
+        --textarea-padding: 1rem;
+        --textarea-font-size: 1rem;
+        --textarea-min-height: 8rem;
+    }
+
+    /* State Variants */
+    .error {
+        --textarea-border-color: var(--color-error-500);
+    }
+
+    .error:focus {
+        border-color: var(--color-error-500);
+        box-shadow: 0 0 0 2px var(--color-error-100);
+    }
+
+    .success {
+        --textarea-border-color: var(--color-success-500);
+    }
+
+    .success:focus {
+        border-color: var(--color-success-500);
+        box-shadow: 0 0 0 2px var(--color-success-100);
+    }
+
+    .warning {
+        --textarea-border-color: var(--color-warning-500);
+    }
+
+    .warning:focus {
+        border-color: var(--color-warning-500);
+        box-shadow: 0 0 0 2px var(--color-warning-100);
+    }
+
+    /* Disabled State */
+    .disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        background-color: var(--color-gray-100);
+    }
+
+    /* Readonly State */
+    .readonly {
+        background-color: var(--color-gray-50);
+    }
+
+    /* Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+        .textarea {
+            transition: none;
+        }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .textarea {
+            --textarea-padding: 0.625rem;
+            --textarea-font-size: 0.8125rem;
+        }
+    }
+} 

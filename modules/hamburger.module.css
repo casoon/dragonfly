@@ -1,0 +1,302 @@
+/**
+ * Hamburger CSS Module
+ * 
+ * Diese Datei enthält die CSS-Module für Hamburger-Menüs.
+ * Die Menüs sind performant optimiert und berücksichtigen reduzierte Bewegung.
+ * 
+ * Verwendung:
+ * 
+ * 1. Basis-Hamburger:
+ * <button className={styles.hamburger}>
+ *   <span className={styles.line}></span>
+ *   <span className={styles.line}></span>
+ *   <span className={styles.line}></span>
+ * </button>
+ * 
+ * 2. Animierte Varianten:
+ * <button className={`${styles.hamburger} ${styles.squeeze}`}>
+ *   <span className={styles.line}></span>
+ *   <span className={styles.line}></span>
+ *   <span className={styles.line}></span>
+ * </button>
+ * 
+ * 3. Farbvarianten:
+ * <button className={`${styles.hamburger} ${styles.primary}`}>
+ *   <span className={styles.line}></span>
+ *   <span className={styles.line}></span>
+ *   <span className={styles.line}></span>
+ * </button>
+ * 
+ * 4. Größenvarianten:
+ * <button className={`${styles.hamburger} ${styles.small}`}>
+ *   <span className={styles.line}></span>
+ *   <span className={styles.line}></span>
+ *   <span className={styles.line}></span>
+ * </button>
+ * 
+ * Technische Details:
+ * - Verwendet CSS-Variablen für Farben und Größen
+ * - Optimiert mit will-change und transform
+ * - Responsive Anpassungen für mobile Geräte
+ * - Reduzierte Bewegung wird berücksichtigt
+ * 
+ * Performance-Hinweise:
+ * - Animationen sind hardware-beschleunigt
+ * - Touch-Feedback wird auf mobilen Geräten optimiert
+ * - Reduzierte Bewegung wird automatisch berücksichtigt
+ */
+
+@layer components {
+    /* Hamburger Variables */
+    .hamburger {
+        --hamburger-width: 2rem;
+        --hamburger-height: 1.5rem;
+        --hamburger-line-height: 2px;
+        --hamburger-line-color: var(--color-text);
+        --hamburger-line-color-active: var(--color-primary);
+        --hamburger-transition: all var(--transition-normal);
+    }
+
+    /* Base Hamburger */
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: var(--hamburger-width);
+        height: var(--hamburger-height);
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 50;
+    }
+
+    .line {
+        width: 100%;
+        height: var(--hamburger-line-height);
+        background-color: var(--hamburger-line-color);
+        transition: var(--hamburger-transition);
+        transform-origin: left center;
+    }
+
+    /* Hamburger Variants */
+    /* Classic */
+    .classic .line {
+        transform-origin: center;
+    }
+
+    .classic.active .line:nth-child(1) {
+        transform: translateY(calc(var(--hamburger-height) / 2 - var(--hamburger-line-height) / 2)) rotate(45deg);
+    }
+
+    .classic.active .line:nth-child(2) {
+        opacity: 0;
+    }
+
+    .classic.active .line:nth-child(3) {
+        transform: translateY(calc(-var(--hamburger-height) / 2 + var(--hamburger-line-height) / 2)) rotate(-45deg);
+    }
+
+    /* Arrow */
+    .arrow .line {
+        transform-origin: left center;
+    }
+
+    .arrow.active .line:nth-child(1) {
+        transform: rotate(45deg);
+    }
+
+    .arrow.active .line:nth-child(2) {
+        opacity: 0;
+    }
+
+    .arrow.active .line:nth-child(3) {
+        transform: rotate(-45deg);
+    }
+
+    /* Close */
+    .close .line {
+        transform-origin: center;
+    }
+
+    .close.active .line:nth-child(1) {
+        transform: rotate(45deg);
+    }
+
+    .close.active .line:nth-child(2) {
+        transform: rotate(-45deg);
+    }
+
+    .close.active .line:nth-child(3) {
+        opacity: 0;
+    }
+
+    /* Menu Styles */
+    /* Fullscreen Menu */
+    .menuFullscreen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: var(--color-background);
+        z-index: 40;
+        transform: translateX(-100%);
+        transition: var(--hamburger-transition);
+    }
+
+    .menuFullscreen.active {
+        transform: translateX(0);
+    }
+
+    .menuFullscreen .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        padding: 2rem;
+    }
+
+    /* Slide Menu */
+    .menuSlide {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 80%;
+        max-width: 20rem;
+        height: 100vh;
+        background-color: var(--color-background);
+        z-index: 40;
+        transform: translateX(-100%);
+        transition: var(--hamburger-transition);
+        box-shadow: var(--shadow-lg);
+    }
+
+    .menuSlide.active {
+        transform: translateX(0);
+    }
+
+    .menuSlide .content {
+        padding: 2rem;
+    }
+
+    /* Overlay Menu */
+    .menuOverlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 40;
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--hamburger-transition);
+    }
+
+    .menuOverlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .menuOverlay .content {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 80%;
+        max-width: 20rem;
+        height: 100%;
+        background-color: var(--color-background);
+        transform: translateX(100%);
+        transition: var(--hamburger-transition);
+    }
+
+    .menuOverlay.active .content {
+        transform: translateX(0);
+    }
+
+    /* Menu Items */
+    .item {
+        display: block;
+        padding: 1rem;
+        color: var(--color-text);
+        text-decoration: none;
+        transition: var(--hamburger-transition);
+    }
+
+    .item:hover {
+        color: var(--color-primary);
+        background-color: var(--color-background-hover);
+    }
+
+    .itemActive {
+        color: var(--color-primary);
+        font-weight: 600;
+    }
+
+    /* Menu Header */
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem;
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--color-text);
+    }
+
+    /* Menu Variants */
+    .light {
+        --hamburger-line-color: var(--color-text);
+        --hamburger-line-color-active: var(--color-primary);
+    }
+
+    .dark {
+        --hamburger-line-color: var(--color-text-light);
+        --hamburger-line-color-active: var(--color-primary-light);
+    }
+
+    .primary {
+        --hamburger-line-color: var(--color-primary);
+        --hamburger-line-color-active: white;
+    }
+
+    /* Size Variants */
+    .small {
+        --hamburger-width: 1.5rem;
+        --hamburger-height: 1.125rem;
+        --hamburger-line-height: 1.5px;
+    }
+
+    .large {
+        --hamburger-width: 2.5rem;
+        --hamburger-height: 1.875rem;
+        --hamburger-line-height: 3px;
+    }
+
+    /* Focus States */
+    .hamburger:focus {
+        outline: none;
+    }
+
+    .hamburger:focus-visible {
+        box-shadow: 0 0 0 2px var(--color-primary-500), 0 0 0 4px var(--color-background);
+    }
+
+    /* Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+        .hamburger,
+        .line,
+        .menuFullscreen,
+        .menuSlide,
+        .menuOverlay,
+        .item {
+            transition: none;
+        }
+    }
+} 

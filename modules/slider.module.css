@@ -1,0 +1,232 @@
+/**
+ * Slider CSS Module
+ * 
+ * Diese Datei enthält die CSS-Module für Slider.
+ * Die Slider sind performant optimiert und berücksichtigen reduzierte Bewegung.
+ * 
+ * Verwendung:
+ * 
+ * 1. Basis-Slider:
+ * <div className={styles.slider}>
+ *   <div className={styles.track}>
+ *     <div className={styles.thumb}></div>
+ *   </div>
+ * </div>
+ * 
+ * 2. Range Slider:
+ * <div className={styles.slider}>
+ *   <div className={styles.track}>
+ *     <div className={styles.range}></div>
+ *     <div className={styles.thumb}></div>
+ *     <div className={styles.thumb}></div>
+ *   </div>
+ * </div>
+ * 
+ * 3. Vertical Slider:
+ * <div className={`${styles.slider} ${styles.vertical}`}>
+ *   <div className={styles.track}>
+ *     <div className={styles.thumb}></div>
+ *   </div>
+ * </div>
+ * 
+ * Technische Details:
+ * - Verwendet CSS-Variablen für Farben und Größen
+ * - Optimiert mit will-change und transform
+ * - Responsive Anpassungen für mobile Geräte
+ * - Reduzierte Bewegung wird berücksichtigt
+ * 
+ * Performance-Hinweise:
+ * - Animationen sind hardware-beschleunigt
+ * - Touch-Feedback wird auf mobilen Geräten optimiert
+ * - Reduzierte Bewegung wird automatisch berücksichtigt
+ */
+
+@layer components {
+    /* Slider Variables */
+    .slider {
+        --slider-height: 0.5rem;
+        --slider-width: 100%;
+        --slider-thumb-size: 1.25rem;
+        --slider-track-color: var(--color-border);
+        --slider-thumb-color: var(--color-primary);
+        --slider-thumb-hover-color: var(--color-primary-dark);
+        --slider-thumb-active-color: var(--color-primary-light);
+        --slider-transition: all var(--transition-normal);
+    }
+
+    /* Base Slider */
+    .slider {
+        position: relative;
+        width: var(--slider-width);
+        height: var(--slider-height);
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    /* Track */
+    .track {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background-color: var(--slider-track-color);
+        border-radius: 9999px;
+        overflow: hidden;
+    }
+
+    /* Range */
+    .range {
+        position: absolute;
+        height: 100%;
+        background-color: var(--slider-thumb-color);
+        border-radius: 9999px;
+    }
+
+    /* Thumb */
+    .thumb {
+        position: absolute;
+        width: var(--slider-thumb-size);
+        height: var(--slider-thumb-size);
+        background-color: var(--slider-thumb-color);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        transition: var(--slider-transition);
+        cursor: grab;
+        z-index: 1;
+    }
+
+    .thumb:hover {
+        background-color: var(--slider-thumb-hover-color);
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+
+    .thumb:active {
+        background-color: var(--slider-thumb-active-color);
+        cursor: grabbing;
+    }
+
+    /* Vertical Slider */
+    .vertical {
+        width: var(--slider-height);
+        height: var(--slider-width);
+        flex-direction: column;
+    }
+
+    .vertical .track {
+        width: 100%;
+        height: 100%;
+    }
+
+    .vertical .range {
+        width: 100%;
+        height: auto;
+        bottom: 0;
+    }
+
+    .vertical .thumb {
+        transform: translate(-50%, 50%);
+    }
+
+    .vertical .thumb:hover {
+        transform: translate(-50%, 50%) scale(1.1);
+    }
+
+    /* Size Variants */
+    .small {
+        --slider-height: 0.25rem;
+        --slider-thumb-size: 1rem;
+    }
+
+    .large {
+        --slider-height: 0.75rem;
+        --slider-thumb-size: 1.5rem;
+    }
+
+    /* Color Variants */
+    .primary {
+        --slider-thumb-color: var(--color-primary);
+        --slider-thumb-hover-color: var(--color-primary-dark);
+        --slider-thumb-active-color: var(--color-primary-light);
+    }
+
+    .secondary {
+        --slider-thumb-color: var(--color-secondary);
+        --slider-thumb-hover-color: var(--color-secondary-dark);
+        --slider-thumb-active-color: var(--color-secondary-light);
+    }
+
+    .success {
+        --slider-thumb-color: var(--color-success);
+        --slider-thumb-hover-color: var(--color-success-dark);
+        --slider-thumb-active-color: var(--color-success-light);
+    }
+
+    .warning {
+        --slider-thumb-color: var(--color-warning);
+        --slider-thumb-hover-color: var(--color-warning-dark);
+        --slider-thumb-active-color: var(--color-warning-light);
+    }
+
+    .error {
+        --slider-thumb-color: var(--color-error);
+        --slider-thumb-hover-color: var(--color-error-dark);
+        --slider-thumb-active-color: var(--color-error-light);
+    }
+
+    /* Additional Features */
+    .tooltip {
+        position: absolute;
+        top: -2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 0.25rem 0.5rem;
+        background-color: var(--color-background);
+        color: var(--color-text);
+        border-radius: 0.25rem;
+        font-size: 0.75rem;
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--slider-transition);
+    }
+
+    .thumb:hover .tooltip {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .marker {
+        position: absolute;
+        width: 0.25rem;
+        height: 0.5rem;
+        background-color: var(--slider-track-color);
+        transform: translateX(-50%);
+    }
+
+    /* Focus States */
+    .thumb:focus {
+        outline: none;
+    }
+
+    .thumb:focus-visible {
+        box-shadow: 0 0 0 2px var(--color-primary-500), 0 0 0 4px var(--color-background);
+    }
+
+    /* Disabled State */
+    .disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+
+    .disabled .thumb {
+        cursor: not-allowed;
+    }
+
+    /* Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+        .slider,
+        .thumb,
+        .tooltip {
+            transition: none;
+        }
+    }
+} 

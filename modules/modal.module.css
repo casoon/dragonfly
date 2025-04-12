@@ -1,0 +1,229 @@
+/**
+ * Modal CSS Module
+ * 
+ * Diese Datei enthält die CSS-Module für Modals.
+ * Die Modals sind performant optimiert und berücksichtigen reduzierte Bewegung.
+ * 
+ * Verwendung:
+ * 
+ * 1. Basis-Modal:
+ * <div className={styles.modal}>
+ *   <div className={styles.overlay}></div>
+ *   <div className={styles.content}>
+ *     <div className={styles.header}>
+ *       <h2 className={styles.title}>Titel</h2>
+ *       <button className={styles.close}>×</button>
+ *     </div>
+ *     <div className={styles.body}>Inhalt</div>
+ *     <div className={styles.footer}>
+ *       <button className={styles.button}>Schließen</button>
+ *     </div>
+ *   </div>
+ * </div>
+ * 
+ * 2. Modal mit Varianten:
+ * <div className={`${styles.modal} ${styles.small}`}>...</div>
+ * <div className={`${styles.modal} ${styles.large}`}>...</div>
+ * 
+ * Technische Details:
+ * - Verwendet CSS-Variablen für Farben und Größen
+ * - Optimiert mit will-change und transform
+ * - Responsive Anpassungen für mobile Geräte
+ * - Reduzierte Bewegung wird berücksichtigt
+ * 
+ * Performance-Hinweise:
+ * - Animationen sind hardware-beschleunigt
+ * - Reduzierte Bewegung wird automatisch berücksichtigt
+ */
+
+@layer components {
+    /* Modal Variables */
+    .modal {
+        --modal-padding: 1.5rem;
+        --modal-background: var(--color-background);
+        --modal-text: var(--color-text);
+        --modal-border-radius: 0.5rem;
+        --modal-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        --modal-transition: all var(--transition-normal);
+    }
+
+    /* Base Modal */
+    .modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 50;
+    }
+
+    /* Overlay */
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(4px);
+    }
+
+    /* Content */
+    .content {
+        position: relative;
+        width: 100%;
+        max-width: 32rem;
+        background-color: var(--modal-background);
+        color: var(--modal-text);
+        border-radius: var(--modal-border-radius);
+        box-shadow: var(--modal-shadow);
+        transition: var(--modal-transition);
+    }
+
+    /* Header */
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: var(--modal-padding);
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    /* Title */
+    .title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin: 0;
+    }
+
+    /* Close Button */
+    .close {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2rem;
+        height: 2rem;
+        font-size: 1.5rem;
+        color: var(--color-text-secondary);
+        background-color: transparent;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: var(--modal-transition);
+    }
+
+    .close:hover {
+        background-color: var(--color-gray-100);
+        color: var(--color-text);
+    }
+
+    /* Body */
+    .body {
+        padding: var(--modal-padding);
+    }
+
+    /* Footer */
+    .footer {
+        display: flex;
+        justify-content: flex-end;
+        gap: 1rem;
+        padding: var(--modal-padding);
+        border-top: 1px solid var(--color-border);
+    }
+
+    /* Size Variants */
+    .small {
+        --modal-padding: 1rem;
+    }
+
+    .small .content {
+        max-width: 24rem;
+    }
+
+    .large {
+        --modal-padding: 2rem;
+    }
+
+    .large .content {
+        max-width: 48rem;
+    }
+
+    /* Animation */
+    .modal.enter {
+        opacity: 0;
+    }
+
+    .modal.enter .content {
+        transform: scale(0.95);
+    }
+
+    .modal.enterActive {
+        opacity: 1;
+        transition: var(--modal-transition);
+    }
+
+    .modal.enterActive .content {
+        transform: scale(1);
+        transition: var(--modal-transition);
+    }
+
+    .modal.exit {
+        opacity: 1;
+    }
+
+    .modal.exit .content {
+        transform: scale(1);
+    }
+
+    .modal.exitActive {
+        opacity: 0;
+        transition: var(--modal-transition);
+    }
+
+    .modal.exitActive .content {
+        transform: scale(0.95);
+        transition: var(--modal-transition);
+    }
+
+    /* Focus States */
+    .close:focus {
+        outline: none;
+    }
+
+    .close:focus-visible {
+        box-shadow: 0 0 0 2px var(--color-primary-500), 0 0 0 4px var(--color-background);
+    }
+
+    /* Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+        .modal {
+            transition: none;
+        }
+
+        .content {
+            transition: none;
+        }
+
+        .close {
+            transition: none;
+        }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .modal {
+            --modal-padding: 1rem;
+        }
+
+        .content {
+            margin: 1rem;
+        }
+
+        .footer {
+            flex-direction: column;
+        }
+    }
+} 

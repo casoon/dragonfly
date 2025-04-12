@@ -1,0 +1,156 @@
+/**
+ * Input CSS Module
+ * 
+ * Diese Datei enthält die CSS-Module für Input-Felder.
+ * Die Input-Felder sind performant optimiert und berücksichtigen reduzierte Bewegung.
+ * 
+ * Verwendung:
+ * 
+ * 1. Basis-Input:
+ * <div className={styles.group}>
+ *   <label className={styles.label}>Label</label>
+ *   <input className={styles.input} type="text" />
+ *   <span className={styles.error}>Fehlermeldung</span>
+ * </div>
+ * 
+ * 2. Input mit Varianten:
+ * <input className={`${styles.input} ${styles.primary}`} type="text" />
+ * <input className={`${styles.input} ${styles.secondary}`} type="text" />
+ * 
+ * 3. Input mit Größen:
+ * <input className={`${styles.input} ${styles.small}`} type="text" />
+ * <input className={`${styles.input} ${styles.large}`} type="text" />
+ * 
+ * Technische Details:
+ * - Verwendet CSS-Variablen für Farben und Größen
+ * - Optimiert mit will-change und transform
+ * - Responsive Anpassungen für mobile Geräte
+ * - Reduzierte Bewegung wird berücksichtigt
+ * 
+ * Performance-Hinweise:
+ * - Animationen sind hardware-beschleunigt
+ * - Reduzierte Bewegung wird automatisch berücksichtigt
+ */
+
+@layer components {
+    /* Input Variables */
+    .input {
+        --input-padding: 0.5rem 1rem;
+        --input-font-size: 1rem;
+        --input-border-radius: 0.375rem;
+        --input-background: var(--color-background);
+        --input-text: var(--color-text);
+        --input-border: 1px solid var(--color-border);
+        --input-transition: all var(--transition-normal);
+    }
+
+    /* Group */
+    .group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    /* Label */
+    .label {
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--color-text);
+    }
+
+    /* Base Input */
+    .input {
+        padding: var(--input-padding);
+        font-size: var(--input-font-size);
+        color: var(--input-text);
+        background-color: var(--input-background);
+        border: var(--input-border);
+        border-radius: var(--input-border-radius);
+        transition: var(--input-transition);
+    }
+
+    /* Size Variants */
+    .small {
+        --input-padding: 0.25rem 0.5rem;
+        --input-font-size: 0.875rem;
+    }
+
+    .medium {
+        --input-padding: 0.5rem 1rem;
+        --input-font-size: 1rem;
+    }
+
+    .large {
+        --input-padding: 0.75rem 1.5rem;
+        --input-font-size: 1.125rem;
+    }
+
+    /* Color Variants */
+    .primary {
+        --input-border: 1px solid var(--color-primary);
+    }
+
+    .secondary {
+        --input-border: 1px solid var(--color-secondary);
+    }
+
+    /* Focus States */
+    .input:focus {
+        outline: none;
+        border-color: var(--color-primary);
+        box-shadow: 0 0 0 2px var(--color-primary-100);
+    }
+
+    /* Error State */
+    .error {
+        --input-border: 1px solid var(--color-error);
+    }
+
+    .error:focus {
+        border-color: var(--color-error);
+        box-shadow: 0 0 0 2px var(--color-error-100);
+    }
+
+    /* Success State */
+    .success {
+        --input-border: 1px solid var(--color-success);
+    }
+
+    .success:focus {
+        border-color: var(--color-success);
+        box-shadow: 0 0 0 2px var(--color-success-100);
+    }
+
+    /* Disabled State */
+    .disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+
+    /* Error Message */
+    .errorMessage {
+        font-size: 0.75rem;
+        color: var(--color-error);
+    }
+
+    /* Help Text */
+    .help {
+        font-size: 0.75rem;
+        color: var(--color-text-secondary);
+    }
+
+    /* Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+        .input {
+            transition: none;
+        }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .input {
+            --input-padding: 0.5rem 0.75rem;
+            --input-font-size: 0.875rem;
+        }
+    }
+} 

@@ -1,0 +1,99 @@
+/**
+ * Lucide Icons CSS
+ * 
+ * Diese Datei enthält die CSS-Klassen für die Lucide Icons.
+ * Die Styles sind in @layer components organisiert.
+ */
+
+@layer components {
+    /* Lucide Basis */
+    .lucide {
+        @apply icon;
+    }
+
+    /* Lucide Outline */
+    .lucide-outline {
+        stroke-width: 2;
+        fill: none;
+    }
+
+    /* Lucide Solid */
+    .lucide-solid {
+        stroke-width: 0;
+        fill: currentColor;
+    }
+
+    /* Lucide Duotone */
+    .lucide-duotone {
+        stroke-width: 2;
+        fill: currentColor;
+        opacity: 0.5;
+    }
+
+    /* Lucide Thin */
+    .lucide-thin {
+        stroke-width: 1;
+        fill: none;
+    }
+
+    /* Lucide Bold */
+    .lucide-bold {
+        stroke-width: 3;
+        fill: none;
+    }
+
+    /* Lucide Light */
+    .lucide-light {
+        stroke-width: 1.5;
+        fill: none;
+    }
+
+    /* Lucide Regular */
+    .lucide-regular {
+        stroke-width: 2;
+        fill: none;
+    }
+
+    /* Lucide Größen */
+    .lucide-xs {
+        @apply icon-xs;
+    }
+
+    .lucide-sm {
+        @apply icon-sm;
+    }
+
+    .lucide-lg {
+        @apply icon-lg;
+    }
+
+    .lucide-xl {
+        @apply icon-xl;
+    }
+
+    .lucide-2xl {
+        @apply icon-2xl;
+    }
+
+    /* Lucide Ausrichtung */
+    .lucide-baseline {
+        @apply icon-baseline;
+    }
+
+    .lucide-top {
+        @apply icon-top;
+    }
+
+    .lucide-middle {
+        @apply icon-middle;
+    }
+
+    .lucide-bottom {
+        @apply icon-bottom;
+    }
+
+    /* Lucide Animation */
+    .lucide-spin {
+        @apply icon-spin;
+    }
+} 

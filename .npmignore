@@ -1,0 +1,33 @@
+# Version Control
+.git
+.gitignore
+
+# Development
+.vscode/
+.idea/
+.DS_Store
+*.log
+logs/
+node_modules/
+
+# Testing
+coverage/
+
+# Documentation
+docs/
+*.md
+!README.md
+!LICENSE
+!CONTRIBUTING.md
+
+# Build
+dist/
+build/
+*.min.css
+*.map
+
+# Misc
+.env
+.env.*
+.npmrc
+.yarnrc 

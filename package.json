@@ -1,24 +1,56 @@
 {
   "name": "casoon-ui-lib",
   "version": "1.0.2",
-  "description": "Ein modernes CSS-Framework mit Fokus auf Performance und Zugänglichkeit",
+  "description": "Eine moderne und flexible UI-Bibliothek für Webanwendungen mit Fokus auf Performance und Zugänglichkeit",
   "main": "core.css",
+  "style": "core.css",
+  "files": [
+    "core/",
+    "effects/",
+    "themes/",
+    "icons/",
+    "*.css",
+    "LICENSE",
+    "README.md"
+  ],
   "scripts": {
     "lint": "stylelint \"**/*.css\" --ignore-path .stylelintignore",
-    "test": "npm run lint"
+    "lint:fix": "stylelint \"**/*.css\" --fix --ignore-path .stylelintignore",
+    "test": "npm run lint",
+    "prepublishOnly": "npm test",
+    "icons:build": "node scripts/build-icons.js"
   },
   "keywords": [
     "css",
     "framework",
     "ui",
     "design-system",
-    "accessibility"
+    "accessibility",
+    "components",
+    "responsive",
+    "modern",
+    "icons"
   ],
   "author": "Casoon",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/casoon/casoon-ui-lib.git"
+  },
+  "bugs": {
+    "url": "https://github.com/casoon/casoon-ui-lib/issues"
+  },
+  "homepage": "https://github.com/casoon/casoon-ui-lib#readme",
   "devDependencies": {
+    "@iconify-json/bi": "^1.2.2",
+    "@iconify-json/feather": "^1.2.1",
+    "@iconify-json/heroicons": "^1.2.2",
+    "@iconify-json/ph": "^1.2.2",
+    "@iconify-json/ri": "^1.2.5",
+    "@iconify/json": "^2.2.326",
+    "fs-extra": "^11.3.0",
     "stylelint": "^16.2.1",
     "stylelint-config-standard": "^36.0.0",
     "stylelint-declaration-strict-value": "^1.9.1"
   }
-} 
+}

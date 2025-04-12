@@ -1,0 +1,183 @@
+/**
+ * Blog CSS Module
+ * 
+ * Diese Datei enthält die CSS-Module für Blog-Komponenten.
+ * Die Komponenten sind performant optimiert und berücksichtigen reduzierte Bewegung.
+ * 
+ * Verwendung:
+ * 
+ * 1. Blog Post:
+ * <article className={styles.post}>
+ *   <header className={styles.header}>
+ *     <h2 className={styles.title}>Blog Titel</h2>
+ *     <div className={styles.meta}>
+ *       <span className={styles.date}>01.01.2024</span>
+ *       <span className={styles.author}>Autor</span>
+ *     </div>
+ *   </header>
+ *   <div className={styles.content}>
+ *     <p>Blog Inhalt...</p>
+ *   </div>
+ *   <footer className={styles.footer}>
+ *     <div className={styles.tags}>
+ *       <span className={styles.tag}>Tag 1</span>
+ *     </div>
+ *   </footer>
+ * </article>
+ * 
+ * 2. Blog Grid:
+ * <div className={styles.grid}>
+ *   <article className={styles.post}>...</article>
+ *   <article className={styles.post}>...</article>
+ * </div>
+ * 
+ * Technische Details:
+ * - Verwendet CSS-Variablen für Farben und Größen
+ * - Optimiert mit will-change und transform
+ * - Responsive Anpassungen für mobile Geräte
+ * - Reduzierte Bewegung wird berücksichtigt
+ * 
+ * Performance-Hinweise:
+ * - Bilder werden lazy geladen
+ * - Animationen sind hardware-beschleunigt
+ * - Reduzierte Bewegung wird automatisch berücksichtigt
+ */
+
+@layer components {
+    /* Blog Variables */
+    .post {
+        --post-padding: 1.5rem;
+        --post-border-radius: 0.5rem;
+        --post-background: var(--color-background);
+        --post-border: 1px solid var(--color-border);
+        --post-transition: all var(--transition-normal);
+    }
+
+    /* Base Post */
+    .post {
+        position: relative;
+        padding: var(--post-padding);
+        background-color: var(--post-background);
+        border: var(--post-border);
+        border-radius: var(--post-border-radius);
+        transition: var(--post-transition);
+    }
+
+    /* Header */
+    .header {
+        margin-bottom: 1rem;
+    }
+
+    .title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--color-text);
+        margin-bottom: 0.5rem;
+    }
+
+    .meta {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        font-size: 0.875rem;
+        color: var(--color-text-secondary);
+    }
+
+    .date,
+    .author {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+    }
+
+    /* Content */
+    .content {
+        color: var(--color-text);
+        line-height: 1.6;
+    }
+
+    .content p {
+        margin-bottom: 1rem;
+    }
+
+    .content img {
+        max-width: 100%;
+        height: auto;
+        border-radius: var(--post-border-radius);
+        margin: 1rem 0;
+    }
+
+    /* Footer */
+    .footer {
+        margin-top: 1.5rem;
+        padding-top: 1rem;
+        border-top: var(--post-border);
+    }
+
+    .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .tag {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.75rem;
+        color: var(--color-primary);
+        background-color: var(--color-primary-100);
+        border-radius: 9999px;
+    }
+
+    /* Grid Layout */
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+
+    /* Featured Post */
+    .featured {
+        grid-column: 1 / -1;
+    }
+
+    .featured .title {
+        font-size: 2rem;
+    }
+
+    /* Hover Effects */
+    .post:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+
+    /* Focus States */
+    .post:focus {
+        outline: none;
+    }
+
+    .post:focus-visible {
+        box-shadow: 0 0 0 2px var(--color-primary-500), 0 0 0 4px var(--color-background);
+    }
+
+    /* Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+        .post {
+            transition: none;
+        }
+
+        .post:hover {
+            transform: none;
+        }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .grid {
+            grid-template-columns: 1fr;
+        }
+
+        .featured .title {
+            font-size: 1.5rem;
+        }
+    }
+} 

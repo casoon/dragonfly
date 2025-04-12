@@ -1,0 +1,77 @@
+/**
+ * Material Design Icons CSS
+ * 
+ * Diese Datei enthält die CSS-Klassen für die Material Design Icons.
+ * Die Styles sind in @layer components organisiert.
+ */
+
+@layer components {
+    /* MDI Basis */
+    .mdi {
+        @apply icon;
+    }
+
+    /* MDI Varianten */
+    .mdi-outline {
+        stroke-width: 2;
+        fill: none;
+    }
+
+    .mdi-filled {
+        stroke-width: 0;
+        fill: currentColor;
+    }
+
+    .mdi-round {
+        stroke-width: 1.5;
+        fill: none;
+    }
+
+    .mdi-sharp {
+        stroke-width: 2;
+        fill: none;
+    }
+
+    /* MDI Größen */
+    .mdi-xs {
+        @apply icon-xs;
+    }
+
+    .mdi-sm {
+        @apply icon-sm;
+    }
+
+    .mdi-lg {
+        @apply icon-lg;
+    }
+
+    .mdi-xl {
+        @apply icon-xl;
+    }
+
+    .mdi-2xl {
+        @apply icon-2xl;
+    }
+
+    /* MDI Ausrichtung */
+    .mdi-baseline {
+        @apply icon-baseline;
+    }
+
+    .mdi-top {
+        @apply icon-top;
+    }
+
+    .mdi-middle {
+        @apply icon-middle;
+    }
+
+    .mdi-bottom {
+        @apply icon-bottom;
+    }
+
+    /* MDI Animation */
+    .mdi-spin {
+        @apply icon-spin;
+    }
+} 
