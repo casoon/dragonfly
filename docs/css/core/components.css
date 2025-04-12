@@ -1,68 +1,38 @@
-/* Components Imports */
-@import url('components/button.css');
-@import url('components/card.css');
-@import url('components/badge.css');
+/**
+ * Components
+ * 
+ * Diese Datei importiert alle Komponenten-Styles und definiert minimale Basis-Styles.
+ * Die Styles sind in @layer components organisiert.
+ */
+
+@layer components {
+    /* Basis-Styles für alle Komponenten */
+    :root {
+        /* Komponenten-spezifische Variablen */
+        --component-border-radius: var(--radius-md);
+        --component-padding: var(--spacing-md);
+        --component-margin: var(--spacing-md);
+        --component-transition: var(--transition-normal);
+    }
+
+    /* Import der einzelnen Komponenten */
+    @import url('./components/avatar.css');
+    @import url('./components/badge.css');
+    @import url('./components/button.css');
+    @import url('./components/card.css');
+    @import url('./components/code.css');
+    @import url('./components/form.css');
+    @import url('./components/header.css');
+    @import url('./components/input.css');
+    @import url('./components/modal.css');
+    @import url('./components/select.css');
+    @import url('./components/table.css');
+    @import url('./components/textarea.css');
+    @import url('./components/tooltip.css');
+}
 
 /* Component Variables */
 :root {
-  /* Shared Variables */
-  --radius-sm: 0.25rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 1rem;
-  --radius-full: 9999px;
-  
-  --font-normal: 400;
-  --font-medium: 500;
-  --font-semibold: 600;
-  --font-bold: 700;
-  
-  --transition-fast: 150ms;
-  --transition-normal: 250ms;
-  --transition-slow: 350ms;
-  
-  /* Color Variables */
-  --color-primary: var(--color-blue-500);
-  --color-primary-light: var(--color-blue-400);
-  --color-primary-dark: var(--color-blue-600);
-  
-  --color-secondary: var(--color-gray-500);
-  --color-secondary-light: var(--color-gray-400);
-  --color-secondary-dark: var(--color-gray-600);
-  
-  --color-accent: var(--color-gold-500);
-  --color-accent-light: var(--color-gold-400);
-  --color-accent-dark: var(--color-gold-600);
-  
-  --color-success: var(--color-green-500);
-  --color-warning: var(--color-yellow-500);
-  --color-error: var(--color-red-500);
-  --color-info: var(--color-blue-500);
-  
-  --color-text: var(--color-gray-900);
-  --color-text-light: var(--color-gray-600);
-  --color-text-lighter: var(--color-gray-400);
-  
-  --color-background: var(--color-white);
-  --color-background-hover: var(--color-gray-100);
-  --color-background-dark: var(--color-gray-900);
-  --color-background-hover-dark: var(--color-gray-800);
-  
-  --color-border: var(--color-gray-300);
-  
-  /* Shadow Variables */
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-  
-  /* Z-Index Variables */
-  --z-0: 0;
-  --z-10: 10;
-  --z-20: 20;
-  --z-30: 30;
-  --z-40: 40;
-  --z-50: 50;
-
   /* Button */
   --button-padding-x: 1rem;
   --button-padding-y: 0.5rem;
