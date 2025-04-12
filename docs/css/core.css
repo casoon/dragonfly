@@ -1,5 +1,6 @@
 /* Core CSS Imports */
 @import url('core/reset.css');
+@import url('core/colors.css');
 @import url('core/tokens.css');
 @import url('core/typography.css');
 @import url('core/utilities.css');
