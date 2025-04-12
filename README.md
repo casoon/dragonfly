@@ -1,5 +1,7 @@
 # Casoon UI Library
 
+> ⚠️ **Alpha-Version**: Dieses Design-System befindet sich in der Alpha-Phase. Die API und Struktur können sich noch ändern.
+
 Ein schlankes Design-System für CASOON-Projekte, optimiert für moderne Webentwicklung mit Astro JS und LightningCSS.
 
 ## Über das Projekt
@@ -13,6 +15,14 @@ Die Casoon UI Library ist ein internes Design-System, das als Basis für Kundenp
 - Vermeidung von Code-Duplikation über Projektgrenzen hinweg
 
 > **Hinweis**: Dieses Design-System ist bewusst schlank gehalten und erhebt nicht den Anspruch, mit umfangreichen Frameworks wie Tailwind zu konkurrieren. Es dient als solide Basis für die spezifischen Anforderungen von CASOON-Projekten.
+
+## Status
+
+🟡 **Alpha-Phase**: 
+- Aktive Entwicklung
+- API kann sich noch ändern
+- Feedback und Beiträge willkommen
+- Nicht für Produktionseinsatz empfohlen
 
 ## Verzeichnisstruktur
 
@@ -144,7 +154,7 @@ import styles from 'casoon-ui-lib/modules/button.module.css';
 ## Installation
 
 ```bash
-npm install casoon-ui-lib
+npm install casoon-ui-lib@alpha
 ```
 
 ## Features

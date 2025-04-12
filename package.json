@@ -1,7 +1,7 @@
 {
   "name": "casoon-ui-lib",
-  "version": "1.0.2",
-  "description": "Eine moderne und flexible UI-Bibliothek für Webanwendungen mit Fokus auf Performance und Zugänglichkeit",
+  "version": "0.1.2-alpha.0",
+  "description": "Ein schlankes Design-System für CASOON-Projekte (Alpha) - Optimiert für moderne Webentwicklung mit Astro JS und LightningCSS",
   "main": "core.css",
   "style": "core.css",
   "files": [
@@ -29,9 +29,12 @@
     "components",
     "responsive",
     "modern",
-    "icons"
+    "icons",
+    "astro",
+    "lightningcss",
+    "ssr"
   ],
-  "author": "Casoon",
+  "author": "CASOON",
   "license": "MIT",
   "repository": {
     "type": "git",
