@@ -1,3 +1,44 @@
+/**
+ * Animationen
+ * 
+ * Diese Datei enthält verschiedene CSS-Animationen.
+ * Die Animationen sind performant optimiert und berücksichtigen reduzierte Bewegung.
+ * 
+ * Verwendung:
+ * 
+ * 1. Einblend-Animationen:
+ * <div class="fade-in">Einblenden</div>
+ * <div class="scale-in">Skalieren</div>
+ * <div class="slide-in">Hineinschieben</div>
+ * 
+ * 2. Ausblend-Animationen:
+ * <div class="fade-out">Ausblenden</div>
+ * <div class="scale-out">Verkleinern</div>
+ * <div class="slide-out">Hinausschieben</div>
+ * 
+ * 3. Spezial-Effekte:
+ * <div class="bounce">Springen</div>
+ * <div class="pulse">Pulsieren</div>
+ * <div class="shake">Schütteln</div>
+ * <div class="swing">Schwingen</div>
+ * 
+ * 4. Zeitsteuerung:
+ * <div class="animation-duration-fast">Schnelle Animation</div>
+ * <div class="animation-delay-500">Verzögerte Animation</div>
+ * <div class="animation-iteration-infinite">Endlose Animation</div>
+ * 
+ * Technische Details:
+ * - Verwendet CSS-Variablen für Timing und Dauer
+ * - Optimiert mit will-change und transform
+ * - Responsive Anpassungen für mobile Geräte
+ * - Reduzierte Bewegung wird berücksichtigt
+ * 
+ * Performance-Hinweise:
+ * - Animationen sind hardware-beschleunigt
+ * - Komplexe Animationen werden auf mobilen Geräten reduziert
+ * - Reduzierte Bewegung wird automatisch berücksichtigt
+ */
+
 /* Animation Variables */
 :root {
   /* Durations */

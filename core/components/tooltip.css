@@ -1,0 +1,218 @@
+/**
+ * Tooltip-Komponenten
+ * 
+ * Diese Datei enthält verschiedene Stile für Tooltips.
+ * Die Komponenten sind performant optimiert und berücksichtigen reduzierte Bewegung.
+ * 
+ * Verwendung:
+ * 
+ * 1. Basis-Tooltip:
+ * <button class="tooltip-trigger" aria-label="Tooltip-Text">
+ *   Button
+ *   <span class="tooltip">Tooltip-Text</span>
+ * </button>
+ * 
+ * 2. Tooltip mit verschiedenen Positionen:
+ * <button class="tooltip-trigger tooltip--top" aria-label="Tooltip-Text">
+ *   Button
+ *   <span class="tooltip">Tooltip-Text</span>
+ * </button>
+ * 
+ * <button class="tooltip-trigger tooltip--right" aria-label="Tooltip-Text">
+ *   Button
+ *   <span class="tooltip">Tooltip-Text</span>
+ * </button>
+ * 
+ * 3. Tooltip mit verschiedenen Stilen:
+ * <button class="tooltip-trigger tooltip--light" aria-label="Tooltip-Text">
+ *   Button
+ *   <span class="tooltip">Tooltip-Text</span>
+ * </button>
+ * 
+ * <button class="tooltip-trigger tooltip--error" aria-label="Tooltip-Text">
+ *   Button
+ *   <span class="tooltip">Tooltip-Text</span>
+ * </button>
+ * 
+ * Technische Details:
+ * - Verwendet CSS-Variablen für Farben und Größen
+ * - Optimiert mit will-change und transform
+ * - Responsive Anpassungen für mobile Geräte
+ * - Reduzierte Bewegung wird berücksichtigt
+ */
+
+/* Basis-Tooltip */
+.tooltip-trigger {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip {
+    position: absolute;
+    z-index: var(--z-index-tooltip);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background: var(--color-background-inverse);
+    color: var(--color-text-inverse);
+    font-size: var(--font-size-sm);
+    border-radius: var(--border-radius-sm);
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.95);
+    transition: all var(--transition-fast);
+    pointer-events: none;
+}
+
+.tooltip-trigger:hover .tooltip,
+.tooltip-trigger:focus .tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+
+/* Tooltip-Pfeil */
+.tooltip::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 4px solid transparent;
+}
+
+/* Tooltip-Positionen */
+.tooltip--top {
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) scale(0.95);
+    margin-bottom: var(--spacing-xs);
+}
+
+.tooltip--top::after {
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-top-color: var(--color-background-inverse);
+}
+
+.tooltip--bottom {
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) scale(0.95);
+    margin-top: var(--spacing-xs);
+}
+
+.tooltip--bottom::after {
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-bottom-color: var(--color-background-inverse);
+}
+
+.tooltip--left {
+    top: 50%;
+    right: 100%;
+    transform: translateY(-50%) scale(0.95);
+    margin-right: var(--spacing-xs);
+}
+
+.tooltip--left::after {
+    top: 50%;
+    right: -8px;
+    transform: translateY(-50%);
+    border-left-color: var(--color-background-inverse);
+}
+
+.tooltip--right {
+    top: 50%;
+    left: 100%;
+    transform: translateY(-50%) scale(0.95);
+    margin-left: var(--spacing-xs);
+}
+
+.tooltip--right::after {
+    top: 50%;
+    left: -8px;
+    transform: translateY(-50%);
+    border-right-color: var(--color-background-inverse);
+}
+
+/* Tooltip-Stile */
+.tooltip--light {
+    background: var(--color-background);
+    color: var(--color-text);
+    box-shadow: var(--shadow-sm);
+}
+
+.tooltip--light::after {
+    border-top-color: var(--color-background);
+    border-bottom-color: var(--color-background);
+    border-left-color: var(--color-background);
+    border-right-color: var(--color-background);
+}
+
+.tooltip--primary {
+    background: var(--color-primary);
+    color: var(--color-text-inverse);
+}
+
+.tooltip--primary::after {
+    border-top-color: var(--color-primary);
+    border-bottom-color: var(--color-primary);
+    border-left-color: var(--color-primary);
+    border-right-color: var(--color-primary);
+}
+
+.tooltip--error {
+    background: var(--color-error);
+    color: var(--color-text-inverse);
+}
+
+.tooltip--error::after {
+    border-top-color: var(--color-error);
+    border-bottom-color: var(--color-error);
+    border-left-color: var(--color-error);
+    border-right-color: var(--color-error);
+}
+
+.tooltip--success {
+    background: var(--color-success);
+    color: var(--color-text-inverse);
+}
+
+.tooltip--success::after {
+    border-top-color: var(--color-success);
+    border-bottom-color: var(--color-success);
+    border-left-color: var(--color-success);
+    border-right-color: var(--color-success);
+}
+
+/* Tooltip-Größen */
+.tooltip--sm {
+    font-size: var(--font-size-xs);
+    padding: var(--spacing-2xs) var(--spacing-xs);
+}
+
+.tooltip--lg {
+    font-size: var(--font-size-base);
+    padding: var(--spacing-sm) var(--spacing-md);
+    white-space: normal;
+    max-width: 200px;
+}
+
+/* Responsive Anpassungen */
+@media (max-width: var(--breakpoint-sm)) {
+    .tooltip {
+        display: none;
+    }
+    
+    .tooltip-trigger {
+        cursor: default;
+    }
+}
+
+/* Reduzierte Bewegung */
+@media (prefers-reduced-motion: reduce) {
+    .tooltip {
+        transition: none;
+    }
+} 

@@ -1,0 +1,161 @@
+---
+layout: component
+title: Badge
+description: Ein Badge ist ein kleines visuelles Element, das verwendet wird, um zusätzliche Informationen oder Status anzuzeigen.
+examples:
+  - title: Basis Badge
+    language: html
+    preview: |
+      <span class="badge">Neu</span>
+    code: |
+      <span class="badge">Neu</span>
+  - title: Badge mit Icon
+    language: html
+    preview: |
+      <span class="badge">
+        <svg class="icon" viewBox="0 0 24 24">
+          <path d="M12 2L1 21h22L12 2zm0 3.99L19.53 19H4.47L12 5.99zM11 16h2v2h-2zm0-6h2v4h-2z"/>
+        </svg>
+        Warnung
+      </span>
+    code: |
+      <span class="badge">
+        <svg class="icon" viewBox="0 0 24 24">
+          <path d="M12 2L1 21h22L12 2zm0 3.99L19.53 19H4.47L12 5.99zM11 16h2v2h-2zm0-6h2v4h-2z"/>
+        </svg>
+        Warnung
+      </span>
+  - title: Badge mit Counter
+    language: html
+    preview: |
+      <span class="badge badge--counter">99+</span>
+    code: |
+      <span class="badge badge--counter">99+</span>
+variants:
+  - title: Größen
+    language: html
+    preview: |
+      <span class="badge badge--sm">Klein</span>
+      <span class="badge">Standard</span>
+      <span class="badge badge--lg">Groß</span>
+    code: |
+      <span class="badge badge--sm">Klein</span>
+      <span class="badge">Standard</span>
+      <span class="badge badge--lg">Groß</span>
+  - title: Zustände
+    language: html
+    preview: |
+      <span class="badge badge--error">Fehler</span>
+      <span class="badge badge--success">Erfolg</span>
+      <span class="badge badge--warning">Warnung</span>
+      <span class="badge badge--info">Info</span>
+    code: |
+      <span class="badge badge--error">Fehler</span>
+      <span class="badge badge--success">Erfolg</span>
+      <span class="badge badge--warning">Warnung</span>
+      <span class="badge badge--info">Info</span>
+  - title: Stile
+    language: html
+    preview: |
+      <span class="badge badge--outline">Outline</span>
+      <span class="badge badge--filled">Filled</span>
+    code: |
+      <span class="badge badge--outline">Outline</span>
+      <span class="badge badge--filled">Filled</span>
+properties:
+  - name: badge--sm
+    type: Modifier
+    default: -
+    description: Kleine Version des Badges
+  - name: badge--lg
+    type: Modifier
+    default: -
+    description: Große Version des Badges
+  - name: badge--error
+    type: Modifier
+    default: -
+    description: Fehlerzustand
+  - name: badge--success
+    type: Modifier
+    default: -
+    description: Erfolgszustand
+  - name: badge--warning
+    type: Modifier
+    default: -
+    description: Warnungszustand
+  - name: badge--info
+    type: Modifier
+    default: -
+    description: Infozustand
+  - name: badge--outline
+    type: Modifier
+    default: -
+    description: Outline-Variante
+  - name: badge--filled
+    type: Modifier
+    default: -
+    description: Filled-Variante
+  - name: badge--counter
+    type: Modifier
+    default: -
+    description: Counter-Variante
+accessibility: |
+  ## Zugänglichkeit
+
+  - Badges sollten immer einen aussagekräftigen Text enthalten
+  - Bei rein visuellen Badges sollte ein `aria-label` hinzugefügt werden
+  - Die Farben sollten ausreichend Kontrast bieten
+  - Die Größe sollte mindestens 24x24px betragen
+  - Touch-Ziele sollten mindestens 44x44px groß sein
+
+performance: |
+  ## Performance
+
+  - Minimale CSS-Komplexität
+  - Keine unnötigen Animationen
+  - Optimierte SVG-Icons
+  - Effiziente Selektor-Struktur
+  - Keine unnötigen Media Queries
+---
+
+<section class="component-examples">
+    <h2>Beispiele</h2>
+    
+    <div class="example-grid">
+        <div class="example-card">
+            <h3>Basis-Badge</h3>
+            <div class="example-preview">
+                <span class="badge">Neue Nachrichten</span>
+            </div>
+            <div class="example-code">
+                <pre><code>&lt;span class="badge"&gt;Neue Nachrichten&lt;/span&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="example-card">
+            <h3>Badge mit Icon</h3>
+            <div class="example-preview">
+                <span class="badge">
+                    <i class="icon-bell"></i>
+                    Neue Nachrichten
+                </span>
+            </div>
+            <div class="example-code">
+                <pre><code>&lt;span class="badge"&gt;
+    &lt;i class="icon-bell"&gt;&lt;/i&gt;
+    Neue Nachrichten
+&lt;/span&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="example-card">
+            <h3>Badge mit Zähler</h3>
+            <div class="example-preview">
+                <span class="badge badge--counter">5</span>
+            </div>
+            <div class="example-code">
+                <pre><code>&lt;span class="badge badge--counter"&gt;5&lt;/span&gt;</code></pre>
+            </div>
+        </div>
+    </div>
+</section> 

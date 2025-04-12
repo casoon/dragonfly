@@ -10,7 +10,7 @@ title: Startseite
 
 <div class="section">
     <h2>Installation</h2>
-    <p>Fügen Sie die CSS-Datei in Ihrem HTML-Dokument ein:</p>
+    <p>Fügen Sie die CSS-Dateien in Ihrem HTML-Dokument ein:</p>
     <div class="example">
         <div class="example-header">
             <span class="example-title">HTML</span>
@@ -19,30 +19,38 @@ title: Startseite
                 <span class="button-text">Kopieren</span>
             </button>
         </div>
-        <pre><code id="install-code">&lt;link rel="stylesheet" href="https://casoon.github.io/casoon-ui-lib/core.css"&gt;</code></pre>
+        <pre><code id="install-code">&lt;!-- Core Styles -->
+&lt;link rel="stylesheet" href="https://casoon.github.io/casoon-ui-lib/core.css"&gt;
+
+&lt;!-- Komponenten -->
+&lt;link rel="stylesheet" href="https://casoon.github.io/casoon-ui-lib/animations.css"&gt;
+&lt;link rel="stylesheet" href="https://casoon.github.io/casoon-ui-lib/slider.css"&gt;
+&lt;link rel="stylesheet" href="https://casoon.github.io/casoon-ui-lib/sidebar.css"&gt;
+&lt;link rel="stylesheet" href="https://casoon.github.io/casoon-ui-lib/hamburger.css"&gt;
+&lt;link rel="stylesheet" href="https://casoon.github.io/casoon-ui-lib/effects.css"&gt;</code></pre>
     </div>
 </div>
 
 <div class="section">
     <h2>Grundlagen</h2>
     <div class="component-grid">
-        <a href="{{ site.baseurl }}/core/grundlagen" class="component-card">
+        <a href="{{ site.baseurl }}/_core/grundlagen" class="component-card">
             <h3>Übersicht</h3>
             <p>Grundlegende Konzepte und Design-Tokens der Bibliothek.</p>
         </a>
-        <a href="{{ site.baseurl }}/core/tokens" class="component-card">
+        <a href="{{ site.baseurl }}/_core/tokens" class="component-card">
             <h3>Design Tokens</h3>
             <p>Farben, Typografie, Abstände und mehr.</p>
         </a>
-        <a href="{{ site.baseurl }}/core/typography" class="component-card">
+        <a href="{{ site.baseurl }}/_core/typography" class="component-card">
             <h3>Typografie</h3>
             <p>Schriftarten, Größen und Text-Styles.</p>
         </a>
-        <a href="{{ site.baseurl }}/core/layout" class="component-card">
+        <a href="{{ site.baseurl }}/_core/layout" class="component-card">
             <h3>Layout</h3>
             <p>Container, Grid-System und responsive Design.</p>
         </a>
-        <a href="{{ site.baseurl }}/core/utilities" class="component-card">
+        <a href="{{ site.baseurl }}/_core/utilities" class="component-card">
             <h3>Utilities</h3>
             <p>Hilfreiche Utility-Klassen für schnelles Styling.</p>
         </a>
@@ -52,33 +60,29 @@ title: Startseite
 <div class="section">
     <h2>Komponenten</h2>
     <div class="component-grid">
-        <a href="{{ site.baseurl }}/components/komponenten" class="component-card">
+        <a href="{{ site.baseurl }}/_components/komponenten" class="component-card">
             <h3>Übersicht</h3>
             <p>Alle verfügbaren UI-Komponenten im Überblick.</p>
         </a>
-        <a href="{{ site.baseurl }}/components/button" class="component-card">
-            <h3>Buttons</h3>
-            <p>Verschiedene Button-Varianten und -Zustände.</p>
+        <a href="{{ site.baseurl }}/_components/animations" class="component-card">
+            <h3>Animationen</h3>
+            <p>Verschiedene Animationen und Übergänge.</p>
         </a>
-        <a href="{{ site.baseurl }}/components/card" class="component-card">
-            <h3>Cards</h3>
-            <p>Flexible Karten-Komponenten für Inhalte.</p>
-        </a>
-        <a href="{{ site.baseurl }}/components/badge" class="component-card">
-            <h3>Badges</h3>
-            <p>Status- und Label-Badges.</p>
-        </a>
-        <a href="{{ site.baseurl }}/components/sidebar" class="component-card">
-            <h3>Sidebar</h3>
-            <p>Navigations-Sidebar mit verschiedenen Optionen.</p>
-        </a>
-        <a href="{{ site.baseurl }}/components/slider" class="component-card">
+        <a href="{{ site.baseurl }}/_components/slider" class="component-card">
             <h3>Slider</h3>
             <p>Range-Slider für numerische Eingaben.</p>
         </a>
-        <a href="{{ site.baseurl }}/components/animations" class="component-card">
-            <h3>Animationen</h3>
-            <p>Verschiedene Animationen und Übergänge.</p>
+        <a href="{{ site.baseurl }}/_components/sidebar" class="component-card">
+            <h3>Sidebar</h3>
+            <p>Navigations-Sidebar mit verschiedenen Optionen.</p>
+        </a>
+        <a href="{{ site.baseurl }}/_components/hamburger" class="component-card">
+            <h3>Hamburger-Menü</h3>
+            <p>Responsives Menü für mobile Navigation.</p>
+        </a>
+        <a href="{{ site.baseurl }}/_components/effects" class="component-card">
+            <h3>Effekte</h3>
+            <p>Verschiedene visuelle Effekte und Interaktionen.</p>
         </a>
     </div>
 </div>
@@ -86,15 +90,15 @@ title: Startseite
 <div class="section">
     <h2>Beispiele</h2>
     <div class="component-grid">
-        <a href="{{ site.baseurl }}/examples/forms" class="component-card">
+        <a href="{{ site.baseurl }}/_examples/forms" class="component-card">
             <h3>Formulare</h3>
             <p>Beispiele für verschiedene Formular-Layouts.</p>
         </a>
-        <a href="{{ site.baseurl }}/examples/effects" class="component-card">
+        <a href="{{ site.baseurl }}/_examples/effects" class="component-card">
             <h3>Effekte</h3>
             <p>Demonstration verschiedener UI-Effekte.</p>
         </a>
-        <a href="{{ site.baseurl }}/examples/smooth-scroll" class="component-card">
+        <a href="{{ site.baseurl }}/_examples/smooth-scroll" class="component-card">
             <h3>Smooth Scroll</h3>
             <p>Beispiele für sanfte Scroll-Effekte.</p>
         </a>

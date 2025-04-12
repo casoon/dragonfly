@@ -33,6 +33,11 @@ jobs:
           mkdir -p docs/css/themes
           cp -r themes/*.css docs/css/themes/
 
+      - name: 📂 Copy Base to /docs/css/effects
+        run: |
+          mkdir -p docs/css/effects
+          cp -r effects/*.css docs/css/effects/
+
       - name: 📂 Copy Base to /docs/css/core
         run: |
           mkdir -p docs/css/core

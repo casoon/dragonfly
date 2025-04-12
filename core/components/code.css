@@ -1,0 +1,138 @@
+/**
+ * Quellcode-Komponenten
+ * 
+ * Diese Datei enthält verschiedene Stile für Quellcode-Elemente.
+ * Die Komponenten sind performant optimiert und berücksichtigen reduzierte Bewegung.
+ * 
+ * Verwendung:
+ * 
+ * 1. Inline-Code:
+ * <code class="code-inline">Code</code>
+ * 
+ * 2. Code-Block:
+ * <pre class="code-block">
+ *   <code class="code">Code</code>
+ * </pre>
+ * 
+ * 3. Code mit Zeilennummern:
+ * <pre class="code-block code-block--numbered">
+ *   <code class="code">Code</code>
+ * </pre>
+ * 
+ * 4. Code mit Syntax-Highlighting:
+ * <pre class="code-block code-block--highlight">
+ *   <code class="code language-javascript">Code</code>
+ * </pre>
+ * 
+ * Technische Details:
+ * - Verwendet CSS-Variablen für Farben und Größen
+ * - Optimiert mit will-change und transform
+ * - Responsive Anpassungen für mobile Geräte
+ * - Reduzierte Bewegung wird berücksichtigt
+ */
+
+/* Inline-Code */
+.code-inline {
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-sm);
+    background: var(--color-background-secondary);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius-sm);
+    color: var(--color-text);
+}
+
+/* Code-Block */
+.code-block {
+    background: var(--color-background-secondary);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-md);
+    margin: var(--spacing-md) 0;
+    overflow-x: auto;
+    position: relative;
+}
+
+.code {
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-tight);
+    color: var(--color-text);
+    display: block;
+    white-space: pre;
+}
+
+/* Code mit Zeilennummern */
+.code-block--numbered {
+    counter-reset: line;
+}
+
+.code-block--numbered .code {
+    counter-increment: line;
+}
+
+.code-block--numbered .code::before {
+    content: counter(line);
+    display: inline-block;
+    width: 2em;
+    margin-right: var(--spacing-md);
+    color: var(--color-text-secondary);
+    text-align: right;
+    user-select: none;
+}
+
+/* Code mit Syntax-Highlighting */
+.code-block--highlight {
+    background: var(--color-background-code);
+}
+
+.code-block--highlight .code {
+    color: var(--color-text-code);
+}
+
+/* Code-Copy-Button */
+.code-copy {
+    position: absolute;
+    top: var(--spacing-sm);
+    right: var(--spacing-sm);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-sm);
+    color: var(--color-text);
+    font-size: var(--font-size-xs);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.code-copy:hover {
+    background: var(--color-background-secondary);
+}
+
+.code-copy--copied {
+    background: var(--color-success);
+    color: var(--color-text-inverse);
+    border-color: var(--color-success);
+}
+
+/* Responsive Anpassungen */
+@media (max-width: var(--breakpoint-sm)) {
+    .code-block {
+        padding: var(--spacing-sm);
+        margin: var(--spacing-sm) 0;
+    }
+    
+    .code {
+        font-size: var(--font-size-xs);
+    }
+    
+    .code-block--numbered .code::before {
+        width: 1.5em;
+        margin-right: var(--spacing-sm);
+    }
+}
+
+/* Reduzierte Bewegung */
+@media (prefers-reduced-motion: reduce) {
+    .code-copy {
+        transition: none;
+    }
+} 

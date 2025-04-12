@@ -1,0 +1,320 @@
+---
+layout: default
+title: Grundlagen
+description: Grundlegende Konzepte und Best Practices der Casoon UI Library
+---
+
+<article class="foundation-doc">
+    <header class="foundation-header">
+        <h1>Grundlagen</h1>
+        <p class="foundation-description">Die Grundlagen der Casoon UI Library umfassen Design-Tokens, Farben, Typografie, Abstände und mehr.</p>
+    </header>
+
+    <div class="foundation-content">
+        <section class="foundation-section">
+            <h2>Design-Tokens</h2>
+            <p>Design-Tokens sind die grundlegenden Bausteine unseres Designsystems. Sie definieren konsistente Werte für Farben, Typografie, Abstände und mehr.</p>
+            
+            <div class="token-grid">
+                <div class="token-card">
+                    <h3>Farben</h3>
+                    <div class="code-block">
+                        <pre><code class="language-css">:root {
+    --color-primary: #007bff;
+    --color-secondary: #6c757d;
+    --color-accent: #ffc107;
+    --color-background: #ffffff;
+    --color-text: #212529;
+    --color-text-inverse: #ffffff;
+    --color-border: #dee2e6;
+    --color-error: #dc3545;
+    --color-success: #28a745;
+    --color-warning: #ffc107;
+    --color-info: #17a2b8;
+}</code></pre>
+                    </div>
+                </div>
+
+                <div class="token-card">
+                    <h3>Typografie</h3>
+                    <div class="code-block">
+                        <pre><code class="language-css">:root {
+    --font-family-base: system-ui, -apple-system, sans-serif;
+    --font-family-heading: var(--font-family-base);
+    --font-size-2xs: 0.75rem;
+    --font-size-xs: 0.875rem;
+    --font-size-sm: 1rem;
+    --font-size-base: 1.125rem;
+    --font-size-lg: 1.25rem;
+    --font-size-xl: 1.5rem;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-bold: 700;
+    --line-height-base: 1.5;
+    --line-height-tight: 1.25;
+    --line-height-loose: 1.75;
+}</code></pre>
+                    </div>
+                </div>
+
+                <div class="token-card">
+                    <h3>Abstände</h3>
+                    <div class="code-block">
+                        <pre><code class="language-css">:root {
+    --spacing-2xs: 0.25rem;
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 0.75rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-2xl: 3rem;
+}</code></pre>
+                    </div>
+                </div>
+
+                <div class="token-card">
+                    <h3>Breakpoints</h3>
+                    <div class="code-block">
+                        <pre><code class="language-css">:root {
+    --breakpoint-xs: 639px;
+    --breakpoint-sm: 640px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 1024px;
+    --breakpoint-xl: 1280px;
+    --breakpoint-2xl: 1536px;
+}</code></pre>
+                    </div>
+                </div>
+
+                <div class="token-card">
+                    <h3>Schatten</h3>
+                    <div class="code-block">
+                        <pre><code class="language-css">:root {
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1);
+}</code></pre>
+                    </div>
+                </div>
+
+                <div class="token-card">
+                    <h3>Rahmen</h3>
+                    <div class="code-block">
+                        <pre><code class="language-css">:root {
+    --border-radius-sm: 0.25rem;
+    --border-radius-md: 0.375rem;
+    --border-radius-lg: 0.5rem;
+    --border-radius-full: 9999px;
+    --border-width: 1px;
+}</code></pre>
+                    </div>
+                </div>
+
+                <div class="token-card">
+                    <h3>Übergänge</h3>
+                    <div class="code-block">
+                        <pre><code class="language-css">:root {
+    --transition-fast: 150ms;
+    --transition-normal: 300ms;
+    --transition-slow: 500ms;
+}</code></pre>
+                    </div>
+                </div>
+
+                <div class="token-card">
+                    <h3>Z-Index</h3>
+                    <div class="code-block">
+                        <pre><code class="language-css">:root {
+    --z-index-dropdown: 1000;
+    --z-index-sticky: 1020;
+    --z-index-fixed: 1030;
+    --z-index-modal: 1040;
+    --z-index-popover: 1050;
+    --z-index-tooltip: 1060;
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="foundation-section">
+            <h2>Best Practices</h2>
+            
+            <div class="practice-grid">
+                <div class="practice-card">
+                    <h3>Zugänglichkeit</h3>
+                    <div class="code-block">
+                        <pre><code class="language-html">&lt;button 
+    class="button"
+    aria-label="Schließen"
+    aria-expanded="false"
+    aria-controls="menu"
+&gt;
+    Menü
+&lt;/button&gt;</code></pre>
+                    </div>
+                </div>
+
+                <div class="practice-card">
+                    <h3>Performance</h3>
+                    <div class="code-block">
+                        <pre><code class="language-css">.element {
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}</code></pre>
+                    </div>
+                </div>
+
+                <div class="practice-card">
+                    <h3>Wartbarkeit</h3>
+                    <div class="code-block">
+                        <pre><code class="language-css">/* Komponenten */
+.component {
+    /* Basis-Styles */
+}
+
+/* Varianten */
+.component--variant {
+    /* Varianten-Styles */
+}
+
+/* Zustände */
+.component.is-active {
+    /* Zustands-Styles */
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="foundation-section">
+            <h2>Responsive Design</h2>
+            <p>Unsere Komponenten sind für alle Bildschirmgrößen optimiert:</p>
+            
+            <div class="responsive-grid">
+                <div class="responsive-card">
+                    <h3>Mobile First</h3>
+                    <div class="code-block">
+                        <pre><code class="language-css">/* Basis-Styles für mobile */
+.component {
+    padding: var(--spacing-md);
+}
+
+/* Anpassungen für größere Bildschirme */
+@media (min-width: var(--breakpoint-md)) {
+    .component {
+        padding: var(--spacing-lg);
+    }
+}</code></pre>
+                    </div>
+                </div>
+
+                <div class="responsive-card">
+                    <h3>Fluide Typografie</h3>
+                    <div class="code-block">
+                        <pre><code class="language-css">.text {
+    font-size: clamp(
+        var(--font-size-sm),
+        1vw + 1rem,
+        var(--font-size-lg)
+    );
+}</code></pre>
+                    </div>
+                </div>
+
+                <div class="responsive-card">
+                    <h3>Adaptive Layouts</h3>
+                    <div class="code-block">
+                        <pre><code class="language-css">.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="foundation-section">
+            <h2>Browser-Support</h2>
+            <p>Die Casoon UI Library unterstützt folgende Browser:</p>
+            
+            <div class="browser-grid">
+                <div class="browser-card">
+                    <h3>Chrome</h3>
+                    <p>Letzte 2 Versionen</p>
+                </div>
+
+                <div class="browser-card">
+                    <h3>Firefox</h3>
+                    <p>Letzte 2 Versionen</p>
+                </div>
+
+                <div class="browser-card">
+                    <h3>Safari</h3>
+                    <p>Letzte 2 Versionen</p>
+                </div>
+
+                <div class="browser-card">
+                    <h3>Edge</h3>
+                    <p>Letzte 2 Versionen</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="foundation-section">
+            <h2>Entwicklung</h2>
+            <p>Richtlinien für die Entwicklung mit der Casoon UI Library:</p>
+            
+            <div class="development-grid">
+                <div class="development-card">
+                    <h3>Installation</h3>
+                    <div class="code-block">
+                        <pre><code class="language-bash">npm install casoon-ui-lib</code></pre>
+                    </div>
+                </div>
+
+                <div class="development-card">
+                    <h3>Verwendung</h3>
+                    <div class="code-block">
+                        <pre><code class="language-css">@import 'casoon-ui-lib/core.css';</code></pre>
+                    </div>
+                </div>
+
+                <div class="development-card">
+                    <h3>Customization</h3>
+                    <div class="code-block">
+                        <pre><code class="language-css">:root {
+    --color-primary: #007bff;
+    --color-secondary: #6c757d;
+}</code></pre>
+                    </div>
+                </div>
+
+                <div class="development-card">
+                    <h3>Build</h3>
+                    <div class="code-block">
+                        <pre><code class="language-bash">npm run build</code></pre>
+                    </div>
+                </div>
+
+                <div class="development-card">
+                    <h3>Test</h3>
+                    <div class="code-block">
+                        <pre><code class="language-bash">npm run test</code></pre>
+                    </div>
+                </div>
+
+                <div class="development-card">
+                    <h3>Lint</h3>
+                    <div class="code-block">
+                        <pre><code class="language-bash">npm run lint</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</article> 

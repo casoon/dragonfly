@@ -1,3 +1,52 @@
+/**
+ * Slider
+ * 
+ * Diese Datei enthält verschiedene Stile für Slider-Komponenten.
+ * Die Slider sind performant optimiert und berücksichtigen reduzierte Bewegung.
+ * 
+ * Verwendung:
+ * 
+ * 1. Basis-Slider:
+ * <div class="slider">
+ *   <div class="slider-track">
+ *     <div class="slider-thumb"></div>
+ *   </div>
+ * </div>
+ * 
+ * 2. Range-Slider:
+ * <div class="slider slider--range">
+ *   <div class="slider-track">
+ *     <div class="slider-thumb slider-thumb--min"></div>
+ *     <div class="slider-thumb slider-thumb--max"></div>
+ *   </div>
+ * </div>
+ * 
+ * 3. Vertikaler Slider:
+ * <div class="slider slider--vertical">
+ *   <div class="slider-track">
+ *     <div class="slider-thumb"></div>
+ *   </div>
+ * </div>
+ * 
+ * 4. Thematisierte Slider:
+ * <div class="slider slider--primary">
+ *   <div class="slider-track">
+ *     <div class="slider-thumb"></div>
+ *   </div>
+ * </div>
+ * 
+ * Technische Details:
+ * - Verwendet CSS-Variablen für Farben und Größen
+ * - Optimiert mit will-change und transform
+ * - Responsive Anpassungen für mobile Geräte
+ * - Reduzierte Bewegung wird berücksichtigt
+ * 
+ * Performance-Hinweise:
+ * - Animationen sind hardware-beschleunigt
+ * - Touch-Feedback wird auf mobilen Geräten optimiert
+ * - Reduzierte Bewegung wird automatisch berücksichtigt
+ */
+
 /* Slider Variables */
 :root {
   --slider-height: 4px;

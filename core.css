@@ -8,9 +8,3 @@
 @import url('core/components.css');
 @import url('core/forms.css');
 @import url('core/smooth-scroll.css');
-
-/* Effekte */
-@import url('core/effects/neon.css');
-@import url('core/effects/filters.css');
-@import url('core/effects/animations.css');
-@import url('core/effects/interactions.css'); 

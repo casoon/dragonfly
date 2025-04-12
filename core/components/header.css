@@ -1,0 +1,131 @@
+/**
+ * Header-Komponenten
+ * 
+ * Diese Datei enthält verschiedene Stile für Header-Elemente.
+ * Die Komponenten sind performant optimiert und berücksichtigen reduzierte Bewegung.
+ * 
+ * Verwendung:
+ * 
+ * 1. Basis-Header:
+ * <header class="header">
+ *   <div class="header-container">
+ *     <div class="header-brand">Logo</div>
+ *     <nav class="header-nav">
+ *       <a href="#" class="header-link">Link</a>
+ *     </nav>
+ *   </div>
+ * </header>
+ * 
+ * 2. Sticky Header:
+ * <header class="header header--sticky">
+ *   <div class="header-container">...</div>
+ * </header>
+ * 
+ * 3. Transparenter Header:
+ * <header class="header header--transparent">
+ *   <div class="header-container">...</div>
+ * </header>
+ * 
+ * Technische Details:
+ * - Verwendet CSS-Variablen für Farben und Größen
+ * - Optimiert mit will-change und transform
+ * - Responsive Anpassungen für mobile Geräte
+ * - Reduzierte Bewegung wird berücksichtigt
+ */
+
+/* Basis-Header */
+.header {
+    background: var(--color-background);
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    z-index: var(--z-index-header);
+}
+
+.header-container {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: var(--spacing-md) var(--spacing-lg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-brand {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+    text-decoration: none;
+}
+
+.header-nav {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.header-link {
+    color: var(--color-text);
+    text-decoration: none;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius-sm);
+    transition: background-color var(--transition-fast);
+}
+
+.header-link:hover {
+    background-color: var(--color-background-secondary);
+}
+
+/* Sticky Header */
+.header--sticky {
+    position: sticky;
+    top: 0;
+    transition: transform var(--transition-fast);
+    will-change: transform;
+}
+
+.header--sticky.header--hidden {
+    transform: translateY(-100%);
+}
+
+/* Transparenter Header */
+.header--transparent {
+    background: transparent;
+    box-shadow: none;
+}
+
+.header--transparent .header-link {
+    color: var(--color-text-inverse);
+}
+
+/* Responsive Anpassungen */
+@media (max-width: var(--breakpoint-sm)) {
+    .header-container {
+        padding: var(--spacing-sm);
+    }
+    
+    .header-nav {
+        display: none;
+    }
+    
+    .header-nav--mobile {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--color-background);
+        padding: var(--spacing-md);
+        box-shadow: var(--shadow-md);
+    }
+}
+
+/* Reduzierte Bewegung */
+@media (prefers-reduced-motion: reduce) {
+    .header--sticky {
+        transition: none;
+    }
+    
+    .header-link {
+        transition: none;
+    }
+} 

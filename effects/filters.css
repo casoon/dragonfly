@@ -1,21 +1,44 @@
 /**
  * Filter-Effekte
  * 
- * Verwendung:
- * <div class="blur-sm">Leicht unscharf</div>
- * <div class="brightness-110">Heller</div>
- * <div class="filter-vintage">Vintage-Look</div>
+ * Diese Datei enthält verschiedene CSS-Filter für visuelle Effekte.
+ * Die Filter sind performant optimiert und berücksichtigen reduzierte Bewegung.
  * 
- * Varianten:
- * - blur: Unschärfe-Effekte
- * - brightness: Helligkeit
- * - contrast: Kontrast
- * - grayscale: Graustufen
- * - hue-rotate: Farbton-Rotation
- * - invert: Invertierung
- * - saturate: Sättigung
- * - sepia: Sepia-Effekt
- * - backdrop-blur: Hintergrund-Unschärfe
+ * Verwendung:
+ * 
+ * 1. Unschärfe-Effekte:
+ * <div class="blur-sm">Leichte Unschärfe</div>
+ * <div class="blur-md">Mittlere Unschärfe</div>
+ * <div class="blur-lg">Starke Unschärfe</div>
+ * 
+ * 2. Helligkeit und Kontrast:
+ * <div class="brightness-110">Erhöhte Helligkeit</div>
+ * <div class="contrast-110">Erhöhter Kontrast</div>
+ * 
+ * 3. Farbfilter:
+ * <div class="grayscale">Graustufen</div>
+ * <div class="sepia">Sepia-Effekt</div>
+ * <div class="hue-rotate-90">Farbton-Rotation</div>
+ * 
+ * 4. Hintergrund-Unschärfe:
+ * <div class="backdrop-blur-sm">Leichte Hintergrund-Unschärfe</div>
+ * 
+ * 5. Komplexe Filter:
+ * <div class="filter-vintage">Vintage-Look</div>
+ * <div class="filter-dramatic">Dramatischer Effekt</div>
+ * <div class="filter-cold">Kalter Look</div>
+ * <div class="filter-warm">Warmer Look</div>
+ * 
+ * Technische Details:
+ * - Verwendet native CSS-Filter
+ * - Optimiert mit will-change
+ * - Responsive Anpassungen für mobile Geräte
+ * - Reduzierte Bewegung wird berücksichtigt
+ * 
+ * Performance-Hinweise:
+ * - Filter werden hardware-beschleunigt
+ * - Komplexe Filter werden auf mobilen Geräten reduziert
+ * - Reduzierte Bewegung wird automatisch berücksichtigt
  */
 
 /* Unschärfe-Effekte */
@@ -138,6 +161,13 @@
     .blur-lg,
     .backdrop-blur-lg {
         filter: blur(8px);
+    }
+    
+    .filter-vintage,
+    .filter-dramatic,
+    .filter-cold,
+    .filter-warm {
+        filter: none;
     }
 }
 

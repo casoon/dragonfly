@@ -1,0 +1,211 @@
+/**
+ * Switch-Komponenten
+ * 
+ * Diese Datei enthält verschiedene Stile für Toggle-Switches.
+ * Die Komponenten sind performant optimiert und berücksichtigen reduzierte Bewegung.
+ * 
+ * Verwendung:
+ * 
+ * 1. Basis-Switch:
+ * <label class="switch">
+ *   <input type="checkbox" class="switch-input" />
+ *   <span class="switch-slider"></span>
+ *   <span class="switch-label">Label</span>
+ * </label>
+ * 
+ * 2. Switch mit Validierung:
+ * <label class="switch switch--error">
+ *   <input type="checkbox" class="switch-input" />
+ *   <span class="switch-slider"></span>
+ *   <span class="switch-label">Label</span>
+ *   <span class="switch-error">Fehlermeldung</span>
+ * </label>
+ * 
+ * 3. Switch-Gruppe:
+ * <div class="switch-group">
+ *   <label class="switch">
+ *     <input type="checkbox" class="switch-input" />
+ *     <span class="switch-slider"></span>
+ *     <span class="switch-label">Option 1</span>
+ *   </label>
+ *   <label class="switch">
+ *     <input type="checkbox" class="switch-input" />
+ *     <span class="switch-slider"></span>
+ *     <span class="switch-label">Option 2</span>
+ *   </label>
+ * </div>
+ * 
+ * Technische Details:
+ * - Verwendet CSS-Variablen für Farben und Größen
+ * - Optimiert mit will-change und transform
+ * - Responsive Anpassungen für mobile Geräte
+ * - Reduzierte Bewegung wird berücksichtigt
+ */
+
+/* Basis-Switch */
+.switch {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.switch-input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.switch-slider {
+    position: relative;
+    display: inline-block;
+    width: 36px;
+    height: 20px;
+    background-color: var(--color-border);
+    border-radius: 10px;
+    transition: all var(--transition-fast);
+}
+
+.switch-slider::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 16px;
+    height: 16px;
+    background-color: var(--color-text-inverse);
+    border-radius: 50%;
+    transition: transform var(--transition-fast);
+}
+
+.switch-label {
+    margin-left: var(--spacing-sm);
+    font-size: var(--font-size-base);
+    line-height: 1.5;
+    color: var(--color-text);
+}
+
+/* Switch-Zustände */
+.switch-input:checked + .switch-slider {
+    background-color: var(--color-primary);
+}
+
+.switch-input:checked + .switch-slider::before {
+    transform: translateX(16px);
+}
+
+.switch-input:focus + .switch-slider {
+    box-shadow: 0 0 0 2px var(--color-primary-light);
+}
+
+.switch-input:disabled + .switch-slider {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* Switch-Varianten */
+.switch--error .switch-slider {
+    background-color: var(--color-error-light);
+}
+
+.switch--error .switch-input:checked + .switch-slider {
+    background-color: var(--color-error);
+}
+
+.switch--error .switch-input:focus + .switch-slider {
+    box-shadow: 0 0 0 2px var(--color-error-light);
+}
+
+.switch--success .switch-slider {
+    background-color: var(--color-success-light);
+}
+
+.switch--success .switch-input:checked + .switch-slider {
+    background-color: var(--color-success);
+}
+
+.switch--success .switch-input:focus + .switch-slider {
+    box-shadow: 0 0 0 2px var(--color-success-light);
+}
+
+/* Switch-Größen */
+.switch--sm .switch-slider {
+    width: 28px;
+    height: 16px;
+}
+
+.switch--sm .switch-slider::before {
+    width: 12px;
+    height: 12px;
+    top: 2px;
+    left: 2px;
+}
+
+.switch--sm .switch-input:checked + .switch-slider::before {
+    transform: translateX(12px);
+}
+
+.switch--sm .switch-label {
+    font-size: var(--font-size-sm);
+}
+
+.switch--lg .switch-slider {
+    width: 44px;
+    height: 24px;
+}
+
+.switch--lg .switch-slider::before {
+    width: 20px;
+    height: 20px;
+    top: 2px;
+    left: 2px;
+}
+
+.switch--lg .switch-input:checked + .switch-slider::before {
+    transform: translateX(20px);
+}
+
+.switch--lg .switch-label {
+    font-size: var(--font-size-lg);
+}
+
+/* Switch-Gruppen */
+.switch-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.switch-group--horizontal {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+}
+
+/* Switch-Fehler */
+.switch-error {
+    display: block;
+    margin-top: var(--spacing-xs);
+    font-size: var(--font-size-sm);
+    color: var(--color-error);
+}
+
+/* Responsive Anpassungen */
+@media (max-width: var(--breakpoint-sm)) {
+    .switch-group--horizontal {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+}
+
+/* Reduzierte Bewegung */
+@media (prefers-reduced-motion: reduce) {
+    .switch-slider,
+    .switch-slider::before {
+        transition: none;
+    }
+} 

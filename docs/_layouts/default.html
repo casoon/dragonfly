@@ -4,63 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title }} - Casoon UI Library</title>
-    <link rel="stylesheet" href="{{ site.baseurl }}/css/core.css">
-    <link rel="stylesheet" href="{{ site.baseurl }}/css/hamburger.css">
-    <link rel="stylesheet" href="{{ site.baseurl }}/css/sidebar.css">
-    <link rel="stylesheet" href="{{ site.baseurl }}/styles.css">
-    <script src="https://unpkg.com/alpinejs" defer></script>
+    <link rel="stylesheet" href="/assets/css/docs.css">
 </head>
 <body>
-    <div class="sidebar" x-data="sidebar" :class="{ 'sidebar-collapsed': !isOpen }">
-        <div class="sidebar-header">
-            <h1>Casoon UI</h1>
-            <button class="hamburger hamburger--squeeze" type="button" @click="toggle" :class="{ 'is-active': !isOpen }">
-                <span class="hamburger-box">
-                    <span class="hamburger-inner"></span>
-                </span>
-            </button>
+    <header class="docs-header">
+        <div class="container">
+            <h1>Casoon UI Library</h1>
+            <nav class="docs-nav">
+                <ul>
+                    <li><a href="/docs">Startseite</a></li>
+                    <li><a href="/docs/components">Komponenten</a></li>
+                    <li><a href="/docs/utilities">Utilities</a></li>
+                    <li><a href="/docs/effects">Effekte</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav class="sidebar-nav">
-            <ul>
-                <li><a href="{{ site.baseurl }}/">Übersicht</a></li>
-                <li>
-                    <span class="nav-section">Grundlagen</span>
-                    <ul>
-                        {% for page in site.foundation %}
-                        <li><a href="{{ page.url | relative_url }}">{{ page.title }}</a></li>
-                        {% endfor %}
-                    </ul>
-                </li>
-                <li>
-                    <span class="nav-section">Komponenten</span>
-                    <ul>
-                        {% for page in site.components %}
-                        <li><a href="{{ page.url | relative_url }}">{{ page.title }}</a></li>
-                        {% endfor %}
-                    </ul>
-                </li>
-                <li>
-                    <span class="nav-section">Beispiele</span>
-                    <ul>
-                        {% for page in site.examples %}
-                        <li><a href="{{ page.url | relative_url }}">{{ page.title }}</a></li>
-                        {% endfor %}
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-    </div>
+    </header>
 
-    <main class="main-content">
-        {{ content }}
+    <main class="docs-main">
+        <div class="container">
+            {{ content }}
+        </div>
     </main>
 
-    <footer class="footer">
+    <footer class="docs-footer">
         <div class="container">
-            <p><a href="https://www.casoon.de">Casoon</a> bietet individuelle Lösungen für Designsysteme, Web-Apps und E-Commerce – mit Fokus auf Performance, Wartbarkeit und Ästhetik.</p>
+            <p>&copy; {{ site.time | date: '%Y' }} Casoon UI Library</p>
         </div>
     </footer>
-
-    <script src="{{ site.baseurl }}/docs.js"></script>
 </body>
 </html> 

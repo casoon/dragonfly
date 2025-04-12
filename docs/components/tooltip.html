@@ -1,0 +1,151 @@
+---
+layout: component
+title: Tooltip
+description: Ein Tooltip ist ein kleines Popup-Fenster, das zusätzliche Informationen anzeigt, wenn der Benutzer mit einem Element interagiert.
+examples:
+  - title: Basis Tooltip
+    language: html
+    preview: |
+      <button class="button" data-tooltip="Dies ist ein Tooltip">Hover mich</button>
+    code: |
+      <button class="button" data-tooltip="Dies ist ein Tooltip">Hover mich</button>
+  - title: Tooltip mit Validierung
+    language: html
+    preview: |
+      <input class="input input--error" data-tooltip="Bitte geben Sie eine gültige E-Mail-Adresse ein" />
+    code: |
+      <input class="input input--error" data-tooltip="Bitte geben Sie eine gültige E-Mail-Adresse ein" />
+  - title: Tooltip mit Animation
+    language: html
+    preview: |
+      <button class="button" data-tooltip="Animiertes Tooltip" data-tooltip-animation="fade">Hover mich</button>
+    code: |
+      <button class="button" data-tooltip="Animiertes Tooltip" data-tooltip-animation="fade">Hover mich</button>
+variants:
+  - title: Positionierung
+    language: html
+    preview: |
+      <button class="button" data-tooltip="Top" data-tooltip-position="top">Top</button>
+      <button class="button" data-tooltip="Right" data-tooltip-position="right">Right</button>
+      <button class="button" data-tooltip="Bottom" data-tooltip-position="bottom">Bottom</button>
+      <button class="button" data-tooltip="Left" data-tooltip-position="left">Left</button>
+    code: |
+      <button class="button" data-tooltip="Top" data-tooltip-position="top">Top</button>
+      <button class="button" data-tooltip="Right" data-tooltip-position="right">Right</button>
+      <button class="button" data-tooltip="Bottom" data-tooltip-position="bottom">Bottom</button>
+      <button class="button" data-tooltip="Left" data-tooltip-position="left">Left</button>
+  - title: Größen
+    language: html
+    preview: |
+      <button class="button" data-tooltip="Kleines Tooltip" data-tooltip-size="sm">Klein</button>
+      <button class="button" data-tooltip="Standard Tooltip">Standard</button>
+      <button class="button" data-tooltip="Großes Tooltip" data-tooltip-size="lg">Groß</button>
+    code: |
+      <button class="button" data-tooltip="Kleines Tooltip" data-tooltip-size="sm">Klein</button>
+      <button class="button" data-tooltip="Standard Tooltip">Standard</button>
+      <button class="button" data-tooltip="Großes Tooltip" data-tooltip-size="lg">Groß</button>
+  - title: Zustände
+    language: html
+    preview: |
+      <button class="button" data-tooltip="Fehler" data-tooltip-state="error">Fehler</button>
+      <button class="button" data-tooltip="Erfolg" data-tooltip-state="success">Erfolg</button>
+      <button class="button" data-tooltip="Warnung" data-tooltip-state="warning">Warnung</button>
+      <button class="button" data-tooltip="Info" data-tooltip-state="info">Info</button>
+    code: |
+      <button class="button" data-tooltip="Fehler" data-tooltip-state="error">Fehler</button>
+      <button class="button" data-tooltip="Erfolg" data-tooltip-state="success">Erfolg</button>
+      <button class="button" data-tooltip="Warnung" data-tooltip-state="warning">Warnung</button>
+      <button class="button" data-tooltip="Info" data-tooltip-state="info">Info</button>
+properties:
+  - name: data-tooltip
+    type: Attribute
+    default: -
+    description: Der Text des Tooltips
+  - name: data-tooltip-position
+    type: Attribute
+    default: top
+    description: Position des Tooltips (top, right, bottom, left)
+  - name: data-tooltip-size
+    type: Attribute
+    default: -
+    description: Größe des Tooltips (sm, lg)
+  - name: data-tooltip-state
+    type: Attribute
+    default: -
+    description: Zustand des Tooltips (error, success, warning, info)
+  - name: data-tooltip-animation
+    type: Attribute
+    default: -
+    description: Animation des Tooltips (fade, slide)
+accessibility: |
+  ## Zugänglichkeit
+
+  - Tooltips sollten mit der Tastatur zugänglich sein
+  - Der Inhalt sollte für Screen Reader verfügbar sein
+  - Die Position sollte sich an den verfügbaren Platz anpassen
+  - Die Anzeigedauer sollte anpassbar sein
+  - Reduzierte Bewegung sollte berücksichtigt werden
+
+performance: |
+  ## Performance
+
+  - Tooltips werden nur bei Bedarf gerendert
+  - Optimierte Animationen
+  - Effiziente Event-Handler
+  - Minimale DOM-Manipulation
+  - Keine unnötigen Reflows
+---
+
+<section class="component-examples">
+    <h2>Beispiele</h2>
+    
+    <div class="example-grid">
+        <div class="example-card">
+            <h3>Basis-Tooltip</h3>
+            <div class="example-preview">
+                <div class="tooltip">
+                    <button class="tooltip-trigger">Hover mich</button>
+                    <div class="tooltip-content">Tooltip-Inhalt</div>
+                </div>
+            </div>
+            <div class="example-code">
+                <pre><code>&lt;div class="tooltip"&gt;
+    &lt;button class="tooltip-trigger"&gt;Hover mich&lt;/button&gt;
+    &lt;div class="tooltip-content"&gt;Tooltip-Inhalt&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="example-card">
+            <h3>Tooltip mit Validierung</h3>
+            <div class="example-preview">
+                <div class="tooltip tooltip--error">
+                    <button class="tooltip-trigger">Hover mich</button>
+                    <div class="tooltip-content">Fehlermeldung</div>
+                </div>
+            </div>
+            <div class="example-code">
+                <pre><code>&lt;div class="tooltip tooltip--error"&gt;
+    &lt;button class="tooltip-trigger"&gt;Hover mich&lt;/button&gt;
+    &lt;div class="tooltip-content"&gt;Fehlermeldung&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="example-card">
+            <h3>Tooltip mit Animation</h3>
+            <div class="example-preview">
+                <div class="tooltip tooltip--animated">
+                    <button class="tooltip-trigger">Hover mich</button>
+                    <div class="tooltip-content">Tooltip-Inhalt</div>
+                </div>
+            </div>
+            <div class="example-code">
+                <pre><code>&lt;div class="tooltip tooltip--animated"&gt;
+    &lt;button class="tooltip-trigger"&gt;Hover mich&lt;/button&gt;
+    &lt;div class="tooltip-content"&gt;Tooltip-Inhalt&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+    </div>
+</section> 

@@ -1,17 +1,35 @@
 /**
  * Neon-Effekte
  * 
+ * Diese Datei enthält verschiedene Neon-Effekte für Text und Rahmen.
+ * Die Effekte sind performant optimiert und berücksichtigen reduzierte Bewegung.
+ * 
  * Verwendung:
- * <div class="neon-text">Text mit Neon-Effekt</div>
+ * 
+ * 1. Neon-Text:
+ * <div class="neon-text">Standard Neon-Text</div>
+ * <div class="neon-text-secondary">Sekundärer Neon-Text</div>
+ * <div class="neon-text-accent">Akzent Neon-Text</div>
+ * 
+ * 2. Animation-Varianten:
+ * <div class="neon-text-slow">Langsame Animation</div>
+ * <div class="neon-text-fast">Schnelle Animation</div>
+ * <div class="neon-text-flicker">Flackernder Effekt</div>
+ * <div class="neon-text-hover">Effekt nur beim Hover</div>
+ * 
+ * 3. Neon-Rahmen:
  * <div class="neon-border">Element mit Neon-Rahmen</div>
  * 
- * Varianten:
- * - neon-text: Standard Neon-Text
- * - neon-text-slow: Langsamere Animation
- * - neon-text-fast: Schnellere Animation
- * - neon-text-flicker: Flackernder Effekt
- * - neon-text-hover: Effekt nur beim Hover
- * - neon-border: Neon-Rahmen
+ * Technische Details:
+ * - Verwendet CSS-Variablen für Farben
+ * - Optimiert mit will-change
+ * - Responsive Anpassungen für mobile Geräte
+ * - Reduzierte Bewegung wird berücksichtigt
+ * 
+ * Performance-Hinweise:
+ * - Die Effekte sind hardware-beschleunigt
+ * - Animationen werden auf mobilen Geräten reduziert
+ * - Reduzierte Bewegung wird automatisch berücksichtigt
  */
 
 /* Basis Neon-Text */
@@ -121,6 +139,25 @@
             0 0 10px var(--color-primary),
             0 0 20px var(--color-primary),
             0 0 30px var(--color-primary);
+    }
+}
+
+/* Responsive Anpassungen */
+@media (max-width: var(--breakpoint-sm)) {
+    .neon-text,
+    .neon-text-secondary,
+    .neon-text-accent {
+        text-shadow:
+            0 0 3px currentColor,
+            0 0 6px currentColor,
+            0 0 12px currentColor;
+    }
+    
+    .neon-border {
+        box-shadow:
+            0 0 3px var(--color-primary),
+            0 0 6px var(--color-primary),
+            0 0 12px var(--color-primary);
     }
 }
 
