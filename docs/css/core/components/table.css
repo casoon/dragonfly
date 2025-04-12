@@ -1,0 +1,207 @@
+/**
+ * Tabellen-Komponenten
+ * 
+ * Diese Datei enthält verschiedene Stile für Tabellen.
+ * Die Komponenten sind performant optimiert und berücksichtigen reduzierte Bewegung.
+ * 
+ * Verwendung:
+ * 
+ * 1. Basis-Tabelle:
+ * <table class="table">
+ *   <thead>
+ *     <tr>
+ *       <th>Spalte 1</th>
+ *       <th>Spalte 2</th>
+ *     </tr>
+ *   </thead>
+ *   <tbody>
+ *     <tr>
+ *       <td>Daten 1</td>
+ *       <td>Daten 2</td>
+ *     </tr>
+ *   </tbody>
+ * </table>
+ * 
+ * 2. Sortierbare Tabelle:
+ * <table class="table table--sortable">
+ *   <thead>
+ *     <tr>
+ *       <th class="table-sort" data-sort="column1">Spalte 1</th>
+ *       <th class="table-sort" data-sort="column2">Spalte 2</th>
+ *     </tr>
+ *   </thead>
+ *   <tbody>
+ *     <tr>
+ *       <td data-column="column1">Daten 1</td>
+ *       <td data-column="column2">Daten 2</td>
+ *     </tr>
+ *   </tbody>
+ * </table>
+ * 
+ * 3. Responsive Tabelle:
+ * <div class="table-responsive">
+ *   <table class="table">
+ *     <!-- Tabelleninhalt -->
+ *   </table>
+ * </div>
+ * 
+ * Technische Details:
+ * - Verwendet CSS-Variablen für Farben und Größen
+ * - Optimiert mit will-change und transform
+ * - Responsive Anpassungen für mobile Geräte
+ * - Reduzierte Bewegung wird berücksichtigt
+ */
+
+/* Basis-Tabelle */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: var(--spacing-lg);
+    background: var(--color-background);
+    color: var(--color-text);
+}
+
+.table th,
+.table td {
+    padding: var(--spacing-md);
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.table th {
+    font-weight: var(--font-weight-bold);
+    background: var(--color-background-secondary);
+}
+
+/* Tabellen-Varianten */
+.table--striped tbody tr:nth-child(odd) {
+    background: var(--color-background-secondary);
+}
+
+.table--hover tbody tr:hover {
+    background: var(--color-background-tertiary);
+}
+
+.table--compact th,
+.table--compact td {
+    padding: var(--spacing-sm);
+}
+
+.table--bordered th,
+.table--bordered td {
+    border: 1px solid var(--color-border);
+}
+
+/* Sortierbare Tabellen */
+.table--sortable th {
+    cursor: pointer;
+    user-select: none;
+}
+
+.table-sort {
+    position: relative;
+    padding-right: var(--spacing-lg);
+}
+
+.table-sort::after {
+    content: '';
+    position: absolute;
+    right: var(--spacing-sm);
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid var(--color-text-secondary);
+    transition: transform var(--transition-fast);
+}
+
+.table-sort[data-sort-direction="asc"]::after {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.table-sort[data-sort-direction="desc"]::after {
+    transform: translateY(-50%);
+}
+
+/* Responsive Tabellen */
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: var(--spacing-lg);
+}
+
+@media (max-width: var(--breakpoint-sm)) {
+    .table-responsive {
+        margin: 0 calc(-1 * var(--spacing-md));
+        padding: 0 var(--spacing-md);
+    }
+    
+    .table--stacked {
+        display: block;
+    }
+    
+    .table--stacked thead {
+        display: none;
+    }
+    
+    .table--stacked tbody,
+    .table--stacked tr,
+    .table--stacked td {
+        display: block;
+    }
+    
+    .table--stacked tr {
+        margin-bottom: var(--spacing-md);
+        border: 1px solid var(--color-border);
+    }
+    
+    .table--stacked td {
+        padding: var(--spacing-sm);
+        border: none;
+        border-bottom: 1px solid var(--color-border);
+    }
+    
+    .table--stacked td:last-child {
+        border-bottom: none;
+    }
+    
+    .table--stacked td::before {
+        content: attr(data-label);
+        display: block;
+        font-weight: var(--font-weight-bold);
+        margin-bottom: var(--spacing-xs);
+    }
+}
+
+/* Tabellen-Zustände */
+.table--loading {
+    position: relative;
+}
+
+.table--loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(var(--color-background-rgb), 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.table--empty td {
+    text-align: center;
+    padding: var(--spacing-xl);
+    color: var(--color-text-secondary);
+}
+
+/* Reduzierte Bewegung */
+@media (prefers-reduced-motion: reduce) {
+    .table-sort::after {
+        transition: none;
+    }
+} 

@@ -1,0 +1,206 @@
+/**
+ * Radio-Button-Komponenten
+ * 
+ * Diese Datei enthält verschiedene Stile für Radio-Buttons.
+ * Die Komponenten sind performant optimiert und berücksichtigen reduzierte Bewegung.
+ * 
+ * Verwendung:
+ * 
+ * 1. Basis-Radio:
+ * <label class="radio">
+ *   <input type="radio" class="radio-input" name="group" />
+ *   <span class="radio-label">Label</span>
+ * </label>
+ * 
+ * 2. Radio mit Validierung:
+ * <label class="radio radio--error">
+ *   <input type="radio" class="radio-input" name="group" />
+ *   <span class="radio-label">Label</span>
+ *   <span class="radio-error">Fehlermeldung</span>
+ * </label>
+ * 
+ * 3. Radio-Gruppe:
+ * <div class="radio-group">
+ *   <label class="radio">
+ *     <input type="radio" class="radio-input" name="group" />
+ *     <span class="radio-label">Option 1</span>
+ *   </label>
+ *   <label class="radio">
+ *     <input type="radio" class="radio-input" name="group" />
+ *     <span class="radio-label">Option 2</span>
+ *   </label>
+ * </div>
+ * 
+ * Technische Details:
+ * - Verwendet CSS-Variablen für Farben und Größen
+ * - Optimiert mit will-change und transform
+ * - Responsive Anpassungen für mobile Geräte
+ * - Reduzierte Bewegung wird berücksichtigt
+ */
+
+/* Basis-Radio */
+.radio {
+    position: relative;
+    display: inline-flex;
+    align-items: flex-start;
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.radio-input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.radio-label {
+    position: relative;
+    padding-left: calc(var(--spacing-md) + 16px);
+    font-size: var(--font-size-base);
+    line-height: 1.5;
+    color: var(--color-text);
+}
+
+.radio-label::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--color-border);
+    border-radius: 50%;
+    background: var(--color-background);
+    transition: all var(--transition-fast);
+}
+
+.radio-label::after {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 50%;
+    transform: translateY(-50%) scale(0);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-text-inverse);
+    transition: transform var(--transition-fast);
+}
+
+/* Radio-Zustände */
+.radio-input:checked + .radio-label::before {
+    border-color: var(--color-primary);
+}
+
+.radio-input:checked + .radio-label::after {
+    transform: translateY(-50%) scale(1);
+    background: var(--color-primary);
+}
+
+.radio-input:focus + .radio-label::before {
+    box-shadow: 0 0 0 2px var(--color-primary-light);
+}
+
+.radio-input:disabled + .radio-label {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* Radio-Varianten */
+.radio--error .radio-label::before {
+    border-color: var(--color-error);
+}
+
+.radio--error .radio-input:checked + .radio-label::after {
+    background: var(--color-error);
+}
+
+.radio--error .radio-input:focus + .radio-label::before {
+    box-shadow: 0 0 0 2px var(--color-error-light);
+}
+
+.radio--success .radio-label::before {
+    border-color: var(--color-success);
+}
+
+.radio--success .radio-input:checked + .radio-label::after {
+    background: var(--color-success);
+}
+
+.radio--success .radio-input:focus + .radio-label::before {
+    box-shadow: 0 0 0 2px var(--color-success-light);
+}
+
+/* Radio-Größen */
+.radio--sm .radio-label {
+    font-size: var(--font-size-sm);
+    padding-left: calc(var(--spacing-sm) + 14px);
+}
+
+.radio--sm .radio-label::before {
+    width: 14px;
+    height: 14px;
+}
+
+.radio--sm .radio-label::after {
+    left: 3px;
+    width: 6px;
+    height: 6px;
+}
+
+.radio--lg .radio-label {
+    font-size: var(--font-size-lg);
+    padding-left: calc(var(--spacing-lg) + 18px);
+}
+
+.radio--lg .radio-label::before {
+    width: 18px;
+    height: 18px;
+}
+
+.radio--lg .radio-label::after {
+    left: 5px;
+    width: 10px;
+    height: 10px;
+}
+
+/* Radio-Gruppen */
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.radio-group--horizontal {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+}
+
+/* Radio-Fehler */
+.radio-error {
+    display: block;
+    margin-top: var(--spacing-xs);
+    font-size: var(--font-size-sm);
+    color: var(--color-error);
+}
+
+/* Responsive Anpassungen */
+@media (max-width: var(--breakpoint-sm)) {
+    .radio-group--horizontal {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+}
+
+/* Reduzierte Bewegung */
+@media (prefers-reduced-motion: reduce) {
+    .radio-label::before,
+    .radio-label::after {
+        transition: none;
+    }
+} 

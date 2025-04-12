@@ -1,3 +1,60 @@
+/**
+ * Seitenleiste
+ * 
+ * Diese Datei enthält verschiedene Stile für Seitenleisten.
+ * Die Seitenleisten sind performant optimiert und berücksichtigen reduzierte Bewegung.
+ * 
+ * Verwendung:
+ * 
+ * 1. Basis-Seitenleiste:
+ * <aside class="sidebar">
+ *   <nav class="sidebar-nav">
+ *     <ul class="sidebar-menu">
+ *       <li class="sidebar-item">Menüpunkt</li>
+ *     </ul>
+ *   </nav>
+ * </aside>
+ * 
+ * 2. Kollabierbare Seitenleiste:
+ * <aside class="sidebar sidebar--collapsible">
+ *   <button class="sidebar-toggle">Toggle</button>
+ *   <nav class="sidebar-nav">
+ *     <ul class="sidebar-menu">
+ *       <li class="sidebar-item">Menüpunkt</li>
+ *     </ul>
+ *   </nav>
+ * </aside>
+ * 
+ * 3. Responsive Seitenleiste:
+ * <aside class="sidebar sidebar--responsive">
+ *   <nav class="sidebar-nav">
+ *     <ul class="sidebar-menu">
+ *       <li class="sidebar-item">Menüpunkt</li>
+ *     </ul>
+ *   </nav>
+ * </aside>
+ * 
+ * 4. Thematisierte Seitenleiste:
+ * <aside class="sidebar sidebar--dark">
+ *   <nav class="sidebar-nav">
+ *     <ul class="sidebar-menu">
+ *       <li class="sidebar-item">Menüpunkt</li>
+ *     </ul>
+ *   </nav>
+ * </aside>
+ * 
+ * Technische Details:
+ * - Verwendet CSS-Variablen für Farben und Größen
+ * - Optimiert mit will-change und transform
+ * - Responsive Anpassungen für mobile Geräte
+ * - Reduzierte Bewegung wird berücksichtigt
+ * 
+ * Performance-Hinweise:
+ * - Animationen sind hardware-beschleunigt
+ * - Touch-Feedback wird auf mobilen Geräten optimiert
+ * - Reduzierte Bewegung wird automatisch berücksichtigt
+ */
+
 /* Sidebar Variables */
 :root {
   --sidebar-width: 16rem;

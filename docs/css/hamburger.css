@@ -1,3 +1,51 @@
+/**
+ * Hamburger-Menü
+ * 
+ * Diese Datei enthält verschiedene Stile für Hamburger-Menüs.
+ * Die Menüs sind performant optimiert und berücksichtigen reduzierte Bewegung.
+ * 
+ * Verwendung:
+ * 
+ * 1. Basis-Hamburger:
+ * <button class="hamburger">
+ *   <span class="hamburger-line"></span>
+ *   <span class="hamburger-line"></span>
+ *   <span class="hamburger-line"></span>
+ * </button>
+ * 
+ * 2. Animierte Varianten:
+ * <button class="hamburger hamburger--squeeze">
+ *   <span class="hamburger-line"></span>
+ *   <span class="hamburger-line"></span>
+ *   <span class="hamburger-line"></span>
+ * </button>
+ * 
+ * 3. Farbvarianten:
+ * <button class="hamburger hamburger--primary">
+ *   <span class="hamburger-line"></span>
+ *   <span class="hamburger-line"></span>
+ *   <span class="hamburger-line"></span>
+ * </button>
+ * 
+ * 4. Größenvarianten:
+ * <button class="hamburger hamburger--sm">
+ *   <span class="hamburger-line"></span>
+ *   <span class="hamburger-line"></span>
+ *   <span class="hamburger-line"></span>
+ * </button>
+ * 
+ * Technische Details:
+ * - Verwendet CSS-Variablen für Farben und Größen
+ * - Optimiert mit will-change und transform
+ * - Responsive Anpassungen für mobile Geräte
+ * - Reduzierte Bewegung wird berücksichtigt
+ * 
+ * Performance-Hinweise:
+ * - Animationen sind hardware-beschleunigt
+ * - Touch-Feedback wird auf mobilen Geräten optimiert
+ * - Reduzierte Bewegung wird automatisch berücksichtigt
+ */
+
 /* Hamburger Variables */
 :root {
   --hamburger-width: 2rem;

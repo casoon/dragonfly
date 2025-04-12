@@ -1,0 +1,175 @@
+/**
+ * Neon-Effekte
+ * 
+ * Diese Datei enthält verschiedene Neon-Effekte für Text und Rahmen.
+ * Die Effekte sind performant optimiert und berücksichtigen reduzierte Bewegung.
+ * 
+ * Verwendung:
+ * 
+ * 1. Neon-Text:
+ * <div class="neon-text">Standard Neon-Text</div>
+ * <div class="neon-text-secondary">Sekundärer Neon-Text</div>
+ * <div class="neon-text-accent">Akzent Neon-Text</div>
+ * 
+ * 2. Animation-Varianten:
+ * <div class="neon-text-slow">Langsame Animation</div>
+ * <div class="neon-text-fast">Schnelle Animation</div>
+ * <div class="neon-text-flicker">Flackernder Effekt</div>
+ * <div class="neon-text-hover">Effekt nur beim Hover</div>
+ * 
+ * 3. Neon-Rahmen:
+ * <div class="neon-border">Element mit Neon-Rahmen</div>
+ * 
+ * Technische Details:
+ * - Verwendet CSS-Variablen für Farben
+ * - Optimiert mit will-change
+ * - Responsive Anpassungen für mobile Geräte
+ * - Reduzierte Bewegung wird berücksichtigt
+ * 
+ * Performance-Hinweise:
+ * - Die Effekte sind hardware-beschleunigt
+ * - Animationen werden auf mobilen Geräten reduziert
+ * - Reduzierte Bewegung wird automatisch berücksichtigt
+ */
+
+/* Basis Neon-Text */
+.neon-text {
+    color: var(--color-primary);
+    text-shadow:
+        0 0 5px var(--color-primary),
+        0 0 10px var(--color-primary),
+        0 0 20px var(--color-primary);
+    animation: neon-pulse 2s ease-in-out infinite;
+    will-change: text-shadow;
+}
+
+/* Neon-Text Varianten */
+.neon-text-secondary {
+    color: var(--color-secondary);
+    text-shadow:
+        0 0 5px var(--color-secondary),
+        0 0 10px var(--color-secondary),
+        0 0 20px var(--color-secondary);
+    animation: neon-pulse 2s ease-in-out infinite;
+    will-change: text-shadow;
+}
+
+.neon-text-accent {
+    color: var(--color-accent);
+    text-shadow:
+        0 0 5px var(--color-accent),
+        0 0 10px var(--color-accent),
+        0 0 20px var(--color-accent);
+    animation: neon-pulse 2s ease-in-out infinite;
+    will-change: text-shadow;
+}
+
+/* Animation Varianten */
+.neon-text-slow {
+    animation: neon-pulse 4s ease-in-out infinite;
+}
+
+.neon-text-fast {
+    animation: neon-pulse 1s ease-in-out infinite;
+}
+
+.neon-text-flicker {
+    animation: neon-flicker 2s ease-in-out infinite;
+}
+
+.neon-text-hover {
+    transition: text-shadow 0.3s ease;
+}
+
+.neon-text-hover:hover {
+    text-shadow:
+        0 0 5px currentColor,
+        0 0 10px currentColor,
+        0 0 20px currentColor;
+}
+
+/* Neon-Rahmen */
+.neon-border {
+    border: 2px solid var(--color-primary);
+    box-shadow:
+        0 0 5px var(--color-primary),
+        0 0 10px var(--color-primary),
+        0 0 20px var(--color-primary);
+    animation: neon-border-pulse 2s ease-in-out infinite;
+    will-change: box-shadow;
+}
+
+/* Keyframes */
+@keyframes neon-pulse {
+    0%, 100% {
+        text-shadow:
+            0 0 5px currentColor,
+            0 0 10px currentColor,
+            0 0 20px currentColor;
+    }
+    50% {
+        text-shadow:
+            0 0 10px currentColor,
+            0 0 20px currentColor,
+            0 0 30px currentColor;
+    }
+}
+
+@keyframes neon-flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        text-shadow:
+            0 0 5px currentColor,
+            0 0 10px currentColor,
+            0 0 20px currentColor;
+    }
+    20%, 24%, 55% {
+        text-shadow: none;
+    }
+}
+
+@keyframes neon-border-pulse {
+    0%, 100% {
+        box-shadow:
+            0 0 5px var(--color-primary),
+            0 0 10px var(--color-primary),
+            0 0 20px var(--color-primary);
+    }
+    50% {
+        box-shadow:
+            0 0 10px var(--color-primary),
+            0 0 20px var(--color-primary),
+            0 0 30px var(--color-primary);
+    }
+}
+
+/* Responsive Anpassungen */
+@media (max-width: var(--breakpoint-sm)) {
+    .neon-text,
+    .neon-text-secondary,
+    .neon-text-accent {
+        text-shadow:
+            0 0 3px currentColor,
+            0 0 6px currentColor,
+            0 0 12px currentColor;
+    }
+    
+    .neon-border {
+        box-shadow:
+            0 0 3px var(--color-primary),
+            0 0 6px var(--color-primary),
+            0 0 12px var(--color-primary);
+    }
+}
+
+/* Reduzierte Bewegung */
+@media (prefers-reduced-motion: reduce) {
+    .neon-text,
+    .neon-text-secondary,
+    .neon-text-accent,
+    .neon-text-slow,
+    .neon-text-fast,
+    .neon-text-flicker,
+    .neon-border {
+        animation: none;
+    }
+} 
