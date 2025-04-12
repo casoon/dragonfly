@@ -83,9 +83,9 @@
 
 .neon-text-hover:hover {
     text-shadow:
-        0 0 5px currentColor,
-        0 0 10px currentColor,
-        0 0 20px currentColor;
+        0 0 5px currentcolor,
+        0 0 10px currentcolor,
+        0 0 20px currentcolor;
 }
 
 /* Neon-Rahmen */
@@ -103,25 +103,27 @@
 @keyframes neon-pulse {
     0%, 100% {
         text-shadow:
-            0 0 5px currentColor,
-            0 0 10px currentColor,
-            0 0 20px currentColor;
+            0 0 5px currentcolor,
+            0 0 10px currentcolor,
+            0 0 20px currentcolor;
     }
+
     50% {
         text-shadow:
-            0 0 10px currentColor,
-            0 0 20px currentColor,
-            0 0 30px currentColor;
+            0 0 10px currentcolor,
+            0 0 20px currentcolor,
+            0 0 30px currentcolor;
     }
 }
 
 @keyframes neon-flicker {
     0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
         text-shadow:
-            0 0 5px currentColor,
-            0 0 10px currentColor,
-            0 0 20px currentColor;
+            0 0 5px currentcolor,
+            0 0 10px currentcolor,
+            0 0 20px currentcolor;
     }
+
     20%, 24%, 55% {
         text-shadow: none;
     }
@@ -134,6 +136,7 @@
             0 0 10px var(--color-primary),
             0 0 20px var(--color-primary);
     }
+
     50% {
         box-shadow:
             0 0 10px var(--color-primary),
@@ -148,9 +151,9 @@
     .neon-text-secondary,
     .neon-text-accent {
         text-shadow:
-            0 0 3px currentColor,
-            0 0 6px currentColor,
-            0 0 12px currentColor;
+            0 0 3px currentcolor,
+            0 0 6px currentcolor,
+            0 0 12px currentcolor;
     }
     
     .neon-border {

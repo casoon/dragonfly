@@ -43,17 +43,14 @@
         --modal-background: var(--color-background);
         --modal-text: var(--color-text);
         --modal-border-radius: 0.5rem;
-        --modal-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        --modal-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%);
         --modal-transition: all var(--transition-normal);
     }
 
     /* Base Modal */
     .modal {
         position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
+        inset: 0;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -63,11 +60,8 @@
     /* Overlay */
     .overlay {
         position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgba(0, 0, 0, 0.5);
+        inset: 0;
+        background-color: rgb(0 0 0 / 50%);
         backdrop-filter: blur(4px);
     }
 
@@ -213,7 +207,7 @@
     }
 
     /* Responsive */
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
         .modal {
             --modal-padding: 1rem;
         }

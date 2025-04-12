@@ -147,7 +147,7 @@
     }
 
     /* Responsive */
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
         .input {
             --input-padding: 0.5rem 0.75rem;
             --input-font-size: 0.875rem;

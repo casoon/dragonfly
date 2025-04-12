@@ -1,1 +1,63 @@
- 
+/**
+ * Header CSS Module
+ * 
+ * Diese Datei enthält die CSS-Module für Header-Komponenten.
+ */
+
+@layer components {
+    /* Header Variables */
+    .header {
+        --header-height: 4rem;
+        --header-padding: 1rem;
+        --header-background: var(--color-white);
+        --header-border-color: var(--color-gray-200);
+    }
+
+    /* Base Header */
+    .header {
+        position: relative;
+        width: 100%;
+        height: var(--header-height);
+        padding: 0 var(--header-padding);
+        background-color: var(--header-background);
+        border-bottom: 1px solid var(--header-border-color);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    /* Navigation */
+    .nav {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    /* Logo */
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-weight: 600;
+        color: var(--color-gray-900);
+    }
+
+    /* Menu */
+    .menu {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    /* Responsive */
+    @media (width <= 768px) {
+        .header {
+            --header-height: 3.5rem;
+            --header-padding: 0.75rem;
+        }
+
+        .menu {
+            display: none;
+        }
+    }
+} 

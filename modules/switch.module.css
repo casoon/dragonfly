@@ -64,16 +64,13 @@
     .slider {
         position: absolute;
         cursor: pointer;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
+        inset: 0;
         background-color: var(--switch-background);
         transition: var(--switch-transition-duration);
         border-radius: var(--switch-height);
     }
 
-    .slider:before {
+    .slider::before {
         position: absolute;
         content: "";
         height: var(--switch-slider-size);
@@ -89,7 +86,7 @@
         background-color: var(--switch-active-background);
     }
 
-    input:checked + .slider:before {
+    input:checked + .slider::before {
         transform: translateX(calc(var(--switch-width) - var(--switch-height)));
     }
 
@@ -151,13 +148,13 @@
     /* Reduced Motion */
     @media (prefers-reduced-motion: reduce) {
         .slider,
-        .slider:before {
+        .slider::before {
             transition: none;
         }
     }
 
     /* Responsive */
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
         .switch {
             --switch-width: 2.5rem;
             --switch-height: 1.25rem;

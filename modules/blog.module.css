@@ -147,7 +147,7 @@
     /* Hover Effects */
     .post:hover {
         transform: translateY(-2px);
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%);
     }
 
     /* Focus States */
@@ -171,7 +171,7 @@
     }
 
     /* Responsive */
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
         .grid {
             grid-template-columns: 1fr;
         }

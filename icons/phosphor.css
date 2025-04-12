@@ -14,10 +14,11 @@
     /* Phosphor als CSS Icon */
     .ph-icon {
         @apply icon;
+
         mask-size: contain;
         mask-position: center;
         mask-repeat: no-repeat;
-        background-color: currentColor;
+        background-color: currentcolor;
     }
 
     /* Phosphor Icons */
@@ -50,12 +51,12 @@
 
     .ph-fill {
         stroke-width: 0;
-        fill: currentColor;
+        fill: currentcolor;
     }
 
     .ph-duotone {
         stroke-width: 2;
-        fill: currentColor;
+        fill: currentcolor;
         opacity: 0.5;
     }
 

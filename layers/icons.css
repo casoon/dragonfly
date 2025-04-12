@@ -18,8 +18,8 @@
         width: 1em;
         height: 1em;
         stroke-width: 0;
-        stroke: currentColor;
-        fill: currentColor;
+        stroke: currentcolor;
+        fill: currentcolor;
         vertical-align: middle;
     }
 
@@ -75,6 +75,7 @@
         from {
             transform: rotate(0deg);
         }
+
         to {
             transform: rotate(360deg);
         }

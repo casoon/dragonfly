@@ -122,6 +122,7 @@
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -133,6 +134,7 @@
     opacity: 0;
     transform: translateY(-20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -144,6 +146,7 @@
     opacity: 0;
     transform: translateX(20px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -155,6 +158,7 @@
     opacity: 0;
     transform: translateX(-20px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -167,6 +171,7 @@
     opacity: 0;
     transform: scale(0.95);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -178,6 +183,7 @@
     opacity: 1;
     transform: scale(1);
   }
+
   to {
     opacity: 0;
     transform: scale(0.95);
@@ -311,6 +317,7 @@
 }
 
 /* Interaktive Animationen */
+
 /* Hover Effects */
 .hover\:scale {
   transition: transform var(--animation-duration-normal) var(--ease-out-quad);
@@ -510,6 +517,7 @@
         from {
             opacity: 0;
         }
+
         to {
             opacity: 1;
         }
@@ -519,6 +527,7 @@
         from {
             opacity: 1;
         }
+
         to {
             opacity: 0;
         }
@@ -537,6 +546,7 @@
         from {
             transform: translateX(-100%);
         }
+
         to {
             transform: translateX(0);
         }
@@ -546,6 +556,7 @@
         from {
             transform: translateX(0);
         }
+
         to {
             transform: translateX(-100%);
         }
@@ -564,6 +575,7 @@
         from {
             transform: scale(0);
         }
+
         to {
             transform: scale(1);
         }
@@ -573,6 +585,7 @@
         from {
             transform: scale(1);
         }
+
         to {
             transform: scale(0);
         }

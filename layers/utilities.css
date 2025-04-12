@@ -211,10 +211,12 @@
 }
 
 /* Utility Classes */
+
 /* Display */
 .flex { display: flex; }
 .inline-flex { display: inline-flex; }
 .grid { display: grid; }
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -230,6 +232,7 @@
 /* Visibility */
 .visible { visibility: visible; }
 .invisible { visibility: hidden; }
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -472,7 +475,7 @@
 
 /* Background */
 .bg-transparent { background-color: transparent; }
-.bg-current { background-color: currentColor; }
+.bg-current { background-color: currentcolor; }
 
 /* Border */
 .rounded-none { border-radius: var(--radius-none); }

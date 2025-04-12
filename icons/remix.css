@@ -14,10 +14,11 @@
     /* Remix als CSS Icon */
     .ri-icon {
         @apply icon;
+
         mask-size: contain;
         mask-position: center;
         mask-repeat: no-repeat;
-        background-color: currentColor;
+        background-color: currentcolor;
     }
 
     /* Remix Icons */
@@ -45,12 +46,12 @@
 
     .ri-fill {
         stroke-width: 0;
-        fill: currentColor;
+        fill: currentcolor;
     }
 
     .ri-dual {
         stroke-width: 2;
-        fill: currentColor;
+        fill: currentcolor;
         opacity: 0.5;
     }
 

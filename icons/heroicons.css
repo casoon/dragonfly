@@ -20,19 +20,19 @@
     /* Heroicons Solid */
     .heroicon-solid {
         stroke-width: 0;
-        fill: currentColor;
+        fill: currentcolor;
     }
 
     /* Heroicons Mini */
     .heroicon-mini {
         stroke-width: 1.5;
-        fill: currentColor;
+        fill: currentcolor;
     }
 
     /* Heroicons Micro */
     .heroicon-micro {
         stroke-width: 1.5;
-        fill: currentColor;
+        fill: currentcolor;
     }
 
     /* Heroicons 24 */

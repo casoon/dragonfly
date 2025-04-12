@@ -129,7 +129,7 @@
     }
 
     /* Responsive */
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
         .textarea {
             --textarea-padding: 0.625rem;
             --textarea-font-size: 0.8125rem;

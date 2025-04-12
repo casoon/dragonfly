@@ -14,10 +14,11 @@
     /* Bootstrap als CSS Icon */
     .bi-icon {
         @apply icon;
+
         mask-size: contain;
         mask-position: center;
         mask-repeat: no-repeat;
-        background-color: currentColor;
+        background-color: currentcolor;
     }
 
     /* Bootstrap Icons */

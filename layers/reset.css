@@ -18,13 +18,13 @@
     /* HTML & Body Reset */
     html {
         font-size: 16px;
-        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
         -webkit-tap-highlight-color: transparent;
     }
 
     body {
         min-height: 100vh;
-        text-rendering: optimizeSpeed;
+        text-rendering: optimizespeed;
         line-height: 1.5;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
@@ -143,8 +143,6 @@
   /* Remove default select arrow */
   select {
       appearance: none;
-      -webkit-appearance: none;
-      -moz-appearance: none;
   }
   
   /* Remove default focus outline */
@@ -184,13 +182,11 @@
   
   /* Remove default meter styles */
   meter {
-      -webkit-appearance: none;
       appearance: none;
   }
   
   /* Remove default progress styles */
   progress {
-      -webkit-appearance: none;
       appearance: none;
   }
   

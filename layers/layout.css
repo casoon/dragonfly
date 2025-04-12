@@ -336,6 +336,7 @@
   .row-span-full { grid-row: 1 / -1; }
   
   /* Responsive Grid */
+
   /* Extra Small (xs) - Default */
   @media (max-width: var(--breakpoint-xs)) {
     .xs\:grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
@@ -560,7 +561,7 @@
   .z-auto { z-index: auto; }
   
   /* Responsive Gap */
-  @media (min-width: 640px) {
+  @media (width >= 640px) {
     .sm\:gap-0 { gap: 0; }
     .sm\:gap-1 { gap: var(--size-1); }
     .sm\:gap-2 { gap: var(--size-2); }
@@ -574,7 +575,7 @@
     .sm\:gap-16 { gap: var(--size-16); }
   }
   
-  @media (min-width: 768px) {
+  @media (width >= 768px) {
     .md\:gap-0 { gap: 0; }
     .md\:gap-1 { gap: var(--size-1); }
     .md\:gap-2 { gap: var(--size-2); }
@@ -588,7 +589,7 @@
     .md\:gap-16 { gap: var(--size-16); }
   }
   
-  @media (min-width: 1024px) {
+  @media (width >= 1024px) {
     .lg\:gap-0 { gap: 0; }
     .lg\:gap-1 { gap: var(--size-1); }
     .lg\:gap-2 { gap: var(--size-2); }
@@ -603,7 +604,7 @@
   }
   
   /* Responsive Grid Rows */
-  @media (min-width: 640px) {
+  @media (width >= 640px) {
     .sm\:grid-rows-1 { grid-template-rows: repeat(1, minmax(0, 1fr)); }
     .sm\:grid-rows-2 { grid-template-rows: repeat(2, minmax(0, 1fr)); }
     .sm\:grid-rows-3 { grid-template-rows: repeat(3, minmax(0, 1fr)); }
@@ -612,7 +613,7 @@
     .sm\:grid-rows-6 { grid-template-rows: repeat(6, minmax(0, 1fr)); }
   }
   
-  @media (min-width: 768px) {
+  @media (width >= 768px) {
     .md\:grid-rows-1 { grid-template-rows: repeat(1, minmax(0, 1fr)); }
     .md\:grid-rows-2 { grid-template-rows: repeat(2, minmax(0, 1fr)); }
     .md\:grid-rows-3 { grid-template-rows: repeat(3, minmax(0, 1fr)); }
@@ -622,7 +623,7 @@
   }
   
   /* Responsive Alignment */
-  @media (min-width: 640px) {
+  @media (width >= 640px) {
     .sm\:justify-items-start { justify-items: start; }
     .sm\:justify-items-end { justify-items: end; }
     .sm\:justify-items-center { justify-items: center; }
@@ -634,7 +635,7 @@
     .sm\:items-stretch { align-items: stretch; }
   }
   
-  @media (min-width: 768px) {
+  @media (width >= 768px) {
     .md\:justify-items-start { justify-items: start; }
     .md\:justify-items-end { justify-items: end; }
     .md\:justify-items-center { justify-items: center; }
@@ -646,7 +647,7 @@
     .md\:items-stretch { align-items: stretch; }
   }
   
-  @media (min-width: 1024px) {
+  @media (width >= 1024px) {
     .lg\:justify-items-start { justify-items: start; }
     .lg\:justify-items-end { justify-items: end; }
     .lg\:justify-items-center { justify-items: center; }

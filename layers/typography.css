@@ -175,6 +175,7 @@
 }
 
 /* Typography */
+
 /* Base Typography */
 body {
   font-family: var(--font-family-base);
@@ -283,7 +284,7 @@ h6, .h6 {
 .no-underline { text-decoration: none; }
 
 /* Responsive Typography */
-@media (max-width: 640px) {
+@media (width <= 640px) {
   h1, .h1 { font-size: var(--font-size-3xl); }
   h2, .h2 { font-size: var(--font-size-2xl); }
   h3, .h3 { font-size: var(--font-size-xl); }
@@ -292,7 +293,7 @@ h6, .h6 {
   h6, .h6 { font-size: var(--font-size-sm); }
 }
 
-@media (min-width: 640px) {
+@media (width >= 640px) {
   .sm\:text-xs { font-size: var(--font-size-xs); }
   .sm\:text-sm { font-size: var(--font-size-sm); }
   .sm\:text-base { font-size: var(--font-size-base); }
@@ -303,7 +304,7 @@ h6, .h6 {
   .sm\:text-4xl { font-size: var(--font-size-4xl); }
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .md\:text-xs { font-size: var(--font-size-xs); }
   .md\:text-sm { font-size: var(--font-size-sm); }
   .md\:text-base { font-size: var(--font-size-base); }
@@ -315,7 +316,7 @@ h6, .h6 {
   .md\:text-5xl { font-size: var(--font-size-5xl); }
 }
 
-@media (min-width: 1024px) {
+@media (width >= 1024px) {
   .lg\:text-xs { font-size: var(--font-size-xs); }
   .lg\:text-sm { font-size: var(--font-size-sm); }
   .lg\:text-base { font-size: var(--font-size-base); }
@@ -327,7 +328,7 @@ h6, .h6 {
   .lg\:text-5xl { font-size: var(--font-size-5xl); }
 }
 
-@media (min-width: 1280px) {
+@media (width >= 1280px) {
   .xl\:text-xs { font-size: var(--font-size-xs); }
   .xl\:text-sm { font-size: var(--font-size-sm); }
   .xl\:text-base { font-size: var(--font-size-base); }

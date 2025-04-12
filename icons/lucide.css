@@ -20,13 +20,13 @@
     /* Lucide Solid */
     .lucide-solid {
         stroke-width: 0;
-        fill: currentColor;
+        fill: currentcolor;
     }
 
     /* Lucide Duotone */
     .lucide-duotone {
         stroke-width: 2;
-        fill: currentColor;
+        fill: currentcolor;
         opacity: 0.5;
     }
 

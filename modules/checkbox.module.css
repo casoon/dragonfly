@@ -82,7 +82,7 @@
     }
 
     /* Checkmark symbol */
-    .checkmark:after {
+    .checkmark::after {
         content: "";
         position: absolute;
         display: none;
@@ -95,7 +95,7 @@
         transform: translate(-50%, -60%) rotate(45deg);
     }
 
-    .input:checked ~ .checkmark:after {
+    .input:checked ~ .checkmark::after {
         display: block;
     }
 
