@@ -1,3 +1,32 @@
+/**
+ * Button-Komponenten
+ * 
+ * Diese Datei enthält verschiedene Stile für Buttons.
+ * Die Komponenten sind performant optimiert und berücksichtigen reduzierte Bewegung.
+ * 
+ * Verwendung:
+ * 
+ * 1. Basis-Button:
+ * <button class="button">Button</button>
+ * 
+ * 2. Button mit Icon:
+ * <button class="button">
+ *   <span class="button-icon">🔍</span>
+ *   <span class="button-text">Suchen</span>
+ * </button>
+ * 
+ * 3. Button mit verschiedenen Varianten:
+ * <button class="button button--primary">Primär</button>
+ * <button class="button button--outline">Outline</button>
+ * <button class="button button--text">Text</button>
+ * 
+ * Technische Details:
+ * - Verwendet CSS-Variablen für Farben und Größen
+ * - Optimiert mit will-change und transform
+ * - Responsive Anpassungen für mobile Geräte
+ * - Reduzierte Bewegung wird berücksichtigt
+ */
+
 /* Button Variables */
 :root {
   --button-padding-sm: 0.5rem 1rem;

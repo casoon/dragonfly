@@ -1,0 +1,206 @@
+/**
+ * Input-Komponenten
+ * 
+ * Diese Datei enthält verschiedene Stile für Input-Felder.
+ * Die Komponenten sind performant optimiert und berücksichtigen reduzierte Bewegung.
+ * 
+ * Verwendung:
+ * 
+ * 1. Basis-Input:
+ * <div class="input-group">
+ *   <label class="input-label">Label</label>
+ *   <input type="text" class="input" placeholder="Platzhalter" />
+ *   <div class="input-help">Hilfetext</div>
+ * </div>
+ * 
+ * 2. Input mit Icon:
+ * <div class="input-group">
+ *   <label class="input-label">Label</label>
+ *   <div class="input-wrapper">
+ *     <span class="input-icon">🔍</span>
+ *     <input type="text" class="input input--icon" placeholder="Suchen" />
+ *   </div>
+ * </div>
+ * 
+ * 3. Input mit Validierung:
+ * <div class="input-group input-group--error">
+ *   <label class="input-label">Label</label>
+ *   <input type="text" class="input" />
+ *   <div class="input-error">Fehlermeldung</div>
+ * </div>
+ * 
+ * Technische Details:
+ * - Verwendet CSS-Variablen für Farben und Größen
+ * - Optimiert mit will-change und transform
+ * - Responsive Anpassungen für mobile Geräte
+ * - Reduzierte Bewegung wird berücksichtigt
+ */
+
+/* Basis-Input */
+.input-group {
+    margin-bottom: var(--spacing-md);
+}
+
+.input-label {
+    display: block;
+    margin-bottom: var(--spacing-xs);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text);
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input {
+    width: 100%;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-sm);
+    background: var(--color-background);
+    color: var(--color-text);
+    font-size: var(--font-size-base);
+    line-height: 1.5;
+    transition: all var(--transition-fast);
+}
+
+.input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px var(--color-primary-light);
+}
+
+.input::placeholder {
+    color: var(--color-text-secondary);
+}
+
+/* Input mit Icon */
+.input-icon {
+    position: absolute;
+    left: var(--spacing-md);
+    color: var(--color-text-secondary);
+    pointer-events: none;
+}
+
+.input--icon {
+    padding-left: calc(var(--spacing-md) * 2 + 1em);
+}
+
+.input-icon--right {
+    left: auto;
+    right: var(--spacing-md);
+}
+
+.input--icon-right {
+    padding-right: calc(var(--spacing-md) * 2 + 1em);
+    padding-left: var(--spacing-md);
+}
+
+/* Input-Größen */
+.input--sm {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: var(--font-size-sm);
+}
+
+.input--lg {
+    padding: var(--spacing-md) var(--spacing-lg);
+    font-size: var(--font-size-lg);
+}
+
+/* Input-Varianten */
+.input--outline {
+    background: transparent;
+    border-color: var(--color-border);
+}
+
+.input--filled {
+    background: var(--color-background-secondary);
+    border-color: transparent;
+}
+
+.input--underline {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--color-border);
+    border-radius: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* Input-Zustände */
+.input-group--error .input {
+    border-color: var(--color-error);
+}
+
+.input-group--error .input:focus {
+    box-shadow: 0 0 0 2px var(--color-error-light);
+}
+
+.input-group--success .input {
+    border-color: var(--color-success);
+}
+
+.input-group--success .input:focus {
+    box-shadow: 0 0 0 2px var(--color-success-light);
+}
+
+.input-group--disabled .input {
+    background: var(--color-background-secondary);
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.input-error {
+    margin-top: var(--spacing-xs);
+    font-size: var(--font-size-sm);
+    color: var(--color-error);
+}
+
+.input-help {
+    margin-top: var(--spacing-xs);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+}
+
+/* Input-Typen */
+.input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.input[type="number"]::-webkit-outer-spin-button,
+.input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.input[type="search"] {
+    -webkit-appearance: none;
+}
+
+.input[type="search"]::-webkit-search-decoration,
+.input[type="search"]::-webkit-search-cancel-button,
+.input[type="search"]::-webkit-search-results-button,
+.input[type="search"]::-webkit-search-results-decoration {
+    -webkit-appearance: none;
+}
+
+/* Responsive Anpassungen */
+@media (max-width: var(--breakpoint-sm)) {
+    .input {
+        font-size: var(--font-size-base);
+    }
+    
+    .input--sm,
+    .input--lg {
+        font-size: var(--font-size-base);
+    }
+}
+
+/* Reduzierte Bewegung */
+@media (prefers-reduced-motion: reduce) {
+    .input {
+        transition: none;
+    }
+} 

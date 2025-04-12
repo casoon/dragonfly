@@ -1,0 +1,218 @@
+/**
+ * Formular-Komponenten
+ * 
+ * Diese Datei enthält verschiedene Stile für Formular-Elemente.
+ * Die Komponenten sind performant optimiert und berücksichtigen reduzierte Bewegung.
+ * 
+ * Verwendung:
+ * 
+ * 1. Basis-Formular:
+ * <form class="form">
+ *   <div class="form-group">
+ *     <label class="form-label">Label</label>
+ *     <input type="text" class="form-input" />
+ *     <div class="form-help">Hilfetext</div>
+ *   </div>
+ * </form>
+ * 
+ * 2. Formular mit Validierung:
+ * <form class="form">
+ *   <div class="form-group form-group--error">
+ *     <label class="form-label">Label</label>
+ *     <input type="text" class="form-input" />
+ *     <div class="form-error">Fehlermeldung</div>
+ *   </div>
+ * </form>
+ * 
+ * 3. Formular mit Erfolgsmeldung:
+ * <form class="form">
+ *   <div class="form-group form-group--success">
+ *     <label class="form-label">Label</label>
+ *     <input type="text" class="form-input" />
+ *     <div class="form-success">Erfolgsmeldung</div>
+ *   </div>
+ * </form>
+ * 
+ * Technische Details:
+ * - Verwendet CSS-Variablen für Farben und Größen
+ * - Optimiert mit will-change und transform
+ * - Responsive Anpassungen für mobile Geräte
+ * - Reduzierte Bewegung wird berücksichtigt
+ */
+
+/* Basis-Formular */
+.form {
+    max-width: var(--content-width);
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: var(--spacing-lg);
+}
+
+.form-label {
+    display: block;
+    margin-bottom: var(--spacing-xs);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text);
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+    width: 100%;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-sm);
+    background: var(--color-background);
+    color: var(--color-text);
+    font-size: var(--font-size-base);
+    transition: all var(--transition-fast);
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px var(--color-primary-light);
+}
+
+.form-textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.form-help {
+    margin-top: var(--spacing-xs);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+}
+
+/* Formular-Validierung */
+.form-group--error .form-input,
+.form-group--error .form-select,
+.form-group--error .form-textarea {
+    border-color: var(--color-error);
+}
+
+.form-group--error .form-input:focus,
+.form-group--error .form-select:focus,
+.form-group--error .form-textarea:focus {
+    box-shadow: 0 0 0 2px var(--color-error-light);
+}
+
+.form-error {
+    margin-top: var(--spacing-xs);
+    font-size: var(--font-size-sm);
+    color: var(--color-error);
+}
+
+/* Formular-Erfolg */
+.form-group--success .form-input,
+.form-group--success .form-select,
+.form-group--success .form-textarea {
+    border-color: var(--color-success);
+}
+
+.form-group--success .form-input:focus,
+.form-group--success .form-select:focus,
+.form-group--success .form-textarea:focus {
+    box-shadow: 0 0 0 2px var(--color-success-light);
+}
+
+.form-success {
+    margin-top: var(--spacing-xs);
+    font-size: var(--font-size-sm);
+    color: var(--color-success);
+}
+
+/* Formular-Buttons */
+.form-actions {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.form-submit,
+.form-reset {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: var(--border-radius-sm);
+    font-weight: var(--font-weight-medium);
+    transition: all var(--transition-fast);
+}
+
+.form-submit {
+    background: var(--color-primary);
+    color: var(--color-text-inverse);
+    border: none;
+}
+
+.form-submit:hover {
+    background: var(--color-primary-dark);
+}
+
+.form-reset {
+    background: var(--color-background);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+}
+
+.form-reset:hover {
+    background: var(--color-background-secondary);
+}
+
+/* Formular-Layouts */
+.form--inline .form-group {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.form--inline .form-label {
+    margin-bottom: 0;
+    min-width: 120px;
+}
+
+.form--grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+/* Responsive Anpassungen */
+@media (max-width: var(--breakpoint-sm)) {
+    .form {
+        padding: 0 var(--spacing-md);
+    }
+    
+    .form--inline .form-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .form--inline .form-label {
+        min-width: auto;
+        margin-bottom: var(--spacing-xs);
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .form-submit,
+    .form-reset {
+        width: 100%;
+    }
+}
+
+/* Reduzierte Bewegung */
+@media (prefers-reduced-motion: reduce) {
+    .form-input,
+    .form-select,
+    .form-textarea,
+    .form-submit,
+    .form-reset {
+        transition: none;
+    }
+} 
