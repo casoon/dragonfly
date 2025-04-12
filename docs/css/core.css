@@ -1,10 +1,37 @@
-/* Core CSS Imports */
+/**
+ * Core CSS
+ * 
+ * Diese Datei definiert die grundlegenden Styles des Systems.
+ * Die Styles sind in verschiedene Layer organisiert:
+ * - base: Grundlegende Styles (Colors, Typography)
+ * - components: Komponenten-Styles
+ * - utilities: Utility-Klassen
+ * - themes: Theme-Styles
+ * - effects: Effekt-Styles
+ * - hamburger: Hamburger-Menü-Styles
+ * - animations: Animations-Styles
+ */
+
+/* Separate Imports für einzeln auswählbare Dateien */
 @import url('core/reset.css');
-@import url('core/colors.css');
 @import url('core/tokens.css');
-@import url('core/typography.css');
-@import url('core/utilities.css');
-@import url('core/layout.css');
-@import url('core/components.css');
 @import url('core/forms.css');
 @import url('core/smooth-scroll.css');
+
+@layer base {
+    /* Base Layer Imports */
+    @import url('core/colors.css');
+    @import url('core/typography.css');
+}
+
+@layer components {
+    /* Component Imports */
+    @import url('core/components.css');
+}
+
+@layer utilities {
+    /* Utility Imports */
+    @import url('core/utilities.css');
+}
+
+

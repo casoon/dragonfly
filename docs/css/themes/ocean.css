@@ -1,30 +1,61 @@
+/**
+ * Ocean Theme
+ * 
+ * Diese Datei definiert das Ocean Theme.
+ * Die Farben orientieren sich an den Variablen aus colors.css.
+ */
+
 :root {
-  /* Ocean Theme */
-  --color-primary: #1a73e8;
-  --color-primary-light: #4285f4;
-  --color-primary-dark: #1557b0;
-  
-  --color-secondary: #34a853;
-  --color-secondary-light: #5cb85c;
-  --color-secondary-dark: #2d8a3d;
-  
-  --color-accent: #00bcd4;
-  --color-accent-light: #26c6da;
-  --color-accent-dark: #0097a7;
-  
-  --color-success: #00c853;
-  --color-warning: #ffd600;
-  --color-error: #ff1744;
-  --color-info: #00b0ff;
-  
-  /* Grayscale */
-  --color-gray-100: #f5f7fa;
-  --color-gray-200: #e4e7eb;
-  --color-gray-300: #cbd2d9;
-  --color-gray-400: #9aa5b1;
-  --color-gray-500: #7b8794;
-  --color-gray-600: #616e7c;
-  --color-gray-700: #52606d;
-  --color-gray-800: #3e4c59;
-  --color-gray-900: #323f4b;
+    /* Primary Colors */
+    --color-primary-50: var(--color-cyan-50);
+    --color-primary-100: var(--color-cyan-100);
+    --color-primary-200: var(--color-cyan-200);
+    --color-primary-300: var(--color-cyan-300);
+    --color-primary-400: var(--color-cyan-400);
+    --color-primary-500: var(--color-cyan-500);
+    --color-primary-600: var(--color-cyan-600);
+    --color-primary-700: var(--color-cyan-700);
+    --color-primary-800: var(--color-cyan-800);
+    --color-primary-900: var(--color-cyan-900);
+
+    /* Secondary Colors */
+    --color-secondary-50: var(--color-teal-50);
+    --color-secondary-100: var(--color-teal-100);
+    --color-secondary-200: var(--color-teal-200);
+    --color-secondary-300: var(--color-teal-300);
+    --color-secondary-400: var(--color-teal-400);
+    --color-secondary-500: var(--color-teal-500);
+    --color-secondary-600: var(--color-teal-600);
+    --color-secondary-700: var(--color-teal-700);
+    --color-secondary-800: var(--color-teal-800);
+    --color-secondary-900: var(--color-teal-900);
+
+    /* Accent Colors */
+    --color-accent-50: var(--color-blue-50);
+    --color-accent-100: var(--color-blue-100);
+    --color-accent-200: var(--color-blue-200);
+    --color-accent-300: var(--color-blue-300);
+    --color-accent-400: var(--color-blue-400);
+    --color-accent-500: var(--color-blue-500);
+    --color-accent-600: var(--color-blue-600);
+    --color-accent-700: var(--color-blue-700);
+    --color-accent-800: var(--color-blue-800);
+    --color-accent-900: var(--color-blue-900);
+
+    /* Status Colors */
+    --color-success: var(--color-emerald-500);
+    --color-error: var(--color-red-500);
+    --color-warning: var(--color-amber-500);
+    --color-info: var(--color-sky-500);
+
+    /* Grayscale */
+    --color-gray-100: #f5f7fa;
+    --color-gray-200: #e4e7eb;
+    --color-gray-300: #cbd2d9;
+    --color-gray-400: #9aa5b1;
+    --color-gray-500: #7b8794;
+    --color-gray-600: #616e7c;
+    --color-gray-700: #52606d;
+    --color-gray-800: #3e4c59;
+    --color-gray-900: #323f4b;
 } 

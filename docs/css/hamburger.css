@@ -922,4 +922,54 @@
     clip: rect(12px, 9999px, 59px, 0);
   }
   /* ... weitere Keyframes ... */
+}
+
+/**
+ * Hamburger Menu
+ * 
+ * Diese Datei enthält die Hamburger-Menü-Animation-Styles des Systems.
+ * Die Styles sind in @layer hamburger organisiert.
+ */
+
+@layer hamburger {
+    /* Hamburger Button */
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 24px;
+        height: 18px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+    }
+
+    .hamburger span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: var(--color-gray-900);
+        transition: all var(--transition-normal);
+    }
+
+    /* Hamburger Animation */
+    .hamburger.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+        .hamburger span {
+            transition: none;
+        }
+    }
 } 
