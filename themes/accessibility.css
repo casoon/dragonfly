@@ -1,0 +1,200 @@
+/**
+ * Accessibility Theme
+ * 
+ * Dieses Theme bietet spezielle Anpassungen für bessere Barrierefreiheit:
+ * - Erhöhter Kontrast
+ * - Größere Schriftgrößen
+ * - Klare Fokus-Indikatoren
+ * - Reduzierte Animationen
+ * - Optimierte Farbkombinationen
+ */
+
+@layer core {
+  :root {
+    /* Typography */
+    --font-size-base: 1.125rem; /* 18px */
+    --font-size-sm: 1rem; /* 16px */
+    --font-size-lg: 1.25rem; /* 20px */
+    --font-size-xl: 1.5rem; /* 24px */
+    --line-height-base: 1.75;
+    --letter-spacing-base: 0.05em;
+
+    /* Colors - High Contrast */
+    --color-text: #000000;
+    --color-text-secondary: #333333;
+    --color-background: #FFFFFF;
+    --color-primary: #0000FF;
+    --color-secondary: #800080;
+    --color-success: #008000;
+    --color-warning: #FFA500;
+    --color-error: #FF0000;
+    --color-info: #000080;
+
+    /* Focus Styles */
+    --focus-ring-width: 3px;
+    --focus-ring-color: #0000FF;
+    --focus-ring-offset: 2px;
+
+    /* Spacing */
+    --spacing-base: 1.5rem;
+    --spacing-sm: 1rem;
+    --spacing-lg: 2rem;
+
+    /* Border Radius */
+    --border-radius-base: 0.25rem;
+    --border-radius-lg: 0.5rem;
+
+    /* Transitions */
+    --transition-duration: 0.2s;
+    --transition-timing: ease-in-out;
+  }
+
+  /* Base Styles */
+  body {
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+    letter-spacing: var(--letter-spacing-base);
+    color: var(--color-text);
+    background-color: var(--color-background);
+  }
+
+  /* Focus Styles */
+  *:focus {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+  }
+}
+
+@layer components {
+  /* Links */
+  .link {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+
+  .link:hover {
+    text-decoration: none;
+  }
+
+  /* Buttons */
+  .button {
+    font-size: var(--font-size-base);
+    padding: var(--spacing-sm) var(--spacing-base);
+    border: 2px solid var(--color-text);
+    background-color: var(--color-background);
+    color: var(--color-text);
+    cursor: pointer;
+  }
+
+  .button:hover {
+    background-color: var(--color-text);
+    color: var(--color-background);
+  }
+
+  /* Form Elements */
+  .input,
+  .select,
+  .textarea {
+    font-size: var(--font-size-base);
+    padding: var(--spacing-sm);
+    border: 2px solid var(--color-text);
+    background-color: var(--color-background);
+    color: var(--color-text);
+  }
+
+  /* Tables */
+  .table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  .th,
+  .td {
+    border: 2px solid var(--color-text);
+    padding: var(--spacing-sm);
+    text-align: left;
+  }
+
+  /* Headings */
+  .h1,
+  .h2,
+  .h3,
+  .h4,
+  .h5,
+  .h6 {
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: var(--spacing-base);
+  }
+
+  .h1 { font-size: var(--font-size-xl); }
+  .h2 { font-size: var(--font-size-lg); }
+  .h3 { font-size: var(--font-size-base); }
+
+  /* Lists */
+  .list {
+    padding-left: var(--spacing-lg);
+    margin-bottom: var(--spacing-base);
+  }
+
+  .list-item {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  /* Images */
+  .img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Skip Link */
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--color-primary);
+    color: var(--color-background);
+    padding: var(--spacing-sm);
+    z-index: 100;
+  }
+
+  .skip-link:focus {
+    top: 0;
+  }
+}
+
+@layer utilities {
+  /* Reduced Motion */
+  @media (prefers-reduced-motion: reduce) {
+    .reduce-motion * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* High Contrast Mode */
+  @media (forced-colors: active) {
+    .high-contrast {
+      --color-text: CanvasText;
+      --color-background: Canvas;
+      --color-primary: LinkText;
+      --color-secondary: VisitedText;
+      --color-success: ButtonText;
+      --color-warning: ButtonText;
+      --color-error: ButtonText;
+      --color-info: ButtonText;
+    }
+  }
+
+  /* Text Utilities */
+  .text-large { font-size: var(--font-size-lg); }
+  .text-xl { font-size: var(--font-size-xl); }
+  .text-small { font-size: var(--font-size-sm); }
+
+  /* Spacing Utilities */
+  .space-base { margin: var(--spacing-base); }
+  .space-sm { margin: var(--spacing-sm); }
+  .space-lg { margin: var(--spacing-lg); }
+} 

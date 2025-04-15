@@ -12,7 +12,7 @@
  * - Bootstrap Icons (MIT) - https://icons.getbootstrap.com
  */
 
-@layer components {
+@layer icons {
     .icon {
         display: inline-block;
         width: 1em;

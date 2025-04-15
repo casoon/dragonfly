@@ -4,7 +4,7 @@
  * Diese Datei definiert das Retro Theme.
  * Die Farben orientieren sich an den Variablen aus colors.css.
  */
-
+ @layer core {
 :root {
     /* Primary Colors */
     --color-primary-50: var(--color-amber-50);
@@ -58,4 +58,5 @@
     --color-gray-700: #c2185b;
     --color-gray-800: #ad1457;
     --color-gray-900: #880e4f;
-} 
+    } 
+}

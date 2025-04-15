@@ -4,7 +4,7 @@
  * Diese Datei definiert das Ocean Theme.
  * Die Farben orientieren sich an den Variablen aus colors.css.
  */
-
+ @layer core {
 :root {
     /* Primary Colors */
     --color-primary-50: var(--color-cyan-50);
@@ -58,4 +58,5 @@
     --color-gray-700: #52606d;
     --color-gray-800: #3e4c59;
     --color-gray-900: #323f4b;
-} 
+    } 
+}

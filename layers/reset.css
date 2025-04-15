@@ -1,12 +1,12 @@
 /**
- * Reset-Styles
+ * Reset CSS
  * 
- * Diese Datei enthält die Basis-Reset-Styles.
- * Die Styles sind in @layer base organisiert.
+ * Diese Datei definiert die Reset-Styles des Systems.
+ * Die Styles sind in @layer core organisiert.
  */
 
-@layer base {
-    /* Box Sizing Reset */
+@layer core {
+    /* Reset Styles */
     *,
     *::before,
     *::after {
@@ -15,74 +15,45 @@
         padding: 0;
     }
 
-    /* HTML & Body Reset */
     html {
         font-size: 16px;
-        text-size-adjust: 100%;
-        -webkit-tap-highlight-color: transparent;
+        -webkit-text-size-adjust: 100%;
     }
 
     body {
-        min-height: 100vh;
-        text-rendering: optimizespeed;
         line-height: 1.5;
         -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
     }
 
-    /* Typography Reset */
-    h1, h2, h3, h4, h5, h6 {
-        font-size: inherit;
-        font-weight: inherit;
-    }
-
-    /* List Reset */
-    ul, ol {
-        list-style: none;
-    }
-
-    /* Link Reset */
-    a {
-        color: inherit;
-        text-decoration: none;
-        background-color: transparent;
-    }
-
-    /* Media Reset */
-    img, picture, video, canvas, svg {
+    img,
+    picture,
+    video,
+    canvas,
+    svg {
         display: block;
         max-width: 100%;
     }
 
-    /* Form Reset */
-    button, input, select, textarea {
+    input,
+    button,
+    textarea,
+    select {
         font: inherit;
-        color: inherit;
-        background: transparent;
-        border: none;
-        outline: none;
     }
 
-    button {
-        cursor: pointer;
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        overflow-wrap: break-word;
     }
 
-    /* Table Reset */
-    table {
-        border-collapse: collapse;
-        border-spacing: 0;
-    }
-
-    /* Accessibility */
-    @media (prefers-reduced-motion: reduce) {
-        *,
-        *::before,
-        *::after {
-            animation-duration: 0.01ms !important;
-            animation-iteration-count: 1 !important;
-            transition-duration: 0.01ms !important;
-            scroll-behavior: auto !important;
-        }
+    #root,
+    #__next {
+        isolation: isolate;
     }
 }
 
