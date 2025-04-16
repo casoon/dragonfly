@@ -5,26 +5,19 @@
  * Sie importiert alle notwendigen Layer und Module.
  */
 
-
 @layer core {
-    @import "layers/tokens.css";
-    @import "layers/reset.css";
-    @import "layers/typography.css";
-    @import "layers/layout.css";
-    @import "layers/utilities.css";
-    @import "layers/animations.css";
-    @import "layers/smooth-scroll.css";
+    @import url("layers/tokens.css");
+    @import url("layers/reset.css");
+    @import url("layers/typography.css");
+    @import url("layers/layout.css");
+    @import url("layers/utilities.css");
+    @import url("layers/animations.css");
+    @import url("layers/smooth-scroll.css");
 }
-
 
 @layer icons {
     /* Utility Imports */
     @import url('icons/base.css');
-}
-
-@layer animations {
-    /* Animations Imports */
-    @import url('layers/animations.css');
 }
 
 @layer effects {

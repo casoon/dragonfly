@@ -20,19 +20,22 @@
     --letter-spacing-base: 0.05em;
 
     /* Colors - High Contrast */
-    --color-text: #000000;
-    --color-text-secondary: #333333;
-    --color-background: #FFFFFF;
-    --color-primary: #0000FF;
-    --color-secondary: #800080;
-    --color-success: #008000;
-    --color-warning: #FFA500;
-    --color-error: #FF0000;
-    --color-info: #000080;
+    --color-text: var(--color-black);
+    --color-text-secondary: var(--color-gray-700);
+    --color-background: var(--color-white);
+    --color-primary: var(--color-blue-600);
+    --color-secondary: var(--color-purple-600);
+    --color-success: var(--color-green-600);
+    --color-warning: var(--color-orange-500);
+    --color-error: var(--color-red-600);
+    --color-info: var(--color-blue-800);
+    --color-link: var(--color-blue-600);
+    --color-link-visited: var(--color-blue-600);
+    --color-focus: var(--color-blue-600);
 
     /* Focus Styles */
     --focus-ring-width: 3px;
-    --focus-ring-color: #0000FF;
+    --focus-ring-color: var(--color-blue-600);
     --focus-ring-offset: 2px;
 
     /* Spacing */
@@ -51,8 +54,8 @@
 
   /* Base Styles */
   body {
-    font-size: var(--font-size-base);
-    line-height: var(--line-height-base);
+    font-size: 16px;
+    line-height: 1.5;
     letter-spacing: var(--letter-spacing-base);
     color: var(--color-text);
     background-color: var(--color-background);
@@ -60,20 +63,20 @@
 
   /* Focus Styles */
   *:focus {
-    outline: var(--focus-ring-width) solid var(--focus-ring-color);
-    outline-offset: var(--focus-ring-offset);
+    outline: 2px solid var(--color-focus);
+    outline-offset: 2px;
   }
 }
 
 @layer components {
   /* Links */
   .link {
-    color: var(--color-primary);
+    color: var(--color-link);
     text-decoration: underline;
   }
 
-  .link:hover {
-    text-decoration: none;
+  .link:visited {
+    color: var(--color-link-visited);
   }
 
   /* Buttons */
@@ -160,6 +163,12 @@
 
   .skip-link:focus {
     top: 0;
+  }
+
+  /* Error States */
+  .error {
+    color: var(--color-error);
+    border-color: var(--color-error);
   }
 }
 

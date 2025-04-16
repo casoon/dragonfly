@@ -20,9 +20,7 @@
  * - Reduzierte Bewegung wird berücksichtigt
  * - Performance-Optimierungen sind implementiert
  */
-
-    @layer effects {
-
+@layer effects {
     /* Effekte */
     @import url('effects/neon.css');
     @import url('effects/filters.css');
@@ -36,46 +34,50 @@
     */
 
     @layer effects {
+        /* Base Effects */
+        .shadow-sm {
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .shadow {
+            box-shadow: var(--shadow);
+        }
+        
+        .shadow-md {
+            box-shadow: var(--shadow-md);
+        }
+        
+        .shadow-lg {
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .shadow-xl {
+            box-shadow: var(--shadow-xl);
+        }
+        
         /* Hover Effects */
-        .hover-scale {
-            transition: transform var(--transition-normal);
-        }
-
-        .hover-scale:hover {
-            transform: scale(1.05);
-        }
-
-        .hover-rotate {
-            transition: transform var(--transition-normal);
-        }
-
-        .hover-rotate:hover {
-            transform: rotate(5deg);
-        }
-
         .hover-shadow {
             transition: box-shadow var(--transition-normal);
         }
-
+        
         .hover-shadow:hover {
             box-shadow: var(--shadow-md);
         }
-
+        
         /* Focus Effects */
         .focus-ring {
             transition: box-shadow var(--transition-normal);
         }
-
+        
         .focus-ring:focus {
-            box-shadow: 0 0 0 3px var(--color-primary-500);
-            outline: none;
+            box-shadow: 0 0 0 3px var(--color-primary);
         }
-
+        
         /* Active Effects */
         .active-scale {
             transition: transform var(--transition-normal);
         }
-
+        
         .active-scale:active {
             transform: scale(0.95);
         }

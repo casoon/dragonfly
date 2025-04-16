@@ -8,9 +8,9 @@
 @layer core {
   /* Typography Variables */
   :root {
-    --font-family-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    --font-family-serif: Georgia, Cambria, "Times New Roman", Times, serif;
-    --font-family-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --font-family-sans: system-ui, -apple-system, blinkmacsystemfont, "segoe ui", roboto, "helvetica neue", arial, sans-serif;
+    --font-family-serif: georgia, cambria, "times new roman", times, serif;
+    --font-family-mono: ui-monospace, sfmono-regular, menlo, monaco, consolas, "liberation mono", "courier new", monospace;
   }
 
   /* Base Typography */
