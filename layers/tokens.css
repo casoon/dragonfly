@@ -8,19 +8,19 @@
 @layer core {
     :root {
         /* Colors */
-        --color-primary: oklch(70% 0.3 250deg);
-        --color-primary-light: oklch(75% 0.25 250deg);
-        --color-primary-dark: oklch(65% 0.35 250deg);
-        --color-secondary: oklch(75% 0.05 0deg);
-        --color-secondary-light: oklch(80% 0.04 0deg);
-        --color-secondary-dark: oklch(70% 0.06 0deg);
-        --color-accent: oklch(70% 0.35 65deg);
-        --color-accent-light: oklch(75% 0.3 65deg);
-        --color-accent-dark: oklch(65% 0.4 65deg);
-        --color-success: oklch(70% 0.3 150deg);
-        --color-warning: oklch(70% 0.35 80deg);
-        --color-error: oklch(70% 0.3 30deg);
-        --color-info: oklch(70% 0.3 250deg);
+        --color-primary: var(--color-blue-600);
+        --color-primary-light: var(--color-blue-500);
+        --color-primary-dark: var(--color-blue-700);
+        --color-secondary: var(--color-gray-600);
+        --color-secondary-light: var(--color-gray-500);
+        --color-secondary-dark: var(--color-gray-700);
+        --color-accent: var(--color-orange-500);
+        --color-accent-light: var(--color-orange-400);
+        --color-accent-dark: var(--color-orange-600);
+        --color-success: var(--color-green-600);
+        --color-warning: var(--color-yellow-500);
+        --color-error: var(--color-red-600);
+        --color-info: var(--color-blue-600);
         
         /* Grayscale */
         --color-gray-100: var(--color-gray-100);
@@ -74,11 +74,11 @@
         --border-radius-full: 9999px;
 
         /* Shadows */
-        --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 5%);
-        --shadow: 0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px 0 rgb(0 0 0 / 6%);
-        --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 10%);
-        --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 10%);
-        --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 10%), 0 10px 10px -5px rgb(0 0 0 / 4%);
+        --shadow-sm: 0 1px 2px 0 var(--color-black-alpha-5);
+        --shadow: 0 1px 3px 0 var(--color-black-alpha-10), 0 1px 2px 0 var(--color-black-alpha-6);
+        --shadow-md: 0 4px 6px -1px var(--color-black-alpha-10);
+        --shadow-lg: 0 10px 15px -3px var(--color-black-alpha-10);
+        --shadow-xl: 0 20px 25px -5px var(--color-black-alpha-10), 0 10px 10px -5px var(--color-black-alpha-4);
 
         /* Transitions */
         --transition-fast: 150ms;

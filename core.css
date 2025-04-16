@@ -1,26 +1,33 @@
 /**
  * Core CSS
- * 
+ *
  * Dies ist die Hauptdatei des Designsystems.
  * Sie importiert alle notwendigen Layer und Module.
  */
 
+
 @layer core {
-    @import url("layers/tokens.css");
     @import url("layers/reset.css");
+    @import url("layers/colors.css");
+    @import url("layers/tokens.css");
     @import url("layers/typography.css");
     @import url("layers/layout.css");
     @import url("layers/utilities.css");
-    @import url("layers/animations.css");
     @import url("layers/smooth-scroll.css");
 }
+
 
 @layer icons {
     /* Utility Imports */
     @import url('icons/base.css');
 }
 
+@layer animations {
+    /* Animations Imports */
+    @import url('layers/animations.css');
+}
+
 @layer effects {
     /* Effects Imports */
     @import url('layers/effects.css');
-}   
+}
