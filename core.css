@@ -11,8 +11,8 @@
     @import url("layers/colors.css");
     @import url("layers/tokens.css");
     @import url("layers/typography.css");
-    @import url("layers/layout.css");
     @import url("layers/utilities.css");
+    @import url("layers/layout.css");
     @import url("layers/smooth-scroll.css");
 }
 
