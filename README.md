@@ -188,6 +188,18 @@ npm install --save-dev vite-plugin-lightningcss lightningcss
 npm install casoon-ui-lib@alpha
 ```
 
+## Dokumentation
+
+Eine umfassende Dokumentation der Casoon UI Library ist unter [https://casoon.github.io/casoon-ui-docs/](https://casoon.github.io/casoon-ui-docs/) verfügbar.
+
+Die Dokumentation enthält:
+- Ausführliche Installation- und Einrichtungsanleitungen
+- Detaillierte Beschreibungen aller verfügbaren Komponenten
+- Anwendungsbeispiele und Best Practices
+- Theme-Konfiguration und Anpassungsmöglichkeiten
+- Informationen zum Design-System (Farben, Typografie, Layout)
+- Zugänglichkeitsrichtlinien
+
 ## Features
 
 - 🎨 Schlankes, modulares CSS-System
