@@ -12,6 +12,8 @@
         --radio-background: var(--color-white);
         --radio-checked-color: var(--color-primary-500);
         --radio-hover-color: var(--color-primary-100);
+        --radio-dot-top: 50%;
+        --radio-dot-left: 50%;
     }
 
     /* Base Radio */

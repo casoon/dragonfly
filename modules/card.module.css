@@ -1,1 +1,133 @@
- 
+/**
+ * Card Module
+ * 
+ * Ein flexibles Card-Modul für verschiedene Inhaltstypen.
+ * Unterstützt verschiedene Layouts, Größen und Varianten.
+ * 
+ * Verwendung:
+ * <div class="card">
+ *   <div class="card-header">Titel</div>
+ *   <div class="card-body">Inhalt</div>
+ *   <div class="card-footer">Footer</div>
+ * </div>
+ * 
+ * Varianten:
+ * - .card--primary, .card--secondary, .card--flat
+ * - .card--horizontal
+ */
+
+@layer components {
+  /* Card Basis */
+  .card {
+    --card-padding-x: var(--space-4);
+    --card-padding-y: var(--space-4);
+    --card-border-radius: var(--border-radius-lg);
+    --card-border-width: 1px;
+    --card-border-color: var(--color-gray-200);
+    --card-bg: #fff;
+    --card-shadow: var(--shadow-sm);
+    --card-gap: var(--space-4);
+    
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-color: var(--card-bg);
+    border: var(--card-border-width) solid var(--card-border-color);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--card-shadow);
+    overflow: hidden;
+  }
+
+  /* Card-Abschnitte */
+  .card-header,
+  .card-footer {
+    padding: var(--card-padding-y) var(--card-padding-x);
+  }
+
+  .card-header {
+    border-bottom: var(--card-border-width) solid var(--card-border-color);
+    font-weight: var(--font-weight-medium);
+  }
+
+  .card-footer {
+    border-top: var(--card-border-width) solid var(--card-border-color);
+  }
+
+  .card-body {
+    padding: var(--card-padding-y) var(--card-padding-x);
+    flex: 1 1 auto;
+  }
+
+  /* Card-Titel und -Text */
+  .card-title {
+    margin-top: 0;
+    margin-bottom: var(--space-2);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    line-height: var(--line-height-tight);
+    color: var(--color-gray-900);
+  }
+
+  .card-subtitle {
+    margin-top: calc(-1 * var(--space-1));
+    margin-bottom: var(--space-3);
+    font-size: var(--font-size-sm);
+    color: var(--color-gray-600);
+  }
+
+  .card-text {
+    margin-top: 0;
+    margin-bottom: var(--space-3);
+    color: var(--color-gray-700);
+  }
+
+  .card-text:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Card mit Image */
+  .card-img-top {
+    width: 100%;
+    border-top-left-radius: var(--card-border-radius);
+    border-top-right-radius: var(--card-border-radius);
+  }
+
+  .card-img-bottom {
+    width: 100%;
+    border-bottom-left-radius: var(--card-border-radius);
+    border-bottom-right-radius: var(--card-border-radius);
+  }
+
+  /* Horizontale Card */
+  .card--horizontal {
+    flex-direction: row;
+  }
+
+  .card--horizontal .card-img {
+    max-width: 33%;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: var(--card-border-radius);
+  }
+
+  /* Card-Varianten */
+  .card--primary {
+    --card-border-color: var(--color-primary-200);
+    --card-shadow: 0 0 0 1px var(--color-primary-100);
+  }
+
+  .card--secondary {
+    --card-border-color: var(--color-secondary-200);
+    --card-shadow: 0 0 0 1px var(--color-secondary-100);
+  }
+
+  .card--flat {
+    --card-shadow: none;
+  }
+
+  /* Card-Gruppen */
+  .card-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: var(--space-4);
+  }
+} 

@@ -45,6 +45,10 @@
         --modal-border-radius: 0.5rem;
         --modal-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%);
         --modal-transition: all var(--transition-normal);
+        --modal-z-index: 50;
+        --modal-font-weight: 600;
+        --modal-margin: 0;
+        --modal-gap: 1rem;
     }
 
     /* Base Modal */
@@ -54,7 +58,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        z-index: 50;
+        z-index: var(--modal-z-index, 50);
     }
 
     /* Overlay */
@@ -70,7 +74,7 @@
         position: relative;
         width: 100%;
         max-width: 32rem;
-        background-color: var(--modal-background);
+        background-color: var(--bg-white);
         color: var(--modal-text);
         border-radius: var(--modal-border-radius);
         box-shadow: var(--modal-shadow);
@@ -89,8 +93,8 @@
     /* Title */
     .title {
         font-size: 1.25rem;
-        font-weight: 600;
-        margin: 0;
+        font-weight: var(--modal-font-weight, 600);
+        margin: var(--modal-margin, 0);
     }
 
     /* Close Button */
@@ -123,7 +127,7 @@
     .footer {
         display: flex;
         justify-content: flex-end;
-        gap: 1rem;
+        gap: var(--modal-gap, 1rem);
         padding: var(--modal-padding);
         border-top: 1px solid var(--color-border);
     }
@@ -213,11 +217,19 @@
         }
 
         .content {
-            margin: 1rem;
+            margin: var(--modal-margin, 1rem);
         }
 
         .footer {
             flex-direction: column;
         }
+    }
+
+    .modal-backdrop {
+        background-color: var(--bg-transparent);
+    }
+
+    .modal-content {
+        background-color: var(--bg-white);
     }
 } 

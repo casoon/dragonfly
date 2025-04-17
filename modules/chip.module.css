@@ -148,4 +148,8 @@
             transform: none;
         }
     }
+
+    .chip-outlined {
+        background-color: var(--bg-transparent);
+    }
 } 

@@ -300,4 +300,131 @@
       transition: none;
     }
   } 
+}
+
+@layer components {
+    /* Smooth Scroll */
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* Scroll Container */
+    .scroll-container {
+        position: var(--position-relative);
+        overflow: auto hidden;
+        height: var(--position-100);
+        color: var(--color-white);
+        margin: var(--spacing-2);
+    }
+
+    /* Scroll Content */
+    .scroll-content {
+        position: var(--position-absolute);
+        top: var(--position-0);
+        left: var(--position-0);
+        width: var(--position-100);
+        height: var(--position-100);
+        overflow: var(--display-hidden) var(--display-auto);
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Scroll Track */
+    .scroll-track {
+        position: var(--position-absolute);
+        top: var(--position-0);
+        right: var(--position-0);
+        width: var(--spacing-2);
+        height: var(--position-100);
+        background-color: var(--bg-transparent);
+    }
+
+    /* Scroll Thumb */
+    .scroll-thumb {
+        position: var(--position-absolute);
+        top: var(--position-0);
+        right: var(--position-0);
+        width: var(--spacing-2);
+        height: var(--spacing-20);
+        background-color: var(--bg-gray-300);
+        border-radius: var(--radius-full);
+        cursor: var(--display-pointer);
+    }
+
+    /* Scroll Thumb Hover */
+    .scroll-thumb:hover {
+        background-color: var(--bg-gray-400);
+    }
+
+    /* Scroll Thumb Active */
+    .scroll-thumb:active {
+        background-color: var(--bg-gray-500);
+    }
+
+    /* Scroll Button */
+    .scroll-button {
+        position: var(--position-fixed);
+        bottom: var(--spacing-5);
+        right: var(--spacing-5);
+        width: var(--spacing-10);
+        height: var(--spacing-10);
+        background-color: var(--bg-primary-500);
+        color: var(--text-white);
+        border-radius: var(--radius-full);
+        display: var(--display-flex);
+        align-items: var(--position-center);
+        justify-content: var(--position-center);
+        cursor: var(--display-pointer);
+        opacity: var(--position-0);
+        transition: var(--transition-all);
+    }
+
+    /* Scroll Button Visible */
+    .scroll-button.visible {
+        opacity: var(--position-1);
+    }
+
+    /* Scroll Button Hover */
+    .scroll-button:hover {
+        background-color: var(--bg-primary-600);
+    }
+
+    /* Scroll Button Active */
+    .scroll-button:active {
+        background-color: var(--bg-primary-700);
+    }
+
+    /* Scroll Progress */
+    .scroll-progress {
+        position: var(--position-fixed);
+        top: var(--position-50);
+        right: var(--spacing-5);
+        transform: translateY(var(--position-50));
+        width: var(--spacing-2);
+        height: var(--spacing-20);
+        background-color: var(--bg-gray-200);
+        border-radius: var(--radius-full);
+    }
+
+    /* Scroll Progress Bar */
+    .scroll-progress-bar {
+        position: var(--position-absolute);
+        top: var(--position-0);
+        left: var(--position-0);
+        width: var(--position-100);
+        height: var(--position-0);
+        background-color: var(--bg-primary-500);
+        border-radius: var(--radius-full);
+        transition: var(--transition-all);
+    }
+
+    /* Scroll Progress Text */
+    .scroll-progress-text {
+        position: var(--position-absolute);
+        top: var(--position-50);
+        left: var(--position-50);
+        transform: translate(var(--position-50), var(--position-50));
+        color: var(--text-gray-500);
+        font-size: var(--font-size-xs);
+        margin: var(--spacing-2) var(--position-0);
+    }
 } 

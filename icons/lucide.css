@@ -6,94 +6,101 @@
  */
 
 @layer components {
-    /* Lucide Basis */
+    /* Base Icon */
     .lucide {
-        @apply icon;
+        display: var(--display-inline-block);
+        width: var(--spacing-6);
+        height: var(--spacing-6);
+        vertical-align: var(--position-middle);
+        background-color: currentcolor;
+        mask-size: var(--position-100);
+        mask-position: var(--position-center);
+        mask-repeat: var(--bg-no-repeat);
     }
 
-    /* Lucide Outline */
-    .lucide-outline {
-        stroke-width: 2;
-        fill: none;
+    .lucide-icon {
+        display: var(--display-inline-block);
+        width: var(--spacing-6);
+        height: var(--spacing-6);
+        vertical-align: var(--position-middle);
+        background-color: currentcolor;
+        mask-size: var(--position-100);
+        mask-position: var(--position-center);
+        mask-repeat: var(--bg-no-repeat);
     }
 
-    /* Lucide Solid */
-    .lucide-solid {
-        stroke-width: 0;
-        fill: currentcolor;
+    /* Lucide Icons */
+    .lu-home {
+        mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6'/%3E%3C/svg%3E");
     }
 
-    /* Lucide Duotone */
-    .lucide-duotone {
-        stroke-width: 2;
-        fill: currentcolor;
-        opacity: 0.5;
+    .lu-menu {
+        mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 6h16M4 12h16M4 18h16'/%3E%3C/svg%3E");
     }
 
-    /* Lucide Thin */
-    .lucide-thin {
-        stroke-width: 1;
-        fill: none;
+    .lu-x {
+        mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 18L18 6M6 6l12 12'/%3E%3C/svg%3E");
     }
 
-    /* Lucide Bold */
-    .lucide-bold {
-        stroke-width: 3;
-        fill: none;
+    .lu-search {
+        mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'/%3E%3C/svg%3E");
     }
 
-    /* Lucide Light */
-    .lucide-light {
-        stroke-width: 1.5;
-        fill: none;
-    }
-
-    /* Lucide Regular */
-    .lucide-regular {
-        stroke-width: 2;
-        fill: none;
-    }
-
-    /* Lucide Größen */
+    /* Icon Sizes */
     .lucide-xs {
-        @apply icon-xs;
+        width: var(--spacing-4);
+        height: var(--spacing-4);
     }
 
     .lucide-sm {
-        @apply icon-sm;
+        width: var(--spacing-5);
+        height: var(--spacing-5);
     }
 
     .lucide-lg {
-        @apply icon-lg;
+        width: var(--spacing-7);
+        height: var(--spacing-7);
     }
 
     .lucide-xl {
-        @apply icon-xl;
+        width: var(--spacing-8);
+        height: var(--spacing-8);
     }
 
     .lucide-2xl {
-        @apply icon-2xl;
+        width: var(--spacing-10);
+        height: var(--spacing-10);
     }
 
-    /* Lucide Ausrichtung */
+    /* Icon Alignment */
     .lucide-baseline {
-        @apply icon-baseline;
+        vertical-align: var(--position-baseline);
     }
 
     .lucide-top {
-        @apply icon-top;
+        vertical-align: var(--position-top);
     }
 
     .lucide-middle {
-        @apply icon-middle;
+        vertical-align: var(--position-middle);
     }
 
     .lucide-bottom {
-        @apply icon-bottom;
+        vertical-align: var(--position-bottom);
     }
 
-    /* Lucide Animation */
+    /* Icon Animation */
     .lucide-spin {
-        @apply icon-spin;
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(360deg);
+        }
     }
 } 

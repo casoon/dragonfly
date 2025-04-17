@@ -45,6 +45,10 @@
         --switch-active-background: var(--color-primary-500);
         --switch-slider-size: calc(var(--switch-height) - (var(--switch-padding) * 2));
         --switch-transition-duration: 0.2s;
+        --switch-thumb-position: 0;
+        --switch-thumb-color: var(--color-white);
+        --switch-thumb-left: var(--switch-padding);
+        --switch-thumb-bottom: var(--switch-padding);
     }
 
     /* Base Switch */
@@ -75,9 +79,9 @@
         content: "";
         height: var(--switch-slider-size);
         width: var(--switch-slider-size);
-        left: var(--switch-padding);
-        bottom: var(--switch-padding);
-        background-color: white;
+        left: var(--switch-thumb-left);
+        bottom: var(--switch-thumb-bottom);
+        background-color: var(--switch-thumb-color, var(--color-white));
         transition: var(--switch-transition-duration);
         border-radius: 50%;
     }

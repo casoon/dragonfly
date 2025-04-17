@@ -180,4 +180,33 @@
             font-size: 1.5rem;
         }
     }
+
+    .blog-title {
+        font-weight: var(--font-weight-semibold);
+    }
+
+    .blog-grid {
+        gap: var(--space-4);
+    }
+
+    .blog-tags {
+        gap: var(--space-1);
+    }
+
+    .blog-meta {
+        margin: var(--space-4);
+    }
+
+    .blog-author {
+        gap: var(--space-2);
+    }
+
+    .blog-date {
+        gap: var(--space-1);
+        padding: var(--space-1);
+    }
+
+    .blog-content {
+        gap: var(--space-8);
+    }
 } 

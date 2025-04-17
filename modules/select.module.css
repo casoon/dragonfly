@@ -14,6 +14,17 @@
         --select-color: var(--color-gray-900);
         --select-font-size: 0.875rem;
         --select-line-height: 1.5;
+        --select-arrow-top: 50%;
+        --select-arrow-right: 0.75rem;
+
+        width: 100%;
+        padding: var(--space-2);
+        border: 1px solid var(--border-gray-300);
+        border-radius: var(--radius-md);
+        background-color: var(--bg-white);
+        font-size: var(--font-size-base);
+        line-height: var(--line-height-normal);
+        cursor: pointer;
     }
 
     /* Base Select */
@@ -25,7 +36,7 @@
 
     .select select {
         width: 100%;
-        padding: var(--select-padding);
+        padding: 0.5rem 2.5rem 0.5rem 0.75rem;
         border: 1px solid var(--select-border-color);
         border-radius: var(--select-border-radius);
         background-color: var(--select-background);

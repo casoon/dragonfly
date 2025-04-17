@@ -52,19 +52,29 @@
         --sidebar-border: var(--color-border);
         --sidebar-hover: var(--color-background-hover);
         --sidebar-active: var(--color-primary);
+
+        padding: var(--spacing-4);
+        width: var(--sidebar-width);
+        height: 100vh;
+        background-color: var(--bg-gray-900);
+        color: var(--color-white);
+        position: fixed;
+        top: 0;
+        left: 0;
+        overflow-y: auto;
     }
 
     /* Base Sidebar */
     .sidebar {
         position: fixed;
-        top: 0;
-        left: 0;
+        top: var(--sidebar-top, 0);
+        left: var(--sidebar-left, 0);
         width: var(--sidebar-width);
         height: 100vh;
         background-color: var(--sidebar-background);
         color: var(--sidebar-text);
         transition: var(--sidebar-transition);
-        z-index: 40;
+        z-index: var(--sidebar-z-index, 40);
         display: flex;
         flex-direction: column;
         border-right: 1px solid var(--sidebar-border);
@@ -75,15 +85,15 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 1rem;
+        padding: var(--sidebar-header-padding, 1rem);
         border-bottom: 1px solid var(--sidebar-border);
     }
 
     .title {
         font-size: 1.25rem;
-        font-weight: 600;
+        font-weight: var(--sidebar-header-font-weight, 600);
         color: var(--sidebar-text);
-        margin: 0;
+        margin: var(--sidebar-header-margin, 0);
     }
 
     /* Navigation */
@@ -102,11 +112,12 @@
     .item {
         display: flex;
         align-items: center;
-        padding: 0.75rem 1rem;
-        color: var(--sidebar-text);
+        padding: var(--sidebar-item-padding, 0.75rem 1rem);
+        color: var(--sidebar-item-color, white);
         text-decoration: none;
         transition: var(--sidebar-transition);
         cursor: pointer;
+        margin: var(--sidebar-item-margin, 0);
     }
 
     .item:hover {
@@ -131,12 +142,12 @@
     /* Badges */
     .badge {
         margin-left: auto;
-        padding: 0.25rem 0.5rem;
+        padding: var(--sidebar-item-padding, 0.25rem 0.5rem);
         border-radius: 9999px;
         font-size: 0.75rem;
-        font-weight: 600;
+        font-weight: var(--sidebar-item-font-weight, 600);
         background-color: var(--sidebar-active);
-        color: white;
+        color: var(--sidebar-item-color, white);
     }
 
     /* Collapsible */
@@ -191,12 +202,12 @@
 
         .overlay {
             position: fixed;
-            top: 0;
-            left: 0;
+            top: var(--sidebar-overlay-top);
+            left: var(--sidebar-overlay-left);
             width: 100%;
             height: 100vh;
             background-color: rgb(0 0 0 / 50%);
-            z-index: 39;
+            z-index: var(--sidebar-overlay-z-index);
             opacity: 0;
             visibility: hidden;
             transition: var(--sidebar-transition);
@@ -224,5 +235,27 @@
         .overlay {
             transition: none;
         }
+    }
+
+    /* Close Button */
+    .close {
+        position: absolute;
+        top: var(--sidebar-close-top, 0);
+        left: var(--sidebar-close-left, 0);
+        z-index: var(--sidebar-close-z-index, 40);
+    }
+
+    .sidebar-header {
+        margin: var(--space-0);
+        padding: var(--space-0);
+        color: var(--color-white);
+    }
+
+    .sidebar-title {
+        font-size: var(--font-size-lg);
+        font-weight: var(--font-weight-semibold);
+        color: var(--text-gray-900);
+        margin: var(--spacing-0);
+        padding: var(--spacing-0);
     }
 } 

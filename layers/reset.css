@@ -1,293 +1,448 @@
 /**
- * Reset CSS
+ * Reset
  * 
- * Diese Datei definiert die Reset-Styles des Systems.
- * Die Styles sind in @layer core organisiert.
+ * Diese Datei enthält die Reset-Styles des Systems.
+ * Die Styles sind in @layer reset organisiert.
  */
 
-@layer core {
-    /* Box Sizing Reset */
+@layer reset {
+    /* Box sizing */
     *,
     *::before,
     *::after {
         box-sizing: border-box;
+    }
+
+    /* Reset margins and paddings */
+    * {
         margin: 0;
         padding: 0;
     }
 
-    /* Document Reset */
-    html {
-        font-size: 16px;
-        text-size-adjust: 100%;
-        -webkit-text-size-adjust: 100%;
-    }
-
+    /* Set core body defaults */
     body {
+        min-height: 100vh;
+        scroll-behavior: smooth;
+        text-rendering: optimizespeed;
         line-height: 1.5;
+        text-size-adjust: 100%;
         -webkit-font-smoothing: antialiased;
-        font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
     }
 
-    /* Media Reset */
+    /* Remove list styles */
+    ul,
+    ol {
+        list-style: none;
+    }
+
+    /* Set core root defaults */
+    html:focus-within {
+        scroll-behavior: smooth;
+    }
+
+    /* A elements that don't have a class get default styles */
+    a:not([class]) {
+        text-decoration-skip-ink: auto;
+    }
+
+    /* Make images easier to work with */
     img,
-    picture,
-    video,
-    canvas,
-    svg {
-        display: block;
+    picture {
         max-width: 100%;
-        height: auto;
+        display: block;
     }
 
-    /* Form Reset */
+    /* Inherit fonts for inputs and buttons */
     input,
     button,
     textarea,
     select {
         font: inherit;
-        color: inherit;
     }
 
+    /* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+    @media (prefers-reduced-motion: reduce) {
+        html:focus-within {
+            scroll-behavior: auto;
+        }
+
+        *,
+        *::before,
+        *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+            scroll-behavior: auto !important;
+        }
+    }
+
+    /* Remove default button styles */
     button {
         background: none;
         border: none;
         padding: 0;
         cursor: pointer;
-        outline: inherit;
+        appearance: auto;
     }
 
-    input,
-    textarea,
+    /* Remove default input styles */
+    input {
+        appearance: auto;
+    }
+
+    /* Remove default textarea styles */
+    textarea {
+        resize: none;
+    }
+
+    /* Remove default select styles */
     select {
-        background: transparent;
-        border: none;
-        outline: none;
+        appearance: auto;
     }
 
+    /* Remove default fieldset styles */
     fieldset {
-        border: 0;
+        border: none;
+        padding: 0;
         margin: 0;
+    }
+
+    /* Remove default legend styles */
+    legend {
         padding: 0;
     }
 
-    /* Typography Reset */
-    p,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        overflow-wrap: break-word;
-        margin: 0;
-        padding: 0;
-    }
-
-    /* List Reset */
-    ul,
-    ol {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-    }
-
-    /* Table Reset */
+    /* Remove default table styles */
     table {
         border-collapse: collapse;
         border-spacing: 0;
     }
 
-    /* Link Reset */
-    a {
-        color: inherit;
-        text-decoration: none;
+    /* Remove default hr styles */
+    hr {
+        border: none;
+        border-top: 1px solid currentcolor;
     }
 
-    /* Focus Reset */
-    :focus {
-        outline: none;
-    }
-
-    /* Scrollbar Reset */
-    ::-webkit-scrollbar {
-        width: 0;
-        height: 0;
-    }
-
-    /* Selection Reset */
-    ::selection {
-        background: transparent;
-    }
-
-    /* Form Reset */
-    form {
+    /* Remove default blockquote styles */
+    blockquote {
         margin: 0;
     }
 
-    /* Iframe Reset */
-    iframe {
-        border: 0;
+    /* Remove default pre styles */
+    pre {
+        margin: 0;
     }
 
-    /* Details Reset */
-    details {
-        display: block;
+    /* Remove default code styles */
+    code {
+        font-family: monospace;
     }
 
-    summary {
-        display: list-item;
+    /* Remove default kbd styles */
+    kbd {
+        font-family: monospace;
     }
 
-    /* Meter Reset */
-    meter {
-        -webkit-appearance: none;
-        appearance: none;
+    /* Remove default samp styles */
+    samp {
+        font-family: monospace;
     }
 
-    /* Progress Reset */
-    progress {
-        -webkit-appearance: none;
-        appearance: none;
+    /* Remove default var styles */
+    var {
+        font-style: italic;
     }
 
-    /* Audio Reset */
-    audio:not([controls]) {
+    /* Remove default sub and sup styles */
+    sub,
+    sup {
+        font-size: 75%;
+        line-height: 0;
+        position: relative;
+        vertical-align: baseline;
+    }
+
+    sub {
+        bottom: -0.25em;
+    }
+
+    sup {
+        top: -0.5em;
+    }
+
+    /* Remove default small styles */
+    small {
+        font-size: 80%;
+    }
+
+    /* Remove default strong styles */
+    strong {
+        font-weight: bolder;
+    }
+
+    /* Remove default em styles */
+    em {
+        font-style: italic;
+    }
+
+    /* Remove default mark styles */
+    mark {
+        background-color: transparent;
+        color: inherit;
+    }
+
+    /* Remove default abbr styles */
+    abbr[title] {
+        text-decoration: none;
+    }
+
+    /* Remove default dfn styles */
+    dfn {
+        font-style: italic;
+    }
+
+    /* Remove default cite styles */
+    cite {
+        font-style: italic;
+    }
+
+    /* Remove default q styles */
+    q {
+        quotes: none;
+    }
+
+    q::before,
+    q::after {
+        content: '';
+        content: none;
+    }
+
+    /* Remove default ins styles */
+    ins {
+        text-decoration: none;
+    }
+
+    /* Remove default del styles */
+    del {
+        text-decoration: line-through;
+    }
+
+    /* Remove default s styles */
+    s {
+        text-decoration: line-through;
+    }
+
+    /* Remove default u styles */
+    u {
+        text-decoration: underline;
+    }
+
+    /* Remove default bdi styles */
+    bdi {
+        unicode-bidi: isolate;
+    }
+
+    /* Remove default bdo styles */
+    bdo {
+        unicode-bidi: bidi-override;
+    }
+
+    /* Remove default ruby styles */
+    ruby {
+        ruby-position: under;
+    }
+
+    /* Remove default rt styles */
+    rt {
+        line-height: 1;
+    }
+
+    /* Remove default rp styles */
+    rp {
         display: none;
-        height: 0;
     }
 
-    /* Template Reset */
+    /* Remove default button styles */
+    [type='button'],
+    [type='reset'],
+    [type='submit'] {
+        appearance: auto;
+    }
+
+    /* Remove default input styles */
+    [type='search'] {
+        appearance: textfield;
+    }
+
+    /* Remove default data styles */
+    data {
+        font-variant-numeric: tabular-nums;
+    }
+
+    /* Remove default time styles */
+    time {
+        font-variant-numeric: tabular-nums;
+    }
+
+    /* Remove default meter styles */
+    meter {
+        appearance: none;
+    }
+
+    /* Remove default progress styles */
+    progress {
+        appearance: none;
+    }
+
+    /* Remove default output styles */
+    output {
+        display: inline;
+    }
+
+    /* Remove default canvas styles */
+    canvas {
+        display: inline-block;
+    }
+
+    /* Remove default template styles */
     template {
         display: none;
     }
 
-    /* Hidden Reset */
-    [hidden] {
+    /* Remove default details styles */
+    details {
+        display: block;
+    }
+
+    /* Remove default summary styles */
+    summary {
+        display: list-item;
+    }
+
+    /* Remove default dialog styles */
+    dialog {
+        display: block;
+    }
+
+    /* Remove default menu styles */
+    menu {
+        display: block;
+    }
+
+    /* Remove default menuitem styles */
+    menuitem {
         display: none;
     }
 
-    /* Root Isolation */
-    #root {
-        isolation: isolate;
+    /* Remove default keygen styles */
+    keygen {
+        display: none;
+    }
+
+    /* Remove default source styles */
+    source {
+        display: none;
+    }
+
+    /* Remove default track styles */
+    track {
+        display: none;
+    }
+
+    /* Remove default wbr styles */
+    wbr {
+        display: none;
+    }
+
+    /* Remove default embed styles */
+    embed {
+        display: none;
+    }
+
+    /* Remove default object styles */
+    object {
+        display: inline-block;
+    }
+
+    /* Remove default param styles */
+    param {
+        display: none;
+    }
+
+    /* Remove default video styles */
+    video {
+        display: inline-block;
+    }
+
+    /* Remove default audio styles */
+    audio {
+        display: inline-block;
+    }
+
+    /* Remove default iframe styles */
+    iframe {
+        border: none;
+    }
+
+    /* Remove default map styles */
+    map {
+        display: inline;
+    }
+
+    /* Remove default area styles */
+    area {
+        display: none;
+    }
+
+    /* Remove default script styles */
+    script {
+        display: none;
+    }
+
+    /* Remove default noscript styles */
+    noscript {
+        display: block;
+    }
+
+    /* Remove default style styles */
+    style {
+        display: none;
+    }
+
+    /* Remove default link styles */
+    link {
+        display: none;
+    }
+
+    /* Remove default meta styles */
+    meta {
+        display: none;
+    }
+
+    /* Remove default title styles */
+    title {
+        display: none;
+    }
+
+    /* Remove default base styles */
+    base {
+        display: none;
+    }
+
+    /* Remove default head styles */
+    head {
+        display: none;
+    }
+
+    /* Remove default html styles */
+    html {
+        display: block;
+    }
+
+    /* Remove default body styles */
+    body {
+        display: block;
     }
 }
-
-/* Reset Styles */
-:root {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    color: #333;
-    background-color: #fff;
-  }
-  
-  /* Remove default margin and padding */
-  html,
-  body,
-  h1, h2, h3, h4, h5, h6,
-  p, blockquote, pre,
-  dl, dd, ol, ul,
-  figure,
-  hr,
-  fieldset, legend {
-      margin: 0;
-      padding: 0;
-  }
-  
-  /* Remove default button styles */
-  button {
-      background: none;
-      border: none;
-      padding: 0;
-      font: inherit;
-      cursor: pointer;
-      outline: inherit;
-  }
-  
-  /* Remove default fieldset styles */
-  fieldset {
-      border: 0;
-      margin: 0;
-      padding: 0;
-  }
-  
-  /* Remove default input styles */
-  input,
-  textarea,
-  select {
-      font: inherit;
-      margin: 0;
-      padding: 0;
-      border: none;
-      background: none;
-      outline: none;
-  }
-  
-  /* Remove default textarea resize */
-  textarea {
-      resize: none;
-  }
-  
-  /* Remove default select arrow */
-  select {
-      appearance: none;
-  }
-  
-  /* Remove default focus outline */
-  :focus {
-      outline: none;
-  }
-  
-  /* Remove default scrollbar styles */
-  ::-webkit-scrollbar {
-      width: 0;
-      height: 0;
-  }
-  
-  /* Remove default text selection color */
-  ::selection {
-      background: transparent;
-  }
-  
-  /* Remove default form styles */
-  form {
-      margin: 0;
-  }
-  
-  /* Remove default iframe border */
-  iframe {
-      border: 0;
-  }
-  
-  /* Remove default details marker */
-  details {
-      display: block;
-  }
-  
-  summary {
-      display: list-item;
-  }
-  
-  /* Remove default meter styles */
-  meter {
-      appearance: none;
-  }
-  
-  /* Remove default progress styles */
-  progress {
-      appearance: none;
-  }
-  
-  /* Remove default audio controls */
-  audio:not([controls]) {
-      display: none;
-      height: 0;
-  }
-  
-  /* Remove default template display */
-  template {
-      display: none;
-  }
-  
-  /* Remove default hidden attribute */
-  [hidden] {
-      display: none !important;
-  }

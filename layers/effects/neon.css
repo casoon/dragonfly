@@ -32,39 +32,74 @@
  * - Reduzierte Bewegung wird automatisch berücksichtigt
  */
 
-/* Basis Neon-Text */
-.neon-text {
-    color: var(--color-primary);
-    text-shadow:
-        0 0 5px var(--color-primary),
-        0 0 10px var(--color-primary),
-        0 0 20px var(--color-primary);
-    animation: neon-pulse 2s ease-in-out infinite;
-    will-change: text-shadow;
+@layer components {
+    /* Neon Text */
+    .neon-text {
+        color: var(--theme-primary-500);
+        text-shadow: var(--spacing-0) var(--spacing-0) var(--spacing-5) var(--theme-primary-500),
+                     var(--spacing-0) var(--spacing-0) var(--spacing-10) var(--theme-primary-500),
+                     var(--spacing-0) var(--spacing-0) var(--spacing-20) var(--theme-primary-500);
+        animation: neon-pulse 1.5s ease-in-out infinite alternate;
+    }
+
+    .neon-text-secondary {
+        color: var(--theme-secondary-500);
+        text-shadow: var(--spacing-0) var(--spacing-0) var(--spacing-5) var(--theme-secondary-500),
+                     var(--spacing-0) var(--spacing-0) var(--spacing-10) var(--theme-secondary-500),
+                     var(--spacing-0) var(--spacing-0) var(--spacing-20) var(--theme-secondary-500);
+    }
+
+    .neon-text-accent {
+        color: var(--theme-accent-500);
+        text-shadow: var(--spacing-0) var(--spacing-0) var(--spacing-5) var(--theme-accent-500),
+                     var(--spacing-0) var(--spacing-0) var(--spacing-10) var(--theme-accent-500),
+                     var(--spacing-0) var(--spacing-0) var(--spacing-20) var(--theme-accent-500);
+    }
+
+    /* Neon Border */
+    .neon-border {
+        border: var(--spacing-2) solid var(--theme-primary-500);
+        box-shadow: var(--spacing-0) var(--spacing-0) var(--spacing-5) var(--theme-primary-500),
+                    var(--spacing-0) var(--spacing-0) var(--spacing-10) var(--theme-primary-500),
+                    var(--spacing-0) var(--spacing-0) var(--spacing-20) var(--theme-primary-500);
+        animation: neon-pulse 1.5s ease-in-out infinite alternate;
+    }
+
+    .neon-border-secondary {
+        border: var(--spacing-2) solid var(--theme-secondary-500);
+        box-shadow: var(--spacing-0) var(--spacing-0) var(--spacing-5) var(--theme-secondary-500),
+                    var(--spacing-0) var(--spacing-0) var(--spacing-10) var(--theme-secondary-500),
+                    var(--spacing-0) var(--spacing-0) var(--spacing-20) var(--theme-secondary-500);
+    }
+
+    .neon-border-accent {
+        border: var(--spacing-2) solid var(--theme-accent-500);
+        box-shadow: var(--spacing-0) var(--spacing-0) var(--spacing-5) var(--theme-accent-500),
+                    var(--spacing-0) var(--spacing-0) var(--spacing-10) var(--theme-accent-500),
+                    var(--spacing-0) var(--spacing-0) var(--spacing-20) var(--theme-accent-500);
+    }
+
+    /* Animation */
+    @keyframes neon-pulse {
+        from {
+            opacity: 1;
+        }
+
+        to {
+            opacity: 0.7;
+        }
+    }
+
+    /* Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+        .neon-text,
+        .neon-border {
+            animation: var(--display-none);
+        }
+    }
 }
 
-/* Neon-Text Varianten */
-.neon-text-secondary {
-    color: var(--color-secondary);
-    text-shadow:
-        0 0 5px var(--color-secondary),
-        0 0 10px var(--color-secondary),
-        0 0 20px var(--color-secondary);
-    animation: neon-pulse 2s ease-in-out infinite;
-    will-change: text-shadow;
-}
-
-.neon-text-accent {
-    color: var(--color-accent);
-    text-shadow:
-        0 0 5px var(--color-accent),
-        0 0 10px var(--color-accent),
-        0 0 20px var(--color-accent);
-    animation: neon-pulse 2s ease-in-out infinite;
-    will-change: text-shadow;
-}
-
-/* Animation Varianten */
+/* Animation Variants */
 .neon-text-slow {
     animation: neon-pulse 4s ease-in-out infinite;
 }
@@ -78,70 +113,25 @@
 }
 
 .neon-text-hover {
-    transition: text-shadow 0.3s ease;
+    transition: var(--transition-shadow);
 }
 
 .neon-text-hover:hover {
-    text-shadow:
-        0 0 5px currentcolor,
-        0 0 10px currentcolor,
-        0 0 20px currentcolor;
-}
-
-/* Neon-Rahmen */
-.neon-border {
-    border: 2px solid var(--color-primary);
-    box-shadow:
-        0 0 5px var(--color-primary),
-        0 0 10px var(--color-primary),
-        0 0 20px var(--color-primary);
-    animation: neon-border-pulse 2s ease-in-out infinite;
-    will-change: box-shadow;
+    text-shadow: var(--spacing-0) var(--spacing-0) var(--spacing-5) currentcolor,
+                 var(--spacing-0) var(--spacing-0) var(--spacing-10) currentcolor,
+                 var(--spacing-0) var(--spacing-0) var(--spacing-20) currentcolor;
 }
 
 /* Keyframes */
-@keyframes neon-pulse {
-    0%, 100% {
-        text-shadow:
-            0 0 5px currentcolor,
-            0 0 10px currentcolor,
-            0 0 20px currentcolor;
-    }
-
-    50% {
-        text-shadow:
-            0 0 10px currentcolor,
-            0 0 20px currentcolor,
-            0 0 30px currentcolor;
-    }
-}
-
 @keyframes neon-flicker {
     0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-        text-shadow:
-            0 0 5px currentcolor,
-            0 0 10px currentcolor,
-            0 0 20px currentcolor;
+        text-shadow: var(--spacing-0) var(--spacing-0) var(--spacing-5) currentcolor,
+                     var(--spacing-0) var(--spacing-0) var(--spacing-10) currentcolor,
+                     var(--spacing-0) var(--spacing-0) var(--spacing-20) currentcolor;
     }
 
     20%, 24%, 55% {
-        text-shadow: none;
-    }
-}
-
-@keyframes neon-border-pulse {
-    0%, 100% {
-        box-shadow:
-            0 0 5px var(--color-primary),
-            0 0 10px var(--color-primary),
-            0 0 20px var(--color-primary);
-    }
-
-    50% {
-        box-shadow:
-            0 0 10px var(--color-primary),
-            0 0 20px var(--color-primary),
-            0 0 30px var(--color-primary);
+        text-shadow: var(--display-none);
     }
 }
 
@@ -150,29 +140,14 @@
     .neon-text,
     .neon-text-secondary,
     .neon-text-accent {
-        text-shadow:
-            0 0 3px currentcolor,
-            0 0 6px currentcolor,
-            0 0 12px currentcolor;
+        text-shadow: var(--spacing-0) var(--spacing-0) var(--spacing-3) currentcolor,
+                     var(--spacing-0) var(--spacing-0) var(--spacing-6) currentcolor,
+                     var(--spacing-0) var(--spacing-0) var(--spacing-12) currentcolor;
     }
     
     .neon-border {
-        box-shadow:
-            0 0 3px var(--color-primary),
-            0 0 6px var(--color-primary),
-            0 0 12px var(--color-primary);
-    }
-}
-
-/* Reduzierte Bewegung */
-@media (prefers-reduced-motion: reduce) {
-    .neon-text,
-    .neon-text-secondary,
-    .neon-text-accent,
-    .neon-text-slow,
-    .neon-text-fast,
-    .neon-text-flicker,
-    .neon-border {
-        animation: none;
+        box-shadow: var(--spacing-0) var(--spacing-0) var(--spacing-3) var(--theme-primary-500),
+                    var(--spacing-0) var(--spacing-0) var(--spacing-6) var(--theme-primary-500),
+                    var(--spacing-0) var(--spacing-0) var(--spacing-12) var(--theme-primary-500);
     }
 } 

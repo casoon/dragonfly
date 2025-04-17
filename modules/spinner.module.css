@@ -35,17 +35,19 @@
         --spinner-color: var(--color-primary-500);
         --spinner-border-width: 0.25rem;
         --spinner-animation-duration: 0.75s;
+
+        border-color: var(--border-gray-200);
+        background-color: var(--bg-transparent);
     }
 
     /* Base Spinner */
     .spinner {
-        width: var(--spinner-size);
-        height: var(--spinner-size);
-        border: var(--spinner-border-width) solid var(--color-gray-200);
-        border-top-color: var(--spinner-color);
-        border-radius: 50%;
-        animation: spinner-rotate var(--spinner-animation-duration) linear infinite;
-        will-change: transform;
+        display: inline-block;
+        inline-size: var(--spinner-size);
+        block-size: var(--spinner-size);
+        border: var(--spinner-border-width) solid var(--spinner-border-color);
+        border-radius: var(--radius-full);
+        animation: spin var(--spinner-animation-duration) linear infinite;
     }
 
     /* Size Variants */
@@ -67,30 +69,36 @@
     /* Color Variants */
     .primary {
         --spinner-color: var(--color-primary-500);
+
+        border-block-start-color: var(--border-primary-500);
     }
 
     .secondary {
         --spinner-color: var(--color-secondary-500);
+
+        border-block-start-color: var(--border-secondary-500);
     }
 
     .success {
         --spinner-color: var(--color-success-500);
+
+        border-block-start-color: var(--border-success-500);
     }
 
     .warning {
         --spinner-color: var(--color-warning-500);
+
+        border-block-start-color: var(--border-warning-500);
     }
 
     .error {
         --spinner-color: var(--color-error-500);
+
+        border-block-start-color: var(--border-danger-500);
     }
 
     /* Animation */
-    @keyframes spinner-rotate {
-        from {
-            transform: rotate(0deg);
-        }
-
+    @keyframes spin {
         to {
             transform: rotate(360deg);
         }
@@ -110,5 +118,46 @@
             --spinner-size: 1.25rem;
             --spinner-border-width: 0.2rem;
         }
+    }
+
+    .spinner--secondary {
+        border-top-color: var(--theme-secondary-500);
+    }
+
+    .spinner--success {
+        border-top-color: var(--theme-success);
+    }
+
+    .spinner--warning {
+        border-top-color: var(--theme-warning);
+    }
+
+    .spinner--error {
+        border-top-color: var(--theme-error);
+    }
+
+    .spinner-primary {
+        border-color: var(--spinner-primary-border-color);
+        border-top-color: var(--spinner-primary-color);
+    }
+
+    .spinner-secondary {
+        border-top-color: var(--border-secondary);
+    }
+
+    .spinner-success {
+        border-top-color: var(--border-success);
+    }
+
+    .spinner-danger {
+        border-top-color: var(--border-danger);
+    }
+
+    .spinner-warning {
+        border-top-color: var(--border-warning);
+    }
+
+    .spinner-info {
+        border-top-color: var(--border-info);
     }
 } 

@@ -34,13 +34,10 @@
 @layer components {
     /* Form Variables */
     .form {
-        --form-padding: 1rem;
-        --form-gap: 1rem;
-        --form-background: var(--color-background);
-        --form-text: var(--color-text);
-        --form-border: 1px solid var(--color-border);
-        --form-border-radius: 0.375rem;
-        --form-transition: all var(--transition-normal);
+        display: var(--display-flex);
+        flex-direction: var(--display-column);
+        gap: var(--spacing-2);
+        padding: var(--spacing-2);
     }
 
     /* Base Form */
@@ -55,75 +52,83 @@
 
     /* Group */
     .group {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
+        display: var(--display-flex);
+        flex-direction: var(--display-column);
+        gap: var(--spacing-1);
     }
 
     /* Label */
     .label {
-        font-size: 0.875rem;
-        font-weight: 500;
-        color: var(--color-text);
+        font-weight: var(--font-weight-medium);
+        color: var(--text-gray-700);
     }
 
     /* Input */
     .input {
-        padding: 0.5rem 1rem;
-        font-size: 1rem;
-        color: var(--color-text);
-        background-color: var(--color-background);
-        border: var(--form-border);
-        border-radius: var(--form-border-radius);
-        transition: var(--form-transition);
+        padding: var(--spacing-2) var(--spacing-4);
+        border: 1px solid var(--border-gray-300);
+        border-radius: var(--radius-base);
+        background-color: var(--bg-white);
+        color: var(--text-gray-900);
     }
 
     .input:focus {
-        outline: none;
-        border-color: var(--color-primary);
-        box-shadow: 0 0 0 2px var(--color-primary-100);
+        outline: var(--display-none);
+        border-color: var(--border-primary-500);
+        box-shadow: var(--shadow-sm);
     }
 
     /* Textarea */
     .textarea {
-        min-height: 100px;
-        resize: vertical;
+        padding: var(--spacing-2) var(--spacing-4);
+        border: 1px solid var(--border-gray-300);
+        border-radius: var(--radius-base);
+        background-color: var(--bg-white);
+        color: var(--text-gray-900);
+        resize: var(--display-vertical);
     }
 
     /* Select */
     .select {
-        appearance: none;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236B7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
-        background-repeat: no-repeat;
-        background-position: right 0.5rem center;
-        background-size: 1.5em 1.5em;
-        padding-right: 2.5rem;
+        padding: var(--spacing-2) var(--spacing-4);
+        border: 1px solid var(--border-gray-300);
+        border-radius: var(--radius-base);
+        background-color: var(--bg-white);
+        color: var(--text-gray-900);
+        background-repeat: var(--bg-no-repeat);
+        background-position: var(--position-right) var(--spacing-2) var(--position-center);
+        background-size: var(--spacing-6);
     }
 
     /* Checkbox & Radio */
     .checkbox,
     .radio {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
+        display: var(--display-flex);
+        align-items: var(--position-center);
+        gap: var(--spacing-2);
     }
 
     .checkbox input,
     .radio input {
-        width: 1rem;
-        height: 1rem;
+        width: var(--spacing-4);
+        height: var(--spacing-4);
+        border: 1px solid var(--border-gray-300);
+        border-radius: var(--radius-base);
+        background-color: var(--bg-white);
     }
 
     /* Error */
     .error {
-        font-size: 0.75rem;
-        color: var(--color-error);
+        color: var(--text-red-500);
+        font-size: var(--font-size-sm);
+        margin-top: var(--spacing-1);
     }
 
     /* Success */
     .success {
-        font-size: 0.75rem;
-        color: var(--color-success);
+        color: var(--text-green-500);
+        font-size: var(--font-size-sm);
+        margin-top: var(--spacing-1);
     }
 
     /* Help Text */

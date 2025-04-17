@@ -13,6 +13,9 @@
         --skeleton-height: 1rem;
         --skeleton-border-radius: 0.375rem;
         --skeleton-animation-duration: 1.5s;
+        --skeleton-background-size: 200%;
+        --skeleton-background-position: 200%;
+        --skeleton-background-position-negative: -200%;
     }
 
     /* Base Skeleton */
@@ -25,7 +28,7 @@
             var(--skeleton-highlight) 50%,
             var(--skeleton-background) 100%
         );
-        background-size: 200% 100%;
+        background-size: var(--skeleton-background-size, 200%);
         border-radius: var(--skeleton-border-radius);
         animation: skeleton-loading var(--skeleton-animation-duration) infinite;
     }
@@ -67,11 +70,11 @@
     /* Animation */
     @keyframes skeleton-loading {
         0% {
-            background-position: 200% 0;
+            background-position: var(--skeleton-background-position, 200%);
         }
 
         100% {
-            background-position: -200% 0;
+            background-position: var(--skeleton-background-position-negative, -200%);
         }
     }
 

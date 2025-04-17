@@ -64,11 +64,11 @@
         justify-content: space-between;
         width: var(--hamburger-width);
         height: var(--hamburger-height);
-        background: transparent;
+        background: var(--bg-transparent);
         border: none;
         cursor: pointer;
-        padding: 0;
-        z-index: 50;
+        padding: var(--space-0);
+        z-index: var(--z-50);
     }
 
     .line {
@@ -248,8 +248,9 @@
 
     .title {
         font-size: 1.25rem;
-        font-weight: 600;
+        font-weight: var(--font-weight-semibold);
         color: var(--color-text);
+        padding: var(--space-4);
     }
 
     /* Menu Variants */
@@ -300,5 +301,10 @@
         .item {
             transition: none;
         }
+    }
+
+    .hamburger-menu {
+        z-index: var(--z-40);
+        padding: var(--space-8);
     }
 } 

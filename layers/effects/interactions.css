@@ -81,20 +81,20 @@
 .touch-feedback::after {
     content: '';
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
+    inset-block-start: var(--interaction-tooltip-top);
+    inset-inline-start: var(--interaction-tooltip-left);
+    inline-size: 0;
+    block-size: 0;
     background: rgb(255 255 255 / 20%);
     border-radius: 50%;
     transform: translate(-50%, -50%);
-    transition: width 0.3s ease, height 0.3s ease;
-    will-change: width, height;
+    transition: inline-size 0.3s ease, block-size 0.3s ease;
+    will-change: inline-size, block-size;
 }
 
 .touch-feedback:active::after {
-    width: 200%;
-    height: 200%;
+    inline-size: 200%;
+    block-size: 200%;
 }
 
 /* Fokus-Ringe */
@@ -124,10 +124,10 @@
 .loading::after {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset-block-start: var(--interaction-tooltip-top-start);
+    inset-inline-start: var(--interaction-tooltip-left-start);
+    inline-size: 100%;
+    block-size: 100%;
     background: linear-gradient(
         90deg,
         transparent,
@@ -151,8 +151,8 @@
 /* Responsive Anpassungen */
 @media (max-width: var(--breakpoint-sm)) {
     .touch-feedback::after {
-        width: 150%;
-        height: 150%;
+        inline-size: 150%;
+        block-size: 150%;
     }
     
     .focus-ring:focus-visible {
@@ -169,5 +169,62 @@
     
     .focus-ring {
         transition: none;
+    }
+}
+
+@layer components {
+    /* Hover Effects */
+    .hover-scale {
+        transition: var(--transition-transform);
+    }
+
+    .hover-scale:hover {
+        transform: scale(1.05);
+    }
+
+    .hover-rotate {
+        transition: var(--transition-transform);
+    }
+
+    .hover-rotate:hover {
+        transform: rotate(5deg);
+    }
+
+    .hover-shadow {
+        transition: var(--transition-shadow);
+    }
+
+    .hover-shadow:hover {
+        box-shadow: var(--shadow-md);
+    }
+
+    /* Focus Effects */
+    .focus-ring {
+        outline: var(--display-none);
+    }
+
+    .focus-ring:focus-visible {
+        outline: var(--spacing-2) solid var(--theme-primary-500);
+        outline-offset: var(--spacing-2);
+    }
+
+    /* Active Effects */
+    .active-scale:active {
+        transform: scale(0.95);
+    }
+
+    .active-rotate:active {
+        transform: rotate(-5deg);
+    }
+
+    /* Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+        .hover-scale,
+        .hover-rotate,
+        .hover-shadow,
+        .active-scale,
+        .active-rotate {
+            transition: var(--transition-none);
+        }
     }
 } 

@@ -6,36 +6,44 @@
  */
 
 @layer components {
-    /* Phosphor Basis */
+    /* Base Icon */
     .ph {
-        @apply icon;
+        display: var(--display-inline-block);
+        width: var(--spacing-6);
+        height: var(--spacing-6);
+        vertical-align: var(--position-middle);
+        background-color: currentcolor;
+        mask-size: var(--position-100);
+        mask-position: var(--position-center);
+        mask-repeat: var(--bg-no-repeat);
     }
 
-    /* Phosphor als CSS Icon */
     .ph-icon {
-        @apply icon;
-
-        mask-size: contain;
-        mask-position: center;
-        mask-repeat: no-repeat;
+        display: var(--display-inline-block);
+        width: var(--spacing-6);
+        height: var(--spacing-6);
+        vertical-align: var(--position-middle);
         background-color: currentcolor;
+        mask-size: var(--position-100);
+        mask-position: var(--position-center);
+        mask-repeat: var(--bg-no-repeat);
     }
 
     /* Phosphor Icons */
     .ph-house {
-        mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath d='M218.83,103.77l-80-75.48a1.14,1.14,0,0,1-.11-.11,16,16,0,0,0-21.53,0l-.11.11L37.17,103.77A16,16,0,0,0,32,115.55V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V160h32v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V115.55A16,16,0,0,0,218.83,103.77ZM208,208H160V160a16,16,0,0,0-16-16H112a16,16,0,0,0-16,16v48H48V115.55l.11-.1L128,40l79.9,75.43.11.1Z'/%3E%3C/svg%3E");
+        mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath d='M218.83 103.77l-80-75.48a1.14 1.14 0 0 1-.11-.11 16 16 0 0 0-21.53 0l-.11.11-79.91 75.48A16 16 0 0 0 32 115.55V208a16 16 0 0 0 16 16h48a16 16 0 0 0 16-16v-48h32v48a16 16 0 0 0 16 16h48a16 16 0 0 0 16-16v-92.45a16 16 0 0 0-5.17-11.78zM208 208h-48v-48a16 16 0 0 0-16-16h-32a16 16 0 0 0-16 16v48H48v-92.45l.11-.1L128 40l79.9 75.43.11.1z'/%3E%3C/svg%3E");
     }
 
     .ph-list {
-        mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath d='M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z'/%3E%3C/svg%3E");
+        mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath d='M224 128a8 8 0 0 1-8 8H40a8 8 0 0 1 0-16h176a8 8 0 0 1 8 8zM40 72h176a8 8 0 0 0 0-16H40a8 8 0 0 0 0 16zm176 112H40a8 8 0 0 0 0 16h176a8 8 0 0 0 0-16z'/%3E%3C/svg%3E");
     }
 
     .ph-x {
-        mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath d='M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z'/%3E%3C/svg%3E");
+        mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath d='M205.66 194.34a8 8 0 0 1-11.32 11.32L128 139.31l-66.34 66.35a8 8 0 0 1-11.32-11.32L116.69 128 50.34 61.66a8 8 0 0 1 11.32-11.32L128 116.69l66.34-66.35a8 8 0 0 1 11.32 11.32L139.31 128z'/%3E%3C/svg%3E");
     }
 
     .ph-magnifying-glass {
-        mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath d='M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z'/%3E%3C/svg%3E");
+        mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath d='M229.66 218.34l-50.07-50.06a88.11 88.11 0 1 0-11.32 11.32l50.06 50.07a8 8 0 0 0 11.32-11.32zM40 112a72 72 0 1 1 72 72 72.08 72.08 0 0 1-72-72z'/%3E%3C/svg%3E");
     }
 
     /* Phosphor Varianten */
@@ -60,46 +68,61 @@
         opacity: 0.5;
     }
 
-    /* Phosphor Größen */
+    /* Icon Sizes */
     .ph-xs {
-        @apply icon-xs;
+        width: var(--spacing-4);
+        height: var(--spacing-4);
     }
 
     .ph-sm {
-        @apply icon-sm;
+        width: var(--spacing-5);
+        height: var(--spacing-5);
     }
 
     .ph-lg {
-        @apply icon-lg;
+        width: var(--spacing-7);
+        height: var(--spacing-7);
     }
 
     .ph-xl {
-        @apply icon-xl;
+        width: var(--spacing-8);
+        height: var(--spacing-8);
     }
 
     .ph-2xl {
-        @apply icon-2xl;
+        width: var(--spacing-10);
+        height: var(--spacing-10);
     }
 
-    /* Phosphor Ausrichtung */
+    /* Icon Alignment */
     .ph-baseline {
-        @apply icon-baseline;
+        vertical-align: var(--position-baseline);
     }
 
     .ph-top {
-        @apply icon-top;
+        vertical-align: var(--position-top);
     }
 
     .ph-middle {
-        @apply icon-middle;
+        vertical-align: var(--position-middle);
     }
 
     .ph-bottom {
-        @apply icon-bottom;
+        vertical-align: var(--position-bottom);
     }
 
-    /* Phosphor Animation */
+    /* Icon Animation */
     .ph-spin {
-        @apply icon-spin;
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(360deg);
+        }
     }
 } 

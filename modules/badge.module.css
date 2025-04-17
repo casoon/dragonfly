@@ -162,4 +162,29 @@
             transform: none;
         }
     }
+
+    .badge--secondary {
+        background-color: var(--theme-secondary-500);
+    }
+
+    .badge--success {
+        background-color: var(--theme-success);
+    }
+
+    .badge--warning {
+        background-color: var(--theme-warning);
+    }
+
+    .badge--error {
+        background-color: var(--theme-error);
+    }
+
+    .badge--info {
+        background-color: var(--theme-info);
+    }
+
+    .badge--outline {
+        background-color: transparent;
+        border: 1px solid currentcolor;
+    }
 } 

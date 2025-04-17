@@ -48,13 +48,13 @@
     .group {
         display: flex;
         flex-direction: column;
-        gap: 0.5rem;
+        gap: var(--input-gap, 0.5rem);
     }
 
     /* Label */
     .label {
         font-size: 0.875rem;
-        font-weight: 500;
+        font-weight: var(--input-font-weight, 500);
         color: var(--color-text);
     }
 

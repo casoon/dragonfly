@@ -53,8 +53,8 @@
     /* Bar */
     .bar {
         position: absolute;
-        top: 0;
-        left: 0;
+        top: var(--progress-bar-top, 0);
+        left: var(--progress-bar-left, 0);
         height: 100%;
         background-color: var(--progress-bar-background);
         border-radius: var(--progress-border-radius);
@@ -107,7 +107,7 @@
             transparent 75%,
             transparent
         );
-        background-size: 1rem 1rem;
+        background-size: var(--progress-bar-background-size);
     }
 
     /* Animated */
@@ -117,11 +117,11 @@
 
     @keyframes progress-stripes {
         from {
-            background-position: 1rem 0;
+            background-position: var(--progress-bar-background-position-start) 0;
         }
 
         to {
-            background-position: 0 0;
+            background-position: var(--progress-bar-background-position, 0) 0;
         }
     }
 
@@ -130,6 +130,7 @@
         display: flex;
         justify-content: space-between;
         margin-bottom: 0.5rem;
+        gap: var(--progress-bar-gap, 0.25rem);
     }
 
     .labelText {
@@ -159,5 +160,17 @@
             flex-direction: column;
             gap: 0.25rem;
         }
+    }
+
+    .progress-bar {
+        background-position: var(--position-0);
+    }
+
+    .progress-striped {
+        background-position: var(--position-0);
+    }
+
+    .progress-group {
+        gap: var(--spacing-1);
     }
 } 

@@ -52,6 +52,11 @@
         --slider-thumb-hover-color: var(--color-primary-dark);
         --slider-thumb-active-color: var(--color-primary-light);
         --slider-transition: all var(--transition-normal);
+        --slider-z-index: 1;
+        --slider-tooltip-bottom: auto;
+        --slider-tooltip-top: -2rem;
+        --slider-tooltip-left: 50%;
+        --slider-tooltip-padding: 0.25rem 0.5rem;
     }
 
     /* Base Slider */
@@ -92,7 +97,7 @@
         transform: translate(-50%, -50%);
         transition: var(--slider-transition);
         cursor: grab;
-        z-index: 1;
+        z-index: var(--slider-z-index, 1);
     }
 
     .thumb:hover {
@@ -176,10 +181,9 @@
     /* Additional Features */
     .tooltip {
         position: absolute;
-        top: -2rem;
-        left: 50%;
-        transform: translateX(-50%);
-        padding: 0.25rem 0.5rem;
+        top: var(--slider-tooltip-top);
+        left: var(--slider-tooltip-left);
+        padding: var(--slider-tooltip-padding);
         background-color: var(--color-background);
         color: var(--color-text);
         border-radius: 0.25rem;

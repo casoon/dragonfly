@@ -1,13 +1,13 @@
 /**
- * Remix Icons CSS
+ * Tabler Icons CSS
  * 
- * Diese Datei enthält die CSS-Klassen für die Remix Icons.
+ * Diese Datei enthält die CSS-Klassen für die Tabler Icons.
  * Die Styles sind in @layer components organisiert.
  */
 
 @layer components {
     /* Base Icon */
-    .ri {
+    .ti {
         display: var(--display-inline-block);
         width: var(--spacing-6);
         height: var(--spacing-6);
@@ -18,7 +18,7 @@
         mask-repeat: var(--bg-no-repeat);
     }
 
-    .ri-icon {
+    .ti-icon {
         display: var(--display-inline-block);
         width: var(--spacing-6);
         height: var(--spacing-6);
@@ -29,85 +29,68 @@
         mask-repeat: var(--bg-no-repeat);
     }
 
-    /* Remix Icons */
-    .ri-home {
-        mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6'/%3E%3C/svg%3E");
+    /* Tabler Icons */
+    .ti-home {
+        mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z'/%3E%3Cpath d='M9 22V12h6v10'/%3E%3C/svg%3E");
     }
 
-    .ri-menu {
-        mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 6h16M4 12h16M4 18h16'/%3E%3C/svg%3E");
+    .ti-menu {
+        mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 12h18M3 6h18M3 18h18'/%3E%3C/svg%3E");
     }
 
-    .ri-close {
-        mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 18L18 6M6 6l12 12'/%3E%3C/svg%3E");
+    .ti-x {
+        mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M18 6L6 18M6 6l12 12'/%3E%3C/svg%3E");
     }
 
-    .ri-search {
-        mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'/%3E%3C/svg%3E");
-    }
-
-    /* Remix Varianten */
-    .ri-line {
-        stroke-width: 2;
-        fill: none;
-    }
-
-    .ri-fill {
-        stroke-width: 0;
-        fill: currentcolor;
-    }
-
-    .ri-dual {
-        stroke-width: 2;
-        fill: currentcolor;
-        opacity: 0.5;
+    .ti-search {
+        mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='M21 21l-4.35-4.35'/%3E%3C/svg%3E");
     }
 
     /* Icon Sizes */
-    .ri-xs {
+    .ti-xs {
         width: var(--spacing-4);
         height: var(--spacing-4);
     }
 
-    .ri-sm {
+    .ti-sm {
         width: var(--spacing-5);
         height: var(--spacing-5);
     }
 
-    .ri-lg {
+    .ti-lg {
         width: var(--spacing-7);
         height: var(--spacing-7);
     }
 
-    .ri-xl {
+    .ti-xl {
         width: var(--spacing-8);
         height: var(--spacing-8);
     }
 
-    .ri-2xl {
+    .ti-2xl {
         width: var(--spacing-10);
         height: var(--spacing-10);
     }
 
     /* Icon Alignment */
-    .ri-baseline {
+    .ti-baseline {
         vertical-align: var(--position-baseline);
     }
 
-    .ri-top {
+    .ti-top {
         vertical-align: var(--position-top);
     }
 
-    .ri-middle {
+    .ti-middle {
         vertical-align: var(--position-middle);
     }
 
-    .ri-bottom {
+    .ti-bottom {
         vertical-align: var(--position-bottom);
     }
 
     /* Icon Animation */
-    .ri-spin {
+    .ti-spin {
         animation: spin 1s linear infinite;
     }
 

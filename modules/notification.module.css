@@ -1,0 +1,220 @@
+/**
+ * Notification Module
+ * 
+ * Ein Benachrichtigungsmodul für Toasts, Snackbars und andere temporäre Mitteilungen.
+ * Unterstützt verschiedene Typen, Positionen und Animationen.
+ * 
+ * Verwendung:
+ * <div class="notification notification--info">
+ *   <div class="notification-icon">...</div>
+ *   <div class="notification-content">
+ *     <div class="notification-title">Titel</div>
+ *     <div class="notification-message">Nachricht</div>
+ *   </div>
+ *   <button class="notification-close">×</button>
+ * </div>
+ * 
+ * Varianten:
+ * - .notification--info, .notification--success, .notification--warning, .notification--error
+ * - .notification--top, .notification--bottom, .notification--top-right, etc.
+ */
+
+@layer components {
+  /* Notification Container */
+  .notifications-container {
+    --notifications-gap: var(--space-3);
+
+    position: fixed;
+    z-index: var(--z-index-notifications, 1000);
+    display: flex;
+    flex-direction: column;
+    gap: var(--notifications-gap);
+    max-width: 100%;
+    max-height: 100vh;
+    pointer-events: none;
+    padding: var(--space-4);
+    box-sizing: border-box;
+  }
+
+  /* Positionierungen */
+  .notifications-container--top {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    align-items: center;
+  }
+
+  .notifications-container--bottom {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    align-items: center;
+  }
+
+  .notifications-container--top-left {
+    top: 0;
+    left: 0;
+    align-items: flex-start;
+  }
+
+  .notifications-container--top-right {
+    top: 0;
+    right: 0;
+    align-items: flex-end;
+  }
+
+  .notifications-container--bottom-left {
+    bottom: 0;
+    left: 0;
+    align-items: flex-start;
+  }
+
+  .notifications-container--bottom-right {
+    bottom: 0;
+    right: 0;
+    align-items: flex-end;
+  }
+
+  /* Notification */
+  .notification {
+    --notification-padding-x: var(--space-4);
+    --notification-padding-y: var(--space-3);
+    --notification-border-radius: var(--border-radius-md);
+    --notification-border-width: 1px;
+    --notification-border-color: var(--color-gray-200);
+    --notification-bg: #fff;
+    --notification-shadow: var(--shadow-md);
+    --notification-text-color: var(--color-gray-900);
+    --notification-icon-size: 1.5rem;
+    
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    width: 320px;
+    max-width: 100%;
+    padding: var(--notification-padding-y) var(--notification-padding-x);
+    background-color: var(--notification-bg);
+    border: var(--notification-border-width) solid var(--notification-border-color);
+    border-radius: var(--notification-border-radius);
+    box-shadow: var(--notification-shadow);
+    pointer-events: auto;
+    animation: notification-in 0.3s ease-out;
+  }
+
+  .notification.closing {
+    animation: notification-out 0.3s ease-in forwards;
+  }
+
+  /* Icon */
+  .notification-icon {
+    flex-shrink: 0;
+    width: var(--notification-icon-size);
+    height: var(--notification-icon-size);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Inhalt */
+  .notification-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .notification-title {
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--space-1);
+    color: var(--notification-text-color);
+  }
+
+  .notification-message {
+    color: var(--color-gray-700);
+    font-size: var(--font-size-sm);
+  }
+
+  /* Schließen-Button */
+  .notification-close {
+    flex-shrink: 0;
+    border: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+    font-size: 1.25rem;
+    line-height: 1;
+    color: var(--color-gray-500);
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.2s ease-in-out;
+  }
+
+  .notification-close:hover {
+    opacity: 1;
+  }
+
+  /* Varianten */
+  .notification--info {
+    --notification-border-color: var(--color-primary-200);
+    --notification-bg: var(--color-primary-50);
+
+    border-left: 4px solid var(--color-primary);
+  }
+
+  .notification--success {
+    --notification-border-color: var(--color-success-200);
+    --notification-bg: var(--color-success-50);
+
+    border-left: 4px solid var(--color-success);
+  }
+
+  .notification--warning {
+    --notification-border-color: var(--color-warning-200);
+    --notification-bg: var(--color-warning-50);
+
+    border-left: 4px solid var(--color-warning);
+  }
+
+  .notification--error {
+    --notification-border-color: var(--color-error-200);
+    --notification-bg: var(--color-error-50);
+
+    border-left: 4px solid var(--color-error);
+  }
+
+  /* Animationen */
+  @keyframes notification-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes notification-out {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    to {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+  }
+
+  /* Responsive */
+  @media (width <= 480px) {
+    .notification {
+      width: 100%;
+    }
+    
+    .notifications-container--top,
+    .notifications-container--bottom {
+      width: 100%;
+    }
+  }
+} 

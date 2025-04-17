@@ -7,9 +7,9 @@
 
 
 @layer core {
+    @import url("layers/tokens.css");
     @import url("layers/reset.css");
     @import url("layers/colors.css");
-    @import url("layers/tokens.css");
     @import url("layers/typography.css");
     @import url("layers/utilities.css");
     @import url("layers/layout.css");

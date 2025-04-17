@@ -1,0 +1,116 @@
+/**
+ * Alert Module
+ * 
+ * Ein vielseitiges Alert-Modul mit verschiedenen Varianten.
+ * Unterstützt verschiedene Status-Typen und kann Icons und Aktionen enthalten.
+ * 
+ * Verwendung:
+ * <div class="alert">Standard Alert</div>
+ * <div class="alert alert--info">Info Alert</div>
+ * 
+ * Varianten:
+ * - .alert--info, .alert--success, .alert--warning, .alert--error
+ * - .alert--dismissible
+ */
+
+@layer components {
+  /* Alert Basis */
+  .alert {
+    --alert-padding-x: var(--space-4);
+    --alert-padding-y: var(--space-3);
+    --alert-margin-bottom: var(--space-4);
+    --alert-border-radius: var(--border-radius-md);
+    --alert-border-width: 1px;
+    --alert-font-size: var(--font-size-sm);
+    --alert-color: var(--color-gray-700);
+    --alert-bg: var(--color-gray-100);
+    --alert-border-color: var(--color-gray-200);
+    --alert-icon-size: 1.25rem;
+    --alert-icon-margin: var(--space-3);
+    
+    position: relative;
+    padding: var(--alert-padding-y) var(--alert-padding-x);
+    margin-bottom: var(--alert-margin-bottom);
+    border: var(--alert-border-width) solid var(--alert-border-color);
+    border-radius: var(--alert-border-radius);
+    background-color: var(--alert-bg);
+    color: var(--alert-color);
+  }
+
+  /* Alert mit Icon */
+  .alert-icon {
+    display: inline-flex;
+    align-items: center;
+    margin-right: var(--alert-icon-margin);
+    vertical-align: middle;
+  }
+
+  .alert-icon svg,
+  .alert-icon i {
+    width: var(--alert-icon-size);
+    height: var(--alert-icon-size);
+  }
+
+  /* Alert Varianten */
+  .alert--info {
+    --alert-bg: var(--color-blue-50);
+    --alert-color: var(--color-blue-700);
+    --alert-border-color: var(--color-blue-200);
+  }
+
+  .alert--success {
+    --alert-bg: var(--color-green-50);
+    --alert-color: var(--color-green-700);
+    --alert-border-color: var(--color-green-200);
+  }
+
+  .alert--warning {
+    --alert-bg: var(--color-yellow-50);
+    --alert-color: var(--color-yellow-700);
+    --alert-border-color: var(--color-yellow-200);
+  }
+
+  .alert--error {
+    --alert-bg: var(--color-red-50);
+    --alert-color: var(--color-red-700);
+    --alert-border-color: var(--color-red-200);
+  }
+
+  /* Dismissible Alert */
+  .alert--dismissible {
+    padding-right: calc(var(--alert-padding-x) * 2 + 1rem);
+  }
+
+  .alert-dismiss {
+    position: absolute;
+    top: var(--alert-padding-y);
+    right: var(--alert-padding-x);
+    padding: 0.25rem;
+    background: transparent;
+    border: 0;
+    appearance: none;
+    color: inherit;
+    font-size: 1.25rem;
+    line-height: 1;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: opacity var(--transition-fast);
+  }
+
+  .alert-dismiss:hover {
+    opacity: 1;
+  }
+
+  /* Alert Titel */
+  .alert-title {
+    margin-top: 0;
+    margin-bottom: var(--space-2);
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--font-size-base);
+  }
+
+  /* Alert Inhalt */
+  .alert-content {
+    margin: 0;
+  }
+} 

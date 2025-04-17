@@ -34,9 +34,10 @@
     --color-focus: var(--color-blue-600);
 
     /* Focus Styles */
-    --focus-ring-width: 3px;
-    --focus-ring-color: var(--color-blue-600);
-    --focus-ring-offset: 2px;
+    --focus-ring-width: var(--spacing-1);
+    --focus-ring-color: var(--theme-primary-500);
+    --focus-ring-offset: var(--spacing-1);
+    --focus-ring-opacity: 0.5;
 
     /* Spacing */
     --spacing-base: 1.5rem;
@@ -82,7 +83,7 @@
   /* Buttons */
   .button {
     font-size: var(--font-size-base);
-    padding: var(--spacing-sm) var(--spacing-base);
+    padding: var(--accessibility-padding, var(--spacing-sm) var(--spacing-base));
     border: 2px solid var(--color-text);
     background-color: var(--color-background);
     color: var(--color-text);
@@ -99,7 +100,7 @@
   .select,
   .textarea {
     font-size: var(--font-size-base);
-    padding: var(--spacing-sm);
+    padding: var(--accessibility-padding, var(--spacing-sm));
     border: 2px solid var(--color-text);
     background-color: var(--color-background);
     color: var(--color-text);
@@ -114,7 +115,7 @@
   .th,
   .td {
     border: 2px solid var(--color-text);
-    padding: var(--spacing-sm);
+    padding: var(--accessibility-padding, var(--spacing-sm));
     text-align: left;
   }
 
@@ -125,9 +126,9 @@
   .h4,
   .h5,
   .h6 {
-    font-weight: bold;
+    font-weight: var(--accessibility-font-weight, bold);
     line-height: 1.2;
-    margin-bottom: var(--spacing-base);
+    margin-bottom: var(--accessibility-margin, var(--spacing-base));
   }
 
   .h1 { font-size: var(--font-size-xl); }
@@ -136,6 +137,7 @@
 
   /* Lists */
   .list {
+    padding-left: var(--accessibility-margin, var(--spacing-lg));
     padding-left: var(--spacing-lg);
     margin-bottom: var(--spacing-base);
   }
@@ -152,17 +154,19 @@
 
   /* Skip Link */
   .skip-link {
-    position: absolute;
-    top: -40px;
-    left: 0;
-    background: var(--color-primary);
-    color: var(--color-background);
-    padding: var(--spacing-sm);
-    z-index: 100;
+    position: var(--position-absolute);
+    top: var(--position-0);
+    left: var(--position-0);
+    padding: var(--spacing-2);
+    z-index: var(--z-50);
+    background-color: var(--bg-white);
+    color: var(--text-black);
+    text-decoration: var(--display-none);
   }
 
   .skip-link:focus {
-    top: 0;
+    position: var(--position-relative);
+    top: var(--position-0);
   }
 
   /* Error States */
@@ -175,11 +179,10 @@
 @layer utilities {
   /* Reduced Motion */
   @media (prefers-reduced-motion: reduce) {
-    .reduce-motion * {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-      scroll-behavior: auto !important;
+    * {
+      animation-duration: var(--reduced-motion);
+      animation-iteration-count: 1;
+      transition-duration: var(--reduced-motion);
     }
   }
 
@@ -206,4 +209,164 @@
   .space-base { margin: var(--spacing-base); }
   .space-sm { margin: var(--spacing-sm); }
   .space-lg { margin: var(--spacing-lg); }
+}
+
+@layer themes {
+  /* Accessibility Theme */
+  :root {
+    /* Focus Styles */
+    --focus-ring-width: var(--spacing-1);
+    --focus-ring-color: var(--theme-primary-500);
+    --focus-ring-offset: var(--spacing-1);
+    --focus-ring-opacity: 0.5;
+
+    /* High Contrast */
+    --high-contrast-text: var(--text-black);
+    --high-contrast-bg: var(--bg-white);
+    --high-contrast-border: var(--border-black);
+
+    /* Reduced Motion */
+    --reduced-motion: var(--transition-none);
+  }
+
+  /* Focus Styles */
+  .focus-ring {
+    outline: var(--display-none);
+  }
+
+  .focus-ring:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  /* High Contrast Mode */
+  .high-contrast {
+    color: var(--high-contrast-text);
+    background-color: var(--high-contrast-bg);
+    border-color: var(--high-contrast-border);
+  }
+
+  /* Skip Link */
+  .skip-link {
+    position: var(--position-absolute);
+    top: var(--position-0);
+    left: var(--position-0);
+    padding: var(--spacing-2);
+    z-index: var(--z-50);
+    background-color: var(--bg-white);
+    color: var(--text-black);
+    text-decoration: var(--display-none);
+  }
+
+  .skip-link:focus {
+    position: var(--position-relative);
+    top: var(--position-0);
+  }
+
+  /* Screen Reader Only */
+  .sr-only {
+    position: var(--position-absolute);
+    width: var(--position-1);
+    height: var(--position-1);
+    padding: var(--position-0);
+    margin: var(--position-0);
+    overflow: var(--display-hidden);
+    clip: rect(0, 0, 0, 0);
+    white-space: var(--display-nowrap);
+    border: var(--position-0);
+  }
+
+  .sr-only-focusable:active,
+  .sr-only-focusable:focus {
+    position: var(--position-static);
+    width: var(--position-auto);
+    height: var(--position-auto);
+    overflow: var(--display-visible);
+    clip: var(--position-auto);
+    white-space: var(--display-normal);
+  }
+
+  /* Focus Visible */
+  .focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  /* Focus Within */
+  .focus-within {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  /* Focus Not Visible */
+  .focus-not-visible {
+    outline: var(--display-none);
+  }
+
+  /* Focus Not Within */
+  .focus-not-within {
+    outline: var(--display-none);
+  }
+
+  /* Focus Ring */
+  .focus-ring {
+    outline: var(--display-none);
+  }
+
+  .focus-ring:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  /* Focus Ring Offset */
+  .focus-ring-offset {
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  /* Focus Ring Width */
+  .focus-ring-width {
+    outline-width: var(--focus-ring-width);
+  }
+
+  /* Focus Ring Color */
+  .focus-ring-color {
+    outline-color: var(--focus-ring-color);
+  }
+
+  /* Focus Ring Opacity */
+  .focus-ring-opacity {
+    outline-color: rgb(var(--focus-ring-color) / var(--focus-ring-opacity));
+  }
+
+  /* Focus Ring Style */
+  .focus-ring-style {
+    outline-style: solid;
+  }
+
+  /* Focus Ring Shadow */
+  .focus-ring-shadow {
+    box-shadow: 0 0 0 var(--focus-ring-width) var(--focus-ring-color);
+  }
+
+  /* Focus Ring Shadow Offset */
+  .focus-ring-shadow-offset {
+    box-shadow: 0 0 0 var(--focus-ring-width) var(--focus-ring-color),
+                0 0 0 calc(var(--focus-ring-width) + var(--focus-ring-offset)) var(--focus-ring-color);
+  }
+
+  /* Focus Ring Shadow Opacity */
+  .focus-ring-shadow-opacity {
+    box-shadow: 0 0 0 var(--focus-ring-width) rgb(var(--focus-ring-color) / var(--focus-ring-opacity));
+  }
+
+  /* Focus Ring Shadow Style */
+  .focus-ring-shadow-style {
+    box-shadow: 0 0 0 var(--focus-ring-width) var(--focus-ring-color);
+  }
+
+  /* Focus Ring Shadow Radius */
+  .focus-ring-shadow-radius {
+    box-shadow: 0 0 0 var(--focus-ring-width) var(--focus-ring-color);
+    border-radius: var(--radius-base);
+  }
 } 

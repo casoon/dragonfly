@@ -6,50 +6,160 @@
  */
 
 @layer components {
-    /* Heroicons Basis */
+    /* Base Icon */
     .heroicon {
-        @apply icon;
+        display: var(--display-inline-block);
+        width: var(--spacing-6);
+        height: var(--spacing-6);
+        vertical-align: var(--position-middle);
+        background-color: currentcolor;
+        mask-size: var(--position-100);
+        mask-position: var(--position-center);
+        mask-repeat: var(--bg-no-repeat);
     }
 
-    /* Heroicons Outline */
-    .heroicon-outline {
-        stroke-width: 1.5;
-        fill: none;
+    /* Icon Sizes */
+    .heroicon-xs {
+        width: var(--spacing-4);
+        height: var(--spacing-4);
     }
 
-    /* Heroicons Solid */
-    .heroicon-solid {
-        stroke-width: 0;
-        fill: currentcolor;
+    .heroicon-sm {
+        width: var(--spacing-5);
+        height: var(--spacing-5);
     }
 
-    /* Heroicons Mini */
-    .heroicon-mini {
-        stroke-width: 1.5;
-        fill: currentcolor;
+    .heroicon-lg {
+        width: var(--spacing-7);
+        height: var(--spacing-7);
     }
 
-    /* Heroicons Micro */
-    .heroicon-micro {
-        stroke-width: 1.5;
-        fill: currentcolor;
+    .heroicon-xl {
+        width: var(--spacing-8);
+        height: var(--spacing-8);
     }
 
-    /* Heroicons 24 */
-    .heroicon-24 {
-        stroke-width: 1.5;
-        fill: none;
+    .heroicon-2xl {
+        width: var(--spacing-10);
+        height: var(--spacing-10);
     }
 
-    /* Heroicons 20 */
-    .heroicon-20 {
-        stroke-width: 1.5;
-        fill: none;
+    /* Icon Alignment */
+    .heroicon-baseline {
+        vertical-align: var(--position-baseline);
     }
 
-    /* Heroicons 16 */
-    .heroicon-16 {
-        stroke-width: 1.5;
-        fill: none;
+    .heroicon-top {
+        vertical-align: var(--position-top);
+    }
+
+    .heroicon-middle {
+        vertical-align: var(--position-middle);
+    }
+
+    .heroicon-bottom {
+        vertical-align: var(--position-bottom);
+    }
+
+    /* Icon Animation */
+    .heroicon-spin {
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    /* Heroicons */
+    .hi {
+        display: var(--display-inline-block);
+        width: var(--spacing-6);
+        height: var(--spacing-6);
+        vertical-align: var(--position-middle);
+        background-color: currentcolor;
+        mask-size: var(--position-100);
+        mask-position: var(--position-center);
+        mask-repeat: var(--bg-no-repeat);
+    }
+
+    .hi-icon {
+        display: var(--display-inline-block);
+        width: var(--spacing-6);
+        height: var(--spacing-6);
+        vertical-align: var(--position-middle);
+        background-color: currentcolor;
+        mask-size: var(--position-100);
+        mask-position: var(--position-center);
+        mask-repeat: var(--bg-no-repeat);
+    }
+
+    .hi-home {
+        mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6'/%3E%3C/svg%3E");
+    }
+
+    .hi-menu {
+        mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 6h16M4 12h16M4 18h16'/%3E%3C/svg%3E");
+    }
+
+    .hi-x {
+        mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 18L18 6M6 6l12 12'/%3E%3C/svg%3E");
+    }
+
+    .hi-search {
+        mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'/%3E%3C/svg%3E");
+    }
+
+    /* Icon Sizes */
+    .hi-xs {
+        width: var(--spacing-4);
+        height: var(--spacing-4);
+    }
+
+    .hi-sm {
+        width: var(--spacing-5);
+        height: var(--spacing-5);
+    }
+
+    .hi-lg {
+        width: var(--spacing-7);
+        height: var(--spacing-7);
+    }
+
+    .hi-xl {
+        width: var(--spacing-8);
+        height: var(--spacing-8);
+    }
+
+    .hi-2xl {
+        width: var(--spacing-10);
+        height: var(--spacing-10);
+    }
+
+    /* Icon Alignment */
+    .hi-baseline {
+        vertical-align: var(--position-baseline);
+    }
+
+    .hi-top {
+        vertical-align: var(--position-top);
+    }
+
+    .hi-middle {
+        vertical-align: var(--position-middle);
+    }
+
+    .hi-bottom {
+        vertical-align: var(--position-bottom);
+    }
+
+    /* Icon Animation */
+    .hi-spin {
+        animation: spin 1s linear infinite;
     }
 } 

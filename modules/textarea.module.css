@@ -43,23 +43,53 @@
     /* Base Textarea */
     .textarea {
         width: 100%;
-        padding: var(--textarea-padding);
-        border: 1px solid var(--textarea-border-color);
-        border-radius: var(--textarea-border-radius);
-        background-color: var(--textarea-background);
-        color: var(--textarea-color);
-        font-size: var(--textarea-font-size);
-        line-height: var(--textarea-line-height);
-        min-height: var(--textarea-min-height);
+        padding: var(--spacing-2);
+        border: 1px solid var(--border-gray-300);
+        border-radius: var(--radius-md);
+        background-color: var(--bg-white);
+        font-size: var(--font-size-base);
+        line-height: var(--line-height-normal);
         resize: vertical;
-        transition: border-color var(--textarea-transition-duration),
-                    box-shadow var(--textarea-transition-duration);
+        min-height: 100px;
     }
 
     .textarea:focus {
+        border-color: var(--theme-primary-500);
+        box-shadow: 0 0 0 2px var(--theme-primary-100);
         outline: none;
-        border-color: var(--color-primary-500);
-        box-shadow: 0 0 0 2px var(--color-primary-100);
+    }
+
+    .textarea--error {
+        border-color: var(--theme-error);
+    }
+
+    .textarea--error:focus {
+        box-shadow: 0 0 0 2px var(--theme-error-light);
+    }
+
+    .textarea--success {
+        border-color: var(--theme-success);
+    }
+
+    .textarea--success:focus {
+        box-shadow: 0 0 0 2px var(--theme-success-light);
+    }
+
+    .textarea--warning {
+        border-color: var(--theme-warning);
+    }
+
+    .textarea--warning:focus {
+        box-shadow: 0 0 0 2px var(--theme-warning-light);
+    }
+
+    .textarea:disabled {
+        background-color: var(--theme-gray-100);
+        cursor: not-allowed;
+    }
+
+    .textarea[readonly] {
+        background-color: var(--theme-gray-50);
     }
 
     /* Size Variants */

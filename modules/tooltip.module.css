@@ -1,0 +1,331 @@
+/**
+ * Tooltip-Komponente
+ * 
+ * Ein Modul für die Anzeige von Tooltips in verschiedenen Stilen und Positionen.
+ * Unterstützt mehrere Farben, Größen und Positionierungs-Optionen.
+ */
+
+/* Basis Tooltip-Container */
+.tooltip {
+    --arrow-size: 6px;
+
+    position: relative;
+    display: inline-block;
+}
+
+/* Tooltip Inhalt (Standard) */
+.tooltip-content {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    line-height: 1.25;
+    color: var(--color-white);
+    background-color: var(--bg-gray-800);
+    border-radius: 0.25rem;
+    border: 1px solid var(--border-gray-900);
+    box-shadow: 0 2px 5px rgb(0 0 0 / 20%);
+    max-width: 250px;
+    width: max-content;
+    z-index: 50;
+    transition: opacity 0.2s, visibility 0.2s;
+    word-wrap: break-word;
+}
+
+/* Tooltip Pfeil (Standard) */
+.tooltip-content::before {
+    content: "";
+    position: absolute;
+    border: var(--arrow-size) solid transparent;
+}
+
+/* Tooltip aktiv/sichtbar */
+.tooltip:hover .tooltip-content,
+.tooltip:focus .tooltip-content,
+.tooltip-visible .tooltip-content {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Tooltip-Positionen */
+.tooltip-top .tooltip-content {
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: var(--arrow-size);
+}
+
+.tooltip-top .tooltip-content::before {
+    border-top-color: var(--bg-gray-800);
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.tooltip-bottom .tooltip-content {
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: var(--arrow-size);
+}
+
+.tooltip-bottom .tooltip-content::before {
+    border-bottom-color: var(--bg-gray-800);
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.tooltip-left .tooltip-content {
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-right: var(--arrow-size);
+}
+
+.tooltip-left .tooltip-content::before {
+    border-left-color: var(--bg-gray-800);
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.tooltip-right .tooltip-content {
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: var(--arrow-size);
+}
+
+.tooltip-right .tooltip-content::before {
+    border-right-color: var(--bg-gray-800);
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Farbvarianten */
+.tooltip-primary .tooltip-content {
+    background-color: var(--bg-primary-600);
+    border-color: var(--border-primary-700);
+}
+
+.tooltip-primary.tooltip-top .tooltip-content::before {
+    border-top-color: var(--bg-primary-600);
+}
+
+.tooltip-primary.tooltip-bottom .tooltip-content::before {
+    border-bottom-color: var(--bg-primary-600);
+}
+
+.tooltip-primary.tooltip-left .tooltip-content::before {
+    border-left-color: var(--bg-primary-600);
+}
+
+.tooltip-primary.tooltip-right .tooltip-content::before {
+    border-right-color: var(--bg-primary-600);
+}
+
+.tooltip-secondary .tooltip-content {
+    background-color: var(--bg-secondary-600);
+    border-color: var(--border-secondary-700);
+}
+
+.tooltip-secondary.tooltip-top .tooltip-content::before {
+    border-top-color: var(--bg-secondary-600);
+}
+
+.tooltip-secondary.tooltip-bottom .tooltip-content::before {
+    border-bottom-color: var(--bg-secondary-600);
+}
+
+.tooltip-secondary.tooltip-left .tooltip-content::before {
+    border-left-color: var(--bg-secondary-600);
+}
+
+.tooltip-secondary.tooltip-right .tooltip-content::before {
+    border-right-color: var(--bg-secondary-600);
+}
+
+.tooltip-success .tooltip-content {
+    background-color: var(--bg-success-600);
+    border-color: var(--border-success-700);
+}
+
+.tooltip-success.tooltip-top .tooltip-content::before {
+    border-top-color: var(--bg-success-600);
+}
+
+.tooltip-success.tooltip-bottom .tooltip-content::before {
+    border-bottom-color: var(--bg-success-600);
+}
+
+.tooltip-success.tooltip-left .tooltip-content::before {
+    border-left-color: var(--bg-success-600);
+}
+
+.tooltip-success.tooltip-right .tooltip-content::before {
+    border-right-color: var(--bg-success-600);
+}
+
+.tooltip-danger .tooltip-content {
+    background-color: var(--bg-danger-600);
+    border-color: var(--border-danger-700);
+}
+
+.tooltip-danger.tooltip-top .tooltip-content::before {
+    border-top-color: var(--bg-danger-600);
+}
+
+.tooltip-danger.tooltip-bottom .tooltip-content::before {
+    border-bottom-color: var(--bg-danger-600);
+}
+
+.tooltip-danger.tooltip-left .tooltip-content::before {
+    border-left-color: var(--bg-danger-600);
+}
+
+.tooltip-danger.tooltip-right .tooltip-content::before {
+    border-right-color: var(--bg-danger-600);
+}
+
+.tooltip-warning .tooltip-content {
+    background-color: var(--bg-warning-600);
+    border-color: var(--border-warning-700);
+    color: var(--color-gray-900);
+}
+
+.tooltip-warning.tooltip-top .tooltip-content::before {
+    border-top-color: var(--bg-warning-600);
+}
+
+.tooltip-warning.tooltip-bottom .tooltip-content::before {
+    border-bottom-color: var(--bg-warning-600);
+}
+
+.tooltip-warning.tooltip-left .tooltip-content::before {
+    border-left-color: var(--bg-warning-600);
+}
+
+.tooltip-warning.tooltip-right .tooltip-content::before {
+    border-right-color: var(--bg-warning-600);
+}
+
+.tooltip-info .tooltip-content {
+    background-color: var(--bg-info-600);
+    border-color: var(--border-info-700);
+}
+
+.tooltip-info.tooltip-top .tooltip-content::before {
+    border-top-color: var(--bg-info-600);
+}
+
+.tooltip-info.tooltip-bottom .tooltip-content::before {
+    border-bottom-color: var(--bg-info-600);
+}
+
+.tooltip-info.tooltip-left .tooltip-content::before {
+    border-left-color: var(--bg-info-600);
+}
+
+.tooltip-info.tooltip-right .tooltip-content::before {
+    border-right-color: var(--bg-info-600);
+}
+
+.tooltip-light .tooltip-content {
+    background-color: var(--bg-gray-100);
+    border-color: var(--border-gray-200);
+    color: var(--color-gray-900);
+}
+
+.tooltip-light.tooltip-top .tooltip-content::before {
+    border-top-color: var(--bg-gray-100);
+}
+
+.tooltip-light.tooltip-bottom .tooltip-content::before {
+    border-bottom-color: var(--bg-gray-100);
+}
+
+.tooltip-light.tooltip-left .tooltip-content::before {
+    border-left-color: var(--bg-gray-100);
+}
+
+.tooltip-light.tooltip-right .tooltip-content::before {
+    border-right-color: var(--bg-gray-100);
+}
+
+/* Größenvarianten */
+.tooltip-sm .tooltip-content {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    max-width: 200px;
+}
+
+.tooltip-lg .tooltip-content {
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    max-width: 300px;
+}
+
+/* Spezialeffekte */
+.tooltip-wide .tooltip-content {
+    min-width: 200px;
+}
+
+.tooltip-multiline .tooltip-content {
+    white-space: normal;
+}
+
+.tooltip-no-arrow .tooltip-content::before {
+    display: none;
+}
+
+/* Animation für Tooltips */
+@keyframes tooltip-fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.tooltip-animated .tooltip-content {
+    animation: tooltip-fade-in 0.3s ease-in-out;
+}
+
+/* Interaktiver Tooltip (bleibt offen, wenn darauf geklickt wird) */
+.tooltip-interactive .tooltip-content {
+    pointer-events: auto;
+}
+
+/* Tooltip mit definiertem Abstand */
+.tooltip-offset-sm {
+    --tooltip-offset: 4px;
+}
+
+.tooltip-offset-md {
+    --tooltip-offset: 8px;
+}
+
+.tooltip-offset-lg {
+    --tooltip-offset: 12px;
+}
+
+.tooltip-offset-sm.tooltip-top .tooltip-content {
+    margin-bottom: var(--tooltip-offset);
+}
+
+.tooltip-offset-sm.tooltip-bottom .tooltip-content {
+    margin-top: var(--tooltip-offset);
+}
+
+.tooltip-offset-sm.tooltip-left .tooltip-content {
+    margin-right: var(--tooltip-offset);
+}
+
+.tooltip-offset-sm.tooltip-right .tooltip-content {
+    margin-left: var(--tooltip-offset);
+} 

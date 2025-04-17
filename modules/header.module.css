@@ -11,6 +11,9 @@
         --header-padding: 1rem;
         --header-background: var(--color-white);
         --header-border-color: var(--color-gray-200);
+        --header-gap: 1rem;
+        --header-gap-small: 0.5rem;
+        --header-font-weight: 600;
     }
 
     /* Base Header */
@@ -18,7 +21,7 @@
         position: relative;
         width: 100%;
         height: var(--header-height);
-        padding: 0 var(--header-padding);
+        padding: var(--header-padding, 0 var(--header-padding));
         background-color: var(--header-background);
         border-bottom: 1px solid var(--header-border-color);
         display: flex;
@@ -30,15 +33,15 @@
     .nav {
         display: flex;
         align-items: center;
-        gap: 1rem;
+        gap: var(--header-gap, 1rem);
     }
 
     /* Logo */
     .logo {
         display: flex;
         align-items: center;
-        gap: 0.5rem;
-        font-weight: 600;
+        gap: var(--header-gap-small, 0.5rem);
+        font-weight: var(--header-font-weight, 600);
         color: var(--color-gray-900);
     }
 
@@ -46,7 +49,7 @@
     .menu {
         display: flex;
         align-items: center;
-        gap: 1rem;
+        gap: var(--header-gap, 1rem);
     }
 
     /* Responsive */
