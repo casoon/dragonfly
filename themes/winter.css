@@ -3,9 +3,10 @@
  * 
  * Diese Datei definiert das Winter Theme.
  * Die Farben orientieren sich an den Variablen aus colors.css.
+ * Das Theme wird nur aktiviert, wenn die Klasse "theme-winter" auf einem Element angewendet wird.
  */
- @layer core {
-:root {
+@layer themes {
+  .theme-winter {
     /* Primary Colors */
     --color-primary-50: var(--color-blue-50);
     --color-primary-100: var(--color-blue-100);
@@ -47,5 +48,5 @@
     --color-error: var(--color-red-500);
     --color-warning: var(--color-amber-500);
     --color-info: var(--color-sky-500);
-} 
-} 
+  }
+}

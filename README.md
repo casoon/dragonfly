@@ -87,6 +87,7 @@ import styles from 'casoon-ui-lib/modules/button.module.css';
 ```
 
 Verfügbare Module:
+- `alert.module.css`
 - `avatar.module.css`
 - `badge.module.css`
 - `blog.module.css`
@@ -95,12 +96,15 @@ Verfügbare Module:
 - `checkbox.module.css`
 - `chip.module.css`
 - `code.module.css`
+- `file.module.css`
 - `footer.module.css`
 - `form.module.css`
 - `hamburger.module.css`
 - `header.module.css`
 - `input.module.css`
+- `input-group.module.css`
 - `modal.module.css`
+- `notification.module.css`
 - `progress.module.css`
 - `radio.module.css`
 - `select.module.css`
@@ -110,7 +114,12 @@ Verfügbare Module:
 - `spinner.module.css`
 - `switch.module.css`
 - `table.module.css`
+- `tabs.module.css`
 - `textarea.module.css`
+- `toast.module.css`
+- `tooltip.module.css`
+- `widget.module.css`
+- `wizard.module.css`
 
 ### 3. CSS-Layer
 
@@ -125,8 +134,10 @@ Die Layer im `layers/` Verzeichnis enthalten grundlegende Styles:
 - `layout.css`: Layout-System
 - `utilities.css`: Utility-Klassen
 - `animations.css`: Animationen
-- `effects.css`: Effekte
-- `components.css`: Komponenten-Styles
+- `effects.css`: Effekte (Hauptdatei)
+  - `effects/interactions.css`: Interaktionseffekte wie Drag & Drop, Swipe-Gesten, Touch-Feedback
+  - `effects/neon.css`: Neon-Effekte und Leuchteffekte
+  - `effects/filters.css`: Verschiedene Filtereffekte
 - `icons.css`: Icon-Styles
 
 ## Integration mit Astro
@@ -355,21 +366,3 @@ Verfügbare Breakpoints für Container-Queries:
 - `cq-md`: Gilt für Container mit mindestens 540px Breite
 - `cq-lg`: Gilt für Container mit mindestens 720px Breite
 - `cq-xl`: Gilt für Container mit mindestens 960px Breite
-
-### Kombination mit Media-Queries
-
-Container-Queries können mit Media-Queries kombiniert werden, um sowohl auf Viewport- als auch auf Containerebene responsive Designs zu erstellen:
-
-```html
-<div class="md:flex cq-container p-4">
-  <!-- Flex bei Viewports > 768px, aber Grid-Layout basierend auf Containergröße -->
-  <div class="cq-sm:grid cq-sm:grid-cols-2 cq-lg:grid-cols-4 gap-4">
-    <div>Element 1</div>
-    <div>Element 2</div>
-    <div>Element 3</div>
-    <div>Element 4</div>
-  </div>
-</div>
-```
-
-Container-Queries sind besonders nützlich für wiederverwendbare Komponenten, die sich an ihre Umgebung anpassen müssen, unabhängig vom Viewport.

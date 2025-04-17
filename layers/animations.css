@@ -42,6 +42,7 @@
   /* Animation Variables */
   :root {
     /* Durations */
+    --animation-duration-fastest: 100ms;
     --animation-duration-fast: 150ms;
     --animation-duration-normal: 300ms;
     --animation-duration-slow: 500ms;
@@ -49,6 +50,10 @@
     --animation-duration-slowest: 1000ms;
 
     /* Timing Functions */
+    --ease-linear: linear;
+    --ease-in: cubic-bezier(0.4, 0, 1, 1);
+    --ease-out: cubic-bezier(0, 0, 0.2, 1);
+    --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
     --ease-in-quad: cubic-bezier(0.55, 0.085, 0.68, 0.53);
     --ease-in-cubic: cubic-bezier(0.55, 0.055, 0.675, 0.19);
     --ease-in-quart: cubic-bezier(0.895, 0.03, 0.685, 0.22);
@@ -60,15 +65,56 @@
     --ease-in-out-quart: cubic-bezier(0.77, 0, 0.175, 1);
     --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
     --ease-spring: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+    --ease-elastic: cubic-bezier(0.5, 0.75, 0.75, 1.25);
+    
+    /* Animation Distances */
+    --move-xs: 4px;
+    --move-sm: 8px;
+    --move-md: 16px;
+    --move-lg: 24px;
+    --move-xl: 36px;
+    
+    /* Animation Scales */
+    --scale-xs: 0.98;
+    --scale-sm: 0.95;
+    --scale-md: 0.9;
+    --scale-lg: 1.05;
+    --scale-xl: 1.1;
+    
+    /* Animation Rotations */
+    --rotate-xs: 1deg;
+    --rotate-sm: 3deg;
+    --rotate-md: 5deg;
+    --rotate-lg: 10deg;
+    --rotate-xl: 20deg;
+    
+    /* Animation Delays */
+    --delay-xs: 50ms;
+    --delay-sm: 100ms;
+    --delay-md: 200ms;
+    --delay-lg: 300ms;
+    --delay-xl: 500ms;
+    
+    /* Animation Iterations */
+    --iteration-once: 1;
+    --iteration-twice: 2;
+    --iteration-thrice: 3;
+    --iteration-infinite: infinite;
+    
+    /* Reduced Motion Settings */
+    --reduced-motion-duration: 0.01ms;
+    --reduced-motion-opacity-only: true;
   }
 
   /* Base Animation Classes */
   .animate {
     animation-duration: var(--animation-duration-normal);
     animation-fill-mode: both;
+    animation-timing-function: var(--ease-in-out-cubic);
   }
 
   /* Duration Utilities */
+  .duration-fastest { animation-duration: var(--animation-duration-fastest); }
   .duration-fast { animation-duration: var(--animation-duration-fast); }
   .duration-normal { animation-duration: var(--animation-duration-normal); }
   .duration-slow { animation-duration: var(--animation-duration-slow); }
@@ -76,6 +122,10 @@
   .duration-slowest { animation-duration: var(--animation-duration-slowest); }
 
   /* Timing Function Utilities */
+  .ease-linear { animation-timing-function: var(--ease-linear); }
+  .ease-in { animation-timing-function: var(--ease-in); }
+  .ease-out { animation-timing-function: var(--ease-out); }
+  .ease-in-out { animation-timing-function: var(--ease-in-out); }
   .ease-in-quad { animation-timing-function: var(--ease-in-quad); }
   .ease-in-cubic { animation-timing-function: var(--ease-in-cubic); }
   .ease-in-quart { animation-timing-function: var(--ease-in-quart); }
@@ -87,8 +137,13 @@
   .ease-in-out-quart { animation-timing-function: var(--ease-in-out-quart); }
   .ease-bounce { animation-timing-function: var(--ease-bounce); }
   .ease-spring { animation-timing-function: var(--ease-spring); }
+  .ease-elastic { animation-timing-function: var(--ease-elastic); }
 
   /* Animation Iteration Utilities */
+  .iteration-once { animation-iteration-count: var(--iteration-once); }
+  .iteration-twice { animation-iteration-count: var(--iteration-twice); }
+  .iteration-thrice { animation-iteration-count: var(--iteration-thrice); }
+  .iteration-infinite { animation-iteration-count: var(--iteration-infinite); }
   .infinite { animation-iteration-count: infinite; }
   .repeat-1 { animation-iteration-count: 1; }
   .repeat-2 { animation-iteration-count: 2; }
@@ -105,6 +160,61 @@
   .fill-forwards { animation-fill-mode: forwards; }
   .fill-backwards { animation-fill-mode: backwards; }
   .fill-both { animation-fill-mode: both; }
+
+  /* Transition Utilities */
+  .transition-all { 
+    transition-property: all;
+    transition-duration: var(--animation-duration-normal);
+    transition-timing-function: var(--ease-in-out-cubic);
+  }
+  
+  .transition-colors { 
+    transition-property: color, background-color, border-color, fill, stroke;
+    transition-duration: var(--animation-duration-normal);
+    transition-timing-function: var(--ease-in-out-cubic);
+  }
+  
+  .transition-opacity { 
+    transition-property: opacity;
+    transition-duration: var(--animation-duration-normal);
+    transition-timing-function: var(--ease-in-out-cubic);
+  }
+  
+  .transition-transform { 
+    transition-property: transform;
+    transition-duration: var(--animation-duration-normal);
+    transition-timing-function: var(--ease-in-out-cubic);
+  }
+  
+  .transition-shadow { 
+    transition-property: box-shadow;
+    transition-duration: var(--animation-duration-normal);
+    transition-timing-function: var(--ease-in-out-cubic);
+  }
+  
+  /* Transition Duration Utilities */
+  .transition-duration-fastest { transition-duration: var(--animation-duration-fastest); }
+  .transition-duration-fast { transition-duration: var(--animation-duration-fast); }
+  .transition-duration-normal { transition-duration: var(--animation-duration-normal); }
+  .transition-duration-slow { transition-duration: var(--animation-duration-slow); }
+  .transition-duration-slower { transition-duration: var(--animation-duration-slower); }
+  .transition-duration-slowest { transition-duration: var(--animation-duration-slowest); }
+  
+  /* Transition Timing Function Utilities */
+  .transition-timing-linear { transition-timing-function: var(--ease-linear); }
+  .transition-timing-ease-in { transition-timing-function: var(--ease-in); }
+  .transition-timing-ease-out { transition-timing-function: var(--ease-out); }
+  .transition-timing-ease-in-out { transition-timing-function: var(--ease-in-out); }
+  .transition-timing-bounce { transition-timing-function: var(--ease-bounce); }
+  .transition-timing-spring { transition-timing-function: var(--ease-spring); }
+  .transition-timing-elastic { transition-timing-function: var(--ease-elastic); }
+  
+  /* Transition Delay Utilities */
+  .transition-delay-xs { transition-delay: var(--delay-xs); }
+  .transition-delay-sm { transition-delay: var(--delay-sm); }
+  .transition-delay-md { transition-delay: var(--delay-md); }
+  .transition-delay-lg { transition-delay: var(--delay-lg); }
+  .transition-delay-xl { transition-delay: var(--delay-xl); }
 
   /* Keyframes - Fade */
   @keyframes fade-in {

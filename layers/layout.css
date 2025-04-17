@@ -485,7 +485,7 @@
     .lg\:items-stretch { align-items: stretch; }
 }
 
-@layer core.layout {
+@layer layout-module {
     /* Containers */
     .container {
         width: 100%;
@@ -556,8 +556,7 @@
     @container sidebar (min-width: 320px) {
         .cq-sidebar-nav {
             display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
+            flex-flow: row wrap;
         }
     }
 

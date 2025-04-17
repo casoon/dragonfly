@@ -3,49 +3,50 @@
  * 
  * Diese Datei definiert das Monochrome Theme.
  * Die Farben orientieren sich an den Variablen aus colors.css.
+ * Das Theme wird nur aktiviert, wenn die Klasse "theme-monochrome" auf einem Element angewendet wird.
  */
- @layer core {
-:root {
+@layer themes {
+  .theme-monochrome {
     /* Primary Colors */
-    --theme-primary-50: #f8f9fa;
-    --theme-primary-100: #e9ecef;
-    --theme-primary-200: #dee2e6;
-    --theme-primary-300: #ced4da;
-    --theme-primary-400: #adb5bd;
-    --theme-primary-500: #6c757d;
-    --theme-primary-600: #495057;
-    --theme-primary-700: #343a40;
-    --theme-primary-800: #212529;
-    --theme-primary-900: #000;
+    --color-primary-50: #f8f9fa;
+    --color-primary-100: #e9ecef;
+    --color-primary-200: #dee2e6;
+    --color-primary-300: #ced4da;
+    --color-primary-400: #adb5bd;
+    --color-primary-500: #6c757d;
+    --color-primary-600: #495057;
+    --color-primary-700: #343a40;
+    --color-primary-800: #212529;
+    --color-primary-900: #000;
 
     /* Secondary Colors */
-    --theme-secondary-50: #f8f9fa;
-    --theme-secondary-100: #e9ecef;
-    --theme-secondary-200: #dee2e6;
-    --theme-secondary-300: #ced4da;
-    --theme-secondary-400: #adb5bd;
-    --theme-secondary-500: #6c757d;
-    --theme-secondary-600: #495057;
-    --theme-secondary-700: #343a40;
-    --theme-secondary-800: #212529;
-    --theme-secondary-900: #000;
+    --color-secondary-50: #f8f9fa;
+    --color-secondary-100: #e9ecef;
+    --color-secondary-200: #dee2e6;
+    --color-secondary-300: #ced4da;
+    --color-secondary-400: #adb5bd;
+    --color-secondary-500: #6c757d;
+    --color-secondary-600: #495057;
+    --color-secondary-700: #343a40;
+    --color-secondary-800: #212529;
+    --color-secondary-900: #000;
 
     /* Accent Colors */
-    --theme-accent-50: #f8f9fa;
-    --theme-accent-100: #e9ecef;
-    --theme-accent-200: #dee2e6;
-    --theme-accent-300: #ced4da;
-    --theme-accent-400: #adb5bd;
-    --theme-accent-500: #6c757d;
-    --theme-accent-600: #495057;
-    --theme-accent-700: #343a40;
-    --theme-accent-800: #212529;
-    --theme-accent-900: #000;
+    --color-accent-50: #f8f9fa;
+    --color-accent-100: #e9ecef;
+    --color-accent-200: #dee2e6;
+    --color-accent-300: #ced4da;
+    --color-accent-400: #adb5bd;
+    --color-accent-500: #6c757d;
+    --color-accent-600: #495057;
+    --color-accent-700: #343a40;
+    --color-accent-800: #212529;
+    --color-accent-900: #000;
 
     /* Status Colors */
-    --theme-success: #22c55e;
-    --theme-error: #ef4444;
-    --theme-warning: #f59e0b;
-    --theme-info: #3b82f6;
-    } 
+    --color-success: #22c55e;
+    --color-error: #ef4444;
+    --color-warning: #f59e0b;
+    --color-info: #3b82f6;
+  }
 }

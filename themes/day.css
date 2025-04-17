@@ -3,9 +3,10 @@
  * 
  * Diese Datei definiert das Day Theme.
  * Die Farben orientieren sich an den Variablen aus colors.css.
+ * Das Theme wird nur aktiviert, wenn die Klasse "theme-day" auf einem Element angewendet wird.
  */
- @layer core {
-:root {
+@layer themes {
+  .theme-day {
     /* Primary Colors */
     --color-primary-50: var(--color-sky-50);
     --color-primary-100: var(--color-sky-100);
@@ -47,5 +48,5 @@
     --color-error: var(--color-red-500);
     --color-warning: var(--color-amber-500);
     --color-info: var(--color-sky-500);
-    } 
+  }
 }

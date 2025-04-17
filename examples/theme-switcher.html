@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="de" class="theme-day">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme Switcher Demo</title>
+    <link rel="stylesheet" href="../core.css">
+    <style>
+        /* Zusätzliche Demo-Styles */
+        .theme-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .theme-button {
+            padding: 0.5rem 1rem;
+            border: 2px solid var(--color-primary-500);
+            background-color: var(--color-bg-primary);
+            color: var(--color-text-primary);
+            cursor: pointer;
+            border-radius: var(--border-radius-md);
+            transition: all 0.3s ease;
+        }
+
+        .theme-button:hover {
+            background-color: var(--color-primary-100);
+        }
+
+        .theme-button.active {
+            background-color: var(--color-primary-500);
+            color: white;
+        }
+
+        .theme-demo-section {
+            margin: 2rem 0;
+            padding: 2rem;
+            border: 1px solid var(--color-border);
+            border-radius: var(--border-radius-lg);
+            background-color: var(--color-bg-secondary);
+        }
+
+        .color-palette {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 1rem;
+        }
+
+        .color-swatch {
+            height: 80px;
+            border-radius: var(--border-radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            color: white;
+            text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .dark-mode-toggle {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            padding: 0.5rem;
+            border-radius: 50%;
+            background-color: var(--color-bg-secondary);
+            border: 1px solid var(--color-border);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container p-6">
+        <h1 class="text-xl mb-4">Theme Switcher Demo</h1>
+        
+        <button class="dark-mode-toggle" aria-label="Zum dunklen Design wechseln">
+            <span class="moon-icon">🌙</span>
+            <span class="sun-icon" style="display: none;">☀️</span>
+        </button>
+
+        <p class="mb-6">
+            Diese Seite demonstriert die Verwendung verschiedener Themes in unserem Design-System.
+            Klicke auf eines der Themes unten, um es anzuwenden.
+        </p>
+
+        <div class="theme-container">
+            <button class="theme-button active" data-theme="theme-day">Tag</button>
+            <button class="theme-button" data-theme="theme-night">Nacht</button>
+            <button class="theme-button" data-theme="theme-spring">Frühling</button>
+            <button class="theme-button" data-theme="theme-summer">Sommer</button>
+            <button class="theme-button" data-theme="theme-autumn">Herbst</button>
+            <button class="theme-button" data-theme="theme-winter">Winter</button>
+            <button class="theme-button" data-theme="theme-forest">Wald</button>
+            <button class="theme-button" data-theme="theme-ocean">Ozean</button>
+            <button class="theme-button" data-theme="theme-pastel">Pastell</button>
+            <button class="theme-button" data-theme="theme-neon">Neon</button>
+            <button class="theme-button" data-theme="theme-retro">Retro</button>
+            <button class="theme-button" data-theme="theme-monochrome">Monochrom</button>
+            <button class="theme-button" data-theme="theme-sunset">Sonnenuntergang</button>
+        </div>
+
+        <div class="theme-demo-section">
+            <h2 class="text-lg mb-4">Primärfarben</h2>
+            <div class="color-palette">
+                <div class="color-swatch" style="background-color: var(--color-primary-50)">50</div>
+                <div class="color-swatch" style="background-color: var(--color-primary-100)">100</div>
+                <div class="color-swatch" style="background-color: var(--color-primary-200)">200</div>
+                <div class="color-swatch" style="background-color: var(--color-primary-300)">300</div>
+                <div class="color-swatch" style="background-color: var(--color-primary-400)">400</div>
+                <div class="color-swatch" style="background-color: var(--color-primary-500)">500</div>
+                <div class="color-swatch" style="background-color: var(--color-primary-600)">600</div>
+                <div class="color-swatch" style="background-color: var(--color-primary-700)">700</div>
+                <div class="color-swatch" style="background-color: var(--color-primary-800)">800</div>
+                <div class="color-swatch" style="background-color: var(--color-primary-900)">900</div>
+            </div>
+        </div>
+
+        <div class="theme-demo-section">
+            <h2 class="text-lg mb-4">Sekundärfarben</h2>
+            <div class="color-palette">
+                <div class="color-swatch" style="background-color: var(--color-secondary-50)">50</div>
+                <div class="color-swatch" style="background-color: var(--color-secondary-100)">100</div>
+                <div class="color-swatch" style="background-color: var(--color-secondary-200)">200</div>
+                <div class="color-swatch" style="background-color: var(--color-secondary-300)">300</div>
+                <div class="color-swatch" style="background-color: var(--color-secondary-400)">400</div>
+                <div class="color-swatch" style="background-color: var(--color-secondary-500)">500</div>
+                <div class="color-swatch" style="background-color: var(--color-secondary-600)">600</div>
+                <div class="color-swatch" style="background-color: var(--color-secondary-700)">700</div>
+                <div class="color-swatch" style="background-color: var(--color-secondary-800)">800</div>
+                <div class="color-swatch" style="background-color: var(--color-secondary-900)">900</div>
+            </div>
+        </div>
+
+        <div class="theme-demo-section">
+            <h2 class="text-lg mb-4">Akzentfarben</h2>
+            <div class="color-palette">
+                <div class="color-swatch" style="background-color: var(--color-accent-50)">50</div>
+                <div class="color-swatch" style="background-color: var(--color-accent-100)">100</div>
+                <div class="color-swatch" style="background-color: var(--color-accent-200)">200</div>
+                <div class="color-swatch" style="background-color: var(--color-accent-300)">300</div>
+                <div class="color-swatch" style="background-color: var(--color-accent-400)">400</div>
+                <div class="color-swatch" style="background-color: var(--color-accent-500)">500</div>
+                <div class="color-swatch" style="background-color: var(--color-accent-600)">600</div>
+                <div class="color-swatch" style="background-color: var(--color-accent-700)">700</div>
+                <div class="color-swatch" style="background-color: var(--color-accent-800)">800</div>
+                <div class="color-swatch" style="background-color: var(--color-accent-900)">900</div>
+            </div>
+        </div>
+
+        <div class="theme-demo-section">
+            <h2 class="text-lg mb-4">Statusfarben</h2>
+            <div class="color-palette">
+                <div class="color-swatch" style="background-color: var(--color-success)">Success</div>
+                <div class="color-swatch" style="background-color: var(--color-error)">Error</div>
+                <div class="color-swatch" style="background-color: var(--color-warning)">Warning</div>
+                <div class="color-swatch" style="background-color: var(--color-info)">Info</div>
+            </div>
+        </div>
+
+        <div class="theme-demo-section">
+            <h2 class="text-lg mb-4">UI-Elemente</h2>
+            
+            <h3 class="text-md mb-2">Hintergrundfarben</h3>
+            <div class="color-palette mb-6">
+                <div class="color-swatch" style="background-color: var(--color-bg-primary)">Primary</div>
+                <div class="color-swatch" style="background-color: var(--color-bg-secondary)">Secondary</div>
+                <div class="color-swatch" style="background-color: var(--color-bg-tertiary)">Tertiary</div>
+            </div>
+            
+            <h3 class="text-md mb-2">Textfarben</h3>
+            <div class="mb-6">
+                <p style="color: var(--color-text-primary)">Primärer Text</p>
+                <p style="color: var(--color-text-secondary)">Sekundärer Text</p>
+                <p style="color: var(--color-text-tertiary)">Tertiärer Text</p>
+            </div>
+            
+            <h3 class="text-md mb-2">Buttons</h3>
+            <div class="flex gap-4 mb-6">
+                <button class="button">Standard Button</button>
+                <button class="button" style="background-color: var(--color-primary-500); color: white;">Primär Button</button>
+                <button class="button" style="background-color: var(--color-secondary-500); color: white;">Sekundär Button</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../scripts/theme-switcher.js" type="module"></script>
+</body>
+</html> 

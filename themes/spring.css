@@ -3,49 +3,50 @@
  * 
  * Diese Datei definiert das Spring Theme.
  * Die Farben orientieren sich an den Variablen aus colors.css.
+ * Das Theme wird nur aktiviert, wenn die Klasse "theme-spring" auf einem Element angewendet wird.
  */
- @layer core {
-:root {
+@layer themes {
+  .theme-spring {
     /* Primary Colors */
-    --theme-primary-50: #f0fdf4;
-    --theme-primary-100: #dcfce7;
-    --theme-primary-200: #bbf7d0;
-    --theme-primary-300: #86efac;
-    --theme-primary-400: #4ade80;
-    --theme-primary-500: #22c55e;
-    --theme-primary-600: #16a34a;
-    --theme-primary-700: #15803d;
-    --theme-primary-800: #166534;
-    --theme-primary-900: #14532d;
+    --color-primary-50: #f0fdf4;
+    --color-primary-100: #dcfce7;
+    --color-primary-200: #bbf7d0;
+    --color-primary-300: #86efac;
+    --color-primary-400: #4ade80;
+    --color-primary-500: #22c55e;
+    --color-primary-600: #16a34a;
+    --color-primary-700: #15803d;
+    --color-primary-800: #166534;
+    --color-primary-900: #14532d;
 
     /* Secondary Colors */
-    --theme-secondary-50: #f0f9ff;
-    --theme-secondary-100: #e0f2fe;
-    --theme-secondary-200: #bae6fd;
-    --theme-secondary-300: #7dd3fc;
-    --theme-secondary-400: #38bdf8;
-    --theme-secondary-500: #0ea5e9;
-    --theme-secondary-600: #0284c7;
-    --theme-secondary-700: #0369a1;
-    --theme-secondary-800: #075985;
-    --theme-secondary-900: #0c4a6e;
+    --color-secondary-50: #f0f9ff;
+    --color-secondary-100: #e0f2fe;
+    --color-secondary-200: #bae6fd;
+    --color-secondary-300: #7dd3fc;
+    --color-secondary-400: #38bdf8;
+    --color-secondary-500: #0ea5e9;
+    --color-secondary-600: #0284c7;
+    --color-secondary-700: #0369a1;
+    --color-secondary-800: #075985;
+    --color-secondary-900: #0c4a6e;
 
     /* Accent Colors */
-    --theme-accent-50: #fdf4ff;
-    --theme-accent-100: #fae8ff;
-    --theme-accent-200: #f5d0fe;
-    --theme-accent-300: #f0abfc;
-    --theme-accent-400: #e879f9;
-    --theme-accent-500: #d946ef;
-    --theme-accent-600: #c026d3;
-    --theme-accent-700: #a21caf;
-    --theme-accent-800: #86198f;
-    --theme-accent-900: #701a75;
+    --color-accent-50: #fdf4ff;
+    --color-accent-100: #fae8ff;
+    --color-accent-200: #f5d0fe;
+    --color-accent-300: #f0abfc;
+    --color-accent-400: #e879f9;
+    --color-accent-500: #d946ef;
+    --color-accent-600: #c026d3;
+    --color-accent-700: #a21caf;
+    --color-accent-800: #86198f;
+    --color-accent-900: #701a75;
 
     /* Status Colors */
-    --theme-success: #22c55e;
-    --theme-error: #ef4444;
-    --theme-warning: #f59e0b;
-    --theme-info: #3b82f6;
-    } 
-} 
+    --color-success: #22c55e;
+    --color-error: #ef4444;
+    --color-warning: #f59e0b;
+    --color-info: #3b82f6;
+  }
+}

@@ -801,26 +801,23 @@
 
     /* Media Query Utilities */
     @media (min-width: var(--breakpoint-sm)) {
-      // ... existing code ...
+      /* ... existing code ... */
     }
 
     @media (min-width: var(--breakpoint-md)) {
-      // ... existing code ...
+      /* ... existing code ... */
     }
 
     @media (min-width: var(--breakpoint-lg)) {
-      // ... existing code ...
+      /* ... existing code ... */
     }
 
     @media (min-width: var(--breakpoint-xl)) {
-      // ... existing code ...
-    }
-
-    @media (min-width: var(--breakpoint-2xl)) {
-      // ... existing code ...
+      /* ... existing code ... */
     }
 
     /* Container Query Utilities */
+
     /* Base container-aware component */
     .container-query {
       container-type: inline-size;
@@ -931,8 +928,10 @@
       .cq-xl\:grid-cols-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
     }
 
-    /* Print styles */
-    @media print {
-      // ... existing code ...
+    @media (width <= 768px) {
+      /* Responsive Abkürzungen */
+
+      /* Die folgenden Klassen sind für kleine Bildschirme */
     }
+
 } 
