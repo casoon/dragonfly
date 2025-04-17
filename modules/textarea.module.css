@@ -159,10 +159,29 @@
     }
 
     /* Responsive */
-    @media (width <= 768px) {
+    @media (width <= var(--breakpoint-md)) {
         .textarea {
             --textarea-padding: 0.625rem;
             --textarea-font-size: 0.8125rem;
+        }
+    }
+
+    /* Animationen reduzieren */
+    @media (prefers-reduced-motion: reduce) {
+        .textarea-focus,
+        .textarea-focus-within {
+            transition: none;
+        }
+    }
+
+    /* Responsive Anpassungen */
+    @media (width <= var(--breakpoint-md)) {
+        .textarea {
+            font-size: var(--font-size-base);
+        }
+        
+        .textarea-lg {
+            min-height: 8rem;
         }
     }
 } 

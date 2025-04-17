@@ -113,7 +113,7 @@
     }
 
     /* Responsive */
-    @media (width <= 768px) {
+    @media (width <= var(--breakpoint-md)) {
         .spinner {
             --spinner-size: 1.25rem;
             --spinner-border-width: 0.2rem;
@@ -159,5 +159,21 @@
 
     .spinner-info {
         border-top-color: var(--border-info);
+    }
+
+    /* Reduziere Animation bei Bedarf */
+    @media (prefers-reduced-motion: reduce) {
+        .spinner {
+            animation-duration: 1.5s;
+        }
+    }
+
+    /* Responsive Anpassungen */
+    @media (width <= var(--breakpoint-md)) {
+        .spinner-lg {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-width: 0.35rem;
+        }
     }
 } 

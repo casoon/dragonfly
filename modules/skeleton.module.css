@@ -87,7 +87,7 @@
     }
 
     /* Responsive */
-    @media (width <= 768px) {
+    @media (width <= var(--breakpoint-md)) {
         .skeleton {
             --skeleton-height: 0.875rem;
         }

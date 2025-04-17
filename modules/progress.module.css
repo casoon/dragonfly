@@ -155,10 +155,18 @@
     }
 
     /* Responsive */
-    @media (width <= 768px) {
-        .label {
+    @media (width <= var(--breakpoint-md)) {
+        .progress {
+            margin: var(--space-2) 0;
+        }
+        
+        .progress-with-label {
             flex-direction: column;
-            gap: 0.25rem;
+            align-items: flex-start;
+        }
+        
+        .progress-with-label .progress {
+            width: 100%;
         }
     }
 

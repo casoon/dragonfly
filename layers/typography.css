@@ -169,7 +169,7 @@
   .no-underline { text-decoration: none; }
 
   /* Responsive Typography */
-  @media (width <= 640px) {
+  @media (width <= var(--breakpoint-sm)) {
     h1, .h1 { font-size: var(--font-size-3xl); }
     h2, .h2 { font-size: var(--font-size-2xl); }
     h3, .h3 { font-size: var(--font-size-xl); }
@@ -178,7 +178,7 @@
     h6, .h6 { font-size: var(--font-size-sm); }
   }
 
-  @media (width >= 640px) {
+  @media (width >= var(--breakpoint-sm)) {
     .sm\:text-xs { font-size: var(--font-size-xs); }
     .sm\:text-sm { font-size: var(--font-size-sm); }
     .sm\:text-base { font-size: var(--font-size-base); }
@@ -189,7 +189,7 @@
     .sm\:text-4xl { font-size: var(--font-size-4xl); }
   }
 
-  @media (width >= 768px) {
+  @media (width >= var(--breakpoint-md)) {
     .md\:text-xs { font-size: var(--font-size-xs); }
     .md\:text-sm { font-size: var(--font-size-sm); }
     .md\:text-base { font-size: var(--font-size-base); }
@@ -201,7 +201,7 @@
     .md\:text-5xl { font-size: var(--font-size-5xl); }
   }
 
-  @media (width >= 1024px) {
+  @media (width >= var(--breakpoint-lg)) {
     .lg\:text-xs { font-size: var(--font-size-xs); }
     .lg\:text-sm { font-size: var(--font-size-sm); }
     .lg\:text-base { font-size: var(--font-size-base); }
@@ -213,7 +213,7 @@
     .lg\:text-5xl { font-size: var(--font-size-5xl); }
   }
 
-  @media (width >= 1280px) {
+  @media (width >= var(--breakpoint-xl)) {
     .xl\:text-xs { font-size: var(--font-size-xs); }
     .xl\:text-sm { font-size: var(--font-size-sm); }
     .xl\:text-base { font-size: var(--font-size-base); }

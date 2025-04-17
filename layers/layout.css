@@ -484,4 +484,163 @@
     .lg\:items-center { align-items: center; }
     .lg\:items-stretch { align-items: stretch; }
 }
+
+@layer core.layout {
+    /* Containers */
+    .container {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: var(--space-4);
+        padding-right: var(--space-4);
+    }
+
+    .container-fluid {
+        width: 100%;
+        padding-left: var(--space-4);
+        padding-right: var(--space-4);
+    }
+
+    /* Container Queries Setup */
+    .cq-container {
+        container-type: inline-size;
+        container-name: root;
+    }
+
+    .cq-normal {
+        container-type: normal;
+    }
+
+    .cq-size {
+        container-type: size;
+    }
+
+    /* Benannte Container für komplexe Layouts */
+    .cq-component {
+        container-type: inline-size;
+        container-name: component;
+    }
+
+    .cq-sidebar {
+        container-type: inline-size;
+        container-name: sidebar;
+    }
+
+    .cq-content {
+        container-type: inline-size;
+        container-name: content;
+    }
+
+    /* Beispielhafte container-query basierende Responsive Grids */
+    @container (min-width: 380px) {
+        .cq-card-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-4);
+        }
+    }
+
+    @container (min-width: 540px) {
+        .cq-card-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    @container (min-width: 720px) {
+        .cq-card-grid {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+
+    /* Beispielhafte container-query basierende flexbox layouts */
+    @container sidebar (min-width: 320px) {
+        .cq-sidebar-nav {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+    }
+
+    @container content (min-width: 600px) {
+        .cq-content-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: var(--space-6);
+        }
+    }
+
+    /* Media Queries für Standard-Container */
+    @media (width >= var(--breakpoint-sm)) {
+        .container {
+            max-width: var(--container-sm);
+        }
+    }
+
+    @media (width >= var(--breakpoint-md)) {
+        .container {
+            max-width: var(--container-md);
+        }
+    }
+
+    @media (width >= var(--breakpoint-lg)) {
+        .container {
+            max-width: var(--container-lg);
+        }
+    }
+
+    @media (width >= var(--breakpoint-xl)) {
+        .container {
+            max-width: var(--container-xl);
+        }
+    }
+
+    @media (width >= var(--breakpoint-2xl)) {
+        .container {
+            max-width: var(--container-2xl);
+        }
+    }
+
+    /* Layout Utilities */
+    .flex-center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .flex-between {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .stack {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .stack > * + * {
+        margin-top: var(--space-4);
+    }
+
+    .stack-sm > * + * {
+        margin-top: var(--space-2);
+    }
+
+    .stack-lg > * + * {
+        margin-top: var(--space-6);
+    }
+
+    .grid-auto-fit {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: var(--space-4);
+    }
+
+    .grid-auto-fill {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: var(--space-4);
+    }
+}
   

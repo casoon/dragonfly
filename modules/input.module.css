@@ -141,16 +141,25 @@
 
     /* Reduced Motion */
     @media (prefers-reduced-motion: reduce) {
-        .input {
+        .input:focus,
+        .input-group:focus-within {
             transition: none;
         }
     }
 
     /* Responsive */
-    @media (width <= 768px) {
+    @media (width <= var(--breakpoint-md)) {
         .input {
-            --input-padding: 0.5rem 0.75rem;
-            --input-font-size: 0.875rem;
+            width: 100%;
+        }
+        
+        .input-lg {
+            height: var(--input-height);
+            font-size: var(--font-size-base);
+        }
+        
+        .input-group {
+            width: 100%;
         }
     }
 } 

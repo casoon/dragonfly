@@ -158,7 +158,7 @@
     }
 
     /* Responsive */
-    @media (width <= 768px) {
+    @media (width <= var(--breakpoint-md)) {
         .switch {
             --switch-width: 2.5rem;
             --switch-height: 1.25rem;

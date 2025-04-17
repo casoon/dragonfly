@@ -171,7 +171,7 @@
     }
 
     /* Responsive */
-    @media (width <= 768px) {
+    @media (width <= var(--breakpoint-md)) {
         .grid {
             grid-template-columns: 1fr;
         }
@@ -208,5 +208,24 @@
 
     .blog-content {
         gap: var(--space-8);
+    }
+
+    /* Responsive Anpassungen */
+    @media (width <= var(--breakpoint-md)) {
+        .blog-post {
+            padding: var(--space-4);
+        }
+        
+        .blog-title {
+            font-size: var(--font-size-2xl);
+        }
+        
+        .blog-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .blog-sidebar {
+            margin-top: var(--space-8);
+        }
     }
 } 

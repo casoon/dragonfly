@@ -208,10 +208,15 @@
         .close {
             transition: none;
         }
+
+        .modal-enter,
+        .modal-exit {
+            transition-duration: 0.01ms !important;
+        }
     }
 
     /* Responsive */
-    @media (width <= 768px) {
+    @media (width <= var(--breakpoint-md)) {
         .modal {
             --modal-padding: 1rem;
         }
@@ -222,6 +227,15 @@
 
         .footer {
             flex-direction: column;
+        }
+
+        .modal-container {
+            width: 95%;
+            max-width: none;
+        }
+        
+        .modal-header h2 {
+            font-size: var(--font-size-lg);
         }
     }
 

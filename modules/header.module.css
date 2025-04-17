@@ -53,7 +53,7 @@
     }
 
     /* Responsive */
-    @media (width <= 768px) {
+    @media (width <= var(--breakpoint-md)) {
         .header {
             --header-height: 3.5rem;
             --header-padding: 0.75rem;

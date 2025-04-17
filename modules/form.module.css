@@ -171,14 +171,32 @@
     }
 
     /* Responsive */
-    @media (width <= 768px) {
+    @media (width <= var(--breakpoint-md)) {
         .form {
-            --form-padding: 0.75rem;
-            --form-gap: 0.75rem;
+            padding: var(--space-4);
         }
-
-        .inline {
+        
+        .form-row {
             flex-direction: column;
+        }
+        
+        .form-row > * {
+            width: 100%;
+            margin-right: 0;
+            margin-bottom: var(--space-4);
+        }
+        
+        .form-row > *:last-child {
+            margin-bottom: 0;
+        }
+        
+        .form-actions {
+            flex-direction: column;
+        }
+        
+        .form-actions > *:not(:last-child) {
+            margin-right: 0;
+            margin-bottom: var(--space-3);
         }
     }
 } 

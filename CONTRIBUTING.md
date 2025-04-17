@@ -1,6 +1,73 @@
-# Contributing Guidelines
+# Beitragen zur CASOON UI Library
 
-Vielen Dank für Ihr Interesse an der Casoon UI Library! Wir freuen uns über Beiträge von der Community. Diese Richtlinien sollen Ihnen helfen, effektiv zur Bibliothek beizutragen.
+Vielen Dank für dein Interesse, zur CASOON UI Library beizutragen! Diese Anleitung hilft dir, unseren Entwicklungsprozess kennenzulernen und zu verstehen, wie du effektiv mitwirken kannst.
+
+## Entwicklungsphilosophie
+
+Die CASOON UI Library verfolgt diese Grundprinzipien:
+
+- **Modularität**: Komponenten sollten unabhängig und wiederverwendbar sein
+- **Effizienz**: Optimierung für Performance und LightningCSS
+- **Zugänglichkeit**: Alle Komponenten müssen zugänglich und barrierefrei sein
+- **Konsistenz**: Einheitliches Design und einheitliche API für alle Komponenten
+
+## Styleguide
+
+### CSS-Konventionen
+
+1. **Verwende logische Eigenschaften**, wenn möglich:
+   - `inline-size` statt `width`
+   - `block-size` statt `height` 
+   - `inline-start` statt `left`/`right` (je nach Sprachrichtung)
+
+2. **CSS-Werte in Kleinbuchstaben**:
+   - `optimizespeed` statt `optimizeSpeed`
+   - `auto` statt `Auto`
+
+3. **Verwende CSS-Layers korrekt**:
+   - `@layer core { ... }` für Kern-Funktionalität
+   - Module sollten `.module.css` Dateierweiterung verwenden
+
+4. **CSS-Variablen**:
+   - Folge der bestehenden Benennungskonvention (z.B. `--color-primary-500`)
+   - Definiere neue Variablen in `layers/tokens.css`
+   - Verwende bestehende Variablen, statt neue zu erstellen
+
+### Neue Komponenten
+
+1. **Studiere bestehende Komponenten** vor dem Erstellen neuer
+2. **Erstelle ein Modul** in `modules/` mit der Erweiterung `.module.css`
+3. **Dokumentiere** mit Kommentaren die Nutzung der Komponente
+4. **Füge Varianten** für verschiedene Anwendungsfälle hinzu
+5. **Teste** die Komponente in verschiedenen Browsern
+
+## Beitragsprozess
+
+1. **Forke** das Repository
+2. **Erstelle einen Feature-Branch**: `git checkout -b feature/neue-komponente`
+3. **Entwickle** deine Änderungen
+4. **Führe Linting durch**: `npm run lint`
+5. **Pushe**: `git push origin feature/neue-komponente`
+6. **Erstelle einen Pull Request** mit einer klaren Beschreibung
+
+## Code-Qualität
+
+- **Linting**: `npm run lint` muss ohne Fehler durchlaufen
+- **Keine direkten Commits** auf den `main`-Branch
+- **Selbstprüfung**: Überprüfe deine Änderungen auf mögliche Fehler vor dem Einreichen
+
+## Pull Requests
+
+Dein Pull Request sollte Folgendes enthalten:
+
+- **Beschreibung** der Änderungen
+- **Kontext** warum die Änderungen notwendig sind
+- **Screenshots**, wenn visuelle Änderungen vorgenommen wurden
+- **Testanweisungen**, wie die Änderungen zu testen sind
+
+## Kontakt
+
+Bei Fragen oder Unklarheiten wende dich bitte an das CASOON-Entwicklungsteam.
 
 ## 🚀 Erste Schritte
 
