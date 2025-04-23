@@ -246,4 +246,26 @@
       transition: none;
     }
   }
+}
+
+/* Integrierte has-Selektoren für Button-Komponenten */
+@layer has-selectors {
+  /* Buttons in verschiedenen Kontexten */
+  .button-group:has(.button-primary) {
+    border: 1px solid var(--color-primary-300);
+    border-radius: 0.25rem;
+  }
+
+  /* Button-Gruppen mit :has() */
+  .button-group:has(.primary-button) {
+    display: flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+  }
+
+  /* Komplexe Attribute kombinieren */
+  [data-role="button"]:has([data-icon]) {
+    padding-inline-start: 2.5rem;
+    position: relative;
+  }
 } 

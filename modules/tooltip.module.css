@@ -328,4 +328,30 @@
 
 .tooltip-offset-sm.tooltip-right .tooltip-content {
     margin-left: var(--tooltip-offset);
+}
+
+/* Integrierte has-Selektoren für Tooltip-Komponenten */
+@layer has-selectors {
+  /* Tooltip-Anzeige */
+  .tooltip-container:has(:hover) .tooltip {
+    visibility: visible;
+    opacity: 1;
+    display: block;
+  }
+
+  /* Tooltip mit :has() */
+  [data-tooltip]:has(:hover)::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    inset-block-start: 100%;
+    inset-inline-start: 50%;
+    transform: translateX(-50%);
+    background-color: var(--color-surface-900);
+    color: var(--color-surface-100);
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    white-space: nowrap;
+    z-index: 10;
+  }
 } 

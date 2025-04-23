@@ -1,0 +1,185 @@
+/* 
+ * Barrierefreiheit und Forced Colors Unterstützung
+ */
+
+@layer accessibility {
+  /* Fokus-Stile verbessern */
+  :focus {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 2px;
+  }
+
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  /* 
+   * Einstellungen für prefers-reduced-motion 
+   * Reduziert oder entfernt Animationen für Nutzer, die dies bevorzugen
+   */
+  @media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+
+    .scroll-reveal {
+      opacity: 1;
+      transform: none;
+      animation: none;
+    }
+
+    .parallax-bg {
+      animation: none;
+    }
+  }
+
+  /* 
+   * Unterstützung für High Contrast Mode / Forced Colors 
+   * Stellt sicher, dass wichtige UI-Elemente auch im Forced-Colors-Modus sichtbar sind
+   */
+  @media (forced-colors: active) {
+    /* Basis-Anpassungen für Forced Colors */
+    * {
+      forced-color-adjust: auto;
+    }
+
+    /* Spezielle Anpassungen für kritische UI-Elemente */
+    .button, 
+    .primary-button, 
+    .secondary-button,
+    .accent-button {
+      border: 1px solid CanvasText;
+      forced-color-adjust: none;
+      background-color: ButtonFace;
+      color: ButtonText;
+    }
+
+    .button:hover,
+    .primary-button:hover,
+    .secondary-button:hover,
+    .accent-button:hover {
+      background-color: Highlight;
+      color: HighlightText;
+      border-color: HighlightText;
+    }
+
+    .button:focus,
+    .primary-button:focus,
+    .secondary-button:focus,
+    .accent-button:focus {
+      outline-color: Highlight;
+    }
+
+    /* Links in Forced Colors anpassen */
+    a {
+      color: LinkText;
+      text-decoration-color: LinkText;
+      forced-color-adjust: none;
+    }
+    
+    a:hover, a:focus {
+      color: HighlightText;
+      background-color: Highlight;
+    }
+
+    /* Formularelement-Anpassungen */
+    input, select, textarea {
+      border: 1px solid CanvasText;
+      background-color: Canvas;
+      color: CanvasText;
+      forced-color-adjust: none;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: 2px solid Highlight;
+    }
+
+    /* Checkbox und Radio-Button Anpassungen */
+    input[type="checkbox"], input[type="radio"] {
+      border: 1px solid CanvasText;
+      forced-color-adjust: none;
+    }
+
+    input[type="checkbox"]:checked, input[type="radio"]:checked {
+      background-color: Highlight;
+      border-color: Highlight;
+    }
+
+    /* Fortschrittsanzeige für Forced Colors anpassen */
+    progress {
+      border: 1px solid CanvasText;
+      color: Highlight;
+      forced-color-adjust: none;
+    }
+
+    /* Status- und Benachrichtigungsfarben anpassen */
+    .status-success {
+      border: 1px solid CanvasText;
+      color: CanvasText;
+      background-color: Canvas;
+      forced-color-adjust: none;
+    }
+    
+    .status-error {
+      border: 1px solid CanvasText;
+      color: CanvasText;
+      background-color: Canvas;
+      forced-color-adjust: none;
+    }
+    
+    .status-warning {
+      border: 1px solid CanvasText;
+      color: CanvasText;
+      background-color: Canvas;
+      forced-color-adjust: none;
+    }
+  }
+
+  /* 
+   * Unterstützung für prefers-contrast
+   * Verbessert den Kontrast für Benutzer, die das bevorzugen
+   */
+  @media (prefers-contrast: more) {
+    :root {
+      --color-focus: black;
+      --text-color: black;
+      --background-color: white;
+    }
+    
+    body {
+      color: var(--text-color);
+      background-color: var(--background-color);
+    }
+    
+    a, button, input, select, textarea {
+      border: 1px solid currentColor;
+    }
+    
+    a:focus, button:focus, input:focus, select:focus, textarea:focus {
+      outline: 2px solid var(--color-focus);
+      outline-offset: 2px;
+    }
+  }
+
+  /* Sprachspezifische Anpassungen - für RTL-Sprachen */
+  [dir="rtl"] {
+    /* RTL-spezifische Anpassungen */
+    .card-content {
+      text-align: right;
+    }
+    
+    .button-icon {
+      margin-left: 0;
+      margin-right: var(--spacing-xs);
+    }
+  }
+} 

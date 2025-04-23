@@ -162,4 +162,42 @@
             width: 100%;
         }
     }
+}
+
+/* Integrierte has-Selektoren für Input-Komponenten */
+@layer has-selectors {
+  /* Erweiterte Feldvalidierung mit :has() */
+  .input-wrapper:has(input:invalid) {
+    border-color: var(--color-error-500);
+  }
+
+  .input-wrapper:has(input:invalid) .validation-icon {
+    color: var(--color-error-500);
+    display: inline-block;
+  }
+
+  .input-wrapper:has(input:valid:not(:placeholder-shown)) {
+    border-color: var(--color-success-500);
+  }
+
+  .input-wrapper:has(input:valid:not(:placeholder-shown)) .validation-icon {
+    color: var(--color-success-500);
+    display: inline-block;
+  }
+
+  /* Styling für ausgefüllte vs. leere Eingaben */
+  .form-input:has(:not(:placeholder-shown)) + .form-label {
+    transform: translateY(-1.5rem) scale(0.85);
+    color: var(--color-primary-600);
+  }
+
+  /* Verbundene Formularelemente */
+  .input-group:has(input:focus) {
+    box-shadow: 0 0 0 2px var(--color-primary-300);
+  }
+
+  /* Suchfeld mit Ergebnissen */
+  .search-container:has(input:focus) .search-results {
+    display: block;
+  }
 } 

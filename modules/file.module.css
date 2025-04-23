@@ -187,6 +187,8 @@
   border-style: var(--file-dropzone-border-style);
   background-color: var(--file-dropzone-bg);
   text-align: center;
+  contain: layout;
+  contain-intrinsic-size: 100% 120px;
 }
 
 .file-dropzone .file-text {
@@ -226,7 +228,7 @@
 }
 
 /* Responsive Anpassungen */
-@media (width <= 768px) {
+@media (width <= var(--breakpoint-md)) {
   .file-label {
     flex-direction: column;
     height: auto;
@@ -243,4 +245,15 @@
     border-left: none;
     border-top: var(--file-border-width) solid var(--file-border-color);
   }
+}
+
+/* Verschiedene Dropzone-Größen */
+.file-dropzone.file-sm .file-label {
+  min-height: 80px;
+  contain-intrinsic-size: 100% 80px;
+}
+
+.file-dropzone.file-lg .file-label {
+  min-height: 180px;
+  contain-intrinsic-size: 100% 180px;
 } 

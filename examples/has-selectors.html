@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relationale Selektoren (:has) Beispiele - Casoon UI</title>
+    <link rel="stylesheet" href="../core.css">
+    <style>
+        .example-section {
+            margin-block: 2rem;
+            padding: 1.5rem;
+            border: 1px solid var(--color-gray-200);
+            border-radius: var(--border-radius-lg);
+        }
+
+        .example-heading {
+            margin-block-end: 1rem;
+            font-size: var(--font-size-lg);
+            color: var(--color-primary);
+        }
+
+        .code-sample {
+            padding: 1rem;
+            background-color: var(--color-gray-100);
+            border-radius: var(--border-radius-md);
+            margin-block-end: 1.5rem;
+            font-family: monospace;
+        }
+
+        .fallback-note {
+            font-style: italic;
+            color: var(--color-gray-600);
+            margin-block-start: 1rem;
+        }
+    </style>
+</head>
+<body class="p-6">
+    <header class="mb-8">
+        <h1 class="text-2xl font-bold mb-2">Relationale Selektoren (:has) - Casoon UI</h1>
+        <p class="text-gray-600">Beispiele für die Verwendung von CSS :has() für kontextbezogene Styling-Änderungen</p>
+    </header>
+
+    <main>
+        <!-- Formulare mit :has() -->
+        <section class="example-section">
+            <h2 class="example-heading">Formulare mit :has()</h2>
+
+            <div class="code-sample">
+                .form-group:has(:invalid) { border-color: var(--color-error); }
+                .form-group:has(:focus) { border-color: var(--color-primary); }
+            </div>
+
+            <form class="form">
+                <div class="group has-invalid">
+                    <label class="label" for="name">Name (ungültig)</label>
+                    <input class="input" type="text" id="name" required pattern="[A-Za-z]{3,}" value="1">
+                    <span class="error-message">Bitte geben Sie einen gültigen Namen ein</span>
+                </div>
+
+                <div class="group">
+                    <label class="label" for="email">E-Mail</label>
+                    <input class="input" type="email" id="email" placeholder="beispiel@domain.de">
+                </div>
+
+                <div class="group has-valid">
+                    <label class="label" for="message">Nachricht (gültig)</label>
+                    <textarea class="textarea" id="message" rows="3" required>Gültige Nachricht</textarea>
+                    <span class="success-message">Die Nachricht ist gültig</span>
+                </div>
+            </form>
+
+            <p class="fallback-note">Fallback für Browser ohne :has()-Unterstützung: Utility-Klassen wie .has-invalid, .has-valid</p>
+        </section>
+
+        <!-- Karten mit :has() -->
+        <section class="example-section">
+            <h2 class="example-heading">Karten mit :has()</h2>
+
+            <div class="code-sample">
+                .card:has(.featured) { border-color: var(--color-accent); }
+                .card:has(a) { cursor: pointer; }
+                .card:has(.image) { padding-top: 0; }
+            </div>
+
+            <div class="grid grid-cols-2 gap-6">
+                <div class="card">
+                    <h3 class="text-lg font-medium">Standard Karte</h3>
+                    <p>Diese Karte hat keine besonderen Eigenschaften.</p>
+                </div>
+
+                <div class="card">
+                    <div class="featured p-2 bg-primary-100 text-primary">Featured</div>
+                    <h3 class="text-lg font-medium">Featured Karte</h3>
+                    <p>Diese Karte hat einen featured-Marker und erhält automatisch einen akzentuierten Rahmen.</p>
+                </div>
+
+                <div class="card">
+                    <div class="image" style="height: 120px; background-color: var(--color-gray-200);"></div>
+                    <h3 class="text-lg font-medium">Karte mit Bild</h3>
+                    <p>Diese Karte enthält ein Bild und hat keinen oberen Innenabstand.</p>
+                </div>
+
+                <div class="card">
+                    <h3 class="text-lg font-medium">Interaktive Karte</h3>
+                    <p>Diese Karte enthält einen Button und wird dadurch automatisch anklickbar.</p>
+                    <button class="btn btn--primary mt-4">Mehr erfahren</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Listen und Navigation mit :has() -->
+        <section class="example-section">
+            <h2 class="example-heading">Listen und Navigation mit :has()</h2>
+
+            <div class="code-sample">
+                ul:has(> li:hover) { background-color: var(--color-gray-50); }
+                .nav-item:has(.active) { font-weight: bold; }
+            </div>
+
+            <nav class="mb-6">
+                <ul class="flex gap-4 p-2 rounded">
+                    <li class="nav-item">
+                        <a href="#" class="active">Startseite</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#">Produkte</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#">Über uns</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#">Kontakt</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <ul class="border border-gray-200 rounded p-4">
+                <li class="p-2 hover:bg-gray-100">Hover über diesen Eintrag, um die gesamte Liste hervorzuheben</li>
+                <li class="p-2 hover:bg-gray-100">Die Liste ändert ihren Hintergrund, wenn ein Element gehovered wird</li>
+                <li class="p-2 hover:bg-gray-100">Drittes Listenelement</li>
+            </ul>
+        </section>
+
+        <!-- Bedingte Stile ohne JavaScript -->
+        <section class="example-section">
+            <h2 class="example-heading">Bedingte Stile ohne JavaScript</h2>
+
+            <div class="code-sample">
+                .parent:has(.child:checked) .conditional { display: block; }
+                .accordion:has(input:checked) .content { max-height: 500px; }
+            </div>
+
+            <div class="parent border p-4 rounded mb-6">
+                <label class="flex items-center mb-2">
+                    <input type="checkbox" class="child mr-2"> Aktivieren, um Inhalt anzuzeigen
+                </label>
+                <div class="conditional hidden p-4 bg-gray-100 rounded">
+                    Dieser Inhalt wird angezeigt, wenn die Checkbox aktiviert ist.
+                    Ohne JavaScript, nur mit CSS :has()!
+                </div>
+            </div>
+
+            <div class="accordion border rounded overflow-hidden">
+                <label class="flex items-center p-4 cursor-pointer">
+                    <input type="checkbox" class="mr-2"> Akkordeon öffnen/schließen
+                </label>
+                <div class="content h-0 overflow-hidden transition-all">
+                    <div class="p-4 bg-gray-50">
+                        <p>Inhalt des Akkordeons, der expandiert wird, wenn die Checkbox aktiviert ist.</p>
+                        <p>Dies verwendet :has() und benötigt kein JavaScript!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Füge Klassen hinzu für Browser ohne :has()-Unterstützung
+        document.addEventListener('DOMContentLoaded', function() {
+            const supportsHas = CSS.supports('selector(:has(*))')
+            if (!supportsHas) {
+                document.body.classList.add('no-has-support');
+                console.log('Browser unterstützt :has() nicht - Fallback-Klassen werden verwendet');
+            }
+        });
+    </script>
+</body>
+</html> 

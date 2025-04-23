@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Container Queries mit contain-intrinsic-size Demo</title>
+  <link rel="stylesheet" href="../core.css">
+  <style>
+    /* Demo-spezifische Styles */
+    body {
+      padding: 2rem;
+      font-family: var(--font-family-sans);
+    }
+
+    h1 {
+      margin-bottom: 2rem;
+    }
+
+    .demo-section {
+      margin-bottom: 3rem;
+      border: 1px solid var(--color-border);
+      padding: 1rem;
+      border-radius: var(--border-radius-md);
+    }
+
+    .demo-title {
+      margin-bottom: 1rem;
+    }
+
+    .demo-description {
+      margin-bottom: 1.5rem;
+      color: var(--color-text-secondary);
+    }
+
+    .demo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    /* Beispiel 1: Bilder mit stabiler Höhe */
+    .image-placeholder {
+      background-color: var(--color-gray-200);
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-gray-600);
+    }
+
+    /* Beispiel 2: Karten-Container mit fester Intrinsic-Größe */
+    .card {
+      padding: 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: var(--border-radius-md);
+      background-color: var(--color-white);
+    }
+
+    .loader {
+      display: inline-block;
+      width: 2rem;
+      height: 2rem;
+      border: 3px solid var(--color-gray-200);
+      border-radius: 50%;
+      border-top-color: var(--color-primary-500);
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .control-panel {
+      margin-bottom: 1rem;
+    }
+
+    button {
+      padding: 0.5rem 1rem;
+      background-color: var(--color-primary-500);
+      color: white;
+      border: none;
+      border-radius: var(--border-radius-md);
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    button:hover {
+      background-color: var(--color-primary-600);
+    }
+  </style>
+</head>
+<body>
+  <h1>Container Queries mit contain-intrinsic-size Demo</h1>
+
+  <div class="demo-section">
+    <h2 class="demo-title">Beispiel 1: Responsive Bilder ohne Layout Shifts</h2>
+    <p class="demo-description">
+      Diese Container verwenden contain-intrinsic-size und aspect-ratio, um Layout-Shifts beim Bildladen zu verhindern.
+      Der Container reserviert den benötigten Platz, bevor das Bild geladen ist.
+    </p>
+
+    <div class="control-panel">
+      <button id="load-images">Bilder laden</button>
+    </div>
+
+    <div class="demo-grid">
+      <!-- Container 1 -->
+      <div class="image-container container-query">
+        <div class="image-placeholder" id="image1">
+          <div class="loader"></div>
+        </div>
+      </div>
+
+      <!-- Container 2 -->
+      <div class="image-container container-query">
+        <div class="image-placeholder" id="image2">
+          <div class="loader"></div>
+        </div>
+      </div>
+      
+      <!-- Container 3 -->
+      <div class="image-container container-query">
+        <div class="image-placeholder" id="image3">
+          <div class="loader"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="demo-section">
+    <h2 class="demo-title">Beispiel 2: Card-Container mit stabiler Größe</h2>
+    <p class="demo-description">
+      Diese Karten-Container verwenden contain-intrinsic-size, um eine feste Größe zu reservieren,
+      während ihr Inhalt asynchron geladen wird.
+    </p>
+
+    <div class="control-panel">
+      <button id="load-cards">Karten laden</button>
+    </div>
+
+    <div class="demo-grid">
+      <!-- Card 1 -->
+      <div class="card-container container-query">
+        <div class="card" id="card1">
+          <div class="loader"></div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card-container container-query">
+        <div class="card" id="card2">
+          <div class="loader"></div>
+        </div>
+      </div>
+      
+      <!-- Card 3 -->
+      <div class="card-container container-query">
+        <div class="card" id="card3">
+          <div class="loader"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Simuliere asynchrones Laden von Inhalten
+    document.getElementById('load-images').addEventListener('click', function() {
+      // Bilder mit Verzögerung laden
+      setTimeout(() => {
+        document.getElementById('image1').innerHTML = '<img src="https://picsum.photos/600/400" alt="Beispielbild 1" style="max-width: 100%;">';
+      }, 500);
+      
+      setTimeout(() => {
+        document.getElementById('image2').innerHTML = '<img src="https://picsum.photos/601/400" alt="Beispielbild 2" style="max-width: 100%;">';
+      }, 1200);
+      
+      setTimeout(() => {
+        document.getElementById('image3').innerHTML = '<img src="https://picsum.photos/602/400" alt="Beispielbild 3" style="max-width: 100%;">';
+      }, 1800);
+    });
+
+    document.getElementById('load-cards').addEventListener('click', function() {
+      // Karten-Inhalte mit Verzögerung laden
+      setTimeout(() => {
+        document.getElementById('card1').innerHTML = `
+          <h3>Produktkarte 1</h3>
+          <p>Das ist ein Beispielinhalt für eine Produktkarte mit dynamischem Inhalt.</p>
+          <p>Preis: 99,99 €</p>
+        `;
+      }, 800);
+      
+      setTimeout(() => {
+        document.getElementById('card2').innerHTML = `
+          <h3>Produktkarte 2</h3>
+          <p>Ein weiteres Beispiel mit etwas mehr Text für die zweite Karte.</p>
+          <p>Preis: 129,99 €</p>
+          <button>In den Warenkorb</button>
+        `;
+      }, 1500);
+      
+      setTimeout(() => {
+        document.getElementById('card3').innerHTML = `
+          <h3>Produktkarte 3</h3>
+          <p>Die dritte Karte enthält einen längeren Beschreibungstext, um zu demonstrieren, wie Container mit unterschiedlichen Inhaltsmengen umgehen.</p>
+          <p>Preis: 149,99 €</p>
+          <div style="display: flex; gap: 0.5rem; margin-top: 1rem;">
+            <button>Details</button>
+            <button>Kaufen</button>
+          </div>
+        `;
+      }, 2200);
+    });
+  </script>
+</body>
+</html>

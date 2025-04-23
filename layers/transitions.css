@@ -1,0 +1,141 @@
+/* 
+ * View Transitions & Scroll-Driven Animations
+ */
+
+@layer transitions {
+  /* View Transitions für Seitenübergänge */
+  .view-transition {
+    view-transition-name: var(--transition-name, "main");
+  }
+
+  /* View-Transition Klassen für verschiedene Seitenelemente */
+  .transition-header {
+    view-transition-name: header;
+  }
+
+  .transition-hero {
+    view-transition-name: hero;
+  }
+
+  .transition-content {
+    view-transition-name: content;
+  }
+
+  .transition-footer {
+    view-transition-name: footer;
+  }
+
+  /* Anpassung der View-Transition-Effekte */
+  @keyframes slide-from-right {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+  }
+
+  @keyframes slide-from-left {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+  }
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes grow {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+
+  /* View Transition API Anpassung */
+  ::view-transition-new(content) {
+    animation: 300ms cubic-bezier(0.4, 0, 0.2, 1) both fade-in,
+               300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-right;
+  }
+
+  ::view-transition-old(content) {
+    animation: 300ms cubic-bezier(0.4, 0, 0.2, 1) both fade-out,
+               300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-left;
+  }
+
+  /* Scroll-Driven Animations */
+  @keyframes reveal {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .scroll-reveal {
+    opacity: 0;
+    animation: reveal linear forwards;
+    animation-timeline: scroll(root);
+    animation-range: entry 5% cover 15%;
+  }
+
+  /* Parallax-Effekt mit Scroll-Driven Animation */
+  .parallax-container {
+    height: 40vh;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .parallax-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    animation-timeline: scroll();
+    animation-range: entry exit;
+    animation: parallax ease-out both;
+  }
+
+  @keyframes parallax {
+    from { transform: translateY(0); }
+    to { transform: translateY(-20%); }
+  }
+
+  /* Scroll-Driven Progress Bar */
+  .progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    width: 0%;
+    background-color: var(--color-primary);
+    z-index: 1000;
+    
+    animation-name: progress;
+    animation-timing-function: linear;
+    animation-timeline: scroll(root);
+  }
+
+  @keyframes progress {
+    from { width: 0%; }
+    to { width: 100%; }
+  }
+
+  /* Fallback für Browser ohne Scroll-Driven Animations */
+  @supports not (animation-timeline: scroll()) {
+    .scroll-reveal {
+      opacity: 1;
+      transform: translateY(0);
+      animation: none;
+    }
+    
+    .parallax-bg {
+      animation: none;
+    }
+    
+    .progress-bar {
+      animation: none;
+      display: none;
+    }
+  }
+} 

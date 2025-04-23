@@ -113,4 +113,21 @@
   .alert-content {
     margin: 0;
   }
+}
+
+/* Integrierte has-Selektoren für Alert-Komponenten */
+@layer has-selectors {
+  /* Alert-Komponenten mit :has() */
+  .alert:has(button.close) {
+    padding-inline-end: 2.5rem;
+    position: relative;
+  }
+
+  /* Error-Status mit :has() */
+  [data-state="error"]:has(> .message) {
+    padding-block: 0.75rem;
+    padding-inline: 1rem;
+    border-radius: 0.25rem;
+    background-color: var(--color-error-50);
+  }
 } 

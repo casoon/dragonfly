@@ -7,12 +7,37 @@
 
 
 @layer core {
-    @import url("layers/tokens.css");
+    /* Browser-Stile zurücksetzen */
     @import url("layers/reset.css");
+    
+    /* Grundlegende Farbdefinitionen */
+    @import url("layers/color-mix.css");
+    
+    /* Design-Tokens und Variablen */
+    @import url("layers/tokens.css");
+    
+    /* Farben auf Basis der Tokens */
     @import url("layers/colors.css");
+    
+    /* Typografie-Grundlagen */
     @import url("layers/typography.css");
-    @import url("layers/utilities.css");
+    
+    /* Logische Eigenschaften für internationalisierte Layouts */
+    @import url("layers/logical-properties.css");
+    
+    /* Animationen und Übergänge */
+    @import url("layers/transitions.css");
+    
+    /* Barrierefreiheitsregeln */
+    @import url("layers/accessibility.css");
+    
+    /* Layout-Grundlagen */
     @import url("layers/layout.css");
+    
+    /* Utility-Klassen */
+    @import url("layers/utilities.css");
+    
+    /* Smooth Scroll Verhalten */
     @import url("layers/smooth-scroll.css");
 }
 

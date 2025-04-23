@@ -246,4 +246,18 @@
     .modal-content {
         background-color: var(--bg-white);
     }
+}
+
+/* Integrierte has-Selektoren für Modal-Komponenten */
+@layer has-selectors {
+  /* Modale Dialoge mit :has() */
+  body:has(dialog[open]) {
+    overflow: hidden;
+  }
+
+  dialog:has(form) {
+    min-width: 400px;
+    max-width: 500px;
+    padding: 2rem;
+  }
 } 

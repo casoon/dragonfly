@@ -217,4 +217,16 @@
       width: 100%;
     }
   }
+}
+
+/* Integrierte has-Selektoren für Notification-Komponenten */
+@layer has-selectors {
+  /* Benachrichtigungen mit :has() */
+  .notifications:has(.notification-item) {
+    display: block;
+  }
+
+  .notifications:has(.notification-item.unread) .indicator {
+    display: inline-block;
+  }
 } 

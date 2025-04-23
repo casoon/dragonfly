@@ -187,4 +187,69 @@
             transition: none;
         }
     }
+}
+
+/* Integrierte has-Selektoren für Table-Komponenten */
+@layer has-selectors {
+  /* Tabellenstyling mit :has() */
+  .table:has(thead) {
+    border-block-start: 2px solid var(--color-surface-400);
+  }
+
+  .table:has(tfoot) {
+    border-block-end: 2px solid var(--color-surface-400);
+  }
+
+  tr:has(> th) {
+    background-color: var(--color-surface-200);
+  }
+
+  tr:has(td > .status-error) {
+    background-color: color-mix(in srgb, var(--color-error-100) 20%, transparent);
+  }
+
+  tr:has(td > .status-success) {
+    background-color: color-mix(in srgb, var(--color-success-100) 20%, transparent);
+  }
+
+  tr:has(td > .status-warning) {
+    background-color: color-mix(in srgb, var(--color-warning-100) 20%, transparent);
+  }
+
+  tr:has([data-highlight]) {
+    background-color: color-mix(in srgb, var(--color-primary-100) 30%, transparent);
+  }
+
+  tr:has(> td[data-highlight="true"]) {
+    background-color: var(--color-primary-50);
+  }
+
+  tr:has(td:hover) {
+    background-color: var(--color-primary-50);
+  }
+
+  tr:has(td:first-child:hover) {
+    background-color: var(--color-surface-100);
+  }
+
+  table:has(thead) {
+    margin-block-end: var(--spacing-md);
+  }
+
+  table:not(:has(thead)) {
+    border-block-start: none;
+  }
+
+  /* Table Sortierung mit :has() */
+  th:has(.sort-button[aria-sort="ascending"]) {
+    background-color: var(--color-surface-200);
+  }
+
+  th:has(.sort-button[aria-sort="descending"]) {
+    background-color: var(--color-surface-100);
+  }
+
+  .sortable-item:has(.handle:hover) {
+    border-color: var(--color-primary-400);
+  }
 } 

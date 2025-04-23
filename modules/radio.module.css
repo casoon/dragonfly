@@ -113,4 +113,33 @@
             transition: none;
         }
     }
+}
+
+/* Integrierte has-Selektoren für Radio-Komponenten */
+@layer has-selectors {
+  /* Radio-Wrapper Styling */
+  .radio-wrapper:has(input:checked) {
+    background-color: var(--color-primary-50);
+  }
+
+  /* Radio-Button-Gruppen */
+  .radio-option:has(input:checked) {
+    background-color: var(--color-primary-100);
+  }
+
+  /* Option-Card mit Radio */
+  .option-card:has(input[type="radio"]:checked) {
+    background-color: var(--color-primary-50);
+    border-color: var(--color-primary-500);
+  }
+
+  /* Zahlungsauswahl mit Radio */
+  .payment-method:has(input[value="credit-card"]:checked) .card-details {
+    display: block;
+  }
+
+  /* Versandoptionen mit Radio */
+  .shipping-options:has(input[value="express"]:checked) .express-fields {
+    display: block;
+  }
 } 

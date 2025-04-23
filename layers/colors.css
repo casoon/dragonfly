@@ -1,4 +1,3 @@
-
 @layer colors {
     :root {
         /* Blautöne */
@@ -906,5 +905,107 @@
         --color-neon-purple-700: oklch(60% 0.65 300deg);
         --color-neon-purple-800: oklch(55% 0.7 300deg);
         --color-neon-purple-900: oklch(50% 0.75 300deg);
-    } 
+
+        /* Moderne Farbfunktionen mit color-mix() */
+        
+        /* Farbvarianten mit Alpha-Werten */
+        --blue-transparent-10: color-mix(in srgb, var(--color-blue-500) 10%, transparent);
+        --blue-transparent-20: color-mix(in srgb, var(--color-blue-500) 20%, transparent);
+        --blue-transparent-30: color-mix(in srgb, var(--color-blue-500) 30%, transparent);
+        --blue-transparent-40: color-mix(in srgb, var(--color-blue-500) 40%, transparent);
+        --blue-transparent-50: color-mix(in srgb, var(--color-blue-500) 50%, transparent);
+        
+        /* Farbvarianten mit Schwarz/Weiß für Schatten und Highlights */
+        --blue-tint-10: color-mix(in srgb, var(--color-blue-500) 90%, white);
+        --blue-tint-20: color-mix(in srgb, var(--color-blue-500) 80%, white);
+        --blue-tint-30: color-mix(in srgb, var(--color-blue-500) 70%, white);
+        --blue-shade-10: color-mix(in srgb, var(--color-blue-500) 90%, black);
+        --blue-shade-20: color-mix(in srgb, var(--color-blue-500) 80%, black);
+        --blue-shade-30: color-mix(in srgb, var(--color-blue-500) 70%, black);
+        
+        /* Farbvarianten für Hover- und aktive Zustände */
+        --blue-hover: color-mix(in srgb, var(--color-blue-500) 90%, white);
+        --blue-active: color-mix(in srgb, var(--color-blue-500) 90%, black);
+        
+        /* Kontrastierende Farben */
+        --blue-contrast-light: color-mix(in srgb, var(--color-blue-500) 10%, white);
+        --blue-contrast-dark: color-mix(in srgb, var(--color-blue-900) 90%, black);
+        
+        /* Farbkombinationen für spezielle Effekte */
+        --primary-secondary-mix: color-mix(in lch, var(--color-blue-500) 50%, var(--color-indigo-500));
+        --primary-accent-mix: color-mix(in lch, var(--color-blue-500) 50%, var(--color-cyan-500));
+        --secondary-accent-mix: color-mix(in lch, var(--color-indigo-500) 50%, var(--color-cyan-500));
+        
+        /* Farben für Status-Indikatoren */
+        --success-hover: color-mix(in srgb, var(--color-green-500) 90%, white);
+        --success-active: color-mix(in srgb, var(--color-green-500) 90%, black);
+        --error-hover: color-mix(in srgb, var(--color-red-500) 90%, white);
+        --error-active: color-mix(in srgb, var(--color-red-500) 90%, black);
+        --warning-hover: color-mix(in srgb, var(--color-amber-500) 90%, white);
+        --warning-active: color-mix(in srgb, var(--color-amber-500) 90%, black);
+        
+        /* Farbkombinationen für Theme-Variationen */
+        --theme-gradient-start: var(--color-blue-500);
+        --theme-gradient-end: var(--color-cyan-500);
+        --theme-gradient-mid: color-mix(in lch, var(--theme-gradient-start) 50%, var(--theme-gradient-end));
+        
+        /* Farbschemata für Hell-/Dunkelmodus */
+        --light-surface: color-mix(in srgb, var(--color-gray-50) 98%, var(--color-blue-500));
+        --light-surface-hover: color-mix(in srgb, var(--color-gray-100) 95%, var(--color-blue-500));
+        --dark-surface: color-mix(in srgb, var(--color-gray-900) 98%, var(--color-blue-500));
+        --dark-surface-hover: color-mix(in srgb, var(--color-gray-800) 95%, var(--color-blue-500));
+        
+        /* Textfarben mit erhöhtem Kontrast für Barrierefreiheit */
+        --text-high-contrast: color-mix(in srgb, var(--color-gray-900) 95%, var(--color-blue-900));
+        --text-medium-contrast: color-mix(in srgb, var(--color-gray-700) 95%, var(--color-blue-700));
+        --text-low-contrast: color-mix(in srgb, var(--color-gray-500) 95%, var(--color-blue-500));
+    }
+
+    /* Dynamische Farbvarianten für alle Basisfarben */
+    .dynamic-color-variants {
+        /* Primärfarben */
+        --primary-lightest: color-mix(in srgb, var(--color-primary-500) 20%, white);
+        --primary-lighter: color-mix(in srgb, var(--color-primary-500) 40%, white);
+        --primary-light: color-mix(in srgb, var(--color-primary-500) 70%, white);
+        --primary: var(--color-primary-500);
+        --primary-dark: color-mix(in srgb, var(--color-primary-500) 70%, black);
+        --primary-darker: color-mix(in srgb, var(--color-primary-500) 40%, black);
+        --primary-darkest: color-mix(in srgb, var(--color-primary-500) 20%, black);
+        
+        /* Sekundärfarben */
+        --secondary-lightest: color-mix(in srgb, var(--color-secondary-500) 20%, white);
+        --secondary-lighter: color-mix(in srgb, var(--color-secondary-500) 40%, white);
+        --secondary-light: color-mix(in srgb, var(--color-secondary-500) 70%, white);
+        --secondary: var(--color-secondary-500);
+        --secondary-dark: color-mix(in srgb, var(--color-secondary-500) 70%, black);
+        --secondary-darker: color-mix(in srgb, var(--color-secondary-500) 40%, black);
+        --secondary-darkest: color-mix(in srgb, var(--color-secondary-500) 20%, black);
+        
+        /* Akzentfarben */
+        --accent-lightest: color-mix(in srgb, var(--color-accent-500) 20%, white);
+        --accent-lighter: color-mix(in srgb, var(--color-accent-500) 40%, white);
+        --accent-light: color-mix(in srgb, var(--color-accent-500) 70%, white);
+        --accent: var(--color-accent-500);
+        --accent-dark: color-mix(in srgb, var(--color-accent-500) 70%, black);
+        --accent-darker: color-mix(in srgb, var(--color-accent-500) 40%, black);
+        --accent-darkest: color-mix(in srgb, var(--color-accent-500) 20%, black);
+    }
+    
+    /* Farbschemata für Nutzerinteraktionen */
+    .interactive-colors {
+        /* Hover-Zustände */
+        --btn-primary-hover: color-mix(in srgb, var(--color-primary-500) 90%, white);
+        --btn-primary-active: color-mix(in srgb, var(--color-primary-500) 90%, black);
+        --btn-secondary-hover: color-mix(in srgb, var(--color-secondary-500) 90%, white);
+        --btn-secondary-active: color-mix(in srgb, var(--color-secondary-500) 90%, black);
+        
+        /* Link-Farben */
+        --link-default: var(--color-primary-600);
+        --link-hover: color-mix(in srgb, var(--color-primary-600) 80%, black);
+        --link-visited: color-mix(in lch, var(--color-primary-600) 70%, var(--color-purple-600));
+        
+        /* Fokus-Indikator */
+        --focus-ring: color-mix(in srgb, var(--color-primary-500) 80%, white);
+        --focus-ring-inset: color-mix(in srgb, var(--color-primary-500) 20%, white);
+    }
 } 

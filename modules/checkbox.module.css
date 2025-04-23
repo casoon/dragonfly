@@ -169,4 +169,47 @@
             transition: none;
         }
     }
+}
+
+/* Integrierte has-Selektoren für Checkbox-Komponenten */
+@layer has-selectors {
+  /* Checkbox-Wrapper Styling */
+  .checkbox-wrapper:has(input:checked) {
+    background-color: var(--color-primary-50);
+  }
+
+  /* Checkbox-Gruppen Styling */
+  .checkbox-group:has(input[type="checkbox"]:checked) {
+    background-color: var(--color-primary-50);
+  }
+
+  /* Verstecke Label, wenn Checkbox aktiviert ist */
+  .form-check:has(input:checked) label {
+    color: var(--color-primary-600);
+    font-weight: bold;
+  }
+
+  /* Verstecke Elemente nach ausgewähltem Checkbox */
+  input[type="checkbox"]:checked ~ .conditional-content {
+    display: block;
+  }
+
+  /* Verstecke Elemente nach nicht ausgewähltem Checkbox */
+  input[type="checkbox"]:not(:checked) ~ .conditional-content {
+    display: none;
+  }
+
+  /* Verstecke alternative Inhalte, wenn Checkbox nicht ausgewählt ist */
+  .toggle-container:has(input[type="checkbox"]:not(:checked)) .toggle-content {
+    display: none;
+  }
+
+  /* Akkordeon-Funktionalität */
+  .accordion-item:has(input[type="checkbox"]:checked) .accordion-content {
+    display: block;
+  }
+
+  .accordion-item:not(:has(input[type="checkbox"]:checked)) .accordion-content {
+    display: none;
+  }
 } 

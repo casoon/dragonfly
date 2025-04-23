@@ -233,4 +233,21 @@
             transition: none;
         }
     }
+}
+
+/* Integrierte has-Selektoren für Slider-Komponenten */
+@layer has-selectors {
+  /* Range-Slider Styling */
+  .range-slider:has(input[type="range"]:focus) .range-value {
+    opacity: 1;
+  }
+
+  /* Input Range mit :has() */
+  .range-wrapper:has(input[type="range"]:focus) .tooltip {
+    opacity: 1;
+  }
+
+  .range-wrapper:has(input[type="range"][value="100"]) .max-indicator {
+    color: var(--color-primary-500);
+  }
 } 

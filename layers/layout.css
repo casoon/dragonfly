@@ -3,10 +3,24 @@
  * 
  * Diese Datei enthält die Layout-Styles des Systems.
  * Die Styles sind in @layer layout organisiert.
+ * 
+ * Die Layout-Layer bietet folgende Hauptkomponenten:
+ * - Container-Klassen für Inhaltsbreiten
+ * - Grid-System für mehrspaltige Layouts
+ * - Flexbox-Utilities für flexible Layouts
+ * - Container-Queries für komponentenspezifische Responsivität
+ * - Abstands- und Positionierungs-Utilities
+ * - Responsive Breakpoint-Varianten aller Komponenten
  */
 
 @layer layout {
-    /* Container */
+    /* 
+     * Container
+     * 
+     * Container begrenzen die Breite von Inhalten und zentrieren diese.
+     * Verschiedene Breiten sind über Suffix-Klassen verfügbar.
+     * Beispiel: <div class="container container-md">...</div>
+     */
     .container {
         width: 100%;
         margin-left: auto;
@@ -53,13 +67,23 @@
         padding-right: var(--space-lg);
     }
 
-    /* Container Query Base */
+    /* 
+     * Container Query Base 
+     * 
+     * Ermöglicht komponentenspezifische Responsivität.
+     * Verwendung: <div data-container>...</div>
+     */
     [data-container] {
         container-type: inline-size;
         container-name: component;
     }
 
-    /* Grid Container Queries */
+    /* 
+     * Grid Container Queries 
+     * 
+     * Responsive Grids basierend auf Container-Breite statt Viewport-Breite.
+     * Skaliert von 1 bis 5 Spalten je nach verfügbarer Breite.
+     */
     .grid-responsive {
         display: grid;
         gap: var(--space-sm);
@@ -84,7 +108,12 @@
         }
     }
 
-    /* Flex Container Queries */
+    /* 
+     * Flex Container Queries 
+     * 
+     * Responsive Flexbox-Layout basierend auf Container-Breite.
+     * Wechselt von Spalten- zu Zeilenanordnung bei größeren Breiten.
+     */
     .flex-responsive {
         display: flex;
         flex-flow: column;
@@ -101,7 +130,11 @@
         }
     }
 
-    /* Layout Container Queries */
+    /* 
+     * Layout Container Queries 
+     * 
+     * Wechselt von Block- zu Grid-Layout basierend auf Container-Breite.
+     */
     .layout-responsive {
         display: block;
 
@@ -121,7 +154,11 @@
         }
     }
 
-    /* Stack Container Queries */
+    /* 
+     * Stack Container Queries 
+     * 
+     * Vertikaler Stack, der bei größeren Breiten horizontal wird.
+     */
     .stack-responsive {
         display: flex;
         flex-flow: column;
@@ -136,439 +173,469 @@
             gap: var(--space-lg);
         }
     }
-}
 
-/* Grid System */
-.grid {
-    display: grid;
-    gap: var(--space-0);
-}
+    /* 
+     * Grid System 
+     * 
+     * Ein flexibles Grid-System für mehrspaltige Layouts.
+     * Verwendung: <div class="grid grid-cols-2 gap-4">...</div>
+     */
+    .grid {
+        display: grid;
+        gap: var(--space-0);
+    }
 
-/* Grid Columns */
-.grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
-.grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-.grid-cols-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
-.grid-cols-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
-.grid-cols-12 { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+    /* Grid Columns */
+    .grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+    .grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .grid-cols-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+    .grid-cols-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+    .grid-cols-12 { grid-template-columns: repeat(12, minmax(0, 1fr)); }
 
-/* Column Spans */
-.col-span-1 { grid-column: span 1; }
-.col-span-2 { grid-column: span 2; }
-.col-span-3 { grid-column: span 3; }
-.col-span-4 { grid-column: span 4; }
-.col-span-5 { grid-column: span 5; }
-.col-span-6 { grid-column: span 6; }
-.col-span-7 { grid-column: span 7; }
-.col-span-8 { grid-column: span 8; }
-.col-span-9 { grid-column: span 9; }
-.col-span-10 { grid-column: span 10; }
-.col-span-11 { grid-column: span 11; }
-.col-span-12 { grid-column: span 12; }
-.col-span-full { grid-column: 1 / -1; }
+    /* 
+     * Column Spans 
+     * 
+     * Definiert, wie viele Spalten ein Element einnimmt.
+     * Verwendung: <div class="col-span-4">...</div>
+     */
+    .col-span-1 { grid-column: span 1; }
+    .col-span-2 { grid-column: span 2; }
+    .col-span-3 { grid-column: span 3; }
+    .col-span-4 { grid-column: span 4; }
+    .col-span-5 { grid-column: span 5; }
+    .col-span-6 { grid-column: span 6; }
+    .col-span-7 { grid-column: span 7; }
+    .col-span-8 { grid-column: span 8; }
+    .col-span-9 { grid-column: span 9; }
+    .col-span-10 { grid-column: span 10; }
+    .col-span-11 { grid-column: span 11; }
+    .col-span-12 { grid-column: span 12; }
+    .col-span-full { grid-column: 1 / -1; }
 
-/* Grid Gaps */
-.gap-0 { gap: var(--space-0); }
-.gap-1 { gap: var(--space-1); }
-.gap-2 { gap: var(--space-2); }
-.gap-3 { gap: var(--space-3); }
-.gap-4 { gap: var(--space-4); }
-.gap-5 { gap: var(--space-5); }
-.gap-6 { gap: var(--space-6); }
-.gap-8 { gap: var(--space-8); }
-.gap-10 { gap: var(--space-10); }
-.gap-12 { gap: var(--space-12); }
-.gap-16 { gap: var(--space-16); }
+    /* 
+     * Grid Gaps 
+     * 
+     * Abstandsklassen für Grid-Layouts.
+     * Verwendung: <div class="grid gap-4">...</div>
+     */
+    .gap-0 { gap: var(--space-0); }
+    .gap-1 { gap: var(--space-1); }
+    .gap-2 { gap: var(--space-2); }
+    .gap-3 { gap: var(--space-3); }
+    .gap-4 { gap: var(--space-4); }
+    .gap-5 { gap: var(--space-5); }
+    .gap-6 { gap: var(--space-6); }
+    .gap-8 { gap: var(--space-8); }
+    .gap-10 { gap: var(--space-10); }
+    .gap-12 { gap: var(--space-12); }
+    .gap-16 { gap: var(--space-16); }
 
-/* Grid Auto Flow */
-.grid-flow-row { grid-auto-flow: row; }
-.grid-flow-col { grid-auto-flow: column; }
-.grid-flow-dense { grid-auto-flow: dense; }
+    /* Grid Auto Flow */
+    .grid-flow-row { grid-auto-flow: row; }
+    .grid-flow-col { grid-auto-flow: column; }
+    .grid-flow-dense { grid-auto-flow: dense; }
 
-/* Grid Auto Columns */
-.auto-cols-auto { grid-auto-columns: auto; }
-.auto-cols-min { grid-auto-columns: min-content; }
-.auto-cols-max { grid-auto-columns: max-content; }
-.auto-cols-fr { grid-auto-columns: minmax(0, 1fr); }
+    /* Grid Auto Columns */
+    .auto-cols-auto { grid-auto-columns: auto; }
+    .auto-cols-min { grid-auto-columns: min-content; }
+    .auto-cols-max { grid-auto-columns: max-content; }
+    .auto-cols-fr { grid-auto-columns: minmax(0, 1fr); }
 
-/* Grid Auto Rows */
-.auto-rows-auto { grid-auto-rows: auto; }
-.auto-rows-min { grid-auto-rows: min-content; }
-.auto-rows-max { grid-auto-rows: max-content; }
-.auto-rows-fr { grid-auto-rows: minmax(0, 1fr); }
+    /* Grid Auto Rows */
+    .auto-rows-auto { grid-auto-rows: auto; }
+    .auto-rows-min { grid-auto-rows: min-content; }
+    .auto-rows-max { grid-auto-rows: max-content; }
+    .auto-rows-fr { grid-auto-rows: minmax(0, 1fr); }
 
-/* Grid Template Areas */
-.grid-areas-none { grid-template-areas: none; }
+    /* Grid Template Areas */
+    .grid-areas-none { grid-template-areas: none; }
 
-/* Grid Template Rows */
-.grid-rows-1 { grid-template-rows: repeat(1, minmax(0, 1fr)); }
-.grid-rows-2 { grid-template-rows: repeat(2, minmax(0, 1fr)); }
-.grid-rows-3 { grid-template-rows: repeat(3, minmax(0, 1fr)); }
-.grid-rows-4 { grid-template-rows: repeat(4, minmax(0, 1fr)); }
-.grid-rows-5 { grid-template-rows: repeat(5, minmax(0, 1fr)); }
-.grid-rows-6 { grid-template-rows: repeat(6, minmax(0, 1fr)); }
+    /* Grid Template Rows */
+    .grid-rows-1 { grid-template-rows: repeat(1, minmax(0, 1fr)); }
+    .grid-rows-2 { grid-template-rows: repeat(2, minmax(0, 1fr)); }
+    .grid-rows-3 { grid-template-rows: repeat(3, minmax(0, 1fr)); }
+    .grid-rows-4 { grid-template-rows: repeat(4, minmax(0, 1fr)); }
+    .grid-rows-5 { grid-template-rows: repeat(5, minmax(0, 1fr)); }
+    .grid-rows-6 { grid-template-rows: repeat(6, minmax(0, 1fr)); }
 
-/* Grid Row Spans */
-.row-span-1 { grid-row: span 1; }
-.row-span-2 { grid-row: span 2; }
-.row-span-3 { grid-row: span 3; }
-.row-span-4 { grid-row: span 4; }
-.row-span-5 { grid-row: span 5; }
-.row-span-6 { grid-row: span 6; }
-.row-span-full { grid-row: 1 / -1; }
+    /* Grid Row Spans */
+    .row-span-1 { grid-row: span 1; }
+    .row-span-2 { grid-row: span 2; }
+    .row-span-3 { grid-row: span 3; }
+    .row-span-4 { grid-row: span 4; }
+    .row-span-5 { grid-row: span 5; }
+    .row-span-6 { grid-row: span 6; }
+    .row-span-full { grid-row: 1 / -1; }
 
-/* Flexbox Utilities */
-.flex { display: flex; }
-.flex-row { flex-direction: row; }
-.flex-col { flex-direction: column; }
-.flex-wrap { flex-wrap: wrap; }
-.flex-nowrap { flex-wrap: nowrap; }
-.flex-1 { flex: 1 1 0%; }
-.flex-auto { flex: 1 1 auto; }
-.flex-initial { flex: 0 1 auto; }
-.flex-none { flex: none; }
+    /* 
+     * Flexbox Utilities 
+     * 
+     * Flexbox-Layout-Utilities für flexible UI-Komponenten.
+     * Verwendung: <div class="flex flex-row gap-4 items-center">...</div>
+     */
+    .flex { display: flex; }
+    .flex-row { flex-direction: row; }
+    .flex-col { flex-direction: column; }
+    .flex-wrap { flex-wrap: wrap; }
+    .flex-nowrap { flex-wrap: nowrap; }
+    .flex-1 { flex: 1 1 0%; }
+    .flex-auto { flex: 1 1 auto; }
+    .flex-initial { flex: 0 1 auto; }
+    .flex-none { flex: none; }
 
-/* Flex Grow */
-.flex-grow-0 { flex-grow: 0; }
-.flex-grow { flex-grow: 1; }
+    /* Flex Grow */
+    .flex-grow-0 { flex-grow: 0; }
+    .flex-grow { flex-grow: 1; }
 
-/* Flex Shrink */
-.flex-shrink-0 { flex-shrink: 0; }
-.flex-shrink { flex-shrink: 1; }
+    /* Flex Shrink */
+    .flex-shrink-0 { flex-shrink: 0; }
+    .flex-shrink { flex-shrink: 1; }
 
-/* Flex Basis */
-.flex-basis-auto { flex-basis: auto; }
-.flex-basis-0 { flex-basis: 0; }
+    /* Flex Basis */
+    .flex-basis-auto { flex-basis: auto; }
+    .flex-basis-0 { flex-basis: 0; }
 
-/* Position Utilities */
-.relative { position: relative; }
-.absolute { position: absolute; }
-.fixed { position: fixed; }
-.sticky { position: sticky; }
-.static { position: static; }
+    /* 
+     * Position Utilities 
+     * 
+     * Klassen zur Positionierung von Elementen.
+     */
+    .relative { position: relative; }
+    .absolute { position: absolute; }
+    .fixed { position: fixed; }
+    .sticky { position: sticky; }
+    .static { position: static; }
 
-/* Position Values */
-.top-0 { top: 0; }
-.right-0 { right: 0; }
-.bottom-0 { bottom: 0; }
-.left-0 { left: 0; }
+    /* Position Values */
+    .top-0 { top: 0; }
+    .right-0 { right: 0; }
+    .bottom-0 { bottom: 0; }
+    .left-0 { left: 0; }
 
-/* Z-Index */
-.z-0 { z-index: var(--z-0); }
-.z-10 { z-index: var(--z-10); }
-.z-20 { z-index: var(--z-20); }
-.z-30 { z-index: var(--z-30); }
-.z-40 { z-index: var(--z-40); }
-.z-50 { z-index: var(--z-50); }
-.z-auto { z-index: var(--z-auto); }
+    /* Z-Index */
+    .z-0 { z-index: var(--z-0); }
+    .z-10 { z-index: var(--z-10); }
+    .z-20 { z-index: var(--z-20); }
+    .z-30 { z-index: var(--z-30); }
+    .z-40 { z-index: var(--z-40); }
+    .z-50 { z-index: var(--z-50); }
+    .z-auto { z-index: var(--z-auto); }
 
-/* Spacing Utilities */
-.p-0 { padding: var(--space-0); }
-.p-1 { padding: var(--space-1); }
-.p-2 { padding: var(--space-2); }
-.p-3 { padding: var(--space-3); }
-.p-4 { padding: var(--space-4); }
-.p-5 { padding: var(--space-5); }
-.p-6 { padding: var(--space-6); }
-.p-8 { padding: var(--space-8); }
-.p-10 { padding: var(--space-10); }
-.p-12 { padding: var(--space-12); }
-.p-16 { padding: var(--space-16); }
+    /* 
+     * Spacing Utilities 
+     * 
+     * Abstandsklassen für Padding und Margin.
+     * Verwendung: <div class="p-4 my-8">...</div>
+     */
+    .p-0 { padding: var(--space-0); }
+    .p-1 { padding: var(--space-1); }
+    .p-2 { padding: var(--space-2); }
+    .p-3 { padding: var(--space-3); }
+    .p-4 { padding: var(--space-4); }
+    .p-5 { padding: var(--space-5); }
+    .p-6 { padding: var(--space-6); }
+    .p-8 { padding: var(--space-8); }
+    .p-10 { padding: var(--space-10); }
+    .p-12 { padding: var(--space-12); }
+    .p-16 { padding: var(--space-16); }
 
-/* Padding X */
-.px-0 { padding-left: 0; padding-right: 0; }
-.px-1 { padding-left: var(--space-1); padding-right: var(--space-1); }
-.px-2 { padding-left: var(--space-2); padding-right: var(--space-2); }
-.px-3 { padding-left: var(--space-3); padding-right: var(--space-3); }
-.px-4 { padding-left: var(--space-4); padding-right: var(--space-4); }
-.px-5 { padding-left: var(--space-5); padding-right: var(--space-5); }
-.px-6 { padding-left: var(--space-6); padding-right: var(--space-6); }
-.px-8 { padding-left: var(--space-8); padding-right: var(--space-8); }
-.px-10 { padding-left: var(--space-10); padding-right: var(--space-10); }
-.px-12 { padding-left: var(--space-12); padding-right: var(--space-12); }
-.px-16 { padding-left: var(--space-16); padding-right: var(--space-16); }
+    /* Padding X - Horizontal (Links und Rechts) */
+    .px-0 { padding-left: 0; padding-right: 0; }
+    .px-1 { padding-left: var(--space-1); padding-right: var(--space-1); }
+    .px-2 { padding-left: var(--space-2); padding-right: var(--space-2); }
+    .px-3 { padding-left: var(--space-3); padding-right: var(--space-3); }
+    .px-4 { padding-left: var(--space-4); padding-right: var(--space-4); }
+    .px-5 { padding-left: var(--space-5); padding-right: var(--space-5); }
+    .px-6 { padding-left: var(--space-6); padding-right: var(--space-6); }
+    .px-8 { padding-left: var(--space-8); padding-right: var(--space-8); }
+    .px-10 { padding-left: var(--space-10); padding-right: var(--space-10); }
+    .px-12 { padding-left: var(--space-12); padding-right: var(--space-12); }
+    .px-16 { padding-left: var(--space-16); padding-right: var(--space-16); }
 
-/* Padding Y */
-.py-0 { padding-top: 0; padding-bottom: 0; }
-.py-1 { padding-top: var(--space-1); padding-bottom: var(--space-1); }
-.py-2 { padding-top: var(--space-2); padding-bottom: var(--space-2); }
-.py-3 { padding-top: var(--space-3); padding-bottom: var(--space-3); }
-.py-4 { padding-top: var(--space-4); padding-bottom: var(--space-4); }
-.py-5 { padding-top: var(--space-5); padding-bottom: var(--space-5); }
-.py-6 { padding-top: var(--space-6); padding-bottom: var(--space-6); }
-.py-8 { padding-top: var(--space-8); padding-bottom: var(--space-8); }
-.py-10 { padding-top: var(--space-10); padding-bottom: var(--space-10); }
-.py-12 { padding-top: var(--space-12); padding-bottom: var(--space-12); }
-.py-16 { padding-top: var(--space-16); padding-bottom: var(--space-16); }
+    /* Padding Y - Vertikal (Oben und Unten) */
+    .py-0 { padding-top: 0; padding-bottom: 0; }
+    .py-1 { padding-top: var(--space-1); padding-bottom: var(--space-1); }
+    .py-2 { padding-top: var(--space-2); padding-bottom: var(--space-2); }
+    .py-3 { padding-top: var(--space-3); padding-bottom: var(--space-3); }
+    .py-4 { padding-top: var(--space-4); padding-bottom: var(--space-4); }
+    .py-5 { padding-top: var(--space-5); padding-bottom: var(--space-5); }
+    .py-6 { padding-top: var(--space-6); padding-bottom: var(--space-6); }
+    .py-8 { padding-top: var(--space-8); padding-bottom: var(--space-8); }
+    .py-10 { padding-top: var(--space-10); padding-bottom: var(--space-10); }
+    .py-12 { padding-top: var(--space-12); padding-bottom: var(--space-12); }
+    .py-16 { padding-top: var(--space-16); padding-bottom: var(--space-16); }
 
-/* Margin Utilities */
-.m-0 { margin: var(--space-0); }
-.m-1 { margin: var(--space-1); }
-.m-2 { margin: var(--space-2); }
-.m-3 { margin: var(--space-3); }
-.m-4 { margin: var(--space-4); }
-.m-5 { margin: var(--space-5); }
-.m-6 { margin: var(--space-6); }
-.m-8 { margin: var(--space-8); }
-.m-10 { margin: var(--space-10); }
-.m-12 { margin: var(--space-12); }
-.m-16 { margin: var(--space-16); }
+    /* Margin Utilities */
+    .m-0 { margin: var(--space-0); }
+    .m-1 { margin: var(--space-1); }
+    .m-2 { margin: var(--space-2); }
+    .m-3 { margin: var(--space-3); }
+    .m-4 { margin: var(--space-4); }
+    .m-5 { margin: var(--space-5); }
+    .m-6 { margin: var(--space-6); }
+    .m-8 { margin: var(--space-8); }
+    .m-10 { margin: var(--space-10); }
+    .m-12 { margin: var(--space-12); }
+    .m-16 { margin: var(--space-16); }
 
-/* Margin X */
-.mx-0 { margin-left: 0; margin-right: 0; }
-.mx-1 { margin-left: var(--space-1); margin-right: var(--space-1); }
-.mx-2 { margin-left: var(--space-2); margin-right: var(--space-2); }
-.mx-3 { margin-left: var(--space-3); margin-right: var(--space-3); }
-.mx-4 { margin-left: var(--space-4); margin-right: var(--space-4); }
-.mx-5 { margin-left: var(--space-5); margin-right: var(--space-5); }
-.mx-6 { margin-left: var(--space-6); margin-right: var(--space-6); }
-.mx-8 { margin-left: var(--space-8); margin-right: var(--space-8); }
-.mx-10 { margin-left: var(--space-10); margin-right: var(--space-10); }
-.mx-12 { margin-left: var(--space-12); margin-right: var(--space-12); }
-.mx-16 { margin-left: var(--space-16); margin-right: var(--space-16); }
+    /* Margin X - Horizontal (Links und Rechts) */
+    .mx-0 { margin-left: 0; margin-right: 0; }
+    .mx-1 { margin-left: var(--space-1); margin-right: var(--space-1); }
+    .mx-2 { margin-left: var(--space-2); margin-right: var(--space-2); }
+    .mx-3 { margin-left: var(--space-3); margin-right: var(--space-3); }
+    .mx-4 { margin-left: var(--space-4); margin-right: var(--space-4); }
+    .mx-5 { margin-left: var(--space-5); margin-right: var(--space-5); }
+    .mx-6 { margin-left: var(--space-6); margin-right: var(--space-6); }
+    .mx-8 { margin-left: var(--space-8); margin-right: var(--space-8); }
+    .mx-10 { margin-left: var(--space-10); margin-right: var(--space-10); }
+    .mx-12 { margin-left: var(--space-12); margin-right: var(--space-12); }
+    .mx-16 { margin-left: var(--space-16); margin-right: var(--space-16); }
 
-/* Margin Y */
-.my-0 { margin-top: 0; margin-bottom: 0; }
-.my-1 { margin-top: var(--space-1); margin-bottom: var(--space-1); }
-.my-2 { margin-top: var(--space-2); margin-bottom: var(--space-2); }
-.my-3 { margin-top: var(--space-3); margin-bottom: var(--space-3); }
-.my-4 { margin-top: var(--space-4); margin-bottom: var(--space-4); }
-.my-5 { margin-top: var(--space-5); margin-bottom: var(--space-5); }
-.my-6 { margin-top: var(--space-6); margin-bottom: var(--space-6); }
-.my-8 { margin-top: var(--space-8); margin-bottom: var(--space-8); }
-.my-10 { margin-top: var(--space-10); margin-bottom: var(--space-10); }
-.my-12 { margin-top: var(--space-12); margin-bottom: var(--space-12); }
-.my-16 { margin-top: var(--space-16); margin-bottom: var(--space-16); }
+    /* Margin Y - Vertikal (Oben und Unten) */
+    .my-0 { margin-top: 0; margin-bottom: 0; }
+    .my-1 { margin-top: var(--space-1); margin-bottom: var(--space-1); }
+    .my-2 { margin-top: var(--space-2); margin-bottom: var(--space-2); }
+    .my-3 { margin-top: var(--space-3); margin-bottom: var(--space-3); }
+    .my-4 { margin-top: var(--space-4); margin-bottom: var(--space-4); }
+    .my-5 { margin-top: var(--space-5); margin-bottom: var(--space-5); }
+    .my-6 { margin-top: var(--space-6); margin-bottom: var(--space-6); }
+    .my-8 { margin-top: var(--space-8); margin-bottom: var(--space-8); }
+    .my-10 { margin-top: var(--space-10); margin-bottom: var(--space-10); }
+    .my-12 { margin-top: var(--space-12); margin-bottom: var(--space-12); }
+    .my-16 { margin-top: var(--space-16); margin-bottom: var(--space-16); }
 
-/* Responsive Utilities */
-@media (min-width: var(--breakpoint-sm)) {
-    /* Container */
-    .sm\:container { max-width: var(--container-sm); }
-    
-    /* Grid */
-    .sm\:grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
-    .sm\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .sm\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .sm\:col-span-1 { grid-column: span 1; }
-    .sm\:col-span-2 { grid-column: span 2; }
-    .sm\:col-span-3 { grid-column: span 3; }
-    .sm\:col-span-full { grid-column: 1 / -1; }
-    
-    /* Grid Rows */
-    .sm\:grid-rows-1 { grid-template-rows: repeat(1, minmax(0, 1fr)); }
-    .sm\:grid-rows-2 { grid-template-rows: repeat(2, minmax(0, 1fr)); }
-    .sm\:grid-rows-3 { grid-template-rows: repeat(3, minmax(0, 1fr)); }
-    .sm\:grid-rows-4 { grid-template-rows: repeat(4, minmax(0, 1fr)); }
-    .sm\:grid-rows-5 { grid-template-rows: repeat(5, minmax(0, 1fr)); }
-    .sm\:grid-rows-6 { grid-template-rows: repeat(6, minmax(0, 1fr)); }
-    
-    /* Gap */
-    .sm\:gap-0 { gap: var(--space-0); }
-    .sm\:gap-1 { gap: var(--space-1); }
-    .sm\:gap-2 { gap: var(--space-2); }
-    .sm\:gap-3 { gap: var(--space-3); }
-    .sm\:gap-4 { gap: var(--space-4); }
-    .sm\:gap-5 { gap: var(--space-5); }
-    .sm\:gap-6 { gap: var(--space-6); }
-    .sm\:gap-8 { gap: var(--space-8); }
-    .sm\:gap-10 { gap: var(--space-10); }
-    .sm\:gap-12 { gap: var(--space-12); }
-    .sm\:gap-16 { gap: var(--space-16); }
-    
-    /* Alignment */
-    .sm\:justify-items-start { justify-items: start; }
-    .sm\:justify-items-end { justify-items: end; }
-    .sm\:justify-items-center { justify-items: center; }
-    .sm\:justify-items-stretch { justify-items: stretch; }
-    .sm\:items-start { align-items: start; }
-    .sm\:items-end { align-items: end; }
-    .sm\:items-center { align-items: center; }
-    .sm\:items-stretch { align-items: stretch; }
-}
+    /* 
+     * Responsive Breakpoint Utilities 
+     * 
+     * Responsive Varianten aller Komponenten.
+     * Präfixe: sm:, md:, lg:, xl:
+     * Beispiel: <div class="grid-cols-1 md:grid-cols-2 lg:grid-cols-3">...</div>
+     */
+    @media (min-width: var(--breakpoint-sm)) {
+        /* Small (sm) Breakpoint */
+        .sm\:container { max-width: var(--container-sm); }
 
-@media (min-width: var(--breakpoint-md)) {
-    /* Container */
-    .md\:container { max-width: var(--container-md); }
-    
-    /* Grid */
-    .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .md\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .md\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-    .md\:grid-cols-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
-    .md\:grid-cols-12 { grid-template-columns: repeat(12, minmax(0, 1fr)); }
-    .md\:col-span-1 { grid-column: span 1; }
-    .md\:col-span-2 { grid-column: span 2; }
-    .md\:col-span-3 { grid-column: span 3; }
-    .md\:col-span-4 { grid-column: span 4; }
-    .md\:col-span-6 { grid-column: span 6; }
-    .md\:col-span-8 { grid-column: span 8; }
-    .md\:col-span-9 { grid-column: span 9; }
-    .md\:col-span-12 { grid-column: span 12; }
-    .md\:col-span-full { grid-column: 1 / -1; }
-    
-    /* Grid Rows */
-    .md\:grid-rows-1 { grid-template-rows: repeat(1, minmax(0, 1fr)); }
-    .md\:grid-rows-2 { grid-template-rows: repeat(2, minmax(0, 1fr)); }
-    .md\:grid-rows-3 { grid-template-rows: repeat(3, minmax(0, 1fr)); }
-    .md\:grid-rows-4 { grid-template-rows: repeat(4, minmax(0, 1fr)); }
-    .md\:grid-rows-5 { grid-template-rows: repeat(5, minmax(0, 1fr)); }
-    .md\:grid-rows-6 { grid-template-rows: repeat(6, minmax(0, 1fr)); }
-    
-    /* Gap */
-    .md\:gap-0 { gap: var(--space-0); }
-    .md\:gap-1 { gap: var(--space-1); }
-    .md\:gap-2 { gap: var(--space-2); }
-    .md\:gap-3 { gap: var(--space-3); }
-    .md\:gap-4 { gap: var(--space-4); }
-    .md\:gap-5 { gap: var(--space-5); }
-    .md\:gap-6 { gap: var(--space-6); }
-    .md\:gap-8 { gap: var(--space-8); }
-    .md\:gap-10 { gap: var(--space-10); }
-    .md\:gap-12 { gap: var(--space-12); }
-    .md\:gap-16 { gap: var(--space-16); }
-    
-    /* Alignment */
-    .md\:justify-items-start { justify-items: start; }
-    .md\:justify-items-end { justify-items: end; }
-    .md\:justify-items-center { justify-items: center; }
-    .md\:justify-items-stretch { justify-items: stretch; }
-    .md\:items-start { align-items: start; }
-    .md\:items-end { align-items: end; }
-    .md\:items-center { align-items: center; }
-    .md\:items-stretch { align-items: stretch; }
-}
+        .sm\:grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+        .sm\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .sm\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        .sm\:col-span-1 { grid-column: span 1; }
+        .sm\:col-span-2 { grid-column: span 2; }
+        .sm\:col-span-3 { grid-column: span 3; }
+        .sm\:col-span-full { grid-column: 1 / -1; }
 
-@media (min-width: var(--breakpoint-lg)) {
-    /* Container */
-    .lg\:container { max-width: var(--container-lg); }
-    
-    /* Grid */
-    .lg\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .lg\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .lg\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-    .lg\:grid-cols-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
-    .lg\:grid-cols-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
-    .lg\:grid-cols-12 { grid-template-columns: repeat(12, minmax(0, 1fr)); }
-    .lg\:col-span-1 { grid-column: span 1; }
-    .lg\:col-span-2 { grid-column: span 2; }
-    .lg\:col-span-3 { grid-column: span 3; }
-    .lg\:col-span-4 { grid-column: span 4; }
-    .lg\:col-span-5 { grid-column: span 5; }
-    .lg\:col-span-6 { grid-column: span 6; }
-    .lg\:col-span-8 { grid-column: span 8; }
-    .lg\:col-span-9 { grid-column: span 9; }
-    .lg\:col-span-12 { grid-column: span 12; }
-    .lg\:col-span-full { grid-column: 1 / -1; }
-    
-    /* Gap */
-    .lg\:gap-0 { gap: var(--space-0); }
-    .lg\:gap-1 { gap: var(--space-1); }
-    .lg\:gap-2 { gap: var(--space-2); }
-    .lg\:gap-3 { gap: var(--space-3); }
-    .lg\:gap-4 { gap: var(--space-4); }
-    .lg\:gap-5 { gap: var(--space-5); }
-    .lg\:gap-6 { gap: var(--space-6); }
-    .lg\:gap-8 { gap: var(--space-8); }
-    .lg\:gap-10 { gap: var(--space-10); }
-    .lg\:gap-12 { gap: var(--space-12); }
-    .lg\:gap-16 { gap: var(--space-16); }
-    
-    /* Alignment */
-    .lg\:justify-items-start { justify-items: start; }
-    .lg\:justify-items-end { justify-items: end; }
-    .lg\:justify-items-center { justify-items: center; }
-    .lg\:justify-items-stretch { justify-items: stretch; }
-    .lg\:items-start { align-items: start; }
-    .lg\:items-end { align-items: end; }
-    .lg\:items-center { align-items: center; }
-    .lg\:items-stretch { align-items: stretch; }
-}
+        .sm\:grid-rows-1 { grid-template-rows: repeat(1, minmax(0, 1fr)); }
+        .sm\:grid-rows-2 { grid-template-rows: repeat(2, minmax(0, 1fr)); }
+        .sm\:grid-rows-3 { grid-template-rows: repeat(3, minmax(0, 1fr)); }
+        .sm\:grid-rows-4 { grid-template-rows: repeat(4, minmax(0, 1fr)); }
+        .sm\:grid-rows-5 { grid-template-rows: repeat(5, minmax(0, 1fr)); }
+        .sm\:grid-rows-6 { grid-template-rows: repeat(6, minmax(0, 1fr)); }
 
-@layer layout-module {
-    /* Containers */
+        .sm\:gap-0 { gap: var(--space-0); }
+        .sm\:gap-1 { gap: var(--space-1); }
+        .sm\:gap-2 { gap: var(--space-2); }
+        .sm\:gap-3 { gap: var(--space-3); }
+        .sm\:gap-4 { gap: var(--space-4); }
+        .sm\:gap-5 { gap: var(--space-5); }
+        .sm\:gap-6 { gap: var(--space-6); }
+        .sm\:gap-8 { gap: var(--space-8); }
+        .sm\:gap-10 { gap: var(--space-10); }
+        .sm\:gap-12 { gap: var(--space-12); }
+        .sm\:gap-16 { gap: var(--space-16); }
+
+        .sm\:justify-items-start { justify-items: start; }
+        .sm\:justify-items-end { justify-items: end; }
+        .sm\:justify-items-center { justify-items: center; }
+        .sm\:justify-items-stretch { justify-items: stretch; }
+        .sm\:items-start { align-items: start; }
+        .sm\:items-end { align-items: end; }
+        .sm\:items-center { align-items: center; }
+        .sm\:items-stretch { align-items: stretch; }
+    }
+
+    @media (min-width: var(--breakpoint-md)) {
+        /* Medium (md) Breakpoint */
+        .md\:container { max-width: var(--container-md); }
+
+        .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .md\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        .md\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+        .md\:grid-cols-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+        .md\:grid-cols-12 { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+        .md\:col-span-1 { grid-column: span 1; }
+        .md\:col-span-2 { grid-column: span 2; }
+        .md\:col-span-3 { grid-column: span 3; }
+        .md\:col-span-4 { grid-column: span 4; }
+        .md\:col-span-6 { grid-column: span 6; }
+        .md\:col-span-8 { grid-column: span 8; }
+        .md\:col-span-9 { grid-column: span 9; }
+        .md\:col-span-12 { grid-column: span 12; }
+        .md\:col-span-full { grid-column: 1 / -1; }
+
+        .md\:grid-rows-1 { grid-template-rows: repeat(1, minmax(0, 1fr)); }
+        .md\:grid-rows-2 { grid-template-rows: repeat(2, minmax(0, 1fr)); }
+        .md\:grid-rows-3 { grid-template-rows: repeat(3, minmax(0, 1fr)); }
+        .md\:grid-rows-4 { grid-template-rows: repeat(4, minmax(0, 1fr)); }
+        .md\:grid-rows-5 { grid-template-rows: repeat(5, minmax(0, 1fr)); }
+        .md\:grid-rows-6 { grid-template-rows: repeat(6, minmax(0, 1fr)); }
+
+        .md\:gap-0 { gap: var(--space-0); }
+        .md\:gap-1 { gap: var(--space-1); }
+        .md\:gap-2 { gap: var(--space-2); }
+        .md\:gap-3 { gap: var(--space-3); }
+        .md\:gap-4 { gap: var(--space-4); }
+        .md\:gap-5 { gap: var(--space-5); }
+        .md\:gap-6 { gap: var(--space-6); }
+        .md\:gap-8 { gap: var(--space-8); }
+        .md\:gap-10 { gap: var(--space-10); }
+        .md\:gap-12 { gap: var(--space-12); }
+        .md\:gap-16 { gap: var(--space-16); }
+
+        .md\:justify-items-start { justify-items: start; }
+        .md\:justify-items-end { justify-items: end; }
+        .md\:justify-items-center { justify-items: center; }
+        .md\:justify-items-stretch { justify-items: stretch; }
+        .md\:items-start { align-items: start; }
+        .md\:items-end { align-items: end; }
+        .md\:items-center { align-items: center; }
+        .md\:items-stretch { align-items: stretch; }
+    }
+
+    @media (min-width: var(--breakpoint-lg)) {
+        /* Large (lg) Breakpoint */
+        .lg\:container { max-width: var(--container-lg); }
+
+        .lg\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .lg\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        .lg\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+        .lg\:grid-cols-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+        .lg\:grid-cols-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+        .lg\:grid-cols-12 { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+        .lg\:col-span-1 { grid-column: span 1; }
+        .lg\:col-span-2 { grid-column: span 2; }
+        .lg\:col-span-3 { grid-column: span 3; }
+        .lg\:col-span-4 { grid-column: span 4; }
+        .lg\:col-span-5 { grid-column: span 5; }
+        .lg\:col-span-6 { grid-column: span 6; }
+        .lg\:col-span-8 { grid-column: span 8; }
+        .lg\:col-span-9 { grid-column: span 9; }
+        .lg\:col-span-12 { grid-column: span 12; }
+        .lg\:col-span-full { grid-column: 1 / -1; }
+
+        .lg\:gap-0 { gap: var(--space-0); }
+        .lg\:gap-1 { gap: var(--space-1); }
+        .lg\:gap-2 { gap: var(--space-2); }
+        .lg\:gap-3 { gap: var(--space-3); }
+        .lg\:gap-4 { gap: var(--space-4); }
+        .lg\:gap-5 { gap: var(--space-5); }
+        .lg\:gap-6 { gap: var(--space-6); }
+        .lg\:gap-8 { gap: var(--space-8); }
+        .lg\:gap-10 { gap: var(--space-10); }
+        .lg\:gap-12 { gap: var(--space-12); }
+        .lg\:gap-16 { gap: var(--space-16); }
+
+        .lg\:justify-items-start { justify-items: start; }
+        .lg\:justify-items-end { justify-items: end; }
+        .lg\:justify-items-center { justify-items: center; }
+        .lg\:justify-items-stretch { justify-items: stretch; }
+        .lg\:items-start { align-items: start; }
+        .lg\:items-end { align-items: end; }
+        .lg\:items-center { align-items: center; }
+        .lg\:items-stretch { align-items: stretch; }
+    }
+
+    /* 
+     * Komponenten-spezifische Container Styles
+     * 
+     * Verschiedene Layout-Container für spezifische UI-Bereiche
+     */
     .container {
-        width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-        padding-left: var(--space-4);
-        padding-right: var(--space-4);
+        max-width: var(--container-lg);
+        margin-inline: auto;
+        padding-inline: var(--space-md);
     }
 
     .container-fluid {
         width: 100%;
-        padding-left: var(--space-4);
-        padding-right: var(--space-4);
+        padding-inline: var(--space-md);
     }
 
-    /* Container Queries Setup */
-    .cq-container {
+    .container-query {
         container-type: inline-size;
-        container-name: root;
+        container-name: componentquery;
     }
 
-    .cq-normal {
-        container-type: normal;
+    .container-box {
+        padding: var(--space-md);
+        border-radius: var(--radius-md);
     }
 
-    .cq-size {
-        container-type: size;
+    .container-constrain {
+        max-width: var(--container-md);
+        margin-inline: auto;
     }
 
-    /* Benannte Container für komplexe Layouts */
-    .cq-component {
-        container-type: inline-size;
-        container-name: component;
+    .container-wrapper {
+        max-width: 100%;
+        overflow: hidden;
     }
 
-    .cq-sidebar {
-        container-type: inline-size;
-        container-name: sidebar;
+    .container-sidebar {
+        display: none;
+        width: 240px;
     }
 
-    .cq-content {
-        container-type: inline-size;
-        container-name: content;
+    .container-main {
+        flex: 1;
+        min-width: 0;
     }
 
-    /* Beispielhafte container-query basierende Responsive Grids */
-    @container (min-width: 380px) {
-        .cq-card-grid {
+    /* Container Query Card-Grid */
+    @container componentquery (min-width: 400px) {
+        .container-cards {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: var(--space-4);
+            gap: var(--space-md);
         }
     }
 
-    @container (min-width: 540px) {
-        .cq-card-grid {
+    @container componentquery (min-width: 700px) {
+        .container-cards {
             grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-lg);
         }
     }
 
-    @container (min-width: 720px) {
-        .cq-card-grid {
+    @container componentquery (min-width: 1000px) {
+        .container-cards {
             grid-template-columns: repeat(4, 1fr);
         }
     }
 
-    /* Beispielhafte container-query basierende flexbox layouts */
-    @container sidebar (min-width: 320px) {
-        .cq-sidebar-nav {
+    /* Container Query Sidebar-Layout */
+    @container componentquery (min-width: 900px) {
+        .container-navbar {
             display: flex;
-            flex-flow: row wrap;
+            align-items: center;
+            justify-content: space-between;
         }
     }
 
-    @container content (min-width: 600px) {
-        .cq-content-layout {
+    /* Container Query Content-Layout */
+    @container componentquery (min-width: 600px) {
+        .container-content {
             display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: var(--space-6);
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-md);
         }
     }
 
-    /* Media Queries für Standard-Container */
+    /* 
+     * Responsive Breakpoint Container 
+     * 
+     * Container mit Breakpoint-spezifischen Breiten
+     */
     @media (width >= var(--breakpoint-sm)) {
         .container {
             max-width: var(--container-sm);
@@ -599,7 +666,11 @@
         }
     }
 
-    /* Layout Utilities */
+    /* 
+     * Utility Layout Komponenten 
+     * 
+     * Häufig genutzte Layout-Muster als Utility-Klassen
+     */
     .flex-center {
         display: flex;
         align-items: center;

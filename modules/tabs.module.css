@@ -204,4 +204,33 @@
 .tabs-pills .tab-active .tab-badge {
     background-color: var(--bg-white);
     color: var(--color-primary-700);
+}
+
+/* Integrierte has-Selektoren für Tabs-Komponenten */
+@layer has-selectors {
+  /* Tabs mit :has() */
+  .tabs:has(.tab.active) {
+    border-block-end: 2px solid var(--color-primary-300);
+  }
+
+  .tab-content:has(> .active) {
+    padding-block-start: 1.5rem;
+  }
+
+  /* Tab-Funktionalität */
+  .tab-container:has(.tab.active[data-tab="1"]) .tab-content[data-tab="1"] {
+    display: block;
+  }
+
+  .tab-container:has(.tab.active[data-tab="2"]) .tab-content[data-tab="2"] {
+    display: block;
+  }
+
+  .tab-content .tab-pane:not(:has(+ .active)) {
+    display: none;
+  }
+
+  .tab-panel:has([aria-selected="true"]) {
+    border-block-start-color: var(--color-primary-500);
+  }
 } 

@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subgrid für komplexe Layouts - Casoon UI</title>
+    <link rel="stylesheet" href="../core.css">
+    <style>
+        :root {
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 2rem;
+            --border-width: 1px;
+            --border-radius: 0.5rem;
+            --color-border: var(--color-gray-300);
+            --color-bg-light: var(--color-gray-100);
+            --color-bg-dark: var(--color-gray-800);
+            --color-text-dark: var(--color-gray-800);
+            --color-text-light: var(--color-gray-100);
+        }
+
+        body {
+            font-family: system-ui, sans-serif;
+            color: var(--color-text-dark);
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin-inline: auto;
+            padding-inline: var(--spacing-md);
+        }
+
+        .section {
+            margin-block: var(--spacing-lg);
+        }
+
+        h1, h2, h3, h4 {
+            margin-block-start: 0;
+            margin-block-end: var(--spacing-md);
+        }
+
+        /* Grundlegende Grid-Definition */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--spacing-lg);
+            margin-block: var(--spacing-lg);
+        }
+
+        /* Beispielcode-Box */
+        .code-example {
+            background-color: var(--color-bg-dark);
+            color: var(--color-text-light);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius);
+            overflow-x: auto;
+            font-family: monospace;
+            white-space: pre;
+            margin-block: var(--spacing-md);
+        }
+
+        /* Beispiel 1: Produktkarten */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-lg);
+            margin-block: var(--spacing-lg);
+        }
+
+        .product-card {
+            border: var(--border-width) solid var(--color-border);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            /* Hier wird Subgrid verwendet */
+            grid-row: span 3;
+            grid-template-rows: subgrid;
+        }
+
+        .product-image {
+            width: 100%;
+            aspect-ratio: 3/2;
+            object-fit: cover;
+            background-color: var(--color-primary-lightest);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-info {
+            padding: var(--spacing-md);
+        }
+
+        .product-title {
+            font-weight: bold;
+            margin-block-end: var(--spacing-sm);
+        }
+
+        .product-price {
+            color: var(--color-primary);
+            font-weight: bold;
+            margin-block-start: var(--spacing-sm);
+        }
+
+        .product-actions {
+            padding: var(--spacing-md);
+            border-top: var(--border-width) solid var(--color-border);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .button {
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: calc(var(--border-radius) / 2);
+            border: none;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .button-primary {
+            background-color: var(--color-primary);
+            color: white;
+        }
+
+        .button-secondary {
+            background-color: var(--color-bg-light);
+            border: var(--border-width) solid var(--color-border);
+        }
+
+        /* Beispiel 2: Formular mit Label-Ausrichtung */
+        .form-grid {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: var(--spacing-md) var(--spacing-lg);
+            margin-block: var(--spacing-lg);
+            align-items: baseline;
+        }
+
+        .form-section {
+            grid-column: 1 / -1;
+            display: grid;
+            /* Hier wird Subgrid verwendet */
+            grid-template-columns: subgrid;
+            grid-column: span 2;
+            gap: inherit;
+            margin-block: var(--spacing-sm);
+            padding-block: var(--spacing-sm);
+            border-bottom: var(--border-width) solid var(--color-border);
+        }
+
+        .form-section h3 {
+            grid-column: 1 / -1;
+            margin-block-end: var(--spacing-sm);
+        }
+
+        .form-label {
+            font-weight: 500;
+            align-self: baseline;
+            padding-block-start: calc(var(--spacing-sm) + 1px);
+        }
+
+        .form-input {
+            padding: var(--spacing-sm);
+            border: var(--border-width) solid var(--color-border);
+            border-radius: calc(var(--border-radius) / 2);
+            width: 100%;
+        }
+
+        .form-help {
+            grid-column: 2;
+            color: var(--color-gray-600);
+            font-size: 0.875rem;
+            margin-block-start: calc(var(--spacing-sm) * -0.5);
+        }
+
+        /* Beispiel 3: Komplexes Seiten-Layout */
+        .page-layout {
+            display: grid;
+            grid-template-columns: 250px 1fr 200px;
+            grid-template-rows: auto 1fr auto;
+            gap: var(--spacing-lg);
+            margin-block: var(--spacing-lg);
+        }
+
+        .page-header {
+            grid-column: 1 / -1;
+            background-color: var(--color-bg-light);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius);
+        }
+
+        .page-sidebar {
+            background-color: var(--color-bg-light);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius);
+            /* Das Sidebar-Element selbst nutzt Subgrid für die Zeilen */
+            grid-row: 2 / 3;
+            display: grid;
+            grid-template-rows: subgrid;
+            grid-row: span 1;
+            gap: var(--spacing-md);
+        }
+
+        .sidebar-section {
+            background-color: white;
+            padding: var(--spacing-md);
+            border-radius: calc(var(--border-radius) / 2);
+            border: var(--border-width) solid var(--color-border);
+        }
+
+        .page-main {
+            background-color: var(--color-bg-light);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius);
+            
+            /* Das Hauptelement nutzt Subgrid für eigene Inhalte */
+            display: grid;
+            grid-template-rows: auto 1fr;
+            gap: var(--spacing-md);
+        }
+
+        .main-content {
+            background-color: white;
+            padding: var(--spacing-md);
+            border-radius: calc(var(--border-radius) / 2);
+            border: var(--border-width) solid var(--color-border);
+        }
+
+        .page-aside {
+            grid-column: 3;
+            background-color: var(--color-bg-light);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius);
+        }
+
+        .page-footer {
+            grid-column: 1 / -1;
+            background-color: var(--color-bg-light);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius);
+        }
+
+        /* Browser-Kompatibilitätshinweis */
+        .browser-notice {
+            padding: var(--spacing-md);
+            background-color: var(--color-warning-lightest);
+            border-left: 4px solid var(--color-warning);
+            margin-block: var(--spacing-md);
+        }
+
+        /* Responsive Anpassungen */
+        @media (width < 768px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-section {
+                grid-column: 1;
+                grid-template-columns: 1fr;
+            }
+            
+            .form-help {
+                grid-column: 1;
+            }
+            
+            .page-layout {
+                grid-template-columns: 1fr;
+            }
+            
+            .page-sidebar, .page-aside {
+                grid-column: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="section">
+            <h1>Subgrid für komplexe Layouts</h1>
+            <p>Mit CSS Subgrid können wir verschachtelte Grids erstellen, die die Raster-Linien des übergeordneten Grids erben. 
+            Dies ermöglicht konsistente Ausrichtungen über mehrere Ebenen hinweg.</p>
+            
+            <div class="browser-notice">
+                <strong>Hinweis:</strong> CSS Subgrid wird von modernen Browsern unterstützt. Falls die Beispiele nicht wie erwartet angezeigt werden, 
+                stellen Sie sicher, dass Sie einen aktuellen Browser verwenden.
+            </div>
+        </header>
+
+        <main>
+            <section class="section">
+                <h2>Was ist Subgrid?</h2>
+                <p>Subgrid ist eine Erweiterung des CSS Grid-Layouts, die es ermöglicht, dass ein Grid-Element, das selbst ein Grid ist, 
+                die Rasterlinien des übergeordneten Grids erbt. Dies ist besonders nützlich, wenn Sie komplexe, verschachtelte Layouts erstellen 
+                und dabei eine konsistente Ausrichtung beibehalten möchten.</p>
+                
+                <div class="code-example">
+.parent-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.child-element {
+    grid-column: span 2;
+    
+    /* Subgrid definieren */
+    display: grid;
+    grid-template-columns: subgrid;
+    
+    /* Alternative für Zeilen */
+    grid-template-rows: subgrid;
+}</div>
+            </section>
+
+            <section class="section">
+                <h2>Beispiel 1: Produktkarten mit konsistenter Höhe</h2>
+                <p>In diesem Beispiel verwenden wir Subgrid, damit alle Produktkarten die gleiche Höhe haben und ihre inneren Elemente 
+                (Bild, Info, Aktionen) horizontal ausgerichtet sind, auch wenn der Inhalt unterschiedlich lang ist.</p>
+                
+                <div class="code-example">
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.product-card {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    
+    /* Subgrid für Zeilen */
+    grid-row: span 3;
+    grid-template-rows: subgrid;
+}</div>
+                
+                <div class="product-grid">
+                    <div class="product-card">
+                        <div class="product-image">Produktbild 1</div>
+                        <div class="product-info">
+                            <div class="product-title">Premium Kopfhörer</div>
+                            <div class="product-description">Kabellose Bluetooth-Kopfhörer mit Noise-Cancelling und langer Akkulaufzeit.</div>
+                            <div class="product-price">199,99 €</div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="button button-secondary">Merken</button>
+                            <button class="button button-primary">Kaufen</button>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image">Produktbild 2</div>
+                        <div class="product-info">
+                            <div class="product-title">Smartwatch Pro</div>
+                            <div class="product-description">Wasserdichte Smartwatch mit Herzfrequenzmesser, GPS und Schlaftracking.</div>
+                            <div class="product-price">249,99 €</div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="button button-secondary">Merken</button>
+                            <button class="button button-primary">Kaufen</button>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image">Produktbild 3</div>
+                        <div class="product-info">
+                            <div class="product-title">Bluetooth Lautsprecher</div>
+                            <div class="product-description">Tragbarer Lautsprecher mit 360° Sound und 24 Stunden Wiedergabezeit.</div>
+                            <div class="product-price">89,99 €</div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="button button-secondary">Merken</button>
+                            <button class="button button-primary">Kaufen</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <p>Beachten Sie, wie die Produktkarten trotz unterschiedlich langer Beschreibungen die gleiche Höhe haben und die Buttons immer am unteren Rand ausgerichtet sind.</p>
+            </section>
+
+            <section class="section">
+                <h2>Beispiel 2: Formulare mit ausgerichteten Labels</h2>
+                <p>Mit Subgrid können wir Formulargruppen erstellen, bei denen die Labels und Eingabefelder über verschiedene Abschnitte hinweg ausgerichtet sind.</p>
+                
+                <div class="code-example">
+.form-grid {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 10px 20px;
+}
+
+.form-section {
+    grid-column: 1 / -1;
+    
+    /* Subgrid für Spalten */
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: span 2;
+}</div>
+                
+                <form class="form-grid">
+                    <div class="form-section">
+                        <h3>Persönliche Informationen</h3>
+                        
+                        <label class="form-label" for="name">Name</label>
+                        <input class="form-input" type="text" id="name">
+                        
+                        <label class="form-label" for="email">E-Mail</label>
+                        <input class="form-input" type="email" id="email">
+                        <div class="form-help">Wir teilen Ihre E-Mail-Adresse nicht mit Dritten.</div>
+                        
+                        <label class="form-label" for="phone">Telefon</label>
+                        <input class="form-input" type="tel" id="phone">
+                    </div>
+                    
+                    <div class="form-section">
+                        <h3>Lieferadresse</h3>
+                        
+                        <label class="form-label" for="street">Straße</label>
+                        <input class="form-input" type="text" id="street">
+                        
+                        <label class="form-label" for="city">Stadt</label>
+                        <input class="form-input" type="text" id="city">
+                        
+                        <label class="form-label" for="zip">PLZ</label>
+                        <input class="form-input" type="text" id="zip">
+                    </div>
+                </form>
+                
+                <p>Beachten Sie, wie die Labels und Eingabefelder in verschiedenen Abschnitten perfekt ausgerichtet sind, obwohl sie in separaten Containern liegen.</p>
+            </section>
+
+            <section class="section">
+                <h2>Beispiel 3: Komplexes Seiten-Layout</h2>
+                <p>In diesem Beispiel verwenden wir Subgrid, um ein komplexes Seiten-Layout mit Kopfzeile, Fußzeile, Hauptinhalt und mehreren Seitenleisten zu erstellen.</p>
+                
+                <div class="code-example">
+.page-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr 200px;
+    grid-template-rows: auto 1fr auto;
+    gap: 20px;
+}
+
+.page-sidebar {
+    grid-row: 2 / 3;
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 1;
+}</div>
+                
+                <div class="page-layout">
+                    <header class="page-header">
+                        <h2>Seitenkopf</h2>
+                        <p>Hier könnte eine Navigation oder ein Logo stehen.</p>
+                    </header>
+                    
+                    <aside class="page-sidebar">
+                        <div class="sidebar-section">
+                            <h3>Navigation</h3>
+                            <ul>
+                                <li>Startseite</li>
+                                <li>Über uns</li>
+                                <li>Produkte</li>
+                                <li>Kontakt</li>
+                            </ul>
+                        </div>
+                        <div class="sidebar-section">
+                            <h3>Filter</h3>
+                            <div>Verschiedene Filteroptionen könnten hier stehen.</div>
+                        </div>
+                    </aside>
+                    
+                    <main class="page-main">
+                        <h2>Hauptinhalt</h2>
+                        <div class="main-content">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        </div>
+                    </main>
+                    
+                    <aside class="page-aside">
+                        <h3>Zusatzinfo</h3>
+                        <p>Hier könnten verwandte Artikel oder Werbung stehen.</p>
+                    </aside>
+                    
+                    <footer class="page-footer">
+                        <h3>Seitenfuß</h3>
+                        <p>Copyright, Kontaktinformationen, etc.</p>
+                    </footer>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Wann sollte man Subgrid verwenden?</h2>
+                <ul>
+                    <li><strong>Konsistente Ausrichtung</strong>: Wenn Elemente in verschiedenen Containern horizontal oder vertikal ausgerichtet werden sollen.</li>
+                    <li><strong>Komplexe Formulare</strong>: Um Labels und Eingabefelder über mehrere Abschnitte hinweg auszurichten.</li>
+                    <li><strong>Responsive Cards</strong>: Damit Karten-Elemente in verschiedenen Größen die gleichen Proportionen beibehalten.</li>
+                    <li><strong>Multi-Level-Navigation</strong>: Für komplexe Navigationsstrukturen mit einheitlicher Ausrichtung.</li>
+                </ul>
+            </section>
+
+            <section class="section">
+                <h2>Browser-Unterstützung</h2>
+                <p>CSS Subgrid wird von den aktuellen Versionen aller modernen Browser unterstützt:</p>
+                <ul>
+                    <li>Chrome: Ab Version 117 (September 2023)</li>
+                    <li>Firefox: Ab Version 71 (Dezember 2019)</li>
+                    <li>Safari: Ab Version 16 (September 2022)</li>
+                    <li>Edge: Ab Version 117 (September 2023)</li>
+                </ul>
+                <p>Für ältere Browser kann als Fallback ein normales Grid ohne Subgrid-Funktionalität verwendet werden.</p>
+            </section>
+        </main>
+
+        <footer class="section">
+            <p>CSS Subgrid ist Teil der CSS Grid Layout Module Level 2 Spezifikation und ermöglicht noch leistungsfähigere und flexiblere Layouts.</p>
+        </footer>
+    </div>
+</body>
+</html> 

@@ -268,4 +268,53 @@
         margin: var(--spacing-0);
         padding: var(--spacing-0);
     }
+}
+
+/* Integrierte has-Selektoren für Sidebar-Komponenten */
+@layer has-selectors {
+  /* Seitliches Menu im ausgefahrenen Zustand */
+  body:has(.sidebar.expanded) .content {
+    margin-inline-start: var(--sidebar-width);
+  }
+
+  /* Responsive Layout Anpassungen */
+  @media (width <= 768px) {
+    .sidebar:has(~ .content) {
+      display: none;
+    }
+
+    .content:has(~ .sidebar) {
+      grid-column: 1 / -1;
+    }
+  }
+
+  /* Fortgeschrittene Media Queries mit :has() */
+  @media (width >= 768px) {
+    body:has(.sidebar) main {
+      margin-inline-start: 250px;
+    }
+    
+    body:has(.sidebar.collapsed) main {
+      margin-inline-start: 80px;
+    }
+  }
+
+  /* Flexible Layouts mit :has() */
+  .container:has(> .sidebar) {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 2rem;
+  }
+
+  .container:has(> .sidebar.right) {
+    grid-template-columns: 1fr 250px;
+  }
+
+  /* Bessere responsive Layouts */
+  @media (width <= 768px) {
+    .container:has(> .sidebar),
+    .container:has(> .sidebar.right) {
+      grid-template-columns: 1fr;
+    }
+  }
 } 

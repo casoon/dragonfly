@@ -1,0 +1,63 @@
+/* 
+ * Moderne Farbfunktionen
+ * Verwendung von color-mix für dynamische Farbberechnungen
+ */
+@layer theme.color-functions {
+  :root {
+    /* Basis-Farbpalette mit color-mix für Abstufungen */
+    --color-primary-light: color-mix(in oklab, var(--color-primary) 70%, white);
+    --color-primary-lighter: color-mix(in oklab, var(--color-primary) 40%, white);
+    --color-primary-lightest: color-mix(in oklab, var(--color-primary) 15%, white);
+    --color-primary-dark: color-mix(in oklab, var(--color-primary) 70%, black);
+    --color-primary-darker: color-mix(in oklab, var(--color-primary) 40%, black);
+    
+    --color-secondary-light: color-mix(in oklab, var(--color-secondary) 70%, white);
+    --color-secondary-lighter: color-mix(in oklab, var(--color-secondary) 40%, white);
+    --color-secondary-lightest: color-mix(in oklab, var(--color-secondary) 15%, white);
+    --color-secondary-dark: color-mix(in oklab, var(--color-secondary) 70%, black);
+    --color-secondary-darker: color-mix(in oklab, var(--color-secondary) 40%, black);
+    
+    --color-accent-light: color-mix(in oklab, var(--color-accent) 70%, white);
+    --color-accent-lighter: color-mix(in oklab, var(--color-accent) 40%, white);
+    --color-accent-lightest: color-mix(in oklab, var(--color-accent) 15%, white);
+    --color-accent-dark: color-mix(in oklab, var(--color-accent) 70%, black);
+    --color-accent-darker: color-mix(in oklab, var(--color-accent) 40%, black);
+    
+    /* Hintergrundfarben mit color-mix */
+    --color-surface-primary: color-mix(in oklab, var(--color-primary) 5%, white);
+    --color-surface-secondary: color-mix(in oklab, var(--color-secondary) 5%, white);
+    --color-surface-accent: color-mix(in oklab, var(--color-accent) 5%, white);
+    
+    /* Status-Farben mit color-mix */
+    --color-success-light: color-mix(in oklab, var(--color-success) 70%, white);
+    --color-success-dark: color-mix(in oklab, var(--color-success) 70%, black);
+    --color-success-bg: color-mix(in oklab, var(--color-success) 10%, white);
+    
+    --color-error-light: color-mix(in oklab, var(--color-error) 70%, white);
+    --color-error-dark: color-mix(in oklab, var(--color-error) 70%, black);
+    --color-error-bg: color-mix(in oklab, var(--color-error) 10%, white);
+    
+    --color-warning-light: color-mix(in oklab, var(--color-warning) 70%, white);
+    --color-warning-dark: color-mix(in oklab, var(--color-warning) 70%, black);
+    --color-warning-bg: color-mix(in oklab, var(--color-warning) 10%, white);
+    
+    --color-info-light: color-mix(in oklab, var(--color-info) 70%, white);
+    --color-info-dark: color-mix(in oklab, var(--color-info) 70%, black);
+    --color-info-bg: color-mix(in oklab, var(--color-info) 10%, white);
+    
+    /* Fokus-Farben für UI-Elemente */
+    --color-focus-ring: color-mix(in oklab, var(--color-primary) 50%, transparent);
+    
+    /* Fallback für Browser ohne color-mix Support */
+    @supports not (color: color-mix(in srgb, red, blue)) {
+      --color-primary-light: var(--color-primary-300, #a5b4fc);
+      --color-primary-lighter: var(--color-primary-200, #c7d2fe);
+      --color-primary-lightest: var(--color-primary-100, #e0e7ff);
+      --color-primary-dark: var(--color-primary-700, #4338ca);
+      --color-primary-darker: var(--color-primary-800, #3730a3);
+      
+      /* Weitere Fallback-Farben für andere Variablen... */
+      --color-focus-ring: rgba(var(--color-primary-rgb, 99, 102, 241), 0.5);
+    }
+  }
+} 
