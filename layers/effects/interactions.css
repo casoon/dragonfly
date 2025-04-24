@@ -198,6 +198,21 @@
         box-shadow: var(--shadow-md);
     }
 
+    /* Text Masking Effect */
+    .text-mask {
+        background: linear-gradient(to right, var(--text-mask-color-primary, white) 50%, var(--text-mask-color-secondary, black) 50%);
+        background-size: 200% 100%;
+        background-position: right;
+        color: transparent;
+        background-clip: text;
+        transition: background-position var(--transition-normal, 0.5s ease);
+        will-change: background-position;
+    }
+
+    .text-mask:hover {
+        background-position: left;
+    }
+
     /* Focus Effects */
     .focus-ring {
         outline: var(--display-none);
@@ -223,7 +238,8 @@
         .hover-rotate,
         .hover-shadow,
         .active-scale,
-        .active-rotate {
+        .active-rotate,
+        .text-mask {
             transition: var(--transition-none);
         }
     }
