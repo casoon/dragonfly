@@ -1,3 +1,24 @@
+/**
+ * Logische CSS-Eigenschaften für Internationalisierung
+ * 
+ * Diese Datei implementiert logische CSS-Eigenschaften, die eine richtungsunabhängige
+ * Gestaltung von Layouts ermöglichen. Sie unterstützt mehrsprachige Anwendungen durch
+ * Vermeidung von richtungsspezifischen Eigenschaften wie left/right und top/bottom.
+ * 
+ * Stattdessen werden Eigenschaften verwendet, die unabhängig von der Schreibrichtung (RTL/LTR) sind:
+ * - block-start/block-end (ersetzt top/bottom)
+ * - inline-start/inline-end (ersetzt left/right)
+ * - margin-inline, padding-block usw.
+ * 
+ * Hauptvorteile:
+ * - Unterstützung für bidirektionale (RTL/LTR) Layouts ohne Codeänderungen
+ * - Bessere Wartbarkeit durch eine einzige Codebasis für alle Sprachen
+ * - Verbesserte Barrierefreiheit und Unterstützung für internationale Standards
+ * 
+ * @hinweis Diese Datei sollte früh im Stylesheet-Laden eingebunden werden.
+ * @wichtig Beim Erstellen neuer Komponenten immer logische Eigenschaften verwenden.
+ */
+
 /* 
  * Logische CSS Properties für Internationalisierung
  */
@@ -26,8 +47,7 @@
 
   /* Überschriften verwenden logische Properties */
   h1, h2, h3, h4, h5, h6 {
-    margin-block-start: var(--spacing-6);
-    margin-block-end: var(--spacing-4);
+    margin-block: var(--spacing-6) var(--spacing-4);
     border-block-end: 1px solid var(--color-surface-300);
     padding-block-end: var(--spacing-2);
   }
@@ -632,12 +652,8 @@
   /* Komplette Layout-Anordnung, unabhängig von der Schreibrichtung */
   .layout {
     display: grid;
-    grid-template-areas:
-      "header header header"
-      "sidebar main aside"
-      "footer footer footer";
-    grid-template-columns: 200px 1fr 200px;
-    grid-template-rows: auto 1fr auto;
+    grid-template:
+      "header header header" auto "sidebar main aside" 1fr "footer footer footer" auto / 200px 1fr 200px;
     min-block-size: 100vh;
   }
 

@@ -1,3 +1,23 @@
+/**
+ * Farbsystem
+ * 
+ * Diese Datei definiert die komplette Farbpalette des Designsystems mit 
+ * modernen OKLCH-Farbwerten für optimale Farbwiedergabe und -konsistenz.
+ * 
+ * Das Farbsystem besteht aus:
+ * - Hauptfarbpaletten (Blau, Grün, Rot, etc.) mit jeweils 10 Abstufungen
+ * - Neutrale Farbpaletten (Grau, Warm-Grau) für UI-Elemente
+ * - Utility-Klassen für Text- und Hintergrundfarben
+ * 
+ * Alle Farben sind im OKLCH-Farbraum definiert, der folgende Vorteile bietet:
+ * - Perceptive Gleichmäßigkeit der Farbabstufungen
+ * - Erweiterten Farbraum verglichen mit RGB/sRGB
+ * - Bessere Barrierefreiheit durch vorhersagbare Kontraste
+ * 
+ * @hinweis Diese Datei wird vor color-mix.css geladen und stellt die Basis-Farbwerte bereit
+ * @technisch Verwendet den modernen OKLCH-Farbraum für optimale Farbwiedergabe
+ */
+
 @layer colors {
     :root {
         /* Blautöne */

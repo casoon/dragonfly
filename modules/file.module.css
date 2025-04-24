@@ -188,7 +188,7 @@
   background-color: var(--file-dropzone-bg);
   text-align: center;
   contain: layout;
-  contain-intrinsic-size: 100% 120px;
+  contain-intrinsic-size: auto 120px;
 }
 
 .file-dropzone .file-text {
@@ -250,10 +250,10 @@
 /* Verschiedene Dropzone-Größen */
 .file-dropzone.file-sm .file-label {
   min-height: 80px;
-  contain-intrinsic-size: 100% 80px;
+  contain-intrinsic-size: auto 80px;
 }
 
 .file-dropzone.file-lg .file-label {
   min-height: 180px;
-  contain-intrinsic-size: 100% 180px;
+  contain-intrinsic-size: auto 180px;
 } 

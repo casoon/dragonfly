@@ -1,62 +1,103 @@
+/**
+ * Formular-Styling-System
+ * 
+ * Diese Datei bietet ein umfassendes System für das Styling von Formularelementen,
+ * einschließlich Textfeldern, Auswahlfeldern, Checkboxen, Radios und mehr.
+ * Das System ist darauf ausgelegt, konsistente, zugängliche und responsive Formulare zu erzeugen.
+ * 
+ * Hauptmerkmale:
+ * - Variablensystem für konsistentes Styling und einfache Anpassung
+ * - Flexible Layout-Optionen (vertikal, horizontal, mehrspaltig)
+ * - Validierungszustände und Feedback-Mechanismen
+ * - Umfangreiche Barrierefreiheit und Tastatur-Navigation
+ * - Responsive Anpassung für verschiedene Bildschirmgrößen
+ * - Kompatibilität mit dem Container-Query-System aus layout.css
+ * 
+ * Anmerkung: Diese Datei bietet Basis-Styling für Formulare.
+ * Für erweiterte Funktionen stehen modulare Komponenten zur Verfügung.
+ */
+
 @layer forms {
-  /* Form Variables */
+  /**
+   * Form Variables
+   * 
+   * CSS-Variablen die das Formular-Styling steuern. 
+   * Diese Variablen ermöglichen eine konsistente Darstellung und einfache Anpassung.
+   * Die Variablen basieren auf den globalen Design-Tokens aus tokens.css.
+   */
   :root {
-    --form-gap: var(--spacing-4);
-    --form-padding: var(--spacing-4);
-    --form-padding-y: var(--spacing-2);
-    --form-padding-x: var(--spacing-3);
-    --form-font-size: var(--font-size-base);
-    --form-line-height: var(--line-height-base);
-    --form-color: var(--color-text-primary);
-    --form-background: var(--color-background);
-    --form-border-color: var(--color-border);
-    --form-border-radius: var(--border-radius-md);
-    --form-box-shadow: var(--shadow-sm);
-    --form-transition: all var(--transition-normal);
+    /* Grundlegende Formular-Variablen */
+    --form-gap: var(--spacing-4);        /* Abstand zwischen Formularelementen */
+    --form-padding: var(--spacing-4);    /* Innenabstand des Formulars */
+    --form-padding-y: var(--spacing-2);  /* Vertikaler Innenabstand */
+    --form-padding-x: var(--spacing-3);  /* Horizontaler Innenabstand */
+    --form-font-size: var(--font-size-base); /* Basisschriftgröße */
+    --form-line-height: var(--line-height-base); /* Basiszeilenhöhe */
+    --form-color: var(--color-text-primary); /* Textfarbe */
+    --form-background: var(--color-background); /* Hintergrundfarbe */
+    --form-border-color: var(--color-border); /* Rahmenfarbe */
+    --form-border-radius: var(--border-radius-md); /* Rahmenradius */
+    --form-box-shadow: var(--shadow-sm); /* Schatten */
+    --form-transition: all var(--transition-normal); /* Übergangsanimation */
     
-    /* Input spezifische Variablen */
-    --input-padding-y: var(--spacing-2);
-    --input-padding-x: var(--spacing-3);
-    --input-height: 2.5rem;
-    --input-font-size: var(--font-size-base);
-    --input-bg: var(--color-background);
-    --input-color: var(--color-text-primary);
-    --input-border-color: var(--color-border);
-    --input-border-width: 1px;
-    --input-border-radius: var(--border-radius-md);
+    /* Input-spezifische Variablen */
+    --input-padding-y: var(--spacing-2);  /* Vertikaler Innenabstand für Inputs */
+    --input-padding-x: var(--spacing-3);  /* Horizontaler Innenabstand für Inputs */
+    --input-height: 2.5rem;               /* Höhe von Eingabefeldern */
+    --input-font-size: var(--font-size-base); /* Schriftgröße von Eingabefeldern */
+    --input-bg: var(--color-background);  /* Hintergrundfarbe von Eingabefeldern */
+    --input-color: var(--color-text-primary); /* Textfarbe von Eingabefeldern */
+    --input-border-color: var(--color-border); /* Rahmenfarbe von Eingabefeldern */
+    --input-border-width: 1px;            /* Rahmenstärke von Eingabefeldern */
+    --input-border-radius: var(--border-radius-md); /* Rahmenradius von Eingabefeldern */
     
-    /* Select spezifische Variablen */
-    --select-padding-right: 2.5rem;
-    --select-indicator-padding: 1.75rem;
-    --select-indicator-size: 0.75rem;
-    --select-indicator-color: var(--color-text-secondary);
+    /* Select-spezifische Variablen */
+    --select-padding-right: 2.5rem;       /* Rechter Innenabstand für Dropdown-Pfeil */
+    --select-indicator-padding: 1.75rem;  /* Abstand des Dropdown-Pfeils vom Rand */
+    --select-indicator-size: 0.75rem;     /* Größe des Dropdown-Pfeils */
+    --select-indicator-color: var(--color-text-secondary); /* Farbe des Dropdown-Pfeils */
     
-    /* Checkbox/Radio spezifische Variablen */
-    --control-indicator-size: 1.25rem;
-    --control-indicator-bg: var(--color-background);
-    --control-indicator-border-color: var(--color-border);
-    --control-indicator-checked-bg: var(--color-primary-500);
-    --control-indicator-checked-border-color: var(--color-primary-500);
-    --control-indicator-checked-color: var(--color-white);
+    /* Checkbox/Radio-spezifische Variablen */
+    --control-indicator-size: 1.25rem;    /* Größe von Checkboxen und Radios */
+    --control-indicator-bg: var(--color-background); /* Hintergrundfarbe */
+    --control-indicator-border-color: var(--color-border); /* Rahmenfarbe */
+    --control-indicator-checked-bg: var(--color-primary-500); /* Hintergrundfarbe bei Auswahl */
+    --control-indicator-checked-border-color: var(--color-primary-500); /* Rahmenfarbe bei Auswahl */
+    --control-indicator-checked-color: var(--color-white); /* Symbol-Farbe bei Auswahl */
   }
+
+  /**
+   * Modulare Komponenten-Hinweis
+   * 
+   * Dieses Kommentar informiert über die verfügbaren spezialisierten Module,
+   * die erweiterte Funktionen für bestimmte Formularelemente bieten.
+   * Diese Module können zusammen mit dieser Basisdatei verwendet werden.
+   */
 
   /**
    * Hinweis zu modularen Komponenten:
    * Einige Formularkomponenten sind auch als separate Module verfügbar:
-   * - input.module.css - Für Input-Felder
-   * - select.module.css - Für Select-Felder
-   * - checkbox.module.css - Für Checkboxen
-   * - radio.module.css - Für Radio-Buttons
-   * - textarea.module.css - Für mehrzeilige Texteingaben
-   * - switch.module.css - Für Toggle-Schalter
-   * - file.module.css - Für Datei-Upload-Felder
-   * - input-group.module.css - Für Eingabegruppen mit Buttons/Icons
+   * - input.module.css - Für Input-Felder mit erweiterten Funktionen und Varianten
+   * - select.module.css - Für Select-Felder mit Suchfunktion, Mehrfachauswahl und mehr
+   * - checkbox.module.css - Für Checkboxen mit verschiedenen Stilen und Animationen
+   * - radio.module.css - Für Radio-Buttons mit anpassbaren Stilen
+   * - textarea.module.css - Für mehrzeilige Texteingaben mit automatischer Größenanpassung
+   * - switch.module.css - Für Toggle-Schalter mit verschiedenen Größen und Stilen
+   * - file.module.css - Für Datei-Upload-Felder mit Drag & Drop und Vorschau
+   * - input-group.module.css - Für Eingabegruppen mit Buttons/Icons und mehr
    * 
    * Die Module bieten umfangreichere Funktionen und Varianten, 
    * während diese globalen Klassen für einfache Formulare ausreichen.
    */
 
-  /* Form Base */
+  /**
+   * Basis-Formularstile
+   * 
+   * Definiert grundlegende Container und Layout-Optionen für Formulare.
+   * Verschiedene Klassen ermöglichen flexible Formularstrukturen.
+   */
+
+  /* Form Base - Vertikales Layout */
   .form {
     display: flex;
     flex-direction: column;
@@ -66,6 +107,7 @@
     color: var(--form-color);
   }
 
+  /* Form Inline - Horizontales Layout */
   .form-inline {
     display: flex;
     flex-flow: row wrap;
@@ -79,7 +121,7 @@
     margin-bottom: 0;
   }
 
-  /* Form Group */
+  /* Form Group - Gruppierung zusammengehöriger Elemente */
   .form-group {
     margin-bottom: var(--spacing-4);
   }
@@ -88,7 +130,7 @@
     margin-bottom: 0;
   }
 
-  /* Form Row */
+  /* Form Row - Mehrspaltiges Layout innerhalb eines Formulars */
   .form-row {
     display: flex;
     flex-wrap: wrap;
@@ -100,7 +142,14 @@
     min-width: 200px;
   }
 
-  /* Form Label */
+  /**
+   * Formular-Labels und Hilfstexte
+   * 
+   * Definiert Stile für Beschriftungen, Pflichtfeldmarkierungen und Hilfstexte.
+   * Diese Elemente verbessern die Benutzererfahrung und Barrierefreiheit.
+   */
+
+  /* Standard-Label */
   .form-label {
     display: block;
     margin-bottom: var(--spacing-1);
@@ -108,14 +157,14 @@
     color: var(--color-text-primary);
   }
 
-  /* Required Label */
+  /* Pflichtfeld-Markierung mit Sternchen */
   .form-label.required::after {
     content: "*";
     color: var(--color-error);
     margin-left: var(--spacing-1);
   }
 
-  /* Form Text (Hilfetext) */
+  /* Hilfetext unterhalb von Formularfeldern */
   .form-text {
     display: block;
     margin-top: var(--spacing-1);
@@ -123,7 +172,14 @@
     color: var(--color-text-secondary);
   }
 
-  /* Form Control - für Input, Textarea, Select */
+  /**
+   * Basis-Eingabefelder
+   * 
+   * .form-control ist die Hauptklasse für Eingabefelder wie Input, Select, Textarea.
+   * Definiert Grundstil und verschiedene Zustände (Fokus, Deaktiviert, etc.).
+   */
+
+  /* Basis-Eingabefeld */
   .form-control {
     display: block;
     width: 100%;
@@ -138,20 +194,20 @@
     transition: var(--form-transition);
   }
 
-  /* Form Control Focus */
+  /* Fokus-Zustand mit hervorgehobener Umrandung */
   .form-control:focus {
     border-color: var(--color-primary-500);
     box-shadow: 0 0 0 0.2rem rgb(var(--color-primary-rgb), 0.25);
     outline: none;
   }
 
-  /* Form Control Placeholders */
+  /* Platzhaltertext in Eingabefeldern */
   .form-control::placeholder {
     color: var(--color-text-tertiary);
     opacity: 1;
   }
 
-  /* Form Control Disabled */
+  /* Deaktivierte und schreibgeschützte Eingabefelder */
   .form-control:disabled,
   .form-control[readonly] {
     background-color: var(--color-gray-100);
@@ -159,7 +215,15 @@
     cursor: not-allowed;
   }
 
-  /* Form Validierung */
+  /**
+   * Formular-Validierung
+   * 
+   * Definiert Stile für gültige und ungültige Eingabefelder,
+   * sowie die zugehörigen Feedback-Meldungen.
+   * Kann sowohl manuell als auch mit .was-validated aktiviert werden.
+   */
+
+  /* Gültiger Zustand */
   .form-control.is-valid {
     border-color: var(--color-success);
   }
@@ -169,6 +233,7 @@
     box-shadow: 0 0 0 0.2rem rgb(var(--color-success-rgb), 0.25);
   }
 
+  /* Ungültiger Zustand */
   .form-control.is-invalid {
     border-color: var(--color-error);
   }
@@ -178,7 +243,7 @@
     box-shadow: 0 0 0 0.2rem rgb(var(--color-error-rgb), 0.25);
   }
 
-  /* Validation Feedback */
+  /* Feedback-Container für Validierungsmeldungen */
   .valid-feedback,
   .invalid-feedback {
     display: none;
@@ -195,6 +260,7 @@
     color: var(--color-error);
   }
 
+  /* Anzeigen von Feedback-Meldungen bei Validierung */
   .was-validated .form-control:valid ~ .valid-feedback,
   .was-validated .form-control:invalid ~ .invalid-feedback,
   .form-control.is-valid ~ .valid-feedback,
@@ -202,7 +268,15 @@
     display: block;
   }
 
-  /* Form Control Größen */
+  /**
+   * Größenvarianten für Eingabefelder
+   * 
+   * Bietet verschiedene Größen für Eingabefelder:
+   * - Small (sm): kompakte Größe für platzsparende Layouts
+   * - Large (lg): größere Variante für bessere Lesbarkeit oder Touch-Bedienung
+   */
+
+  /* Kleine Eingabefelder */
   .form-control-sm {
     padding: var(--spacing-1) var(--spacing-2);
     font-size: var(--font-size-sm);
@@ -210,6 +284,7 @@
     border-radius: var(--border-radius-sm);
   }
 
+  /* Große Eingabefelder */
   .form-control-lg {
     padding: var(--spacing-3) var(--spacing-4);
     font-size: var(--font-size-lg);
@@ -217,7 +292,14 @@
     border-radius: var(--border-radius-lg);
   }
 
-  /* Select Kontrolle */
+  /**
+   * Select-Felder
+   * 
+   * Angepasste Styles für Dropdown-Auswahlfelder mit eigenem Dropdown-Pfeil.
+   * Basiert auf .form-control mit zusätzlichen Select-spezifischen Anpassungen.
+   */
+
+  /* Basis-Select mit angepasstem Dropdown-Pfeil */
   .form-select {
     display: block;
     width: 100%;
@@ -229,23 +311,39 @@
     appearance: none;
   }
 
+  /* Kleine Select-Variante */
   .form-select-sm {
     padding-right: calc(var(--select-indicator-padding) * 0.85);
     background-position: right var(--spacing-2) center;
   }
 
+  /* Große Select-Variante */
   .form-select-lg {
     padding-right: calc(var(--select-indicator-padding) * 1.15);
     background-position: right var(--spacing-4) center;
   }
 
-  /* Textarea */
+  /**
+   * Textarea-Felder
+   * 
+   * Mehrzeilige Textfelder mit angepassten Eigenschaften.
+   * Basiert auf .form-control mit spezifischen Textarea-Anpassungen.
+   */
+
+  /* Mehrzeiliges Textfeld mit vertikaler Größenanpassung */
   textarea.form-control {
     min-height: 6rem;
     resize: vertical;
   }
 
-  /* Checkboxes & Radios */
+  /**
+   * Checkboxen und Radio-Buttons
+   * 
+   * Angepasstes Styling für Checkboxen und Radio-Buttons mit SVG-Icons.
+   * Ermöglicht konsistentes Aussehen über verschiedene Browser hinweg.
+   */
+
+  /* Container für Checkbox/Radio */
   .form-check {
     display: block;
     min-height: var(--control-indicator-size);
@@ -258,13 +356,14 @@
     margin-bottom: 0;
   }
 
+  /* Inline-Variante für horizontale Anordnung */
   .form-check-inline {
     display: inline-flex;
     align-items: center;
     margin-right: var(--spacing-4);
   }
 
-  /* Checkboxes & Radios - Input */
+  /* Checkbox/Radio Input-Element */
   .form-check-input {
     position: absolute;
     margin-top: calc((var(--form-line-height) * var(--form-font-size) - var(--control-indicator-size)) / 2);
@@ -278,29 +377,35 @@
     transition: var(--form-transition);
   }
 
+  /* Checkbox-spezifische Styles */
   .form-check-input[type="checkbox"] {
     border-radius: var(--border-radius-sm);
   }
 
+  /* Radio-Button-spezifische Styles */
   .form-check-input[type="radio"] {
     border-radius: 50%;
   }
 
+  /* Aktiver Zustand (bei Mausklick) */
   .form-check-input:active {
     filter: brightness(90%);
   }
 
+  /* Fokus-Zustand */
   .form-check-input:focus {
     border-color: var(--color-primary-500);
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgb(var(--color-primary-rgb), 0.25);
   }
 
+  /* Ausgewählter Zustand */
   .form-check-input:checked {
     background-color: var(--control-indicator-checked-bg);
     border-color: var(--control-indicator-checked-border-color);
   }
 
+  /* SVG-Icon für ausgewählte Checkbox */
   .form-check-input:checked[type="checkbox"] {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='white' d='M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z'/%3E%3C/svg%3E");
     background-size: var(--select-indicator-size);
@@ -308,6 +413,7 @@
     background-repeat: no-repeat;
   }
 
+  /* SVG-Icon für ausgewählten Radio-Button */
   .form-check-input:checked[type="radio"] {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle r='4' fill='white' cx='8' cy='8'/%3E%3C/svg%3E");
     background-size: var(--select-indicator-size);
@@ -315,6 +421,7 @@
     background-repeat: no-repeat;
   }
 
+  /* Deaktivierter Zustand */
   .form-check-input:disabled {
     pointer-events: none;
     filter: none;
@@ -326,16 +433,25 @@
     cursor: default;
   }
 
+  /* Beschriftung für Checkbox/Radio */
   .form-check-label {
     display: inline-block;
     cursor: pointer;
   }
 
-  /* Switch (Toggle) */
+  /**
+   * Toggle-Schalter (Switch)
+   * 
+   * Moderne Alternative zu Checkboxen für Ein/Aus-Optionen.
+   * Basiert auf .form-check, mit angepasstem Styling für Schalteroptik.
+   */
+
+  /* Container für Toggle-Schalter */
   .form-switch {
     padding-left: calc(var(--control-indicator-size) * 2);
   }
 
+  /* Toggle-Schalter-Input mit Schieberegler */
   .form-switch .form-check-input {
     width: calc(var(--control-indicator-size) * 1.75);
     height: calc(var(--control-indicator-size) * 0.85);
@@ -346,10 +462,18 @@
     transition: background-position var(--transition-normal);
   }
 
+  /* Ausgewählter Zustand des Toggle-Schalters */
   .form-switch .form-check-input:checked {
     background-position: right center;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle r='3' fill='%23fff' cx='13' cy='8'/%3E%3C/svg%3E");
   }
+
+  /**
+   * Datei-Upload
+   * 
+   * Angepasste Darstellung für Datei-Upload-Felder mit benutzerdefiniertem Styling.
+   * Hinweis auf das erweiterte file.module.css für fortgeschrittene Funktionen.
+   */
 
   /**
    * File Upload
@@ -358,10 +482,13 @@
    * das weitere Funktionen und Varianten bietet wie Drag & Drop, Mehrfachauswahl, 
    * verschiedene Größen und Farbschemen.
    */
+
+  /* Container für Datei-Upload */
   .form-file {
     position: relative;
   }
 
+  /* Verstecktes natürliches File-Input */
   .form-file-input {
     position: relative;
     z-index: 2;
@@ -371,6 +498,7 @@
     opacity: 0;
   }
 
+  /* Sichtbares Label für Datei-Upload */
   .form-file-label {
     position: absolute;
     top: 0;
@@ -384,6 +512,7 @@
     background-color: var(--input-bg);
   }
 
+  /* Textbereich für Dateipfad-Anzeige */
   .form-file-text {
     padding: var(--input-padding-y) var(--input-padding-x);
     border-right: none;
@@ -395,6 +524,7 @@
     flex: 1;
   }
 
+  /* Button für Dateiauswahl */
   .form-file-button {
     padding: var(--input-padding-y) var(--input-padding-x);
     z-index: 3;
@@ -406,7 +536,14 @@
     border-bottom-right-radius: var(--input-border-radius);
   }
 
-  /* Form Actions */
+  /**
+   * Formular-Aktionen
+   * 
+   * Container für Formular-Schaltflächen (Absenden, Abbrechen, etc.)
+   * Mit flexiblen Layout-Optionen für verschiedene Anordnungen.
+   */
+
+  /* Container für Formular-Aktionsschaltflächen */
   .form-actions {
     display: flex;
     gap: var(--spacing-3);
@@ -417,9 +554,17 @@
     flex: 0 0 auto;
   }
 
+  /* Rechtsbündige Ausrichtung der Schaltflächen */
   .form-actions.justify-end {
     justify-content: flex-end;
   }
+
+  /**
+   * Input-Gruppen
+   * 
+   * Ermöglicht die Kombination von Eingabefeldern mit Text oder Buttons.
+   * Nützlich für Währungsangaben, Suchfelder mit Buttons, etc.
+   */
 
   /**
    * Input Group
@@ -428,6 +573,8 @@
    * das weitere Features und Varianten bietet wie verschiedene Größen, Farbschemen,
    * Icon-Unterstützung und vertikale Gruppierungen.
    */
+
+  /* Container für Input-Gruppe */
   .input-group {
     position: relative;
     display: flex;
@@ -436,6 +583,7 @@
     width: 100%;
   }
 
+  /* Eingabefelder innerhalb einer Input-Gruppe */
   .input-group > .form-control,
   .input-group > .form-select {
     position: relative;
@@ -443,6 +591,7 @@
     width: 1%;
   }
 
+  /* Anpassung der Rahmenradien für zusammenhängende Elemente */
   .input-group > .form-control:not(:first-child),
   .input-group > .form-select:not(:first-child) {
     border-top-left-radius: 0;
@@ -455,6 +604,7 @@
     border-bottom-right-radius: 0;
   }
 
+  /* Text-Element innerhalb einer Input-Gruppe */
   .input-group-text {
     display: flex;
     align-items: center;
@@ -475,7 +625,14 @@
     border-bottom-right-radius: var(--input-border-radius);
   }
 
-  /* Abwärtskompatibilität */
+  /**
+   * Abwärtskompatibilität
+   * 
+   * Klassen für Kompatibilität mit älteren Codebases.
+   * Diese sollten in neuen Projekten vermieden werden.
+   */
+
+  /* Alte .input Klasse für Abwärtskompatibilität */
   .input {
     display: block;
     width: 100%;
@@ -490,7 +647,14 @@
     transition: var(--form-transition);
   }
 
-  /* Reduzierte Bewegung */
+  /**
+   * Barrierefreiheit
+   * 
+   * Verbesserte Barrierefreiheit für Nutzer mit speziellen Bedürfnissen.
+   * Beachtet Einstellungen wie reduzierte Bewegung.
+   */
+
+  /* Deaktiviert Animationen für Nutzer mit Bewegungsempfindlichkeit */
   @media (prefers-reduced-motion: reduce) {
     .form-control,
     .form-select,
@@ -500,8 +664,16 @@
     }
   }
 
-  /* Responsive Anpassungen */
+  /**
+   * Responsive Anpassungen
+   * 
+   * Spezifische Anpassungen für verschiedene Bildschirmgrößen.
+   * Optimiert die Formulardarstellung auf mobilen Geräten.
+   */
+
+  /* Mobile Anpassungen für Bildschirme unter 768px */
   @media (width <= 768px) {
+    /* Umstellung auf vertikales Layout */
     .form-inline {
       flex-direction: column;
       gap: var(--spacing-3);
@@ -529,6 +701,7 @@
       width: 100%;
     }
 
+    /* Anpassung der Input-Gruppen für mobile Ansicht */
     .input-group {
       flex-wrap: wrap;
     }

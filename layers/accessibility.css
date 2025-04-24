@@ -1,5 +1,20 @@
-/* 
- * Barrierefreiheit und Forced Colors Unterstützung
+/**
+ * Barrierefreiheit (Accessibility)
+ * 
+ * Diese Datei implementiert Styles und Anpassungen zur Verbesserung der Barrierefreiheit.
+ * Sie unterstützt verschiedene Benutzereinstellungen und Hilfstechnologien, um die
+ * Anwendung für alle Benutzer zugänglich zu machen.
+ * 
+ * Hauptfunktionen:
+ * - Verbesserte Fokus-Stile für Tastaturnavigation
+ * - Unterstützung für Bewegungsreduktion (prefers-reduced-motion)
+ * - Anpassungen für den Forced-Colors-Modus (Windows High Contrast Mode)
+ * - Erhöhte Kontrastunterstützung (prefers-contrast)
+ * - RTL-Sprachanpassungen für mehrsprachige Anwendungen
+ * 
+ * @standard Diese Implementierung folgt den WCAG 2.1 AA-Richtlinien.
+ * @wichtig Diese Datei sollte immer eingeschlossen werden, um die Barrierefreiheit zu gewährleisten.
+ * @hinweis Die CSS-Variablen für Fokusfarben sollten mit dem Design-System abgestimmt sein.
  */
 
 @layer accessibility {
@@ -161,7 +176,7 @@
     }
     
     a, button, input, select, textarea {
-      border: 1px solid currentColor;
+      border: 1px solid currentcolor;
     }
     
     a:focus, button:focus, input:focus, select:focus, textarea:focus {

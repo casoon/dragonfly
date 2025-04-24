@@ -1,8 +1,15 @@
 /**
- * Tokens CSS
+ * Design-Tokens
  * 
- * Diese Datei definiert die Design-Tokens des Systems.
- * Die Tokens sind in @layer core organisiert.
+ * Diese Datei definiert die Grundbausteine des Designsystems als CSS-Variablen.
+ * Tokens repräsentieren die kleinsten Designelemente wie Farben, Typografie, Abstände,
+ * Schatten und andere globale Designparameter.
+ * 
+ * Alle Tokens sind im @layer core organisiert und dienen als zentrale Referenz 
+ * für konsistentes Design in der gesamten Anwendung.
+ * 
+ * @hinweis Diese Datei sollte nach reset.css und vor spezifischeren Styles geladen werden.
+ * @wichtig Änderungen an diesen Tokens beeinflussen das gesamte Design der Anwendung.
  */
 
 @layer core {

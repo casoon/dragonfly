@@ -9,30 +9,27 @@
 @layer core {
     /* Browser-Stile zurücksetzen */
     @import url("layers/reset.css");
-    
-    /* Grundlegende Farbdefinitionen */
-    @import url("layers/color-mix.css");
+
+    /* Logische Eigenschaften für internationalisierte Layouts */
+    @import url("layers/logical-properties.css");
     
     /* Design-Tokens und Variablen */
     @import url("layers/tokens.css");
     
-    /* Farben auf Basis der Tokens */
+    /* Grundlegende Farbdefinitionen */
     @import url("layers/colors.css");
+    
+    /* Dynamische Farbmischungen */
+    @import url("layers/color-mix.css");
+
+    /* Layout-Grundlagen */
+    @import url("layers/layout.css");
     
     /* Typografie-Grundlagen */
     @import url("layers/typography.css");
     
-    /* Logische Eigenschaften für internationalisierte Layouts */
-    @import url("layers/logical-properties.css");
-    
-    /* Animationen und Übergänge */
-    @import url("layers/transitions.css");
-    
     /* Barrierefreiheitsregeln */
     @import url("layers/accessibility.css");
-    
-    /* Layout-Grundlagen */
-    @import url("layers/layout.css");
     
     /* Utility-Klassen */
     @import url("layers/utilities.css");

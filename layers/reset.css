@@ -1,8 +1,13 @@
 /**
- * Reset
+ * Reset CSS
  * 
- * Diese Datei enthält die Reset-Styles des Systems.
- * Die Styles sind in @layer reset organisiert.
+ * Diese Datei setzt alle Browser-spezifischen Standardstile zurück, um eine konsistente
+ * Ausgangsbasis für das Designsystem zu schaffen. Die Implementierung basiert auf modernen
+ * CSS-Reset-Praktiken und berücksichtigt Barrierefreiheit.
+ * 
+ * Alle Styles sind in @layer reset organisiert, um Spezifitätskonflikte zu vermeiden.
+ * 
+ * @wichtig Diese Datei sollte immer als erstes geladen werden, bevor andere Styles angewendet werden.
  */
 
 @layer reset {

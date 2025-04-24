@@ -2,10 +2,17 @@
  * Icon Basis-Styles
  * 
  * Diese Datei enthält die grundlegenden Styles für alle Icons.
- * Die Styles sind in @layer components organisiert.
+ * Die Styles sind in @layer icons organisiert.
+ * 
+ * Verwendete Icon-Sets und deren Lizenzen:
+ * - Heroicons (MIT) - https://heroicons.com
+ * - Feather Icons (MIT) - https://feathericons.com
+ * - Phosphor Icons (MIT) - https://phosphoricons.com
+ * - Remix Icons (MIT) - https://remixicon.com
+ * - Bootstrap Icons (MIT) - https://icons.getbootstrap.com
  */
 
-@layer components {
+@layer icons {
     /* Basis Icon Styles */
     .icon {
         display: inline-block;

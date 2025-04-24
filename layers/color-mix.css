@@ -1,3 +1,21 @@
+/**
+ * Farbmischungen und Farbpaletten
+ * 
+ * Diese Datei implementiert moderne Farbfunktionen mit CSS color-mix(), um dynamische
+ * Farbpaletten und Farbvariationen zu erzeugen. Anstatt statische Farbwerte zu verwenden,
+ * werden Farbtöne programmatisch aus Basisfarben abgeleitet.
+ * 
+ * Hauptfunktionen:
+ * - Generierung von Farbverläufen für primäre, sekundäre und Akzentfarben
+ * - Semantische Farbvariablen für Textfarben, Links, Hintergründe usw.
+ * - Themenvarianten (dunkel, hoher Kontrast)
+ * - Komponentenspezifische Farbdefinitionen mit color-mix
+ * - Fallbacks für Browser ohne color-mix-Unterstützung
+ * 
+ * @hinweis Diese Datei wird nach colors.css geladen und transformiert die dortigen Basisfarben
+ * @technisch Diese Datei nutzt die CSS color-mix() Funktion, die in modernen Browsern unterstützt wird.
+ */
+
 /* 
  * Moderne Farbfunktionen mit color-mix
  */
@@ -11,6 +29,7 @@
     --color-primary-200: color-mix(in srgb, var(--color-primary-500) 20%, white);
     --color-primary-300: color-mix(in srgb, var(--color-primary-500) 30%, white);
     --color-primary-400: color-mix(in srgb, var(--color-primary-500) 40%, white);
+
     /* --color-primary-500 als Basis wird in theme-Dateien definiert */
     --color-primary-600: color-mix(in srgb, var(--color-primary-500) 80%, black);
     --color-primary-700: color-mix(in srgb, var(--color-primary-500) 70%, black);
@@ -23,6 +42,7 @@
     --color-secondary-200: color-mix(in srgb, var(--color-secondary-500) 20%, white);
     --color-secondary-300: color-mix(in srgb, var(--color-secondary-500) 30%, white);
     --color-secondary-400: color-mix(in srgb, var(--color-secondary-500) 40%, white);
+
     /* --color-secondary-500 als Basis wird in theme-Dateien definiert */
     --color-secondary-600: color-mix(in srgb, var(--color-secondary-500) 80%, black);
     --color-secondary-700: color-mix(in srgb, var(--color-secondary-500) 70%, black);
@@ -35,6 +55,7 @@
     --color-accent-200: color-mix(in srgb, var(--color-accent-500) 20%, white);
     --color-accent-300: color-mix(in srgb, var(--color-accent-500) 30%, white);
     --color-accent-400: color-mix(in srgb, var(--color-accent-500) 40%, white);
+
     /* --color-accent-500 als Basis wird in theme-Dateien definiert */
     --color-accent-600: color-mix(in srgb, var(--color-accent-500) 80%, black);
     --color-accent-700: color-mix(in srgb, var(--color-accent-500) 70%, black);
@@ -47,6 +68,7 @@
     --color-surface-200: color-mix(in srgb, var(--color-surface-500) 20%, white);
     --color-surface-300: color-mix(in srgb, var(--color-surface-500) 30%, white);
     --color-surface-400: color-mix(in srgb, var(--color-surface-500) 40%, white);
+
     /* --color-surface-500 als Basis wird in theme-Dateien definiert */
     --color-surface-600: color-mix(in srgb, var(--color-surface-500) 80%, black);
     --color-surface-700: color-mix(in srgb, var(--color-surface-500) 70%, black);
@@ -59,39 +81,40 @@
     --color-success-200: color-mix(in srgb, var(--color-success) 20%, white);
     --color-success-300: color-mix(in srgb, var(--color-success) 30%, white);
     --color-success-400: color-mix(in srgb, var(--color-success) 40%, white);
+
     /* --color-success als Basis wird in theme-Dateien definiert */
     --color-success-600: color-mix(in srgb, var(--color-success) 80%, black);
     --color-success-700: color-mix(in srgb, var(--color-success) 70%, black);
     --color-success-800: color-mix(in srgb, var(--color-success) 60%, black);
     --color-success-900: color-mix(in srgb, var(--color-success) 50%, black);
-
     --color-error-50: color-mix(in srgb, var(--color-error) 5%, white);
     --color-error-100: color-mix(in srgb, var(--color-error) 10%, white);
     --color-error-200: color-mix(in srgb, var(--color-error) 20%, white);
     --color-error-300: color-mix(in srgb, var(--color-error) 30%, white);
     --color-error-400: color-mix(in srgb, var(--color-error) 40%, white);
+
     /* --color-error als Basis wird in theme-Dateien definiert */
     --color-error-600: color-mix(in srgb, var(--color-error) 80%, black);
     --color-error-700: color-mix(in srgb, var(--color-error) 70%, black);
     --color-error-800: color-mix(in srgb, var(--color-error) 60%, black);
     --color-error-900: color-mix(in srgb, var(--color-error) 50%, black);
-
     --color-warning-50: color-mix(in srgb, var(--color-warning) 5%, white);
     --color-warning-100: color-mix(in srgb, var(--color-warning) 10%, white);
     --color-warning-200: color-mix(in srgb, var(--color-warning) 20%, white);
     --color-warning-300: color-mix(in srgb, var(--color-warning) 30%, white);
     --color-warning-400: color-mix(in srgb, var(--color-warning) 40%, white);
+
     /* --color-warning als Basis wird in theme-Dateien definiert */
     --color-warning-600: color-mix(in srgb, var(--color-warning) 80%, black);
     --color-warning-700: color-mix(in srgb, var(--color-warning) 70%, black);
     --color-warning-800: color-mix(in srgb, var(--color-warning) 60%, black);
     --color-warning-900: color-mix(in srgb, var(--color-warning) 50%, black);
-
     --color-info-50: color-mix(in srgb, var(--color-info) 5%, white);
     --color-info-100: color-mix(in srgb, var(--color-info) 10%, white);
     --color-info-200: color-mix(in srgb, var(--color-info) 20%, white);
     --color-info-300: color-mix(in srgb, var(--color-info) 30%, white);
     --color-info-400: color-mix(in srgb, var(--color-info) 40%, white);
+
     /* --color-info als Basis wird in theme-Dateien definiert */
     --color-info-600: color-mix(in srgb, var(--color-info) 80%, black);
     --color-info-700: color-mix(in srgb, var(--color-info) 70%, black);
@@ -120,11 +143,9 @@
     --button-primary-bg: var(--color-primary-500);
     --button-primary-text: white;
     --button-primary-hover: color-mix(in srgb, var(--color-primary-500) 90%, black);
-    
     --button-secondary-bg: color-mix(in srgb, var(--color-secondary-500) 15%, white);
     --button-secondary-text: var(--color-secondary-900);
     --button-secondary-hover: color-mix(in srgb, var(--color-secondary-500) 25%, white);
-    
     --button-accent-bg: var(--color-accent-500);
     --button-accent-text: white;
     --button-accent-hover: color-mix(in srgb, var(--color-accent-500) 90%, black);
@@ -141,6 +162,17 @@
     --shadow-color-light: color-mix(in srgb, var(--color-surface-900) 10%, transparent);
     --shadow-color-medium: color-mix(in srgb, var(--color-surface-900) 15%, transparent);
     --shadow-color-dark: color-mix(in srgb, var(--color-surface-900) 25%, transparent);
+    
+    /* Zusätzliche Oberflächenfarben aus theme-base.css */
+    --color-surface-primary: color-mix(in oklab, var(--color-primary-500) 5%, white);
+    --color-surface-secondary: color-mix(in oklab, var(--color-secondary-500) 5%, white);
+    --color-surface-accent: color-mix(in oklab, var(--color-accent-500) 5%, white);
+    
+    /* Zusätzliche Status-Hintergrundfarben */
+    --color-success-bg: color-mix(in oklab, var(--color-success) 10%, white);
+    --color-error-bg: color-mix(in oklab, var(--color-error) 10%, white);
+    --color-warning-bg: color-mix(in oklab, var(--color-warning) 10%, white);
+    --color-info-bg: color-mix(in oklab, var(--color-info) 10%, white);
   }
 
   /* Themenvarianten anwenden */
@@ -176,6 +208,31 @@
     --border-medium: black;
     --border-dark: black;
     --focus-ring-color: var(--color-primary-500);
+  }
+
+  /* Fallback für Browser ohne color-mix Support */
+  @supports not (color: color-mix(in srgb, red, blue)) {
+    :root {
+      --color-primary-light: var(--color-primary-300, #a5b4fc);
+      --color-primary-lighter: var(--color-primary-200, #c7d2fe);
+      --color-primary-lightest: var(--color-primary-100, #e0e7ff);
+      --color-primary-dark: var(--color-primary-700, #4338ca);
+      --color-primary-darker: var(--color-primary-800, #3730a3);
+      --color-secondary-light: var(--color-secondary-300, #cbd5e1);
+      --color-secondary-lighter: var(--color-secondary-200, #e2e8f0);
+      --color-secondary-lightest: var(--color-secondary-100, #f1f5f9);
+      --color-secondary-dark: var(--color-secondary-700, #334155);
+      --color-secondary-darker: var(--color-secondary-800, #1e293b);
+      --color-accent-light: var(--color-accent-300, #fcd34d);
+      --color-accent-lighter: var(--color-accent-200, #fde68a);
+      --color-accent-lightest: var(--color-accent-100, #fef3c7);
+      --color-accent-dark: var(--color-accent-700, #b45309);
+      --color-accent-darker: var(--color-accent-800, #92400e);
+      --color-focus-ring: rgb(var(--color-primary-rgb, 99, 102, 241), 0.5);
+      --color-surface-primary: rgb(var(--color-primary-rgb, 99, 102, 241), 0.05);
+      --color-surface-secondary: rgb(var(--color-secondary-rgb, 100, 116, 139), 0.05);
+      --color-surface-accent: rgb(var(--color-accent-rgb, 245, 158, 11), 0.05);
+    }
   }
 
   /* Anwendung der neuen Farbmischungen in Komponenten */
@@ -332,16 +389,13 @@
   .switch-slider {
     position: absolute;
     cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     background-color: color-mix(in srgb, var(--color-surface-400) 90%, var(--color-surface-500) 10%);
     transition: .4s;
     border-radius: 24px;
   }
 
-  .switch-slider:before {
+  .switch-slider::before {
     position: absolute;
     content: "";
     height: 16px;
@@ -365,7 +419,7 @@
     box-shadow: 0 0 0 2px var(--focus-ring-color);
   }
 
-  input:checked + .switch-slider:before {
+  input:checked + .switch-slider::before {
     transform: translateX(16px);
   }
 
@@ -416,7 +470,6 @@
       var(--color-primary-500),
       var(--color-accent-500)
     );
-    -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
@@ -440,7 +493,7 @@
 
   /* Farbanpassungen für die Barrierefreiheit */
   @media (prefers-color-scheme: dark) {
-    :root:not(.theme-light):not(.theme-contrast) {
+    :root:not(.theme-light, .theme-contrast) {
       --text-color: var(--color-surface-50);
       --text-color-light: var(--color-surface-300);
       --background-color: var(--color-surface-900);
@@ -460,8 +513,8 @@
   @media (prefers-reduced-motion) {
     .progress-bar-fill,
     .switch-slider,
-    .switch-slider:before,
-    input:checked + .switch-slider:before {
+    .switch-slider::before,
+    input:checked + .switch-slider::before {
       transition: none;
     }
   }

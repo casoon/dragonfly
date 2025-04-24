@@ -1,8 +1,19 @@
 /**
- * Typography CSS
+ * Typografie
  * 
- * Diese Datei definiert die Typography-Styles des Systems.
- * Die Styles sind in @layer core organisiert.
+ * Diese Datei definiert alle typografischen Elemente des Designsystems wie
+ * Schriftarten, Schriftgrößen, Zeilen-Höhen und Textformatierungen. Sie bietet
+ * konsistente Typografie für alle UI-Komponenten durch CSS-Variablen und Klassen.
+ * 
+ * Hauptfunktionen:
+ * - Grundlegende Typografie für den Textkörper
+ * - Überschriften (h1-h6) mit konsistenten Styles
+ * - Text-Utility-Klassen für Schriftgröße, -gewicht und Zeilenabstand
+ * - Responsive Typografie für verschiedene Bildschirmgrößen
+ * - Konsistente Text-Darstellung für Links, Listen und Code-Elemente
+ * 
+ * @hinweis Basiert auf den in tokens.css definierten Typografie-Variablen
+ * @wichtig Änderungen hier wirken sich auf das gesamte Textsystem aus
  */
 
 @layer core {
@@ -152,10 +163,14 @@
   .font-mono { font-family: var(--font-family-mono); }
 
   /* Text Alignment */
-  .text-left { text-align: left; }
+  .text-start { text-align: start; }
+  .text-end { text-align: end; }
   .text-center { text-align: center; }
-  .text-right { text-align: right; }
   .text-justify { text-align: justify; }
+
+  /* Legacy Text Alignment (für Abwärtskompatibilität) */
+  .text-left { text-align: left; }
+  .text-right { text-align: right; }
 
   /* Text Transform */
   .uppercase { text-transform: uppercase; }
@@ -187,6 +202,14 @@
     .sm\:text-2xl { font-size: var(--font-size-2xl); }
     .sm\:text-3xl { font-size: var(--font-size-3xl); }
     .sm\:text-4xl { font-size: var(--font-size-4xl); }
+    
+    /* Text Alignment - Small */
+    .sm\:text-start { text-align: start; }
+    .sm\:text-end { text-align: end; }
+    .sm\:text-center { text-align: center; }
+    .sm\:text-justify { text-align: justify; }
+    .sm\:text-left { text-align: left; }
+    .sm\:text-right { text-align: right; }
   }
 
   @media (width >= var(--breakpoint-md)) {
@@ -199,6 +222,14 @@
     .md\:text-3xl { font-size: var(--font-size-3xl); }
     .md\:text-4xl { font-size: var(--font-size-4xl); }
     .md\:text-5xl { font-size: var(--font-size-5xl); }
+    
+    /* Text Alignment - Medium */
+    .md\:text-start { text-align: start; }
+    .md\:text-end { text-align: end; }
+    .md\:text-center { text-align: center; }
+    .md\:text-justify { text-align: justify; }
+    .md\:text-left { text-align: left; }
+    .md\:text-right { text-align: right; }
   }
 
   @media (width >= var(--breakpoint-lg)) {
@@ -211,6 +242,14 @@
     .lg\:text-3xl { font-size: var(--font-size-3xl); }
     .lg\:text-4xl { font-size: var(--font-size-4xl); }
     .lg\:text-5xl { font-size: var(--font-size-5xl); }
+    
+    /* Text Alignment - Large */
+    .lg\:text-start { text-align: start; }
+    .lg\:text-end { text-align: end; }
+    .lg\:text-center { text-align: center; }
+    .lg\:text-justify { text-align: justify; }
+    .lg\:text-left { text-align: left; }
+    .lg\:text-right { text-align: right; }
   }
 
   @media (width >= var(--breakpoint-xl)) {
@@ -223,6 +262,14 @@
     .xl\:text-3xl { font-size: var(--font-size-3xl); }
     .xl\:text-4xl { font-size: var(--font-size-4xl); }
     .xl\:text-5xl { font-size: var(--font-size-5xl); }
+    
+    /* Text Alignment - Extra Large */
+    .xl\:text-start { text-align: start; }
+    .xl\:text-end { text-align: end; }
+    .xl\:text-center { text-align: center; }
+    .xl\:text-justify { text-align: justify; }
+    .xl\:text-left { text-align: left; }
+    .xl\:text-right { text-align: right; }
   }
 
   /* Utility Padding Classes */

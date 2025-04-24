@@ -1,16 +1,21 @@
 /**
- * Layout
+ * Layout-System
  * 
- * Diese Datei enthält die Layout-Styles des Systems.
- * Die Styles sind in @layer layout organisiert.
+ * Diese Datei implementiert ein umfassendes Layout-System mit modernen CSS-Technologien
+ * wie CSS Grid, Flexbox und Container Queries. Sie bietet standardisierte Klassen für
+ * responsive Layouts und Positionierung von Elementen.
  * 
- * Die Layout-Layer bietet folgende Hauptkomponenten:
- * - Container-Klassen für Inhaltsbreiten
- * - Grid-System für mehrspaltige Layouts
- * - Flexbox-Utilities für flexible Layouts
- * - Container-Queries für komponentenspezifische Responsivität
- * - Abstands- und Positionierungs-Utilities
- * - Responsive Breakpoint-Varianten aller Komponenten
+ * Hauptkomponenten:
+ * - Container: Standardisierte Breiten und Ausrichtung für Inhalte
+ * - Grid-System: Flexibles 12-Spalten-Grid mit responsiven Varianten
+ * - Flexbox-Utilities: Flexible Ausrichtung und Anordnung von Elementen
+ * - Container Queries: Komponentenbasierte Responsivität (statt Viewport-basiert)
+ * - Abstands- und Positionierungs-Utilities: Konsistente Abstände durch Design-Tokens
+ * - Responsive Breakpoint-Varianten: Anpassung des Layouts für verschiedene Bildschirmgrößen
+ * 
+ * @technisch Nutzt moderne CSS-Features wie CSS Grid, Container Queries und logische Eigenschaften
+ * @responsive Alle Komponenten haben responsive Varianten für verschiedene Breakpoints
+ * @hinweis Basiert auf den in tokens.css definierten Abstandsvariablen und Breakpoints
  */
 
 @layer layout {
@@ -76,6 +81,94 @@
     [data-container] {
         container-type: inline-size;
         container-name: component;
+    }
+
+    /* 
+     * Vereinfachtes Container-Query-System
+     * 
+     * Ein System für komponentenbasierte responsive Layouts mit Container-Queries.
+     * Nutzung mit Präfix 'layout-' und einheitlichem container-name 'layout'
+     */
+    .layout-container {
+        container-type: inline-size;
+        container-name: layout;
+    }
+
+    /* Grid-Layout mit zunehmender Spaltenanzahl bei wachsender Container-Breite */
+    .layout-grid {
+        display: grid;
+        gap: var(--space-4);
+        grid-template-columns: 1fr;
+
+        @container layout (min-width: 30rem) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @container layout (min-width: 48rem) {
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-6);
+        }
+
+        @container layout (min-width: 62rem) {
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-8);
+        }
+    }
+
+    /* Flex-Layout, das von column zu row wechselt bei wachsender Container-Breite */
+    .layout-flex {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-4);
+
+        @container layout (min-width: 30rem) {
+            flex-flow: row wrap;
+        }
+
+        @container layout (min-width: 48rem) {
+            flex-wrap: nowrap;
+            gap: var(--space-6);
+        }
+    }
+
+    /* Stack mit wachsendem vertikalen Abstand */
+    .layout-stack {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-4);
+
+        @container layout (min-width: 30rem) {
+            gap: var(--space-6);
+        }
+
+        @container layout (min-width: 48rem) {
+            gap: var(--space-8);
+        }
+
+        @container layout (min-width: 62rem) {
+            gap: var(--space-10);
+        }
+    }
+
+    /* Card-Grid basierend auf Container-Queries */
+    .layout-cards {
+        display: grid;
+        gap: var(--space-4);
+        grid-template-columns: 1fr;
+
+        @container layout (min-width: 30rem) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @container layout (min-width: 48rem) {
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-6);
+        }
+
+        @container layout (min-width: 62rem) {
+            grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+            gap: var(--space-8);
+        }
     }
 
     /* 

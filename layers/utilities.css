@@ -207,6 +207,14 @@
         .sm\:justify-between { justify-content: space-between; }
         .sm\:justify-around { justify-content: space-around; }
         .sm\:justify-evenly { justify-content: space-evenly; }
+        .sm\:block { display: block; }
+        .sm\:hidden { display: none; }
+        .sm\:text-start { text-align: start; }
+        .sm\:text-end { text-align: end; }
+        .sm\:text-center { text-align: center; }
+        .sm\:text-justify { text-align: justify; }
+        .sm\:m-4 { margin: var(--space-4); }
+        .sm\:p-4 { padding: var(--space-4); }
     }
 
     @media (width >= var(--breakpoint-md)) {
@@ -258,6 +266,14 @@
         .md\:justify-between { justify-content: space-between; }
         .md\:justify-around { justify-content: space-around; }
         .md\:justify-evenly { justify-content: space-evenly; }
+        .md\:block { display: block; }
+        .md\:hidden { display: none; }
+        .md\:text-start { text-align: start; }
+        .md\:text-end { text-align: end; }
+        .md\:text-center { text-align: center; }
+        .md\:text-justify { text-align: justify; }
+        .md\:m-4 { margin: var(--space-4); }
+        .md\:p-4 { padding: var(--space-4); }
     }
 
     @media (width >= var(--breakpoint-lg)) {
@@ -309,6 +325,14 @@
         .lg\:justify-between { justify-content: space-between; }
         .lg\:justify-around { justify-content: space-around; }
         .lg\:justify-evenly { justify-content: space-evenly; }
+        .lg\:block { display: block; }
+        .lg\:hidden { display: none; }
+        .lg\:text-start { text-align: start; }
+        .lg\:text-end { text-align: end; }
+        .lg\:text-center { text-align: center; }
+        .lg\:text-justify { text-align: justify; }
+        .lg\:m-4 { margin: var(--space-4); }
+        .lg\:p-4 { padding: var(--space-4); }
     }
 
     @media (width >= var(--breakpoint-xl)) {
@@ -348,6 +372,14 @@
         .xl\:grid { display: grid; }
         .xl\:flex-row { flex-direction: row; }
         .xl\:flex-col { flex-direction: column; }
+        .xl\:block { display: block; }
+        .xl\:hidden { display: none; }
+        .xl\:text-start { text-align: start; }
+        .xl\:text-end { text-align: end; }
+        .xl\:text-center { text-align: center; }
+        .xl\:text-justify { text-align: justify; }
+        .xl\:m-4 { margin: var(--space-4); }
+        .xl\:p-4 { padding: var(--space-4); }
     }
 
     /* Spacing */
@@ -472,10 +504,14 @@
     .whitespace-pre-wrap { white-space: pre-wrap; }
 
     /* Typography */
-    .text-left { text-align: left; }
+    .text-start { text-align: start; }
+    .text-end { text-align: end; }
     .text-center { text-align: center; }
-    .text-right { text-align: right; }
     .text-justify { text-align: justify; }
+    
+    /* Legacy Text Alignment */
+    .text-left { text-align: left; }
+    .text-right { text-align: right; }
 
     .font-thin { font-weight: var(--font-weight-light); }
     .font-extralight { font-weight: var(--font-weight-light); }
@@ -614,39 +650,6 @@
       clip: rect(0, 0, 0, 0);
       white-space: nowrap;
       border-width: 0;
-    }
-
-    /* Responsive Utilities */
-    @media (width >= var(--breakpoint-sm)) {
-      .sm\:block { display: block; }
-      .sm\:hidden { display: none; }
-      .sm\:text-center { text-align: center; }
-      .sm\:m-4 { margin: var(--space-4); }
-      .sm\:p-4 { padding: var(--space-4); }
-    }
-
-    @media (width >= var(--breakpoint-md)) {
-      .md\:block { display: block; }
-      .md\:hidden { display: none; }
-      .md\:text-center { text-align: center; }
-      .md\:m-4 { margin: var(--space-4); }
-      .md\:p-4 { padding: var(--space-4); }
-    }
-
-    @media (width >= var(--breakpoint-lg)) {
-      .lg\:block { display: block; }
-      .lg\:hidden { display: none; }
-      .lg\:text-center { text-align: center; }
-      .lg\:m-4 { margin: var(--space-4); }
-      .lg\:p-4 { padding: var(--space-4); }
-    }
-
-    @media (width >= var(--breakpoint-xl)) {
-      .xl\:block { display: block; }
-      .xl\:hidden { display: none; }
-      .xl\:text-center { text-align: center; }
-      .xl\:m-4 { margin: var(--space-4); }
-      .xl\:p-4 { padding: var(--space-4); }
     }
 
     /* Container Query Utilities */
@@ -822,7 +825,7 @@
     .container-query-name {
         container-type: inline-size;
         container-name: component;
-        contain-intrinsic-size: 100% 150px;
+        contain-intrinsic-size: auto 150px;
     }
 
     .container-normal {
@@ -832,7 +835,7 @@
 
     .container-size {
         container-type: size;
-        contain-intrinsic-size: 100% 300px;
+        contain-intrinsic-size: auto 300px;
     }
 
     /* Variable Platzhaltergrößen */
@@ -851,21 +854,30 @@
     /* Verhindert Layout-Shifts bei responsiven Bildern */
     .image-container {
         container-type: inline-size;
-        contain-intrinsic-size: 100% 0;
+        contain-intrinsic-size: auto 0;
         aspect-ratio: 16 / 9;
     }
 
     /* Für Karten/Cards mit stabilem Layout */
     .card-container {
         container-type: size;
-        contain-intrinsic-size: 100% 320px;
+        contain-intrinsic-size: auto 320px;
     }
 
     /* Print */
     @media print {
       .print\:block { display: block; }
       .print\:hidden { display: none; }
+      
+      /* Text Alignment - Print */
+      .print\:text-start { text-align: start; }
+      .print\:text-end { text-align: end; }
       .print\:text-center { text-align: center; }
+      .print\:text-justify { text-align: justify; }
+      
+      /* Legacy text alignment */
+      .print\:text-left { text-align: left; }
+      .print\:text-right { text-align: right; }
     }
 
     /* Media Query Utilities */
@@ -904,8 +916,13 @@
       .container-xs\:grid { display: grid; }
       .container-xs\:hidden { display: none; }
       
-      .container-xs\:text-left { text-align: left; }
+      .container-xs\:text-start { text-align: start; }
+      .container-xs\:text-end { text-align: end; }
       .container-xs\:text-center { text-align: center; }
+      .container-xs\:text-justify { text-align: justify; }
+      
+      /* Legacy text alignment */
+      .container-xs\:text-left { text-align: left; }
       .container-xs\:text-right { text-align: right; }
       
       .container-xs\:m-0 { margin: var(--space-0); }
@@ -924,8 +941,13 @@
       .container-sm\:grid { display: grid; }
       .container-sm\:hidden { display: none; }
       
-      .container-sm\:text-left { text-align: left; }
+      .container-sm\:text-start { text-align: start; }
+      .container-sm\:text-end { text-align: end; }
       .container-sm\:text-center { text-align: center; }
+      .container-sm\:text-justify { text-align: justify; }
+      
+      /* Legacy text alignment */
+      .container-sm\:text-left { text-align: left; }
       .container-sm\:text-right { text-align: right; }
       
       .container-sm\:m-0 { margin: var(--space-0); }
@@ -945,8 +967,13 @@
       .container-md\:grid { display: grid; }
       .container-md\:hidden { display: none; }
       
-      .container-md\:text-left { text-align: left; }
+      .container-md\:text-start { text-align: start; }
+      .container-md\:text-end { text-align: end; }
       .container-md\:text-center { text-align: center; }
+      .container-md\:text-justify { text-align: justify; }
+      
+      /* Legacy text alignment */
+      .container-md\:text-left { text-align: left; }
       .container-md\:text-right { text-align: right; }
       
       .container-md\:m-0 { margin: var(--space-0); }
@@ -966,8 +993,13 @@
       .container-lg\:grid { display: grid; }
       .container-lg\:hidden { display: none; }
       
-      .container-lg\:text-left { text-align: left; }
+      .container-lg\:text-start { text-align: start; }
+      .container-lg\:text-end { text-align: end; }
       .container-lg\:text-center { text-align: center; }
+      .container-lg\:text-justify { text-align: justify; }
+      
+      /* Legacy text alignment */
+      .container-lg\:text-left { text-align: left; }
       .container-lg\:text-right { text-align: right; }
       
       .container-lg\:m-0 { margin: var(--space-0); }
@@ -987,8 +1019,13 @@
       .container-xl\:grid { display: grid; }
       .container-xl\:hidden { display: none; }
       
-      .container-xl\:text-left { text-align: left; }
+      .container-xl\:text-start { text-align: start; }
+      .container-xl\:text-end { text-align: end; }
       .container-xl\:text-center { text-align: center; }
+      .container-xl\:text-justify { text-align: justify; }
+      
+      /* Legacy text alignment */
+      .container-xl\:text-left { text-align: left; }
       .container-xl\:text-right { text-align: right; }
       
       .container-xl\:m-0 { margin: var(--space-0); }
@@ -1008,7 +1045,7 @@
     }
 
     /* Relationale Selektoren (Aufgabe 7) */
-    @layer utilities.relational {
+    @layer utilities-relational {
       /* Formularelemente mit :has() */
       .form-group:has(:invalid) {
         border-color: var(--color-error);
@@ -1054,7 +1091,7 @@
  * Logische Properties für Internationalisierung (Aufgabe 8)
  * Richtungsunabhängiges Layout für mehrsprachige UIs
  */
-@layer utilities.logical-properties {
+@layer utilities-logical-properties {
   /* Padding Utilities */
   .padding-inline-xs { padding-inline: var(--spacing-xs); }
   .padding-inline-sm { padding-inline: var(--spacing-sm); }

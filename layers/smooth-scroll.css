@@ -1,3 +1,27 @@
+/**
+ * Smooth Scroll CSS-Komponente
+ * ---------------------------
+ * Diese Datei enthält Stile für erweiterte Scroll-Funktionalitäten und -Effekte.
+ *
+ * Eigenschaften:
+ * - Sanftes Scrollen (smooth-scroll) für eine verbesserte Benutzererfahrung
+ * - Scroll-Snap für präzises Positionieren von Elementen beim Scrollen
+ * - Fortschrittsanzeigen für die Visualisierung der Scroll-Position
+ * - Parallax-Effekte für tiefenwirksame Layouts
+ * - Scroll-Animation-Effekte (fade, scale, slide, rotate)
+ * - Gestaffelte Scroll-Animationen für Gruppen von Elementen
+ * - Scroll-zu-Top-Funktionalität
+ * - Scroll-Spy für Navigation
+ * - Barrierefreiheitsanpassungen für reduzierte Bewegung
+ *
+ * Verwendung:
+ * Fügen Sie die entsprechenden Klassen zu Ihren HTML-Elementen hinzu,
+ * um die verschiedenen Scroll-Effekte und -Funktionen zu aktivieren.
+ *
+ * @layer core - Grundlegende Scroll-Funktionalitäten und -Effekte
+ * @layer components - Wiederverwendbare Scroll-Komponenten
+ */
+
 @layer core {
   /* Smooth Scroll Variables */
   :root {
