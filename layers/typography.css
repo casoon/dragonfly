@@ -280,4 +280,17 @@
   .padding-normal {
     padding: var(--space-4);
   }
+
+  /* Font Size Adjust */
+  .font-size-adjust-sans { font-size-adjust: 0.5; }
+  .font-size-adjust-serif { font-size-adjust: 0.57; }
+  .font-size-adjust-mono { font-size-adjust: 0.55; }
+  .font-size-adjust-small-caps { font-size-adjust: 0.7; }
+
+  /* Font Size Adjust für Barrierefreiheit */
+  .font-size-adjust-readable { 
+    font-size-adjust: 0.5;
+    letter-spacing: 0.01em;
+    word-spacing: 0.02em;
+  }
 } 

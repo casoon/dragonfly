@@ -5,76 +5,26 @@
  * Sie importiert alle notwendigen Layer und Module.
  */
 
+/* Layer-System importieren - hier wird die Reihenfolge definiert */
+@import url("layers.css");
 
-@layer core {
-    /* Browser-Stile zurücksetzen */
-    @import url("layers/reset.css");
+/* Theme-System */
+@import url('themes/theme-base.css');
+@import url('themes/accessibility.css');
+@import url('themes/dark-mode.css');
+@import url('themes/brands.css');
 
-    /* Logische Eigenschaften für internationalisierte Layouts */
-    @import url("layers/logical-properties.css");
-    
-    /* Design-Tokens und Variablen */
-    @import url("layers/tokens.css");
-    
-    /* Grundlegende Farbdefinitionen */
-    @import url("layers/colors.css");
-    
-    /* Dynamische Farbmischungen */
-    @import url("layers/color-mix.css");
-
-    /* Layout-Grundlagen */
-    @import url("layers/layout.css");
-    
-    /* Typografie-Grundlagen */
-    @import url("layers/typography.css");
-    
-    /* Barrierefreiheitsregeln */
-    @import url("layers/accessibility.css");
-    
-    /* Utility-Klassen */
-    @import url("layers/utilities.css");
-    
-    /* Smooth Scroll Verhalten */
-    @import url("layers/smooth-scroll.css");
-}
-
-
-@layer icons {
-    /* Utility Imports */
-    @import url('icons/base.css');
-}
-
-@layer animations {
-    /* Animations Imports */
-    @import url('layers/animations.css');
-}
-
-@layer effects {
-    /* Effects Imports */
-    @import url('layers/effects.css');
-}
-
-@layer themes {
-    /* Basis-Theme - wird immer geladen */
-    @import url('themes/theme-base.css');
-    
-    /* Feature-spezifische Themes */
-    @import url('themes/accessibility.css');
-    @import url('themes/dark-mode.css');
-    @import url('themes/brands.css');
-    
-    /* Standard Theme Variations - werden nur aktiviert, wenn entsprechende Klasse gesetzt ist */
-    @import url('themes/day.css');         /* .theme-day */
-    @import url('themes/night.css');       /* .theme-night */
-    @import url('themes/spring.css');      /* .theme-spring */
-    @import url('themes/summer.css');      /* .theme-summer */
-    @import url('themes/autumn.css');      /* .theme-autumn */
-    @import url('themes/winter.css');      /* .theme-winter */
-    @import url('themes/forest.css');      /* .theme-forest */
-    @import url('themes/ocean.css');       /* .theme-ocean */
-    @import url('themes/pastel.css');      /* .theme-pastel */
-    @import url('themes/neon.css');        /* .theme-neon */
-    @import url('themes/retro.css');       /* .theme-retro */
-    @import url('themes/monochrome.css');  /* .theme-monochrome */
-    @import url('themes/sunset.css');      /* .theme-sunset */
-}
+/* Standard Theme Variations - werden nur aktiviert, wenn entsprechende Klasse gesetzt ist */
+@import url('themes/day.css');         /* .theme-day */
+@import url('themes/night.css');       /* .theme-night */
+@import url('themes/spring.css');      /* .theme-spring */
+@import url('themes/summer.css');      /* .theme-summer */
+@import url('themes/autumn.css');      /* .theme-autumn */
+@import url('themes/winter.css');      /* .theme-winter */
+@import url('themes/forest.css');      /* .theme-forest */
+@import url('themes/ocean.css');       /* .theme-ocean */
+@import url('themes/pastel.css');      /* .theme-pastel */
+@import url('themes/neon.css');        /* .theme-neon */
+@import url('themes/retro.css');       /* .theme-retro */
+@import url('themes/monochrome.css');  /* .theme-monochrome */
+@import url('themes/sunset.css');      /* .theme-sunset */

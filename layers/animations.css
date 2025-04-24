@@ -928,6 +928,188 @@
     .scroll-delay-400 { animation-delay: 400ms; }
     .scroll-delay-500 { animation-delay: 500ms; }
 
+    /* Microinteractions for Form Elements */
+    .input-focus {
+        transition: border-color var(--animation-duration-fast), box-shadow var(--animation-duration-fast);
+        transition-timing-function: var(--ease-out);
+        will-change: border-color, box-shadow;
+    }
+    
+    .input-focus:focus {
+        box-shadow: 0 0 0 2px var(--color-focus, rgb(59 130 246 / 50%));
+    }
+    
+    .input-success {
+        transform-origin: center right;
+        transition: transform var(--animation-duration-fast), opacity var(--animation-duration-fast);
+        transition-timing-function: var(--ease-spring);
+    }
+    
+    .input-success.active {
+        animation: success-checkmark 0.5s var(--ease-spring) forwards;
+    }
+    
+    @keyframes success-checkmark {
+        0% { transform: scale(0); opacity: 0; }
+        50% { transform: scale(1.2); opacity: 1; }
+        100% { transform: scale(1); opacity: 1; }
+    }
+    
+    /* Improved Hover Transitions */
+    .hover-smooth {
+        transition: transform var(--animation-duration-fast), 
+                    box-shadow var(--animation-duration-fast),
+                    background-color var(--animation-duration-fast);
+        transition-timing-function: var(--ease-out);
+    }
+    
+    .hover-smooth:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgb(0 0 0 / 10%);
+    }
+    
+    /* Optimized Loading Animation */
+    .loading-dots {
+        display: inline-flex;
+        align-items: center;
+    }
+    
+    .loading-dots::after {
+        content: "";
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background-color: currentcolor;
+        opacity: 0;
+        animation: loading-dots 1.4s infinite ease-in-out;
+    }
+    
+    .loading-dots::before {
+        content: "...";
+        letter-spacing: 2px;
+        animation: loading-dots-text 1.4s infinite ease-in-out;
+    }
+    
+    @keyframes loading-dots {
+        0%, 100% { opacity: 0; }
+        50% { opacity: 1; }
+    }
+    
+    @keyframes loading-dots-text {
+        0% { content: "."; }
+        33% { content: ".."; }
+        66% { content: "..."; }
+        100% { content: "."; }
+    }
+    
+    /* Performance Enhancement with will-change */
+    .will-change-transform {
+        will-change: transform;
+    }
+    
+    .will-change-opacity {
+        will-change: opacity;
+    }
+    
+    .will-change-auto {
+        will-change: auto;
+    }
+    
+    /* Apply will-change only on hover/interaction */
+    .will-change-on-hover {
+        transition: transform var(--animation-duration-fast);
+    }
+    
+    .will-change-on-hover:hover {
+        will-change: transform;
+    }
+
+    /* Eyecatcher - Dezente Aufmerksamkeitseffekte */
+    .focus-attention {
+        position: relative;
+    }
+    
+    .focus-attention::after {
+        content: "";
+        position: absolute;
+        inset: -4px;
+        border-radius: inherit;
+        border: 2px solid var(--color-highlight, rgb(59 130 246 / 70%));
+        opacity: 0;
+        animation: focus-pulse 2s ease-in-out infinite;
+        pointer-events: none;
+    }
+    
+    @keyframes focus-pulse {
+        0%, 100% { opacity: 0; transform: scale(0.97); }
+        50% { opacity: 1; transform: scale(1.03); }
+    }
+    
+    /* Subtle Hint Animation - dezente Hinweise auf Interaktionsmöglichkeiten */
+    .subtle-hint {
+        position: relative;
+    }
+    
+    .subtle-hint.click::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: var(--color-highlight, rgb(59 130 246 / 70%));
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        animation: hint-click 3s ease-in-out infinite;
+        pointer-events: none;
+    }
+    
+    @keyframes hint-click {
+        0%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
+        5% { opacity: 0.8; transform: translate(-50%, -50%) scale(1); }
+        15% { opacity: 0; transform: translate(-50%, -50%) scale(1.5); }
+    }
+    
+    .subtle-hint.swipe::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 30px;
+        height: 4px;
+        background: linear-gradient(
+            90deg, 
+            var(--color-highlight, rgb(59 130 246 / 70%)) 0%, 
+            transparent 100%
+        );
+        transform: translateY(-50%);
+        opacity: 0;
+        animation: hint-swipe 4s ease-in-out infinite;
+        pointer-events: none;
+    }
+    
+    @keyframes hint-swipe {
+        0%, 100% { opacity: 0; left: 0; }
+        5% { opacity: 0.8; left: 0; }
+        45% { opacity: 0.8; left: calc(100% - 30px); }
+        50% { opacity: 0; left: calc(100% - 30px); }
+    }
+
+    /* Use with JavaScript */
+    .animate-when-visible {
+        opacity: 0;
+        transform: translateY(var(--move-md));
+        transition: opacity var(--animation-duration-normal), 
+                    transform var(--animation-duration-normal);
+        transition-timing-function: var(--ease-out);
+    }
+    
+    .animate-when-visible.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
     /* Reduced Motion */
     @media (prefers-reduced-motion: reduce) {
         .animate {
@@ -967,7 +1149,37 @@
         .scroll-scale,
         .progress-timeline,
         .parallax-scroll,
-        .scroll-target {
+        .scroll-target,
+        .input-success.active,
+        .loading-dots::after,
+        .loading-dots::before,
+        .animate-when-visible,
+        .hover-smooth:hover,
+        .focus-attention::after,
+        .subtle-hint.click::after,
+        .subtle-hint.swipe::after,
+        .fade-in-optimal,
+        .reveal-list > *,
+        .content-loading::before,
+        .story-sequence,
+        .story-sequence.active,
+        .story-sequence.exit,
+        .chapter-transition,
+        .chapter-transition.next-enter-active,
+        .chapter-transition.prev-enter-active,
+        .chapter-transition.next-exit-active,
+        .chapter-transition.prev-exit-active,
+        .collapse-smooth,
+        .collapse-smooth.expanded,
+        .accordion-content,
+        .accordion-content.expanded,
+        .toast-notification,
+        .toast-notification.show,
+        .toast-notification.hide,
+        .page-turn-content,
+        .page-turn-content.turning,
+        .page-turn-content.next,
+        .page-turn-content.next.turning {
             animation-name: none;
             animation-duration: var(--reduced-motion-duration);
             animation-timeline: none; /* Deaktiviert Scroll-Driven Timelines */
@@ -975,5 +1187,227 @@
             opacity: 1;
             transition: none;
         }
+    }
+
+    /* Optimierte Ein-/Ausblendeffekte */
+    .fade-in-optimal {
+        opacity: 0;
+        transition: opacity var(--animation-duration-normal) var(--ease-out);
+    }
+    
+    .fade-in-optimal.visible {
+        opacity: 1;
+    }
+    
+    /* Gestaffeltes Ein-/Ausblenden für Listen */
+    .reveal-list > * {
+        opacity: 0;
+        transform: translateY(8px);
+        transition: opacity var(--animation-duration-fast) var(--ease-out),
+                    transform var(--animation-duration-fast) var(--ease-out);
+    }
+    
+    .reveal-list.visible > *:nth-child(1) { 
+        opacity: 1; 
+        transform: translateY(0);
+        transition-delay: 0ms; 
+    }
+    
+    .reveal-list.visible > *:nth-child(2) { 
+        opacity: 1; 
+        transform: translateY(0);
+        transition-delay: 50ms; 
+    }
+    
+    .reveal-list.visible > *:nth-child(3) { 
+        opacity: 1; 
+        transform: translateY(0);
+        transition-delay: 100ms; 
+    }
+    
+    .reveal-list.visible > *:nth-child(4) { 
+        opacity: 1; 
+        transform: translateY(0);
+        transition-delay: 150ms; 
+    }
+    
+    .reveal-list.visible > *:nth-child(5) { 
+        opacity: 1; 
+        transform: translateY(0);
+        transition-delay: 200ms; 
+    }
+    
+    .reveal-list.visible > *:nth-child(n+6) { 
+        opacity: 1; 
+        transform: translateY(0);
+        transition-delay: 250ms; 
+    }
+    
+    /* Ladezustand für Content */
+    .content-loading {
+        position: relative;
+        min-height: 100px;
+    }
+    
+    .content-loading::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-color: var(--color-skeleton, rgb(229 231 235));
+        border-radius: 4px;
+        animation: skeleton-pulse 1.5s infinite ease-in-out;
+    }
+    
+    @keyframes skeleton-pulse {
+        0%, 100% { opacity: 0.5; }
+        50% { opacity: 0.8; }
+    }
+
+    .content-loading.loaded::before {
+        animation: skeleton-fade-out 0.5s forwards ease-out;
+    }
+    
+    @keyframes skeleton-fade-out {
+        to { opacity: 0; visibility: hidden; }
+    }
+
+    /* Erzähl-Animationen für Storytelling und Onboarding */
+    .story-sequence {
+        position: relative;
+        opacity: 0;
+        transform: translateY(15px);
+        transition: opacity var(--animation-duration-normal) var(--ease-out),
+                    transform var(--animation-duration-normal) var(--ease-out);
+    }
+    
+    .story-sequence.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .story-sequence.exit {
+        opacity: 0;
+        transform: translateY(-15px);
+        transition-timing-function: var(--ease-in);
+    }
+    
+    /* Kapitel-Übergänge für Onboarding/Walkthrough */
+    .chapter-transition {
+        position: relative;
+        transition: transform var(--animation-duration-slow) var(--ease-in-out),
+                    opacity var(--animation-duration-slow) var(--ease-in-out);
+    }
+    
+    .chapter-transition.next-enter {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    
+    .chapter-transition.next-enter-active {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    
+    .chapter-transition.prev-enter {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    
+    .chapter-transition.prev-enter-active {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    
+    .chapter-transition.exit {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        opacity: 1;
+    }
+    
+    .chapter-transition.next-exit-active {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    
+    .chapter-transition.prev-exit-active {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    /* Verbesserte Accordion/Collapse-Effekte */
+    .collapse-smooth {
+        overflow: hidden;
+        transition: height var(--animation-duration-normal) var(--ease-in-out);
+        will-change: height;
+        height: 0;
+    }
+    
+    .collapse-smooth.expanded {
+        height: var(--collapse-height, auto);
+    }
+    
+    /* Natürlicher wirkende Accordion-Animation */
+    .accordion-content {
+        opacity: 0;
+        transform: translateY(-8px);
+        transition: opacity var(--animation-duration-normal) var(--ease-out),
+                    transform var(--animation-duration-normal) var(--ease-out);
+        transition-delay: 50ms;
+    }
+    
+    .accordion-content.expanded {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Toast-Benachrichtigungen */
+    .toast-notification {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity var(--animation-duration-normal) var(--ease-out),
+                    transform var(--animation-duration-normal) var(--ease-out);
+    }
+    
+    .toast-notification.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .toast-notification.hide {
+        opacity: 0;
+        transform: translateY(-20px);
+        transition-timing-function: var(--ease-in);
+    }
+    
+    /* Seitenblättereffekt für Karussells oder Bildergalerien */
+    .page-turn {
+        perspective: 1200px;
+        transform-style: preserve-3d;
+        position: relative;
+    }
+    
+    .page-turn-content {
+        backface-visibility: hidden;
+        transition: transform var(--animation-duration-slow) var(--ease-in-out-cubic);
+        transform-origin: center left;
+    }
+    
+    .page-turn-content.turning {
+        transform: rotateY(-180deg);
+    }
+    
+    .page-turn-content.next {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transform: rotateY(180deg);
+    }
+    
+    .page-turn-content.next.turning {
+        transform: rotateY(0deg);
     }
 }

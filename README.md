@@ -1,8 +1,99 @@
-# Casoon UI Library
+# CASOON UI Lib
 
-> ⚠️ **Alpha-Version**: Dieses Design-System befindet sich in der Alpha-Phase. Die API und Struktur können sich noch ändern.
+Ein schlankes Design-System für CASOON-Projekte - Optimiert für moderne Webentwicklung mit Astro JS und LightningCSS.
 
-Ein schlankes Design-System für CASOON-Projekte, optimiert für moderne Webentwicklung mit Astro JS und LightningCSS.
+## Neuerungen in Version 0.3.0
+
+- **Modernisiertes CSS Layer-System**: Verbesserte Organisation und Spezifitätsverwaltung
+- **Zentralisierte Layer-Definitionen**: Alle Layer sind jetzt in `layers.css` definiert
+- **Komponenten-Unterstützung**: Neuer `components`-Layer für benutzerdefinierte Komponenten
+- **Verbesserte Dokumentation**: Detaillierte Informationen zum Layer-System und seiner Verwendung
+
+## Einführung
+
+CASOON UI Lib ist ein modernes, leichtgewichtiges CSS-Framework, das auf modernen Webtechnologien wie CSS Layers, Custom Properties und Logical Properties basiert. Es bietet ein durchdachtes Set von Utility-Klassen und Design-Tokens, die ein konsistentes und anpassbares Designsystem ermöglichen.
+
+## Installation
+
+```bash
+# Via npm
+npm install casoon-ui-lib
+
+# Via yarn
+yarn add casoon-ui-lib
+
+# Via pnpm
+pnpm add casoon-ui-lib
+```
+
+## Verwendung
+
+### Grundlegende Verwendung
+
+```html
+<link rel="stylesheet" href="path/to/casoon-ui-lib/core.css">
+```
+
+### Mit Bundlern (Webpack, Vite, etc.)
+
+```js
+// In Ihrer JavaScript-Datei
+import 'casoon-ui-lib/core.css';
+```
+
+### Mit Astro
+
+```astro
+---
+// In Ihrer Astro-Komponente
+import 'casoon-ui-lib/core.css';
+---
+
+<html>
+  <!-- Inhalt -->
+</html>
+```
+
+## CSS Layer-System
+
+Die Bibliothek verwendet moderne CSS-Layers zur Steuerung der Spezifität. Weitere Informationen finden Sie in der [Layer-System-Dokumentation](LAYER-SYSTEM.md).
+
+### Wichtigste Layer
+
+```css
+@layer reset,              /* Browser-Reset */
+       tokens,             /* Design-Tokens */
+       custom-properties,  /* Registrierte CSS-Eigenschaften */
+       utilities,          /* Utility-Klassen */
+       animations,         /* Animationen */
+       themes,             /* Theming-System */
+       components;         /* Komponenten (für eigene Erweiterungen) */
+```
+
+## Eigene Komponenten erstellen
+
+Sie können eigene Komponenten in den `components`-Layer einbinden:
+
+```css
+/* Ihre Komponenten-Datei */
+@import url('path/to/casoon-ui-lib/core.css');
+
+@layer components {
+  .my-component {
+    /* Ihre Komponenten-Styles */
+  }
+}
+```
+
+Ein Beispiel finden Sie in der Datei `components/example.css`.
+
+## Lizenz
+
+MIT
+
+## Beitragen
+
+Beiträge sind willkommen! Bitte lesen Sie die Beitragsrichtlinien für Details.
 
 ## Über das Projekt
 
@@ -42,36 +133,29 @@ casoon-ui-lib/
 Die `core.css` ist die Hauptdatei, die alle Layer und Module importiert. Sie ist in verschiedene Layer organisiert:
 
 ```css
-@layer base {
-    /* Grundlegende Styles */
-    @import url('layers/reset.css');
-    @import url('layers/tokens.css');
-    @import url('layers/forms.css');
-    @import url('layers/smooth-scroll.css');
-    @import url('layers/colors.css');
-    @import url('layers/typography.css');
-    @import url('layers/layout.css');
+/* Explizite Layer-Reihenfolge für CSS-Cascading-Prioritäten */
+@layer reset, tokens, custom-properties, core, layout, typography, 
+       logical-properties, colors, utilities, accessibility, icons, 
+       animations, effects, themes;
+
+/* Reset und Grundlagen */
+@layer reset {
+    /* Browser-Stile zurücksetzen */
+    @import url("layers/reset.css");
 }
 
-@layer icons {
-    /* Icon-Styles */
-    @import url('icons/base.css');
+/* Basis-Definitionen und Tokens */
+@layer tokens {
+    /* Design-Tokens und Variablen */
+    @import url("layers/tokens.css");
 }
 
-@layer utilities {
-    /* Utility-Klassen */
-    @import url('layer/utilities.css');
+/* Benutzerdefinierte CSS-Eigenschaften mit @property */
+@layer custom-properties {
+    @import url("layers/custom-properties.css");
 }
 
-@layer animations {
-    /* Animationen */
-    @import url('layers/animations.css');
-}
-
-@layer effects {
-    /* Effekte */
-    @import url('layers/effects.css');
-}
+/* Weitere Layer für Layout, Typografie, Utilities, Animationen, etc. */
 ```
 
 ### 2. CSS-Module
@@ -127,6 +211,7 @@ Die Layer im `layers/` Verzeichnis enthalten grundlegende Styles:
 
 - `reset.css`: CSS-Reset
 - `tokens.css`: Design-Tokens
+- `custom-properties.css`: @property Definitionen für animierbare CSS-Eigenschaften
 - `forms.css`: Formular-Styles
 - `smooth-scroll.css`: Sanftes Scrollen
 - `colors.css`: Farbpalette
@@ -139,6 +224,50 @@ Die Layer im `layers/` Verzeichnis enthalten grundlegende Styles:
   - `effects/neon.css`: Neon-Effekte und Leuchteffekte
   - `effects/filters.css`: Verschiedene Filtereffekte
 - `icons.css`: Icon-Styles
+
+### 4. Animierbare Eigenschaften mit @property
+
+In `custom-properties.css` werden animierbare Eigenschaften definiert, die eine flüssige Animation zwischen zwei verschiedenen Werten ermöglichen:
+
+```css
+@property --color-primary {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: var(--color-primary, #3b82f6);
+}
+
+@property --radius {
+  syntax: '<length-percentage>';
+  inherits: false;
+  initial-value: var(--border-radius-md, 0.5rem);
+}
+
+@property --rotation-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+```
+
+Verwendung in CSS:
+
+```css
+.animated-element {
+  background-color: var(--color-primary);
+  border-radius: var(--radius);
+  transform: rotate(var(--rotation-angle));
+  transition: 
+    --color-primary 0.3s ease, 
+    --radius 0.3s ease, 
+    --rotation-angle 0.5s ease;
+}
+
+.animated-element:hover {
+  --color-primary: var(--color-primary-dark);
+  --radius: var(--border-radius-lg);
+  --rotation-angle: 5deg;
+}
+```
 
 ## Integration mit Astro
 
@@ -168,6 +297,7 @@ Diese Bibliothek wurde speziell für die Verwendung mit LightningCSS entwickelt 
 
 - **CSS-Variablen in Media Queries**: Verwendung von CSS-Variablen innerhalb von Media Queries für konsistente Breakpoints
 - **Modern Syntax**: Unterstützung für die neueste CSS-Syntax wie `@layer`, CSS-Nesting und logische Eigenschaften
+- **Moderne CSS-Features**: Implementierung von scrollbar-gutter, scrollbar-color, content-visibility, font-size-adjust, transition-behavior und @property Definitionen
 - **Performante Verarbeitung**: Bis zu 100x schneller als andere CSS-Prozessoren
 - **Automatische Präfixe**: Keine zusätzlichen PostCSS-Plugins erforderlich
 - **Minimale Bundle-Größe**: Optimierte CSS-Ausgabe mit fortschrittlicher Code-Minimierung

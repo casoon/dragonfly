@@ -1,0 +1,61 @@
+/**
+ * CSS Layers
+ *
+ * Diese Datei definiert die Layer-Struktur des Designsystems.
+ * Sie ist der zentrale Koordinator für die Spezifität aller CSS-Stilregeln.
+ */
+
+/* 
+ * Explizite Layer-Reihenfolge für CSS-Cascading-Prioritäten
+ * Reihenfolge: niedrigere Spezifität (Reset) -> höhere Spezifität (Themes)
+ */
+@layer reset,                /* Browser-Reset, Normalisierung */
+       tokens,               /* Design-Tokens, Variablen */
+       custom-properties,    /* Registrierte CSS-Eigenschaften */
+       core,                 /* Kernfunktionalitäten */
+       logical-properties,   /* Logische Eigenschaften für Bidirektionalität */
+       colors,               /* Farbsystem */
+       color-mix,            /* Farbmischungen und -variationen */
+       layout,               /* Layout-Grundlagen */
+       typography,           /* Typografie-System */
+       utilities,            /* Utility-Klassen */
+       smooth-scroll,        /* Scroll-Verhalten */
+       accessibility,        /* Barrierefreiheit */
+       icons,                /* Icon-System */
+       animations,           /* Animationen */
+       effects,              /* Visuelle Effekte */
+       themes,               /* Theming-System */
+       components;           /* Komponenten (für zukünftige Erweiterungen) */
+
+/*
+ * Importieren der Layer-Definitionen
+ * Jede Datei definiert ihren eigenen Layer mit @layer
+ */
+
+/* Reset und Grundlagen */
+@import url("layers/reset.css");
+
+/* Tokens und Properties */
+@import url("layers/tokens.css");
+@import url("layers/custom-properties.css");
+
+/* Core-Funktionalitäten */
+@import url("layers/logical-properties.css");
+@import url("layers/colors.css");
+@import url("layers/color-mix.css");
+
+/* Layout und Typografie */
+@import url("layers/layout.css");
+@import url("layers/typography.css");
+
+/* Utilities und Accessibility */
+@import url("layers/utilities.css");
+@import url("layers/smooth-scroll.css");
+@import url("layers/accessibility.css");
+
+/* Icon-System */
+@import url('icons/base.css');
+
+/* Animationen und Effekte */
+@import url('layers/animations.css');
+@import url('layers/effects.css'); 

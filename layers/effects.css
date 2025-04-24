@@ -5,6 +5,9 @@
  * - Neon-Effekte: Leuchtende Text- und Rahmeneffekte
  * - Filter-Effekte: Visuelle Filter wie Unschärfe, Helligkeit, etc.
  * - Interaktionseffekte: Effekte für Benutzerinteraktionen
+ *   - 3D-Transformationen und Perspektiveffekte
+ *   - Cursor-Reaktive Elemente
+ *   - Touch-Optimierte Feedback-Effekte
  * 
  * Verwendung:
  * 1. Importieren Sie diese Datei in Ihr Projekt
@@ -14,6 +17,8 @@
  * <div class="neon-text">Leuchtender Text</div>
  * <div class="blur-sm">Unschärfe-Effekt</div>
  * <div class="draggable">Ziehbares Element</div>
+ * <div class="card-flip">3D-Karten-Flip-Effekt</div>
+ * <div class="touch-ripple">Optimierter Touch-Effekt</div>
  * 
  * Hinweise:
  * - Alle Effekte sind responsive
@@ -110,9 +115,13 @@
             .hover-shadow,
             .focus-ring,
             .active-scale,
-            .loading-spinner {
+            .loading-spinner,
+            .card-flip-inner,
+            .depth-shift,
+            .touch-ripple::after {
                 transition: none;
                 animation: none;
+                transform: none !important;
             }
         }
     } 

@@ -1085,6 +1085,25 @@
         }
       }
     }
+
+    /* Scrollbar Utilities */
+    .scrollbar-stable { scrollbar-gutter: stable; }
+    .scrollbar-stable-both { scrollbar-gutter: stable both-edges; }
+    .scrollbar-auto { scrollbar-gutter: auto; }
+    
+    .scrollbar-light { scrollbar-color: var(--color-gray-400) var(--color-gray-100); }
+    .scrollbar-dark { scrollbar-color: var(--color-gray-600) var(--color-gray-300); }
+    .scrollbar-primary { scrollbar-color: var(--color-primary) var(--color-gray-100); }
+    .scrollbar-custom { scrollbar-color: var(--color-accent) var(--color-surface); }
+    
+    /* Content Visibility */
+    .content-visible { content-visibility: visible; }
+    .content-hidden { content-visibility: hidden; }
+    .content-auto { content-visibility: auto; }
+    
+    /* Transition Behavior */
+    .transition-allow-discrete { transition-behavior: allow-discrete; }
+    .transition-normal { transition-behavior: normal; }
 }
 
 /* 

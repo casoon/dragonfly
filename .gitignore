@@ -49,3 +49,8 @@ temp/
 *.bak
 *.tmp
 *.temp
+
+
+tasks.md
+styleint-check.md
+css-check-results.md

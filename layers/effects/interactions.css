@@ -27,6 +27,20 @@
  * 6. Ladezustände:
  * <div class="loading">Ladeanimation</div>
  * 
+ * 7. 3D-Transformationen:
+ * <div class="card-flip">
+ *   <div class="card-flip-inner">
+ *     <div class="card-flip-front">Vorderseite</div>
+ *     <div class="card-flip-back">Rückseite</div>
+ *   </div>
+ * </div>
+ * 
+ * 8. Cursor-Effekte:
+ * <div class="cursor-follow">Folgt dem Cursor</div>
+ * 
+ * 9. Touch-Ripple-Effekt:
+ * <button class="touch-ripple">Ripple Button</button>
+ *
  * Technische Details:
  * - Verwendet CSS-Variablen für Farben und Größen
  * - Optimiert mit will-change und transform
@@ -241,6 +255,174 @@
         .active-rotate,
         .text-mask {
             transition: var(--transition-none);
+        }
+    }
+
+    /* 3D-Transformationen */
+    .card-flip {
+        perspective: 1000px;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .card-flip-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+    }
+    
+    .card-flip:hover .card-flip-inner,
+    .card-flip.flipped .card-flip-inner {
+        transform: rotateY(180deg);
+    }
+    
+    .card-flip-front,
+    .card-flip-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        
+        /* Hinweis: Für Safari-Kompatibilität sollte in der Produktion
+           -webkit-backface-visibility: hidden; hinzugefügt werden */
+    }
+    
+    .card-flip-back {
+        transform: rotateY(180deg);
+    }
+    
+    /* Depth-Shift für subtile 3D-Tiefe */
+    .depth-shift {
+        transform-style: preserve-3d;
+        transition: transform 0.2s ease;
+    }
+    
+    .depth-shift:hover {
+        transform: translateZ(10px);
+    }
+    
+    .depth-shift-layer {
+        transform: translateZ(var(--depth, 0));
+        transition: transform 0.2s ease;
+    }
+    
+    /* Cursor-Follow-Effekte */
+    .cursor-follow {
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.1s ease-out;
+        transform-origin: center center;
+    }
+    
+    .cursor-follow::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+            circle closest-side,
+            rgb(255 255 255 / 15%),
+            transparent
+        );
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+        z-index: 1;
+    }
+    
+    .cursor-follow:hover::before {
+        opacity: 1;
+    }
+    
+    /* Optimierte Touch-Ripple */
+    .touch-ripple {
+        position: relative;
+        overflow: hidden;
+        -webkit-tap-highlight-color: transparent;
+    }
+    
+    .touch-ripple::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 5px;
+        height: 5px;
+        background: rgb(255 255 255 / 50%);
+        border-radius: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 1;
+        pointer-events: none;
+        z-index: 1;
+    }
+    
+    .touch-ripple:active::after {
+        animation: ripple-effect 0.6s ease-out;
+    }
+    
+    @keyframes ripple-effect {
+        0% {
+            transform: translate(-50%, -50%) scale(0);
+            opacity: 1;
+        }
+
+        90% {
+            transform: translate(-50%, -50%) scale(30);
+            opacity: 0.2;
+        }
+
+        100% {
+            transform: translate(-50%, -50%) scale(35);
+            opacity: 0;
+        }
+    }
+    
+    /* Faltendes Element (Origami-Style) */
+    .fold-reveal {
+        position: relative;
+        perspective: 1200px;
+        transform-style: preserve-3d;
+    }
+    
+    .fold-reveal-content {
+        transition: transform 0.5s ease-in-out;
+        transform-origin: top center;
+        transform: rotateX(-90deg);
+        opacity: 0;
+    }
+    
+    .fold-reveal.unfolded .fold-reveal-content {
+        transform: rotateX(0deg);
+        opacity: 1;
+    }
+
+    /* Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+        .hover-scale,
+        .hover-rotate,
+        .hover-shadow,
+        .active-scale,
+        .active-rotate,
+        .text-mask,
+        .card-flip-inner,
+        .depth-shift, 
+        .depth-shift-layer,
+        .cursor-follow,
+        .cursor-follow::before,
+        .touch-ripple::after,
+        .fold-reveal-content {
+            transition: none;
+            animation: none;
+            transform: none !important;
+        }
+        
+        .touch-ripple:active::after {
+            animation: none;
         }
     }
 } 
