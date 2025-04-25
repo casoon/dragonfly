@@ -30,14 +30,25 @@
 
 @layer components {
     /* Spinner Variables */
+    .spinner-container {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        container-type: inline-size;
+    }
+
     .spinner {
         --spinner-size: 1.5rem;
-        --spinner-color: var(--color-primary-500);
         --spinner-border-width: 0.25rem;
-        --spinner-animation-duration: 0.75s;
-
-        border-color: var(--border-gray-200);
-        background-color: var(--bg-transparent);
+        --spinner-color: var(--color-primary-500);
+        --spinner-duration: 0.8s;
+        
+        width: var(--spinner-size);
+        height: var(--spinner-size);
+        border: var(--spinner-border-width) solid var(--color-gray-200);
+        border-top-color: var(--spinner-color);
+        border-radius: 50%;
+        animation: spin var(--spinner-duration) linear infinite;
     }
 
     /* Base Spinner */
@@ -105,15 +116,15 @@
     }
 
     /* Reduced Motion */
-    @media (prefers-reduced-motion: reduce) {
+    @container (prefers-reduced-motion: reduce) {
         .spinner {
-            animation: none;
             border-top-color: var(--spinner-color);
+            animation: none;
         }
     }
 
     /* Responsive */
-    @media (width <= var(--breakpoint-md)) {
+    @container (width < 768px) {
         .spinner {
             --spinner-size: 1.25rem;
             --spinner-border-width: 0.2rem;
@@ -162,18 +173,18 @@
     }
 
     /* Reduziere Animation bei Bedarf */
-    @media (prefers-reduced-motion: reduce) {
+    @container (prefers-reduced-motion: reduce) {
         .spinner {
             animation-duration: 1.5s;
         }
     }
 
     /* Responsive Anpassungen */
-    @media (width <= var(--breakpoint-md)) {
+    @container (width < 768px) {
         .spinner-lg {
+            border-width: 0.35rem;
             width: 2.5rem;
             height: 2.5rem;
-            border-width: 0.35rem;
         }
     }
 } 

@@ -127,7 +127,7 @@
     }
 
     /* Responsive */
-    @media (width <= var(--breakpoint-md)) {
+    @media (width <= 768px) {
         .select {
             --select-padding: 0.625rem 2.25rem 0.625rem 0.625rem;
             --select-font-size: 0.8125rem;

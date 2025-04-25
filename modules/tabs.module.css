@@ -151,7 +151,7 @@
 }
 
 /* Responsive Anpassungen */
-@media (width <= var(--breakpoint-md)) {
+@media (width <= 768px) {
     .tabs {
         flex-wrap: wrap;
     }

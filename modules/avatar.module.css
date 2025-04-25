@@ -43,13 +43,14 @@
 @layer components {
     /* Avatar Variables */
     .avatar {
-        --avatar-size: 2.5rem;
+        --avatar-size: var(--avatar-size-md, 3rem);
         --avatar-border-radius: 50%;
         --avatar-border-width: 2px;
-        --avatar-border-color: var(--color-background);
-        --avatar-background: var(--color-background-hover);
-        --avatar-text: var(--color-text);
-        --avatar-transition: all var(--transition-normal);
+        --avatar-border-color: var(--color-border-light, #e2e8f0);
+        --avatar-font-size: calc(var(--avatar-size) * 0.4);
+        --avatar-bg: var(--color-gray-200, #e2e8f0);
+        --avatar-text: var(--color-gray-700, #334155);
+        --avatar-transition: transform 0.2s, box-shadow 0.2s;
     }
 
     /* Base Avatar */
@@ -58,12 +59,17 @@
         width: var(--avatar-size);
         height: var(--avatar-size);
         border-radius: var(--avatar-border-radius);
-        background-color: var(--avatar-background);
-        display: flex;
+        overflow: hidden;
+        display: inline-flex;
         align-items: center;
         justify-content: center;
-        overflow: hidden;
+        background-color: var(--avatar-bg);
+        color: var(--avatar-text);
+        font-weight: var(--font-weight-medium, 500);
+        font-size: var(--avatar-font-size);
+        line-height: 1;
         transition: var(--avatar-transition);
+        container-type: inline-size;
     }
 
     /* Image */
@@ -222,13 +228,31 @@
         box-shadow: 0 0 0 2px var(--color-primary-500), 0 0 0 4px var(--color-background);
     }
 
-    /* Reduced Motion */
-    @media (prefers-reduced-motion: reduce) {
+    /* Container Queries ersetzen Media Queries */
+    @container (width < 640px) {
+        .small {
+            --avatar-size: 1.75rem;
+        }
+        
+        .medium {
+            --avatar-size: 2.25rem;
+        }
+        
+        .large {
+            --avatar-size: 2.75rem;
+        }
+        
+        .xlarge {
+            --avatar-size: 3.5rem;
+        }
+    }
+
+    @container (prefers-reduced-motion: reduce) {
         .avatar,
         .overlay {
             transition: none;
         }
-
+        
         .avatar:hover {
             transform: none;
         }

@@ -187,4 +187,22 @@
         background-color: transparent;
         border: 1px solid currentcolor;
     }
+
+    /* Responsive Anpassungen */
+    @media (width <= 768px) {
+        .badge {
+            font-size: 0.7rem;
+            padding: 0.2rem 0.4rem;
+        }
+        
+        .badge-lg {
+            font-size: 0.8rem;
+            padding: 0.3rem 0.6rem;
+        }
+        
+        .badge-sm {
+            font-size: 0.65rem;
+            padding: 0.15rem 0.3rem;
+        }
+    }
 } 

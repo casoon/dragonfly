@@ -2,6 +2,14 @@
 
 Ein schlankes Design-System für CASOON-Projekte - Optimiert für moderne Webentwicklung mit Astro JS und LightningCSS.
 
+## Neuerungen in Version 0.3.4
+
+- **Erweiterte Container Queries**: Verbesserte Implementierung mit neuen Utility-Klassen und responsiven Komponenten
+- **Neue Layout-Komponenten**: `grid-responsive` und `flex-responsive` für intelligente Container-basierte Layouts
+- **Container Query Utilities**: Neue Klassen wie `container-xs:grid-cols-2` für komponentenbasierte Responsive-Designs
+- **Bessere Performance**: Optimierte Container-Query-Selektoren und `contain-intrinsic-size` für stabilere Layouts
+- **Verbesserte Dokumentation**: Detaillierte Beispiele für Container-Query-Komponenten
+
 ## Neuerungen in Version 0.3.3
 
 - **Container Queries statt Media Queries**: Verbesserte Anpassbarkeit für komponentenbasierte Layouts

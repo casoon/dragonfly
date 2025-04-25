@@ -1,0 +1,95 @@
+:root {
+  container-type: inline-size;
+  container-name: root;
+}
+
+/* Container Queries ersetzen Media Queries */
+@container (width < 640px) {
+  .touch-feedback::after {
+    height: 150%;
+    width: 150%;
+  }
+  
+  .focus-ring:focus-visible {
+    box-shadow: 0 0 0 1px var(--color-primary);
+  }
+}
+
+@container root (prefers-reduced-motion: reduce) {
+  .hover-lift,
+  .hover-shadow,
+  .hover-scale {
+    transition: none;
+  }
+  
+  .hover-lift:hover {
+    transform: none;
+  }
+  
+  .hover-shadow:hover {
+    box-shadow: none;
+  }
+  
+  .hover-scale:hover {
+    transform: none;
+  }
+  
+  .touch-feedback::after {
+    animation: none;
+  }
+}
+
+/* Reduzierte Bewegung */
+@container root (prefers-reduced-motion: reduce) {
+    .hover-lift,
+    .hover-scale,
+    .hover-push,
+    .hover-rotate,
+    .hover-shake,
+    .hover-bounce,
+    .hover-pop,
+    .hover-wobble,
+    .hover-pulse,
+    .hover-jiggle {
+        transition: none;
+        transform: none;
+    }
+
+    .drag-item,
+    .swipeable,
+    .touch-ripple {
+        transition: none;
+    }
+
+    .drag-drop-area.drag-over {
+        transform: none;
+    }
+}
+
+/* Mobile Anpassungen */
+@container root (width <= 640px) {
+    /* Anpassungen für Touch-Interaktionen auf kleinen Displays */
+    .drag-handle {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .drag-item {
+        padding: 12px;
+    }
+    
+    .swipeable {
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .touch-area {
+        min-height: 44px;
+        min-width: 44px;
+        padding: 12px;
+    }
+    
+    /* Visuelles Feedback für Hover-Effekte deaktivieren */
+    .hover-effect {
+        display: none;
+    }
+} 

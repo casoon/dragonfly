@@ -184,9 +184,32 @@
   .no-underline { text-decoration: none; }
 
   /* Responsive Typography */
-  @container root (max-width: 640px) {
-    html {
+  @container root (width <= 640px) {
+    body {
       font-size: 14px;
+      line-height: 1.4;
+    }
+    h1 { font-size: 1.8rem; }
+    h2 { font-size: 1.5rem; }
+    h3 { font-size: 1.25rem; }
+    h4 { font-size: 1.125rem; }
+    h5 { font-size: 1.1rem; }
+    h6 { font-size: 1rem; }
+    
+    .text-xs { font-size: 0.75rem; }
+    .text-sm { font-size: 0.875rem; }
+    .text-base { font-size: 1rem; }
+    .text-lg { font-size: 1.125rem; }
+    .text-xl { font-size: 1.25rem; }
+    .text-2xl { font-size: 1.5rem; }
+    .text-3xl { font-size: 1.75rem; }
+  }
+
+  /* Typografieanpassungen für arabische, hebräische und andere RTL-Sprachen */
+  @container root (width <= 640px) {
+    :lang(ar), :lang(he), :lang(fa), :lang(ur) {
+      font-size: 16px;
+      line-height: 1.5;
     }
   }
 

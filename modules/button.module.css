@@ -59,6 +59,9 @@
                 background-color var(--transition-fast),
                 border-color var(--transition-fast),
                 box-shadow var(--transition-fast);
+    
+    /* Container für Container Queries */
+    container-type: inline-size;
   }
 
   /* Button Hover, Focus, Active */
@@ -221,6 +224,9 @@
   /* Buttongruppe */
   .btn-group {
     display: inline-flex;
+    flex-wrap: nowrap;
+    vertical-align: middle;
+    container-type: inline-size;
     
     & > .btn:not(:last-child) {
       border-top-right-radius: 0;
@@ -240,8 +246,45 @@
     }
   }
 
-  /* Reduziere Bewegung für Nutzer, die das bevorzugen */
-  @media (prefers-reduced-motion: reduce) {
+  /* Container Queries ersetzen Media Queries */
+  @container (width < 768px) {
+    .btn {
+      --btn-font-size: 0.875rem;
+    }
+    
+    .btn--sm {
+      --btn-height: 1.75rem;
+      --btn-padding-x: var(--space-2);
+    }
+    
+    .btn--lg {
+      --btn-height: 2.75rem;
+      --btn-padding-x: var(--space-4);
+    }
+    
+    .btn-group {
+      flex-direction: column;
+    }
+    
+    .btn-group > .btn {
+      margin-right: 0;
+      margin-bottom: 0.25rem;
+      border-radius: var(--btn-radius);
+    }
+    
+    .btn-group > .btn:not(:last-child) {
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+    
+    .btn-group > .btn:not(:first-child) {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      margin-top: calc(var(--btn-border-width) * -1);
+    }
+  }
+
+  @container (prefers-reduced-motion: reduce) {
     .btn {
       transition: none;
     }

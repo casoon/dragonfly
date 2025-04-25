@@ -207,7 +207,7 @@
   }
 
   /* Responsive */
-  @media (width <= var(--breakpoint-sm)) {
+  @media (width <= 640px) {
     .notification {
       width: 100%;
     }

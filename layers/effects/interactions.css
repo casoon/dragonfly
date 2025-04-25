@@ -163,7 +163,7 @@
 }
 
 /* Responsive Anpassungen */
-@media (max-width: var(--breakpoint-sm)) {
+@media (width <= 640px) {
     .touch-feedback::after {
         inline-size: 150%;
         block-size: 150%;
@@ -202,7 +202,7 @@
 }
 
 /* Mobile Anpassungen */
-@container root (max-width: 640px) {
+@container root (width <= 640px) {
     /* Anpassungen für Touch-Interaktionen auf kleinen Displays */
     .drag-handle {
         width: 32px;

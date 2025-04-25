@@ -313,14 +313,14 @@
     body,
     .scroll-smooth,
     .scroll-behavior-smooth,
-    .scroll-mt-*,
-    .scroll-mb-*,
-    .scroll-ms-*,
-    .scroll-me-*,
-    .scroll-pt-*,
-    .scroll-pb-*,
-    .scroll-ps-*,
-    .scroll-pe-*,
+    .scroll-mt,
+    .scroll-mb,
+    .scroll-ms,
+    .scroll-me,
+    .scroll-pt,
+    .scroll-pb,
+    .scroll-ps,
+    .scroll-pe,
     [data-scroll-trigger],
     .scroll-snap-container,
     .scroll-snap-item {
@@ -329,6 +329,64 @@
       scroll-snap-type: none !important;
       animation: none !important;
       transition: none !important;
+    }
+  }
+
+  /* Responsive Anpassungen */
+  @media (width <= 640px) {
+    .touch-feedback::after {
+        inline-size: 150%;
+        block-size: 150%;
+    }
+    
+    .focus-ring:focus-visible {
+        box-shadow: 0 0 0 1px var(--color-primary);
+    }
+  }
+
+  @media (width >= 640px) {
+    .scroll-fade-staggered > *:nth-child(2) {
+      animation-delay: 0.1s;
+    }
+
+    .scroll-fade-staggered > *:nth-child(3) {
+      animation-delay: 0.2s;
+    }
+
+    .scroll-fade-staggered > *:nth-child(4) {
+      animation-delay: 0.3s;
+    }
+  }
+
+  @media (width >= 768px) {
+    .scroll-to-top {
+      right: 2rem;
+      bottom: 2rem;
+    }
+  }
+
+  @media (width >= 1024px) {
+    .scroll-parallax {
+      transform: translateY(calc(var(--scroll-offset) * 0.15));
+    }
+  }
+
+  /* Reduzierte Bewegung für Barrierefreiheit */
+  @media (prefers-reduced-motion: reduce) {
+    :root {
+      --scroll-behavior: auto;
+    }
+    
+    .scroll-fade,
+    .scroll-scale,
+    .scroll-slide,
+    .scroll-rotate,
+    .scroll-parallax,
+    .scroll-fade-staggered > * {
+      animation: none;
+      transform: none;
+      opacity: 1;
+      transition: none;
     }
   }
 }

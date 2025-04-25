@@ -720,31 +720,41 @@
     }
   }
 
-  /* Responsive Anpassungen für kleine Bildschirme */
-  @container root (max-width: 768px) {
-    .logical-container {
-      inline-size: 100%;
-      max-inline-size: 100%;
-      min-inline-size: auto;
-      block-size: auto;
+  /* Responsive Anpassungen für logische Eigenschaften */
+  @container root (width <= 768px) {
+    /* Anpassungen für kleinere Bildschirme */
+    .block-spacer {
+      margin-block: 1rem;
     }
     
-    .logical-responsive {
-      flex-direction: column;
-      row-gap: var(--space-4);
-      margin-inline: var(--space-0);
+    .inline-spacer {
+      margin-inline: 0.5rem;
+    }
+    
+    .flow-spacing > * + * {
+      margin-block-start: 0.75rem;
+    }
+    
+    .center-content {
+      justify-content: center;
+      align-items: center;
     }
   }
   
   /* Tablet-Anpassungen */
-  @container root (max-width: 990px) {
-    .logical-grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: var(--space-4);
+  @container root (width <= 990px) {
+    .tablet-padding {
+      padding-inline: 1.5rem;
+      padding-block: 1rem;
     }
     
-    .logical-spacer {
-      display: none;
+    .tablet-margin {
+      margin-inline: 1.5rem;
+      margin-block: 1rem;
+    }
+    
+    .tablet-spacing > * + * {
+      margin-inline-start: 1rem;
     }
   }
   

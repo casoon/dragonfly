@@ -191,16 +191,20 @@
     animation: flicker 8s infinite;
 }
 
-/* Responsive Anpassungen - Stärkere Effekte auf größeren Bildschirmen */
-@container root (max-width: 640px) {
-    .neon-text,
-    .neon-text-secondary,
-    .neon-text-accent {
-        text-shadow: 0 0 8px currentcolor;
-        box-shadow: 0 0 8px currentcolor;
+/* Responsive Anpassungen */
+@media (width <= 640px) {
+    .neon-sign {
+        font-size: 1.5rem;
+        padding: 0.5rem 1rem;
     }
     
     .neon-border {
-        box-shadow: 0 0 8px currentcolor;
+        border-width: 2px;
+    }
+    
+    .neon-box {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16/9;
     }
 } 

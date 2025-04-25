@@ -216,7 +216,7 @@
     }
 
     /* Responsive */
-    @media (width <= var(--breakpoint-md)) {
+    @media (width <= 768px) {
         .modal {
             --modal-padding: 1rem;
         }

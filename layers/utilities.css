@@ -481,7 +481,7 @@
     }
 
     /* Container Query Utilities */
-    @container (width >= var(--container-query-xs)) {
+    @container (min-width: 240px) {
         .container-xs\:grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
         .container-xs\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
         .container-xs\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -489,7 +489,7 @@
         .container-xs\:col-span-2 { grid-column: span 2; }
         .container-xs\:col-span-3 { grid-column: span 3; }
         .container-xs\:col-span-full { grid-column: 1 / -1; }
-        .container-xs\:gap-0 { gap: var(--space-0); }
+        .container-xs\:gap-0 { gap: 0; }
         .container-xs\:gap-1 { gap: var(--space-1); }
         .container-xs\:gap-2 { gap: var(--space-2); }
         .container-xs\:gap-4 { gap: var(--space-4); }
@@ -507,7 +507,7 @@
         .container-xs\:flex-col { flex-direction: column; }
     }
 
-    @container (width >= var(--container-query-sm)) {
+    @container (min-width: 380px) {
         .container-sm\:grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
         .container-sm\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
         .container-sm\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -536,7 +536,7 @@
         .container-sm\:flex-col { flex-direction: column; }
     }
 
-    @container (width >= var(--container-query-md)) {
+    @container (min-width: 540px) {
         .container-md\:grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
         .container-md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
         .container-md\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -569,7 +569,7 @@
         .container-md\:flex-col { flex-direction: column; }
     }
 
-    @container (width >= var(--container-query-lg)) {
+    @container (min-width: 720px) {
         .container-lg\:grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
         .container-lg\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
         .container-lg\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -606,7 +606,7 @@
         .container-lg\:flex-col { flex-direction: column; }
     }
 
-    @container (width >= var(--container-query-xl)) {
+    @container (min-width: 960px) {
         .container-xl\:grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
         .container-xl\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
         .container-xl\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -873,7 +873,7 @@
 }
 
 /* 
- * Logische Properties für Internationalisierung (Aufgabe 8)
+ * Logische Properties für Internationalisierung
  * Richtungsunabhängiges Layout für mehrsprachige UIs
  */
 @layer utilities-logical-properties {

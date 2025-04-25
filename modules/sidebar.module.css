@@ -190,7 +190,7 @@
     }
 
     /* Responsive Verhalten */
-    @media (width <= var(--breakpoint-md)) {
+    @media (width <= 768px) {
         .sidebar {
             position: fixed;
             top: 0;
@@ -280,7 +280,8 @@
   /* Responsive Layout Anpassungen */
   @media (width <= 768px) {
     .sidebar:has(~ .content) {
-      display: none;
+      inset-block-start: 0;
+      z-index: var(--z-index-sidebar);
     }
 
     .content:has(~ .sidebar) {
@@ -291,7 +292,8 @@
   /* Fortgeschrittene Media Queries mit :has() */
   @media (width >= 768px) {
     body:has(.sidebar) main {
-      margin-inline-start: 250px;
+      margin-inline-start: var(--sidebar-width);
+      width: calc(100% - var(--sidebar-width));
     }
     
     body:has(.sidebar.collapsed) main {
@@ -314,7 +316,7 @@
   @media (width <= 768px) {
     .container:has(> .sidebar),
     .container:has(> .sidebar.right) {
-      grid-template-columns: 1fr;
+      display: block;
     }
   }
 } 

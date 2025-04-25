@@ -246,7 +246,7 @@
     }
 
     /* Responsive */
-    @media (width <= var(--breakpoint-md)) {
+    @media (width <= 768px) {
         .form {
             --form-padding: var(--spacing-3);
 

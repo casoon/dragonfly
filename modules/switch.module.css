@@ -40,9 +40,11 @@
     .switch {
         --switch-width: 3rem;
         --switch-height: 1.5rem;
-        --switch-padding: 0.25rem;
-        --switch-background: var(--color-gray-200);
-        --switch-active-background: var(--color-primary-500);
+        --switch-padding: 0.125rem;
+        --switch-bg: var(--color-gray-300);
+        --switch-active-bg: var(--color-primary-500);
+        --switch-circle-bg: var(--color-white);
+        --switch-transition: all 0.2s ease;
         --switch-slider-size: calc(var(--switch-height) - (var(--switch-padding) * 2));
         --switch-transition-duration: 0.2s;
         --switch-thumb-position: 0;
@@ -57,6 +59,7 @@
         display: inline-block;
         width: var(--switch-width);
         height: var(--switch-height);
+        container-type: inline-size;
     }
 
     .switch input {
@@ -69,8 +72,8 @@
         position: absolute;
         cursor: pointer;
         inset: 0;
-        background-color: var(--switch-background);
-        transition: var(--switch-transition-duration);
+        background-color: var(--switch-bg);
+        transition: var(--switch-transition);
         border-radius: var(--switch-height);
     }
 
@@ -81,13 +84,13 @@
         width: var(--switch-slider-size);
         left: var(--switch-thumb-left);
         bottom: var(--switch-thumb-bottom);
-        background-color: var(--switch-thumb-color, var(--color-white));
-        transition: var(--switch-transition-duration);
+        background-color: var(--switch-circle-bg, var(--color-white));
+        transition: var(--switch-transition);
         border-radius: 50%;
     }
 
     input:checked + .slider {
-        background-color: var(--switch-active-background);
+        background-color: var(--switch-active-bg);
     }
 
     input:checked + .slider::before {
@@ -115,23 +118,23 @@
 
     /* Color Variants */
     .primary {
-        --switch-active-background: var(--color-primary-500);
+        --switch-active-bg: var(--color-primary-500);
     }
 
     .secondary {
-        --switch-active-background: var(--color-secondary-500);
+        --switch-active-bg: var(--color-secondary-500);
     }
 
     .success {
-        --switch-active-background: var(--color-success-500);
+        --switch-active-bg: var(--color-success-500);
     }
 
     .warning {
-        --switch-active-background: var(--color-warning-500);
+        --switch-active-bg: var(--color-warning-500);
     }
 
     .error {
-        --switch-active-background: var(--color-error-500);
+        --switch-active-bg: var(--color-error-500);
     }
 
     /* Disabled State */
@@ -149,16 +152,18 @@
         box-shadow: 0 0 0 2px var(--color-primary-200);
     }
 
-    /* Reduced Motion */
-    @media (prefers-reduced-motion: reduce) {
-        .slider,
+    /* Container Queries ersetzen Media Queries */
+    @container (prefers-reduced-motion: reduce) {
+        .slider {
+            transition: none;
+        }
+
         .slider::before {
             transition: none;
         }
     }
 
-    /* Responsive */
-    @media (width <= var(--breakpoint-md)) {
+    @container (width < 768px) {
         .switch {
             --switch-width: 2.5rem;
             --switch-height: 1.25rem;

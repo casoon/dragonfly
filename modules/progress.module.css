@@ -155,7 +155,7 @@
     }
 
     /* Responsive */
-    @media (width <= var(--breakpoint-md)) {
+    @media (width <= 768px) {
         .progress {
             margin: var(--space-2) 0;
         }

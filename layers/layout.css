@@ -817,5 +817,40 @@
             gap: var(--space-md);
         }
     }
+
+    /* Responsive Layout-Anpassungen */
+    @container root (width <= 768px) {
+        .layout-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .layout-split {
+            flex-direction: column;
+        }
+        
+        .layout-panel {
+            width: 100%;
+            max-width: 100%;
+        }
+        
+        .sidebar {
+            width: 100%;
+            position: static;
+        }
+        
+        .content-main {
+            margin-left: 0;
+            width: 100%;
+        }
+        
+        .flex-responsive {
+            flex-direction: column;
+        }
+        
+        .flex-responsive > * {
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+    }
 }
   

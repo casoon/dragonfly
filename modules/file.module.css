@@ -228,7 +228,7 @@
 }
 
 /* Responsive Anpassungen */
-@media (width <= var(--breakpoint-md)) {
+@media (width <= 768px) {
   .file-label {
     flex-direction: column;
     height: auto;

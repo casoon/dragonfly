@@ -39,11 +39,27 @@
 
 @layer components {
     /* Table Variables */
-    .table {
+    .table-wrapper {
         width: 100%;
-        margin-bottom: var(--spacing-4);
-        background-color: var(--bg-white);
+        overflow-x: auto;
+        container-type: inline-size;
+    }
+
+    .table {
+        --table-border-color: var(--color-border-light, #e2e8f0);
+        --table-stripe-color: var(--color-gray-50, #f8fafc);
+        --table-hover-color: var(--color-gray-100, #f1f5f9);
+        --table-header-bg: var(--color-surface-100, #f1f5f9);
+        --table-header-color: var(--color-text-primary, #334155);
+        --table-cell-padding: 0.75rem 1rem;
+        --table-font-size: var(--font-size-sm, 0.875rem);
+        
+        width: 100%;
         border-collapse: collapse;
+        border-spacing: 0;
+        font-size: var(--table-font-size);
+        line-height: 1.5;
+        margin-bottom: 1.5rem;
     }
 
     .table th,
@@ -139,50 +155,52 @@
         background-color: var(--bg-info-100);
     }
 
-    /* Responsive */
-    @media (width <= var(--breakpoint-md)) {
-        .table-container {
+    /* Container Queries ersetzen Media Queries */
+    @container (width < 768px) {
+        .table-responsive {
+            -webkit-overflow-scrolling: touch;
+            width: 100%;
+            display: block;
             overflow-x: auto;
         }
         
-        .table-responsive {
+        .table-stack {
             display: block;
-            width: 100%;
         }
         
-        .table-responsive thead {
+        .table-stack thead {
             display: none;
         }
         
-        .table-responsive tbody tr {
+        .table-stack tbody {
             display: block;
-            margin-bottom: 1rem;
-            border: 1px solid var(--table-border-color);
-            border-radius: var(--table-border-radius);
         }
         
-        .table-responsive td {
+        .table-stack tr {
+            display: block;
+            border: 1px solid var(--table-border-color);
+            border-radius: 0.25rem;
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+        }
+        
+        .table-stack td {
             display: flex;
             justify-content: space-between;
-            align-items: center;
             text-align: right;
-            border-bottom: 1px solid var(--table-border-color);
+            border: none;
+            padding: 0.5rem;
         }
         
-        .table-responsive td:last-child {
-            border-bottom: none;
-        }
-        
-        .table-responsive td::before {
+        .table-stack td::before {
             content: attr(data-label);
-            font-weight: var(--font-weight-semibold);
+            font-weight: 600;
             text-align: left;
-            margin-right: auto;
+            padding-right: 1rem;
         }
     }
 
-    /* Reduced Motion */
-    @media (prefers-reduced-motion: reduce) {
+    @container (prefers-reduced-motion: reduce) {
         .table tbody tr {
             transition: none;
         }
