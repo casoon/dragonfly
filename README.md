@@ -1,8 +1,8 @@
-# CASOON UI Lib
+# @casoon/ui-lib
 
 Ein schlankes Design-System für CASOON-Projekte - Optimiert für moderne Webentwicklung mit Astro JS und LightningCSS.
 
-## Neuerungen in Version 0.3.0
+## Neuerungen in Version 0.3.2
 
 - **Modernisiertes CSS Layer-System**: Verbesserte Organisation und Spezifitätsverwaltung
 - **Zentralisierte Layer-Definitionen**: Alle Layer sind jetzt in `layers.css` definiert
@@ -17,13 +17,13 @@ CASOON UI Lib ist ein modernes, leichtgewichtiges CSS-Framework, das auf moderne
 
 ```bash
 # Via npm
-npm install casoon-ui-lib
+npm install @casoon/ui-lib
 
 # Via yarn
-yarn add casoon-ui-lib
+yarn add @casoon/ui-lib
 
 # Via pnpm
-pnpm add casoon-ui-lib
+pnpm add @casoon/ui-lib
 ```
 
 ## Verwendung
@@ -31,14 +31,14 @@ pnpm add casoon-ui-lib
 ### Grundlegende Verwendung
 
 ```html
-<link rel="stylesheet" href="path/to/casoon-ui-lib/core.css">
+<link rel="stylesheet" href="path/to/@casoon/ui-lib/core.css">
 ```
 
 ### Mit Bundlern (Webpack, Vite, etc.)
 
 ```js
 // In Ihrer JavaScript-Datei
-import 'casoon-ui-lib/core.css';
+import '@casoon/ui-lib/core.css';
 ```
 
 ### Mit Astro
@@ -46,7 +46,7 @@ import 'casoon-ui-lib/core.css';
 ```astro
 ---
 // In Ihrer Astro-Komponente
-import 'casoon-ui-lib/core.css';
+import '@casoon/ui-lib/core.css';
 ---
 
 <html>
@@ -76,7 +76,7 @@ Sie können eigene Komponenten in den `components`-Layer einbinden:
 
 ```css
 /* Ihre Komponenten-Datei */
-@import url('path/to/casoon-ui-lib/core.css');
+@import url('path/to/@casoon/ui-lib/core.css');
 
 @layer components {
   .my-component {
@@ -118,7 +118,7 @@ Die Casoon UI Library ist ein internes Design-System, das als Basis für Kundenp
 ## Verzeichnisstruktur
 
 ```
-casoon-ui-lib/
+@casoon/ui-lib/
 ├── core.css              # Haupt-CSS-Datei mit Layer-Imports
 ├── modules/              # CSS-Module für Komponenten
 ├── layers/              # CSS-Layer für Grundfunktionen
@@ -164,7 +164,7 @@ Die Module im `modules/` Verzeichnis sind für einzelne Komponenten und können 
 
 ```astro
 ---
-import styles from 'casoon-ui-lib/modules/button.module.css';
+import styles from '@casoon/ui-lib/modules/button.module.css';
 ---
 
 <button class={styles.button}>Klick mich</button>
@@ -275,8 +275,8 @@ Die Bibliothek ist speziell für die Verwendung mit Astro JS optimiert:
 
 ```astro
 ---
-import 'casoon-ui-lib/core.css';
-import styles from 'casoon-ui-lib/modules/button.module.css';
+import '@casoon/ui-lib/core.css';
+import styles from '@casoon/ui-lib/modules/button.module.css';
 ---
 
 <button class={styles.button}>
@@ -315,7 +315,7 @@ npm install --save-dev vite-plugin-lightningcss lightningcss
 ## Installation
 
 ```bash
-npm install casoon-ui-lib@alpha
+npm install @casoon/ui-lib@alpha
 ```
 
 ## Dokumentation
@@ -371,10 +371,10 @@ Themes können einfach per CSS-Import eingebunden werden:
 
 ```css
 /* Importiere das Grundsystem */
-@import 'casoon-ui-lib/core.css';
+@import '@casoon/ui-lib/core.css';
 
 /* Wähle ein Theme */
-@import 'casoon-ui-lib/themes/ocean.css';
+@import '@casoon/ui-lib/themes/ocean.css';
 ```
 
 ### Themes mit JavaScript wechseln
@@ -390,7 +390,7 @@ function changeTheme(themeName) {
   // Neues Theme hinzufügen
   const themeLink = document.createElement('link');
   themeLink.rel = 'stylesheet';
-  themeLink.href = `path/to/casoon-ui-lib/themes/${themeName}.css`;
+  themeLink.href = `path/to/@casoon/ui-lib/themes/${themeName}.css`;
   themeLink.setAttribute('data-theme', '');
   document.head.appendChild(themeLink);
 }

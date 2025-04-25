@@ -12,7 +12,7 @@
 @import url('themes/theme-base.css');
 @import url('themes/accessibility.css');
 @import url('themes/dark-mode.css');
-@import url('themes/brands.css');
+@import url('themes/brand.css');
 
 /* Standard Theme Variations - werden nur aktiviert, wenn entsprechende Klasse gesetzt ist */
 @import url('themes/day.css');         /* .theme-day */
