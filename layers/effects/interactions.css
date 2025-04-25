@@ -175,14 +175,57 @@
 }
 
 /* Reduzierte Bewegung */
-@media (prefers-reduced-motion: reduce) {
-    .touch-feedback::after,
-    .loading::after {
-        animation: none;
+@container root (prefers-reduced-motion: reduce) {
+    .hover-lift,
+    .hover-scale,
+    .hover-push,
+    .hover-rotate,
+    .hover-shake,
+    .hover-bounce,
+    .hover-pop,
+    .hover-wobble,
+    .hover-pulse,
+    .hover-jiggle {
+        transition: none;
+        transform: none;
+    }
+
+    .drag-item,
+    .swipeable,
+    .touch-ripple {
+        transition: none;
+    }
+
+    .drag-drop-area.drag-over {
+        transform: none;
+    }
+}
+
+/* Mobile Anpassungen */
+@container root (max-width: 640px) {
+    /* Anpassungen für Touch-Interaktionen auf kleinen Displays */
+    .drag-handle {
+        width: 32px;
+        height: 32px;
     }
     
-    .focus-ring {
-        transition: none;
+    .drag-item {
+        padding: 12px;
+    }
+    
+    .swipeable {
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .touch-area {
+        min-height: 44px;
+        min-width: 44px;
+        padding: 12px;
+    }
+    
+    /* Visuelles Feedback für Hover-Effekte deaktivieren */
+    .hover-effect {
+        display: none;
     }
 }
 
@@ -424,5 +467,54 @@
         .touch-ripple:active::after {
             animation: none;
         }
+    }
+}
+
+.feedback-ripple {
+    position: relative;
+    overflow: hidden;
+}
+
+.feedback-ripple::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgb(255 255 255 / 50%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    pointer-events: none;
+    transition: width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
+}
+
+.feedback-ripple:active::after {
+    width: 200%;
+    height: 200%;
+    opacity: 0.3;
+    transition: width 0.3s ease, height 0.3s ease, opacity 0s linear;
+}
+
+@container root (prefers-reduced-motion: reduce) {
+    .feedback-ripple::after {
+        display: none;
+    }
+}
+
+.slider-handle {
+    cursor: grab;
+    transition: transform 0.15s ease;
+}
+
+.slider-handle:active {
+    cursor: grabbing;
+    transform: scale(1.2);
+}
+
+@container root (prefers-reduced-motion: reduce) {
+    .slider-handle:active {
+        transform: none;
     }
 } 

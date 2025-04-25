@@ -1,0 +1,22 @@
+# NPM-Verzeichnisse
+node_modules/
+
+# Build-Verzeichnisse
+dist/
+build/
+.cache/
+
+# Ausgabeverzeichnisse
+.output/
+.logs/
+
+# Testverzeichnisse
+tests/
+.github/
+
+# Dokumentation
+docs/
+
+# Editor-spezifische Dateien
+.vscode/
+.idea/ 

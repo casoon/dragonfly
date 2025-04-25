@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lightning CSS Test - @casoon/ui-lib</title>
+  <link rel="stylesheet" href="../core.css">
+  <link rel="stylesheet" href="../layers.css">
+  <!-- Optional: Verarbeitete CSS-Dateien einbinden, falls vorhanden -->
+  <!-- <link rel="stylesheet" href="output/core.processed.css"> -->
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    
+    .test-container {
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      border-radius: 8px;
+      background-color: var(--surface-1, #f5f7f9);
+    }
+    
+    .container-queries-test {
+      container-type: inline-size;
+      resize: horizontal;
+      overflow: auto;
+      padding: 1rem;
+      border: 2px dashed var(--accent-5, #8055e3);
+      max-width: 100%;
+      min-width: 200px;
+    }
+    
+    h1, h2, h3 {
+      margin-top: 0;
+    }
+    
+    .controls {
+      margin: 1rem 0;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    
+    .notes {
+      margin-top: 2rem;
+      padding: 1rem;
+      background-color: var(--surface-2, #e9ecf0);
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Lightning CSS Test - @casoon/ui-lib</h1>
+    <p>Diese Seite dient zum Testen der UI-Bibliothek mit Lightning CSS</p>
+  </header>
+  
+  <main>
+    <div class="test-container">
+      <h2>Container Queries Test</h2>
+      <p>Ziehen Sie die Ecke des Containers, um die Größe zu ändern:</p>
+      
+      <div class="container-queries-test">
+        <div class="container-content">
+          <h3>Container Inhalt</h3>
+          <p>Dieser Inhalt sollte sich basierend auf der Container-Größe anpassen, nicht auf der Viewport-Größe.</p>
+          <div class="controls">
+            <button class="btn btn-primary">Primärer Button</button>
+            <button class="btn btn-secondary">Sekundärer Button</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="test-container">
+      <h2>Theme System Test</h2>
+      <div class="theme-test">
+        <p>Testet das Theme-System mit verschiedenen Farben:</p>
+        <div class="controls">
+          <button class="btn" data-theme-toggle="light">Light</button>
+          <button class="btn" data-theme-toggle="dark">Dark</button>
+          <button class="btn" data-theme-toggle="high-contrast">High Contrast</button>
+        </div>
+        
+        <div style="margin-top: 1rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+          <div style="width: 100px; height: 100px; background-color: var(--surface-1);"></div>
+          <div style="width: 100px; height: 100px; background-color: var(--surface-2);"></div>
+          <div style="width: 100px; height: 100px; background-color: var(--accent-5);"></div>
+          <div style="width: 100px; height: 100px; background-color: var(--text-1);"></div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="notes">
+      <h3>Anmerkungen zum Testen:</h3>
+      <ol>
+        <li>Überprüfen Sie, ob Container Queries korrekt funktionieren</li>
+        <li>Testen Sie das Theme-System und farbliche Darstellung</li>
+        <li>Überprüfen Sie, ob alle Komponenten korrekt gerendert werden</li>
+        <li>Testen Sie auf verschiedenen Browsern für Kompatibilität</li>
+      </ol>
+      
+      <p>Um mit Lightning CSS zu testen, führen Sie <code>node lightning-css-test.js</code> aus und prüfen Sie die verarbeiteten CSS-Dateien.</p>
+    </div>
+  </main>
+  
+  <script>
+    // Einfaches Theme-Switching für den Test
+    document.querySelectorAll('[data-theme-toggle]').forEach(button => {
+      button.addEventListener('click', () => {
+        document.documentElement.setAttribute('data-theme', button.dataset.themeToggle);
+      });
+    });
+  </script>
+</body>
+</html> 

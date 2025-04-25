@@ -719,4 +719,46 @@
       display: none;
     }
   }
+
+  /* Responsive Anpassungen für kleine Bildschirme */
+  @container root (max-width: 768px) {
+    .logical-container {
+      inline-size: 100%;
+      max-inline-size: 100%;
+      min-inline-size: auto;
+      block-size: auto;
+    }
+    
+    .logical-responsive {
+      flex-direction: column;
+      row-gap: var(--space-4);
+      margin-inline: var(--space-0);
+    }
+  }
+  
+  /* Tablet-Anpassungen */
+  @container root (max-width: 990px) {
+    .logical-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-4);
+    }
+    
+    .logical-spacer {
+      display: none;
+    }
+  }
+  
+  /* Mobile vertikale Ausrichtung */
+  @container root (max-width: 768px) {
+    .logical-stack {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+    
+    .logical-stack > * {
+      margin-inline-start: var(--space-0);
+      margin-block-start: var(--space-0);
+    }
+  }
 } 

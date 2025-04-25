@@ -1110,82 +1110,33 @@
         transform: translateY(0);
     }
 
-    /* Reduced Motion */
-    @media (prefers-reduced-motion: reduce) {
-        .animate {
-            animation-duration: var(--reduced-motion-duration);
-            transition-duration: var(--reduced-motion-duration);
-        }
-
-        .fade-in,
-        .fade-out,
-        .fade-in-up,
-        .fade-in-down,
-        .fade-in-left,
-        .fade-in-right,
-        .scale-in,
-        .scale-out,
-        .scale-up,
-        .scale-down,
-        .rotate-90,
-        .rotate-180,
-        .rotate-360,
-        .slide-in-up,
-        .slide-in-down,
-        .slide-in-left,
-        .slide-in-right,
-        .bounce,
-        .pulse,
-        .shake,
-        .swing,
-        .scroll-reveal,
-        .parallax-bg,
-        .progress-bar,
-        .scroll-card,
-        .scroll-fade-in, 
-        .scroll-slide-up,
-        .scroll-slide-in-left,
-        .scroll-slide-in-right,
-        .scroll-scale,
-        .progress-timeline,
-        .parallax-scroll,
-        .scroll-target,
-        .input-success.active,
-        .loading-dots::after,
-        .loading-dots::before,
-        .animate-when-visible,
-        .hover-smooth:hover,
-        .focus-attention::after,
-        .subtle-hint.click::after,
-        .subtle-hint.swipe::after,
-        .fade-in-optimal,
-        .reveal-list > *,
-        .content-loading::before,
-        .story-sequence,
-        .story-sequence.active,
-        .story-sequence.exit,
-        .chapter-transition,
-        .chapter-transition.next-enter-active,
-        .chapter-transition.prev-enter-active,
-        .chapter-transition.next-exit-active,
-        .chapter-transition.prev-exit-active,
-        .collapse-smooth,
-        .collapse-smooth.expanded,
-        .accordion-content,
-        .accordion-content.expanded,
-        .toast-notification,
-        .toast-notification.show,
-        .toast-notification.hide,
-        .page-turn-content,
-        .page-turn-content.turning,
-        .page-turn-content.next,
-        .page-turn-content.next.turning {
-            animation-name: none;
-            animation-duration: var(--reduced-motion-duration);
-            animation-timeline: none; /* Deaktiviert Scroll-Driven Timelines */
-            transform: none;
-            opacity: 1;
-            transition: none;
+    /* Respect user preference for reduced motion */
+    @container root (prefers-reduced-motion: reduce) {
+        .animate-fade-in,
+        .animate-fade-out,
+        .animate-slide-in,
+        .animate-slide-out,
+        .animate-slide-up,
+        .animate-slide-down,
+        .animate-slide-left,
+        .animate-slide-right,
+        .animate-rotate,
+        .animate-pulse,
+        .animate-bounce,
+        .animate-spin,
+        .animate-ping,
+        .animate-wiggle,
+        .animate-shake,
+        .animate-tada,
+        .animate-wobble,
+        .animate-heartbeat,
+        .animate-jello,
+        .animate-vibrate,
+        .animate-blink,
+        .animate-flash {
+            animation: none !important;
+            transition: none !important;
+            transform: none !important;
         }
     }
 

@@ -2,12 +2,12 @@
 
 Ein schlankes Design-System für CASOON-Projekte - Optimiert für moderne Webentwicklung mit Astro JS und LightningCSS.
 
-## Neuerungen in Version 0.3.2
+## Neuerungen in Version 0.3.3
 
-- **Modernisiertes CSS Layer-System**: Verbesserte Organisation und Spezifitätsverwaltung
-- **Zentralisierte Layer-Definitionen**: Alle Layer sind jetzt in `layers.css` definiert
-- **Komponenten-Unterstützung**: Neuer `components`-Layer für benutzerdefinierte Komponenten
-- **Verbesserte Dokumentation**: Detaillierte Informationen zum Layer-System und seiner Verwendung
+- **Container Queries statt Media Queries**: Verbesserte Anpassbarkeit für komponentenbasierte Layouts
+- **Lightning CSS Unterstützung**: Optimiert für die Verarbeitung mit Lightning CSS
+- **Verbesserte Testumgebung**: Dediziertes Test-Verzeichnis für Lightning CSS Kompatibilitätstests
+- **Bug-Fixes und Lint-Optimierungen**: Behebung von CSS-Lint-Problemen und Verbesserung der Code-Qualität
 
 ## Einführung
 
@@ -54,6 +54,33 @@ import '@casoon/ui-lib/core.css';
 </html>
 ```
 
+## Container Queries
+
+Ab Version 0.3.3 verwendet die Bibliothek Container Queries anstelle von Media Queries für eine bessere Komponentenorientierung:
+
+```css
+/* Container-Kontext setzen */
+.my-component {
+  container-type: inline-size;
+  container-name: component;
+}
+
+/* Styles basierend auf Container-Größe */
+@container (min-width: 400px) {
+  .component-element {
+    /* Styles für Container > 400px */
+  }
+}
+
+@container (max-width: 399px) {
+  .component-element {
+    /* Styles für Container < 400px */
+  }
+}
+```
+
+Dies ermöglicht eine flexible Anpassung der Komponenten basierend auf ihrer Container-Größe, nicht auf der Viewport-Größe.
+
 ## CSS Layer-System
 
 Die Bibliothek verwendet moderne CSS-Layers zur Steuerung der Spezifität. Weitere Informationen finden Sie in der [Layer-System-Dokumentation](LAYER-SYSTEM.md).
@@ -69,6 +96,17 @@ Die Bibliothek verwendet moderne CSS-Layers zur Steuerung der Spezifität. Weite
        themes,             /* Theming-System */
        components;         /* Komponenten (für eigene Erweiterungen) */
 ```
+
+## Testen mit Lightning CSS
+
+Die Bibliothek enthält Tests für die Kompatibilität mit Lightning CSS:
+
+```bash
+# Lightning CSS Tests ausführen
+npm run test:lightningcss
+```
+
+Weitere Informationen zu den Tests finden Sie in der [Test-Dokumentation](tests/README.md).
 
 ## Eigene Komponenten erstellen
 
@@ -458,6 +496,31 @@ Du kannst diese Breakpoints in deinen Media-Queries verwenden:
   /* Styles für mittlere und größere Viewports */
 }
 ```
+
+### Hinweis zu Media Queries und LightningCSS
+
+**Wichtig:** Ab Version 0.3.2 verwendet die UI-Lib Container Queries statt Media Queries. Diese Änderung wurde vorgenommen, um Kompatibilitätsprobleme mit LightningCSS zu lösen.
+
+Container Queries bieten folgende Vorteile:
+- Bessere Kompatibilität mit LightningCSS
+- Vermeidung von Problemen mit CSS-Variablen in Media Queries
+- Konsistentere Darstellung in verschiedenen Projekten
+
+Die UI-Lib implementiert Container Queries auf Basis der `:root`, wodurch sie sich ähnlich wie Media Queries verhalten, aber ohne die technischen Kompatibilitätsprobleme:
+
+```css
+/* So werden die Breakpoints nun definiert */
+@container root (min-width: 768px) {
+  /* Styles für mittlere und größere Viewports */
+}
+
+/* Statt der früheren Implementierung mit Media Queries: */
+@media (min-width: var(--breakpoint-md)) {
+  /* Diese Syntax kann zu Fehlern führen */
+}
+```
+
+Die UI-Lib selbst verwendet intern Container Queries für die Breakpoint-Media-Queries, um maximale Kompatibilität zu gewährleisten.
 
 Zusätzlich bietet das Framework Utility-Klassen mit Breakpoint-Präfixen:
 - `.sm:flex` - Flex-Display ab dem sm-Breakpoint 

@@ -108,19 +108,15 @@
             }
         }
 
-        /* Reduced Motion */
-        @media (prefers-reduced-motion: reduce) {
-            .hover-scale,
-            .hover-rotate,
-            .hover-shadow,
-            .focus-ring,
-            .active-scale,
-            .loading-spinner,
-            .card-flip-inner,
-            .depth-shift,
-            .touch-ripple::after {
-                transition: none;
-                animation: none;
+        /* Reduzierte Bewegung */
+        @container root (prefers-reduced-motion: reduce) {
+            .effect-hover-shadow,
+            .effect-hover-lift,
+            .effect-hover-scale,
+            .effect-hover-tilt,
+            .effect-hover-zoom,
+            .effect-hover-color {
+                transition: none !important;
                 transform: none !important;
             }
         }

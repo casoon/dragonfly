@@ -156,30 +156,18 @@
     filter: url('#distortion');
 }
 
-/* Responsive Anpassungen */
-@media (max-width: var(--breakpoint-sm)) {
-    .blur-lg,
-    .backdrop-blur-lg {
-        filter: blur(8px);
-    }
-    
-    .filter-vintage,
-    .filter-dramatic,
-    .filter-cold,
-    .filter-warm {
-        filter: none;
-    }
+/* Responsive-Anpassungen für Filter */
+@container root (max-width: 640px) {
+  .blur-sm { filter: blur(2px); }
+  .blur-md { filter: blur(5px); }
+  .blur-lg { filter: blur(8px); }
+  .blur-xl { filter: blur(16px); }
+  .blur-2xl { filter: blur(24px); }
+  .blur-3xl { filter: blur(32px); }
 }
 
-/* Reduzierte Bewegung */
-@media (prefers-reduced-motion: reduce) {
-    .blur-sm,
-    .blur-md,
-    .blur-lg,
-    .backdrop-blur-sm,
-    .backdrop-blur-md,
-    .backdrop-blur-lg {
-        filter: none;
-        backdrop-filter: none;
-    }
+@container root (prefers-reduced-motion: reduce) {
+  .transition-filter {
+    transition-property: none;
+  }
 } 

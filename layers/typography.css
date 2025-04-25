@@ -184,92 +184,42 @@
   .no-underline { text-decoration: none; }
 
   /* Responsive Typography */
-  @media (width <= var(--breakpoint-sm)) {
-    h1, .h1 { font-size: var(--font-size-3xl); }
-    h2, .h2 { font-size: var(--font-size-2xl); }
-    h3, .h3 { font-size: var(--font-size-xl); }
-    h4, .h4 { font-size: var(--font-size-lg); }
-    h5, .h5 { font-size: var(--font-size-base); }
-    h6, .h6 { font-size: var(--font-size-sm); }
+  @container root (max-width: 640px) {
+    html {
+      font-size: 14px;
+    }
   }
 
-  @media (width >= var(--breakpoint-sm)) {
-    .sm\:text-xs { font-size: var(--font-size-xs); }
-    .sm\:text-sm { font-size: var(--font-size-sm); }
-    .sm\:text-base { font-size: var(--font-size-base); }
-    .sm\:text-lg { font-size: var(--font-size-lg); }
-    .sm\:text-xl { font-size: var(--font-size-xl); }
-    .sm\:text-2xl { font-size: var(--font-size-2xl); }
-    .sm\:text-3xl { font-size: var(--font-size-3xl); }
-    .sm\:text-4xl { font-size: var(--font-size-4xl); }
-    
-    /* Text Alignment - Small */
-    .sm\:text-start { text-align: start; }
-    .sm\:text-end { text-align: end; }
-    .sm\:text-center { text-align: center; }
-    .sm\:text-justify { text-align: justify; }
-    .sm\:text-left { text-align: left; }
-    .sm\:text-right { text-align: right; }
+  @container root (min-width: 640px) {
+    :root {
+      --font-size-3xl: 1.875rem;  /* 30px */
+      --font-size-4xl: 2.25rem;   /* 36px */
+      --font-size-5xl: 3rem;      /* 48px */
+    }
   }
 
-  @media (width >= var(--breakpoint-md)) {
-    .md\:text-xs { font-size: var(--font-size-xs); }
-    .md\:text-sm { font-size: var(--font-size-sm); }
-    .md\:text-base { font-size: var(--font-size-base); }
-    .md\:text-lg { font-size: var(--font-size-lg); }
-    .md\:text-xl { font-size: var(--font-size-xl); }
-    .md\:text-2xl { font-size: var(--font-size-2xl); }
-    .md\:text-3xl { font-size: var(--font-size-3xl); }
-    .md\:text-4xl { font-size: var(--font-size-4xl); }
-    .md\:text-5xl { font-size: var(--font-size-5xl); }
-    
-    /* Text Alignment - Medium */
-    .md\:text-start { text-align: start; }
-    .md\:text-end { text-align: end; }
-    .md\:text-center { text-align: center; }
-    .md\:text-justify { text-align: justify; }
-    .md\:text-left { text-align: left; }
-    .md\:text-right { text-align: right; }
+  @container root (min-width: 768px) {
+    :root {
+      --font-size-3xl: 2rem;      /* 32px */
+      --font-size-4xl: 2.5rem;    /* 40px */
+      --font-size-5xl: 3.5rem;    /* 56px */
+    }
   }
 
-  @media (width >= var(--breakpoint-lg)) {
-    .lg\:text-xs { font-size: var(--font-size-xs); }
-    .lg\:text-sm { font-size: var(--font-size-sm); }
-    .lg\:text-base { font-size: var(--font-size-base); }
-    .lg\:text-lg { font-size: var(--font-size-lg); }
-    .lg\:text-xl { font-size: var(--font-size-xl); }
-    .lg\:text-2xl { font-size: var(--font-size-2xl); }
-    .lg\:text-3xl { font-size: var(--font-size-3xl); }
-    .lg\:text-4xl { font-size: var(--font-size-4xl); }
-    .lg\:text-5xl { font-size: var(--font-size-5xl); }
-    
-    /* Text Alignment - Large */
-    .lg\:text-start { text-align: start; }
-    .lg\:text-end { text-align: end; }
-    .lg\:text-center { text-align: center; }
-    .lg\:text-justify { text-align: justify; }
-    .lg\:text-left { text-align: left; }
-    .lg\:text-right { text-align: right; }
+  @container root (min-width: 1024px) {
+    :root {
+      --font-size-3xl: 2.25rem;   /* 36px */
+      --font-size-4xl: 3rem;      /* 48px */
+      --font-size-5xl: 4rem;      /* 64px */
+    }
   }
 
-  @media (width >= var(--breakpoint-xl)) {
-    .xl\:text-xs { font-size: var(--font-size-xs); }
-    .xl\:text-sm { font-size: var(--font-size-sm); }
-    .xl\:text-base { font-size: var(--font-size-base); }
-    .xl\:text-lg { font-size: var(--font-size-lg); }
-    .xl\:text-xl { font-size: var(--font-size-xl); }
-    .xl\:text-2xl { font-size: var(--font-size-2xl); }
-    .xl\:text-3xl { font-size: var(--font-size-3xl); }
-    .xl\:text-4xl { font-size: var(--font-size-4xl); }
-    .xl\:text-5xl { font-size: var(--font-size-5xl); }
-    
-    /* Text Alignment - Extra Large */
-    .xl\:text-start { text-align: start; }
-    .xl\:text-end { text-align: end; }
-    .xl\:text-center { text-align: center; }
-    .xl\:text-justify { text-align: justify; }
-    .xl\:text-left { text-align: left; }
-    .xl\:text-right { text-align: right; }
+  @container root (min-width: 1280px) {
+    :root {
+      --font-size-3xl: 2.5rem;    /* 40px */
+      --font-size-4xl: 3.5rem;    /* 56px */
+      --font-size-5xl: 4.5rem;    /* 72px */
+    }
   }
 
   /* Utility Padding Classes */
@@ -292,5 +242,94 @@
     font-size-adjust: 0.5;
     letter-spacing: 0.01em;
     word-spacing: 0.02em;
+  }
+
+  /* Responsive Typography Utilities für verschiedene Breakpoints */
+  @container root (max-width: 640px) {
+    h1, .h1 { font-size: var(--font-size-3xl); }
+    h2, .h2 { font-size: var(--font-size-2xl); }
+    h3, .h3 { font-size: var(--font-size-xl); }
+    h4, .h4 { font-size: var(--font-size-lg); }
+    h5, .h5 { font-size: var(--font-size-base); }
+    h6, .h6 { font-size: var(--font-size-sm); }
+  }
+
+  @container root (min-width: 640px) {
+    .sm\:text-xs { font-size: var(--font-size-xs); }
+    .sm\:text-sm { font-size: var(--font-size-sm); }
+    .sm\:text-base { font-size: var(--font-size-base); }
+    .sm\:text-lg { font-size: var(--font-size-lg); }
+    .sm\:text-xl { font-size: var(--font-size-xl); }
+    .sm\:text-2xl { font-size: var(--font-size-2xl); }
+    .sm\:text-3xl { font-size: var(--font-size-3xl); }
+    .sm\:text-4xl { font-size: var(--font-size-4xl); }
+    
+    /* Text Alignment - Small */
+    .sm\:text-start { text-align: start; }
+    .sm\:text-end { text-align: end; }
+    .sm\:text-center { text-align: center; }
+    .sm\:text-justify { text-align: justify; }
+    .sm\:text-left { text-align: left; }
+    .sm\:text-right { text-align: right; }
+  }
+
+  @container root (min-width: 768px) {
+    .md\:text-xs { font-size: var(--font-size-xs); }
+    .md\:text-sm { font-size: var(--font-size-sm); }
+    .md\:text-base { font-size: var(--font-size-base); }
+    .md\:text-lg { font-size: var(--font-size-lg); }
+    .md\:text-xl { font-size: var(--font-size-xl); }
+    .md\:text-2xl { font-size: var(--font-size-2xl); }
+    .md\:text-3xl { font-size: var(--font-size-3xl); }
+    .md\:text-4xl { font-size: var(--font-size-4xl); }
+    .md\:text-5xl { font-size: var(--font-size-5xl); }
+    
+    /* Text Alignment - Medium */
+    .md\:text-start { text-align: start; }
+    .md\:text-end { text-align: end; }
+    .md\:text-center { text-align: center; }
+    .md\:text-justify { text-align: justify; }
+    .md\:text-left { text-align: left; }
+    .md\:text-right { text-align: right; }
+  }
+
+  @container root (min-width: 1024px) {
+    .lg\:text-xs { font-size: var(--font-size-xs); }
+    .lg\:text-sm { font-size: var(--font-size-sm); }
+    .lg\:text-base { font-size: var(--font-size-base); }
+    .lg\:text-lg { font-size: var(--font-size-lg); }
+    .lg\:text-xl { font-size: var(--font-size-xl); }
+    .lg\:text-2xl { font-size: var(--font-size-2xl); }
+    .lg\:text-3xl { font-size: var(--font-size-3xl); }
+    .lg\:text-4xl { font-size: var(--font-size-4xl); }
+    .lg\:text-5xl { font-size: var(--font-size-5xl); }
+    
+    /* Text Alignment - Large */
+    .lg\:text-start { text-align: start; }
+    .lg\:text-end { text-align: end; }
+    .lg\:text-center { text-align: center; }
+    .lg\:text-justify { text-align: justify; }
+    .lg\:text-left { text-align: left; }
+    .lg\:text-right { text-align: right; }
+  }
+
+  @container root (min-width: 1280px) {
+    .xl\:text-xs { font-size: var(--font-size-xs); }
+    .xl\:text-sm { font-size: var(--font-size-sm); }
+    .xl\:text-base { font-size: var(--font-size-base); }
+    .xl\:text-lg { font-size: var(--font-size-lg); }
+    .xl\:text-xl { font-size: var(--font-size-xl); }
+    .xl\:text-2xl { font-size: var(--font-size-2xl); }
+    .xl\:text-3xl { font-size: var(--font-size-3xl); }
+    .xl\:text-4xl { font-size: var(--font-size-4xl); }
+    .xl\:text-5xl { font-size: var(--font-size-5xl); }
+    
+    /* Text Alignment - Extra Large */
+    .xl\:text-start { text-align: start; }
+    .xl\:text-end { text-align: end; }
+    .xl\:text-center { text-align: center; }
+    .xl\:text-justify { text-align: justify; }
+    .xl\:text-left { text-align: left; }
+    .xl\:text-right { text-align: right; }
   }
 } 

@@ -34,154 +34,71 @@
     border-radius: 2px;
   }
 
-  /* 
-   * Einstellungen für prefers-reduced-motion 
-   * Reduziert oder entfernt Animationen für Nutzer, die dies bevorzugen
-   */
-  @media (prefers-reduced-motion: reduce) {
-    *, ::before, ::after {
+  /* Reduzierte Bewegung */
+  @container root (prefers-reduced-motion: reduce) {
+    /* Generelle Animation deaktivieren */
+    *,
+    *::before,
+    *::after {
       animation-duration: 0.01ms !important;
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
       scroll-behavior: auto !important;
     }
 
-    .scroll-reveal {
-      opacity: 1;
-      transform: none;
-      animation: none;
+    /* Klassen für reduzierte Bewegung */
+    .a11y-motion-safe {
+      display: none !important;
     }
 
-    .parallax-bg {
-      animation: none;
+    .a11y-motion-reduce {
+      display: block !important;
     }
   }
 
-  /* 
-   * Unterstützung für High Contrast Mode / Forced Colors 
-   * Stellt sicher, dass wichtige UI-Elemente auch im Forced-Colors-Modus sichtbar sind
-   */
-  @media (forced-colors: active) {
-    /* Basis-Anpassungen für Forced Colors */
-    * {
-      forced-color-adjust: auto;
+  /* Hoher Kontrast-Modus */
+  @container root (forced-colors: active) {
+    .a11y-border {
+      border: 2px solid ButtonText !important;
     }
 
-    /* Spezielle Anpassungen für kritische UI-Elemente */
-    .button, 
-    .primary-button, 
-    .secondary-button,
-    .accent-button {
-      border: 1px solid CanvasText;
-      forced-color-adjust: none;
-      background-color: ButtonFace;
-      color: ButtonText;
+    .a11y-outline-none:focus {
+      outline: none !important;
     }
 
-    .button:hover,
-    .primary-button:hover,
-    .secondary-button:hover,
-    .accent-button:hover {
-      background-color: Highlight;
-      color: HighlightText;
-      border-color: HighlightText;
+    /* Hoher Kontrast-Modus-spezifische Klassen */
+    .a11y-high-contrast-safe {
+      display: none !important;
     }
 
-    .button:focus,
-    .primary-button:focus,
-    .secondary-button:focus,
-    .accent-button:focus {
-      outline-color: Highlight;
-    }
-
-    /* Links in Forced Colors anpassen */
-    a {
-      color: LinkText;
-      text-decoration-color: LinkText;
-      forced-color-adjust: none;
-    }
-    
-    a:hover, a:focus {
-      color: HighlightText;
-      background-color: Highlight;
-    }
-
-    /* Formularelement-Anpassungen */
-    input, select, textarea {
-      border: 1px solid CanvasText;
-      background-color: Canvas;
-      color: CanvasText;
-      forced-color-adjust: none;
-    }
-
-    input:focus, select:focus, textarea:focus {
-      outline: 2px solid Highlight;
-    }
-
-    /* Checkbox und Radio-Button Anpassungen */
-    input[type="checkbox"], input[type="radio"] {
-      border: 1px solid CanvasText;
-      forced-color-adjust: none;
-    }
-
-    input[type="checkbox"]:checked, input[type="radio"]:checked {
-      background-color: Highlight;
-      border-color: Highlight;
-    }
-
-    /* Fortschrittsanzeige für Forced Colors anpassen */
-    progress {
-      border: 1px solid CanvasText;
-      color: Highlight;
-      forced-color-adjust: none;
-    }
-
-    /* Status- und Benachrichtigungsfarben anpassen */
-    .status-success {
-      border: 1px solid CanvasText;
-      color: CanvasText;
-      background-color: Canvas;
-      forced-color-adjust: none;
-    }
-    
-    .status-error {
-      border: 1px solid CanvasText;
-      color: CanvasText;
-      background-color: Canvas;
-      forced-color-adjust: none;
-    }
-    
-    .status-warning {
-      border: 1px solid CanvasText;
-      color: CanvasText;
-      background-color: Canvas;
-      forced-color-adjust: none;
+    .a11y-high-contrast {
+      display: block !important;
     }
   }
 
-  /* 
-   * Unterstützung für prefers-contrast
-   * Verbessert den Kontrast für Benutzer, die das bevorzugen
-   */
-  @media (prefers-contrast: more) {
+  /* Erhöhter Kontrast */
+  @container root (prefers-contrast: more) {
     :root {
-      --color-focus: black;
-      --text-color: black;
-      --background-color: white;
+      --focus-visible-outline: 3px solid !important;
+      --focus-visible-outline-offset: 3px !important;
     }
-    
-    body {
-      color: var(--text-color);
-      background-color: var(--background-color);
+
+    /* Mehr Kontrast zwischen Elementen */
+    .a11y-contrast-border {
+      border: 2px solid !important;
     }
-    
-    a, button, input, select, textarea {
-      border: 1px solid currentcolor;
+
+    .a11y-low-contrast {
+      display: none !important;
     }
-    
-    a:focus, button:focus, input:focus, select:focus, textarea:focus {
-      outline: 2px solid var(--color-focus);
-      outline-offset: 2px;
+
+    .a11y-high-contrast {
+      display: block !important;
+    }
+
+    /* Erhöhter Kontrast für Text */
+    p, h1, h2, h3, h4, h5, h6, span, a, button, input, select, textarea {
+      text-shadow: none !important;
     }
   }
 

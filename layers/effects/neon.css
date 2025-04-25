@@ -102,13 +102,14 @@
     }
 
     /* Reduced Motion */
-    @media (prefers-reduced-motion: reduce) {
+    @container root (prefers-reduced-motion: reduce) {
         .neon-text,
         .neon-border,
         .flicker-element,
         .flicker-fast,
         .flicker-slow {
-            animation: var(--display-none);
+            animation: none;
+            transition: none;
         }
     }
 }
@@ -190,19 +191,16 @@
     animation: flicker 8s infinite;
 }
 
-/* Responsive Anpassungen */
-@media (max-width: var(--breakpoint-sm)) {
+/* Responsive Anpassungen - Stärkere Effekte auf größeren Bildschirmen */
+@container root (max-width: 640px) {
     .neon-text,
     .neon-text-secondary,
     .neon-text-accent {
-        text-shadow: var(--spacing-0) var(--spacing-0) var(--spacing-3) currentcolor,
-                     var(--spacing-0) var(--spacing-0) var(--spacing-6) currentcolor,
-                     var(--spacing-0) var(--spacing-0) var(--spacing-12) currentcolor;
+        text-shadow: 0 0 8px currentcolor;
+        box-shadow: 0 0 8px currentcolor;
     }
     
     .neon-border {
-        box-shadow: var(--spacing-0) var(--spacing-0) var(--spacing-3) var(--theme-primary-500),
-                    var(--spacing-0) var(--spacing-0) var(--spacing-6) var(--theme-primary-500),
-                    var(--spacing-0) var(--spacing-0) var(--spacing-12) var(--theme-primary-500);
+        box-shadow: 0 0 8px currentcolor;
     }
 } 

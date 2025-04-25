@@ -510,12 +510,44 @@
     }
   }
 
-  @media (prefers-reduced-motion) {
-    .progress-bar-fill,
-    .switch-slider,
-    .switch-slider::before,
-    input:checked + .switch-slider::before {
-      transition: none;
+  @container root (prefers-reduced-motion) {
+    .color-transition,
+    .color-cycle,
+    .color-pulse,
+    .color-fade,
+    .color-shift,
+    .color-breathing,
+    .gradient-cycle,
+    .gradient-flow,
+    .gradient-morph,
+    .gradient-pulse,
+    .theme-transition {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
+
+  /* Dunkles Farbschema */
+  @container root (prefers-color-scheme: dark) {
+    :root {
+      --color-mix-base: 0.2;
+      --color-mix-primary: 0.3;
+      --color-mix-secondary: 0.3;
+      --color-mix-tertiary: 0.4;
+      --color-mix-accent: 0.5;
+      
+      /* Angepasste Mischverhältnisse für dunkles Theme */
+      --mix-light-value: 0.2;
+      --mix-dark-value: 0.6;
+      --mix-bw-value: 0.1;
+    }
+    
+    .color-mix-reverse {
+      --color-mix-mode: difference;
+    }
+    
+    .mix-overlay {
+      --color-blend-mode: overlay;
     }
   }
 } 

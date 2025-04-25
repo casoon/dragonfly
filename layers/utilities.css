@@ -157,229 +157,57 @@
     .justify-around { justify-content: space-around; }
     .justify-evenly { justify-content: space-evenly; }
 
-    /* Responsive Utilities */
-    @media (width >= var(--breakpoint-sm)) {
-        .sm\:container { max-width: var(--container-sm); }
-        .sm\:grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
-        .sm\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-        .sm\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-        .sm\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-        .sm\:grid-cols-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
-        .sm\:grid-cols-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
-        .sm\:grid-cols-12 { grid-template-columns: repeat(12, minmax(0, 1fr)); }
-        .sm\:col-span-1 { grid-column: span 1; }
-        .sm\:col-span-2 { grid-column: span 2; }
-        .sm\:col-span-3 { grid-column: span 3; }
-        .sm\:col-span-4 { grid-column: span 4; }
-        .sm\:col-span-5 { grid-column: span 5; }
-        .sm\:col-span-6 { grid-column: span 6; }
-        .sm\:col-span-7 { grid-column: span 7; }
-        .sm\:col-span-8 { grid-column: span 8; }
-        .sm\:col-span-9 { grid-column: span 9; }
-        .sm\:col-span-10 { grid-column: span 10; }
-        .sm\:col-span-11 { grid-column: span 11; }
-        .sm\:col-span-12 { grid-column: span 12; }
-        .sm\:col-span-full { grid-column: 1 / -1; }
-        .sm\:grid-rows-1 { grid-template-rows: repeat(1, minmax(0, 1fr)); }
-        .sm\:grid-rows-2 { grid-template-rows: repeat(2, minmax(0, 1fr)); }
-        .sm\:grid-rows-3 { grid-template-rows: repeat(3, minmax(0, 1fr)); }
-        .sm\:grid-rows-4 { grid-template-rows: repeat(4, minmax(0, 1fr)); }
-        .sm\:grid-rows-5 { grid-template-rows: repeat(5, minmax(0, 1fr)); }
-        .sm\:grid-rows-6 { grid-template-rows: repeat(6, minmax(0, 1fr)); }
-        .sm\:gap-0 { gap: var(--space-0); }
-        .sm\:gap-1 { gap: var(--space-1); }
-        .sm\:gap-2 { gap: var(--space-2); }
-        .sm\:gap-3 { gap: var(--space-3); }
-        .sm\:gap-4 { gap: var(--space-4); }
-        .sm\:gap-5 { gap: var(--space-5); }
-        .sm\:gap-6 { gap: var(--space-6); }
-        .sm\:gap-8 { gap: var(--space-8); }
-        .sm\:gap-10 { gap: var(--space-10); }
-        .sm\:gap-12 { gap: var(--space-12); }
-        .sm\:items-start { align-items: flex-start; }
-        .sm\:items-end { align-items: flex-end; }
-        .sm\:items-center { align-items: center; }
-        .sm\:items-baseline { align-items: baseline; }
-        .sm\:items-stretch { align-items: stretch; }
-        .sm\:justify-start { justify-content: flex-start; }
-        .sm\:justify-end { justify-content: flex-end; }
-        .sm\:justify-center { justify-content: center; }
-        .sm\:justify-between { justify-content: space-between; }
-        .sm\:justify-around { justify-content: space-around; }
-        .sm\:justify-evenly { justify-content: space-evenly; }
+    /* Responsive Breakpoint Utilities */
+    @container root (min-width: 640px) {
+        /* Small Breakpoint Responsive Utilities */
         .sm\:block { display: block; }
+        .sm\:inline { display: inline; }
+        .sm\:inline-block { display: inline-block; }
+        .sm\:flex { display: flex; }
+        .sm\:inline-flex { display: inline-flex; }
+        .sm\:grid { display: grid; }
         .sm\:hidden { display: none; }
-        .sm\:text-start { text-align: start; }
-        .sm\:text-end { text-align: end; }
-        .sm\:text-center { text-align: center; }
-        .sm\:text-justify { text-align: justify; }
-        .sm\:m-4 { margin: var(--space-4); }
-        .sm\:p-4 { padding: var(--space-4); }
+
+        /* Weitere sm: Utility-Klassen hier */
     }
 
-    @media (width >= var(--breakpoint-md)) {
-        .md\:container { max-width: var(--container-md); }
-        .md\:grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
-        .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-        .md\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-        .md\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-        .md\:grid-cols-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
-        .md\:grid-cols-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
-        .md\:grid-cols-12 { grid-template-columns: repeat(12, minmax(0, 1fr)); }
-        .md\:col-span-1 { grid-column: span 1; }
-        .md\:col-span-2 { grid-column: span 2; }
-        .md\:col-span-3 { grid-column: span 3; }
-        .md\:col-span-4 { grid-column: span 4; }
-        .md\:col-span-5 { grid-column: span 5; }
-        .md\:col-span-6 { grid-column: span 6; }
-        .md\:col-span-7 { grid-column: span 7; }
-        .md\:col-span-8 { grid-column: span 8; }
-        .md\:col-span-9 { grid-column: span 9; }
-        .md\:col-span-10 { grid-column: span 10; }
-        .md\:col-span-11 { grid-column: span 11; }
-        .md\:col-span-12 { grid-column: span 12; }
-        .md\:col-span-full { grid-column: 1 / -1; }
-        .md\:grid-rows-1 { grid-template-rows: repeat(1, minmax(0, 1fr)); }
-        .md\:grid-rows-2 { grid-template-rows: repeat(2, minmax(0, 1fr)); }
-        .md\:grid-rows-3 { grid-template-rows: repeat(3, minmax(0, 1fr)); }
-        .md\:grid-rows-4 { grid-template-rows: repeat(4, minmax(0, 1fr)); }
-        .md\:grid-rows-5 { grid-template-rows: repeat(5, minmax(0, 1fr)); }
-        .md\:grid-rows-6 { grid-template-rows: repeat(6, minmax(0, 1fr)); }
-        .md\:gap-0 { gap: var(--space-0); }
-        .md\:gap-1 { gap: var(--space-1); }
-        .md\:gap-2 { gap: var(--space-2); }
-        .md\:gap-3 { gap: var(--space-3); }
-        .md\:gap-4 { gap: var(--space-4); }
-        .md\:gap-5 { gap: var(--space-5); }
-        .md\:gap-6 { gap: var(--space-6); }
-        .md\:gap-8 { gap: var(--space-8); }
-        .md\:gap-10 { gap: var(--space-10); }
-        .md\:gap-12 { gap: var(--space-12); }
-        .md\:items-start { align-items: flex-start; }
-        .md\:items-end { align-items: flex-end; }
-        .md\:items-center { align-items: center; }
-        .md\:items-baseline { align-items: baseline; }
-        .md\:items-stretch { align-items: stretch; }
-        .md\:justify-start { justify-content: flex-start; }
-        .md\:justify-end { justify-content: flex-end; }
-        .md\:justify-center { justify-content: center; }
-        .md\:justify-between { justify-content: space-between; }
-        .md\:justify-around { justify-content: space-around; }
-        .md\:justify-evenly { justify-content: space-evenly; }
+    @container root (min-width: 768px) {
+        /* Medium Breakpoint Responsive Utilities */
         .md\:block { display: block; }
+        .md\:inline { display: inline; }
+        .md\:inline-block { display: inline-block; }
+        .md\:flex { display: flex; }
+        .md\:inline-flex { display: inline-flex; }
+        .md\:grid { display: grid; }
         .md\:hidden { display: none; }
-        .md\:text-start { text-align: start; }
-        .md\:text-end { text-align: end; }
-        .md\:text-center { text-align: center; }
-        .md\:text-justify { text-align: justify; }
-        .md\:m-4 { margin: var(--space-4); }
-        .md\:p-4 { padding: var(--space-4); }
+
+        /* Weitere md: Utility-Klassen hier */
     }
 
-    @media (width >= var(--breakpoint-lg)) {
-        .lg\:container { max-width: var(--container-lg); }
-        .lg\:grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
-        .lg\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-        .lg\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-        .lg\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-        .lg\:grid-cols-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
-        .lg\:grid-cols-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
-        .lg\:grid-cols-12 { grid-template-columns: repeat(12, minmax(0, 1fr)); }
-        .lg\:col-span-1 { grid-column: span 1; }
-        .lg\:col-span-2 { grid-column: span 2; }
-        .lg\:col-span-3 { grid-column: span 3; }
-        .lg\:col-span-4 { grid-column: span 4; }
-        .lg\:col-span-5 { grid-column: span 5; }
-        .lg\:col-span-6 { grid-column: span 6; }
-        .lg\:col-span-7 { grid-column: span 7; }
-        .lg\:col-span-8 { grid-column: span 8; }
-        .lg\:col-span-9 { grid-column: span 9; }
-        .lg\:col-span-10 { grid-column: span 10; }
-        .lg\:col-span-11 { grid-column: span 11; }
-        .lg\:col-span-12 { grid-column: span 12; }
-        .lg\:col-span-full { grid-column: 1 / -1; }
-        .lg\:grid-rows-1 { grid-template-rows: repeat(1, minmax(0, 1fr)); }
-        .lg\:grid-rows-2 { grid-template-rows: repeat(2, minmax(0, 1fr)); }
-        .lg\:grid-rows-3 { grid-template-rows: repeat(3, minmax(0, 1fr)); }
-        .lg\:grid-rows-4 { grid-template-rows: repeat(4, minmax(0, 1fr)); }
-        .lg\:grid-rows-5 { grid-template-rows: repeat(5, minmax(0, 1fr)); }
-        .lg\:grid-rows-6 { grid-template-rows: repeat(6, minmax(0, 1fr)); }
-        .lg\:gap-0 { gap: var(--space-0); }
-        .lg\:gap-1 { gap: var(--space-1); }
-        .lg\:gap-2 { gap: var(--space-2); }
-        .lg\:gap-3 { gap: var(--space-3); }
-        .lg\:gap-4 { gap: var(--space-4); }
-        .lg\:gap-5 { gap: var(--space-5); }
-        .lg\:gap-6 { gap: var(--space-6); }
-        .lg\:gap-8 { gap: var(--space-8); }
-        .lg\:gap-10 { gap: var(--space-10); }
-        .lg\:gap-12 { gap: var(--space-12); }
-        .lg\:items-start { align-items: flex-start; }
-        .lg\:items-end { align-items: flex-end; }
-        .lg\:items-center { align-items: center; }
-        .lg\:items-baseline { align-items: baseline; }
-        .lg\:items-stretch { align-items: stretch; }
-        .lg\:justify-start { justify-content: flex-start; }
-        .lg\:justify-end { justify-content: flex-end; }
-        .lg\:justify-center { justify-content: center; }
-        .lg\:justify-between { justify-content: space-between; }
-        .lg\:justify-around { justify-content: space-around; }
-        .lg\:justify-evenly { justify-content: space-evenly; }
+    @container root (min-width: 1024px) {
+        /* Large Breakpoint Responsive Utilities */
         .lg\:block { display: block; }
+        .lg\:inline { display: inline; }
+        .lg\:inline-block { display: inline-block; }
+        .lg\:flex { display: flex; }
+        .lg\:inline-flex { display: inline-flex; }
+        .lg\:grid { display: grid; }
         .lg\:hidden { display: none; }
-        .lg\:text-start { text-align: start; }
-        .lg\:text-end { text-align: end; }
-        .lg\:text-center { text-align: center; }
-        .lg\:text-justify { text-align: justify; }
-        .lg\:m-4 { margin: var(--space-4); }
-        .lg\:p-4 { padding: var(--space-4); }
+
+        /* Weitere lg: Utility-Klassen hier */
     }
 
-    @media (width >= var(--breakpoint-xl)) {
-        .xl\:container { max-width: var(--container-xl); }
-        .xl\:grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
-        .xl\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-        .xl\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-        .xl\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-        .xl\:grid-cols-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
-        .xl\:grid-cols-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
-        .xl\:grid-cols-12 { grid-template-columns: repeat(12, minmax(0, 1fr)); }
-        .xl\:col-span-1 { grid-column: span 1; }
-        .xl\:col-span-2 { grid-column: span 2; }
-        .xl\:col-span-3 { grid-column: span 3; }
-        .xl\:col-span-4 { grid-column: span 4; }
-        .xl\:col-span-5 { grid-column: span 5; }
-        .xl\:col-span-6 { grid-column: span 6; }
-        .xl\:col-span-12 { grid-column: span 12; }
-        .xl\:col-span-full { grid-column: 1 / -1; }
-        .xl\:gap-0 { gap: var(--space-0); }
-        .xl\:gap-2 { gap: var(--space-2); }
-        .xl\:gap-4 { gap: var(--space-4); }
-        .xl\:gap-6 { gap: var(--space-6); }
-        .xl\:gap-8 { gap: var(--space-8); }
-        .xl\:gap-10 { gap: var(--space-10); }
-        .xl\:gap-12 { gap: var(--space-12); }
-        .xl\:gap-16 { gap: var(--space-16); }
-        .xl\:items-start { align-items: flex-start; }
-        .xl\:items-end { align-items: flex-end; }
-        .xl\:items-center { align-items: center; }
-        .xl\:items-stretch { align-items: stretch; }
-        .xl\:justify-start { justify-content: flex-start; }
-        .xl\:justify-end { justify-content: flex-end; }
-        .xl\:justify-center { justify-content: center; }
-        .xl\:justify-between { justify-content: space-between; }
-        .xl\:flex { display: flex; }
-        .xl\:grid { display: grid; }
-        .xl\:flex-row { flex-direction: row; }
-        .xl\:flex-col { flex-direction: column; }
+    @container root (min-width: 1280px) {
+        /* Extra Large Breakpoint Responsive Utilities */
         .xl\:block { display: block; }
+        .xl\:inline { display: inline; }
+        .xl\:inline-block { display: inline-block; }
+        .xl\:flex { display: flex; }
+        .xl\:inline-flex { display: inline-flex; }
+        .xl\:grid { display: grid; }
         .xl\:hidden { display: none; }
-        .xl\:text-start { text-align: start; }
-        .xl\:text-end { text-align: end; }
-        .xl\:text-center { text-align: center; }
-        .xl\:text-justify { text-align: justify; }
-        .xl\:m-4 { margin: var(--space-4); }
-        .xl\:p-4 { padding: var(--space-4); }
+
+        /* Weitere xl: Utility-Klassen hier */
     }
 
     /* Spacing */
@@ -866,182 +694,120 @@
 
     /* Print */
     @media print {
-      .print\:block { display: block; }
-      .print\:hidden { display: none; }
-      
-      /* Text Alignment - Print */
-      .print\:text-start { text-align: start; }
-      .print\:text-end { text-align: end; }
-      .print\:text-center { text-align: center; }
-      .print\:text-justify { text-align: justify; }
-      
-      /* Legacy text alignment */
-      .print\:text-left { text-align: left; }
-      .print\:text-right { text-align: right; }
+        .print-hide { display: none !important; }
+        .print-show { display: block !important; }
+        .print-inline { display: inline !important; }
+        .print-inline-block { display: inline-block !important; }
+        
+        a[href]::after { content: " (" attr(href) ")"; }
+        abbr[title]::after { content: " (" attr(title) ")"; }
+        
+        .no-print-links a[href]::after,
+        a[href^="#"]::after,
+        a[href^="javascript:"]::after { content: ""; }
+        
+        /* Randeinstellungen für den Druck optimieren */
+        @page { margin: 0.5cm; }
     }
 
-    /* Media Query Utilities */
-    @media (width <= var(--breakpoint-md)) {
-      /* ... existing code ... */
+    /* Mobile-spezifische Utility-Klassen */
+    @container root (max-width: 768px) {
+        /* Diese Klassen überschreiben andere Stile auf kleinen Bildschirmen */
+        .mobile-hide { display: none !important; }
+        .mobile-show { display: block !important; }
+        .mobile-inline { display: inline !important; }
+        .mobile-inline-block { display: inline-block !important; }
+        
+        .mobile-text-center { text-align: center !important; }
+        .mobile-text-left { text-align: left !important; }
+        .mobile-text-right { text-align: right !important; }
+        
+        .mobile-full-width { width: 100% !important; }
+        .mobile-auto-width { width: auto !important; }
+        
+        .mobile-m-0 { margin: 0 !important; }
+        .mobile-p-0 { padding: 0 !important; }
     }
-
-    @media (width >= var(--breakpoint-sm)) {
-      /* ... existing code ... */
+    
+    /* Responsive Breakpoint Utilities - kleine Geräte */
+    @container root (min-width: 640px) {
+        .sm\:hidden { display: none !important; }
+        .sm\:block { display: block !important; }
+        .sm\:inline { display: inline !important; }
+        .sm\:inline-block { display: inline-block !important; }
+        .sm\:flex { display: flex !important; }
+        .sm\:inline-flex { display: inline-flex !important; }
+        .sm\:grid { display: grid !important; }
+        
+        .sm\:text-left { text-align: left !important; }
+        .sm\:text-center { text-align: center !important; }
+        .sm\:text-right { text-align: right !important; }
+        
+        .sm\:w-auto { width: auto !important; }
+        .sm\:w-full { width: 100% !important; }
     }
-
-    @media (width >= var(--breakpoint-md)) {
-      /* ... existing code ... */
+    
+    /* Responsive Breakpoint Utilities - mittlere Geräte */
+    @container root (min-width: 768px) {
+        .md\:hidden { display: none !important; }
+        .md\:block { display: block !important; }
+        .md\:inline { display: inline !important; }
+        .md\:inline-block { display: inline-block !important; }
+        .md\:flex { display: flex !important; }
+        .md\:inline-flex { display: inline-flex !important; }
+        .md\:grid { display: grid !important; }
+        
+        .md\:text-left { text-align: left !important; }
+        .md\:text-center { text-align: center !important; }
+        .md\:text-right { text-align: right !important; }
+        
+        .md\:w-auto { width: auto !important; }
+        .md\:w-full { width: 100% !important; }
     }
-
-    @media (width >= var(--breakpoint-lg)) {
-      /* ... existing code ... */
+    
+    /* Responsive Breakpoint Utilities - große Geräte */
+    @container root (min-width: 1024px) {
+        .lg\:hidden { display: none !important; }
+        .lg\:block { display: block !important; }
+        .lg\:inline { display: inline !important; }
+        .lg\:inline-block { display: inline-block !important; }
+        .lg\:flex { display: flex !important; }
+        .lg\:inline-flex { display: inline-flex !important; }
+        .lg\:grid { display: grid !important; }
+        
+        .lg\:text-left { text-align: left !important; }
+        .lg\:text-center { text-align: center !important; }
+        .lg\:text-right { text-align: right !important; }
+        
+        .lg\:w-auto { width: auto !important; }
+        .lg\:w-full { width: 100% !important; }
     }
-
-    @media (width >= var(--breakpoint-xl)) {
-      /* ... existing code ... */
+    
+    /* Responsive Breakpoint Utilities - extra große Geräte */
+    @container root (min-width: 1280px) {
+        .xl\:hidden { display: none !important; }
+        .xl\:block { display: block !important; }
+        .xl\:inline { display: inline !important; }
+        .xl\:inline-block { display: inline-block !important; }
+        .xl\:flex { display: flex !important; }
+        .xl\:inline-flex { display: inline-flex !important; }
+        .xl\:grid { display: grid !important; }
+        
+        .xl\:text-left { text-align: left !important; }
+        .xl\:text-center { text-align: center !important; }
+        .xl\:text-right { text-align: right !important; }
+        
+        .xl\:w-auto { width: auto !important; }
+        .xl\:w-full { width: 100% !important; }
     }
-
-    /* Container Query Utilities */
-
-    /* Base container-aware component */
-    .container-query {
-      container-type: inline-size;
-      container-name: layout;
-    }
-
-    /* Extra small containers (320px) */
-    @container layout (min-width: var(--container-query-xs)) {
-      .container-xs\:block { display: block; }
-      .container-xs\:flex { display: flex; }
-      .container-xs\:grid { display: grid; }
-      .container-xs\:hidden { display: none; }
-      
-      .container-xs\:text-start { text-align: start; }
-      .container-xs\:text-end { text-align: end; }
-      .container-xs\:text-center { text-align: center; }
-      .container-xs\:text-justify { text-align: justify; }
-      
-      /* Legacy text alignment */
-      .container-xs\:text-left { text-align: left; }
-      .container-xs\:text-right { text-align: right; }
-      
-      .container-xs\:m-0 { margin: var(--space-0); }
-      .container-xs\:mx-auto { margin-left: auto; margin-right: auto; }
-      .container-xs\:p-2 { padding: var(--space-2); }
-      .container-xs\:p-4 { padding: var(--space-4); }
-      
-      .container-xs\:grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
-      .container-xs\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    }
-
-    /* Small containers (480px) */
-    @container layout (min-width: var(--container-query-sm)) {
-      .container-sm\:block { display: block; }
-      .container-sm\:flex { display: flex; }
-      .container-sm\:grid { display: grid; }
-      .container-sm\:hidden { display: none; }
-      
-      .container-sm\:text-start { text-align: start; }
-      .container-sm\:text-end { text-align: end; }
-      .container-sm\:text-center { text-align: center; }
-      .container-sm\:text-justify { text-align: justify; }
-      
-      /* Legacy text alignment */
-      .container-sm\:text-left { text-align: left; }
-      .container-sm\:text-right { text-align: right; }
-      
-      .container-sm\:m-0 { margin: var(--space-0); }
-      .container-sm\:mx-auto { margin-left: auto; margin-right: auto; }
-      .container-sm\:p-2 { padding: var(--space-2); }
-      .container-sm\:p-4 { padding: var(--space-4); }
-      
-      .container-sm\:grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
-      .container-sm\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .container-sm\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    }
-
-    /* Medium containers (640px) */
-    @container layout (min-width: var(--container-query-md)) {
-      .container-md\:block { display: block; }
-      .container-md\:flex { display: flex; }
-      .container-md\:grid { display: grid; }
-      .container-md\:hidden { display: none; }
-      
-      .container-md\:text-start { text-align: start; }
-      .container-md\:text-end { text-align: end; }
-      .container-md\:text-center { text-align: center; }
-      .container-md\:text-justify { text-align: justify; }
-      
-      /* Legacy text alignment */
-      .container-md\:text-left { text-align: left; }
-      .container-md\:text-right { text-align: right; }
-      
-      .container-md\:m-0 { margin: var(--space-0); }
-      .container-md\:mx-auto { margin-left: auto; margin-right: auto; }
-      .container-md\:p-2 { padding: var(--space-2); }
-      .container-md\:p-4 { padding: var(--space-4); }
-      
-      .container-md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .container-md\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-      .container-md\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-    }
-
-    /* Large containers (800px) */
-    @container layout (min-width: var(--container-query-lg)) {
-      .container-lg\:block { display: block; }
-      .container-lg\:flex { display: flex; }
-      .container-lg\:grid { display: grid; }
-      .container-lg\:hidden { display: none; }
-      
-      .container-lg\:text-start { text-align: start; }
-      .container-lg\:text-end { text-align: end; }
-      .container-lg\:text-center { text-align: center; }
-      .container-lg\:text-justify { text-align: justify; }
-      
-      /* Legacy text alignment */
-      .container-lg\:text-left { text-align: left; }
-      .container-lg\:text-right { text-align: right; }
-      
-      .container-lg\:m-0 { margin: var(--space-0); }
-      .container-lg\:mx-auto { margin-left: auto; margin-right: auto; }
-      .container-lg\:p-2 { padding: var(--space-2); }
-      .container-lg\:p-4 { padding: var(--space-4); }
-      
-      .container-lg\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-      .container-lg\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-      .container-lg\:grid-cols-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
-    }
-
-    /* Extra large containers (960px) */
-    @container layout (min-width: var(--container-query-xl)) {
-      .container-xl\:block { display: block; }
-      .container-xl\:flex { display: flex; }
-      .container-xl\:grid { display: grid; }
-      .container-xl\:hidden { display: none; }
-      
-      .container-xl\:text-start { text-align: start; }
-      .container-xl\:text-end { text-align: end; }
-      .container-xl\:text-center { text-align: center; }
-      .container-xl\:text-justify { text-align: justify; }
-      
-      /* Legacy text alignment */
-      .container-xl\:text-left { text-align: left; }
-      .container-xl\:text-right { text-align: right; }
-      
-      .container-xl\:m-0 { margin: var(--space-0); }
-      .container-xl\:mx-auto { margin-left: auto; margin-right: auto; }
-      .container-xl\:p-2 { padding: var(--space-2); }
-      .container-xl\:p-4 { padding: var(--space-4); }
-      
-      .container-xl\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-      .container-xl\:grid-cols-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
-      .container-xl\:grid-cols-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
-    }
-
-    @media (width <= var(--breakpoint-md)) {
-      /* Responsive Abkürzungen */
-
-      /* Die folgenden Klassen sind für kleine Bildschirme */
+    
+    /* Tablet und darunter (einschließlich Mobil) */
+    @container root (max-width: 768px) {
+        .below-md\:hidden { display: none !important; }
+        .below-md\:block { display: block !important; }
+        .below-md\:flex-col { flex-direction: column !important; }
+        .below-md\:w-full { width: 100% !important; }
+        .below-md\:text-center { text-align: center !important; }
     }
 
     /* Relationale Selektoren (Aufgabe 7) */

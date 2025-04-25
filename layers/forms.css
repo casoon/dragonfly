@@ -654,13 +654,35 @@
    * Beachtet Einstellungen wie reduzierte Bewegung.
    */
 
-  /* Deaktiviert Animationen für Nutzer mit Bewegungsempfindlichkeit */
-  @media (prefers-reduced-motion: reduce) {
-    .form-control,
+  /* Reduzierte Bewegung für Form-Animationen */
+  @container root (prefers-reduced-motion: reduce) {
+    .form-element,
+    .form-input,
     .form-select,
-    .form-check-input,
-    .form-switch .form-check-input {
-      transition: none;
+    .form-textarea,
+    .form-checkbox,
+    .form-radio,
+    .form-switch,
+    .form-range,
+    .form-field,
+    .form-label,
+    .form-feedback,
+    button,
+    .button,
+    .input-animate-label .input-label,
+    .form-element-validated::before,
+    .form-element-validated::after,
+    .input-float-label .input-label {
+      transition: none !important;
+      animation: none !important;
+      transform: none !important;
+    }
+    
+    .input-spinner,
+    .form-loading,
+    .submit-processing,
+    .form-validation-icon {
+      display: none !important;
     }
   }
 
@@ -671,63 +693,30 @@
    * Optimiert die Formulardarstellung auf mobilen Geräten.
    */
 
-  /* Mobile Anpassungen für Bildschirme unter 768px */
-  @media (width <= 768px) {
-    /* Umstellung auf vertikales Layout */
-    .form-inline {
-      flex-direction: column;
-      gap: var(--spacing-3);
-    }
-
-    .form-inline .form-group {
-      width: 100%;
-    }
-
+  /* Mobile Anpassungen für Formulare */
+  @container root (max-width: 768px) {
     .form-row {
       flex-direction: column;
-      gap: var(--spacing-3);
+      gap: var(--space-4);
     }
-
-    .form-row > * {
-      width: 100%;
-    }
-
-    .form-actions {
+    
+    .form-group.inline {
       flex-direction: column;
-      gap: var(--spacing-2);
+      align-items: flex-start;
     }
-
-    .form-actions > * {
-      width: 100%;
+    
+    .form-label {
+      margin-bottom: var(--space-2);
     }
-
-    /* Anpassung der Input-Gruppen für mobile Ansicht */
-    .input-group {
-      flex-wrap: wrap;
+    
+    .form-addon-left,
+    .form-addon-right {
+      min-width: 3.5rem;
     }
-
-    .input-group > .form-control,
-    .input-group > .form-select,
-    .input-group-text {
-      flex: 0 0 100%;
-      width: 100%;
-      border-radius: var(--input-border-radius);
-      margin-bottom: -1px;
-    }
-
-    .input-group > *:not(:first-child, :last-child) {
-      border-radius: 0;
-    }
-
-    .input-group > :first-child {
-      border-bottom-left-radius: 0;
-      border-bottom-right-radius: 0;
-    }
-
-    .input-group > :last-child {
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
-      margin-bottom: 0;
+    
+    .form-control-lg {
+      padding: var(--space-3) var(--space-4);
+      font-size: 1rem;
     }
   }
 }  

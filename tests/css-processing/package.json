@@ -1,0 +1,15 @@
+{
+  "name": "ui-lib-lightningcss-tests",
+  "version": "1.0.0",
+  "description": "Testumgebung für @casoon/ui-lib mit Lightning CSS",
+  "private": true,
+  "scripts": {
+    "test": "node lightning-css-test.js",
+    "test-browser": "npx serve .",
+    "setup": "npm install && mkdir -p output"
+  },
+  "devDependencies": {
+    "lightningcss": "^1.22.0",
+    "serve": "^14.2.1"
+  }
+} 

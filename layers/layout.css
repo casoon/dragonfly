@@ -500,13 +500,107 @@
     .my-16 { margin-top: var(--space-16); margin-bottom: var(--space-16); }
 
     /* 
+     * Responsive Breakpoint Container 
+     * 
+     * Container mit Breakpoint-spezifischen Breiten
+     *
+     * HINWEIS: Wir verwenden jetzt Container Queries statt Media Queries.
+     * Container Queries beziehen sich auf die Größe des Containers, nicht des Viewports.
+     * Durch die Definition von :root als Container funktionieren diese Queries ähnlich
+     * wie Media Queries, aber mit besserer Kompatibilität mit LightningCSS.
+     * 
+     * Die Pixel-Werte entsprechen den in tokens.css definierten Breakpoint-Variablen:
+     * --breakpoint-sm: 640px
+     * --breakpoint-md: 768px
+     * --breakpoint-lg: 1024px
+     * --breakpoint-xl: 1280px
+     * --breakpoint-2xl: 1536px
+     */
+    @container root (min-width: 640px) {
+        .container {
+            max-width: var(--container-sm);
+        }
+    }
+
+    @container root (min-width: 768px) {
+        .container {
+            max-width: var(--container-md);
+        }
+    }
+
+    @container root (min-width: 1024px) {
+        .container {
+            max-width: var(--container-lg);
+        }
+    }
+
+    @container root (min-width: 1280px) {
+        .container {
+            max-width: var(--container-xl);
+        }
+    }
+
+    @container root (min-width: 1536px) {
+        .container {
+            max-width: var(--container-2xl);
+        }
+    }
+
+    /* 
+     * Utility Layout Komponenten 
+     * 
+     * Häufig genutzte Layout-Muster als Utility-Klassen
+     */
+    .flex-center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .flex-between {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .stack {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .stack > * + * {
+        margin-top: var(--space-4);
+    }
+
+    .stack-sm > * + * {
+        margin-top: var(--space-2);
+    }
+
+    .stack-lg > * + * {
+        margin-top: var(--space-6);
+    }
+
+    .grid-auto-fit {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: var(--space-4);
+    }
+
+    .grid-auto-fill {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: var(--space-4);
+    }
+
+    /* 
      * Responsive Breakpoint Utilities 
      * 
      * Responsive Varianten aller Komponenten.
      * Präfixe: sm:, md:, lg:, xl:
      * Beispiel: <div class="grid-cols-1 md:grid-cols-2 lg:grid-cols-3">...</div>
      */
-    @media (min-width: var(--breakpoint-sm)) {
+    @container root (min-width: 640px) {
         /* Small (sm) Breakpoint */
         .sm\:container { max-width: var(--container-sm); }
 
@@ -547,7 +641,7 @@
         .sm\:items-stretch { align-items: stretch; }
     }
 
-    @media (min-width: var(--breakpoint-md)) {
+    @container root (min-width: 768px) {
         /* Medium (md) Breakpoint */
         .md\:container { max-width: var(--container-md); }
 
@@ -595,7 +689,7 @@
         .md\:items-stretch { align-items: stretch; }
     }
 
-    @media (min-width: var(--breakpoint-lg)) {
+    @container root (min-width: 1024px) {
         /* Large (lg) Breakpoint */
         .lg\:container { max-width: var(--container-lg); }
 
@@ -722,88 +816,6 @@
             grid-template-columns: repeat(2, 1fr);
             gap: var(--space-md);
         }
-    }
-
-    /* 
-     * Responsive Breakpoint Container 
-     * 
-     * Container mit Breakpoint-spezifischen Breiten
-     */
-    @media (width >= var(--breakpoint-sm)) {
-        .container {
-            max-width: var(--container-sm);
-        }
-    }
-
-    @media (width >= var(--breakpoint-md)) {
-        .container {
-            max-width: var(--container-md);
-        }
-    }
-
-    @media (width >= var(--breakpoint-lg)) {
-        .container {
-            max-width: var(--container-lg);
-        }
-    }
-
-    @media (width >= var(--breakpoint-xl)) {
-        .container {
-            max-width: var(--container-xl);
-        }
-    }
-
-    @media (width >= var(--breakpoint-2xl)) {
-        .container {
-            max-width: var(--container-2xl);
-        }
-    }
-
-    /* 
-     * Utility Layout Komponenten 
-     * 
-     * Häufig genutzte Layout-Muster als Utility-Klassen
-     */
-    .flex-center {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .flex-between {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    .stack {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-    }
-
-    .stack > * + * {
-        margin-top: var(--space-4);
-    }
-
-    .stack-sm > * + * {
-        margin-top: var(--space-2);
-    }
-
-    .stack-lg > * + * {
-        margin-top: var(--space-6);
-    }
-
-    .grid-auto-fit {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: var(--space-4);
-    }
-
-    .grid-auto-fill {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        gap: var(--space-4);
     }
 }
   

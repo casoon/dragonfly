@@ -306,24 +306,31 @@
     backface-visibility: hidden;
   }
 
-  /* Reduced Motion */
-  @media (prefers-reduced-motion: reduce) {
-    html {
-      scroll-behavior: auto;
+  /* Respektiere Nutzereinstellung für reduzierte Bewegung */
+  @container root (prefers-reduced-motion: reduce) {
+    /* Deaktiviere alle Scroll-Animationen */
+    html,
+    body,
+    .scroll-smooth,
+    .scroll-behavior-smooth,
+    .scroll-mt-*,
+    .scroll-mb-*,
+    .scroll-ms-*,
+    .scroll-me-*,
+    .scroll-pt-*,
+    .scroll-pb-*,
+    .scroll-ps-*,
+    .scroll-pe-*,
+    [data-scroll-trigger],
+    .scroll-snap-container,
+    .scroll-snap-item {
+      scroll-behavior: auto !important;
+      scroll-padding: 0 !important;
+      scroll-snap-type: none !important;
+      animation: none !important;
+      transition: none !important;
     }
-    
-    .scroll-reveal,
-    .scroll-fade,
-    .scroll-scale,
-    .scroll-slide-left,
-    .scroll-slide-right,
-    .scroll-slide-up,
-    .scroll-slide-down,
-    .scroll-rotate,
-    .scroll-stagger > * {
-      transition: none;
-    }
-  } 
+  }
 }
 
 @layer components {
