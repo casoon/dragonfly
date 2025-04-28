@@ -20,7 +20,7 @@
  * Moderne Farbfunktionen mit color-mix
  */
 
-@layer color-functions {
+@layer color-mix {
   /* Grundlegende Farbvariablen aus Design Tokens */
   :root {
     /* Primäre Farbpalette Verläufe durch color-mix */

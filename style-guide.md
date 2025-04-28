@@ -286,7 +286,109 @@ Das Layout-System ist in `layers/layout.css` definiert und bietet flexible Optio
 
 ### Grid-System
 
-Das Grid-System basiert auf CSS Grid und unterstützt responsive Layouts mit verschiedenen Spalten.
+Das Grid-System basiert auf modernen CSS Grid-Technologien und bietet mehrere flexible Layout-Optionen:
+
+#### Standard-Grid
+
+```css
+.grid {
+    display: grid;
+    gap: var(--space-0);
+}
+
+/* Spalten-Konfiguration */
+.grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+.grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.grid-cols-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.grid-cols-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+.grid-cols-12 { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+
+/* Spalten-Überspannung */
+.col-span-1 { grid-column: span 1; }
+.col-span-2 { grid-column: span 2; }
+/* ... bis .col-span-12 und .col-span-full */
+```
+
+#### Container-basierte Grids
+
+Das System nutzt moderne Container Queries für komponentenbasierte responsive Layouts:
+
+```css
+/* Grid-Responsive mit Container Queries */
+.grid-responsive {
+    display: grid;
+    gap: var(--space-sm);
+    grid-template-columns: 1fr;
+
+    @container component (min-width: 400px) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-md);
+    }
+
+    @container component (min-width: 600px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    @container component (min-width: 800px) {
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--space-lg);
+    }
+
+    @container component (min-width: 1000px) {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+/* Layout-Grid mit Container Queries */
+.layout-grid {
+    display: grid;
+    gap: var(--space-4);
+    grid-template-columns: 1fr;
+
+    @container layout (min-width: 30rem) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @container layout (min-width: 48rem) {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-6);
+    }
+
+    @container layout (min-width: 62rem) {
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--space-8);
+    }
+}
+```
+
+#### Auto-anpassende Grids
+
+```css
+.grid-auto-fit {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-4);
+}
+
+.grid-auto-fill {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: var(--space-4);
+}
+```
+
+#### Responsive Breakpoint Utilities
+
+Alle Grid-Klassen haben responsive Varianten mit Breakpoint-Präfixen:
+
+```css
+/* Bei Viewport-Breiten ab 768px (md) */
+.md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.md\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.md\:col-span-4 { grid-column: span 4; }
+```
 
 ### Container-Queries
 

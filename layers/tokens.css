@@ -12,7 +12,7 @@
  * @wichtig Änderungen an diesen Tokens beeinflussen das gesamte Design der Anwendung.
  */
 
-@layer core {
+@layer tokens {
     :root {
         /* Container Query Kontext für das gesamte Layout */
         container-type: inline-size;
