@@ -51,13 +51,3 @@
 @import url("layers/utilities.css");
 @import url("layers/smooth-scroll.css");
 @import url("layers/accessibility.css");
-
-/* Icon-System */
-@import url('icons.css');
-
-/* Animationen und Effekte */
-@import url('layers/animations.css');
-@import url('layers/effects.css');
-
-/* Theme-System */
-@import url('themes.css'); 

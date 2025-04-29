@@ -17,9 +17,24 @@
   */
  @import url("modules.css");
 
+   /* 
+  * Importieren des Animations-Systems
+  * Animations werden in eigenen Layer importiert 
+  */
+  @import url("animations.css");
+
+  /* 
+  * Importieren des Effects-Systems
+  * Effects werden in eigenen Layer importiert 
+  */
+  @import url("effects.css");
+
  /* 
   * Zentrale Datei für das Theme-System.
   */
  @import url("themes.css");
+
+ /* Icon-System */
+ @import url('icons.css');
 
 

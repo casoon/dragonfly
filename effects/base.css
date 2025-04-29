@@ -1,35 +1,3 @@
-/**
- * CSS-Effekte
- * 
- * Diese Datei importiert verschiedene Effekt-Kategorien:
- * - Neon-Effekte: Leuchtende Text- und Rahmeneffekte
- * - Filter-Effekte: Visuelle Filter wie Unschärfe, Helligkeit, etc.
- * - Interaktionseffekte: Effekte für Benutzerinteraktionen
- *   - 3D-Transformationen und Perspektiveffekte
- *   - Cursor-Reaktive Elemente
- *   - Touch-Optimierte Feedback-Effekte
- * 
- * Verwendung:
- * 1. Importieren Sie diese Datei in Ihr Projekt
- * 2. Verwenden Sie die Klassen wie in den jeweiligen Kategorien dokumentiert
- * 
- * Beispiel:
- * <div class="neon-text">Leuchtender Text</div>
- * <div class="blur-sm">Unschärfe-Effekt</div>
- * <div class="draggable">Ziehbares Element</div>
- * <div class="card-flip">3D-Karten-Flip-Effekt</div>
- * <div class="touch-ripple">Optimierter Touch-Effekt</div>
- * 
- * Hinweise:
- * - Alle Effekte sind responsive
- * - Reduzierte Bewegung wird berücksichtigt
- * - Performance-Optimierungen sind implementiert
- */
-@layer effects {
-    /* Effekte-Unterkategorien importieren */
-    @import url('effects/neon.css');
-    @import url('effects/filters.css');
-    @import url('effects/interactions.css');
 
     /* Base Effects */
     .shadow-sm {
@@ -112,4 +80,3 @@
             transform: none !important;
         }
     }
-}

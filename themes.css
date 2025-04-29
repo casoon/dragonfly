@@ -19,31 +19,30 @@
  * <body class="theme-high-contrast"> - Aktiviert das High-Contrast Theme für bessere Zugänglichkeit
  */
 
-@layer themes {
-    /* Basis-Theme - Wird immer geladen */
-    @import url('themes/theme-base.css');
-    
-    /* Barrierefreiheit-Themes */
-    @import url('themes/accessibility.css');
-    
-    /* Dark Mode - Automatisch über Medienfunktion oder mit .dark-theme Klasse */
-    @import url('themes/dark-mode.css');
-    
-    /* Marken-Theme mit Unternehmensfarben */
-    @import url('themes/brand.css');
-    
-    /* Standard Theme-Variationen - Aktiviert durch entsprechende Klassen */
-    @import url('themes/day.css');         /* .theme-day */
-    @import url('themes/night.css');       /* .theme-night */
-    @import url('themes/spring.css');      /* .theme-spring */
-    @import url('themes/summer.css');      /* .theme-summer */
-    @import url('themes/autumn.css');      /* .theme-autumn */
-    @import url('themes/winter.css');      /* .theme-winter */
-    @import url('themes/forest.css');      /* .theme-forest */
-    @import url('themes/ocean.css');       /* .theme-ocean */
-    @import url('themes/pastel.css');      /* .theme-pastel */
-    @import url('themes/neon.css');        /* .theme-neon */
-    @import url('themes/retro.css');       /* .theme-retro */
-    @import url('themes/monochrome.css');  /* .theme-monochrome */
-    @import url('themes/sunset.css');      /* .theme-sunset */
-} 
+
+/* Basis-Theme - Wird immer geladen */
+@import url('themes/theme-base.css');
+
+/* Barrierefreiheit-Themes */
+@import url('themes/accessibility.css');
+
+/* Dark Mode - Automatisch über Medienfunktion oder mit .dark-theme Klasse */
+@import url('themes/dark-mode.css');
+
+/* Marken-Theme mit Unternehmensfarben */
+@import url('themes/brand.css');
+
+/* Standard Theme-Variationen - Aktiviert durch entsprechende Klassen */
+@import url('themes/day.css');         /* .theme-day */
+@import url('themes/night.css');       /* .theme-night */
+@import url('themes/spring.css');      /* .theme-spring */
+@import url('themes/summer.css');      /* .theme-summer */
+@import url('themes/autumn.css');      /* .theme-autumn */
+@import url('themes/winter.css');      /* .theme-winter */
+@import url('themes/forest.css');      /* .theme-forest */
+@import url('themes/ocean.css');       /* .theme-ocean */
+@import url('themes/pastel.css');      /* .theme-pastel */
+@import url('themes/neon.css');        /* .theme-neon */
+@import url('themes/retro.css');       /* .theme-retro */
+@import url('themes/monochrome.css');  /* .theme-monochrome */
+@import url('themes/sunset.css');      /* .theme-sunset */
