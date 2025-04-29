@@ -41,7 +41,7 @@
  * - Reduzierte Bewegung wird automatisch berücksichtigt
  */
 
-@layer components {
+@layer module-sidebar {
     /* Sidebar Variables */
     .sidebar {
         --sidebar-width: 16rem;

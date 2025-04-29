@@ -24,8 +24,7 @@
        icons,                /* Icon-System */
        animations,           /* Animationen */
        effects,              /* Visuelle Effekte */
-       themes,               /* Theming-System */
-       components;           /* Komponenten (für zukünftige Erweiterungen) */
+       themes;               /* Theming-System */
 
 /*
  * Importieren der Layer-Definitionen
@@ -54,8 +53,11 @@
 @import url("layers/accessibility.css");
 
 /* Icon-System */
-@import url('icons/base.css');
+@import url('icons.css');
 
 /* Animationen und Effekte */
 @import url('layers/animations.css');
-@import url('layers/effects.css'); 
+@import url('layers/effects.css');
+
+/* Theme-System */
+@import url('themes.css'); 

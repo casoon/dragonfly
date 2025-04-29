@@ -4,7 +4,7 @@
  * Diese Datei enthält die CSS-Module für Skeleton-Ladeanimationen.
  */
 
-@layer components {
+@layer module-skeleton {
     /* Skeleton Variables */
     .skeleton {
         --skeleton-background: var(--color-gray-100);

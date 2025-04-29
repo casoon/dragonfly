@@ -46,7 +46,7 @@
  * - Reduzierte Bewegung wird automatisch berücksichtigt
  */
 
-@layer components {
+@layer module-hamburger {
     /* Hamburger Variables */
     .hamburger {
         --hamburger-width: 2rem;

@@ -4,7 +4,7 @@
  * Diese Datei enthält die CSS-Module für Header-Komponenten.
  */
 
-@layer components {
+@layer module-header {
     /* Header Variables */
     .header {
         --header-height: 4rem;

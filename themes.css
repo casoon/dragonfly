@@ -1,0 +1,49 @@
+/**
+ * Themes System
+ * 
+ * Zentrale Datei für das Theme-System.
+ * Diese Datei importiert alle Themes und organisiert sie im @layer themes.
+ * 
+ * Themes werden in folgender Reihenfolge geladen:
+ * 1. Basis-Theme (theme-base.css) - Grundlegende Variablen für alle Themes
+ * 2. Barrierefreiheit (accessibility.css) - Anpassungen für bessere Zugänglichkeit
+ * 3. Dark Mode (dark-mode.css) - Dunkles Farbschema (automatisch oder über .dark-theme Klasse)
+ * 4. Marken-Theme (brand.css) - Markenspezifische Anpassungen
+ * 5. Theme-Variationen - Aktiviert durch spezifische Klassen (.theme-*)
+ * 
+ * Verwendung:
+ * Standardmäßig wird das Basis-Theme geladen. Weitere Themes können durch Klassen aktiviert werden:
+ * 
+ * <body class="theme-ocean"> - Aktiviert das Ocean-Theme
+ * <body class="dark-theme"> - Aktiviert den Dark Mode
+ * <body class="theme-high-contrast"> - Aktiviert das High-Contrast Theme für bessere Zugänglichkeit
+ */
+
+@layer themes {
+    /* Basis-Theme - Wird immer geladen */
+    @import url('themes/theme-base.css');
+    
+    /* Barrierefreiheit-Themes */
+    @import url('themes/accessibility.css');
+    
+    /* Dark Mode - Automatisch über Medienfunktion oder mit .dark-theme Klasse */
+    @import url('themes/dark-mode.css');
+    
+    /* Marken-Theme mit Unternehmensfarben */
+    @import url('themes/brand.css');
+    
+    /* Standard Theme-Variationen - Aktiviert durch entsprechende Klassen */
+    @import url('themes/day.css');         /* .theme-day */
+    @import url('themes/night.css');       /* .theme-night */
+    @import url('themes/spring.css');      /* .theme-spring */
+    @import url('themes/summer.css');      /* .theme-summer */
+    @import url('themes/autumn.css');      /* .theme-autumn */
+    @import url('themes/winter.css');      /* .theme-winter */
+    @import url('themes/forest.css');      /* .theme-forest */
+    @import url('themes/ocean.css');       /* .theme-ocean */
+    @import url('themes/pastel.css');      /* .theme-pastel */
+    @import url('themes/neon.css');        /* .theme-neon */
+    @import url('themes/retro.css');       /* .theme-retro */
+    @import url('themes/monochrome.css');  /* .theme-monochrome */
+    @import url('themes/sunset.css');      /* .theme-sunset */
+} 

@@ -12,6 +12,7 @@
  * - Container Queries: Komponentenbasierte Responsivität (statt Viewport-basiert)
  * - Abstands- und Positionierungs-Utilities: Konsistente Abstände durch Design-Tokens
  * - Responsive Breakpoint-Varianten: Anpassung des Layouts für verschiedene Bildschirmgrößen
+ * - Subgrid-Layouts: Fortgeschrittene Layouttechniken mit CSS Subgrid
  * 
  * @technisch Nutzt moderne CSS-Features wie CSS Grid, Container Queries und logische Eigenschaften
  * @responsive Alle Komponenten haben responsive Varianten für verschiedene Breakpoints
@@ -850,6 +851,229 @@
         .flex-responsive > * {
             width: 100%;
             margin-bottom: 1rem;
+        }
+    }
+
+    /* 
+     * Subgrid Layouts 
+     * 
+     * Fortgeschrittene Layouttechniken mit CSS Subgrid für komplexe,
+     * responsive Layoutstrukturen, die Konsistenz über verschachtelte Komponenten hinweg bieten.
+     */
+
+    /* Basis-Subgrid-Layouts aus subgrid.css */
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: var(--spacing-md);
+        width: 100%;
+    }
+
+    .card-grid {
+        display: grid;
+        grid-column: span 12;
+        grid-template-columns: subgrid;
+        gap: var(--spacing-md);
+    }
+
+    .form-grid {
+        display: grid;
+        grid-column: span 12;
+        grid-template-columns: subgrid;
+        grid-template-rows: auto;
+        gap: var(--spacing-md);
+    }
+
+    .responsive-layout {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: auto auto auto;
+        gap: var(--spacing-md);
+    }
+
+    /* Header mit Subgrid */
+    .header {
+        grid-column: span 12;
+        display: grid;
+        grid-template-columns: subgrid;
+        grid-template-rows: auto;
+    }
+
+    .header-logo {
+        grid-column: 1 / 3;
+    }
+
+    .header-nav {
+        grid-column: 3 / 9;
+    }
+
+    .header-actions {
+        grid-column: 9 / 13;
+    }
+
+    /* Hauptbereich mit Subgrid */
+    .main-content {
+        grid-column: span 12;
+        display: grid;
+        grid-template-columns: subgrid;
+        grid-template-rows: auto;
+    }
+
+    .sidebar {
+        grid-column: span 3;
+    }
+
+    .content {
+        grid-column: span 9;
+        display: grid;
+        grid-template-columns: subgrid;
+        grid-template-rows: auto;
+        gap: var(--spacing-sm);
+    }
+
+    /* Fußbereich mit Subgrid */
+    .footer {
+        grid-column: span 12;
+        display: grid;
+        grid-template-columns: subgrid;
+        grid-template-rows: auto;
+    }
+
+    .footer-info,
+    .footer-nav,
+    .footer-social {
+        grid-column: span 4;
+    }
+
+    /* Fortgeschrittene Subgrid-Layouts aus subgrid-layouts.css */
+
+    /* Hauptgrid-Layout für die Seite */
+    .page-layout {
+        display: grid;
+        grid-template-columns: 
+            [full-start] 
+            minmax(1rem, 1fr) 
+            [main-start] 
+            minmax(0, 1200px) 
+            [main-end] 
+            minmax(1rem, 1fr) 
+            [full-end];
+        grid-template-rows: auto 1fr auto;
+    }
+
+    .page-header,
+    .page-footer {
+        grid-column: full-start / full-end;
+    }
+
+    .page-content {
+        grid-column: main-start / main-end;
+    }
+
+    /* Produktkarten-Grid mit Subgrid für einheitliche Layouts */
+    .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .product-card {
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        border-radius: 0.5rem;
+        box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
+        overflow: hidden;
+    }
+
+    /* Detailseiten-Layout mit Subgrid */
+    .detail-page {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 2rem;
+    }
+
+    .detail-sidebar,
+    .detail-content {
+        display: grid;
+        grid-template-rows: subgrid;
+        grid-row: span 3;
+    }
+
+    /* Formular-Layout mit Subgrid */
+    .form-layout {
+        display: grid;
+        grid-template-columns: max-content 1fr;
+        grid-template-rows: auto;
+        gap: 1rem 1.5rem;
+        align-items: start;
+    }
+
+    .form-section {
+        display: grid;
+        grid-template-columns: subgrid;
+        grid-template-rows: subgrid;
+        grid-column: span 2;
+        grid-row: span 4;
+        padding: 1.5rem;
+        border-radius: 0.5rem;
+        background-color: var(--color-surface-100);
+    }
+
+    .form-section-title {
+        grid-column: span 2;
+        font-size: 1.25rem;
+        margin-block-end: 1rem;
+    }
+
+    /* Responsive Anpassungen für Subgrid-Layouts */
+    @media (width <= 992px) {
+        .product-card {
+            grid-column: span 4;
+        }
+        
+        .sidebar {
+            grid-column: span 4;
+        }
+        
+        .content {
+            grid-column: span 8;
+        }
+    }
+
+    @media (width <= 768px) {
+        .product-card {
+            grid-column: span 6;
+        }
+        
+        .sidebar,
+        .content,
+        .footer-info,
+        .footer-nav,
+        .footer-social {
+            grid-column: span 12;
+        }
+        
+        .detail-page {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @media (width <= 576px) {
+        .product-card,
+        .card-small {
+            grid-column: span 12;
+        }
+        
+        .header-logo {
+            grid-column: 1 / 6;
+        }
+        
+        .header-nav {
+            grid-column: 6 / 13;
+        }
+        
+        .header-actions {
+            grid-area: 2 / 1 / auto / 13;
         }
     }
 }

@@ -32,7 +32,7 @@
  * - Reduzierte Bewegung wird automatisch berücksichtigt
  */
 
-@layer components {
+@layer module-checkbox {
     /* Checkbox Variables */
     .checkbox {
         --checkbox-size: 1.25rem;

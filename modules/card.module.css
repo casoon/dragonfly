@@ -16,7 +16,7 @@
  * - .card--horizontal
  */
 
-@layer components {
+@layer module-card {
   /* Card Variables */
   .card {
     --card-bg: var(--color-white, #fff);

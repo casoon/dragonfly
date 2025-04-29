@@ -34,7 +34,7 @@
  * - Reduzierte Bewegung wird automatisch berücksichtigt
  */
 
-@layer components {
+@layer module-badge {
     /* Badge Variables */
     .badge {
         --badge-padding: 0.25rem 0.5rem;

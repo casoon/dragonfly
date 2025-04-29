@@ -37,7 +37,7 @@
  * - Reduzierte Bewegung wird automatisch berücksichtigt
  */
 
-@layer components {
+@layer module-table {
     /* Table Variables */
     .table-wrapper {
         width: 100%;

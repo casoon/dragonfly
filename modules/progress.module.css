@@ -30,7 +30,7 @@
  * - Reduzierte Bewegung wird automatisch berücksichtigt
  */
 
-@layer components {
+@layer module-progress {
     /* Progress Variables */
     .progress {
         --progress-height: 0.5rem;

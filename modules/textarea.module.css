@@ -26,7 +26,7 @@
  * - Reduzierte Bewegung wird automatisch berücksichtigt
  */
 
-@layer components {
+@layer module-textarea {
     /* Textarea Variables */
     .textarea-container {
         position: relative;

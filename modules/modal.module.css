@@ -36,7 +36,7 @@
  * - Reduzierte Bewegung wird automatisch berücksichtigt
  */
 
-@layer components {
+@layer module-modal {
     /* Modal Variables */
     .modal {
         --modal-padding: 1.5rem;

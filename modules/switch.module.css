@@ -35,7 +35,7 @@
  * - Reduzierte Bewegung wird automatisch berücksichtigt
  */
 
-@layer components {
+@layer module-switch {
     /* Switch Variables */
     .switch {
         --switch-width: 3rem;

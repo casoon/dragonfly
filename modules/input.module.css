@@ -32,7 +32,7 @@
  * - Reduzierte Bewegung wird automatisch berücksichtigt
  */
 
-@layer components {
+@layer module-input {
     /* Input Variables */
     .input {
         --input-padding: 0.5rem 1rem;

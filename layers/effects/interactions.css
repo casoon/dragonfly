@@ -53,6 +53,11 @@
  * - Reduzierte Bewegung wird automatisch berücksichtigt
  */
 
+:root {
+  container-type: inline-size;
+  container-name: root;
+}
+
 /* Drag & Drop */
 .draggable {
     cursor: grab;
@@ -162,16 +167,16 @@
     }
 }
 
-/* Responsive Anpassungen */
-@media (width <= 640px) {
-    .touch-feedback::after {
-        inline-size: 150%;
-        block-size: 150%;
-    }
-    
-    .focus-ring:focus-visible {
-        box-shadow: 0 0 0 1px var(--color-primary);
-    }
+/* Container Queries ersetzen Media Queries */
+@container (width < 640px) {
+  .touch-feedback::after {
+    height: 150%;
+    width: 150%;
+  }
+  
+  .focus-ring:focus-visible {
+    box-shadow: 0 0 0 1px var(--color-primary);
+  }
 }
 
 /* Reduzierte Bewegung */
@@ -198,6 +203,16 @@
 
     .drag-drop-area.drag-over {
         transform: none;
+    }
+    
+    .hover-lift:hover,
+    .hover-shadow:hover,
+    .hover-scale:hover {
+        transform: none;
+    }
+    
+    .touch-feedback::after {
+        animation: none;
     }
 }
 
@@ -234,239 +249,208 @@
     .hover-scale {
         transition: var(--transition-transform);
     }
-
+    
     .hover-scale:hover {
         transform: scale(1.05);
     }
-
+    
     .hover-rotate {
         transition: var(--transition-transform);
     }
-
+    
     .hover-rotate:hover {
-        transform: rotate(5deg);
+        transform: rotate(3deg);
     }
-
+    
     .hover-shadow {
         transition: var(--transition-shadow);
     }
-
+    
     .hover-shadow:hover {
-        box-shadow: var(--shadow-md);
+        box-shadow: var(--shadow-hover);
     }
-
-    /* Text Masking Effect */
-    .text-mask {
-        background: linear-gradient(to right, var(--text-mask-color-primary, white) 50%, var(--text-mask-color-secondary, black) 50%);
-        background-size: 200% 100%;
-        background-position: right;
-        color: transparent;
-        background-clip: text;
-        transition: background-position var(--transition-normal, 0.5s ease);
-        will-change: background-position;
+    
+    .hover-lift {
+        transition: var(--transition-transform);
     }
-
-    .text-mask:hover {
-        background-position: left;
+    
+    .hover-lift:hover {
+        transform: translateY(-4px);
     }
-
-    /* Focus Effects */
-    .focus-ring {
-        outline: var(--display-none);
+    
+    .hover-text-mask {
+        position: relative;
+        overflow: hidden;
     }
-
-    .focus-ring:focus-visible {
-        outline: var(--spacing-2) solid var(--theme-primary-500);
-        outline-offset: var(--spacing-2);
+    
+    .hover-text-mask::before {
+        content: '';
+        position: absolute;
+        inset-block-start: 0;
+        inset-inline-start: 0;
+        inline-size: 100%;
+        block-size: 100%;
+        background: var(--color-gradient);
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        will-change: transform;
     }
-
-    /* Active Effects */
-    .active-scale:active {
-        transform: scale(0.95);
+    
+    .hover-text-mask:hover::before {
+        transform: translateX(0);
     }
-
-    .active-rotate:active {
-        transform: rotate(-5deg);
-    }
-
-    /* Reduced Motion */
-    @media (prefers-reduced-motion: reduce) {
-        .hover-scale,
-        .hover-rotate,
-        .hover-shadow,
-        .active-scale,
-        .active-rotate,
-        .text-mask {
-            transition: var(--transition-none);
-        }
-    }
-
+    
     /* 3D-Transformationen */
     .card-flip {
         perspective: 1000px;
-        width: 100%;
-        height: 100%;
     }
     
     .card-flip-inner {
         position: relative;
-        width: 100%;
-        height: 100%;
+        inline-size: 100%;
+        block-size: 100%;
         transition: transform 0.6s;
         transform-style: preserve-3d;
+        will-change: transform;
     }
     
-    .card-flip:hover .card-flip-inner,
-    .card-flip.flipped .card-flip-inner {
+    .card-flip:hover .card-flip-inner {
         transform: rotateY(180deg);
     }
     
-    .card-flip-front,
-    .card-flip-back {
+    .card-flip-front, .card-flip-back {
         position: absolute;
-        width: 100%;
-        height: 100%;
+        inline-size: 100%;
+        block-size: 100%;
         backface-visibility: hidden;
-        
-        /* Hinweis: Für Safari-Kompatibilität sollte in der Produktion
-           -webkit-backface-visibility: hidden; hinzugefügt werden */
     }
     
     .card-flip-back {
         transform: rotateY(180deg);
     }
     
-    /* Depth-Shift für subtile 3D-Tiefe */
+    /* Tiefenschicht-Effekt */
     .depth-shift {
-        transform-style: preserve-3d;
-        transition: transform 0.2s ease;
+        transition: var(--transition-transform);
     }
     
     .depth-shift:hover {
-        transform: translateZ(10px);
+        transform: translateZ(20px);
     }
     
-    .depth-shift-layer {
-        transform: translateZ(var(--depth, 0));
-        transition: transform 0.2s ease;
-    }
-    
-    /* Cursor-Follow-Effekte */
+    /* Cursor-Folge-Effekt */
     .cursor-follow {
-        position: relative;
-        overflow: hidden;
         transition: transform 0.1s ease-out;
-        transform-origin: center center;
+        will-change: transform;
     }
     
-    .cursor-follow::before {
-        content: "";
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 200%;
-        height: 200%;
-        background: radial-gradient(
-            circle closest-side,
-            rgb(255 255 255 / 15%),
-            transparent
-        );
-        transform: translate(-50%, -50%);
-        opacity: 0;
-        transition: opacity 0.3s ease;
-        pointer-events: none;
-        z-index: 1;
-    }
-    
-    .cursor-follow:hover::before {
-        opacity: 1;
-    }
-    
-    /* Optimierte Touch-Ripple */
+    /* Touch-Ripple-Effekt */
     .touch-ripple {
         position: relative;
         overflow: hidden;
-        -webkit-tap-highlight-color: transparent;
     }
     
     .touch-ripple::after {
-        content: "";
+        content: '';
         position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 5px;
-        height: 5px;
-        background: rgb(255 255 255 / 50%);
+        inset-block-start: 50%;
+        inset-inline-start: 50%;
+        inline-size: 0;
+        block-size: 0;
         border-radius: 50%;
-        transform: translate(-50%, -50%) scale(0);
-        opacity: 1;
-        pointer-events: none;
-        z-index: 1;
-    }
-    
-    .touch-ripple:active::after {
-        animation: ripple-effect 0.6s ease-out;
-    }
-    
-    @keyframes ripple-effect {
-        0% {
-            transform: translate(-50%, -50%) scale(0);
-            opacity: 1;
-        }
-
-        90% {
-            transform: translate(-50%, -50%) scale(30);
-            opacity: 0.2;
-        }
-
-        100% {
-            transform: translate(-50%, -50%) scale(35);
-            opacity: 0;
-        }
-    }
-    
-    /* Faltendes Element (Origami-Style) */
-    .fold-reveal {
-        position: relative;
-        perspective: 1200px;
-        transform-style: preserve-3d;
-    }
-    
-    .fold-reveal-content {
-        transition: transform 0.5s ease-in-out;
-        transform-origin: top center;
-        transform: rotateX(-90deg);
+        background: var(--color-ripple, rgb(255 255 255 / 30%));
+        transform: translate(-50%, -50%);
+        transition: inline-size 0.5s ease-out, block-size 0.5s ease-out, opacity 0.5s ease-out;
+        will-change: inline-size, block-size, opacity;
         opacity: 0;
     }
     
-    .fold-reveal.unfolded .fold-reveal-content {
-        transform: rotateX(0deg);
+    .touch-ripple:active::after {
+        inline-size: 200%;
+        block-size: 200%;
         opacity: 1;
     }
-
-    /* Reduced Motion */
+    
+    /* Text-Masken-Effekt */
+    .text-mask {
+        background-clip: text;
+        color: transparent;
+        background-image: linear-gradient(90deg, var(--color-text), var(--color-primary));
+        background-position: 0 0;
+        background-size: 200%;
+        transition: background-position 0.3s ease;
+    }
+    
+    .text-mask:hover {
+        background-position: 100% 0;
+    }
+    
+    /* Fokus-Ring */
+    .focus-ring {
+        outline: none;
+    }
+    
+    .focus-ring:focus-visible {
+        box-shadow: 0 0 0 2px var(--color-primary);
+        outline: none;
+    }
+    
+    /* Aktive Zustände */
+    .active-scale:active {
+        transform: scale(0.95);
+    }
+    
+    .active-rotate:active {
+        transform: rotate(-3deg);
+    }
+    
+    /* Reduzierte Bewegung */
     @media (prefers-reduced-motion: reduce) {
         .hover-scale,
         .hover-rotate,
         .hover-shadow,
-        .active-scale,
-        .active-rotate,
-        .text-mask,
-        .card-flip-inner,
-        .depth-shift, 
-        .depth-shift-layer,
+        .hover-lift,
+        .hover-text-mask::before,
         .cursor-follow,
-        .cursor-follow::before,
-        .touch-ripple::after,
-        .fold-reveal-content {
+        .depth-shift,
+        .card-flip-inner,
+        .text-mask {
             transition: none;
-            animation: none;
-            transform: none !important;
+        }
+        
+        .hover-scale:hover,
+        .hover-rotate:hover,
+        .hover-lift:hover,
+        .depth-shift:hover,
+        .active-scale:active,
+        .active-rotate:active {
+            transform: none;
         }
         
         .touch-ripple:active::after {
             animation: none;
+            transition: none;
         }
+    }
+    
+    /* Falteffekt */
+    .fold-reveal {
+        perspective: 1000px;
+        overflow: hidden;
+    }
+    
+    .fold-reveal-content {
+        transform-origin: top;
+        transform: rotateX(-90deg);
+        transition: transform 0.3s ease;
+        opacity: 0;
+        height: 0;
+    }
+    
+    .fold-reveal.unfolded .fold-reveal-content {
+        transform: rotateX(0);
+        opacity: 1;
+        height: auto;
     }
 }
 
@@ -478,33 +462,33 @@
 .feedback-ripple::after {
     content: '';
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background: rgb(255 255 255 / 50%);
+    inset-block-start: 50%;
+    inset-inline-start: 50%;
+    inline-size: 0;
+    block-size: 0;
     border-radius: 50%;
+    background: var(--color-feedback, rgb(var(--color-primary-rgb) / 20%));
     transform: translate(-50%, -50%);
+    transition: inline-size 0.4s ease-out, block-size 0.4s ease-out, opacity 0.4s ease-out;
+    will-change: inline-size, block-size, opacity;
     opacity: 0;
-    pointer-events: none;
-    transition: width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
 }
 
 .feedback-ripple:active::after {
-    width: 200%;
-    height: 200%;
-    opacity: 0.3;
-    transition: width 0.3s ease, height 0.3s ease, opacity 0s linear;
+    inline-size: 150%;
+    block-size: 150%;
+    opacity: 1;
 }
 
-@container root (prefers-reduced-motion: reduce) {
+@container (pointer: coarse) {
     .feedback-ripple::after {
-        display: none;
+        transition-duration: 0.6s;
     }
 }
 
 .slider-handle {
     cursor: grab;
+    will-change: transform;
     transition: transform 0.15s ease;
 }
 
@@ -513,8 +497,8 @@
     transform: scale(1.2);
 }
 
-@container root (prefers-reduced-motion: reduce) {
+@container (pointer: coarse) {
     .slider-handle:active {
-        transform: none;
+        transform: scale(1.4);
     }
 } 

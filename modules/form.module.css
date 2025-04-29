@@ -31,7 +31,7 @@
  * - Reduzierte Bewegung wird automatisch berücksichtigt
  */
 
-@layer components {
+@layer module-form {
     /* Form Variables */
     .form {
         --form-gap: var(--spacing-2);

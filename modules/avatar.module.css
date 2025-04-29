@@ -40,7 +40,7 @@
  * - Reduzierte Bewegung wird automatisch berücksichtigt
  */
 
-@layer components {
+@layer module-avatar {
     /* Avatar Variables */
     .avatar {
         --avatar-size: var(--avatar-size-md, 3rem);

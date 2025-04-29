@@ -16,7 +16,7 @@
  * - .btn--rounded, .btn--square
  */
 
-@layer components {
+@layer module-button {
   /* Button Basis */
   .btn {
     --btn-font-weight: var(--font-weight-medium);

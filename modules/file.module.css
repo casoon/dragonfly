@@ -29,231 +29,233 @@
  * - Performanceoptimierungen und Barrierefreiheit
  */
 
-/* File Upload Variablen */
-.file {
-  --file-height: var(--input-height, 2.5rem);
-  --file-padding-y: var(--input-padding-y, 0.375rem);
-  --file-padding-x: var(--input-padding-x, 0.75rem);
-  --file-font-size: var(--input-font-size, 1rem);
-  --file-border-radius: var(--input-border-radius, 0.25rem);
-  --file-border-width: var(--input-border-width, 1px);
-  --file-border-color: var(--input-border-color, var(--color-border, #dee2e6));
-  --file-background: var(--input-bg, var(--color-background, #fff));
-  --file-color: var(--input-color, var(--color-text-primary, #212529));
-  --file-button-bg: var(--color-gray-200, #e9ecef);
-  --file-button-color: var(--color-text-primary, #212529);
-  --file-text-color: var(--color-text-tertiary, #6c757d);
-  --file-hover-border-color: var(--color-primary-500, #0d6efd);
-  --file-focus-border-color: var(--color-primary-500, #0d6efd);
-  --file-focus-box-shadow: 0 0 0 0.25rem rgb(var(--color-primary-rgb, 13, 110, 253), 0.25);
-  --file-transition: all var(--transition-normal, 0.2s ease-in-out);
-  --file-dropzone-bg: var(--color-gray-50, #f8f9fa);
-  --file-dropzone-border-style: dashed;
-  --file-dropzone-active-bg: rgb(var(--color-primary-rgb, 13, 110, 253), 0.1);
-}
-
-/* Base Styles */
-.file {
-  position: relative;
-  display: inline-block;
-  width: 100%;
-}
-
-/* File Input (versteckt) */
-.file-input {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  cursor: pointer;
-}
-
-/* File Label (Container) */
-.file-label {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  height: var(--file-height);
-  width: 100%;
-  border: var(--file-border-width) solid var(--file-border-color);
-  border-radius: var(--file-border-radius);
-  background-color: var(--file-background);
-  overflow: hidden;
-  cursor: pointer;
-  transition: var(--file-transition);
-}
-
-/* File Text (linker Teil) */
-.file-text {
-  display: block;
-  flex: 1;
-  padding: var(--file-padding-y) var(--file-padding-x);
-  color: var(--file-text-color);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-size: var(--file-font-size);
-}
-
-/* File Button (rechter Teil) */
-.file-button {
-  display: flex;
-  align-items: center;
-  padding: var(--file-padding-y) var(--file-padding-x);
-  background-color: var(--file-button-bg);
-  color: var(--file-button-color);
-  font-size: var(--file-font-size);
-  border-left: var(--file-border-width) solid var(--file-border-color);
-  white-space: nowrap;
-}
-
-/* Hover State */
-.file-input:hover ~ .file-label {
-  border-color: var(--file-hover-border-color);
-}
-
-/* Focus State */
-.file-input:focus ~ .file-label {
-  border-color: var(--file-focus-border-color);
-  box-shadow: var(--file-focus-box-shadow);
-  outline: none;
-}
-
-/* Active State */
-.file-input:active ~ .file-label {
-  border-color: var(--file-focus-border-color);
-}
-
-/* Größenvarianten */
-.file-sm {
-  --file-height: calc(var(--input-height, 2.5rem) * 0.85);
-  --file-padding-y: 0.25rem;
-  --file-padding-x: 0.5rem;
-  --file-font-size: var(--font-size-sm, 0.875rem);
-  --file-border-radius: var(--border-radius-sm, 0.2rem);
-}
-
-.file-lg {
-  --file-height: calc(var(--input-height, 2.5rem) * 1.15);
-  --file-padding-y: 0.5rem;
-  --file-padding-x: 1rem;
-  --file-font-size: var(--font-size-lg, 1.25rem);
-  --file-border-radius: var(--border-radius-lg, 0.3rem);
-}
-
-/* Farbvarianten */
-.file-primary {
-  --file-button-bg: var(--color-primary-500, #0d6efd);
-  --file-button-color: var(--color-white, #fff);
-  --file-hover-border-color: var(--color-primary-600, #0a58ca);
-  --file-focus-border-color: var(--color-primary-600, #0a58ca);
-}
-
-.file-secondary {
-  --file-button-bg: var(--color-secondary-500, #6c757d);
-  --file-button-color: var(--color-white, #fff);
-  --file-hover-border-color: var(--color-secondary-600, #5a6268);
-  --file-focus-border-color: var(--color-secondary-600, #5a6268);
-  --file-focus-box-shadow: 0 0 0 0.25rem rgb(var(--color-secondary-rgb, 108, 117, 125), 0.25);
-}
-
-.file-success {
-  --file-button-bg: var(--color-success, #198754);
-  --file-button-color: var(--color-white, #fff);
-  --file-hover-border-color: var(--color-success, #198754);
-  --file-focus-border-color: var(--color-success, #198754);
-  --file-focus-box-shadow: 0 0 0 0.25rem rgb(var(--color-success-rgb, 25, 135, 84), 0.25);
-}
-
-.file-error {
-  --file-button-bg: var(--color-error, #dc3545);
-  --file-button-color: var(--color-white, #fff);
-  --file-hover-border-color: var(--color-error, #dc3545);
-  --file-focus-border-color: var(--color-error, #dc3545);
-  --file-focus-box-shadow: 0 0 0 0.25rem rgb(var(--color-error-rgb, 220, 53, 69), 0.25);
-}
-
-/* Drag & Drop Styles */
-.file-dropzone .file-label {
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: auto;
-  min-height: 120px;
-  padding: var(--file-padding-y) var(--file-padding-x);
-  border-style: var(--file-dropzone-border-style);
-  background-color: var(--file-dropzone-bg);
-  text-align: center;
-  contain: layout;
-  contain-intrinsic-size: auto 120px;
-}
-
-.file-dropzone .file-text {
-  margin-bottom: 1rem;
-  padding: 0;
-  white-space: normal;
-}
-
-.file-dropzone .file-button {
-  border-left: none;
-}
-
-.file-dropzone.file-drag-active .file-label {
-  background-color: var(--file-dropzone-active-bg);
-  border-color: var(--file-focus-border-color);
-}
-
-/* Disabled State */
-.file-input:disabled ~ .file-label {
-  opacity: 0.65;
-  pointer-events: none;
-  background-color: var(--color-gray-100, #f8f9fa);
-}
-
-/* Multiple Files Indicator */
-.file-input[multiple] ~ .file-label .file-text::after {
-  content: " (mehrere Dateien möglich)";
-  font-size: 0.85em;
-  opacity: 0.8;
-}
-
-/* Reduzierte Bewegung */
-@media (prefers-reduced-motion: reduce) {
-  .file-label {
-    transition: none;
-  }
-}
-
-/* Responsive Anpassungen */
-@media (width <= 768px) {
-  .file-label {
-    flex-direction: column;
-    height: auto;
+@layer module-file {
+  /* File Upload Variablen */
+  .file {
+    --file-height: var(--input-height, 2.5rem);
+    --file-padding-y: var(--input-padding-y, 0.375rem);
+    --file-padding-x: var(--input-padding-x, 0.75rem);
+    --file-font-size: var(--input-font-size, 1rem);
+    --file-border-radius: var(--input-border-radius, 0.25rem);
+    --file-border-width: var(--input-border-width, 1px);
+    --file-border-color: var(--input-border-color, var(--color-border, #dee2e6));
+    --file-background: var(--input-bg, var(--color-background, #fff));
+    --file-color: var(--input-color, var(--color-text-primary, #212529));
+    --file-button-bg: var(--color-gray-200, #e9ecef);
+    --file-button-color: var(--color-text-primary, #212529);
+    --file-text-color: var(--color-text-tertiary, #6c757d);
+    --file-hover-border-color: var(--color-primary-500, #0d6efd);
+    --file-focus-border-color: var(--color-primary-500, #0d6efd);
+    --file-focus-box-shadow: 0 0 0 0.25rem rgb(var(--color-primary-rgb, 13, 110, 253), 0.25);
+    --file-transition: all var(--transition-normal, 0.2s ease-in-out);
+    --file-dropzone-bg: var(--color-gray-50, #f8f9fa);
+    --file-dropzone-border-style: dashed;
+    --file-dropzone-active-bg: rgb(var(--color-primary-rgb, 13, 110, 253), 0.1);
   }
 
-  .file-text {
+  /* Base Styles */
+  .file {
+    position: relative;
+    display: inline-block;
     width: 100%;
+  }
+
+  /* File Input (versteckt) */
+  .file-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  /* File Label (Container) */
+  .file-label {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    height: var(--file-height);
+    width: 100%;
+    border: var(--file-border-width) solid var(--file-border-color);
+    border-radius: var(--file-border-radius);
+    background-color: var(--file-background);
+    overflow: hidden;
+    cursor: pointer;
+    transition: var(--file-transition);
+  }
+
+  /* File Text (linker Teil) */
+  .file-text {
+    display: block;
+    flex: 1;
+    padding: var(--file-padding-y) var(--file-padding-x);
+    color: var(--file-text-color);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: var(--file-font-size);
+  }
+
+  /* File Button (rechter Teil) */
+  .file-button {
+    display: flex;
+    align-items: center;
+    padding: var(--file-padding-y) var(--file-padding-x);
+    background-color: var(--file-button-bg);
+    color: var(--file-button-color);
+    font-size: var(--file-font-size);
+    border-left: var(--file-border-width) solid var(--file-border-color);
+    white-space: nowrap;
+  }
+
+  /* Hover State */
+  .file-input:hover ~ .file-label {
+    border-color: var(--file-hover-border-color);
+  }
+
+  /* Focus State */
+  .file-input:focus ~ .file-label {
+    border-color: var(--file-focus-border-color);
+    box-shadow: var(--file-focus-box-shadow);
+    outline: none;
+  }
+
+  /* Active State */
+  .file-input:active ~ .file-label {
+    border-color: var(--file-focus-border-color);
+  }
+
+  /* Größenvarianten */
+  .file-sm {
+    --file-height: calc(var(--input-height, 2.5rem) * 0.85);
+    --file-padding-y: 0.25rem;
+    --file-padding-x: 0.5rem;
+    --file-font-size: var(--font-size-sm, 0.875rem);
+    --file-border-radius: var(--border-radius-sm, 0.2rem);
+  }
+
+  .file-lg {
+    --file-height: calc(var(--input-height, 2.5rem) * 1.15);
+    --file-padding-y: 0.5rem;
+    --file-padding-x: 1rem;
+    --file-font-size: var(--font-size-lg, 1.25rem);
+    --file-border-radius: var(--border-radius-lg, 0.3rem);
+  }
+
+  /* Farbvarianten */
+  .file-primary {
+    --file-button-bg: var(--color-primary-500, #0d6efd);
+    --file-button-color: var(--color-white, #fff);
+    --file-hover-border-color: var(--color-primary-600, #0a58ca);
+    --file-focus-border-color: var(--color-primary-600, #0a58ca);
+  }
+
+  .file-secondary {
+    --file-button-bg: var(--color-secondary-500, #6c757d);
+    --file-button-color: var(--color-white, #fff);
+    --file-hover-border-color: var(--color-secondary-600, #5a6268);
+    --file-focus-border-color: var(--color-secondary-600, #5a6268);
+    --file-focus-box-shadow: 0 0 0 0.25rem rgb(var(--color-secondary-rgb, 108, 117, 125), 0.25);
+  }
+
+  .file-success {
+    --file-button-bg: var(--color-success, #198754);
+    --file-button-color: var(--color-white, #fff);
+    --file-hover-border-color: var(--color-success, #198754);
+    --file-focus-border-color: var(--color-success, #198754);
+    --file-focus-box-shadow: 0 0 0 0.25rem rgb(var(--color-success-rgb, 25, 135, 84), 0.25);
+  }
+
+  .file-error {
+    --file-button-bg: var(--color-error, #dc3545);
+    --file-button-color: var(--color-white, #fff);
+    --file-hover-border-color: var(--color-error, #dc3545);
+    --file-focus-border-color: var(--color-error, #dc3545);
+    --file-focus-box-shadow: 0 0 0 0.25rem rgb(var(--color-error-rgb, 220, 53, 69), 0.25);
+  }
+
+  /* Drag & Drop Styles */
+  .file-dropzone .file-label {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    min-height: 120px;
+    padding: var(--file-padding-y) var(--file-padding-x);
+    border-style: var(--file-dropzone-border-style);
+    background-color: var(--file-dropzone-bg);
     text-align: center;
+    contain: layout;
+    contain-intrinsic-size: auto 120px;
+  }
+
+  .file-dropzone .file-text {
+    margin-bottom: 1rem;
+    padding: 0;
     white-space: normal;
   }
 
-  .file-button {
-    width: 100%;
+  .file-dropzone .file-button {
     border-left: none;
-    border-top: var(--file-border-width) solid var(--file-border-color);
   }
-}
 
-/* Verschiedene Dropzone-Größen */
-.file-dropzone.file-sm .file-label {
-  min-height: 80px;
-  contain-intrinsic-size: auto 80px;
-}
+  .file-dropzone.file-drag-active .file-label {
+    background-color: var(--file-dropzone-active-bg);
+    border-color: var(--file-focus-border-color);
+  }
 
-.file-dropzone.file-lg .file-label {
-  min-height: 180px;
-  contain-intrinsic-size: auto 180px;
+  /* Disabled State */
+  .file-input:disabled ~ .file-label {
+    opacity: 0.65;
+    pointer-events: none;
+    background-color: var(--color-gray-100, #f8f9fa);
+  }
+
+  /* Multiple Files Indicator */
+  .file-input[multiple] ~ .file-label .file-text::after {
+    content: " (mehrere Dateien möglich)";
+    font-size: 0.85em;
+    opacity: 0.8;
+  }
+
+  /* Reduzierte Bewegung */
+  @media (prefers-reduced-motion: reduce) {
+    .file-label {
+      transition: none;
+    }
+  }
+
+  /* Responsive Anpassungen */
+  @media (width <= 768px) {
+    .file-label {
+      flex-direction: column;
+      height: auto;
+    }
+
+    .file-text {
+      width: 100%;
+      text-align: center;
+      white-space: normal;
+    }
+
+    .file-button {
+      width: 100%;
+      border-left: none;
+      border-top: var(--file-border-width) solid var(--file-border-color);
+    }
+  }
+
+  /* Verschiedene Dropzone-Größen */
+  .file-dropzone.file-sm .file-label {
+    min-height: 80px;
+    contain-intrinsic-size: auto 80px;
+  }
+
+  .file-dropzone.file-lg .file-label {
+    min-height: 180px;
+    contain-intrinsic-size: auto 180px;
+  }
 } 

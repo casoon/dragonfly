@@ -13,7 +13,7 @@
  * - .alert--dismissible
  */
 
-@layer components {
+@layer module-alert {
   /* Alert Basis */
   .alert {
     --alert-padding-x: var(--space-4);
@@ -116,7 +116,7 @@
 }
 
 /* Integrierte has-Selektoren für Alert-Komponenten */
-@layer has-selectors {
+@layer module-alert {
   /* Alert-Komponenten mit :has() */
   .alert:has(button.close) {
     padding-inline-end: 2.5rem;

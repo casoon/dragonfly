@@ -19,7 +19,7 @@
  * - .notification--top, .notification--bottom, .notification--top-right, etc.
  */
 
-@layer components {
+@layer module-notification {
   /* Notification Container */
   .notifications-container {
     --notifications-gap: var(--space-3);

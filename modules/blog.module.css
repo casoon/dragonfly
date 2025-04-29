@@ -43,7 +43,7 @@
  * - Reduzierte Bewegung wird automatisch berücksichtigt
  */
 
-@layer components {
+@layer module-blog {
     /* Blog Variables */
     .post {
         --post-padding: 1.5rem;

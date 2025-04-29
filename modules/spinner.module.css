@@ -28,7 +28,7 @@
  * - Reduzierte Bewegung wird automatisch berücksichtigt
  */
 
-@layer components {
+@layer module-spinner {
     /* Spinner Variables */
     .spinner-container {
         display: inline-flex;

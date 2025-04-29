@@ -41,7 +41,7 @@
  * - Reduzierte Bewegung wird automatisch berücksichtigt
  */
 
-@layer components {
+@layer module-slider {
     /* Slider Variables */
     .slider {
         --slider-height: 0.5rem;

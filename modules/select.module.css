@@ -4,7 +4,7 @@
  * Diese Datei enthält die CSS-Module für Select-Elemente.
  */
 
-@layer components {
+@layer module-select {
     /* Select Variables */
     .select {
         --select-padding: 0.5rem 2.5rem 0.5rem 0.75rem;
