@@ -104,9 +104,6 @@
 /* Wizard Modul */
 @import url('./modules/wizard.module.css') layer(module-wizard);
 
-/* Spezielle Layouts mit Subgrid */
-@import url('./modules/subgrid.css') layer(module-subgrid);
-@import url('./modules/subgrid-layouts.css') layer(module-subgrid-layouts);
 
 /* 
  * Hinweis: Interaktionseffekte wurden nach layers/effects/interactions.css verschoben
