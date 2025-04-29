@@ -5,7 +5,7 @@
  * Die Farben orientieren sich an den Variablen aus colors.css.
  * Das Theme wird nur aktiviert, wenn die Klasse "theme-retro" auf einem Element angewendet wird.
  */
-@layer themes {
+@layer theme-retro {
   .theme-retro {
     /* Primary Colors */
     --color-primary-50: var(--color-amber-50);

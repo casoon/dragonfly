@@ -6,7 +6,7 @@
  * auf einem übergeordneten Element (z.B. <body>) angewendet wird.
  */
 
-@layer themes {
+@layer brand {
   /* Standardwerte für alle Elemente ohne Markenklassen */
   :root {
     /* Schriftarten */

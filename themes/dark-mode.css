@@ -7,7 +7,7 @@
  * 2. Die Klasse .dark-theme auf einem übergeordneten Element (z.B. <body>) angewendet wird
  */
 
-@layer themes {
+@layer dark-mode {
   /* Automatische Erkennung des Betriebssystem-Dark-Mode */
   @media (prefers-color-scheme: dark) {
     :root {

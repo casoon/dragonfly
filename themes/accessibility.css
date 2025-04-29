@@ -10,7 +10,7 @@
  * Das Theme wird nur aktiviert, wenn die Klasse "theme-accessibility" auf einem Element angewendet wird.
  */
 
-@layer themes {
+@layer accessibility {
   .theme-accessibility {
     /* Typography */
     --font-size-base: 1.125rem; /* 18px */
