@@ -89,22 +89,38 @@ import styles from 'casoon-ui-lib/modules/button.module.css';
 
 ## Design-Tokens
 
-Design-Tokens sind in `layers/tokens.css` definiert und bilden die Grundlage für das gesamte Design-System:
+Die Design-Tokens sind in `layers/tokens.css` definiert und umfassen:
 
 ### Spacing
 
 ```css
---space-0: 0;
---space-1: 0.25rem;   /* 4px */
---space-2: 0.5rem;    /* 8px */
---space-3: 0.75rem;   /* 12px */
---space-4: 1rem;      /* 16px */
---space-5: 1.25rem;   /* 20px */
---space-6: 1.5rem;    /* 24px */
---space-8: 2rem;      /* 32px */
---space-10: 2.5rem;   /* 40px */
---space-12: 3rem;     /* 48px */
-/* weitere Abstände... */
+:root {
+    --space-0: 0;
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.25rem;
+    --space-6: 1.5rem;
+    --space-7: 1.75rem;
+    --space-8: 2rem;
+    --space-9: 2.25rem;
+    --space-10: 2.5rem;
+    --space-11: 2.75rem;
+    --space-12: 3rem;
+    --space-16: 4rem;
+    --space-20: 5rem;
+    --space-24: 6rem;
+    --space-32: 8rem;
+    --space-40: 10rem;
+    --space-48: 12rem;
+    --space-56: 14rem;
+    --space-64: 16rem;
+    --space-72: 18rem;
+    --space-80: 20rem;
+    --space-96: 24rem;
+    --space-px: 1px;
+}
 ```
 
 ### Breakpoints
@@ -404,7 +420,7 @@ Das System unterstützt Container-Queries für komponentenbasierte responsive La
 
 ## Komponenten
 
-Das Design-System enthält über 30 vorgefertigte Komponenten als CSS-Module, darunter:
+Die Bibliothek enthält über 30 vorgefertigte Komponenten als CSS-Module im `modules/` Verzeichnis:
 
 - Alert (`alert.module.css`)
 - Avatar (`avatar.module.css`)

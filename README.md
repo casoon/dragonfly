@@ -131,7 +131,24 @@ Sie können eigene Komponenten in den `components`-Layer einbinden:
 }
 ```
 
-Ein Beispiel finden Sie in der Datei `components/example.css`.
+### 3. CSS-Layer
+
+Die Layer im `layers/` Verzeichnis enthalten grundlegende Styles:
+
+- `reset.css`: CSS-Reset
+- `tokens.css`: Design-Tokens
+- `custom-properties.css`: @property Definitionen für animierbare CSS-Eigenschaften
+- `forms.css`: Formular-Styles
+- `smooth-scroll.css`: Sanftes Scrollen
+- `colors.css`: Farbpalette
+- `typography.css`: Typografie
+- `layout.css`: Layout-System
+- `utilities.css`: Utility-Klassen
+- `animations.css`: Animationen
+- `effects.css`: Effekte
+  - `effects/neon.css`: Neon-Effekte und Leuchteffekte
+  - `effects/filters.css`: Verschiedene Filtereffekte
+- `icons.css`: Icon-Styles
 
 ## Lizenz
 
@@ -265,8 +282,7 @@ Die Layer im `layers/` Verzeichnis enthalten grundlegende Styles:
 - `layout.css`: Layout-System
 - `utilities.css`: Utility-Klassen
 - `animations.css`: Animationen
-- `effects.css`: Effekte (Hauptdatei)
-  - `effects/interactions.css`: Interaktionseffekte wie Drag & Drop, Swipe-Gesten, Touch-Feedback
+- `effects.css`: Effekte
   - `effects/neon.css`: Neon-Effekte und Leuchteffekte
   - `effects/filters.css`: Verschiedene Filtereffekte
 - `icons.css`: Icon-Styles
