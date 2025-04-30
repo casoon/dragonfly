@@ -12,7 +12,7 @@
  * - Bootstrap Icons (MIT) - https://icons.getbootstrap.com
  */
 
-@layer icons {
+
     /* Basis Icon Styles */
     .icon {
         display: inline-block;
@@ -81,4 +81,3 @@
             transform: rotate(360deg);
         }
     }
-} 

@@ -17,7 +17,7 @@
  * Für erweiterte Funktionen stehen modulare Komponenten zur Verfügung.
  */
 
-@layer forms {
+
   /**
    * Form Variables
    * 
@@ -722,4 +722,3 @@
       margin-inline-start: 0;
     }
   }
-}  

@@ -7,7 +7,7 @@
  * mit unterschiedlichen Einheiten, Interpolation von Farben und mehr.
  */
 
-@layer custom-properties {
+
   /* 
    * Farbübergänge animierbar machen 
    * Diese Eigenschaften werden für animierte Farbübergänge verwendet
@@ -169,7 +169,7 @@
     inherits: false;
     initial-value: rgb(0 0 0 / 10%);
   }
-}
+
 
 /* Beispiele für die Verwendung der @property Definitionen */
 .animated-card {

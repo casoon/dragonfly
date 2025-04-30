@@ -43,7 +43,7 @@
  * - Reduzierte Bewegung wird automatisch berücksichtigt
  */
 
-@layer effects-neon {
+
     /* Neon Text */
     .neon-text {
         color: var(--theme-primary-500);
@@ -112,7 +112,7 @@
             transition: none;
         }
     }
-}
+
 
 /* Animation Variants */
 .neon-text-slow {

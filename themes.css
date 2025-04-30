@@ -21,28 +21,28 @@
 
 
 /* Basis-Theme - Wird immer geladen */
-@import url('themes/theme-base.css');
+@import url('themes/theme-base.css') layer(theme-base);
 
 /* Barrierefreiheit-Themes */
-@import url('themes/accessibility.css');
+@import url('themes/accessibility.css') layer(accessibility);
 
 /* Dark Mode - Automatisch über Medienfunktion oder mit .dark-theme Klasse */
-@import url('themes/dark-mode.css');
+@import url('themes/dark-mode.css') layer(dark-mode);
 
 /* Marken-Theme mit Unternehmensfarben */
-@import url('themes/brand.css');
+@import url('themes/brand.css') layer(brand);
 
 /* Standard Theme-Variationen - Aktiviert durch entsprechende Klassen */
-@import url('themes/day.css');         /* .theme-day */
-@import url('themes/night.css');       /* .theme-night */
-@import url('themes/spring.css');      /* .theme-spring */
-@import url('themes/summer.css');      /* .theme-summer */
-@import url('themes/autumn.css');      /* .theme-autumn */
-@import url('themes/winter.css');      /* .theme-winter */
-@import url('themes/forest.css');      /* .theme-forest */
-@import url('themes/ocean.css');       /* .theme-ocean */
-@import url('themes/pastel.css');      /* .theme-pastel */
-@import url('themes/neon.css');        /* .theme-neon */
-@import url('themes/retro.css');       /* .theme-retro */
-@import url('themes/monochrome.css');  /* .theme-monochrome */
-@import url('themes/sunset.css');      /* .theme-sunset */
+@import url('themes/day.css') layer(day)    ;         /* .theme-day */
+@import url('themes/night.css') layer(night);       /* .theme-night */
+@import url('themes/spring.css') layer(spring);      /* .theme-spring */
+@import url('themes/summer.css') layer(summer);      /* .theme-summer */
+@import url('themes/autumn.css') layer(autumn);      /* .theme-autumn */
+@import url('themes/winter.css') layer(winter);      /* .theme-winter */
+@import url('themes/forest.css') layer(forest);      /* .theme-forest */
+@import url('themes/ocean.css') layer(ocean);       /* .theme-ocean */
+@import url('themes/pastel.css') layer(pastel);      /* .theme-pastel */
+@import url('themes/neon.css') layer(neon);        /* .theme-neon */
+@import url('themes/retro.css') layer(retro);       /* .theme-retro */
+@import url('themes/monochrome.css') layer(monochrome);  /* .theme-monochrome */
+@import url('themes/sunset.css') layer(sunset);      /* .theme-sunset */

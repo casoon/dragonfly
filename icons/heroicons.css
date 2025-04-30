@@ -5,7 +5,7 @@
  * Die Styles sind in @layer components organisiert.
  */
 
-@layer components {
+
     /* Base Icon */
     .heroicon {
         display: var(--display-inline-block);
@@ -162,4 +162,3 @@
     .hi-spin {
         animation: spin 1s linear infinite;
     }
-} 

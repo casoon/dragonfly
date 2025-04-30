@@ -5,7 +5,7 @@
  * unabhängig davon, welches Theme aktiv ist. Diese Variablen werden von den
  * spezifischen Themes überschrieben.
  */
-@layer theme-base {
+
   :root {
     /* Primary Colors - Neutral Default */
     --color-primary-50: var(--color-gray-50);
@@ -58,4 +58,3 @@
     --color-text-tertiary: var(--color-gray-500);
     --color-border: var(--color-gray-300);
   }
-}

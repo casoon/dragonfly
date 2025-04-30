@@ -1,553 +1,691 @@
 /**
- * Farbmischungen und Farbpaletten
- * 
- * Diese Datei implementiert moderne Farbfunktionen mit CSS color-mix(), um dynamische
- * Farbpaletten und Farbvariationen zu erzeugen. Anstatt statische Farbwerte zu verwenden,
- * werden Farbtöne programmatisch aus Basisfarben abgeleitet.
- * 
- * Hauptfunktionen:
- * - Generierung von Farbverläufen für primäre, sekundäre und Akzentfarben
- * - Semantische Farbvariablen für Textfarben, Links, Hintergründe usw.
- * - Themenvarianten (dunkel, hoher Kontrast)
- * - Komponentenspezifische Farbdefinitionen mit color-mix
- * - Fallbacks für Browser ohne color-mix-Unterstützung
- * 
- * @hinweis Diese Datei wird nach colors.css geladen und transformiert die dortigen Basisfarben
- * @technisch Diese Datei nutzt die CSS color-mix() Funktion, die in modernen Browsern unterstützt wird.
+ * Auto-generiert mit generateColorMixes.js
+ * base/colors.css
  */
 
-/* 
- * Moderne Farbfunktionen mit color-mix
- */
+:root {
+  /* blue */
+  --blue-lightest: color-mix(in srgb, var(--color-blue-500) 20%, white);
+  --blue-lighter: color-mix(in srgb, var(--color-blue-500) 40%, white);
+  --blue-light: color-mix(in srgb, var(--color-blue-500) 70%, white);
+  --blue: var(--color-blue-500);
+  --blue-dark: color-mix(in srgb, var(--color-blue-500) 70%, black);
+  --blue-darker: color-mix(in srgb, var(--color-blue-500) 40%, black);
+  --blue-darkest: color-mix(in srgb, var(--color-blue-500) 20%, black);
 
-@layer color-mix {
-  /* Grundlegende Farbvariablen aus Design Tokens */
-  :root {
-    /* Primäre Farbpalette Verläufe durch color-mix */
-    --color-primary-50: color-mix(in srgb, var(--color-primary-500) 5%, white);
-    --color-primary-100: color-mix(in srgb, var(--color-primary-500) 10%, white);
-    --color-primary-200: color-mix(in srgb, var(--color-primary-500) 20%, white);
-    --color-primary-300: color-mix(in srgb, var(--color-primary-500) 30%, white);
-    --color-primary-400: color-mix(in srgb, var(--color-primary-500) 40%, white);
+  /* sky */
+  --sky-lightest: color-mix(in srgb, var(--color-sky-500) 20%, white);
+  --sky-lighter: color-mix(in srgb, var(--color-sky-500) 40%, white);
+  --sky-light: color-mix(in srgb, var(--color-sky-500) 70%, white);
+  --sky: var(--color-sky-500);
+  --sky-dark: color-mix(in srgb, var(--color-sky-500) 70%, black);
+  --sky-darker: color-mix(in srgb, var(--color-sky-500) 40%, black);
+  --sky-darkest: color-mix(in srgb, var(--color-sky-500) 20%, black);
 
-    /* --color-primary-500 als Basis wird in theme-Dateien definiert */
-    --color-primary-600: color-mix(in srgb, var(--color-primary-500) 80%, black);
-    --color-primary-700: color-mix(in srgb, var(--color-primary-500) 70%, black);
-    --color-primary-800: color-mix(in srgb, var(--color-primary-500) 60%, black);
-    --color-primary-900: color-mix(in srgb, var(--color-primary-500) 50%, black);
+  /* cyan */
+  --cyan-lightest: color-mix(in srgb, var(--color-cyan-500) 20%, white);
+  --cyan-lighter: color-mix(in srgb, var(--color-cyan-500) 40%, white);
+  --cyan-light: color-mix(in srgb, var(--color-cyan-500) 70%, white);
+  --cyan: var(--color-cyan-500);
+  --cyan-dark: color-mix(in srgb, var(--color-cyan-500) 70%, black);
+  --cyan-darker: color-mix(in srgb, var(--color-cyan-500) 40%, black);
+  --cyan-darkest: color-mix(in srgb, var(--color-cyan-500) 20%, black);
 
-    /* Sekundäre Farbpalette Verläufe durch color-mix */
-    --color-secondary-50: color-mix(in srgb, var(--color-secondary-500) 5%, white);
-    --color-secondary-100: color-mix(in srgb, var(--color-secondary-500) 10%, white);
-    --color-secondary-200: color-mix(in srgb, var(--color-secondary-500) 20%, white);
-    --color-secondary-300: color-mix(in srgb, var(--color-secondary-500) 30%, white);
-    --color-secondary-400: color-mix(in srgb, var(--color-secondary-500) 40%, white);
+  /* mint */
+  --mint-lightest: color-mix(in srgb, var(--color-mint-500) 20%, white);
+  --mint-lighter: color-mix(in srgb, var(--color-mint-500) 40%, white);
+  --mint-light: color-mix(in srgb, var(--color-mint-500) 70%, white);
+  --mint: var(--color-mint-500);
+  --mint-dark: color-mix(in srgb, var(--color-mint-500) 70%, black);
+  --mint-darker: color-mix(in srgb, var(--color-mint-500) 40%, black);
+  --mint-darkest: color-mix(in srgb, var(--color-mint-500) 20%, black);
 
-    /* --color-secondary-500 als Basis wird in theme-Dateien definiert */
-    --color-secondary-600: color-mix(in srgb, var(--color-secondary-500) 80%, black);
-    --color-secondary-700: color-mix(in srgb, var(--color-secondary-500) 70%, black);
-    --color-secondary-800: color-mix(in srgb, var(--color-secondary-500) 60%, black);
-    --color-secondary-900: color-mix(in srgb, var(--color-secondary-500) 50%, black);
+  /* green */
+  --green-lightest: color-mix(in srgb, var(--color-green-500) 20%, white);
+  --green-lighter: color-mix(in srgb, var(--color-green-500) 40%, white);
+  --green-light: color-mix(in srgb, var(--color-green-500) 70%, white);
+  --green: var(--color-green-500);
+  --green-dark: color-mix(in srgb, var(--color-green-500) 70%, black);
+  --green-darker: color-mix(in srgb, var(--color-green-500) 40%, black);
+  --green-darkest: color-mix(in srgb, var(--color-green-500) 20%, black);
 
-    /* Akzent Farbpalette Verläufe durch color-mix */
-    --color-accent-50: color-mix(in srgb, var(--color-accent-500) 5%, white);
-    --color-accent-100: color-mix(in srgb, var(--color-accent-500) 10%, white);
-    --color-accent-200: color-mix(in srgb, var(--color-accent-500) 20%, white);
-    --color-accent-300: color-mix(in srgb, var(--color-accent-500) 30%, white);
-    --color-accent-400: color-mix(in srgb, var(--color-accent-500) 40%, white);
+  /* lime */
+  --lime-lightest: color-mix(in srgb, var(--color-lime-500) 20%, white);
+  --lime-lighter: color-mix(in srgb, var(--color-lime-500) 40%, white);
+  --lime-light: color-mix(in srgb, var(--color-lime-500) 70%, white);
+  --lime: var(--color-lime-500);
+  --lime-dark: color-mix(in srgb, var(--color-lime-500) 70%, black);
+  --lime-darker: color-mix(in srgb, var(--color-lime-500) 40%, black);
+  --lime-darkest: color-mix(in srgb, var(--color-lime-500) 20%, black);
 
-    /* --color-accent-500 als Basis wird in theme-Dateien definiert */
-    --color-accent-600: color-mix(in srgb, var(--color-accent-500) 80%, black);
-    --color-accent-700: color-mix(in srgb, var(--color-accent-500) 70%, black);
-    --color-accent-800: color-mix(in srgb, var(--color-accent-500) 60%, black);
-    --color-accent-900: color-mix(in srgb, var(--color-accent-500) 50%, black);
+  /* yellow */
+  --yellow-lightest: color-mix(in srgb, var(--color-yellow-500) 20%, white);
+  --yellow-lighter: color-mix(in srgb, var(--color-yellow-500) 40%, white);
+  --yellow-light: color-mix(in srgb, var(--color-yellow-500) 70%, white);
+  --yellow: var(--color-yellow-500);
+  --yellow-dark: color-mix(in srgb, var(--color-yellow-500) 70%, black);
+  --yellow-darker: color-mix(in srgb, var(--color-yellow-500) 40%, black);
+  --yellow-darkest: color-mix(in srgb, var(--color-yellow-500) 20%, black);
 
-    /* Oberflächenfarben durch color-mix */
-    --color-surface-50: color-mix(in srgb, var(--color-surface-500) 5%, white);
-    --color-surface-100: color-mix(in srgb, var(--color-surface-500) 10%, white);
-    --color-surface-200: color-mix(in srgb, var(--color-surface-500) 20%, white);
-    --color-surface-300: color-mix(in srgb, var(--color-surface-500) 30%, white);
-    --color-surface-400: color-mix(in srgb, var(--color-surface-500) 40%, white);
+  /* gold */
+  --gold-lightest: color-mix(in srgb, var(--color-gold-500) 20%, white);
+  --gold-lighter: color-mix(in srgb, var(--color-gold-500) 40%, white);
+  --gold-light: color-mix(in srgb, var(--color-gold-500) 70%, white);
+  --gold: var(--color-gold-500);
+  --gold-dark: color-mix(in srgb, var(--color-gold-500) 70%, black);
+  --gold-darker: color-mix(in srgb, var(--color-gold-500) 40%, black);
+  --gold-darkest: color-mix(in srgb, var(--color-gold-500) 20%, black);
 
-    /* --color-surface-500 als Basis wird in theme-Dateien definiert */
-    --color-surface-600: color-mix(in srgb, var(--color-surface-500) 80%, black);
-    --color-surface-700: color-mix(in srgb, var(--color-surface-500) 70%, black);
-    --color-surface-800: color-mix(in srgb, var(--color-surface-500) 60%, black);
-    --color-surface-900: color-mix(in srgb, var(--color-surface-500) 50%, black);
+  /* orange */
+  --orange-lightest: color-mix(in srgb, var(--color-orange-500) 20%, white);
+  --orange-lighter: color-mix(in srgb, var(--color-orange-500) 40%, white);
+  --orange-light: color-mix(in srgb, var(--color-orange-500) 70%, white);
+  --orange: var(--color-orange-500);
+  --orange-dark: color-mix(in srgb, var(--color-orange-500) 70%, black);
+  --orange-darker: color-mix(in srgb, var(--color-orange-500) 40%, black);
+  --orange-darkest: color-mix(in srgb, var(--color-orange-500) 20%, black);
 
-    /* Statusfarben durch color-mix */
-    --color-success-50: color-mix(in srgb, var(--color-success) 5%, white);
-    --color-success-100: color-mix(in srgb, var(--color-success) 10%, white);
-    --color-success-200: color-mix(in srgb, var(--color-success) 20%, white);
-    --color-success-300: color-mix(in srgb, var(--color-success) 30%, white);
-    --color-success-400: color-mix(in srgb, var(--color-success) 40%, white);
+  /* coral */
+  --coral-lightest: color-mix(in srgb, var(--color-coral-500) 20%, white);
+  --coral-lighter: color-mix(in srgb, var(--color-coral-500) 40%, white);
+  --coral-light: color-mix(in srgb, var(--color-coral-500) 70%, white);
+  --coral: var(--color-coral-500);
+  --coral-dark: color-mix(in srgb, var(--color-coral-500) 70%, black);
+  --coral-darker: color-mix(in srgb, var(--color-coral-500) 40%, black);
+  --coral-darkest: color-mix(in srgb, var(--color-coral-500) 20%, black);
 
-    /* --color-success als Basis wird in theme-Dateien definiert */
-    --color-success-600: color-mix(in srgb, var(--color-success) 80%, black);
-    --color-success-700: color-mix(in srgb, var(--color-success) 70%, black);
-    --color-success-800: color-mix(in srgb, var(--color-success) 60%, black);
-    --color-success-900: color-mix(in srgb, var(--color-success) 50%, black);
-    --color-error-50: color-mix(in srgb, var(--color-error) 5%, white);
-    --color-error-100: color-mix(in srgb, var(--color-error) 10%, white);
-    --color-error-200: color-mix(in srgb, var(--color-error) 20%, white);
-    --color-error-300: color-mix(in srgb, var(--color-error) 30%, white);
-    --color-error-400: color-mix(in srgb, var(--color-error) 40%, white);
+  /* red */
+  --red-lightest: color-mix(in srgb, var(--color-red-500) 20%, white);
+  --red-lighter: color-mix(in srgb, var(--color-red-500) 40%, white);
+  --red-light: color-mix(in srgb, var(--color-red-500) 70%, white);
+  --red: var(--color-red-500);
+  --red-dark: color-mix(in srgb, var(--color-red-500) 70%, black);
+  --red-darker: color-mix(in srgb, var(--color-red-500) 40%, black);
+  --red-darkest: color-mix(in srgb, var(--color-red-500) 20%, black);
 
-    /* --color-error als Basis wird in theme-Dateien definiert */
-    --color-error-600: color-mix(in srgb, var(--color-error) 80%, black);
-    --color-error-700: color-mix(in srgb, var(--color-error) 70%, black);
-    --color-error-800: color-mix(in srgb, var(--color-error) 60%, black);
-    --color-error-900: color-mix(in srgb, var(--color-error) 50%, black);
-    --color-warning-50: color-mix(in srgb, var(--color-warning) 5%, white);
-    --color-warning-100: color-mix(in srgb, var(--color-warning) 10%, white);
-    --color-warning-200: color-mix(in srgb, var(--color-warning) 20%, white);
-    --color-warning-300: color-mix(in srgb, var(--color-warning) 30%, white);
-    --color-warning-400: color-mix(in srgb, var(--color-warning) 40%, white);
+  /* pink */
+  --pink-lightest: color-mix(in srgb, var(--color-pink-500) 20%, white);
+  --pink-lighter: color-mix(in srgb, var(--color-pink-500) 40%, white);
+  --pink-light: color-mix(in srgb, var(--color-pink-500) 70%, white);
+  --pink: var(--color-pink-500);
+  --pink-dark: color-mix(in srgb, var(--color-pink-500) 70%, black);
+  --pink-darker: color-mix(in srgb, var(--color-pink-500) 40%, black);
+  --pink-darkest: color-mix(in srgb, var(--color-pink-500) 20%, black);
 
-    /* --color-warning als Basis wird in theme-Dateien definiert */
-    --color-warning-600: color-mix(in srgb, var(--color-warning) 80%, black);
-    --color-warning-700: color-mix(in srgb, var(--color-warning) 70%, black);
-    --color-warning-800: color-mix(in srgb, var(--color-warning) 60%, black);
-    --color-warning-900: color-mix(in srgb, var(--color-warning) 50%, black);
-    --color-info-50: color-mix(in srgb, var(--color-info) 5%, white);
-    --color-info-100: color-mix(in srgb, var(--color-info) 10%, white);
-    --color-info-200: color-mix(in srgb, var(--color-info) 20%, white);
-    --color-info-300: color-mix(in srgb, var(--color-info) 30%, white);
-    --color-info-400: color-mix(in srgb, var(--color-info) 40%, white);
+  /* rose */
+  --rose-lightest: color-mix(in srgb, var(--color-rose-500) 20%, white);
+  --rose-lighter: color-mix(in srgb, var(--color-rose-500) 40%, white);
+  --rose-light: color-mix(in srgb, var(--color-rose-500) 70%, white);
+  --rose: var(--color-rose-500);
+  --rose-dark: color-mix(in srgb, var(--color-rose-500) 70%, black);
+  --rose-darker: color-mix(in srgb, var(--color-rose-500) 40%, black);
+  --rose-darkest: color-mix(in srgb, var(--color-rose-500) 20%, black);
 
-    /* --color-info als Basis wird in theme-Dateien definiert */
-    --color-info-600: color-mix(in srgb, var(--color-info) 80%, black);
-    --color-info-700: color-mix(in srgb, var(--color-info) 70%, black);
-    --color-info-800: color-mix(in srgb, var(--color-info) 60%, black);
-    --color-info-900: color-mix(in srgb, var(--color-info) 50%, black);
-  }
+  /* purple */
+  --purple-lightest: color-mix(in srgb, var(--color-purple-500) 20%, white);
+  --purple-lighter: color-mix(in srgb, var(--color-purple-500) 40%, white);
+  --purple-light: color-mix(in srgb, var(--color-purple-500) 70%, white);
+  --purple: var(--color-purple-500);
+  --purple-dark: color-mix(in srgb, var(--color-purple-500) 70%, black);
+  --purple-darker: color-mix(in srgb, var(--color-purple-500) 40%, black);
+  --purple-darkest: color-mix(in srgb, var(--color-purple-500) 20%, black);
 
-  /* Farbschema-Variablen */
-  :root {
-    /* Semantische Farben */
-    --text-color: var(--color-surface-900);
-    --text-color-light: var(--color-surface-600);
-    --link-color: color-mix(in srgb, var(--color-primary-700) 90%, var(--color-accent-500) 10%);
-    --link-hover-color: color-mix(in srgb, var(--color-primary-500) 80%, var(--color-accent-500) 20%);
-    
-    /* Hintergrundfarben */
-    --background-color: var(--color-surface-50);
-    --subtle-background: color-mix(in srgb, var(--color-surface-100) 80%, var(--color-primary-50) 20%);
-    
-    /* Kontrastfarben für Barrierefreiheit */
-    --high-contrast-text: var(--color-surface-900);
-    --medium-contrast-text: var(--color-surface-700);
-    --low-contrast-text: var(--color-surface-600);
-    
-    /* Buttonfarben */
-    --button-primary-bg: var(--color-primary-500);
-    --button-primary-text: white;
-    --button-primary-hover: color-mix(in srgb, var(--color-primary-500) 90%, black);
-    --button-secondary-bg: color-mix(in srgb, var(--color-secondary-500) 15%, white);
-    --button-secondary-text: var(--color-secondary-900);
-    --button-secondary-hover: color-mix(in srgb, var(--color-secondary-500) 25%, white);
-    --button-accent-bg: var(--color-accent-500);
-    --button-accent-text: white;
-    --button-accent-hover: color-mix(in srgb, var(--color-accent-500) 90%, black);
-    
-    /* Randfarben */
-    --border-light: color-mix(in srgb, var(--color-surface-500) 20%, white);
-    --border-medium: color-mix(in srgb, var(--color-surface-500) 40%, white);
-    --border-dark: color-mix(in srgb, var(--color-surface-500) 60%, white);
-    
-    /* Fokuseffekte */
-    --focus-ring-color: color-mix(in srgb, var(--color-primary-500) 50%, transparent);
-    
-    /* Schattenmischungen */
-    --shadow-color-light: color-mix(in srgb, var(--color-surface-900) 10%, transparent);
-    --shadow-color-medium: color-mix(in srgb, var(--color-surface-900) 15%, transparent);
-    --shadow-color-dark: color-mix(in srgb, var(--color-surface-900) 25%, transparent);
-    
-    /* Zusätzliche Oberflächenfarben aus theme-base.css */
-    --color-surface-primary: color-mix(in oklab, var(--color-primary-500) 5%, white);
-    --color-surface-secondary: color-mix(in oklab, var(--color-secondary-500) 5%, white);
-    --color-surface-accent: color-mix(in oklab, var(--color-accent-500) 5%, white);
-    
-    /* Zusätzliche Status-Hintergrundfarben */
-    --color-success-bg: color-mix(in oklab, var(--color-success) 10%, white);
-    --color-error-bg: color-mix(in oklab, var(--color-error) 10%, white);
-    --color-warning-bg: color-mix(in oklab, var(--color-warning) 10%, white);
-    --color-info-bg: color-mix(in oklab, var(--color-info) 10%, white);
-  }
+  /* indigo */
+  --indigo-lightest: color-mix(in srgb, var(--color-indigo-500) 20%, white);
+  --indigo-lighter: color-mix(in srgb, var(--color-indigo-500) 40%, white);
+  --indigo-light: color-mix(in srgb, var(--color-indigo-500) 70%, white);
+  --indigo: var(--color-indigo-500);
+  --indigo-dark: color-mix(in srgb, var(--color-indigo-500) 70%, black);
+  --indigo-darker: color-mix(in srgb, var(--color-indigo-500) 40%, black);
+  --indigo-darkest: color-mix(in srgb, var(--color-indigo-500) 20%, black);
 
-  /* Themenvarianten anwenden */
-  .theme-dark {
-    --text-color: var(--color-surface-50);
-    --text-color-light: var(--color-surface-300);
-    --background-color: var(--color-surface-900);
-    --subtle-background: color-mix(in srgb, var(--color-surface-800) 80%, var(--color-primary-900) 20%);
-    --border-light: color-mix(in srgb, var(--color-surface-500) 40%, black);
-    --border-medium: color-mix(in srgb, var(--color-surface-500) 60%, black);
-    --border-dark: color-mix(in srgb, var(--color-surface-500) 80%, black);
-    --high-contrast-text: var(--color-surface-50);
-    --medium-contrast-text: var(--color-surface-200);
-    --low-contrast-text: var(--color-surface-300);
-    --focus-ring-color: color-mix(in srgb, var(--color-primary-500) 70%, transparent);
-    --shadow-color-light: color-mix(in srgb, black 20%, transparent);
-    --shadow-color-medium: color-mix(in srgb, black 30%, transparent);
-    --shadow-color-dark: color-mix(in srgb, black 40%, transparent);
-  }
+  /* gray */
+  --gray-lightest: color-mix(in srgb, var(--color-gray-500) 20%, white);
+  --gray-lighter: color-mix(in srgb, var(--color-gray-500) 40%, white);
+  --gray-light: color-mix(in srgb, var(--color-gray-500) 70%, white);
+  --gray: var(--color-gray-500);
+  --gray-dark: color-mix(in srgb, var(--color-gray-500) 70%, black);
+  --gray-darker: color-mix(in srgb, var(--color-gray-500) 40%, black);
+  --gray-darkest: color-mix(in srgb, var(--color-gray-500) 20%, black);
 
-  .theme-contrast {
-    --text-color: black;
-    --text-color-light: color-mix(in srgb, black 75%, transparent);
-    --background-color: white;
-    --link-color: var(--color-primary-900);
-    --link-hover-color: black;
-    --button-primary-bg: black;
-    --button-primary-text: white;
-    --button-primary-hover: color-mix(in srgb, black 90%, var(--color-primary-500));
-    --button-secondary-bg: var(--color-surface-300);
-    --button-secondary-text: black;
-    --border-light: black;
-    --border-medium: black;
-    --border-dark: black;
-    --focus-ring-color: var(--color-primary-500);
-  }
+  /* warm-gray */
+  --warm-gray-lightest: color-mix(in srgb, var(--color-warm-gray-500) 20%, white);
+  --warm-gray-lighter: color-mix(in srgb, var(--color-warm-gray-500) 40%, white);
+  --warm-gray-light: color-mix(in srgb, var(--color-warm-gray-500) 70%, white);
+  --warm-gray: var(--color-warm-gray-500);
+  --warm-gray-dark: color-mix(in srgb, var(--color-warm-gray-500) 70%, black);
+  --warm-gray-darker: color-mix(in srgb, var(--color-warm-gray-500) 40%, black);
+  --warm-gray-darkest: color-mix(in srgb, var(--color-warm-gray-500) 20%, black);
 
-  /* Fallback für Browser ohne color-mix Support */
-  @supports not (color: color-mix(in srgb, red, blue)) {
-    :root {
-      --color-primary-light: var(--color-primary-300, #a5b4fc);
-      --color-primary-lighter: var(--color-primary-200, #c7d2fe);
-      --color-primary-lightest: var(--color-primary-100, #e0e7ff);
-      --color-primary-dark: var(--color-primary-700, #4338ca);
-      --color-primary-darker: var(--color-primary-800, #3730a3);
-      --color-secondary-light: var(--color-secondary-300, #cbd5e1);
-      --color-secondary-lighter: var(--color-secondary-200, #e2e8f0);
-      --color-secondary-lightest: var(--color-secondary-100, #f1f5f9);
-      --color-secondary-dark: var(--color-secondary-700, #334155);
-      --color-secondary-darker: var(--color-secondary-800, #1e293b);
-      --color-accent-light: var(--color-accent-300, #fcd34d);
-      --color-accent-lighter: var(--color-accent-200, #fde68a);
-      --color-accent-lightest: var(--color-accent-100, #fef3c7);
-      --color-accent-dark: var(--color-accent-700, #b45309);
-      --color-accent-darker: var(--color-accent-800, #92400e);
-      --color-focus-ring: rgb(var(--color-primary-rgb, 99, 102, 241), 0.5);
-      --color-surface-primary: rgb(var(--color-primary-rgb, 99, 102, 241), 0.05);
-      --color-surface-secondary: rgb(var(--color-secondary-rgb, 100, 116, 139), 0.05);
-      --color-surface-accent: rgb(var(--color-accent-rgb, 245, 158, 11), 0.05);
-    }
-  }
+  /* cool-gray */
+  --cool-gray-lightest: color-mix(in srgb, var(--color-cool-gray-500) 20%, white);
+  --cool-gray-lighter: color-mix(in srgb, var(--color-cool-gray-500) 40%, white);
+  --cool-gray-light: color-mix(in srgb, var(--color-cool-gray-500) 70%, white);
+  --cool-gray: var(--color-cool-gray-500);
+  --cool-gray-dark: color-mix(in srgb, var(--color-cool-gray-500) 70%, black);
+  --cool-gray-darker: color-mix(in srgb, var(--color-cool-gray-500) 40%, black);
+  --cool-gray-darkest: color-mix(in srgb, var(--color-cool-gray-500) 20%, black);
 
-  /* Anwendung der neuen Farbmischungen in Komponenten */
-  
-  /* Buttons mit color-mix */
-  .btn-primary {
-    background-color: var(--button-primary-bg);
-    color: var(--button-primary-text);
-    border: 1px solid color-mix(in srgb, var(--button-primary-bg) 70%, black);
-  }
+  /* azure */
+  --azure-lightest: color-mix(in srgb, var(--color-azure-500) 20%, white);
+  --azure-lighter: color-mix(in srgb, var(--color-azure-500) 40%, white);
+  --azure-light: color-mix(in srgb, var(--color-azure-500) 70%, white);
+  --azure: var(--color-azure-500);
+  --azure-dark: color-mix(in srgb, var(--color-azure-500) 70%, black);
+  --azure-darker: color-mix(in srgb, var(--color-azure-500) 40%, black);
+  --azure-darkest: color-mix(in srgb, var(--color-azure-500) 20%, black);
 
-  .btn-primary:hover {
-    background-color: var(--button-primary-hover);
-  }
+  /* teal */
+  --teal-lightest: color-mix(in srgb, var(--color-teal-500) 20%, white);
+  --teal-lighter: color-mix(in srgb, var(--color-teal-500) 40%, white);
+  --teal-light: color-mix(in srgb, var(--color-teal-500) 70%, white);
+  --teal: var(--color-teal-500);
+  --teal-dark: color-mix(in srgb, var(--color-teal-500) 70%, black);
+  --teal-darker: color-mix(in srgb, var(--color-teal-500) 40%, black);
+  --teal-darkest: color-mix(in srgb, var(--color-teal-500) 20%, black);
 
-  .btn-secondary {
-    background-color: var(--button-secondary-bg);
-    color: var(--button-secondary-text);
-    border: 1px solid color-mix(in srgb, var(--button-secondary-bg) 90%, var(--color-secondary-500));
-  }
+  /* emerald */
+  --emerald-lightest: color-mix(in srgb, var(--color-emerald-500) 20%, white);
+  --emerald-lighter: color-mix(in srgb, var(--color-emerald-500) 40%, white);
+  --emerald-light: color-mix(in srgb, var(--color-emerald-500) 70%, white);
+  --emerald: var(--color-emerald-500);
+  --emerald-dark: color-mix(in srgb, var(--color-emerald-500) 70%, black);
+  --emerald-darker: color-mix(in srgb, var(--color-emerald-500) 40%, black);
+  --emerald-darkest: color-mix(in srgb, var(--color-emerald-500) 20%, black);
 
-  .btn-secondary:hover {
-    background-color: var(--button-secondary-hover);
-  }
+  /* olive */
+  --olive-lightest: color-mix(in srgb, var(--color-olive-500) 20%, white);
+  --olive-lighter: color-mix(in srgb, var(--color-olive-500) 40%, white);
+  --olive-light: color-mix(in srgb, var(--color-olive-500) 70%, white);
+  --olive: var(--color-olive-500);
+  --olive-dark: color-mix(in srgb, var(--color-olive-500) 70%, black);
+  --olive-darker: color-mix(in srgb, var(--color-olive-500) 40%, black);
+  --olive-darkest: color-mix(in srgb, var(--color-olive-500) 20%, black);
 
-  .btn-accent {
-    background-color: var(--button-accent-bg);
-    color: var(--button-accent-text);
-    border: 1px solid color-mix(in srgb, var(--button-accent-bg) 70%, black);
-  }
+  /* amber */
+  --amber-lightest: color-mix(in srgb, var(--color-amber-500) 20%, white);
+  --amber-lighter: color-mix(in srgb, var(--color-amber-500) 40%, white);
+  --amber-light: color-mix(in srgb, var(--color-amber-500) 70%, white);
+  --amber: var(--color-amber-500);
+  --amber-dark: color-mix(in srgb, var(--color-amber-500) 70%, black);
+  --amber-darker: color-mix(in srgb, var(--color-amber-500) 40%, black);
+  --amber-darkest: color-mix(in srgb, var(--color-amber-500) 20%, black);
 
-  .btn-accent:hover {
-    background-color: var(--button-accent-hover);
-  }
+  /* copper */
+  --copper-lightest: color-mix(in srgb, var(--color-copper-500) 20%, white);
+  --copper-lighter: color-mix(in srgb, var(--color-copper-500) 40%, white);
+  --copper-light: color-mix(in srgb, var(--color-copper-500) 70%, white);
+  --copper: var(--color-copper-500);
+  --copper-dark: color-mix(in srgb, var(--color-copper-500) 70%, black);
+  --copper-darker: color-mix(in srgb, var(--color-copper-500) 40%, black);
+  --copper-darkest: color-mix(in srgb, var(--color-copper-500) 20%, black);
 
-  /* Karten und Container mit color-mix */
-  .card {
-    background-color: white;
-    border: 1px solid var(--border-light);
-    box-shadow: 0 2px 4px var(--shadow-color-light), 0 4px 8px var(--shadow-color-medium);
-  }
+  /* cherry */
+  --cherry-lightest: color-mix(in srgb, var(--color-cherry-500) 20%, white);
+  --cherry-lighter: color-mix(in srgb, var(--color-cherry-500) 40%, white);
+  --cherry-light: color-mix(in srgb, var(--color-cherry-500) 70%, white);
+  --cherry: var(--color-cherry-500);
+  --cherry-dark: color-mix(in srgb, var(--color-cherry-500) 70%, black);
+  --cherry-darker: color-mix(in srgb, var(--color-cherry-500) 40%, black);
+  --cherry-darkest: color-mix(in srgb, var(--color-cherry-500) 20%, black);
 
-  .card-hover:hover {
-    border-color: var(--border-medium);
-    box-shadow: 0 4px 8px var(--shadow-color-medium), 0 8px 16px var(--shadow-color-dark);
-  }
+  /* magenta */
+  --magenta-lightest: color-mix(in srgb, var(--color-magenta-500) 20%, white);
+  --magenta-lighter: color-mix(in srgb, var(--color-magenta-500) 40%, white);
+  --magenta-light: color-mix(in srgb, var(--color-magenta-500) 70%, white);
+  --magenta: var(--color-magenta-500);
+  --magenta-dark: color-mix(in srgb, var(--color-magenta-500) 70%, black);
+  --magenta-darker: color-mix(in srgb, var(--color-magenta-500) 40%, black);
+  --magenta-darkest: color-mix(in srgb, var(--color-magenta-500) 20%, black);
 
-  /* Überschriften mit color-mix */
-  .heading-accent {
-    color: var(--text-color);
-    border-bottom: 2px solid color-mix(in srgb, var(--color-primary-500) 70%, var(--color-accent-500) 30%);
-  }
+  /* lavender */
+  --lavender-lightest: color-mix(in srgb, var(--color-lavender-500) 20%, white);
+  --lavender-lighter: color-mix(in srgb, var(--color-lavender-500) 40%, white);
+  --lavender-light: color-mix(in srgb, var(--color-lavender-500) 70%, white);
+  --lavender: var(--color-lavender-500);
+  --lavender-dark: color-mix(in srgb, var(--color-lavender-500) 70%, black);
+  --lavender-darker: color-mix(in srgb, var(--color-lavender-500) 40%, black);
+  --lavender-darkest: color-mix(in srgb, var(--color-lavender-500) 20%, black);
 
-  /* Textboxen mit color-mix */
-  .text-box {
-    background-color: color-mix(in srgb, var(--background-color) 95%, var(--color-primary-100) 5%);
-    border: 1px solid var(--border-light);
-  }
+  /* bronze */
+  --bronze-lightest: color-mix(in srgb, var(--color-bronze-500) 20%, white);
+  --bronze-lighter: color-mix(in srgb, var(--color-bronze-500) 40%, white);
+  --bronze-light: color-mix(in srgb, var(--color-bronze-500) 70%, white);
+  --bronze: var(--color-bronze-500);
+  --bronze-dark: color-mix(in srgb, var(--color-bronze-500) 70%, black);
+  --bronze-darker: color-mix(in srgb, var(--color-bronze-500) 40%, black);
+  --bronze-darkest: color-mix(in srgb, var(--color-bronze-500) 20%, black);
 
-  .text-box:focus-within {
-    background-color: white;
-    border-color: var(--color-primary-400);
-    box-shadow: 0 0 0 3px var(--focus-ring-color);
-  }
+  /* pearl */
+  --pearl-lightest: color-mix(in srgb, var(--color-pearl-500) 20%, white);
+  --pearl-lighter: color-mix(in srgb, var(--color-pearl-500) 40%, white);
+  --pearl-light: color-mix(in srgb, var(--color-pearl-500) 70%, white);
+  --pearl: var(--color-pearl-500);
+  --pearl-dark: color-mix(in srgb, var(--color-pearl-500) 70%, black);
+  --pearl-darker: color-mix(in srgb, var(--color-pearl-500) 40%, black);
+  --pearl-darkest: color-mix(in srgb, var(--color-pearl-500) 20%, black);
 
-  /* Alerts/Benachrichtigungen mit color-mix */
-  .alert-success {
-    background-color: color-mix(in srgb, var(--color-success-50) 80%, white);
-    border-left: 4px solid var(--color-success);
-    color: color-mix(in srgb, var(--color-success-900) 90%, black);
-  }
+  /* champagne */
+  --champagne-lightest: color-mix(in srgb, var(--color-champagne-500) 20%, white);
+  --champagne-lighter: color-mix(in srgb, var(--color-champagne-500) 40%, white);
+  --champagne-light: color-mix(in srgb, var(--color-champagne-500) 70%, white);
+  --champagne: var(--color-champagne-500);
+  --champagne-dark: color-mix(in srgb, var(--color-champagne-500) 70%, black);
+  --champagne-darker: color-mix(in srgb, var(--color-champagne-500) 40%, black);
+  --champagne-darkest: color-mix(in srgb, var(--color-champagne-500) 20%, black);
 
-  .alert-error {
-    background-color: color-mix(in srgb, var(--color-error-50) 80%, white);
-    border-left: 4px solid var(--color-error);
-    color: color-mix(in srgb, var(--color-error-900) 90%, black);
-  }
+  /* taupe */
+  --taupe-lightest: color-mix(in srgb, var(--color-taupe-500) 20%, white);
+  --taupe-lighter: color-mix(in srgb, var(--color-taupe-500) 40%, white);
+  --taupe-light: color-mix(in srgb, var(--color-taupe-500) 70%, white);
+  --taupe: var(--color-taupe-500);
+  --taupe-dark: color-mix(in srgb, var(--color-taupe-500) 70%, black);
+  --taupe-darker: color-mix(in srgb, var(--color-taupe-500) 40%, black);
+  --taupe-darkest: color-mix(in srgb, var(--color-taupe-500) 20%, black);
 
-  .alert-warning {
-    background-color: color-mix(in srgb, var(--color-warning-50) 80%, white);
-    border-left: 4px solid var(--color-warning);
-    color: color-mix(in srgb, var(--color-warning-900) 90%, black);
-  }
+  /* beige */
+  --beige-lightest: color-mix(in srgb, var(--color-beige-500) 20%, white);
+  --beige-lighter: color-mix(in srgb, var(--color-beige-500) 40%, white);
+  --beige-light: color-mix(in srgb, var(--color-beige-500) 70%, white);
+  --beige: var(--color-beige-500);
+  --beige-dark: color-mix(in srgb, var(--color-beige-500) 70%, black);
+  --beige-darker: color-mix(in srgb, var(--color-beige-500) 40%, black);
+  --beige-darkest: color-mix(in srgb, var(--color-beige-500) 20%, black);
 
-  .alert-info {
-    background-color: color-mix(in srgb, var(--color-info-50) 80%, white);
-    border-left: 4px solid var(--color-info);
-    color: color-mix(in srgb, var(--color-info-900) 90%, black);
-  }
+  /* khaki */
+  --khaki-lightest: color-mix(in srgb, var(--color-khaki-500) 20%, white);
+  --khaki-lighter: color-mix(in srgb, var(--color-khaki-500) 40%, white);
+  --khaki-light: color-mix(in srgb, var(--color-khaki-500) 70%, white);
+  --khaki: var(--color-khaki-500);
+  --khaki-dark: color-mix(in srgb, var(--color-khaki-500) 70%, black);
+  --khaki-darker: color-mix(in srgb, var(--color-khaki-500) 40%, black);
+  --khaki-darkest: color-mix(in srgb, var(--color-khaki-500) 20%, black);
 
-  /* Badges mit color-mix */
-  .badge-primary {
-    background-color: color-mix(in srgb, var(--color-primary-100) 80%, var(--color-primary-500) 20%);
-    color: var(--color-primary-900);
-  }
+  /* terracotta */
+  --terracotta-lightest: color-mix(in srgb, var(--color-terracotta-500) 20%, white);
+  --terracotta-lighter: color-mix(in srgb, var(--color-terracotta-500) 40%, white);
+  --terracotta-light: color-mix(in srgb, var(--color-terracotta-500) 70%, white);
+  --terracotta: var(--color-terracotta-500);
+  --terracotta-dark: color-mix(in srgb, var(--color-terracotta-500) 70%, black);
+  --terracotta-darker: color-mix(in srgb, var(--color-terracotta-500) 40%, black);
+  --terracotta-darkest: color-mix(in srgb, var(--color-terracotta-500) 20%, black);
 
-  .badge-secondary {
-    background-color: color-mix(in srgb, var(--color-secondary-100) 80%, var(--color-secondary-500) 20%);
-    color: var(--color-secondary-900);
-  }
+  /* burgundy */
+  --burgundy-lightest: color-mix(in srgb, var(--color-burgundy-500) 20%, white);
+  --burgundy-lighter: color-mix(in srgb, var(--color-burgundy-500) 40%, white);
+  --burgundy-light: color-mix(in srgb, var(--color-burgundy-500) 70%, white);
+  --burgundy: var(--color-burgundy-500);
+  --burgundy-dark: color-mix(in srgb, var(--color-burgundy-500) 70%, black);
+  --burgundy-darker: color-mix(in srgb, var(--color-burgundy-500) 40%, black);
+  --burgundy-darkest: color-mix(in srgb, var(--color-burgundy-500) 20%, black);
 
-  .badge-accent {
-    background-color: color-mix(in srgb, var(--color-accent-100) 80%, var(--color-accent-500) 20%);
-    color: var(--color-accent-900);
-  }
+  /* silver */
+  --silver-lightest: color-mix(in srgb, var(--color-silver-500) 20%, white);
+  --silver-lighter: color-mix(in srgb, var(--color-silver-500) 40%, white);
+  --silver-light: color-mix(in srgb, var(--color-silver-500) 70%, white);
+  --silver: var(--color-silver-500);
+  --silver-dark: color-mix(in srgb, var(--color-silver-500) 70%, black);
+  --silver-darker: color-mix(in srgb, var(--color-silver-500) 40%, black);
+  --silver-darkest: color-mix(in srgb, var(--color-silver-500) 20%, black);
 
-  /* Navigation mit color-mix */
-  .nav-item {
-    color: var(--text-color);
-  }
+  /* platinum */
+  --platinum-lightest: color-mix(in srgb, var(--color-platinum-500) 20%, white);
+  --platinum-lighter: color-mix(in srgb, var(--color-platinum-500) 40%, white);
+  --platinum-light: color-mix(in srgb, var(--color-platinum-500) 70%, white);
+  --platinum: var(--color-platinum-500);
+  --platinum-dark: color-mix(in srgb, var(--color-platinum-500) 70%, black);
+  --platinum-darker: color-mix(in srgb, var(--color-platinum-500) 40%, black);
+  --platinum-darkest: color-mix(in srgb, var(--color-platinum-500) 20%, black);
 
-  .nav-item:hover {
-    color: var(--link-hover-color);
-    background-color: color-mix(in srgb, transparent 95%, var(--color-primary-200) 5%);
-  }
+  /* graphite */
+  --graphite-lightest: color-mix(in srgb, var(--color-graphite-500) 20%, white);
+  --graphite-lighter: color-mix(in srgb, var(--color-graphite-500) 40%, white);
+  --graphite-light: color-mix(in srgb, var(--color-graphite-500) 70%, white);
+  --graphite: var(--color-graphite-500);
+  --graphite-dark: color-mix(in srgb, var(--color-graphite-500) 70%, black);
+  --graphite-darker: color-mix(in srgb, var(--color-graphite-500) 40%, black);
+  --graphite-darkest: color-mix(in srgb, var(--color-graphite-500) 20%, black);
 
-  .nav-item.active {
-    color: var(--color-primary-700);
-    border-bottom: 2px solid var(--color-primary-500);
-    background-color: color-mix(in srgb, transparent 90%, var(--color-primary-100) 10%);
-  }
+  /* moss */
+  --moss-lightest: color-mix(in srgb, var(--color-moss-500) 20%, white);
+  --moss-lighter: color-mix(in srgb, var(--color-moss-500) 40%, white);
+  --moss-light: color-mix(in srgb, var(--color-moss-500) 70%, white);
+  --moss: var(--color-moss-500);
+  --moss-dark: color-mix(in srgb, var(--color-moss-500) 70%, black);
+  --moss-darker: color-mix(in srgb, var(--color-moss-500) 40%, black);
+  --moss-darkest: color-mix(in srgb, var(--color-moss-500) 20%, black);
 
-  /* Fortschrittsbalken mit color-mix */
-  .progress-bar {
-    background-color: color-mix(in srgb, var(--color-surface-200) 90%, var(--color-surface-300) 10%);
-    height: 0.5rem;
-    border-radius: 999px;
-    overflow: hidden;
-  }
+  /* jade */
+  --jade-lightest: color-mix(in srgb, var(--color-jade-500) 20%, white);
+  --jade-lighter: color-mix(in srgb, var(--color-jade-500) 40%, white);
+  --jade-light: color-mix(in srgb, var(--color-jade-500) 70%, white);
+  --jade: var(--color-jade-500);
+  --jade-dark: color-mix(in srgb, var(--color-jade-500) 70%, black);
+  --jade-darker: color-mix(in srgb, var(--color-jade-500) 40%, black);
+  --jade-darkest: color-mix(in srgb, var(--color-jade-500) 20%, black);
 
-  .progress-bar-fill {
-    height: 100%;
-    background: linear-gradient(
-      to right,
-      var(--color-primary-500),
-      color-mix(in srgb, var(--color-primary-500) 70%, var(--color-accent-500) 30%)
-    );
-  }
+  /* sapphire */
+  --sapphire-lightest: color-mix(in srgb, var(--color-sapphire-500) 20%, white);
+  --sapphire-lighter: color-mix(in srgb, var(--color-sapphire-500) 40%, white);
+  --sapphire-light: color-mix(in srgb, var(--color-sapphire-500) 70%, white);
+  --sapphire: var(--color-sapphire-500);
+  --sapphire-dark: color-mix(in srgb, var(--color-sapphire-500) 70%, black);
+  --sapphire-darker: color-mix(in srgb, var(--color-sapphire-500) 40%, black);
+  --sapphire-darkest: color-mix(in srgb, var(--color-sapphire-500) 20%, black);
 
-  /* Toggle-Switch mit color-mix */
-  .switch {
-    position: relative;
-    display: inline-block;
-    width: 40px;
-    height: 24px;
-  }
+  /* ruby */
+  --ruby-lightest: color-mix(in srgb, var(--color-ruby-500) 20%, white);
+  --ruby-lighter: color-mix(in srgb, var(--color-ruby-500) 40%, white);
+  --ruby-light: color-mix(in srgb, var(--color-ruby-500) 70%, white);
+  --ruby: var(--color-ruby-500);
+  --ruby-dark: color-mix(in srgb, var(--color-ruby-500) 70%, black);
+  --ruby-darker: color-mix(in srgb, var(--color-ruby-500) 40%, black);
+  --ruby-darkest: color-mix(in srgb, var(--color-ruby-500) 20%, black);
 
-  .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
+  /* amethyst */
+  --amethyst-lightest: color-mix(in srgb, var(--color-amethyst-500) 20%, white);
+  --amethyst-lighter: color-mix(in srgb, var(--color-amethyst-500) 40%, white);
+  --amethyst-light: color-mix(in srgb, var(--color-amethyst-500) 70%, white);
+  --amethyst: var(--color-amethyst-500);
+  --amethyst-dark: color-mix(in srgb, var(--color-amethyst-500) 70%, black);
+  --amethyst-darker: color-mix(in srgb, var(--color-amethyst-500) 40%, black);
+  --amethyst-darkest: color-mix(in srgb, var(--color-amethyst-500) 20%, black);
 
-  .switch-slider {
-    position: absolute;
-    cursor: pointer;
-    inset: 0;
-    background-color: color-mix(in srgb, var(--color-surface-400) 90%, var(--color-surface-500) 10%);
-    transition: .4s;
-    border-radius: 24px;
-  }
+  /* topaz */
+  --topaz-lightest: color-mix(in srgb, var(--color-topaz-500) 20%, white);
+  --topaz-lighter: color-mix(in srgb, var(--color-topaz-500) 40%, white);
+  --topaz-light: color-mix(in srgb, var(--color-topaz-500) 70%, white);
+  --topaz: var(--color-topaz-500);
+  --topaz-dark: color-mix(in srgb, var(--color-topaz-500) 70%, black);
+  --topaz-darker: color-mix(in srgb, var(--color-topaz-500) 40%, black);
+  --topaz-darkest: color-mix(in srgb, var(--color-topaz-500) 20%, black);
 
-  .switch-slider::before {
-    position: absolute;
-    content: "";
-    height: 16px;
-    width: 16px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    transition: .4s;
-    border-radius: 50%;
-  }
+  /* citrine */
+  --citrine-lightest: color-mix(in srgb, var(--color-citrine-500) 20%, white);
+  --citrine-lighter: color-mix(in srgb, var(--color-citrine-500) 40%, white);
+  --citrine-light: color-mix(in srgb, var(--color-citrine-500) 70%, white);
+  --citrine: var(--color-citrine-500);
+  --citrine-dark: color-mix(in srgb, var(--color-citrine-500) 70%, black);
+  --citrine-darker: color-mix(in srgb, var(--color-citrine-500) 40%, black);
+  --citrine-darkest: color-mix(in srgb, var(--color-citrine-500) 20%, black);
 
-  input:checked + .switch-slider {
-    background: linear-gradient(
-      to right,
-      var(--color-primary-600),
-      var(--color-primary-500)
-    );
-  }
+  /* peridot */
+  --peridot-lightest: color-mix(in srgb, var(--color-peridot-500) 20%, white);
+  --peridot-lighter: color-mix(in srgb, var(--color-peridot-500) 40%, white);
+  --peridot-light: color-mix(in srgb, var(--color-peridot-500) 70%, white);
+  --peridot: var(--color-peridot-500);
+  --peridot-dark: color-mix(in srgb, var(--color-peridot-500) 70%, black);
+  --peridot-darker: color-mix(in srgb, var(--color-peridot-500) 40%, black);
+  --peridot-darkest: color-mix(in srgb, var(--color-peridot-500) 20%, black);
 
-  input:focus + .switch-slider {
-    box-shadow: 0 0 0 2px var(--focus-ring-color);
-  }
+  /* opal */
+  --opal-lightest: color-mix(in srgb, var(--color-opal-500) 20%, white);
+  --opal-lighter: color-mix(in srgb, var(--color-opal-500) 40%, white);
+  --opal-light: color-mix(in srgb, var(--color-opal-500) 70%, white);
+  --opal: var(--color-opal-500);
+  --opal-dark: color-mix(in srgb, var(--color-opal-500) 70%, black);
+  --opal-darker: color-mix(in srgb, var(--color-opal-500) 40%, black);
+  --opal-darkest: color-mix(in srgb, var(--color-opal-500) 20%, black);
 
-  input:checked + .switch-slider::before {
-    transform: translateX(16px);
-  }
+  /* garnet */
+  --garnet-lightest: color-mix(in srgb, var(--color-garnet-500) 20%, white);
+  --garnet-lighter: color-mix(in srgb, var(--color-garnet-500) 40%, white);
+  --garnet-light: color-mix(in srgb, var(--color-garnet-500) 70%, white);
+  --garnet: var(--color-garnet-500);
+  --garnet-dark: color-mix(in srgb, var(--color-garnet-500) 70%, black);
+  --garnet-darker: color-mix(in srgb, var(--color-garnet-500) 40%, black);
+  --garnet-darkest: color-mix(in srgb, var(--color-garnet-500) 20%, black);
 
-  /* Tooltip mit color-mix */
-  .tooltip {
-    --tooltip-bg: color-mix(in srgb, var(--color-surface-900) 90%, var(--color-primary-500) 10%);
-    --tooltip-text: white;
-    
-    position: relative;
-    display: inline-block;
-  }
+  /* onyx */
+  --onyx-lightest: color-mix(in srgb, var(--color-onyx-500) 20%, white);
+  --onyx-lighter: color-mix(in srgb, var(--color-onyx-500) 40%, white);
+  --onyx-light: color-mix(in srgb, var(--color-onyx-500) 70%, white);
+  --onyx: var(--color-onyx-500);
+  --onyx-dark: color-mix(in srgb, var(--color-onyx-500) 70%, black);
+  --onyx-darker: color-mix(in srgb, var(--color-onyx-500) 40%, black);
+  --onyx-darkest: color-mix(in srgb, var(--color-onyx-500) 20%, black);
 
-  .tooltip-content {
-    visibility: hidden;
-    position: absolute;
-    z-index: 1;
-    bottom: 125%;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: var(--tooltip-bg);
-    color: var(--tooltip-text);
-    text-align: center;
-    padding: 0.5rem 1rem;
-    border-radius: 0.25rem;
-    white-space: nowrap;
-    box-shadow: 0 2px 5px var(--shadow-color-dark);
-  }
+  /* malachite */
+  --malachite-lightest: color-mix(in srgb, var(--color-malachite-500) 20%, white);
+  --malachite-lighter: color-mix(in srgb, var(--color-malachite-500) 40%, white);
+  --malachite-light: color-mix(in srgb, var(--color-malachite-500) 70%, white);
+  --malachite: var(--color-malachite-500);
+  --malachite-dark: color-mix(in srgb, var(--color-malachite-500) 70%, black);
+  --malachite-darker: color-mix(in srgb, var(--color-malachite-500) 40%, black);
+  --malachite-darkest: color-mix(in srgb, var(--color-malachite-500) 20%, black);
 
-  .tooltip-content::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: var(--tooltip-bg) transparent transparent transparent;
-  }
+  /* lapis */
+  --lapis-lightest: color-mix(in srgb, var(--color-lapis-500) 20%, white);
+  --lapis-lighter: color-mix(in srgb, var(--color-lapis-500) 40%, white);
+  --lapis-light: color-mix(in srgb, var(--color-lapis-500) 70%, white);
+  --lapis: var(--color-lapis-500);
+  --lapis-dark: color-mix(in srgb, var(--color-lapis-500) 70%, black);
+  --lapis-darker: color-mix(in srgb, var(--color-lapis-500) 40%, black);
+  --lapis-darkest: color-mix(in srgb, var(--color-lapis-500) 20%, black);
 
-  .tooltip:hover .tooltip-content {
-    visibility: visible;
-  }
+  /* turquoise */
+  --turquoise-lightest: color-mix(in srgb, var(--color-turquoise-500) 20%, white);
+  --turquoise-lighter: color-mix(in srgb, var(--color-turquoise-500) 40%, white);
+  --turquoise-light: color-mix(in srgb, var(--color-turquoise-500) 70%, white);
+  --turquoise: var(--color-turquoise-500);
+  --turquoise-dark: color-mix(in srgb, var(--color-turquoise-500) 70%, black);
+  --turquoise-darker: color-mix(in srgb, var(--color-turquoise-500) 40%, black);
+  --turquoise-darkest: color-mix(in srgb, var(--color-turquoise-500) 20%, black);
 
-  /* Farbverlauf und Text-Effekte */
-  .gradient-text {
-    background: linear-gradient(
-      45deg, 
-      var(--color-primary-500),
-      var(--color-accent-500)
-    );
-    background-clip: text;
-    color: transparent;
-  }
+  /* coral */
+  --coral-lightest: color-mix(in srgb, var(--color-coral-500) 20%, white);
+  --coral-lighter: color-mix(in srgb, var(--color-coral-500) 40%, white);
+  --coral-light: color-mix(in srgb, var(--color-coral-500) 70%, white);
+  --coral: var(--color-coral-500);
+  --coral-dark: color-mix(in srgb, var(--color-coral-500) 70%, black);
+  --coral-darker: color-mix(in srgb, var(--color-coral-500) 40%, black);
+  --coral-darkest: color-mix(in srgb, var(--color-coral-500) 20%, black);
 
-  .overlay-card {
-    position: relative;
-    overflow: hidden;
-  }
+  /* mother-of-pearl */
+  --mother-of-pearl-lightest: color-mix(in srgb, var(--color-mother-of-pearl-500) 20%, white);
+  --mother-of-pearl-lighter: color-mix(in srgb, var(--color-mother-of-pearl-500) 40%, white);
+  --mother-of-pearl-light: color-mix(in srgb, var(--color-mother-of-pearl-500) 70%, white);
+  --mother-of-pearl: var(--color-mother-of-pearl-500);
+  --mother-of-pearl-dark: color-mix(in srgb, var(--color-mother-of-pearl-500) 70%, black);
+  --mother-of-pearl-darker: color-mix(in srgb, var(--color-mother-of-pearl-500) 40%, black);
+  --mother-of-pearl-darkest: color-mix(in srgb, var(--color-mother-of-pearl-500) 20%, black);
 
-  .overlay-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      to bottom,
-      transparent,
-      color-mix(in srgb, var(--color-primary-900) 70%, black)
-    );
-    opacity: 0.7;
-  }
+  /* obsidian */
+  --obsidian-lightest: color-mix(in srgb, var(--color-obsidian-500) 20%, white);
+  --obsidian-lighter: color-mix(in srgb, var(--color-obsidian-500) 40%, white);
+  --obsidian-light: color-mix(in srgb, var(--color-obsidian-500) 70%, white);
+  --obsidian: var(--color-obsidian-500);
+  --obsidian-dark: color-mix(in srgb, var(--color-obsidian-500) 70%, black);
+  --obsidian-darker: color-mix(in srgb, var(--color-obsidian-500) 40%, black);
+  --obsidian-darkest: color-mix(in srgb, var(--color-obsidian-500) 20%, black);
 
-  /* Farbanpassungen für die Barrierefreiheit */
-  @media (prefers-color-scheme: dark) {
-    :root:not(.theme-light, .theme-contrast) {
-      --text-color: var(--color-surface-50);
-      --text-color-light: var(--color-surface-300);
-      --background-color: var(--color-surface-900);
-      --subtle-background: color-mix(in srgb, var(--color-surface-800) 80%, var(--color-primary-900) 20%);
-      --border-light: color-mix(in srgb, var(--color-surface-500) 40%, black);
-      --border-medium: color-mix(in srgb, var(--color-surface-500) 60%, black);
-      --border-dark: color-mix(in srgb, var(--color-surface-500) 80%, black);
-      --high-contrast-text: var(--color-surface-50);
-      --medium-contrast-text: var(--color-surface-200);
-      --low-contrast-text: var(--color-surface-300);
-      --shadow-color-light: color-mix(in srgb, black 20%, transparent);
-      --shadow-color-medium: color-mix(in srgb, black 30%, transparent);
-      --shadow-color-dark: color-mix(in srgb, black 40%, transparent);
-    }
-  }
+  /* jadeite */
+  --jadeite-lightest: color-mix(in srgb, var(--color-jadeite-500) 20%, white);
+  --jadeite-lighter: color-mix(in srgb, var(--color-jadeite-500) 40%, white);
+  --jadeite-light: color-mix(in srgb, var(--color-jadeite-500) 70%, white);
+  --jadeite: var(--color-jadeite-500);
+  --jadeite-dark: color-mix(in srgb, var(--color-jadeite-500) 70%, black);
+  --jadeite-darker: color-mix(in srgb, var(--color-jadeite-500) 40%, black);
+  --jadeite-darkest: color-mix(in srgb, var(--color-jadeite-500) 20%, black);
 
-  @container root (prefers-reduced-motion) {
-    .color-transition,
-    .color-cycle,
-    .color-pulse,
-    .color-fade,
-    .color-shift,
-    .color-breathing,
-    .gradient-cycle,
-    .gradient-flow,
-    .gradient-morph,
-    .gradient-pulse,
-    .theme-transition {
-      transition: none !important;
-      animation: none !important;
-    }
-  }
+  /* emerald */
+  --emerald-lightest: color-mix(in srgb, var(--color-emerald-500) 20%, white);
+  --emerald-lighter: color-mix(in srgb, var(--color-emerald-500) 40%, white);
+  --emerald-light: color-mix(in srgb, var(--color-emerald-500) 70%, white);
+  --emerald: var(--color-emerald-500);
+  --emerald-dark: color-mix(in srgb, var(--color-emerald-500) 70%, black);
+  --emerald-darker: color-mix(in srgb, var(--color-emerald-500) 40%, black);
+  --emerald-darkest: color-mix(in srgb, var(--color-emerald-500) 20%, black);
 
-  /* Dunkles Farbschema */
-  @container root (prefers-color-scheme: dark) {
-    :root {
-      --color-mix-base: 0.2;
-      --color-mix-primary: 0.3;
-      --color-mix-secondary: 0.3;
-      --color-mix-tertiary: 0.4;
-      --color-mix-accent: 0.5;
-      
-      /* Angepasste Mischverhältnisse für dunkles Theme */
-      --mix-light-value: 0.2;
-      --mix-dark-value: 0.6;
-      --mix-bw-value: 0.1;
-    }
-    
-    .color-mix-reverse {
-      --color-mix-mode: difference;
-    }
-    
-    .mix-overlay {
-      --color-blend-mode: overlay;
-    }
-  }
-} 
+  /* aquamarine */
+  --aquamarine-lightest: color-mix(in srgb, var(--color-aquamarine-500) 20%, white);
+  --aquamarine-lighter: color-mix(in srgb, var(--color-aquamarine-500) 40%, white);
+  --aquamarine-light: color-mix(in srgb, var(--color-aquamarine-500) 70%, white);
+  --aquamarine: var(--color-aquamarine-500);
+  --aquamarine-dark: color-mix(in srgb, var(--color-aquamarine-500) 70%, black);
+  --aquamarine-darker: color-mix(in srgb, var(--color-aquamarine-500) 40%, black);
+  --aquamarine-darkest: color-mix(in srgb, var(--color-aquamarine-500) 20%, black);
+
+  /* topaz */
+  --topaz-lightest: color-mix(in srgb, var(--color-topaz-500) 20%, white);
+  --topaz-lighter: color-mix(in srgb, var(--color-topaz-500) 40%, white);
+  --topaz-light: color-mix(in srgb, var(--color-topaz-500) 70%, white);
+  --topaz: var(--color-topaz-500);
+  --topaz-dark: color-mix(in srgb, var(--color-topaz-500) 70%, black);
+  --topaz-darker: color-mix(in srgb, var(--color-topaz-500) 40%, black);
+  --topaz-darkest: color-mix(in srgb, var(--color-topaz-500) 20%, black);
+
+  /* citrine */
+  --citrine-lightest: color-mix(in srgb, var(--color-citrine-500) 20%, white);
+  --citrine-lighter: color-mix(in srgb, var(--color-citrine-500) 40%, white);
+  --citrine-light: color-mix(in srgb, var(--color-citrine-500) 70%, white);
+  --citrine: var(--color-citrine-500);
+  --citrine-dark: color-mix(in srgb, var(--color-citrine-500) 70%, black);
+  --citrine-darker: color-mix(in srgb, var(--color-citrine-500) 40%, black);
+  --citrine-darkest: color-mix(in srgb, var(--color-citrine-500) 20%, black);
+
+  /* peridot */
+  --peridot-lightest: color-mix(in srgb, var(--color-peridot-500) 20%, white);
+  --peridot-lighter: color-mix(in srgb, var(--color-peridot-500) 40%, white);
+  --peridot-light: color-mix(in srgb, var(--color-peridot-500) 70%, white);
+  --peridot: var(--color-peridot-500);
+  --peridot-dark: color-mix(in srgb, var(--color-peridot-500) 70%, black);
+  --peridot-darker: color-mix(in srgb, var(--color-peridot-500) 40%, black);
+  --peridot-darkest: color-mix(in srgb, var(--color-peridot-500) 20%, black);
+
+  /* opal */
+  --opal-lightest: color-mix(in srgb, var(--color-opal-500) 20%, white);
+  --opal-lighter: color-mix(in srgb, var(--color-opal-500) 40%, white);
+  --opal-light: color-mix(in srgb, var(--color-opal-500) 70%, white);
+  --opal: var(--color-opal-500);
+  --opal-dark: color-mix(in srgb, var(--color-opal-500) 70%, black);
+  --opal-darker: color-mix(in srgb, var(--color-opal-500) 40%, black);
+  --opal-darkest: color-mix(in srgb, var(--color-opal-500) 20%, black);
+
+  /* moonstone */
+  --moonstone-lightest: color-mix(in srgb, var(--color-moonstone-500) 20%, white);
+  --moonstone-lighter: color-mix(in srgb, var(--color-moonstone-500) 40%, white);
+  --moonstone-light: color-mix(in srgb, var(--color-moonstone-500) 70%, white);
+  --moonstone: var(--color-moonstone-500);
+  --moonstone-dark: color-mix(in srgb, var(--color-moonstone-500) 70%, black);
+  --moonstone-darker: color-mix(in srgb, var(--color-moonstone-500) 40%, black);
+  --moonstone-darkest: color-mix(in srgb, var(--color-moonstone-500) 20%, black);
+
+  /* labradorite */
+  --labradorite-lightest: color-mix(in srgb, var(--color-labradorite-500) 20%, white);
+  --labradorite-lighter: color-mix(in srgb, var(--color-labradorite-500) 40%, white);
+  --labradorite-light: color-mix(in srgb, var(--color-labradorite-500) 70%, white);
+  --labradorite: var(--color-labradorite-500);
+  --labradorite-dark: color-mix(in srgb, var(--color-labradorite-500) 70%, black);
+  --labradorite-darker: color-mix(in srgb, var(--color-labradorite-500) 40%, black);
+  --labradorite-darkest: color-mix(in srgb, var(--color-labradorite-500) 20%, black);
+
+  /* fluorite */
+  --fluorite-lightest: color-mix(in srgb, var(--color-fluorite-500) 20%, white);
+  --fluorite-lighter: color-mix(in srgb, var(--color-fluorite-500) 40%, white);
+  --fluorite-light: color-mix(in srgb, var(--color-fluorite-500) 70%, white);
+  --fluorite: var(--color-fluorite-500);
+  --fluorite-dark: color-mix(in srgb, var(--color-fluorite-500) 70%, black);
+  --fluorite-darker: color-mix(in srgb, var(--color-fluorite-500) 40%, black);
+  --fluorite-darkest: color-mix(in srgb, var(--color-fluorite-500) 20%, black);
+
+  /* pastel-pink */
+  --pastel-pink-lightest: color-mix(in srgb, var(--color-pastel-pink-500) 20%, white);
+  --pastel-pink-lighter: color-mix(in srgb, var(--color-pastel-pink-500) 40%, white);
+  --pastel-pink-light: color-mix(in srgb, var(--color-pastel-pink-500) 70%, white);
+  --pastel-pink: var(--color-pastel-pink-500);
+  --pastel-pink-dark: color-mix(in srgb, var(--color-pastel-pink-500) 70%, black);
+  --pastel-pink-darker: color-mix(in srgb, var(--color-pastel-pink-500) 40%, black);
+  --pastel-pink-darkest: color-mix(in srgb, var(--color-pastel-pink-500) 20%, black);
+
+  /* pastel-blue */
+  --pastel-blue-lightest: color-mix(in srgb, var(--color-pastel-blue-500) 20%, white);
+  --pastel-blue-lighter: color-mix(in srgb, var(--color-pastel-blue-500) 40%, white);
+  --pastel-blue-light: color-mix(in srgb, var(--color-pastel-blue-500) 70%, white);
+  --pastel-blue: var(--color-pastel-blue-500);
+  --pastel-blue-dark: color-mix(in srgb, var(--color-pastel-blue-500) 70%, black);
+  --pastel-blue-darker: color-mix(in srgb, var(--color-pastel-blue-500) 40%, black);
+  --pastel-blue-darkest: color-mix(in srgb, var(--color-pastel-blue-500) 20%, black);
+
+  /* pastel-green */
+  --pastel-green-lightest: color-mix(in srgb, var(--color-pastel-green-500) 20%, white);
+  --pastel-green-lighter: color-mix(in srgb, var(--color-pastel-green-500) 40%, white);
+  --pastel-green-light: color-mix(in srgb, var(--color-pastel-green-500) 70%, white);
+  --pastel-green: var(--color-pastel-green-500);
+  --pastel-green-dark: color-mix(in srgb, var(--color-pastel-green-500) 70%, black);
+  --pastel-green-darker: color-mix(in srgb, var(--color-pastel-green-500) 40%, black);
+  --pastel-green-darkest: color-mix(in srgb, var(--color-pastel-green-500) 20%, black);
+
+  /* pastel-yellow */
+  --pastel-yellow-lightest: color-mix(in srgb, var(--color-pastel-yellow-500) 20%, white);
+  --pastel-yellow-lighter: color-mix(in srgb, var(--color-pastel-yellow-500) 40%, white);
+  --pastel-yellow-light: color-mix(in srgb, var(--color-pastel-yellow-500) 70%, white);
+  --pastel-yellow: var(--color-pastel-yellow-500);
+  --pastel-yellow-dark: color-mix(in srgb, var(--color-pastel-yellow-500) 70%, black);
+  --pastel-yellow-darker: color-mix(in srgb, var(--color-pastel-yellow-500) 40%, black);
+  --pastel-yellow-darkest: color-mix(in srgb, var(--color-pastel-yellow-500) 20%, black);
+
+  /* pastel-purple */
+  --pastel-purple-lightest: color-mix(in srgb, var(--color-pastel-purple-500) 20%, white);
+  --pastel-purple-lighter: color-mix(in srgb, var(--color-pastel-purple-500) 40%, white);
+  --pastel-purple-light: color-mix(in srgb, var(--color-pastel-purple-500) 70%, white);
+  --pastel-purple: var(--color-pastel-purple-500);
+  --pastel-purple-dark: color-mix(in srgb, var(--color-pastel-purple-500) 70%, black);
+  --pastel-purple-darker: color-mix(in srgb, var(--color-pastel-purple-500) 40%, black);
+  --pastel-purple-darkest: color-mix(in srgb, var(--color-pastel-purple-500) 20%, black);
+
+  /* neon-pink */
+  --neon-pink-lightest: color-mix(in srgb, var(--color-neon-pink-500) 20%, white);
+  --neon-pink-lighter: color-mix(in srgb, var(--color-neon-pink-500) 40%, white);
+  --neon-pink-light: color-mix(in srgb, var(--color-neon-pink-500) 70%, white);
+  --neon-pink: var(--color-neon-pink-500);
+  --neon-pink-dark: color-mix(in srgb, var(--color-neon-pink-500) 70%, black);
+  --neon-pink-darker: color-mix(in srgb, var(--color-neon-pink-500) 40%, black);
+  --neon-pink-darkest: color-mix(in srgb, var(--color-neon-pink-500) 20%, black);
+
+  /* neon-blue */
+  --neon-blue-lightest: color-mix(in srgb, var(--color-neon-blue-500) 20%, white);
+  --neon-blue-lighter: color-mix(in srgb, var(--color-neon-blue-500) 40%, white);
+  --neon-blue-light: color-mix(in srgb, var(--color-neon-blue-500) 70%, white);
+  --neon-blue: var(--color-neon-blue-500);
+  --neon-blue-dark: color-mix(in srgb, var(--color-neon-blue-500) 70%, black);
+  --neon-blue-darker: color-mix(in srgb, var(--color-neon-blue-500) 40%, black);
+  --neon-blue-darkest: color-mix(in srgb, var(--color-neon-blue-500) 20%, black);
+
+  /* neon-green */
+  --neon-green-lightest: color-mix(in srgb, var(--color-neon-green-500) 20%, white);
+  --neon-green-lighter: color-mix(in srgb, var(--color-neon-green-500) 40%, white);
+  --neon-green-light: color-mix(in srgb, var(--color-neon-green-500) 70%, white);
+  --neon-green: var(--color-neon-green-500);
+  --neon-green-dark: color-mix(in srgb, var(--color-neon-green-500) 70%, black);
+  --neon-green-darker: color-mix(in srgb, var(--color-neon-green-500) 40%, black);
+  --neon-green-darkest: color-mix(in srgb, var(--color-neon-green-500) 20%, black);
+
+  /* neon-yellow */
+  --neon-yellow-lightest: color-mix(in srgb, var(--color-neon-yellow-500) 20%, white);
+  --neon-yellow-lighter: color-mix(in srgb, var(--color-neon-yellow-500) 40%, white);
+  --neon-yellow-light: color-mix(in srgb, var(--color-neon-yellow-500) 70%, white);
+  --neon-yellow: var(--color-neon-yellow-500);
+  --neon-yellow-dark: color-mix(in srgb, var(--color-neon-yellow-500) 70%, black);
+  --neon-yellow-darker: color-mix(in srgb, var(--color-neon-yellow-500) 40%, black);
+  --neon-yellow-darkest: color-mix(in srgb, var(--color-neon-yellow-500) 20%, black);
+
+  /* neon-orange */
+  --neon-orange-lightest: color-mix(in srgb, var(--color-neon-orange-500) 20%, white);
+  --neon-orange-lighter: color-mix(in srgb, var(--color-neon-orange-500) 40%, white);
+  --neon-orange-light: color-mix(in srgb, var(--color-neon-orange-500) 70%, white);
+  --neon-orange: var(--color-neon-orange-500);
+  --neon-orange-dark: color-mix(in srgb, var(--color-neon-orange-500) 70%, black);
+  --neon-orange-darker: color-mix(in srgb, var(--color-neon-orange-500) 40%, black);
+  --neon-orange-darkest: color-mix(in srgb, var(--color-neon-orange-500) 20%, black);
+
+  /* neon-purple */
+  --neon-purple-lightest: color-mix(in srgb, var(--color-neon-purple-500) 20%, white);
+  --neon-purple-lighter: color-mix(in srgb, var(--color-neon-purple-500) 40%, white);
+  --neon-purple-light: color-mix(in srgb, var(--color-neon-purple-500) 70%, white);
+  --neon-purple: var(--color-neon-purple-500);
+  --neon-purple-dark: color-mix(in srgb, var(--color-neon-purple-500) 70%, black);
+  --neon-purple-darker: color-mix(in srgb, var(--color-neon-purple-500) 40%, black);
+  --neon-purple-darkest: color-mix(in srgb, var(--color-neon-purple-500) 20%, black);
+
+}

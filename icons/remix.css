@@ -5,7 +5,7 @@
  * Die Styles sind in @layer components organisiert.
  */
 
-@layer components {
+
     /* Base Icon */
     .ri {
         display: var(--display-inline-block);
@@ -120,4 +120,3 @@
             transform: rotate(360deg);
         }
     }
-} 

@@ -5,7 +5,7 @@
  * Die Farben orientieren sich an den Variablen aus colors.css.
  * Das Theme wird nur aktiviert, wenn die Klasse "theme-neon" auf einem Element angewendet wird.
  */
-@layer theme-neon {
+
   .theme-neon {
     /* Neon Theme */
     --color-primary-50: var(--color-fuchsia-50);
@@ -54,4 +54,3 @@
     --color-gray-800: #4d4d4d;
     --color-gray-900: #333;
   }
-}

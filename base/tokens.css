@@ -5,7 +5,7 @@
  * Wichtig für konsistente Layout-Logik, Container Queries und Design-Systeme.
  */
 
- @layer tokens {
+ 
     :root {
       /* ================= COLORS ================= */
       --color-primary: var(--color-blue-600);
@@ -118,5 +118,5 @@
       --transition-normal: 300ms;
       --transition-slow: 500ms;
     }
-  }
+
   

@@ -5,7 +5,7 @@
  * Die Farben orientieren sich an den Variablen aus colors.css.
  * Das Theme wird nur aktiviert, wenn die Klasse "theme-night" auf einem Element angewendet wird.
  */
-@layer theme-night {
+
   .theme-night {
     /* Primary Colors */
     --color-primary-50: var(--color-slate-50);
@@ -49,4 +49,3 @@
     --color-warning: var(--color-amber-500);
     --color-info: var(--color-sky-500);
   }
-}

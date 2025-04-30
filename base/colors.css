@@ -18,7 +18,7 @@
  * @technisch Verwendet den modernen OKLCH-Farbraum für optimale Farbwiedergabe
  */
 
-@layer colors {
+
     :root {
         /* Blautöne */
         --color-blue-50: oklch(95% 0.05 250deg);
@@ -1028,4 +1028,3 @@
         --focus-ring: color-mix(in srgb, var(--color-primary-500) 80%, white);
         --focus-ring-inset: color-mix(in srgb, var(--color-primary-500) 20%, white);
     }
-} 

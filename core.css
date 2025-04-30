@@ -10,49 +10,49 @@
  * Basis-System
  * Enthält Reset, Custom Properties, Tokens und logische Eigenschaften
  */
-@import url("base.css");
+@import url("base.css") layer(base);
 
 /* 
  * Layout-System
  * Container, Grid, Flexbox-Layouts und responsive Anpassungen
  */
-@import url("layout.css");
-@import url("layout.queries.css");
+@import url("layout.css") layer(layout);
+@import url("layout.queries.css") layer(layout);
 
 /* 
  * Typografie-System
  * Schriftarten, Größen, Abstände und Text-Formatierungen
  */
-@import url("typography.css");
+@import url("typography.css") layer(typography);
 
 /* 
  * Modul-System
  * Wiederverwendbare UI-Komponenten in eigenständigen Dateien
  */
-@import url("modules.css");
+@import url("modules.css") layer(modules);
 
 /* 
  * Animations-System
  * Bewegung, Übergänge und zeitbasierte Effekte
  */
-@import url("animations.css");
+@import url("animations.css") layer(animations);
 
 /* 
  * Effekt-System
  * Visuelle Effekte, Interaktionen und dekorative Elemente
  */
-@import url("effects.css");
+@import url("effects.css") layer(effects);
 
 /* 
  * Theme-System
  * Farbpaletten, Erscheinungsbild und Anpassungen für verschiedene Modi
  */
-@import url("themes.css");
+@import url("themes.css") layer(themes);
 
 /* 
  * Icon-System
  * SVG-Symbole und Icon-Fonts
  */
-@import url("icons.css");
+@import url("icons.css") layer(icons);
 
 

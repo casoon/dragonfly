@@ -5,7 +5,7 @@
  * Die Farben orientieren sich an den Variablen aus colors.css.
  * Das Theme wird nur aktiviert, wenn die Klasse "theme-ocean" auf einem Element angewendet wird.
  */
-@layer theme-ocean {
+
   .theme-ocean {
     /* Primary Colors */
     --color-primary-50: var(--color-cyan-50);
@@ -60,4 +60,3 @@
     --color-gray-800: #3e4c59;
     --color-gray-900: #323f4b;
   }
-}

@@ -1,66 +1,21 @@
-/**
- * CSS Layer-System
- *
- * Diese Datei definiert die hierarchische Layer-Struktur des gesamten CSS-Frameworks.
- * Als zentraler Koordinator für die Spezifitätsverwaltung steuert sie präzise, 
- * welche Stilregeln Vorrang haben, und ermöglicht so ein robustes, wartbares System.
- * 
- * Vorteile des Layer-Systems:
- * - Vermeidet Spezifitätskonflikte durch explizite Hierarchie
- * - Ermöglicht modulare Organisation in thematische Einheiten
- * - Vereinfacht Wartung und Erweiterung des CSS
- * - Bietet optimale Unterstützung für LightningCSS und moderne Browser
- */
-
-/* 
- * Explizite Layer-Reihenfolge für CSS-Cascading-Prioritäten
- * Die Layer sind in aufsteigender Priorität angeordnet: 
- * - Frühere Layer haben niedrigere Spezifität 
- * - Spätere Layer überschreiben frühere bei Konflikten
- */
-@layer reset,                /* Grundlegender Browser-Reset, Normalisierung der Standardstile */
-       tokens,               /* Design-Tokens: Farben, Abstände, Typografie-Variablen */
-       custom-properties,    /* Registrierte CSS-Eigenschaften mit Vererbung und Animation */
-       core,                 /* Kernfunktionalitäten und Basis-Komponenten */
-       logical-properties,   /* Logische Eigenschaften für bidirektionale Layouts (RTL/LTR) */
-       colors,               /* Farbsystem mit Primär-, Sekundär- und Semantik-Farben */
-       color-mix,            /* Farbmischungen, Transparenzen und dynamische Farbvarianten */
-       layout,               /* Layout-Grundlagen: Grid, Flexbox, Container-Queries */
-       layout-queries,       /* Responsive Anpassungen für Layout-Komponenten */
-       typography,           /* Typografie-System: Schriften, Größen, Abstände, Ausrichtung */
-       utilities,            /* Atomare Hilfsklassen für häufige Styling-Aufgaben */
-       smooth-scroll,        /* Optimiertes Scroll-Verhalten und Schnappfunktionen */
-       accessibility,        /* Barrierefreiheit und WCAG-Konformität */
-       icons,                /* Icon-System und symbolische Darstellungen */
-       modules,              /* Komplexe UI-Komponenten und Modul-Systeme */
-       animations,           /* Bewegungs- und Übergangssystem für Interaktivität */
-       effects,              /* Visuelle Effekte: Schatten, Filter, Transformationen */
-       themes;               /* Theming-System für Farbschemata, Dark Mode und Marken-Varianten */
-
 /*
  * Import der Layer-Definitionen
  * Jede Datei definiert ihre Stile innerhalb ihres zugewiesenen Layers
  */
 
 /* Reset und Grundlagen */
-@import url("base/reset.css");
+@import url("base/reset.css") layer(reset);
 
 /* Tokens und Properties */
-@import url("base/tokens.css");
-@import url("base/custom-properties.css");
+@import url("base/tokens.css") layer(tokens);
+@import url("base/custom-properties.css") layer(custom-properties);
 
 /* Core-Funktionalitäten */
-@import url("base/logical-properties.css");
-@import url("base/colors.css");
-@import url("base/color-mix.css");
+@import url("base/logical-properties.css") layer(logical-properties);
+@import url("base/colors.css") layer(colors);
+@import url("base/color-mix.css") layer(color-mix);
 
 /* Utilities und Accessibility */
-@import url("base/utilities.css");
-@import url("base/smooth-scroll.css");
-@import url("base/accessibility.css");
-
-/* 
- * Hinweis: Weitere Imports erfolgen in core.css
- * Die Aufteilung in mehrere Import-Dateien erleichtert die Organisation
- * und verbessert die Build-Performance bei selektiven Kompilierungen.
- */
+@import url("base/utilities.css") layer(utilities);
+@import url("base/smooth-scroll.css") layer(smooth-scroll);
+@import url("base/accessibility.css") layer(accessibility);

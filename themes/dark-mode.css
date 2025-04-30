@@ -7,45 +7,10 @@
  * 2. Die Klasse .dark-theme auf einem übergeordneten Element (z.B. <body>) angewendet wird
  */
 
-@layer dark-mode {
-  /* Automatische Erkennung des Betriebssystem-Dark-Mode */
-  @media (prefers-color-scheme: dark) {
-    :root {
-      /* Farben - Hintergrund */
-      --color-bg-primary: oklch(18% 0.015 var(--color-gray-hue));
-      --color-bg-secondary: oklch(22% 0.018 var(--color-gray-hue));
-      --color-bg-tertiary: oklch(28% 0.02 var(--color-gray-hue));
-      --color-bg-accent: var(--color-primary-600);
-      
-      /* Farben - Text */
-      --color-text-primary: oklch(96% 0.005 var(--color-gray-hue));
-      --color-text-secondary: oklch(85% 0.008 var(--color-gray-hue));
-      --color-text-tertiary: oklch(75% 0.01 var(--color-gray-hue));
-      --color-text-accent: var(--color-primary-300);
-      
-      /* Status-Farben - Dunklere Versionen für besseren Kontrast */
-      --color-success: var(--color-green-400);
-      --color-warning: var(--color-yellow-400);
-      --color-error: var(--color-red-400);
-      --color-info: var(--color-blue-400);
-      
-      /* UI-Elemente */
-      --color-border: oklch(32% 0.025 var(--color-gray-hue));
-      --color-input-bg: oklch(25% 0.02 var(--color-gray-hue));
-      --color-input-border: oklch(40% 0.03 var(--color-gray-hue));
-      --shadow-color: rgb(0 0 0 / 30%);
-      
-      /* Angepasste Schatten für Dark Mode */
-      --shadow-sm: 0 1px 2px 0 var(--shadow-color);
-      --shadow: 0 1px 3px 0 var(--shadow-color), 0 1px 2px 0 var(--shadow-color);
-      --shadow-md: 0 4px 6px -1px var(--shadow-color);
-      --shadow-lg: 0 10px 15px -3px var(--shadow-color);
-      --shadow-xl: 0 20px 25px -5px var(--shadow-color), 0 10px 10px -5px var(--shadow-color);
-    }
-  }
-  
-  /* Manueller Dark Mode über Klasse */
-  .dark-theme {
+
+/* Automatische Erkennung des Betriebssystem-Dark-Mode */
+@media (prefers-color-scheme: dark) {
+  :root {
     /* Farben - Hintergrund */
     --color-bg-primary: oklch(18% 0.015 var(--color-gray-hue));
     --color-bg-secondary: oklch(22% 0.018 var(--color-gray-hue));
@@ -78,6 +43,41 @@
     --shadow-xl: 0 20px 25px -5px var(--shadow-color), 0 10px 10px -5px var(--shadow-color);
   }
 }
+
+/* Manueller Dark Mode über Klasse */
+.dark-theme {
+  /* Farben - Hintergrund */
+  --color-bg-primary: oklch(18% 0.015 var(--color-gray-hue));
+  --color-bg-secondary: oklch(22% 0.018 var(--color-gray-hue));
+  --color-bg-tertiary: oklch(28% 0.02 var(--color-gray-hue));
+  --color-bg-accent: var(--color-primary-600);
+  
+  /* Farben - Text */
+  --color-text-primary: oklch(96% 0.005 var(--color-gray-hue));
+  --color-text-secondary: oklch(85% 0.008 var(--color-gray-hue));
+  --color-text-tertiary: oklch(75% 0.01 var(--color-gray-hue));
+  --color-text-accent: var(--color-primary-300);
+  
+  /* Status-Farben - Dunklere Versionen für besseren Kontrast */
+  --color-success: var(--color-green-400);
+  --color-warning: var(--color-yellow-400);
+  --color-error: var(--color-red-400);
+  --color-info: var(--color-blue-400);
+  
+  /* UI-Elemente */
+  --color-border: oklch(32% 0.025 var(--color-gray-hue));
+  --color-input-bg: oklch(25% 0.02 var(--color-gray-hue));
+  --color-input-border: oklch(40% 0.03 var(--color-gray-hue));
+  --shadow-color: rgb(0 0 0 / 30%);
+  
+  /* Angepasste Schatten für Dark Mode */
+  --shadow-sm: 0 1px 2px 0 var(--shadow-color);
+  --shadow: 0 1px 3px 0 var(--shadow-color), 0 1px 2px 0 var(--shadow-color);
+  --shadow-md: 0 4px 6px -1px var(--shadow-color);
+  --shadow-lg: 0 10px 15px -3px var(--shadow-color);
+  --shadow-xl: 0 20px 25px -5px var(--shadow-color), 0 10px 10px -5px var(--shadow-color);
+}
+
 
 @layer utilities {
   /* Dark Mode Toggle Utilities */

@@ -25,8 +25,8 @@
  * - Reduzierte Bewegung wird berücksichtigt
  * - Performance-Optimierungen sind implementiert
  */
-@import url('effects/base.css');
-@import url('effects/neon.css');
-@import url('effects/filters.css');
-@import url('effects/interactions.css');
+@import url('effects/base.css') layer(base);
+@import url('effects/neon.css') layer(neon);
+@import url('effects/filters.css') layer(filters);
+@import url('effects/interactions.css') layer(interactions);
 

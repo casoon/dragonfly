@@ -53,7 +53,7 @@
  * - Reduzierte Bewegung wird automatisch berücksichtigt
  */
 
- @layer effects-interactions {
+
     :root {
     container-type: inline-size;
     container-name: root;
@@ -504,4 +504,3 @@
         }
     } 
 
-} 

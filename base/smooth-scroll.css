@@ -22,7 +22,7 @@
  * @layer components - Wiederverwendbare Scroll-Komponenten
  */
 
-@layer scroll-smooth {
+
   /* Smooth Scroll Variables */
   :root {
     --scroll-behavior: smooth;
@@ -389,7 +389,7 @@
       transition: none;
     }
   }
-}
+
 
 @layer components {
     /* Smooth Scroll */
