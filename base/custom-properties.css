@@ -16,31 +16,31 @@
   @property --color-primary {
     syntax: '<color>';
     inherits: false;
-    initial-value: var(--color-primary, #3b82f6);
+    initial-value: #3b82f6;
   }
 
   @property --color-accent {
     syntax: '<color>';
     inherits: false;
-    initial-value: var(--color-accent, #8b5cf6);
+    initial-value: #8b5cf6;
   }
 
   @property --color-text {
     syntax: '<color>';
     inherits: true;
-    initial-value: var(--color-gray-900, #1f2937);
+    initial-value: #1f2937;
   }
 
   @property --color-background {
     syntax: '<color>';
     inherits: false;
-    initial-value: var(--color-gray-100, #f9fafb);
+    initial-value: #f9fafb;
   }
   
   @property --color-surface {
     syntax: '<color>';
     inherits: false;
-    initial-value: var(--color-gray-50, #fff);
+    initial-value: #fff;
   }
 
   /* 
@@ -51,19 +51,19 @@
   @property --space-unit {
     syntax: '<length>';
     inherits: true;
-    initial-value: var(--space-4, 1rem);
+    initial-value: 1rem;
   }
 
   @property --border-width {
     syntax: '<length>';
     inherits: false;
-    initial-value: var(--space-px, 1px);
+    initial-value: 1px;
   }
 
   @property --radius {
     syntax: '<length-percentage>';
     inherits: false;
-    initial-value: var(--border-radius-md, 0.5rem);
+    initial-value: 0.5rem;
   }
 
   /* 
