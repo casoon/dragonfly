@@ -1,51 +1,33 @@
-/**
+/*
  * Toast Module
- * 
- * Ein einfaches Modul für Toast-Benachrichtigungen in verschiedenen Farben.
- * 
- * Verwendung:
- * <div class="toast">Standard Toast-Nachricht</div>
- * <div class="toast toast-success">Erfolgsmeldung</div>
- * 
- * Varianten:
- * - .toast-primary, .toast-secondary
- * - .toast-success, .toast-danger
- * - .toast-warning, .toast-info
+ *
+ * Kurzzeitige Benachrichtigungen.
  */
 
-@layer module-toast {
+ @layer module-toast {
   .toast {
-    background-color: var(--bg-white);
-    border-color: var(--border-gray-200);
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    background-color: var(--color-gray-900);
+    color: var(--color-white);
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    font-size: var(--font-size-sm);
+    z-index: var(--z-index-tooltip);
+    animation: fade-in-up 0.3s ease-out;
   }
 
-  .toast-primary {
-    background-color: var(--bg-primary-100);
-    border-color: var(--border-primary-500);
-  }
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(0.5rem);
+    }
 
-  .toast-secondary {
-    background-color: var(--bg-secondary-100);
-    border-color: var(--border-secondary-500);
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
-
-  .toast-success {
-    background-color: var(--bg-success-100);
-    border-color: var(--border-success-500);
-  }
-
-  .toast-danger {
-    background-color: var(--bg-danger-100);
-    border-color: var(--border-danger-500);
-  }
-
-  .toast-warning {
-    background-color: var(--bg-warning-100);
-    border-color: var(--border-warning-500);
-  }
-
-  .toast-info {
-    background-color: var(--bg-info-100);
-    border-color: var(--border-info-500);
-  }
-} 
+}

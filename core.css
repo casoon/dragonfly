@@ -14,6 +14,7 @@
 
 /* Layout und Typografie */
 @import url("layout.css");
+@import url("layout.queries.css");
 @import url("typography.css");
 
  /* 

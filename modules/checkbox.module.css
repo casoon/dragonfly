@@ -1,215 +1,50 @@
-/**
- * Checkbox CSS Module
- * 
- * Diese Datei enthält die CSS-Module für Checkboxes.
- * Die Checkboxes sind performant optimiert und berücksichtigen reduzierte Bewegung.
- * 
- * Verwendung:
- * 
- * 1. Basis-Checkbox:
- * <label className={styles.checkbox}>
- *   <input type="checkbox" className={styles.input} />
- *   <span className={styles.checkmark}></span>
- *   <span className={styles.label}>Option</span>
- * </label>
- * 
- * 2. Checkbox mit Varianten:
- * <label className={`${styles.checkbox} ${styles.primary}`}>...</label>
- * <label className={`${styles.checkbox} ${styles.secondary}`}>...</label>
- * 
- * 3. Checkbox mit Größen:
- * <label className={`${styles.checkbox} ${styles.small}`}>...</label>
- * <label className={`${styles.checkbox} ${styles.large}`}>...</label>
- * 
- * Technische Details:
- * - Verwendet CSS-Variablen für Farben und Größen
- * - Optimiert mit will-change und transform
- * - Responsive Anpassungen für mobile Geräte
- * - Reduzierte Bewegung wird berücksichtigt
- * 
- * Performance-Hinweise:
- * - Animationen sind hardware-beschleunigt
- * - Reduzierte Bewegung wird automatisch berücksichtigt
+/*
+ * Checkbox Module
+ *
+ * Standard- und benutzerdefinierte Checkbox-Komponente mit Fokus- und Check-Stilen.
  */
 
-@layer module-checkbox {
-    /* Checkbox Variables */
+ @layer module-checkbox {
     .checkbox {
-        --checkbox-size: 1.25rem;
-        --checkbox-border-radius: 0.25rem;
-        --checkbox-background: var(--color-background);
-        --checkbox-border: 2px solid var(--color-border);
-        --checkbox-checked-background: var(--color-primary);
-        --checkbox-checked-border: 2px solid var(--color-primary);
-        --checkbox-transition: all var(--transition-normal);
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      cursor: pointer;
+      font-size: var(--font-size-sm);
     }
-
-    /* Base Checkbox */
-    .checkbox {
-        display: inline-flex;
-        align-items: center;
-        position: relative;
-        padding-left: calc(var(--checkbox-size) + 0.5rem);
-        cursor: pointer;
-        user-select: none;
+  
+    .checkbox input[type="checkbox"] {
+      appearance: none;
+      width: 1rem;
+      height: 1rem;
+      border: 1px solid var(--color-gray-400);
+      border-radius: var(--radius-sm);
+      background-color: white;
+      display: inline-block;
+      vertical-align: middle;
+      position: relative;
+      transition: all var(--transition-fast);
     }
-
-    /* Hide default checkbox */
-    .input {
-        position: absolute;
-        opacity: 0;
-        cursor: pointer;
-        height: 0;
-        width: 0;
+  
+    .checkbox input[type="checkbox"]:checked {
+      background-color: var(--color-primary);
+      border-color: var(--color-primary);
     }
-
-    /* Checkmark */
-    .checkmark {
-        position: absolute;
-        left: 0;
-        height: var(--checkbox-size);
-        width: var(--checkbox-size);
-        background-color: var(--checkbox-background);
-        border: var(--checkbox-border);
-        border-radius: var(--checkbox-border-radius);
-        transition: var(--checkbox-transition);
+  
+    .checkbox input[type="checkbox"]:checked::after {
+      content: "";
+      position: absolute;
+      top: 2px;
+      left: 4px;
+      width: 3px;
+      height: 6px;
+      border: solid white;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
     }
-
-    /* Checkmark when checked */
-    .input:checked ~ .checkmark {
-        background-color: var(--checkbox-checked-background);
-        border: var(--checkbox-checked-border);
+  
+    .checkbox input[type="checkbox"]:focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 2px;
     }
-
-    /* Checkmark symbol */
-    .checkmark::after {
-        content: "";
-        position: absolute;
-        display: none;
-        left: 50%;
-        top: 50%;
-        width: 0.5rem;
-        height: 0.75rem;
-        border: solid white;
-        border-width: 0 2px 2px 0;
-        transform: translate(-50%, -60%) rotate(45deg);
-    }
-
-    .input:checked ~ .checkmark::after {
-        display: block;
-    }
-
-    /* Label */
-    .label {
-        margin-left: 0.5rem;
-    }
-
-    /* Size Variants */
-    .small {
-        --checkbox-size: 1rem;
-    }
-
-    .medium {
-        --checkbox-size: 1.25rem;
-    }
-
-    .large {
-        --checkbox-size: 1.5rem;
-    }
-
-    /* Color Variants */
-    .primary {
-        --checkbox-checked-background: var(--color-primary);
-        --checkbox-checked-border: 2px solid var(--color-primary);
-    }
-
-    .secondary {
-        --checkbox-checked-background: var(--color-secondary);
-        --checkbox-checked-border: 2px solid var(--color-secondary);
-    }
-
-    .success {
-        --checkbox-checked-background: var(--color-success);
-        --checkbox-checked-border: 2px solid var(--color-success);
-    }
-
-    .warning {
-        --checkbox-checked-background: var(--color-warning);
-        --checkbox-checked-border: 2px solid var(--color-warning);
-    }
-
-    .error {
-        --checkbox-checked-background: var(--color-error);
-        --checkbox-checked-border: 2px solid var(--color-error);
-    }
-
-    /* Hover Effects */
-    .checkbox:hover .input ~ .checkmark {
-        border-color: var(--color-primary);
-    }
-
-    /* Focus States */
-    .input:focus ~ .checkmark {
-        box-shadow: 0 0 0 2px var(--color-primary-500), 0 0 0 4px var(--color-background);
-    }
-
-    /* Disabled State */
-    .checkbox.disabled {
-        opacity: 0.5;
-        cursor: not-allowed;
-    }
-
-    /* Reduced Motion */
-    @media (prefers-reduced-motion: reduce) {
-        .checkbox {
-            transition: none;
-        }
-
-        .checkmark {
-            transition: none;
-        }
-    }
-}
-
-/* Integrierte has-Selektoren für Checkbox-Komponenten */
-@layer has-selectors {
-  /* Checkbox-Wrapper Styling */
-  .checkbox-wrapper:has(input:checked) {
-    background-color: var(--color-primary-50);
   }
-
-  /* Checkbox-Gruppen Styling */
-  .checkbox-group:has(input[type="checkbox"]:checked) {
-    background-color: var(--color-primary-50);
-  }
-
-  /* Verstecke Label, wenn Checkbox aktiviert ist */
-  .form-check:has(input:checked) label {
-    color: var(--color-primary-600);
-    font-weight: bold;
-  }
-
-  /* Verstecke Elemente nach ausgewähltem Checkbox */
-  input[type="checkbox"]:checked ~ .conditional-content {
-    display: block;
-  }
-
-  /* Verstecke Elemente nach nicht ausgewähltem Checkbox */
-  input[type="checkbox"]:not(:checked) ~ .conditional-content {
-    display: none;
-  }
-
-  /* Verstecke alternative Inhalte, wenn Checkbox nicht ausgewählt ist */
-  .toggle-container:has(input[type="checkbox"]:not(:checked)) .toggle-content {
-    display: none;
-  }
-
-  /* Akkordeon-Funktionalität */
-  .accordion-item:has(input[type="checkbox"]:checked) .accordion-content {
-    display: block;
-  }
-
-  .accordion-item:not(:has(input[type="checkbox"]:checked)) .accordion-content {
-    display: none;
-  }
-} 

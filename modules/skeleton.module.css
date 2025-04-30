@@ -1,95 +1,27 @@
-/**
- * Skeleton CSS Module
- * 
- * Diese Datei enthält die CSS-Module für Skeleton-Ladeanimationen.
+/*
+ * Skeleton Module
+ *
+ * Platzhalter für ladende Inhalte mit Animation.
  */
 
-@layer module-skeleton {
-    /* Skeleton Variables */
+ @layer module-skeleton {
     .skeleton {
-        --skeleton-background: var(--color-gray-100);
-        --skeleton-highlight: var(--color-gray-200);
-        --skeleton-width: 100%;
-        --skeleton-height: 1rem;
-        --skeleton-border-radius: 0.375rem;
-        --skeleton-animation-duration: 1.5s;
-        --skeleton-background-size: 200%;
-        --skeleton-background-position: 200%;
-        --skeleton-background-position-negative: -200%;
+      background-color: var(--color-gray-200);
+      border-radius: var(--radius-sm);
+      animation: pulse 1.5s ease-in-out infinite;
     }
-
-    /* Base Skeleton */
-    .skeleton {
-        width: var(--skeleton-width);
-        height: var(--skeleton-height);
-        background: linear-gradient(
-            90deg,
-            var(--skeleton-background) 0%,
-            var(--skeleton-highlight) 50%,
-            var(--skeleton-background) 100%
-        );
-        background-size: var(--skeleton-background-size, 200%);
-        border-radius: var(--skeleton-border-radius);
-        animation: skeleton-loading var(--skeleton-animation-duration) infinite;
+  
+    .skeleton--circle {
+      border-radius: 9999px;
     }
+  
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 1;
+      }
 
-    /* Size Variants */
-    .small {
-        --skeleton-height: 0.75rem;
+      50% {
+        opacity: 0.4;
+      }
     }
-
-    .medium {
-        --skeleton-height: 1rem;
-    }
-
-    .large {
-        --skeleton-height: 1.5rem;
-    }
-
-    /* Shape Variants */
-    .circle {
-        --skeleton-border-radius: 50%;
-        --skeleton-width: var(--skeleton-height);
-    }
-
-    .rounded {
-        --skeleton-border-radius: 0.5rem;
-    }
-
-    /* Color Variants */
-    .primary {
-        --skeleton-background: var(--color-primary-100);
-        --skeleton-highlight: var(--color-primary-200);
-    }
-
-    .secondary {
-        --skeleton-background: var(--color-secondary-100);
-        --skeleton-highlight: var(--color-secondary-200);
-    }
-
-    /* Animation */
-    @keyframes skeleton-loading {
-        0% {
-            background-position: var(--skeleton-background-position, 200%);
-        }
-
-        100% {
-            background-position: var(--skeleton-background-position-negative, -200%);
-        }
-    }
-
-    /* Reduced Motion */
-    @media (prefers-reduced-motion: reduce) {
-        .skeleton {
-            animation: none;
-            background: var(--skeleton-background);
-        }
-    }
-
-    /* Responsive */
-    @media (width <= 768px) {
-        .skeleton {
-            --skeleton-height: 0.875rem;
-        }
-    }
-} 
+  }

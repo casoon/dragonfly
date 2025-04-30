@@ -1,331 +1,105 @@
-/**
- * Layout-System
- * 
- * Diese Datei implementiert ein umfassendes Layout-System mit modernen CSS-Technologien
- * wie CSS Grid, Flexbox und Container Queries. Sie bietet standardisierte Klassen für
- * responsive Layouts und Positionierung von Elementen.
- * 
- * Hauptkomponenten:
- * - Container: Standardisierte Breiten und Ausrichtung für Inhalte
- * - Grid-System: Flexibles 12-Spalten-Grid mit responsiven Varianten
- * - Flexbox-Utilities: Flexible Ausrichtung und Anordnung von Elementen
- * - Container Queries: Komponentenbasierte Responsivität (statt Viewport-basiert)
- * - Abstands- und Positionierungs-Utilities: Konsistente Abstände durch Design-Tokens
- * - Responsive Breakpoint-Varianten: Anpassung des Layouts für verschiedene Bildschirmgrößen
- * - Subgrid-Layouts: Fortgeschrittene Layouttechniken mit CSS Subgrid
- * 
- * @technisch Nutzt moderne CSS-Features wie CSS Grid, Container Queries und logische Eigenschaften
- * @responsive Alle Komponenten haben responsive Varianten für verschiedene Breakpoints
- * @hinweis Basiert auf den in tokens.css definierten Abstandsvariablen und Breakpoints
+/*
+ * Layout-System (optimiert für LightningCSS)
+ *
+ * Standardisierte Container, Grid- und Flexlayouts mit Container Queries.
+ * Saubere Trennung von Utilities, responsivem Verhalten und Semantik.
  */
 
-@layer layout {
-    /* =================================
-     * 1. CONTAINER & CONTAINER QUERIES
-     *================================= */
-    
-    /* 
-     * Container
-     * 
-     * Container begrenzen die Breite von Inhalten und zentrieren diese.
-     * Verschiedene Breiten sind über Suffix-Klassen verfügbar.
-     * Beispiel: <div class="container container-md">...</div>
-     */
+ @layer layout {
+    /* ================= CONTAINER ================= */
     .container {
-        width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-        padding-left: var(--space-md);
-        padding-right: var(--space-md);
+      width: 100%;
+      margin-inline: auto;
+      padding-inline: var(--space-4);
+      max-width: var(--container-lg);
     }
-    
-    .container-fluid {
-        width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .container-sm {
-        max-width: var(--container-sm);
-    }
-
-    .container-md {
-        max-width: var(--container-md);
-    }
-
-    .container-lg {
-        max-width: var(--container-lg);
-    }
-
-    .container-xl {
-        max-width: var(--container-xl);
-    }
-    
-    /* Container Padding Variants */
-    .container-padding-sm {
-        padding-left: var(--space-sm);
-        padding-right: var(--space-sm);
-    }
-    
-    .container-padding-md {
-        padding-left: var(--space-md);
-        padding-right: var(--space-md);
-    }
-    
-    .container-padding-lg {
-        padding-left: var(--space-lg);
-        padding-right: var(--space-lg);
-    }
-
-    /* Komponenten-spezifische Container Styles */
-    .container {
-        max-width: var(--container-lg);
-        margin-inline: auto;
-        padding-inline: var(--space-md);
-    }
-
-    .container-fluid {
-        width: 100%;
-        padding-inline: var(--space-md);
-    }
-
+  
+    .container-sm { max-width: var(--container-sm); }
+    .container-md { max-width: var(--container-md); }
+    .container-lg { max-width: var(--container-lg); }
+    .container-xl { max-width: var(--container-xl); }
+    .container-2xl { max-width: var(--container-2xl); }
+  
+    .container-padding-sm { padding-inline: var(--space-2); }
+    .container-padding-md { padding-inline: var(--space-4); }
+    .container-padding-lg { padding-inline: var(--space-6); }
+  
     .container-query {
-        container-type: inline-size;
-        container-name: componentquery;
+      container-type: inline-size;
+      container-name: layout;
     }
-
+  
+    .component-query {
+      container-type: inline-size;
+      container-name: component;
+    }
+  
+    /* ================= WRAPPER / BOXEN ================= */
     .container-box {
-        padding: var(--space-md);
-        border-radius: var(--radius-md);
+      padding: var(--space-4);
+      border-radius: var(--radius-md);
+      background: var(--color-surface, white);
     }
-
+  
     .container-constrain {
-        max-width: var(--container-md);
-        margin-inline: auto;
+      max-width: var(--container-md);
+      margin-inline: auto;
     }
-
+  
     .container-wrapper {
-        max-width: 100%;
-        overflow: hidden;
+      max-width: 100%;
+      overflow: hidden;
     }
-
-    .container-sidebar {
-        display: none;
-        width: 240px;
+  
+    /* ================= LAYOUTS ================= */
+    .layout-grid {
+      display: grid;
+      gap: var(--space-4);
+      grid-template-columns: 1fr;
     }
-
-    .container-main {
-        flex: 1;
-        min-width: 0;
+  
+    .layout-flex {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
     }
-
-    /* 
-     * Container Query Base 
-     * 
-     * Ermöglicht komponentenspezifische Responsivität.
-     * Verwendung: <div data-container>...</div>
-     */
-    [data-container] {
-        container-type: inline-size;
-        container-name: component;
+  
+    /* ================= SUBGRID / NESTED ================= */
+    .grid-subgrid {
+      display: grid;
+      grid-template-columns: subgrid;
     }
-
-    /* 
-     * Vereinfachtes Container-Query-System
-     * 
-     * Ein System für komponentenbasierte responsive Layouts mit Container-Queries.
-     * Nutzung mit Präfix 'layout-' und einheitlichem container-name 'layout'
-     */
-    .layout-container {
-        container-type: inline-size;
-        container-name: layout;
+  
+    .row-subgrid {
+      display: grid;
+      grid-template-rows: subgrid;
     }
-
-    /* Container Query Card-Grid */
-    @container componentquery (min-width >= 400px) {
-        .container-cards {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: var(--space-md);
-        }
-    }
-
-    @container componentquery (min-width >= 700px) {
-        .container-cards {
-            grid-template-columns: repeat(3, 1fr);
-            gap: var(--space-lg);
-        }
-    }
-
-    @container componentquery (min-width >= 1000px) {
-        .container-cards {
-            grid-template-columns: repeat(4, 1fr);
-        }
-    }
-
-    /* Container Query Sidebar-Layout */
-    @container componentquery (min-width >= 900px) {
-        .container-navbar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-    }
-
-    /* Container Query Content-Layout */
-    @container componentquery (min-width >= 600px) {
-        .container-content {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: var(--space-md);
-        }
-    }
-
-    /* 
-     * Responsive Breakpoint Container 
-     * 
-     * Container mit Breakpoint-spezifischen Breiten
-     *
-     * HINWEIS: Wir verwenden jetzt Container Queries statt Media Queries.
-     * Container Queries beziehen sich auf die Größe des Containers, nicht des Viewports.
-     * Durch die Definition von :root als Container funktionieren diese Queries ähnlich
-     * wie Media Queries, aber mit besserer Kompatibilität mit LightningCSS.
-     * 
-     * Die Pixel-Werte entsprechen den in tokens.css definierten Breakpoint-Variablen:
-     * --breakpoint-sm: 640px
-     * --breakpoint-md: 768px
-     * --breakpoint-lg: 1024px
-     * --breakpoint-xl: 1280px
-     * --breakpoint-2xl: 1536px
-     */
-    @container root (min-width >= 640px) {
-        .container {
-            max-width: var(--container-sm);
-        }
-    }
-
-    @container root (min-width >= 768px) {
-        .container {
-            max-width: var(--container-md);
-        }
-    }
-
-    @container root (min-width >= 1024px) {
-        .container {
-            max-width: var(--container-lg);
-        }
-    }
-
-    @container root (min-width >= 1280px) {
-        .container {
-            max-width: var(--container-xl);
-        }
-    }
-
-    @container root (min-width >= 1536px) {
-        .container {
-            max-width: var(--container-2xl);
-        }
-    }
-
-    /* 
-     * Container-Query basierte Flex-Layouts
-     * 
-     * Diese Layouts passen sich basierend auf der Breite des Containers an,
-     * nicht auf der Viewport-Breite, was lokalisierte Responsivität ermöglicht.
-     */
-    .flex-container {
-        container-type: inline-size;
-        container-name: flex-layout;
-    }
-
-    /* =================================
-     * 2. GRID-SYSTEM
-     *================================= */
-    
-    /* 
-     * Grid System 
-     * 
-     * Ein flexibles Grid-System für mehrspaltige Layouts.
-     * Verwendung: <div class="grid grid-cols-2 gap-4">...</div>
-     */
-    .grid {
-        display: grid;
-        gap: var(--space-0);
-    }
-
-    /* Grid Columns */
-    .grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
-    .grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-    .grid-cols-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
-    .grid-cols-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
-    .grid-cols-12 { grid-template-columns: repeat(12, minmax(0, 1fr)); }
-
-    /* 
-     * Column Spans 
-     * 
-     * Definiert, wie viele Spalten ein Element einnimmt.
-     * Verwendung: <div class="col-span-4">...</div>
-     */
-    .col-span-1 { grid-column: span 1; }
-    .col-span-2 { grid-column: span 2; }
-    .col-span-3 { grid-column: span 3; }
-    .col-span-4 { grid-column: span 4; }
-    .col-span-5 { grid-column: span 5; }
-    .col-span-6 { grid-column: span 6; }
-    .col-span-7 { grid-column: span 7; }
-    .col-span-8 { grid-column: span 8; }
-    .col-span-9 { grid-column: span 9; }
-    .col-span-10 { grid-column: span 10; }
-    .col-span-11 { grid-column: span 11; }
-    .col-span-12 { grid-column: span 12; }
-    .col-span-full { grid-column: 1 / -1; }
-
-    /* Grid Template Rows */
-    .grid-rows-1 { grid-template-rows: repeat(1, minmax(0, 1fr)); }
-    .grid-rows-2 { grid-template-rows: repeat(2, minmax(0, 1fr)); }
-    .grid-rows-3 { grid-template-rows: repeat(3, minmax(0, 1fr)); }
-    .grid-rows-4 { grid-template-rows: repeat(4, minmax(0, 1fr)); }
-    .grid-rows-5 { grid-template-rows: repeat(5, minmax(0, 1fr)); }
-    .grid-rows-6 { grid-template-rows: repeat(6, minmax(0, 1fr)); }
-
-    /* Grid Row Spans */
-    .row-span-1 { grid-row: span 1; }
-    .row-span-2 { grid-row: span 2; }
-    .row-span-3 { grid-row: span 3; }
-    .row-span-4 { grid-row: span 4; }
-    .row-span-5 { grid-row: span 5; }
-    .row-span-6 { grid-row: span 6; }
-    .row-span-full { grid-row: 1 / -1; }
-
-    /* Grid Auto Flow */
-    .grid-flow-row { grid-auto-flow: row; }
-    .grid-flow-col { grid-auto-flow: column; }
-    .grid-flow-dense { grid-auto-flow: dense; }
-
-    /* Grid Auto Columns */
-    .auto-cols-auto { grid-auto-columns: auto; }
-    .auto-cols-min { grid-auto-columns: min-content; }
-    .auto-cols-max { grid-auto-columns: max-content; }
-    .auto-cols-fr { grid-auto-columns: minmax(0, 1fr); }
-
-    /* Grid Auto Rows */
-    .auto-rows-auto { grid-auto-rows: auto; }
-    .auto-rows-min { grid-auto-rows: min-content; }
-    .auto-rows-max { grid-auto-rows: max-content; }
-    .auto-rows-fr { grid-auto-rows: minmax(0, 1fr); }
-
-    /* Grid Template Areas */
-    .grid-areas-none { grid-template-areas: none; }
-
-    /* 
-     * Grid Gaps 
-     * 
-     * Abstandsklassen für Grid-Layouts.
-     * Verwendung: <div class="grid gap-4">...</div>
-     */
+  }
+  
+  @layer layout-utilities {
+    .w-full { width: 100%; }
+    .h-full { height: 100%; }
+    .min-h-screen { min-height: 100vh; }
+    .max-w-full { max-width: 100%; }
+  
+    .grid { display: grid; }
+    .flex { display: flex; }
+    .inline-flex { display: inline-flex; }
+  
+    .flex-row { flex-direction: row; }
+    .flex-col { flex-direction: column; }
+    .flex-wrap { flex-wrap: wrap; }
+    .flex-nowrap { flex-wrap: nowrap; }
+  
+    .items-start { align-items: flex-start; }
+    .items-center { align-items: center; }
+    .items-end { align-items: flex-end; }
+  
+    .justify-start { justify-content: flex-start; }
+    .justify-center { justify-content: center; }
+    .justify-end { justify-content: flex-end; }
+    .justify-between { justify-content: space-between; }
+  
     .gap-0 { gap: var(--space-0); }
     .gap-1 { gap: var(--space-1); }
     .gap-2 { gap: var(--space-2); }
@@ -337,914 +111,34 @@
     .gap-10 { gap: var(--space-10); }
     .gap-12 { gap: var(--space-12); }
     .gap-16 { gap: var(--space-16); }
-
-    /* Grid-Layout mit zunehmender Spaltenanzahl bei wachsender Container-Breite */
-    .layout-grid {
-        display: grid;
-        gap: var(--space-4);
-        grid-template-columns: 1fr;
-
-        @container layout (min-width: 30rem) {
-            grid-template-columns: repeat(2, 1fr);
-        }
-
-        @container layout (min-width: 48rem) {
-            grid-template-columns: repeat(3, 1fr);
-            gap: var(--space-6);
-        }
-
-        @container layout (min-width: 62rem) {
-            grid-template-columns: repeat(4, 1fr);
-            gap: var(--space-8);
-        }
-    }
-
-    /* Card-Grid basierend auf Container-Queries */
-    .layout-cards {
-        display: grid;
-        gap: var(--space-4);
-        grid-template-columns: 1fr;
-
-        @container layout (min-width: 30rem) {
-            grid-template-columns: repeat(2, 1fr);
-        }
-
-        @container layout (min-width: 48rem) {
-            grid-template-columns: repeat(3, 1fr);
-            gap: var(--space-6);
-        }
-
-        @container layout (min-width: 62rem) {
-            grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
-            gap: var(--space-8);
-        }
-    }
-
-    /* 
-     * Grid Container Queries 
-     * 
-     * Responsive Grids basierend auf Container-Breite statt Viewport-Breite.
-     * Skaliert von 1 bis 5 Spalten je nach verfügbarer Breite.
-     */
-    .grid-responsive {
-        display: grid;
-        gap: var(--space-sm);
-        grid-template-columns: 1fr;
-
-        @container component (min-width: 400px) {
-            grid-template-columns: repeat(2, 1fr);
-            gap: var(--space-md);
-        }
-
-        @container component (min-width: 600px) {
-            grid-template-columns: repeat(3, 1fr);
-        }
-
-        @container component (min-width: 800px) {
-            grid-template-columns: repeat(4, 1fr);
-            gap: var(--space-lg);
-        }
-
-        @container component (min-width: 1000px) {
-            grid-template-columns: repeat(5, 1fr);
-        }
-    }
-
-    /* 
-     * Layout Container Queries 
-     * 
-     * Wechselt von Block- zu Grid-Layout basierend auf Container-Breite.
-     */
-    .layout-responsive {
-        display: block;
-
-        @container component (min-width: 400px) {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: var(--space-md);
-        }
-
-        @container component (min-width: 600px) {
-            grid-template-columns: repeat(3, 1fr);
-        }
-
-        @container component (min-width: 800px) {
-            grid-template-columns: repeat(4, 1fr);
-            gap: var(--space-lg);
-        }
-    }
-
-    .grid-auto-fit {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: var(--space-4);
-    }
-
-    .grid-auto-fill {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        gap: var(--space-4);
-    }
-
-    /* =======================
-     * 3. FLEXBOX-LAYOUT
-     *======================= */
-    
-    /* 
-     * Flexbox Utilities 
-     * 
-     * Flexbox-Layout-Utilities für flexible UI-Komponenten.
-     * Verwendung: <div class="flex flex-row gap-4 items-center">...</div>
-     */
-    
-    /* Flex-Basis */
-    .flex { display: flex; }
-    .flex-inline { display: inline-flex; }
-    
-    /* Flex-Richtung */
-    .flex-row { flex-direction: row; }
-    .flex-row-reverse { flex-direction: row-reverse; }
-    .flex-col { flex-direction: column; }
-    .flex-col-reverse { flex-direction: column-reverse; }
-    
-    /* Flex-Wrap */
-    .flex-wrap { flex-wrap: wrap; }
-    .flex-nowrap { flex-wrap: nowrap; }
-    .flex-wrap-reverse { flex-wrap: wrap-reverse; }
-    
-    /* Flex-Wachstum und -Schrumpfung */
+  
+    .grid-cols-1 { grid-template-columns: repeat(1, 1fr); }
+    .grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+    .grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+    .grid-cols-6 { grid-template-columns: repeat(6, 1fr); }
+    .grid-cols-12 { grid-template-columns: repeat(12, 1fr); }
+    .grid-auto-fit { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+    .grid-auto-fill { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
+  
+    .col-span-1 { grid-column: span 1; }
+    .col-span-2 { grid-column: span 2; }
+    .col-span-3 { grid-column: span 3; }
+    .col-span-4 { grid-column: span 4; }
+    .col-span-6 { grid-column: span 6; }
+    .col-span-12 { grid-column: span 12; }
+    .col-span-full { grid-column: 1 / -1; }
+  
     .flex-1 { flex: 1 1 0%; }
     .flex-auto { flex: 1 1 auto; }
-    .flex-initial { flex: 0 1 auto; }
     .flex-none { flex: none; }
-    
-    /* Flex-Wachstum */
-    .flex-grow-0 { flex-grow: 0; }
-    .flex-grow { flex-grow: 1; }
-    
-    /* Flex-Schrumpfung */
-    .flex-shrink-0 { flex-shrink: 0; }
-    .flex-shrink { flex-shrink: 1; }
-    
-    /* Flex-Basis */
-    .flex-basis-auto { flex-basis: auto; }
-    .flex-basis-0 { flex-basis: 0; }
-    .flex-basis-full { flex-basis: 100%; }
-    .flex-basis-50 { flex-basis: 50%; }
-    .flex-basis-25 { flex-basis: 25%; }
-    .flex-basis-75 { flex-basis: 75%; }
-    .flex-basis-33 { flex-basis: 33.3333%; }
-    .flex-basis-66 { flex-basis: 66.6667%; }
-    
-    /* Ausrichtung: justify-content (Hauptachse) */
-    .justify-start { justify-content: flex-start; }
-    .justify-end { justify-content: flex-end; }
-    .justify-center { justify-content: center; }
-    .justify-between { justify-content: space-between; }
-    .justify-around { justify-content: space-around; }
-    .justify-evenly { justify-content: space-evenly; }
-    
-    /* Ausrichtung: align-items (Querachse) */
-    .items-start { align-items: flex-start; }
-    .items-end { align-items: flex-end; }
-    .items-center { align-items: center; }
-    .items-baseline { align-items: baseline; }
-    .items-stretch { align-items: stretch; }
-    
-    /* Ausrichtung: align-self (einzelne Items) */
-    .self-start { align-self: flex-start; }
-    .self-end { align-self: flex-end; }
-    .self-center { align-self: center; }
-    .self-baseline { align-self: baseline; }
-    .self-stretch { align-self: stretch; }
-    
-    /* Ausrichtung: align-content (mehrere Zeilen) */
-    .content-start { align-content: flex-start; }
-    .content-end { align-content: flex-end; }
-    .content-center { align-content: center; }
-    .content-between { align-content: space-between; }
-    .content-around { align-content: space-around; }
-    .content-stretch { align-content: stretch; }
-
-    /* ===========================
-     * 4. FLEX-LAYOUT-KOMPONENTEN
-     *=========================== */
-    
-    /* Häufig verwendete Flex-Layouts */
-    .flex-center {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    .flex-between {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-    
-    .flex-start {
-        display: flex;
-        align-items: flex-start;
-    }
-    
-    .flex-end {
-        display: flex;
-        align-items: flex-end;
-    }
-
-    /* Flex-Spalten-Layouts mit festen Bruchteilen */
-    .flex-col-2, .flex-col-3, .flex-col-4 {
-        display: flex;
-        gap: var(--space-4);
-    }
-    
-    .flex-col-2 > * {
-        flex: 1 1 calc(50% - var(--space-4) / 2);
-    }
-    
-    .flex-col-3 > * {
-        flex: 1 1 calc(33.333% - var(--space-4) * 2 / 3);
-    }
-    
-    .flex-col-4 > * {
-        flex: 1 1 calc(25% - var(--space-4) * 3 / 4);
-    }
-    
-    /* Auto-Layout mit flexibler Mindestbreite */
-    .flex-auto-layout {
-        display: flex;
-        flex-wrap: wrap;
-        gap: var(--space-4);
-    }
-    
-    .flex-auto-layout > * {
-        flex: 1 1 var(--flex-auto-min-width, 15rem);
-    }
-    
-    /* Stack-Layout (vertikale Ausrichtung mit Abständen) */
-    .stack {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-    }
-    
-    .stack > * + * {
-        margin-top: var(--space-4);
-    }
-    
-    .stack-sm > * + * {
-        margin-top: var(--space-2);
-    }
-    
-    .stack-lg > * + * {
-        margin-top: var(--space-6);
-    }
-
-    /* =============================
-     * 5. RESPONSIVE FLEX-LAYOUTS
-     *============================= */
-    
-    /* Responsive Flex-Container mit Media Queries */
-    .flex-responsive-cols {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-4);
-    }
-    
-    @media (width >= 768px) {
-        .flex-responsive-cols {
-            flex-direction: row;
-        }
-    }
-    
-    /* Responsive Flex mit automatischer Ausrichtung */
-    .flex-responsive {
-        display: flex;
-        flex-flow: column;
-        gap: var(--space-sm);
-    }
-    
-    @container component (min-width: 500px) {
-        .flex-responsive {
-            flex-flow: row wrap;
-            gap: var(--space-md);
-        }
-    }
-    
-    @container component (min-width: 700px) {
-        .flex-responsive {
-            flex-flow: row nowrap;
-            gap: var(--space-lg);
-        }
-    }
-    
-    /* Responsive Stack/Row Layout */
-    .stack-responsive {
-        display: flex;
-        flex-flow: column;
-        gap: var(--space-sm);
-    }
-    
-    @container component (min-width: 500px) {
-        .stack-responsive {
-            flex-flow: row;
-            gap: var(--space-md);
-        }
-    }
-    
-    @container component (min-width: 700px) {
-        .stack-responsive {
-            gap: var(--space-lg);
-        }
-    }
-
-    /* ==============================
-     * 6. CONTAINER-QUERY FLEX-LAYOUTS
-     *============================== */
-    
-    /* Container für Container-Queries */
-    .flex-container {
-        container-type: inline-size;
-        container-name: flex-layout;
-    }
-    
-    /* Spalten-basiertes Layout mit Container-Queries */
-    .flex-cq-cols {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-4);
-    }
-    
-    @container flex-layout (min-width: 30rem) {
-        .flex-cq-cols {
-            flex-direction: row;
-        }
-        
-        .flex-cq-cols > * {
-            flex: 1;
-        }
-    }
-    
-    /* Auto-Layout mit Container-Queries */
-    .flex-cq-auto {
-        display: flex;
-        flex-wrap: wrap;
-        gap: var(--space-4);
-    }
-    
-    .flex-cq-auto > * {
-        flex-basis: 100%;
-    }
-    
-    @container flex-layout (min-width: 30rem) {
-        .flex-cq-auto > * {
-            flex-basis: calc(50% - var(--space-4) / 2);
-        }
-    }
-    
-    @container flex-layout (min-width: 50rem) {
-        .flex-cq-auto > * {
-            flex-basis: calc(33.333% - var(--space-4) * 2 / 3);
-        }
-    }
-    
-    @container flex-layout (min-width: 65rem) {
-        .flex-cq-auto > * {
-            flex-basis: calc(25% - var(--space-4) * 3 / 4);
-        }
-    }
-    
-    /* Container-Query Bruchteile */
-    @container flex-layout (min-width: 30rem) {
-        .cq-sm\:w-1\/2 { width: 50%; }
-        .cq-sm\:w-1\/3 { width: 33.3333%; }
-        .cq-sm\:w-2\/3 { width: 66.6667%; }
-    }
-    
-    @container flex-layout (min-width: 50rem) {
-        .cq-md\:w-1\/2 { width: 50%; }
-        .cq-md\:w-1\/3 { width: 33.3333%; }
-        .cq-md\:w-2\/3 { width: 66.6667%; }
-        .cq-md\:w-1\/4 { width: 25%; }
-        .cq-md\:w-3\/4 { width: 75%; }
-    }
-    
-    /* Layout-Flex mit Container Queries */
-    .layout-flex {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-4);
-    
-        @container layout (min-width: 30rem) {
-            flex-flow: row wrap;
-        }
-    
-        @container layout (min-width: 48rem) {
-            flex-wrap: nowrap;
-            gap: var(--space-6);
-        }
-    }
-    
-    /* Stack mit wachsendem vertikalen Abstand */
-    .layout-stack {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-4);
-    
-        @container layout (min-width: 30rem) {
-            gap: var(--space-6);
-        }
-    
-        @container layout (min-width: 48rem) {
-            gap: var(--space-8);
-        }
-    
-        @container layout (min-width: 62rem) {
-            gap: var(--space-10);
-        }
-    }
-
-    /* ===================================
-     * 7. RESPONSIVE BREAKPOINT UTILITIES
-     *=================================== */
-    
-    /* 
-     * Responsive Breakpoint Utilities 
-     * 
-     * Responsive Varianten aller Komponenten.
-     * Präfixe: sm:, md:, lg:, xl:
-     * Beispiel: <div class="grid-cols-1 md:grid-cols-2 lg:grid-cols-3">...</div>
-     */
-    @container root (min-width >= 640px) {
-        /* Small (sm) Breakpoint */
-        .sm\:container { max-width: var(--container-sm); }
-
-        .sm\:grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
-        .sm\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-        .sm\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-        .sm\:col-span-1 { grid-column: span 1; }
-        .sm\:col-span-2 { grid-column: span 2; }
-        .sm\:col-span-3 { grid-column: span 3; }
-        .sm\:col-span-full { grid-column: 1 / -1; }
-
-        .sm\:grid-rows-1 { grid-template-rows: repeat(1, minmax(0, 1fr)); }
-        .sm\:grid-rows-2 { grid-template-rows: repeat(2, minmax(0, 1fr)); }
-        .sm\:grid-rows-3 { grid-template-rows: repeat(3, minmax(0, 1fr)); }
-        .sm\:grid-rows-4 { grid-template-rows: repeat(4, minmax(0, 1fr)); }
-        .sm\:grid-rows-5 { grid-template-rows: repeat(5, minmax(0, 1fr)); }
-        .sm\:grid-rows-6 { grid-template-rows: repeat(6, minmax(0, 1fr)); }
-
-        .sm\:gap-0 { gap: var(--space-0); }
-        .sm\:gap-1 { gap: var(--space-1); }
-        .sm\:gap-2 { gap: var(--space-2); }
-        .sm\:gap-3 { gap: var(--space-3); }
-        .sm\:gap-4 { gap: var(--space-4); }
-        .sm\:gap-5 { gap: var(--space-5); }
-        .sm\:gap-6 { gap: var(--space-6); }
-        .sm\:gap-8 { gap: var(--space-8); }
-        .sm\:gap-10 { gap: var(--space-10); }
-        .sm\:gap-12 { gap: var(--space-12); }
-        .sm\:gap-16 { gap: var(--space-16); }
-
-        .sm\:justify-items-start { justify-items: start; }
-        .sm\:justify-items-end { justify-items: end; }
-        .sm\:justify-items-center { justify-items: center; }
-        .sm\:justify-items-stretch { justify-items: stretch; }
-        .sm\:items-start { align-items: start; }
-        .sm\:items-end { align-items: end; }
-        .sm\:items-center { align-items: center; }
-        .sm\:items-stretch { align-items: stretch; }
-    }
-
-    @container root (min-width >= 768px) {
-        /* Medium (md) Breakpoint */
-        .md\:container { max-width: var(--container-md); }
-
-        .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-        .md\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-        .md\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-        .md\:grid-cols-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
-        .md\:grid-cols-12 { grid-template-columns: repeat(12, minmax(0, 1fr)); }
-        .md\:col-span-1 { grid-column: span 1; }
-        .md\:col-span-2 { grid-column: span 2; }
-        .md\:col-span-3 { grid-column: span 3; }
-        .md\:col-span-4 { grid-column: span 4; }
-        .md\:col-span-6 { grid-column: span 6; }
-        .md\:col-span-8 { grid-column: span 8; }
-        .md\:col-span-9 { grid-column: span 9; }
-        .md\:col-span-12 { grid-column: span 12; }
-        .md\:col-span-full { grid-column: 1 / -1; }
-
-        .md\:grid-rows-1 { grid-template-rows: repeat(1, minmax(0, 1fr)); }
-        .md\:grid-rows-2 { grid-template-rows: repeat(2, minmax(0, 1fr)); }
-        .md\:grid-rows-3 { grid-template-rows: repeat(3, minmax(0, 1fr)); }
-        .md\:grid-rows-4 { grid-template-rows: repeat(4, minmax(0, 1fr)); }
-        .md\:grid-rows-5 { grid-template-rows: repeat(5, minmax(0, 1fr)); }
-        .md\:grid-rows-6 { grid-template-rows: repeat(6, minmax(0, 1fr)); }
-
-        .md\:gap-0 { gap: var(--space-0); }
-        .md\:gap-1 { gap: var(--space-1); }
-        .md\:gap-2 { gap: var(--space-2); }
-        .md\:gap-3 { gap: var(--space-3); }
-        .md\:gap-4 { gap: var(--space-4); }
-        .md\:gap-5 { gap: var(--space-5); }
-        .md\:gap-6 { gap: var(--space-6); }
-        .md\:gap-8 { gap: var(--space-8); }
-        .md\:gap-10 { gap: var(--space-10); }
-        .md\:gap-12 { gap: var(--space-12); }
-        .md\:gap-16 { gap: var(--space-16); }
-
-        .md\:justify-items-start { justify-items: start; }
-        .md\:justify-items-end { justify-items: end; }
-        .md\:justify-items-center { justify-items: center; }
-        .md\:justify-items-stretch { justify-items: stretch; }
-        .md\:items-start { align-items: start; }
-        .md\:items-end { align-items: end; }
-        .md\:items-center { align-items: center; }
-        .md\:items-stretch { align-items: stretch; }
-    }
-
-    @container root (min-width >= 1024px) {
-        /* Large (lg) Breakpoint */
-        .lg\:container { max-width: var(--container-lg); }
-
-        .lg\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-        .lg\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-        .lg\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-        .lg\:grid-cols-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
-        .lg\:grid-cols-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
-        .lg\:grid-cols-12 { grid-template-columns: repeat(12, minmax(0, 1fr)); }
-        .lg\:col-span-1 { grid-column: span 1; }
-        .lg\:col-span-2 { grid-column: span 2; }
-        .lg\:col-span-3 { grid-column: span 3; }
-        .lg\:col-span-4 { grid-column: span 4; }
-        .lg\:col-span-5 { grid-column: span 5; }
-        .lg\:col-span-6 { grid-column: span 6; }
-        .lg\:col-span-8 { grid-column: span 8; }
-        .lg\:col-span-9 { grid-column: span 9; }
-        .lg\:col-span-12 { grid-column: span 12; }
-        .lg\:col-span-full { grid-column: 1 / -1; }
-
-        .lg\:gap-0 { gap: var(--space-0); }
-        .lg\:gap-1 { gap: var(--space-1); }
-        .lg\:gap-2 { gap: var(--space-2); }
-        .lg\:gap-3 { gap: var(--space-3); }
-        .lg\:gap-4 { gap: var(--space-4); }
-        .lg\:gap-5 { gap: var(--space-5); }
-        .lg\:gap-6 { gap: var(--space-6); }
-        .lg\:gap-8 { gap: var(--space-8); }
-        .lg\:gap-10 { gap: var(--space-10); }
-        .lg\:gap-12 { gap: var(--space-12); }
-        .lg\:gap-16 { gap: var(--space-16); }
-
-        .lg\:justify-items-start { justify-items: start; }
-        .lg\:justify-items-end { justify-items: end; }
-        .lg\:justify-items-center { justify-items: center; }
-        .lg\:justify-items-stretch { justify-items: stretch; }
-        .lg\:items-start { align-items: start; }
-        .lg\:items-end { align-items: end; }
-        .lg\:items-center { align-items: center; }
-        .lg\:items-stretch { align-items: stretch; }
-    }
-
-    /* Responsive Breitenklassen mit Breakpoints */
-    @media (width >= 640px) {
-        .sm\:w-1\/2 { width: 50%; }
-        .sm\:w-1\/3 { width: 33.3333%; }
-        .sm\:w-2\/3 { width: 66.6667%; }
-        .sm\:w-1\/4 { width: 25%; }
-        .sm\:w-2\/4 { width: 50%; }
-        .sm\:w-3\/4 { width: 75%; }
-        .sm\:w-1\/5 { width: 20%; }
-        .sm\:w-2\/5 { width: 40%; }
-        .sm\:w-3\/5 { width: 60%; }
-        .sm\:w-4\/5 { width: 80%; }
-        .sm\:w-1\/6 { width: 16.6667%; }
-        .sm\:w-2\/6 { width: 33.3333%; }
-        .sm\:w-3\/6 { width: 50%; }
-        .sm\:w-4\/6 { width: 66.6667%; }
-        .sm\:w-5\/6 { width: 83.3333%; }
-        
-        .sm\:flex-basis-1\/2 { flex-basis: 50%; }
-        .sm\:flex-basis-1\/3 { flex-basis: 33.3333%; }
-        .sm\:flex-basis-2\/3 { flex-basis: 66.6667%; }
-        .sm\:flex-basis-1\/4 { flex-basis: 25%; }
-        .sm\:flex-basis-3\/4 { flex-basis: 75%; }
-    }
-
-    @media (width >= 768px) {
-        .md\:w-1\/2 { width: 50%; }
-        .md\:w-1\/3 { width: 33.3333%; }
-        .md\:w-2\/3 { width: 66.6667%; }
-        .md\:w-1\/4 { width: 25%; }
-        .md\:w-2\/4 { width: 50%; }
-        .md\:w-3\/4 { width: 75%; }
-        .md\:w-1\/5 { width: 20%; }
-        .md\:w-2\/5 { width: 40%; }
-        .md\:w-3\/5 { width: 60%; }
-        .md\:w-4\/5 { width: 80%; }
-        .md\:w-1\/6 { width: 16.6667%; }
-        .md\:w-2\/6 { width: 33.3333%; }
-        .md\:w-3\/6 { width: 50%; }
-        .md\:w-4\/6 { width: 66.6667%; }
-        .md\:w-5\/6 { width: 83.3333%; }
-        
-        .md\:flex-basis-1\/2 { flex-basis: 50%; }
-        .md\:flex-basis-1\/3 { flex-basis: 33.3333%; }
-        .md\:flex-basis-2\/3 { flex-basis: 66.6667%; }
-        .md\:flex-basis-1\/4 { flex-basis: 25%; }
-        .md\:flex-basis-3\/4 { flex-basis: 75%; }
-    }
-
-    @media (width >= 1024px) {
-        .lg\:w-1\/2 { width: 50%; }
-        .lg\:w-1\/3 { width: 33.3333%; }
-        .lg\:w-2\/3 { width: 66.6667%; }
-        .lg\:w-1\/4 { width: 25%; }
-        .lg\:w-2\/4 { width: 50%; }
-        .lg\:w-3\/4 { width: 75%; }
-        .lg\:w-1\/5 { width: 20%; }
-        .lg\:w-2\/5 { width: 40%; }
-        .lg\:w-3\/5 { width: 60%; }
-        .lg\:w-4\/5 { width: 80%; }
-        .lg\:w-1\/6 { width: 16.6667%; }
-        .lg\:w-2\/6 { width: 33.3333%; }
-        .lg\:w-3\/6 { width: 50%; }
-        .lg\:w-4\/6 { width: 66.6667%; }
-        .lg\:w-5\/6 { width: 83.3333%; }
-        
-        .lg\:flex-basis-1\/2 { flex-basis: 50%; }
-        .lg\:flex-basis-1\/3 { flex-basis: 33.3333%; }
-        .lg\:flex-basis-2\/3 { flex-basis: 66.6667%; }
-        .lg\:flex-basis-1\/4 { flex-basis: 25%; }
-        .lg\:flex-basis-3\/4 { flex-basis: 75%; }
-    }
-
-    /* Responsive Layout-Anpassungen */
-    @container root (width <= 768px) {
-        .layout-grid {
-            grid-template-columns: 1fr;
-        }
-        
-        .layout-split {
-            flex-direction: column;
-        }
-        
-        .layout-panel {
-            width: 100%;
-            max-width: 100%;
-        }
-        
-        .sidebar {
-            width: 100%;
-            position: static;
-        }
-        
-        .content-main {
-            margin-left: 0;
-            width: 100%;
-        }
-        
-        .flex-responsive {
-            flex-direction: column;
-        }
-        
-        .flex-responsive > * {
-            width: 100%;
-            margin-bottom: 1rem;
-        }
-    }
-
-    /* ============================
-     * 8. SUBGRID-LAYOUTS
-     *============================ */
-    
-    /* 
-     * Subgrid Layouts 
-     * 
-     * Fortgeschrittene Layouttechniken mit CSS Subgrid für komplexe,
-     * responsive Layoutstrukturen, die Konsistenz über verschachtelte Komponenten hinweg bieten.
-     */
-
-    /* Basis-Subgrid-Layouts */
-    .grid-container {
-        display: grid;
-        grid-template-columns: repeat(12, 1fr);
-        gap: var(--spacing-md);
-        width: 100%;
-    }
-
-    .card-grid {
-        display: grid;
-        grid-column: span 12;
-        grid-template-columns: subgrid;
-        gap: var(--spacing-md);
-    }
-
-    .form-grid {
-        display: grid;
-        grid-column: span 12;
-        grid-template-columns: subgrid;
-        grid-template-rows: auto;
-        gap: var(--spacing-md);
-    }
-
-    .responsive-layout {
-        display: grid;
-        grid-template-columns: repeat(12, 1fr);
-        grid-template-rows: auto auto auto;
-        gap: var(--spacing-md);
-    }
-
-    /* Header mit Subgrid */
-    .header {
-        grid-column: span 12;
-        display: grid;
-        grid-template-columns: subgrid;
-        grid-template-rows: auto;
-    }
-
-    .header-logo {
-        grid-column: 1 / 3;
-    }
-
-    .header-nav {
-        grid-column: 3 / 9;
-    }
-
-    .header-actions {
-        grid-column: 9 / 13;
-    }
-
-    /* Hauptbereich mit Subgrid */
-    .main-content {
-        grid-column: span 12;
-        display: grid;
-        grid-template-columns: subgrid;
-        grid-template-rows: auto;
-    }
-
-    .sidebar {
-        grid-column: span 3;
-    }
-
-    .content {
-        grid-column: span 9;
-        display: grid;
-        grid-template-columns: subgrid;
-        grid-template-rows: auto;
-        gap: var(--spacing-sm);
-    }
-
-    /* Fußbereich mit Subgrid */
-    .footer {
-        grid-column: span 12;
-        display: grid;
-        grid-template-columns: subgrid;
-        grid-template-rows: auto;
-    }
-
-    .footer-info,
-    .footer-nav,
-    .footer-social {
-        grid-column: span 4;
-    }
-
-    /* Fortgeschrittene Subgrid-Layouts */
-
-    /* Hauptgrid-Layout für die Seite */
-    .page-layout {
-        display: grid;
-        grid-template-columns: 
-            [full-start] 
-            minmax(1rem, 1fr) 
-            [main-start] 
-            minmax(0, 1200px) 
-            [main-end] 
-            minmax(1rem, 1fr) 
-            [full-end];
-        grid-template-rows: auto 1fr auto;
-    }
-
-    .page-header,
-    .page-footer {
-        grid-column: full-start / full-end;
-    }
-
-    .page-content {
-        grid-column: main-start / main-end;
-    }
-
-    /* Produktkarten-Grid mit Subgrid für einheitliche Layouts */
-    .product-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        gap: 1.5rem;
-    }
-
-    .product-card {
-        display: grid;
-        grid-template-rows: auto 1fr auto;
-        border-radius: 0.5rem;
-        box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
-        overflow: hidden;
-    }
-
-    /* Detailseiten-Layout mit Subgrid */
-    .detail-page {
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-        gap: 2rem;
-    }
-
-    .detail-sidebar,
-    .detail-content {
-        display: grid;
-        grid-template-rows: subgrid;
-        grid-row: span 3;
-    }
-
-    /* Formular-Layout mit Subgrid */
-    .form-layout {
-        display: grid;
-        grid-template-columns: max-content 1fr;
-        grid-template-rows: auto;
-        gap: 1rem 1.5rem;
-        align-items: start;
-    }
-
-    .form-section {
-        display: grid;
-        grid-template-columns: subgrid;
-        grid-template-rows: subgrid;
-        grid-column: span 2;
-        grid-row: span 4;
-        padding: 1.5rem;
-        border-radius: 0.5rem;
-        background-color: var(--color-surface-100);
-    }
-
-    .form-section-title {
-        grid-column: span 2;
-        font-size: 1.25rem;
-        margin-block-end: 1rem;
-    }
-
-    /* ============================
-     * 9. MEDIA QUERIES
-     *============================ */
-    
-    /* Responsive Anpassungen für Subgrid-Layouts */
-    @media (width <= 992px) {
-        .product-card {
-            grid-column: span 4;
-        }
-        
-        .sidebar {
-            grid-column: span 4;
-        }
-        
-        .content {
-            grid-column: span 8;
-        }
-    }
-
-    @media (width <= 768px) {
-        .product-card {
-            grid-column: span 6;
-        }
-        
-        .sidebar,
-        .content,
-        .footer-info,
-        .footer-nav,
-        .footer-social {
-            grid-column: span 12;
-        }
-        
-        .detail-page {
-            grid-template-columns: 1fr;
-        }
-    }
-
-    @media (width <= 576px) {
-        .product-card,
-        .card-small {
-            grid-column: span 12;
-        }
-        
-        .header-logo {
-            grid-column: 1 / 6;
-        }
-        
-        .header-nav {
-            grid-column: 6 / 13;
-        }
-        
-        .header-actions {
-            grid-area: 2 / 1 / auto / 13;
-        }
-    }
-}
+    .flex-basis-1-2 { flex-basis: 50%; }
+    .flex-basis-1-3 { flex-basis: 33.3333%; }
+    .flex-basis-2-3 { flex-basis: 66.6667%; }
+    .flex-basis-1-4 { flex-basis: 25%; }
+    .flex-basis-3-4 { flex-basis: 75%; }
+  
+    .mx-auto { margin-inline: auto; }
+    .my-auto { margin-block: auto; }
+  }
   

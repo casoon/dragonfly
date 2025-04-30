@@ -1,125 +1,33 @@
-/**
+/*
  * Wizard Module
- * 
- * Ein vielseitiges Modul für schrittweise Abläufe und Assistenten.
- * 
- * Verwendung:
- * <div class="wizard">
- *   <div class="wizard-header">Titel</div>
- *   <div class="wizard-body">
- *     <div class="wizard-step wizard-step-active">Schritt 1</div>
- *     <div class="wizard-step">Schritt 2</div>
- *     <div class="wizard-step">Schritt 3</div>
- *   </div>
- *   <div class="wizard-footer">Steuerung</div>
- * </div>
- * 
- * Schritt-Status:
- * - .wizard-step-active - Aktueller Schritt
- * - .wizard-step-completed - Abgeschlossener Schritt
- * - .wizard-step-disabled - Deaktivierter Schritt
- * 
- * Farbvarianten:
- * - .wizard-primary, .wizard-secondary
- * - .wizard-success, .wizard-danger, .wizard-warning, .wizard-info
- * - .wizard-light, .wizard-dark, .wizard-white, .wizard-transparent
+ *
+ * Schrittweiser Navigationsablauf.
  */
 
-@layer module-wizard {
+ @layer module-wizard {
   .wizard {
-    background-color: var(--bg-white);
-    border-color: var(--border-gray-200);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
   }
 
-  .wizard-header {
-    background-color: var(--bg-gray-50);
-    border-color: var(--border-gray-200);
-  }
-
-  .wizard-body {
-    background-color: var(--bg-white);
-  }
-
-  .wizard-footer {
-    background-color: var(--bg-gray-50);
-    border-color: var(--border-gray-200);
+  .wizard-steps {
+    display: flex;
+    gap: var(--space-2);
+    justify-content: space-between;
   }
 
   .wizard-step {
-    background-color: var(--bg-transparent);
-    border-color: var(--border-gray-200);
+    flex: 1;
+    text-align: center;
+    padding: var(--space-2);
+    border-bottom: 2px solid var(--color-gray-300);
+    font-size: var(--font-size-sm);
   }
 
-  .wizard-step-active {
-    background-color: var(--bg-primary-100);
-    border-color: var(--border-primary-500);
+  .wizard-step--active {
+    border-color: var(--color-primary);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-primary);
   }
-
-  .wizard-step-completed {
-    background-color: var(--bg-success-100);
-    border-color: var(--border-success-500);
-  }
-
-  .wizard-step-disabled {
-    background-color: var(--bg-gray-100);
-    border-color: var(--border-gray-300);
-  }
-
-  .wizard-progress {
-    background-color: var(--bg-gray-200);
-  }
-
-  .wizard-progress-bar {
-    background-color: var(--bg-primary-500);
-  }
-
-  .wizard-primary {
-    background-color: var(--bg-primary-500);
-    border-color: var(--border-primary-600);
-  }
-
-  .wizard-secondary {
-    background-color: var(--bg-secondary-500);
-    border-color: var(--border-secondary-600);
-  }
-
-  .wizard-success {
-    background-color: var(--bg-success-500);
-    border-color: var(--border-success-600);
-  }
-
-  .wizard-danger {
-    background-color: var(--bg-danger-500);
-    border-color: var(--border-danger-600);
-  }
-
-  .wizard-warning {
-    background-color: var(--bg-warning-500);
-    border-color: var(--border-warning-600);
-  }
-
-  .wizard-info {
-    background-color: var(--bg-info-500);
-    border-color: var(--border-info-600);
-  }
-
-  .wizard-light {
-    background-color: var(--bg-gray-100);
-    border-color: var(--border-gray-200);
-  }
-
-  .wizard-dark {
-    background-color: var(--bg-gray-900);
-    border-color: var(--border-gray-800);
-  }
-
-  .wizard-white {
-    background-color: var(--bg-white);
-    border-color: var(--border-gray-200);
-  }
-
-  .wizard-transparent {
-    background-color: var(--bg-transparent);
-    border-color: var(--border-transparent);
-  }
-} 
+}

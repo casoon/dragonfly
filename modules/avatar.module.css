@@ -1,260 +1,37 @@
-/**
- * Avatar CSS Module
- * 
- * Diese Datei enthält die CSS-Module für Avatare.
- * Die Avatare sind performant optimiert und berücksichtigen reduzierte Bewegung.
- * 
- * Verwendung:
- * 
- * 1. Basis-Avatar:
- * <div className={styles.avatar}>
- *   <img src="..." alt="..." />
- * </div>
- * 
- * 2. Avatar mit Initialen:
- * <div className={styles.avatar}>
- *   <span className={styles.initials}>JD</span>
- * </div>
- * 
- * 3. Avatar mit Badge:
- * <div className={styles.avatar}>
- *   <img src="..." alt="..." />
- *   <span className={styles.badge}></span>
- * </div>
- * 
- * 4. Avatar mit Status:
- * <div className={styles.avatar}>
- *   <img src="..." alt="..." />
- *   <span className={`${styles.status} ${styles.online}`}></span>
- * </div>
- * 
- * Technische Details:
- * - Verwendet CSS-Variablen für Farben und Größen
- * - Optimiert mit will-change und transform
- * - Responsive Anpassungen für mobile Geräte
- * - Reduzierte Bewegung wird berücksichtigt
- * 
- * Performance-Hinweise:
- * - Bilder werden lazy geladen
- * - Animationen sind hardware-beschleunigt
- * - Reduzierte Bewegung wird automatisch berücksichtigt
+/*
+ * Avatar Module
+ *
+ * Kreisrunde Benutzerbilder mit optionalem Status.
  */
 
-@layer module-avatar {
-    /* Avatar Variables */
+ @layer module-avatar {
     .avatar {
-        --avatar-size: var(--avatar-size-md, 3rem);
-        --avatar-border-radius: 50%;
-        --avatar-border-width: 2px;
-        --avatar-border-color: var(--color-border-light, #e2e8f0);
-        --avatar-font-size: calc(var(--avatar-size) * 0.4);
-        --avatar-bg: var(--color-gray-200, #e2e8f0);
-        --avatar-text: var(--color-gray-700, #334155);
-        --avatar-transition: transform 0.2s, box-shadow 0.2s;
+      display: inline-block;
+      width: 3rem;
+      height: 3rem;
+      border-radius: 9999px;
+      overflow: hidden;
+      background-color: var(--color-gray-200);
     }
-
-    /* Base Avatar */
-    .avatar {
-        position: relative;
-        width: var(--avatar-size);
-        height: var(--avatar-size);
-        border-radius: var(--avatar-border-radius);
-        overflow: hidden;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        background-color: var(--avatar-bg);
-        color: var(--avatar-text);
-        font-weight: var(--font-weight-medium, 500);
-        font-size: var(--avatar-font-size);
-        line-height: 1;
-        transition: var(--avatar-transition);
-        container-type: inline-size;
-    }
-
-    /* Image */
+  
     .avatar img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: var(--avatar-border-radius);
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
-
-    /* Initials */
-    .initials {
-        font-size: calc(var(--avatar-size) * 0.4);
-        font-weight: 600;
-        color: var(--avatar-text);
-        text-transform: uppercase;
+  
+    .avatar--sm { width: 2rem; height: 2rem; }
+    .avatar--lg { width: 4rem; height: 4rem; }
+  
+    .avatar-status {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 0.75rem;
+      height: 0.75rem;
+      border-radius: 9999px;
+      border: 2px solid white;
+      background-color: var(--color-success);
     }
-
-    /* Badge */
-    .badge {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        width: calc(var(--avatar-size) * 0.3);
-        height: calc(var(--avatar-size) * 0.3);
-        background-color: var(--color-primary);
-        border: var(--avatar-border-width) solid var(--avatar-border-color);
-        border-radius: 50%;
-        z-index: 1;
-    }
-
-    /* Status */
-    .status {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        width: calc(var(--avatar-size) * 0.3);
-        height: calc(var(--avatar-size) * 0.3);
-        border: var(--avatar-border-width) solid var(--avatar-border-color);
-        border-radius: 50%;
-        z-index: 1;
-    }
-
-    .status.online {
-        background-color: var(--color-success);
-    }
-
-    .status.offline {
-        background-color: var(--color-error);
-    }
-
-    .status.away {
-        background-color: var(--color-warning);
-    }
-
-    .status.busy {
-        background-color: var(--color-error);
-    }
-
-    /* Size Variants */
-    .small {
-        --avatar-size: 2rem;
-    }
-
-    .medium {
-        --avatar-size: 2.5rem;
-    }
-
-    .large {
-        --avatar-size: 3rem;
-    }
-
-    .xlarge {
-        --avatar-size: 4rem;
-    }
-
-    /* Shape Variants */
-    .square {
-        --avatar-border-radius: 0.25rem;
-    }
-
-    .rounded {
-        --avatar-border-radius: 0.5rem;
-    }
-
-    /* Color Variants */
-    .primary {
-        --avatar-background: var(--color-primary);
-        --avatar-text: white;
-    }
-
-    .secondary {
-        --avatar-background: var(--color-secondary);
-        --avatar-text: white;
-    }
-
-    .success {
-        --avatar-background: var(--color-success);
-        --avatar-text: white;
-    }
-
-    .warning {
-        --avatar-background: var(--color-warning);
-        --avatar-text: white;
-    }
-
-    .error {
-        --avatar-background: var(--color-error);
-        --avatar-text: white;
-    }
-
-    /* Group */
-    .group {
-        display: flex;
-        align-items: center;
-    }
-
-    .group .avatar {
-        margin-left: calc(var(--avatar-size) * -0.25);
-    }
-
-    .group .avatar:first-child {
-        margin-left: 0;
-    }
-
-    /* Hover Effects */
-    .avatar:hover {
-        transform: scale(1.05);
-    }
-
-    .avatar:hover .overlay {
-        opacity: 1;
-    }
-
-    /* Overlay */
-    .overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgb(0 0 0 / 50%);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        opacity: 0;
-        transition: var(--avatar-transition);
-    }
-
-    /* Focus States */
-    .avatar:focus {
-        outline: none;
-    }
-
-    .avatar:focus-visible {
-        box-shadow: 0 0 0 2px var(--color-primary-500), 0 0 0 4px var(--color-background);
-    }
-
-    /* Container Queries ersetzen Media Queries */
-    @container (width < 640px) {
-        .small {
-            --avatar-size: 1.75rem;
-        }
-        
-        .medium {
-            --avatar-size: 2.25rem;
-        }
-        
-        .large {
-            --avatar-size: 2.75rem;
-        }
-        
-        .xlarge {
-            --avatar-size: 3.5rem;
-        }
-    }
-
-    @container (prefers-reduced-motion: reduce) {
-        .avatar,
-        .overlay {
-            transition: none;
-        }
-        
-        .avatar:hover {
-            transform: none;
-        }
-    }
-} 
+  }

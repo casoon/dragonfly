@@ -1,145 +1,35 @@
-/**
- * Radio CSS Module
- * 
- * Diese Datei enthält die CSS-Module für Radio-Buttons.
+/*
+ * Radio Module
+ *
+ * Gestylte Radio-Buttons mit Fokus- und Aktivzustand.
  */
 
-@layer module-radio {
-    /* Radio Variables */
+ @layer module-radio {
     .radio {
-        --radio-size: 1.25rem;
-        --radio-border-color: var(--color-gray-300);
-        --radio-background: var(--color-white);
-        --radio-checked-color: var(--color-primary-500);
-        --radio-hover-color: var(--color-primary-100);
-        --radio-dot-top: 50%;
-        --radio-dot-left: 50%;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      cursor: pointer;
     }
-
-    /* Base Radio */
-    .radio {
-        position: relative;
-        display: inline-flex;
-        align-items: center;
-        cursor: pointer;
-        user-select: none;
+  
+    .radio input[type="radio"] {
+      appearance: none;
+      width: 1rem;
+      height: 1rem;
+      border-radius: 9999px;
+      border: 2px solid var(--color-gray-400);
+      background-color: var(--color-white);
+      transition: all var(--transition-fast);
     }
-
-    .radio input {
-        position: absolute;
-        opacity: 0;
-        cursor: pointer;
-        height: 0;
-        width: 0;
+  
+    .radio input[type="radio"]:checked {
+      background-color: var(--color-primary);
+      border-color: var(--color-primary);
     }
-
-    .checkmark {
-        position: relative;
-        height: var(--radio-size);
-        width: var(--radio-size);
-        background-color: var(--radio-background);
-        border: 2px solid var(--radio-border-color);
-        border-radius: 50%;
-        transition: all 0.2s;
+  
+    .radio input[type="radio"]:focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 2px;
     }
-
-    .radio:hover input ~ .checkmark {
-        border-color: var(--radio-hover-color);
-    }
-
-    .radio input:checked ~ .checkmark {
-        border-color: var(--radio-checked-color);
-        background-color: var(--radio-background);
-    }
-
-    .checkmark::after {
-        content: "";
-        position: absolute;
-        display: none;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: calc(var(--radio-size) * 0.5);
-        height: calc(var(--radio-size) * 0.5);
-        border-radius: 50%;
-        background-color: var(--radio-checked-color);
-    }
-
-    .radio input:checked ~ .checkmark::after {
-        display: block;
-    }
-
-    /* Label */
-    .label {
-        margin-left: 0.5rem;
-        color: var(--color-gray-700);
-    }
-
-    /* Disabled State */
-    .disabled {
-        opacity: 0.5;
-        cursor: not-allowed;
-    }
-
-    /* Focus State */
-    .radio input:focus-visible ~ .checkmark {
-        outline: 2px solid var(--color-primary-200);
-        outline-offset: 2px;
-    }
-
-    /* Size Variants */
-    .small {
-        --radio-size: 1rem;
-    }
-
-    .large {
-        --radio-size: 1.5rem;
-    }
-
-    /* Color Variants */
-    .primary {
-        --radio-checked-color: var(--color-primary-500);
-        --radio-hover-color: var(--color-primary-100);
-    }
-
-    .secondary {
-        --radio-checked-color: var(--color-secondary-500);
-        --radio-hover-color: var(--color-secondary-100);
-    }
-
-    /* Reduced Motion */
-    @media (prefers-reduced-motion: reduce) {
-        .checkmark {
-            transition: none;
-        }
-    }
-}
-
-/* Integrierte has-Selektoren für Radio-Komponenten */
-@layer has-selectors {
-  /* Radio-Wrapper Styling */
-  .radio-wrapper:has(input:checked) {
-    background-color: var(--color-primary-50);
   }
-
-  /* Radio-Button-Gruppen */
-  .radio-option:has(input:checked) {
-    background-color: var(--color-primary-100);
-  }
-
-  /* Option-Card mit Radio */
-  .option-card:has(input[type="radio"]:checked) {
-    background-color: var(--color-primary-50);
-    border-color: var(--color-primary-500);
-  }
-
-  /* Zahlungsauswahl mit Radio */
-  .payment-method:has(input[value="credit-card"]:checked) .card-details {
-    display: block;
-  }
-
-  /* Versandoptionen mit Radio */
-  .shipping-options:has(input[value="express"]:checked) .express-fields {
-    display: block;
-  }
-} 
+  

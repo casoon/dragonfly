@@ -1,133 +1,32 @@
-/**
+/*
  * Alert Module
- * 
- * Ein vielseitiges Alert-Modul mit verschiedenen Varianten.
- * Unterstützt verschiedene Status-Typen und kann Icons und Aktionen enthalten.
- * 
- * Verwendung:
- * <div class="alert">Standard Alert</div>
- * <div class="alert alert--info">Info Alert</div>
- * 
- * Varianten:
- * - .alert--info, .alert--success, .alert--warning, .alert--error
- * - .alert--dismissible
+ *
+ * Visuelle Hinweise für Erfolg, Warnung, Fehler oder Infos.
  */
 
-@layer module-alert {
-  /* Alert Basis */
+ @layer module-alert {
   .alert {
-    --alert-padding-x: var(--space-4);
-    --alert-padding-y: var(--space-3);
-    --alert-margin-bottom: var(--space-4);
-    --alert-border-radius: var(--border-radius-md);
-    --alert-border-width: 1px;
-    --alert-font-size: var(--font-size-sm);
-    --alert-color: var(--color-gray-700);
-    --alert-bg: var(--color-gray-100);
-    --alert-border-color: var(--color-gray-200);
-    --alert-icon-size: 1.25rem;
-    --alert-icon-margin: var(--space-3);
-    
-    position: relative;
-    padding: var(--alert-padding-y) var(--alert-padding-x);
-    margin-bottom: var(--alert-margin-bottom);
-    border: var(--alert-border-width) solid var(--alert-border-color);
-    border-radius: var(--alert-border-radius);
-    background-color: var(--alert-bg);
-    color: var(--alert-color);
+    display: flex;
+    align-items: start;
+    gap: var(--space-3);
+    padding: var(--space-4);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-sm);
+    background-color: var(--color-gray-100);
   }
 
-  /* Alert mit Icon */
+  .alert--info    { background-color: var(--color-blue-100); color: var(--color-blue-800); }
+  .alert--success { background-color: var(--color-green-100); color: var(--color-green-800); }
+  .alert--warning { background-color: var(--color-yellow-100); color: var(--color-yellow-800); }
+  .alert--error   { background-color: var(--color-red-100); color: var(--color-red-800); }
+
   .alert-icon {
-    display: inline-flex;
-    align-items: center;
-    margin-right: var(--alert-icon-margin);
-    vertical-align: middle;
-  }
-
-  .alert-icon svg,
-  .alert-icon i {
-    width: var(--alert-icon-size);
-    height: var(--alert-icon-size);
-  }
-
-  /* Alert Varianten */
-  .alert--info {
-    --alert-bg: var(--color-blue-50);
-    --alert-color: var(--color-blue-700);
-    --alert-border-color: var(--color-blue-200);
-  }
-
-  .alert--success {
-    --alert-bg: var(--color-green-50);
-    --alert-color: var(--color-green-700);
-    --alert-border-color: var(--color-green-200);
-  }
-
-  .alert--warning {
-    --alert-bg: var(--color-yellow-50);
-    --alert-color: var(--color-yellow-700);
-    --alert-border-color: var(--color-yellow-200);
-  }
-
-  .alert--error {
-    --alert-bg: var(--color-red-50);
-    --alert-color: var(--color-red-700);
-    --alert-border-color: var(--color-red-200);
-  }
-
-  /* Dismissible Alert */
-  .alert--dismissible {
-    padding-right: calc(var(--alert-padding-x) * 2 + 1rem);
-  }
-
-  .alert-dismiss {
-    position: absolute;
-    top: var(--alert-padding-y);
-    right: var(--alert-padding-x);
-    padding: 0.25rem;
-    background: transparent;
-    border: 0;
-    appearance: none;
-    color: inherit;
+    flex-shrink: 0;
     font-size: 1.25rem;
     line-height: 1;
-    cursor: pointer;
-    opacity: 0.5;
-    transition: opacity var(--transition-fast);
   }
 
-  .alert-dismiss:hover {
-    opacity: 1;
-  }
-
-  /* Alert Titel */
-  .alert-title {
-    margin-top: 0;
-    margin-bottom: var(--space-2);
-    font-weight: var(--font-weight-semibold);
-    font-size: var(--font-size-base);
-  }
-
-  /* Alert Inhalt */
   .alert-content {
-    margin: 0;
+    flex: 1;
   }
 }
-
-/* Integrierte has-Selektoren für Alert-Komponenten */
-@layer module-alert {
-  /* Alert-Komponenten mit :has() */
-  .alert:has(button.close) {
-    padding-inline-end: 2.5rem;
-    position: relative;
-  }
-
-  /* Error-Status mit :has() */
-  [data-state="error"]:has(> .message) {
-    padding-block: 0.75rem;
-    padding-inline: 1rem;
-    border-radius: 0.25rem;
-    background-color: var(--color-error-50);
-  }
-} 

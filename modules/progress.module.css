@@ -1,210 +1,22 @@
-/**
- * Progress CSS Module
- * 
- * Diese Datei enthält die CSS-Module für Progress-Bars.
- * Die Progress-Bars sind performant optimiert und berücksichtigen reduzierte Bewegung.
- * 
- * Verwendung:
- * 
- * 1. Basis-Progress:
- * <div className={styles.progress}>
- *   <div className={styles.bar} style={{ width: '50%' }}></div>
- * </div>
- * 
- * 2. Progress mit Varianten:
- * <div className={`${styles.progress} ${styles.primary}`}>...</div>
- * <div className={`${styles.progress} ${styles.secondary}`}>...</div>
- * 
- * 3. Progress mit Größen:
- * <div className={`${styles.progress} ${styles.small}`}>...</div>
- * <div className={`${styles.progress} ${styles.large}`}>...</div>
- * 
- * Technische Details:
- * - Verwendet CSS-Variablen für Farben und Größen
- * - Optimiert mit will-change und transform
- * - Responsive Anpassungen für mobile Geräte
- * - Reduzierte Bewegung wird berücksichtigt
- * 
- * Performance-Hinweise:
- * - Animationen sind hardware-beschleunigt
- * - Reduzierte Bewegung wird automatisch berücksichtigt
+/*
+ * Progress Module
+ *
+ * Fortschrittsanzeige als Balken.
  */
 
-@layer module-progress {
-    /* Progress Variables */
+ @layer module-progress {
     .progress {
-        --progress-height: 0.5rem;
-        --progress-border-radius: 9999px;
-        --progress-background: var(--color-gray-200);
-        --progress-bar-background: var(--color-primary);
-        --progress-transition: all var(--transition-normal);
+      background-color: var(--color-gray-200);
+      border-radius: var(--radius-full);
+      overflow: hidden;
+      height: 1rem;
+      width: 100%;
     }
-
-    /* Base Progress */
-    .progress {
-        position: relative;
-        width: 100%;
-        height: var(--progress-height);
-        background-color: var(--progress-background);
-        border-radius: var(--progress-border-radius);
-        overflow: hidden;
-    }
-
-    /* Bar */
-    .bar {
-        position: absolute;
-        top: var(--progress-bar-top, 0);
-        left: var(--progress-bar-left, 0);
-        height: 100%;
-        background-color: var(--progress-bar-background);
-        border-radius: var(--progress-border-radius);
-        transition: var(--progress-transition);
-    }
-
-    /* Size Variants */
-    .small {
-        --progress-height: 0.25rem;
-    }
-
-    .medium {
-        --progress-height: 0.5rem;
-    }
-
-    .large {
-        --progress-height: 1rem;
-    }
-
-    /* Color Variants */
-    .primary {
-        --progress-bar-background: var(--color-primary);
-    }
-
-    .secondary {
-        --progress-bar-background: var(--color-secondary);
-    }
-
-    .success {
-        --progress-bar-background: var(--color-success);
-    }
-
-    .warning {
-        --progress-bar-background: var(--color-warning);
-    }
-
-    .error {
-        --progress-bar-background: var(--color-error);
-    }
-
-    /* Striped */
-    .striped .bar {
-        background-image: linear-gradient(
-            45deg,
-            rgb(255 255 255 / 15%) 25%,
-            transparent 25%,
-            transparent 50%,
-            rgb(255 255 255 / 15%) 50%,
-            rgb(255 255 255 / 15%) 75%,
-            transparent 75%,
-            transparent
-        );
-        background-size: var(--progress-bar-background-size);
-    }
-
-    /* Animated */
-    .animated .bar {
-        animation: progress-stripes 1s linear infinite;
-    }
-
-    @keyframes progress-stripes {
-        from {
-            background-position: var(--progress-bar-background-position-start) 0;
-        }
-
-        to {
-            background-position: var(--progress-bar-background-position, 0) 0;
-        }
-    }
-
-    /* Label */
-    .label {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 0.5rem;
-        gap: var(--progress-bar-gap, 0.25rem);
-    }
-
-    .labelText {
-        font-size: 0.875rem;
-        color: var(--color-text);
-    }
-
-    .labelValue {
-        font-size: 0.875rem;
-        color: var(--color-text-secondary);
-    }
-
-    /* Reduced Motion */
-    @media (prefers-reduced-motion: reduce) {
-        .bar {
-            transition: none;
-        }
-
-        .animated .bar {
-            animation: none;
-        }
-    }
-
-    /* Responsive */
-    @media (width <= 768px) {
-        .progress {
-            margin: var(--space-2) 0;
-        }
-        
-        .progress-with-label {
-            flex-direction: column;
-            align-items: flex-start;
-        }
-        
-        .progress-with-label .progress {
-            width: 100%;
-        }
-    }
-
+  
     .progress-bar {
-        background-position: var(--position-0);
+      height: 100%;
+      background-color: var(--color-primary);
+      transition: width var(--transition-normal);
     }
-
-    .progress-striped {
-        background-position: var(--position-0);
-    }
-
-    .progress-group {
-        gap: var(--spacing-1);
-    }
-}
-
-/* Integrierte has-Selektoren für Progress-Komponenten */
-@layer has-selectors {
-  /* Fortschrittsbars mit :has() */
-  .progress:has(.progress-bar[data-value="100"]) {
-    border: 1px solid var(--color-success-500);
   }
-
-  .progress:has(.progress-bar[data-value^="0"]) {
-    opacity: 0.5;
-  }
-
-  /* Fortschrittsanzeige mit :has() */
-  .progress-container:has(.progress-bar[data-progress="100%"]) {
-    border-color: var(--color-success-500);
-  }
-
-  /* Fortschrittsanzeigen */
-  .progress-steps:has(.step-1.active) .step-indicator-1 {
-    background-color: var(--color-primary-500);
-  }
-
-  .progress-steps:has(.step-2.active) .step-indicator-2 {
-    background-color: var(--color-primary-500);
-  }
-} 
+  

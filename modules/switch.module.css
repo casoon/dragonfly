@@ -1,172 +1,39 @@
-/**
- * Switch CSS Module
- * 
- * Diese Datei enthält die CSS-Module für Schalter-Elemente.
- * Die Switches sind performant optimiert und berücksichtigen reduzierte Bewegung.
- * 
- * Verwendung:
- * 
- * 1. Basis-Switch:
- * <label className={styles.switch}>
- *   <input type="checkbox" />
- *   <span className={styles.slider}></span>
- * </label>
- * 
- * 2. Switch mit Varianten:
- * <label className={`${styles.switch} ${styles.primary}`}>
- *   <input type="checkbox" />
- *   <span className={styles.slider}></span>
- * </label>
- * 
- * 3. Switch mit Größen:
- * <label className={`${styles.switch} ${styles.small}`}>
- *   <input type="checkbox" />
- *   <span className={styles.slider}></span>
- * </label>
- * 
- * Technische Details:
- * - Verwendet CSS-Variablen für Farben und Größen
- * - Optimiert mit will-change und transform
- * - Responsive Anpassungen für mobile Geräte
- * - Reduzierte Bewegung wird berücksichtigt
- * 
- * Performance-Hinweise:
- * - Animationen sind hardware-beschleunigt
- * - Reduzierte Bewegung wird automatisch berücksichtigt
+/*
+ * Switch Module
+ *
+ * Toggle-Schalter für Boolean-Werte.
  */
 
-@layer module-switch {
-    /* Switch Variables */
+ @layer module-switch {
     .switch {
-        --switch-width: 3rem;
-        --switch-height: 1.5rem;
-        --switch-padding: 0.125rem;
-        --switch-bg: var(--color-gray-300);
-        --switch-active-bg: var(--color-primary-500);
-        --switch-circle-bg: var(--color-white);
-        --switch-transition: all 0.2s ease;
-        --switch-slider-size: calc(var(--switch-height) - (var(--switch-padding) * 2));
-        --switch-transition-duration: 0.2s;
-        --switch-thumb-position: 0;
-        --switch-thumb-color: var(--color-white);
-        --switch-thumb-left: var(--switch-padding);
-        --switch-thumb-bottom: var(--switch-padding);
+      display: inline-block;
+      width: 2.5rem;
+      height: 1.25rem;
+      background-color: var(--color-gray-300);
+      border-radius: var(--radius-full);
+      position: relative;
+      cursor: pointer;
+      transition: background-color var(--transition-fast);
     }
-
-    /* Base Switch */
-    .switch {
-        position: relative;
-        display: inline-block;
-        width: var(--switch-width);
-        height: var(--switch-height);
-        container-type: inline-size;
+  
+    .switch::before {
+      content: '';
+      position: absolute;
+      top: 0.125rem;
+      left: 0.125rem;
+      width: 1rem;
+      height: 1rem;
+      background-color: var(--color-white);
+      border-radius: 9999px;
+      transition: transform var(--transition-fast);
     }
-
-    .switch input {
-        opacity: 0;
-        width: 0;
-        height: 0;
+  
+    .switch--checked {
+      background-color: var(--color-primary);
     }
-
-    .slider {
-        position: absolute;
-        cursor: pointer;
-        inset: 0;
-        background-color: var(--switch-bg);
-        transition: var(--switch-transition);
-        border-radius: var(--switch-height);
+  
+    .switch--checked::before {
+      transform: translateX(1.25rem);
     }
-
-    .slider::before {
-        position: absolute;
-        content: "";
-        height: var(--switch-slider-size);
-        width: var(--switch-slider-size);
-        left: var(--switch-thumb-left);
-        bottom: var(--switch-thumb-bottom);
-        background-color: var(--switch-circle-bg, var(--color-white));
-        transition: var(--switch-transition);
-        border-radius: 50%;
-    }
-
-    input:checked + .slider {
-        background-color: var(--switch-active-bg);
-    }
-
-    input:checked + .slider::before {
-        transform: translateX(calc(var(--switch-width) - var(--switch-height)));
-    }
-
-    /* Size Variants */
-    .small {
-        --switch-width: 2rem;
-        --switch-height: 1rem;
-        --switch-padding: 0.125rem;
-    }
-
-    .medium {
-        --switch-width: 3rem;
-        --switch-height: 1.5rem;
-        --switch-padding: 0.25rem;
-    }
-
-    .large {
-        --switch-width: 4rem;
-        --switch-height: 2rem;
-        --switch-padding: 0.375rem;
-    }
-
-    /* Color Variants */
-    .primary {
-        --switch-active-bg: var(--color-primary-500);
-    }
-
-    .secondary {
-        --switch-active-bg: var(--color-secondary-500);
-    }
-
-    .success {
-        --switch-active-bg: var(--color-success-500);
-    }
-
-    .warning {
-        --switch-active-bg: var(--color-warning-500);
-    }
-
-    .error {
-        --switch-active-bg: var(--color-error-500);
-    }
-
-    /* Disabled State */
-    .disabled {
-        opacity: 0.5;
-        cursor: not-allowed;
-    }
-
-    .disabled .slider {
-        cursor: not-allowed;
-    }
-
-    /* Focus State */
-    input:focus + .slider {
-        box-shadow: 0 0 0 2px var(--color-primary-200);
-    }
-
-    /* Container Queries ersetzen Media Queries */
-    @container (prefers-reduced-motion: reduce) {
-        .slider {
-            transition: none;
-        }
-
-        .slider::before {
-            transition: none;
-        }
-    }
-
-    @container (width < 768px) {
-        .switch {
-            --switch-width: 2.5rem;
-            --switch-height: 1.25rem;
-        }
-    }
-} 
+  }
+  

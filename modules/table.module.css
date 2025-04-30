@@ -1,273 +1,32 @@
-/**
- * Table CSS Module
- * 
- * Diese Datei enthält die CSS-Module für Tabellen.
- * Die Tabellen sind performant optimiert und berücksichtigen reduzierte Bewegung.
- * 
- * Verwendung:
- * 
- * 1. Basis-Tabelle:
- * <table className={styles.table}>
- *   <thead>
- *     <tr>
- *       <th>Header 1</th>
- *     </tr>
- *   </thead>
- *   <tbody>
- *     <tr>
- *       <td>Data 1</td>
- *     </tr>
- *   </tbody>
- * </table>
- * 
- * 2. Tabelle mit Varianten:
- * <table className={`${styles.table} ${styles.striped}`}>
- * 
- * 3. Tabelle mit Größen:
- * <table className={`${styles.table} ${styles.small}`}>
- * 
- * Technische Details:
- * - Verwendet CSS-Variablen für Farben und Größen
- * - Optimiert mit will-change und transform
- * - Responsive Anpassungen für mobile Geräte
- * - Reduzierte Bewegung wird berücksichtigt
- * 
- * Performance-Hinweise:
- * - Animationen sind hardware-beschleunigt
- * - Reduzierte Bewegung wird automatisch berücksichtigt
+/*
+ * Table Module
+ *
+ * Gestylte Tabellen mit responsivem Verhalten.
  */
 
-@layer module-table {
-    /* Table Variables */
-    .table-wrapper {
-        width: 100%;
-        overflow-x: auto;
-        container-type: inline-size;
-    }
-
+ @layer module-table {
     .table {
-        --table-border-color: var(--color-border-light, #e2e8f0);
-        --table-stripe-color: var(--color-gray-50, #f8fafc);
-        --table-hover-color: var(--color-gray-100, #f1f5f9);
-        --table-header-bg: var(--color-surface-100, #f1f5f9);
-        --table-header-color: var(--color-text-primary, #334155);
-        --table-cell-padding: 0.75rem 1rem;
-        --table-font-size: var(--font-size-sm, 0.875rem);
-        
-        width: 100%;
-        border-collapse: collapse;
-        border-spacing: 0;
-        font-size: var(--table-font-size);
-        line-height: 1.5;
-        margin-bottom: 1.5rem;
+      width: 100%;
+      border-collapse: collapse;
+      font-size: var(--font-size-sm);
     }
-
+  
+    .table thead {
+      background-color: var(--color-gray-100);
+    }
+  
     .table th,
     .table td {
-        padding: var(--spacing-3);
-        text-align: left;
-        border-bottom: 1px solid var(--border-gray-200);
+      padding: var(--space-3);
+      border: 1px solid var(--color-gray-300);
+      text-align: left;
     }
-
-    .table th {
-        font-weight: var(--font-weight-semibold);
-        background-color: var(--bg-gray-50);
+  
+    .table--striped tbody tr:nth-child(odd) {
+      background-color: var(--color-gray-50);
     }
-
-    .table tbody tr:hover {
-        background-color: var(--theme-gray-50);
+  
+    .table--hover tbody tr:hover {
+      background-color: var(--color-gray-100);
     }
-
-    .table tbody tr:active {
-        background-color: var(--theme-gray-100);
-    }
-
-    .table tbody tr:last-child td {
-        border-bottom: none;
-    }
-
-    /* Size Variants */
-    .small {
-        --table-cell-padding: 0.5rem;
-        --table-font-size: 0.75rem;
-    }
-
-    .medium {
-        --table-cell-padding: 1rem;
-        --table-font-size: 0.875rem;
-    }
-
-    .large {
-        --table-cell-padding: 1.5rem;
-        --table-font-size: 1rem;
-    }
-
-    /* Style Variants */
-    .striped tbody tr:nth-child(odd) {
-        background-color: var(--bg-gray-50);
-    }
-
-    .hover tbody tr:hover {
-        background-color: var(--bg-gray-100);
-    }
-
-    .bordered {
-        border: 1px solid var(--table-border-color);
-    }
-
-    .bordered th,
-    .bordered td {
-        border: 1px solid var(--table-border-color);
-    }
-
-    /* Color Variants */
-    .primary th {
-        background-color: var(--color-primary-50);
-        color: var(--color-primary-700);
-    }
-
-    .secondary th {
-        background-color: var(--color-secondary-50);
-        color: var(--color-secondary-700);
-    }
-
-    .table-primary {
-        background-color: var(--bg-primary-100);
-    }
-
-    .table-secondary {
-        background-color: var(--bg-secondary-100);
-    }
-
-    .table-success {
-        background-color: var(--bg-success-100);
-    }
-
-    .table-danger {
-        background-color: var(--bg-danger-100);
-    }
-
-    .table-warning {
-        background-color: var(--bg-warning-100);
-    }
-
-    .table-info {
-        background-color: var(--bg-info-100);
-    }
-
-    /* Container Queries ersetzen Media Queries */
-    @container (width < 768px) {
-        .table-responsive {
-            -webkit-overflow-scrolling: touch;
-            width: 100%;
-            display: block;
-            overflow-x: auto;
-        }
-        
-        .table-stack {
-            display: block;
-        }
-        
-        .table-stack thead {
-            display: none;
-        }
-        
-        .table-stack tbody {
-            display: block;
-        }
-        
-        .table-stack tr {
-            display: block;
-            border: 1px solid var(--table-border-color);
-            border-radius: 0.25rem;
-            margin-bottom: 1rem;
-            padding: 0.5rem;
-        }
-        
-        .table-stack td {
-            display: flex;
-            justify-content: space-between;
-            text-align: right;
-            border: none;
-            padding: 0.5rem;
-        }
-        
-        .table-stack td::before {
-            content: attr(data-label);
-            font-weight: 600;
-            text-align: left;
-            padding-right: 1rem;
-        }
-    }
-
-    @container (prefers-reduced-motion: reduce) {
-        .table tbody tr {
-            transition: none;
-        }
-    }
-}
-
-/* Integrierte has-Selektoren für Table-Komponenten */
-@layer has-selectors {
-  /* Tabellenstyling mit :has() */
-  .table:has(thead) {
-    border-block-start: 2px solid var(--color-surface-400);
   }
-
-  .table:has(tfoot) {
-    border-block-end: 2px solid var(--color-surface-400);
-  }
-
-  tr:has(> th) {
-    background-color: var(--color-surface-200);
-  }
-
-  tr:has(td > .status-error) {
-    background-color: color-mix(in srgb, var(--color-error-100) 20%, transparent);
-  }
-
-  tr:has(td > .status-success) {
-    background-color: color-mix(in srgb, var(--color-success-100) 20%, transparent);
-  }
-
-  tr:has(td > .status-warning) {
-    background-color: color-mix(in srgb, var(--color-warning-100) 20%, transparent);
-  }
-
-  tr:has([data-highlight]) {
-    background-color: color-mix(in srgb, var(--color-primary-100) 30%, transparent);
-  }
-
-  tr:has(> td[data-highlight="true"]) {
-    background-color: var(--color-primary-50);
-  }
-
-  tr:has(td:hover) {
-    background-color: var(--color-primary-50);
-  }
-
-  tr:has(td:first-child:hover) {
-    background-color: var(--color-surface-100);
-  }
-
-  table:has(thead) {
-    margin-block-end: var(--spacing-md);
-  }
-
-  table:not(:has(thead)) {
-    border-block-start: none;
-  }
-
-  /* Table Sortierung mit :has() */
-  th:has(.sort-button[aria-sort="ascending"]) {
-    background-color: var(--color-surface-200);
-  }
-
-  th:has(.sort-button[aria-sort="descending"]) {
-    background-color: var(--color-surface-100);
-  }
-
-  .sortable-item:has(.handle:hover) {
-    border-color: var(--color-primary-400);
-  }
-} 

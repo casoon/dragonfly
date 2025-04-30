@@ -1,71 +1,60 @@
-/**
- * Header CSS Module
- * 
- * Diese Datei enthält die CSS-Module für Header-Komponenten.
+/*
+ * Header Module
+ *
+ * Enthält spezifische Layoutregeln für die Kopfzeile.
+ * Nutzt Subgrid und Container Queries zur optimalen Skalierung.
  */
 
-@layer module-header {
-    /* Header Variables */
+ @layer module-header {
     .header {
-        --header-height: 4rem;
-        --header-padding: 1rem;
-        --header-bg: var(--color-white, #fff);
-        --header-border-color: var(--color-border-light, #e2e8f0);
-        --header-shadow: var(--shadow-sm, 0 1px 2px 0 rgb(0 0 0 / 5%));
-        --header-gap: 1rem;
-        --header-gap-small: 0.5rem;
-        --header-font-weight: 600;
+      display: grid;
+      grid-template-columns: subgrid;
+      grid-column: span 12;
+      grid-template-rows: auto;
+      align-items: center;
+      padding-block: var(--space-4);
+      gap: var(--space-4);
     }
-
-    /* Base Header */
-    .header {
-        position: relative;
-        width: 100%;
-        height: var(--header-height);
-        padding: 0 var(--header-padding);
-        background-color: var(--header-bg);
-        border-bottom: 1px solid var(--header-border-color);
-        box-shadow: var(--header-shadow);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex-wrap: nowrap;
-        z-index: var(--z-header, 40);
-        container-type: inline-size;
-    }
-
-    /* Navigation */
-    .header-nav {
-        display: flex;
-        align-items: center;
-        gap: var(--header-gap, 1rem);
-        flex: 1;
-        justify-content: center;
-    }
-
-    /* Logo */
+  
     .header-logo {
-        display: flex;
-        align-items: center;
-        gap: var(--header-gap);
+      grid-column: 1 / span 3;
     }
-
-    /* Menu */
-    .menu {
-        display: flex;
-        align-items: center;
-        gap: var(--header-gap, 1rem);
+  
+    .header-nav {
+      grid-column: 4 / span 6;
+      display: flex;
+      justify-content: center;
+      gap: var(--space-4);
     }
-
-    /* Responsive */
-    @container (width < 768px) {
-        .header {
-            --header-height: 3.5rem;
-            --header-padding: 0.75rem;
-        }
-
-        .menu {
-            display: none;
-        }
+  
+    .header-actions {
+      grid-column: 10 / span 3;
+      display: flex;
+      justify-content: flex-end;
+      gap: var(--space-2);
     }
-} 
+  
+    @container layout (max-width: 768px) {
+      .header {
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: auto auto;
+      }
+  
+      .header-logo {
+        grid-column: 1 / span 6;
+      }
+  
+      .header-nav {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+      }
+  
+      .header-actions {
+        grid-column: 7 / span 6;
+        justify-content: flex-end;
+      }
+    }
+  }
+  

@@ -1,314 +1,59 @@
-/**
+/*
  * Button Module
- * 
- * Ein vielseitiges Button-Modul mit verschiedenen Varianten und Größen.
- * Unterstützt Icon-Buttons, Gruppierung und verschiedene Status.
- * 
- * Verwendung:
- * <button class="btn">Standard</button>
- * <button class="btn btn--primary">Primär</button>
- * 
- * Varianten:
- * - .btn--primary, .btn--secondary, .btn--accent
- * - .btn--outline, .btn--ghost
- * - .btn--sm, .btn--lg
- * - .btn--icon, .btn--icon-left, .btn--icon-right
- * - .btn--rounded, .btn--square
+ *
+ * Standardisierte Buttons mit Varianten und Zuständen.
  */
 
-@layer module-button {
-  /* Button Basis */
-  .btn {
-    --btn-font-weight: var(--font-weight-medium);
-    --btn-radius: var(--border-radius-md);
-    --btn-focus-ring-color: var(--color-blue-200);
-    --btn-focus-visible-offset: 3px;
-    --btn-padding-x: var(--space-4);
-    --btn-padding-y: var(--space-2);
-    --btn-font-size: var(--font-size-sm);
-    --btn-height: 2.5rem;
-    --btn-border-width: 1px;
-    --btn-icon-gap: var(--space-2);
-    --btn-color: var(--color-gray-700);
-    --btn-bg: var(--color-white);
-    --btn-border-color: var(--color-gray-300);
-    --btn-hover-bg: var(--color-gray-100);
-    --btn-hover-color: var(--color-gray-900);
-    --btn-active-bg: var(--color-gray-200);
-    --btn-disabled-opacity: 0.65;
-    
+ @layer components {
+  .button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-family: inherit;
-    font-weight: var(--btn-font-weight);
-    font-size: var(--btn-font-size);
-    line-height: 1;
-    text-align: center;
-    text-decoration: none;
-    vertical-align: middle;
+    padding-inline: var(--space-4);
+    padding-block: var(--space-2);
+    border-radius: var(--radius-md);
+    font-weight: var(--font-weight-medium);
+    font-size: var(--font-size-sm);
+    line-height: 1.25;
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
     cursor: pointer;
-    user-select: none;
-    border: var(--btn-border-width) solid var(--btn-border-color);
-    height: var(--btn-height);
-    padding: var(--btn-padding-y) var(--btn-padding-x);
-    border-radius: var(--btn-radius);
-    background-color: var(--btn-bg);
-    color: var(--btn-color);
-    transition: color var(--transition-fast),
-                background-color var(--transition-fast),
-                border-color var(--transition-fast),
-                box-shadow var(--transition-fast);
-    
-    /* Container für Container Queries */
-    container-type: inline-size;
+    transition: background-color var(--transition-fast);
   }
 
-  /* Button Hover, Focus, Active */
-  .btn:hover {
-    color: var(--btn-hover-color);
-    background-color: var(--btn-hover-bg);
-    text-decoration: none;
-  }
-  
-  .btn:focus-visible {
-    outline: 0;
-    box-shadow: 0 0 0 var(--btn-focus-visible-offset) var(--btn-focus-ring-color);
-  }
-  
-  .btn:active,
-  .btn.active {
-    background-color: var(--btn-active-bg);
-  }
-  
-  /* Disabled Button */
-  .btn:disabled,
-  .btn.disabled {
-    opacity: var(--btn-disabled-opacity);
-    pointer-events: none;
+  .button:hover {
+    background-color: var(--color-primary-dark);
   }
 
-  /* Button Größen */
-  .btn--sm {
-    --btn-height: 2rem;
-    --btn-padding-y: var(--space-1);
-    --btn-padding-x: var(--space-3);
-    --btn-font-size: var(--font-size-xs);
-  }
-  
-  .btn--lg {
-    --btn-height: 3rem;
-    --btn-padding-y: var(--space-3);
-    --btn-padding-x: var(--space-6);
-    --btn-font-size: var(--font-size-md);
+  .button--secondary {
+    background-color: var(--color-secondary);
   }
 
-  /* Button Varianten: Primary, Secondary, Accent */
-  .btn--primary {
-    --btn-color: var(--color-white);
-    --btn-bg: var(--color-primary);
-    --btn-border-color: var(--color-primary);
-    --btn-hover-bg: var(--color-primary-dark);
-    --btn-hover-color: var(--color-white);
-    --btn-active-bg: var(--color-primary-darker);
-    --btn-focus-ring-color: var(--color-primary-light);
-  }
-  
-  .btn--secondary {
-    --btn-color: var(--color-white);
-    --btn-bg: var(--color-secondary);
-    --btn-border-color: var(--color-secondary);
-    --btn-hover-bg: var(--color-secondary-dark);
-    --btn-hover-color: var(--color-white);
-    --btn-active-bg: var(--color-secondary-darker);
-    --btn-focus-ring-color: var(--color-secondary-light);
-  }
-  
-  .btn--accent {
-    --btn-color: var(--color-white);
-    --btn-bg: var(--color-accent);
-    --btn-border-color: var(--color-accent);
-    --btn-hover-bg: var(--color-accent-dark);
-    --btn-hover-color: var(--color-white);
-    --btn-active-bg: var(--color-accent-darker);
-    --btn-focus-ring-color: var(--color-accent-light);
+  .button--secondary:hover {
+    background-color: var(--color-secondary-dark);
   }
 
-  /* Button Stile: Outline, Ghost */
-  .btn--outline {
-    --btn-bg: transparent;
-    --btn-hover-bg: transparent;
-    --btn-active-bg: transparent;
-    
-    &.btn--primary {
-      --btn-color: var(--color-primary);
-      --btn-border-color: var(--color-primary);
-      --btn-hover-color: var(--color-primary-dark);
-      --btn-hover-bg: rgb(var(--color-primary-rgb), 0.1);
-      --btn-border-width: 2px;
-    }
-    
-    &.btn--secondary {
-      --btn-color: var(--color-secondary);
-      --btn-border-color: var(--color-secondary);
-      --btn-hover-color: var(--color-secondary-dark);
-      --btn-hover-bg: rgb(var(--color-secondary-rgb), 0.1);
-      --btn-border-width: 2px;
-    }
-    
-    &.btn--accent {
-      --btn-color: var(--color-accent);
-      --btn-border-color: var(--color-accent);
-      --btn-hover-color: var(--color-accent-dark);
-      --btn-hover-bg: rgb(var(--color-accent-rgb), 0.1);
-      --btn-border-width: 2px;
-    }
-  }
-  
-  .btn--ghost {
-    --btn-bg: transparent;
-    --btn-border-color: transparent;
-    --btn-hover-bg: var(--color-gray-100);
-    --btn-active-bg: var(--color-gray-200);
-    
-    &.btn--primary {
-      --btn-color: var(--color-primary);
-      --btn-hover-color: var(--color-primary-dark);
-      --btn-hover-bg: rgb(var(--color-primary-rgb), 0.1);
-    }
-    
-    &.btn--secondary {
-      --btn-color: var(--color-secondary);
-      --btn-hover-color: var(--color-secondary-dark);
-      --btn-hover-bg: rgb(var(--color-secondary-rgb), 0.1);
-    }
-    
-    &.btn--accent {
-      --btn-color: var(--color-accent);
-      --btn-hover-color: var(--color-accent-dark);
-      --btn-hover-bg: rgb(var(--color-accent-rgb), 0.1);
-    }
+  .button--outline {
+    background-color: transparent;
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
   }
 
-  /* Icon Buttons */
-  .btn--icon {
-    --btn-padding-x: 0;
-    --btn-padding-y: 0;
-    
-    aspect-ratio: 1/1;
-    padding: 0;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .btn--icon-left svg,
-  .btn--icon-left i {
-    margin-right: var(--btn-icon-gap);
-  }
-  
-  .btn--icon-right svg,
-  .btn--icon-right i {
-    margin-left: var(--btn-icon-gap);
-  }
-  
-  /* Button Formen */
-  .btn--rounded {
-    --btn-radius: 9999px;
-  }
-  
-  .btn--square {
-    --btn-radius: 0;
+  .button--outline:hover {
+    background-color: var(--color-primary-light);
+    color: white;
   }
 
-  /* Buttongruppe */
-  .btn-group {
-    display: inline-flex;
-    flex-wrap: nowrap;
-    vertical-align: middle;
-    container-type: inline-size;
-    
-    & > .btn:not(:last-child) {
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
-    }
-    
-    & > .btn:not(:first-child) {
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
-      margin-left: calc(var(--btn-border-width) * -1);
-    }
-    
-    & > .btn:hover,
-    & > .btn:focus,
-    & > .btn:active {
-      z-index: 1;
-    }
+  .button--sm {
+    padding-inline: var(--space-3);
+    padding-block: var(--space-1);
+    font-size: var(--font-size-xs);
   }
 
-  /* Container Queries ersetzen Media Queries */
-  @container (width < 768px) {
-    .btn {
-      --btn-font-size: 0.875rem;
-    }
-    
-    .btn--sm {
-      --btn-height: 1.75rem;
-      --btn-padding-x: var(--space-2);
-    }
-    
-    .btn--lg {
-      --btn-height: 2.75rem;
-      --btn-padding-x: var(--space-4);
-    }
-    
-    .btn-group {
-      flex-direction: column;
-    }
-    
-    .btn-group > .btn {
-      margin-right: 0;
-      margin-bottom: 0.25rem;
-      border-radius: var(--btn-radius);
-    }
-    
-    .btn-group > .btn:not(:last-child) {
-      border-bottom-right-radius: 0;
-      border-bottom-left-radius: 0;
-    }
-    
-    .btn-group > .btn:not(:first-child) {
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
-      margin-top: calc(var(--btn-border-width) * -1);
-    }
-  }
-
-  @container (prefers-reduced-motion: reduce) {
-    .btn {
-      transition: none;
-    }
+  .button--lg {
+    padding-inline: var(--space-6);
+    padding-block: var(--space-3);
+    font-size: var(--font-size-base);
   }
 }
-
-/* Integrierte has-Selektoren für Button-Komponenten */
-@layer has-selectors {
-  /* Buttons in verschiedenen Kontexten */
-  .button-group:has(.button-primary) {
-    border: 1px solid var(--color-primary-300);
-    border-radius: 0.25rem;
-  }
-
-  /* Button-Gruppen mit :has() */
-  .button-group:has(.primary-button) {
-    display: flex;
-    gap: var(--spacing-sm);
-    align-items: center;
-  }
-
-  /* Komplexe Attribute kombinieren */
-  [data-role="button"]:has([data-icon]) {
-    padding-inline-start: 2.5rem;
-    position: relative;
-  }
-} 

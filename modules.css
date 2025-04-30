@@ -32,6 +32,9 @@
 /* Code Modul */
 @import url('./modules/code.module.css') layer(module-code);
 
+/* Content Modul */
+@import url('./modules/content.module.css') layer(module-content);
+
 /* File Modul */
 @import url('./modules/file.module.css') layer(module-file);
 
@@ -105,7 +108,4 @@
 @import url('./modules/wizard.module.css') layer(module-wizard);
 
 
-/* 
- * Hinweis: Interaktionseffekte wurden nach layers/effects/interactions.css verschoben
- * und werden über das Layer-System (layers.css -> effects.css -> effects/interactions.css) eingebunden
- */ 
+
