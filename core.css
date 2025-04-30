@@ -3,44 +3,56 @@
  *
  * Zentrale Datei zur Organisation und Priorisierung aller CSS-Layer und -Module.
  * Hier werden alle Layer deklariert und die entsprechenden CSS-Dateien importiert.
+ * Die Reihenfolge der Importe bestimmt die Kaskaden-Priorität (spätere haben Vorrang).
  */
 
 /* 
- * Importieren des zentralen Layer-Systems
- * Hier wird die Basis-Priorisierung definiert
+ * Basis-System
+ * Enthält Reset, Custom Properties, Tokens und logische Eigenschaften
  */
- @import url("base.css");
+@import url("base.css");
 
-
-/* Layout und Typografie */
+/* 
+ * Layout-System
+ * Container, Grid, Flexbox-Layouts und responsive Anpassungen
+ */
 @import url("layout.css");
 @import url("layout.queries.css");
+
+/* 
+ * Typografie-System
+ * Schriftarten, Größen, Abstände und Text-Formatierungen
+ */
 @import url("typography.css");
 
- /* 
-  * Importieren des Modul-Systems
-  * Module werden in eigenen Layer importiert 
-  */
- @import url("modules.css");
+/* 
+ * Modul-System
+ * Wiederverwendbare UI-Komponenten in eigenständigen Dateien
+ */
+@import url("modules.css");
 
-   /* 
-  * Importieren des Animations-Systems
-  * Animations werden in eigenen Layer importiert 
-  */
-  @import url("animations.css");
+/* 
+ * Animations-System
+ * Bewegung, Übergänge und zeitbasierte Effekte
+ */
+@import url("animations.css");
 
-  /* 
-  * Importieren des Effects-Systems
-  * Effects werden in eigenen Layer importiert 
-  */
-  @import url("effects.css");
+/* 
+ * Effekt-System
+ * Visuelle Effekte, Interaktionen und dekorative Elemente
+ */
+@import url("effects.css");
 
- /* 
-  * Zentrale Datei für das Theme-System.
-  */
- @import url("themes.css");
+/* 
+ * Theme-System
+ * Farbpaletten, Erscheinungsbild und Anpassungen für verschiedene Modi
+ */
+@import url("themes.css");
 
- /* Icon-System */
- @import url('icons.css');
+/* 
+ * Icon-System
+ * SVG-Symbole und Icon-Fonts
+ */
+@import url("icons.css");
 
 

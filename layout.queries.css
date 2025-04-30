@@ -1,10 +1,26 @@
 /*
  * Responsive Layout-Utilities (per Container Queries)
  *
- * Ausgelagert aus layout.css für bessere Übersicht und Wartbarkeit.
+ * Diese Datei enthält Container-Query-basierte responsive Klassen, 
+ * die auf dem Container-Query-System aufbauen. Im Gegensatz zu 
+ * traditionellen Media Queries bieten Container Queries präzisere 
+ * Kontrolle, da sie auf der Größe des Containers selbst basieren.
+ *
+ * Die Datei nutzt zwei Container-Kontexte:
+ * - layout: Ein globaler Container-Kontext für Seitenlayouts
+ * - component: Ein lokaler Container-Kontext für einzelne Komponenten
+ *
+ * Namenskonvention:
+ * - sm\: Für kleine Container (30rem/480px+)
+ * - md\: Für mittlere Container (48rem/768px+)
+ * - lg\: Für große Container (62rem/992px+)
+ * - c-[size]\: Präfix für component-Container
  */
 
  @layer layout-queries {
+    /* ================= LAYOUT CONTAINER QUERIES ================= */
+
+    /* Responsive Klassen für Elemente innerhalb des layout-Containers */
     @container layout (min-width: 30rem) {
       .sm\:flex-row       { flex-direction: row; }
       .sm\:grid-cols-2    { grid-template-columns: repeat(2, 1fr); }
@@ -37,6 +53,9 @@
       .lg\:flex-basis-3-4 { flex-basis: 75%; }
     }
   
+    /* ================= COMPONENT CONTAINER QUERIES ================= */
+
+    /* Responsive Klassen für Elemente innerhalb von component-Containern */
     @container component (min-width: 30rem) {
       .c-sm\:flex-row       { flex-direction: row; }
       .c-sm\:grid-cols-2    { grid-template-columns: repeat(2, 1fr); }

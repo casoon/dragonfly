@@ -1,34 +1,45 @@
 /**
- * CSS Layers
+ * CSS Layer-System
  *
- * Diese Datei definiert die Layer-Struktur des Designsystems.
- * Sie ist der zentrale Koordinator für die Spezifität aller CSS-Stilregeln.
+ * Diese Datei definiert die hierarchische Layer-Struktur des gesamten CSS-Frameworks.
+ * Als zentraler Koordinator für die Spezifitätsverwaltung steuert sie präzise, 
+ * welche Stilregeln Vorrang haben, und ermöglicht so ein robustes, wartbares System.
+ * 
+ * Vorteile des Layer-Systems:
+ * - Vermeidet Spezifitätskonflikte durch explizite Hierarchie
+ * - Ermöglicht modulare Organisation in thematische Einheiten
+ * - Vereinfacht Wartung und Erweiterung des CSS
+ * - Bietet optimale Unterstützung für LightningCSS und moderne Browser
  */
 
 /* 
  * Explizite Layer-Reihenfolge für CSS-Cascading-Prioritäten
- * Reihenfolge: niedrigere Spezifität (Reset) -> höhere Spezifität (Themes)
+ * Die Layer sind in aufsteigender Priorität angeordnet: 
+ * - Frühere Layer haben niedrigere Spezifität 
+ * - Spätere Layer überschreiben frühere bei Konflikten
  */
-@layer reset,                /* Browser-Reset, Normalisierung */
-       tokens,               /* Design-Tokens, Variablen */
-       custom-properties,    /* Registrierte CSS-Eigenschaften */
-       core,                 /* Kernfunktionalitäten */
-       logical-properties,   /* Logische Eigenschaften für Bidirektionalität */
-       colors,               /* Farbsystem */
-       color-mix,            /* Farbmischungen und -variationen */
-       layout,               /* Layout-Grundlagen */
-       typography,           /* Typografie-System */
-       utilities,            /* Utility-Klassen */
-       smooth-scroll,        /* Scroll-Verhalten */
-       accessibility,        /* Barrierefreiheit */
-       icons,                /* Icon-System */
-       animations,           /* Animationen */
-       effects,              /* Visuelle Effekte */
-       themes;               /* Theming-System */
+@layer reset,                /* Grundlegender Browser-Reset, Normalisierung der Standardstile */
+       tokens,               /* Design-Tokens: Farben, Abstände, Typografie-Variablen */
+       custom-properties,    /* Registrierte CSS-Eigenschaften mit Vererbung und Animation */
+       core,                 /* Kernfunktionalitäten und Basis-Komponenten */
+       logical-properties,   /* Logische Eigenschaften für bidirektionale Layouts (RTL/LTR) */
+       colors,               /* Farbsystem mit Primär-, Sekundär- und Semantik-Farben */
+       color-mix,            /* Farbmischungen, Transparenzen und dynamische Farbvarianten */
+       layout,               /* Layout-Grundlagen: Grid, Flexbox, Container-Queries */
+       layout-queries,       /* Responsive Anpassungen für Layout-Komponenten */
+       typography,           /* Typografie-System: Schriften, Größen, Abstände, Ausrichtung */
+       utilities,            /* Atomare Hilfsklassen für häufige Styling-Aufgaben */
+       smooth-scroll,        /* Optimiertes Scroll-Verhalten und Schnappfunktionen */
+       accessibility,        /* Barrierefreiheit und WCAG-Konformität */
+       icons,                /* Icon-System und symbolische Darstellungen */
+       modules,              /* Komplexe UI-Komponenten und Modul-Systeme */
+       animations,           /* Bewegungs- und Übergangssystem für Interaktivität */
+       effects,              /* Visuelle Effekte: Schatten, Filter, Transformationen */
+       themes;               /* Theming-System für Farbschemata, Dark Mode und Marken-Varianten */
 
 /*
- * Importieren der Layer-Definitionen
- * Jede Datei definiert ihren eigenen Layer mit @layer
+ * Import der Layer-Definitionen
+ * Jede Datei definiert ihre Stile innerhalb ihres zugewiesenen Layers
  */
 
 /* Reset und Grundlagen */
@@ -47,3 +58,9 @@
 @import url("base/utilities.css");
 @import url("base/smooth-scroll.css");
 @import url("base/accessibility.css");
+
+/* 
+ * Hinweis: Weitere Imports erfolgen in core.css
+ * Die Aufteilung in mehrere Import-Dateien erleichtert die Organisation
+ * und verbessert die Build-Performance bei selektiven Kompilierungen.
+ */
