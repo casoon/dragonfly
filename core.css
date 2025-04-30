@@ -9,7 +9,12 @@
  * Importieren des zentralen Layer-Systems
  * Hier wird die Basis-Priorisierung definiert
  */
- @import url("layers.css");
+ @import url("base.css");
+
+
+/* Layout und Typografie */
+@import url("layout.css");
+@import url("typography.css");
 
  /* 
   * Importieren des Modul-Systems

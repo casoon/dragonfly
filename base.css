@@ -32,22 +32,18 @@
  */
 
 /* Reset und Grundlagen */
-@import url("layers/reset.css");
+@import url("base/reset.css");
 
 /* Tokens und Properties */
-@import url("layers/tokens.css");
-@import url("layers/custom-properties.css");
+@import url("base/tokens.css");
+@import url("base/custom-properties.css");
 
 /* Core-Funktionalitäten */
-@import url("layers/logical-properties.css");
-@import url("layers/colors.css");
-@import url("layers/color-mix.css");
-
-/* Layout und Typografie */
-@import url("layers/layout.css");
-@import url("layers/typography.css");
+@import url("base/logical-properties.css");
+@import url("base/colors.css");
+@import url("base/color-mix.css");
 
 /* Utilities und Accessibility */
-@import url("layers/utilities.css");
-@import url("layers/smooth-scroll.css");
-@import url("layers/accessibility.css");
+@import url("base/utilities.css");
+@import url("base/smooth-scroll.css");
+@import url("base/accessibility.css");

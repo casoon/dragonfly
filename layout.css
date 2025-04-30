@@ -20,6 +20,10 @@
  */
 
 @layer layout {
+    /* =================================
+     * 1. CONTAINER & CONTAINER QUERIES
+     *================================= */
+    
     /* 
      * Container
      * 
@@ -73,6 +77,48 @@
         padding-right: var(--space-lg);
     }
 
+    /* Komponenten-spezifische Container Styles */
+    .container {
+        max-width: var(--container-lg);
+        margin-inline: auto;
+        padding-inline: var(--space-md);
+    }
+
+    .container-fluid {
+        width: 100%;
+        padding-inline: var(--space-md);
+    }
+
+    .container-query {
+        container-type: inline-size;
+        container-name: componentquery;
+    }
+
+    .container-box {
+        padding: var(--space-md);
+        border-radius: var(--radius-md);
+    }
+
+    .container-constrain {
+        max-width: var(--container-md);
+        margin-inline: auto;
+    }
+
+    .container-wrapper {
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    .container-sidebar {
+        display: none;
+        width: 240px;
+    }
+
+    .container-main {
+        flex: 1;
+        min-width: 0;
+    }
+
     /* 
      * Container Query Base 
      * 
@@ -95,6 +141,203 @@
         container-name: layout;
     }
 
+    /* Container Query Card-Grid */
+    @container componentquery (min-width >= 400px) {
+        .container-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-md);
+        }
+    }
+
+    @container componentquery (min-width >= 700px) {
+        .container-cards {
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-lg);
+        }
+    }
+
+    @container componentquery (min-width >= 1000px) {
+        .container-cards {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+
+    /* Container Query Sidebar-Layout */
+    @container componentquery (min-width >= 900px) {
+        .container-navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
+
+    /* Container Query Content-Layout */
+    @container componentquery (min-width >= 600px) {
+        .container-content {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-md);
+        }
+    }
+
+    /* 
+     * Responsive Breakpoint Container 
+     * 
+     * Container mit Breakpoint-spezifischen Breiten
+     *
+     * HINWEIS: Wir verwenden jetzt Container Queries statt Media Queries.
+     * Container Queries beziehen sich auf die Größe des Containers, nicht des Viewports.
+     * Durch die Definition von :root als Container funktionieren diese Queries ähnlich
+     * wie Media Queries, aber mit besserer Kompatibilität mit LightningCSS.
+     * 
+     * Die Pixel-Werte entsprechen den in tokens.css definierten Breakpoint-Variablen:
+     * --breakpoint-sm: 640px
+     * --breakpoint-md: 768px
+     * --breakpoint-lg: 1024px
+     * --breakpoint-xl: 1280px
+     * --breakpoint-2xl: 1536px
+     */
+    @container root (min-width >= 640px) {
+        .container {
+            max-width: var(--container-sm);
+        }
+    }
+
+    @container root (min-width >= 768px) {
+        .container {
+            max-width: var(--container-md);
+        }
+    }
+
+    @container root (min-width >= 1024px) {
+        .container {
+            max-width: var(--container-lg);
+        }
+    }
+
+    @container root (min-width >= 1280px) {
+        .container {
+            max-width: var(--container-xl);
+        }
+    }
+
+    @container root (min-width >= 1536px) {
+        .container {
+            max-width: var(--container-2xl);
+        }
+    }
+
+    /* 
+     * Container-Query basierte Flex-Layouts
+     * 
+     * Diese Layouts passen sich basierend auf der Breite des Containers an,
+     * nicht auf der Viewport-Breite, was lokalisierte Responsivität ermöglicht.
+     */
+    .flex-container {
+        container-type: inline-size;
+        container-name: flex-layout;
+    }
+
+    /* =================================
+     * 2. GRID-SYSTEM
+     *================================= */
+    
+    /* 
+     * Grid System 
+     * 
+     * Ein flexibles Grid-System für mehrspaltige Layouts.
+     * Verwendung: <div class="grid grid-cols-2 gap-4">...</div>
+     */
+    .grid {
+        display: grid;
+        gap: var(--space-0);
+    }
+
+    /* Grid Columns */
+    .grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+    .grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .grid-cols-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+    .grid-cols-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+    .grid-cols-12 { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+
+    /* 
+     * Column Spans 
+     * 
+     * Definiert, wie viele Spalten ein Element einnimmt.
+     * Verwendung: <div class="col-span-4">...</div>
+     */
+    .col-span-1 { grid-column: span 1; }
+    .col-span-2 { grid-column: span 2; }
+    .col-span-3 { grid-column: span 3; }
+    .col-span-4 { grid-column: span 4; }
+    .col-span-5 { grid-column: span 5; }
+    .col-span-6 { grid-column: span 6; }
+    .col-span-7 { grid-column: span 7; }
+    .col-span-8 { grid-column: span 8; }
+    .col-span-9 { grid-column: span 9; }
+    .col-span-10 { grid-column: span 10; }
+    .col-span-11 { grid-column: span 11; }
+    .col-span-12 { grid-column: span 12; }
+    .col-span-full { grid-column: 1 / -1; }
+
+    /* Grid Template Rows */
+    .grid-rows-1 { grid-template-rows: repeat(1, minmax(0, 1fr)); }
+    .grid-rows-2 { grid-template-rows: repeat(2, minmax(0, 1fr)); }
+    .grid-rows-3 { grid-template-rows: repeat(3, minmax(0, 1fr)); }
+    .grid-rows-4 { grid-template-rows: repeat(4, minmax(0, 1fr)); }
+    .grid-rows-5 { grid-template-rows: repeat(5, minmax(0, 1fr)); }
+    .grid-rows-6 { grid-template-rows: repeat(6, minmax(0, 1fr)); }
+
+    /* Grid Row Spans */
+    .row-span-1 { grid-row: span 1; }
+    .row-span-2 { grid-row: span 2; }
+    .row-span-3 { grid-row: span 3; }
+    .row-span-4 { grid-row: span 4; }
+    .row-span-5 { grid-row: span 5; }
+    .row-span-6 { grid-row: span 6; }
+    .row-span-full { grid-row: 1 / -1; }
+
+    /* Grid Auto Flow */
+    .grid-flow-row { grid-auto-flow: row; }
+    .grid-flow-col { grid-auto-flow: column; }
+    .grid-flow-dense { grid-auto-flow: dense; }
+
+    /* Grid Auto Columns */
+    .auto-cols-auto { grid-auto-columns: auto; }
+    .auto-cols-min { grid-auto-columns: min-content; }
+    .auto-cols-max { grid-auto-columns: max-content; }
+    .auto-cols-fr { grid-auto-columns: minmax(0, 1fr); }
+
+    /* Grid Auto Rows */
+    .auto-rows-auto { grid-auto-rows: auto; }
+    .auto-rows-min { grid-auto-rows: min-content; }
+    .auto-rows-max { grid-auto-rows: max-content; }
+    .auto-rows-fr { grid-auto-rows: minmax(0, 1fr); }
+
+    /* Grid Template Areas */
+    .grid-areas-none { grid-template-areas: none; }
+
+    /* 
+     * Grid Gaps 
+     * 
+     * Abstandsklassen für Grid-Layouts.
+     * Verwendung: <div class="grid gap-4">...</div>
+     */
+    .gap-0 { gap: var(--space-0); }
+    .gap-1 { gap: var(--space-1); }
+    .gap-2 { gap: var(--space-2); }
+    .gap-3 { gap: var(--space-3); }
+    .gap-4 { gap: var(--space-4); }
+    .gap-5 { gap: var(--space-5); }
+    .gap-6 { gap: var(--space-6); }
+    .gap-8 { gap: var(--space-8); }
+    .gap-10 { gap: var(--space-10); }
+    .gap-12 { gap: var(--space-12); }
+    .gap-16 { gap: var(--space-16); }
+
     /* Grid-Layout mit zunehmender Spaltenanzahl bei wachsender Container-Breite */
     .layout-grid {
         display: grid;
@@ -113,41 +356,6 @@
         @container layout (min-width: 62rem) {
             grid-template-columns: repeat(4, 1fr);
             gap: var(--space-8);
-        }
-    }
-
-    /* Flex-Layout, das von column zu row wechselt bei wachsender Container-Breite */
-    .layout-flex {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-4);
-
-        @container layout (min-width: 30rem) {
-            flex-flow: row wrap;
-        }
-
-        @container layout (min-width: 48rem) {
-            flex-wrap: nowrap;
-            gap: var(--space-6);
-        }
-    }
-
-    /* Stack mit wachsendem vertikalen Abstand */
-    .layout-stack {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-4);
-
-        @container layout (min-width: 30rem) {
-            gap: var(--space-6);
-        }
-
-        @container layout (min-width: 48rem) {
-            gap: var(--space-8);
-        }
-
-        @container layout (min-width: 62rem) {
-            gap: var(--space-10);
         }
     }
 
@@ -203,28 +411,6 @@
     }
 
     /* 
-     * Flex Container Queries 
-     * 
-     * Responsive Flexbox-Layout basierend auf Container-Breite.
-     * Wechselt von Spalten- zu Zeilenanordnung bei größeren Breiten.
-     */
-    .flex-responsive {
-        display: flex;
-        flex-flow: column;
-        gap: var(--space-sm);
-
-        @container component (min-width: 500px) {
-            flex-flow: row wrap;
-            gap: var(--space-md);
-        }
-
-        @container component (min-width: 700px) {
-            flex-flow: row nowrap;
-            gap: var(--space-lg);
-        }
-    }
-
-    /* 
      * Layout Container Queries 
      * 
      * Wechselt von Block- zu Grid-Layout basierend auf Container-Breite.
@@ -248,121 +434,22 @@
         }
     }
 
-    /* 
-     * Stack Container Queries 
-     * 
-     * Vertikaler Stack, der bei größeren Breiten horizontal wird.
-     */
-    .stack-responsive {
-        display: flex;
-        flex-flow: column;
-        gap: var(--space-sm);
-
-        @container component (min-width: 500px) {
-            flex-flow: row;
-            gap: var(--space-md);
-        }
-
-        @container component (min-width: 700px) {
-            gap: var(--space-lg);
-        }
-    }
-
-    /* 
-     * Grid System 
-     * 
-     * Ein flexibles Grid-System für mehrspaltige Layouts.
-     * Verwendung: <div class="grid grid-cols-2 gap-4">...</div>
-     */
-    .grid {
+    .grid-auto-fit {
         display: grid;
-        gap: var(--space-0);
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: var(--space-4);
     }
 
-    /* Grid Columns */
-    .grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
-    .grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-    .grid-cols-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
-    .grid-cols-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
-    .grid-cols-12 { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+    .grid-auto-fill {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: var(--space-4);
+    }
 
-    /* 
-     * Column Spans 
-     * 
-     * Definiert, wie viele Spalten ein Element einnimmt.
-     * Verwendung: <div class="col-span-4">...</div>
-     */
-    .col-span-1 { grid-column: span 1; }
-    .col-span-2 { grid-column: span 2; }
-    .col-span-3 { grid-column: span 3; }
-    .col-span-4 { grid-column: span 4; }
-    .col-span-5 { grid-column: span 5; }
-    .col-span-6 { grid-column: span 6; }
-    .col-span-7 { grid-column: span 7; }
-    .col-span-8 { grid-column: span 8; }
-    .col-span-9 { grid-column: span 9; }
-    .col-span-10 { grid-column: span 10; }
-    .col-span-11 { grid-column: span 11; }
-    .col-span-12 { grid-column: span 12; }
-    .col-span-full { grid-column: 1 / -1; }
-
-    /* 
-     * Grid Gaps 
-     * 
-     * Abstandsklassen für Grid-Layouts.
-     * Verwendung: <div class="grid gap-4">...</div>
-     */
-    .gap-0 { gap: var(--space-0); }
-    .gap-1 { gap: var(--space-1); }
-    .gap-2 { gap: var(--space-2); }
-    .gap-3 { gap: var(--space-3); }
-    .gap-4 { gap: var(--space-4); }
-    .gap-5 { gap: var(--space-5); }
-    .gap-6 { gap: var(--space-6); }
-    .gap-8 { gap: var(--space-8); }
-    .gap-10 { gap: var(--space-10); }
-    .gap-12 { gap: var(--space-12); }
-    .gap-16 { gap: var(--space-16); }
-
-    /* Grid Auto Flow */
-    .grid-flow-row { grid-auto-flow: row; }
-    .grid-flow-col { grid-auto-flow: column; }
-    .grid-flow-dense { grid-auto-flow: dense; }
-
-    /* Grid Auto Columns */
-    .auto-cols-auto { grid-auto-columns: auto; }
-    .auto-cols-min { grid-auto-columns: min-content; }
-    .auto-cols-max { grid-auto-columns: max-content; }
-    .auto-cols-fr { grid-auto-columns: minmax(0, 1fr); }
-
-    /* Grid Auto Rows */
-    .auto-rows-auto { grid-auto-rows: auto; }
-    .auto-rows-min { grid-auto-rows: min-content; }
-    .auto-rows-max { grid-auto-rows: max-content; }
-    .auto-rows-fr { grid-auto-rows: minmax(0, 1fr); }
-
-    /* Grid Template Areas */
-    .grid-areas-none { grid-template-areas: none; }
-
-    /* Grid Template Rows */
-    .grid-rows-1 { grid-template-rows: repeat(1, minmax(0, 1fr)); }
-    .grid-rows-2 { grid-template-rows: repeat(2, minmax(0, 1fr)); }
-    .grid-rows-3 { grid-template-rows: repeat(3, minmax(0, 1fr)); }
-    .grid-rows-4 { grid-template-rows: repeat(4, minmax(0, 1fr)); }
-    .grid-rows-5 { grid-template-rows: repeat(5, minmax(0, 1fr)); }
-    .grid-rows-6 { grid-template-rows: repeat(6, minmax(0, 1fr)); }
-
-    /* Grid Row Spans */
-    .row-span-1 { grid-row: span 1; }
-    .row-span-2 { grid-row: span 2; }
-    .row-span-3 { grid-row: span 3; }
-    .row-span-4 { grid-row: span 4; }
-    .row-span-5 { grid-row: span 5; }
-    .row-span-6 { grid-row: span 6; }
-    .row-span-full { grid-row: 1 / -1; }
-
+    /* =======================
+     * 3. FLEXBOX-LAYOUT
+     *======================= */
+    
     /* 
      * Flexbox Utilities 
      * 
@@ -391,167 +478,7 @@
     .flex-basis-auto { flex-basis: auto; }
     .flex-basis-0 { flex-basis: 0; }
 
-    /* 
-     * Position Utilities 
-     * 
-     * Klassen zur Positionierung von Elementen.
-     */
-    .relative { position: relative; }
-    .absolute { position: absolute; }
-    .fixed { position: fixed; }
-    .sticky { position: sticky; }
-    .static { position: static; }
-
-    /* Position Values */
-    .top-0 { top: 0; }
-    .right-0 { right: 0; }
-    .bottom-0 { bottom: 0; }
-    .left-0 { left: 0; }
-
-    /* Z-Index */
-    .z-0 { z-index: var(--z-0); }
-    .z-10 { z-index: var(--z-10); }
-    .z-20 { z-index: var(--z-20); }
-    .z-30 { z-index: var(--z-30); }
-    .z-40 { z-index: var(--z-40); }
-    .z-50 { z-index: var(--z-50); }
-    .z-auto { z-index: var(--z-auto); }
-
-    /* 
-     * Spacing Utilities 
-     * 
-     * Abstandsklassen für Padding und Margin.
-     * Verwendung: <div class="p-4 my-8">...</div>
-     */
-    .p-0 { padding: var(--space-0); }
-    .p-1 { padding: var(--space-1); }
-    .p-2 { padding: var(--space-2); }
-    .p-3 { padding: var(--space-3); }
-    .p-4 { padding: var(--space-4); }
-    .p-5 { padding: var(--space-5); }
-    .p-6 { padding: var(--space-6); }
-    .p-8 { padding: var(--space-8); }
-    .p-10 { padding: var(--space-10); }
-    .p-12 { padding: var(--space-12); }
-    .p-16 { padding: var(--space-16); }
-
-    /* Padding X - Horizontal (Links und Rechts) */
-    .px-0 { padding-left: 0; padding-right: 0; }
-    .px-1 { padding-left: var(--space-1); padding-right: var(--space-1); }
-    .px-2 { padding-left: var(--space-2); padding-right: var(--space-2); }
-    .px-3 { padding-left: var(--space-3); padding-right: var(--space-3); }
-    .px-4 { padding-left: var(--space-4); padding-right: var(--space-4); }
-    .px-5 { padding-left: var(--space-5); padding-right: var(--space-5); }
-    .px-6 { padding-left: var(--space-6); padding-right: var(--space-6); }
-    .px-8 { padding-left: var(--space-8); padding-right: var(--space-8); }
-    .px-10 { padding-left: var(--space-10); padding-right: var(--space-10); }
-    .px-12 { padding-left: var(--space-12); padding-right: var(--space-12); }
-    .px-16 { padding-left: var(--space-16); padding-right: var(--space-16); }
-
-    /* Padding Y - Vertikal (Oben und Unten) */
-    .py-0 { padding-top: 0; padding-bottom: 0; }
-    .py-1 { padding-top: var(--space-1); padding-bottom: var(--space-1); }
-    .py-2 { padding-top: var(--space-2); padding-bottom: var(--space-2); }
-    .py-3 { padding-top: var(--space-3); padding-bottom: var(--space-3); }
-    .py-4 { padding-top: var(--space-4); padding-bottom: var(--space-4); }
-    .py-5 { padding-top: var(--space-5); padding-bottom: var(--space-5); }
-    .py-6 { padding-top: var(--space-6); padding-bottom: var(--space-6); }
-    .py-8 { padding-top: var(--space-8); padding-bottom: var(--space-8); }
-    .py-10 { padding-top: var(--space-10); padding-bottom: var(--space-10); }
-    .py-12 { padding-top: var(--space-12); padding-bottom: var(--space-12); }
-    .py-16 { padding-top: var(--space-16); padding-bottom: var(--space-16); }
-
-    /* Margin Utilities */
-    .m-0 { margin: var(--space-0); }
-    .m-1 { margin: var(--space-1); }
-    .m-2 { margin: var(--space-2); }
-    .m-3 { margin: var(--space-3); }
-    .m-4 { margin: var(--space-4); }
-    .m-5 { margin: var(--space-5); }
-    .m-6 { margin: var(--space-6); }
-    .m-8 { margin: var(--space-8); }
-    .m-10 { margin: var(--space-10); }
-    .m-12 { margin: var(--space-12); }
-    .m-16 { margin: var(--space-16); }
-
-    /* Margin X - Horizontal (Links und Rechts) */
-    .mx-0 { margin-left: 0; margin-right: 0; }
-    .mx-1 { margin-left: var(--space-1); margin-right: var(--space-1); }
-    .mx-2 { margin-left: var(--space-2); margin-right: var(--space-2); }
-    .mx-3 { margin-left: var(--space-3); margin-right: var(--space-3); }
-    .mx-4 { margin-left: var(--space-4); margin-right: var(--space-4); }
-    .mx-5 { margin-left: var(--space-5); margin-right: var(--space-5); }
-    .mx-6 { margin-left: var(--space-6); margin-right: var(--space-6); }
-    .mx-8 { margin-left: var(--space-8); margin-right: var(--space-8); }
-    .mx-10 { margin-left: var(--space-10); margin-right: var(--space-10); }
-    .mx-12 { margin-left: var(--space-12); margin-right: var(--space-12); }
-    .mx-16 { margin-left: var(--space-16); margin-right: var(--space-16); }
-
-    /* Margin Y - Vertikal (Oben und Unten) */
-    .my-0 { margin-top: 0; margin-bottom: 0; }
-    .my-1 { margin-top: var(--space-1); margin-bottom: var(--space-1); }
-    .my-2 { margin-top: var(--space-2); margin-bottom: var(--space-2); }
-    .my-3 { margin-top: var(--space-3); margin-bottom: var(--space-3); }
-    .my-4 { margin-top: var(--space-4); margin-bottom: var(--space-4); }
-    .my-5 { margin-top: var(--space-5); margin-bottom: var(--space-5); }
-    .my-6 { margin-top: var(--space-6); margin-bottom: var(--space-6); }
-    .my-8 { margin-top: var(--space-8); margin-bottom: var(--space-8); }
-    .my-10 { margin-top: var(--space-10); margin-bottom: var(--space-10); }
-    .my-12 { margin-top: var(--space-12); margin-bottom: var(--space-12); }
-    .my-16 { margin-top: var(--space-16); margin-bottom: var(--space-16); }
-
-    /* 
-     * Responsive Breakpoint Container 
-     * 
-     * Container mit Breakpoint-spezifischen Breiten
-     *
-     * HINWEIS: Wir verwenden jetzt Container Queries statt Media Queries.
-     * Container Queries beziehen sich auf die Größe des Containers, nicht des Viewports.
-     * Durch die Definition von :root als Container funktionieren diese Queries ähnlich
-     * wie Media Queries, aber mit besserer Kompatibilität mit LightningCSS.
-     * 
-     * Die Pixel-Werte entsprechen den in tokens.css definierten Breakpoint-Variablen:
-     * --breakpoint-sm: 640px
-     * --breakpoint-md: 768px
-     * --breakpoint-lg: 1024px
-     * --breakpoint-xl: 1280px
-     * --breakpoint-2xl: 1536px
-     */
-    @container root (min-width: 640px) {
-        .container {
-            max-width: var(--container-sm);
-        }
-    }
-
-    @container root (min-width: 768px) {
-        .container {
-            max-width: var(--container-md);
-        }
-    }
-
-    @container root (min-width: 1024px) {
-        .container {
-            max-width: var(--container-lg);
-        }
-    }
-
-    @container root (min-width: 1280px) {
-        .container {
-            max-width: var(--container-xl);
-        }
-    }
-
-    @container root (min-width: 1536px) {
-        .container {
-            max-width: var(--container-2xl);
-        }
-    }
-
-    /* 
-     * Utility Layout Komponenten 
-     * 
-     * Häufig genutzte Layout-Muster als Utility-Klassen
-     */
+    /* Flex Container & Items mit typischen Mustern */
     .flex-center {
         display: flex;
         align-items: center;
@@ -562,6 +489,141 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+    }
+
+    /* 
+     * Flex-Layout mit auto-fit für flexible Spalten
+     * Umschlagbarer Flex-Container mit definierter Mindestbreite für Items
+     */
+    .flex-auto-layout {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-4);
+    }
+
+    .flex-auto-layout > * {
+        flex: 1 1 var(--flex-auto-min-width, 15rem);
+    }
+
+    /*
+     * Flex-Column-Layouts mit verschiedenen Breiten
+     * Einfachere Alternativen zu den detaillierteren Bruchklassen
+     */
+    .flex-col-2 {
+        display: flex;
+        gap: var(--space-4);
+    }
+
+    .flex-col-2 > * {
+        flex: 1 1 calc(50% - var(--space-4) / 2);
+    }
+
+    .flex-col-3 {
+        display: flex;
+        gap: var(--space-4);
+    }
+
+    .flex-col-3 > * {
+        flex: 1 1 calc(33.333% - var(--space-4) * 2 / 3);
+    }
+
+    .flex-col-4 {
+        display: flex;
+        gap: var(--space-4);
+    }
+
+    .flex-col-4 > * {
+        flex: 1 1 calc(25% - var(--space-4) * 3 / 4);
+    }
+    
+    /* Responsive Flex-Layouts (umschalten zwischen Spalten/Zeilen) */
+    .flex-responsive-cols {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-4);
+    }
+
+    @media (width >= 768px) {
+        .flex-responsive-cols {
+            flex-direction: row;
+        }
+    }
+
+    /* Flex-Layout, das von column zu row wechselt bei wachsender Container-Breite */
+    .layout-flex {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-4);
+
+        @container layout (min-width: 30rem) {
+            flex-flow: row wrap;
+        }
+
+        @container layout (min-width: 48rem) {
+            flex-wrap: nowrap;
+            gap: var(--space-6);
+        }
+    }
+
+    /* Stack mit wachsendem vertikalen Abstand */
+    .layout-stack {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-4);
+
+        @container layout (min-width: 30rem) {
+            gap: var(--space-6);
+        }
+
+        @container layout (min-width: 48rem) {
+            gap: var(--space-8);
+        }
+
+        @container layout (min-width: 62rem) {
+            gap: var(--space-10);
+        }
+    }
+
+    /* 
+     * Flex Container Queries 
+     * 
+     * Responsive Flexbox-Layout basierend auf Container-Breite.
+     * Wechselt von Spalten- zu Zeilenanordnung bei größeren Breiten.
+     */
+    .flex-responsive {
+        display: flex;
+        flex-flow: column;
+        gap: var(--space-sm);
+
+        @container component (min-width: 500px) {
+            flex-flow: row wrap;
+            gap: var(--space-md);
+        }
+
+        @container component (min-width: 700px) {
+            flex-flow: row nowrap;
+            gap: var(--space-lg);
+        }
+    }
+
+    /* 
+     * Stack Container Queries 
+     * 
+     * Vertikaler Stack, der bei größeren Breiten horizontal wird.
+     */
+    .stack-responsive {
+        display: flex;
+        flex-flow: column;
+        gap: var(--space-sm);
+
+        @container component (min-width: 500px) {
+            flex-flow: row;
+            gap: var(--space-md);
+        }
+
+        @container component (min-width: 700px) {
+            gap: var(--space-lg);
+        }
     }
 
     .stack {
@@ -582,18 +644,124 @@
         margin-top: var(--space-6);
     }
 
-    .grid-auto-fit {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    .flex-cq-cols {
+        display: flex;
+        flex-direction: column;
         gap: var(--space-4);
     }
 
-    .grid-auto-fill {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    @container flex-layout (min-width: 30rem) {
+        .flex-cq-cols {
+            flex-direction: row;
+        }
+        
+        .flex-cq-cols > * {
+            flex: 1;
+        }
+    }
+
+    .flex-cq-auto {
+        display: flex;
+        flex-wrap: wrap;
         gap: var(--space-4);
     }
 
+    .flex-cq-auto > * {
+        flex-basis: 100%;
+    }
+
+    @container flex-layout (min-width: 30rem) {
+        .flex-cq-auto > * {
+            flex-basis: calc(50% - var(--space-4) / 2);
+        }
+    }
+
+    @container flex-layout (min-width: 50rem) {
+        .flex-cq-auto > * {
+            flex-basis: calc(33.333% - var(--space-4) * 2 / 3);
+        }
+    }
+
+    @container flex-layout (min-width: 65rem) {
+        .flex-cq-auto > * {
+            flex-basis: calc(25% - var(--space-4) * 3 / 4);
+        }
+    }
+
+    /* 
+     * Container-Query basierte Flex-Layouts
+     * 
+     * Diese Layouts passen sich basierend auf der Breite des Containers an,
+     * nicht auf der Viewport-Breite, was lokalisierte Responsivität ermöglicht.
+     */
+    .flex-container {
+        container-type: inline-size;
+        container-name: flex-layout;
+    }
+
+    .flex-cq-cols {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-4);
+    }
+
+    @container flex-layout (min-width: 30rem) {
+        .flex-cq-cols {
+            flex-direction: row;
+        }
+        
+        .flex-cq-cols > * {
+            flex: 1;
+        }
+    }
+
+    .flex-cq-auto {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-4);
+    }
+
+    .flex-cq-auto > * {
+        flex-basis: 100%;
+    }
+
+    @container flex-layout (min-width: 30rem) {
+        .flex-cq-auto > * {
+            flex-basis: calc(50% - var(--space-4) / 2);
+        }
+    }
+
+    @container flex-layout (min-width: 50rem) {
+        .flex-cq-auto > * {
+            flex-basis: calc(33.333% - var(--space-4) * 2 / 3);
+        }
+    }
+
+    @container flex-layout (min-width: 65rem) {
+        .flex-cq-auto > * {
+            flex-basis: calc(25% - var(--space-4) * 3 / 4);
+        }
+    }
+
+    /* Container-Query Varianten für Flex-Layout Bruchteile */
+    @container flex-layout (min-width: 30rem) {
+        .cq-sm\:w-1\/2 { width: 50%; }
+        .cq-sm\:w-1\/3 { width: 33.3333%; }
+        .cq-sm\:w-2\/3 { width: 66.6667%; }
+    }
+
+    @container flex-layout (min-width: 50rem) {
+        .cq-md\:w-1\/2 { width: 50%; }
+        .cq-md\:w-1\/3 { width: 33.3333%; }
+        .cq-md\:w-2\/3 { width: 66.6667%; }
+        .cq-md\:w-1\/4 { width: 25%; }
+        .cq-md\:w-3\/4 { width: 75%; }
+    }
+
+    /* ===================================
+     * 7. RESPONSIVE BREAKPOINT UTILITIES
+     *=================================== */
+    
     /* 
      * Responsive Breakpoint Utilities 
      * 
@@ -601,7 +769,7 @@
      * Präfixe: sm:, md:, lg:, xl:
      * Beispiel: <div class="grid-cols-1 md:grid-cols-2 lg:grid-cols-3">...</div>
      */
-    @container root (min-width: 640px) {
+    @container root (min-width >= 640px) {
         /* Small (sm) Breakpoint */
         .sm\:container { max-width: var(--container-sm); }
 
@@ -642,7 +810,7 @@
         .sm\:items-stretch { align-items: stretch; }
     }
 
-    @container root (min-width: 768px) {
+    @container root (min-width >= 768px) {
         /* Medium (md) Breakpoint */
         .md\:container { max-width: var(--container-md); }
 
@@ -690,7 +858,7 @@
         .md\:items-stretch { align-items: stretch; }
     }
 
-    @container root (min-width: 1024px) {
+    @container root (min-width >= 1024px) {
         /* Large (lg) Breakpoint */
         .lg\:container { max-width: var(--container-lg); }
 
@@ -733,90 +901,77 @@
         .lg\:items-stretch { align-items: stretch; }
     }
 
-    /* 
-     * Komponenten-spezifische Container Styles
-     * 
-     * Verschiedene Layout-Container für spezifische UI-Bereiche
-     */
-    .container {
-        max-width: var(--container-lg);
-        margin-inline: auto;
-        padding-inline: var(--space-md);
+    /* Responsive Breitenklassen mit Breakpoints */
+    @media (width >= 640px) {
+        .sm\:w-1\/2 { width: 50%; }
+        .sm\:w-1\/3 { width: 33.3333%; }
+        .sm\:w-2\/3 { width: 66.6667%; }
+        .sm\:w-1\/4 { width: 25%; }
+        .sm\:w-2\/4 { width: 50%; }
+        .sm\:w-3\/4 { width: 75%; }
+        .sm\:w-1\/5 { width: 20%; }
+        .sm\:w-2\/5 { width: 40%; }
+        .sm\:w-3\/5 { width: 60%; }
+        .sm\:w-4\/5 { width: 80%; }
+        .sm\:w-1\/6 { width: 16.6667%; }
+        .sm\:w-2\/6 { width: 33.3333%; }
+        .sm\:w-3\/6 { width: 50%; }
+        .sm\:w-4\/6 { width: 66.6667%; }
+        .sm\:w-5\/6 { width: 83.3333%; }
+        
+        .sm\:flex-basis-1\/2 { flex-basis: 50%; }
+        .sm\:flex-basis-1\/3 { flex-basis: 33.3333%; }
+        .sm\:flex-basis-2\/3 { flex-basis: 66.6667%; }
+        .sm\:flex-basis-1\/4 { flex-basis: 25%; }
+        .sm\:flex-basis-3\/4 { flex-basis: 75%; }
     }
 
-    .container-fluid {
-        width: 100%;
-        padding-inline: var(--space-md);
+    @media (width >= 768px) {
+        .md\:w-1\/2 { width: 50%; }
+        .md\:w-1\/3 { width: 33.3333%; }
+        .md\:w-2\/3 { width: 66.6667%; }
+        .md\:w-1\/4 { width: 25%; }
+        .md\:w-2\/4 { width: 50%; }
+        .md\:w-3\/4 { width: 75%; }
+        .md\:w-1\/5 { width: 20%; }
+        .md\:w-2\/5 { width: 40%; }
+        .md\:w-3\/5 { width: 60%; }
+        .md\:w-4\/5 { width: 80%; }
+        .md\:w-1\/6 { width: 16.6667%; }
+        .md\:w-2\/6 { width: 33.3333%; }
+        .md\:w-3\/6 { width: 50%; }
+        .md\:w-4\/6 { width: 66.6667%; }
+        .md\:w-5\/6 { width: 83.3333%; }
+        
+        .md\:flex-basis-1\/2 { flex-basis: 50%; }
+        .md\:flex-basis-1\/3 { flex-basis: 33.3333%; }
+        .md\:flex-basis-2\/3 { flex-basis: 66.6667%; }
+        .md\:flex-basis-1\/4 { flex-basis: 25%; }
+        .md\:flex-basis-3\/4 { flex-basis: 75%; }
     }
 
-    .container-query {
-        container-type: inline-size;
-        container-name: componentquery;
-    }
-
-    .container-box {
-        padding: var(--space-md);
-        border-radius: var(--radius-md);
-    }
-
-    .container-constrain {
-        max-width: var(--container-md);
-        margin-inline: auto;
-    }
-
-    .container-wrapper {
-        max-width: 100%;
-        overflow: hidden;
-    }
-
-    .container-sidebar {
-        display: none;
-        width: 240px;
-    }
-
-    .container-main {
-        flex: 1;
-        min-width: 0;
-    }
-
-    /* Container Query Card-Grid */
-    @container componentquery (min-width: 400px) {
-        .container-cards {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: var(--space-md);
-        }
-    }
-
-    @container componentquery (min-width: 700px) {
-        .container-cards {
-            grid-template-columns: repeat(3, 1fr);
-            gap: var(--space-lg);
-        }
-    }
-
-    @container componentquery (min-width: 1000px) {
-        .container-cards {
-            grid-template-columns: repeat(4, 1fr);
-        }
-    }
-
-    /* Container Query Sidebar-Layout */
-    @container componentquery (min-width: 900px) {
-        .container-navbar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-    }
-
-    /* Container Query Content-Layout */
-    @container componentquery (min-width: 600px) {
-        .container-content {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: var(--space-md);
-        }
+    @media (width >= 1024px) {
+        .lg\:w-1\/2 { width: 50%; }
+        .lg\:w-1\/3 { width: 33.3333%; }
+        .lg\:w-2\/3 { width: 66.6667%; }
+        .lg\:w-1\/4 { width: 25%; }
+        .lg\:w-2\/4 { width: 50%; }
+        .lg\:w-3\/4 { width: 75%; }
+        .lg\:w-1\/5 { width: 20%; }
+        .lg\:w-2\/5 { width: 40%; }
+        .lg\:w-3\/5 { width: 60%; }
+        .lg\:w-4\/5 { width: 80%; }
+        .lg\:w-1\/6 { width: 16.6667%; }
+        .lg\:w-2\/6 { width: 33.3333%; }
+        .lg\:w-3\/6 { width: 50%; }
+        .lg\:w-4\/6 { width: 66.6667%; }
+        .lg\:w-5\/6 { width: 83.3333%; }
+        
+        .lg\:flex-basis-1\/2 { flex-basis: 50%; }
+        .lg\:flex-basis-1\/3 { flex-basis: 33.3333%; }
+        .lg\:flex-basis-2\/3 { flex-basis: 66.6667%; }
+        .lg\:flex-basis-1\/4 { flex-basis: 25%; }
+        .lg\:flex-basis-3\/4 { flex-basis: 75%; }
     }
 
     /* Responsive Layout-Anpassungen */
@@ -854,6 +1009,10 @@
         }
     }
 
+    /* ============================
+     * 8. SUBGRID-LAYOUTS
+     *============================ */
+    
     /* 
      * Subgrid Layouts 
      * 
@@ -861,7 +1020,7 @@
      * responsive Layoutstrukturen, die Konsistenz über verschachtelte Komponenten hinweg bieten.
      */
 
-    /* Basis-Subgrid-Layouts aus subgrid.css */
+    /* Basis-Subgrid-Layouts */
     .grid-container {
         display: grid;
         grid-template-columns: repeat(12, 1fr);
@@ -945,7 +1104,7 @@
         grid-column: span 4;
     }
 
-    /* Fortgeschrittene Subgrid-Layouts aus subgrid-layouts.css */
+    /* Fortgeschrittene Subgrid-Layouts */
 
     /* Hauptgrid-Layout für die Seite */
     .page-layout {
@@ -1025,6 +1184,10 @@
         margin-block-end: 1rem;
     }
 
+    /* ============================
+     * 9. MEDIA QUERIES
+     *============================ */
+    
     /* Responsive Anpassungen für Subgrid-Layouts */
     @media (width <= 992px) {
         .product-card {
