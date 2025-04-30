@@ -6,7 +6,6 @@
  * 
  * Themes werden in folgender Reihenfolge geladen:
  * 1. Basis-Theme (theme-base.css) - Grundlegende Variablen für alle Themes
- * 2. Barrierefreiheit (accessibility.css) - Anpassungen für bessere Zugänglichkeit
  * 3. Dark Mode (dark-mode.css) - Dunkles Farbschema (automatisch oder über .dark-theme Klasse)
  * 4. Marken-Theme (brand.css) - Markenspezifische Anpassungen
  * 5. Theme-Variationen - Aktiviert durch spezifische Klassen (.theme-*)
@@ -23,8 +22,6 @@
 /* Basis-Theme - Wird immer geladen */
 @import url('themes/theme-base.css') layer(theme-base);
 
-/* Barrierefreiheit-Themes */
-@import url('themes/accessibility.css') layer(accessibility);
 
 /* Dark Mode - Automatisch über Medienfunktion oder mit .dark-theme Klasse */
 @import url('themes/dark-mode.css') layer(dark-mode);
