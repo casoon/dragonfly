@@ -1,10 +1,64 @@
-/*
- * Radio Module
- *
- * Gestylte Radio-Buttons mit Fokus- und Aktivzustand.
+/**
+ * Radio-Modul
+ * 
+ * Radio-Button-Auswahlelemente für Formulare und Einstellungen.
+ * Radio-Buttons ermöglichen die Auswahl einer einzelnen Option aus einer Gruppe.
+ * 
+ * @layer: module-radio
+ * 
+ * Grundlegende Verwendung:
+ * <div class="radio-group">
+ *   <label class="radio">
+ *     <input type="radio" name="options" class="radio__input" checked>
+ *     <span class="radio__label">Option 1</span>
+ *   </label>
+ *   <label class="radio">
+ *     <input type="radio" name="options" class="radio__input">
+ *     <span class="radio__label">Option 2</span>
+ *   </label>
+ * </div>
+ * 
+ * Zustände:
+ * <label class="radio">
+ *   <input type="radio" class="radio__input" checked>
+ *   <span class="radio__label">Ausgewählt</span>
+ * </label>
+ * 
+ * <label class="radio">
+ *   <input type="radio" class="radio__input" disabled>
+ *   <span class="radio__label">Deaktiviert</span>
+ * </label>
+ * 
+ * Größenvarianten:
+ * <label class="radio radio--sm">
+ *   <input type="radio" class="radio__input">
+ *   <span class="radio__label">Klein</span>
+ * </label>
+ * 
+ * <label class="radio radio--md">
+ *   <input type="radio" class="radio__input">
+ *   <span class="radio__label">Mittel (Standard)</span>
+ * </label>
+ * 
+ * <label class="radio radio--lg">
+ *   <input type="radio" class="radio__input">
+ *   <span class="radio__label">Groß</span>
+ * </label>
+ * 
+ * Horizontale Ausrichtung:
+ * <div class="radio-group radio-group--horizontal">
+ *   <label class="radio">
+ *     <input type="radio" name="horizontalOptions" class="radio__input">
+ *     <span class="radio__label">Option 1</span>
+ *   </label>
+ *   <label class="radio">
+ *     <input type="radio" name="horizontalOptions" class="radio__input">
+ *     <span class="radio__label">Option 2</span>
+ *   </label>
+ * </div>
  */
 
- @layer module-radio {
+
     .radio {
       display: inline-flex;
       align-items: center;
@@ -31,5 +85,5 @@
       outline: 2px solid var(--color-primary);
       outline-offset: 2px;
     }
-  }
+
   

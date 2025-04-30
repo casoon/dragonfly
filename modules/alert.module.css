@@ -4,7 +4,35 @@
  * Visuelle Hinweise für Erfolg, Warnung, Fehler oder Infos.
  */
 
- @layer module-alert {
+/**
+ * Alert-Modul
+ * 
+ * Informations- und Warnmeldungen für wichtige Mitteilungen an Benutzer.
+ * Alerts können verwendet werden, um Erfolge, Fehler, Warnungen oder informative Nachrichten anzuzeigen.
+ * 
+ * @layer: module-alert
+ * 
+ * Verwendung:
+ * <div class="alert">Standard-Alert</div>
+ * <div class="alert alert--info">Info-Alert</div>
+ * <div class="alert alert--success">Erfolgs-Alert</div>
+ * <div class="alert alert--warning">Warnungs-Alert</div>
+ * <div class="alert alert--error">Fehler-Alert</div>
+ * 
+ * Mit Icon (benötigt Icon-System):
+ * <div class="alert alert--with-icon">
+ *   <span class="alert__icon"><!-- Icon hier --></span>
+ *   <div class="alert__content">Alert mit Icon</div>
+ * </div>
+ * 
+ * Schließbar:
+ * <div class="alert alert--dismissible">
+ *   <div class="alert__content">Schließbarer Alert</div>
+ *   <button class="alert__close">×</button>
+ * </div>
+ */
+
+
   .alert {
     display: flex;
     align-items: start;
@@ -29,4 +57,3 @@
   .alert-content {
     flex: 1;
   }
-}

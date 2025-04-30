@@ -4,7 +4,68 @@
  * Layoutregeln für den Seitenfußbereich. Unterstützt Subgrid, Container Queries und responsives Verhalten.
  */
 
- @layer module-footer {
+/**
+ * Footer-Modul
+ * 
+ * Fußzeilenkomponenten für Websites und Anwendungen.
+ * Der Footer enthält zusätzliche Navigationselemente, Kontaktinformationen und rechtliche Hinweise.
+ * 
+ * @layer: module-footer
+ * 
+ * Grundlegende Verwendung:
+ * <footer class="footer">
+ *   <div class="footer__logo">
+ *     <img src="logo.png" alt="Logo">
+ *   </div>
+ *   <div class="footer__content">
+ *     <div class="footer__section">
+ *       <h4 class="footer__heading">Über uns</h4>
+ *       <p>Kurze Unternehmensbeschreibung</p>
+ *     </div>
+ *     <div class="footer__section">
+ *       <h4 class="footer__heading">Links</h4>
+ *       <ul class="footer__links">
+ *         <li><a href="#" class="footer__link">Startseite</a></li>
+ *         <li><a href="#" class="footer__link">Produkte</a></li>
+ *         <li><a href="#" class="footer__link">Über uns</a></li>
+ *         <li><a href="#" class="footer__link">Kontakt</a></li>
+ *       </ul>
+ *     </div>
+ *     <div class="footer__section">
+ *       <h4 class="footer__heading">Kontakt</h4>
+ *       <address class="footer__address">
+ *         Musterstraße 123<br>
+ *         12345 Musterstadt<br>
+ *         info@beispiel.de
+ *       </address>
+ *     </div>
+ *   </div>
+ *   <div class="footer__bottom">
+ *     <p class="footer__copyright">&copy; 2023 Unternehmen. Alle Rechte vorbehalten.</p>
+ *     <div class="footer__social">
+ *       <a href="#" class="footer__social-link"><!-- Social Icon 1 --></a>
+ *       <a href="#" class="footer__social-link"><!-- Social Icon 2 --></a>
+ *     </div>
+ *   </div>
+ * </footer>
+ * 
+ * Varianten:
+ * <footer class="footer footer--light">...</footer>
+ * <footer class="footer footer--dark">...</footer>
+ * <footer class="footer footer--primary">...</footer>
+ * 
+ * Minimaler Footer:
+ * <footer class="footer footer--minimal">
+ *   <p class="footer__copyright">&copy; 2023 Unternehmen</p>
+ *   <ul class="footer__legal">
+ *     <li><a href="#">Impressum</a></li>
+ *     <li><a href="#">Datenschutz</a></li>
+ *     <li><a href="#">AGB</a></li>
+ *   </ul>
+ * </footer>
+ */
+
+
   .footer {
     display: grid;
     grid-template-columns: subgrid;
@@ -28,4 +89,3 @@
       grid-column: span 12;
     }
   }
-}

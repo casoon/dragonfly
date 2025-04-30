@@ -4,7 +4,68 @@
  * Layoutregeln für die Sidebar-Navigation oder Kontextinhalte. Nutzt Grid-Spaltenlogik und Container Queries.
  */
 
- @layer module-sidebar {
+/**
+ * Sidebar-Modul
+ * 
+ * Seitenleisten-Navigation und -Inhalte für Layouts mit Nebenspalten.
+ * Sidebars dienen als zusätzlicher Navigationsbereich oder zur Darstellung von Kontextinformationen.
+ * 
+ * @layer: module-sidebar
+ * 
+ * Grundlegende Verwendung:
+ * <aside class="sidebar">
+ *   <nav class="sidebar__nav">
+ *     <ul class="sidebar__menu">
+ *       <li class="sidebar__item">
+ *         <a href="#" class="sidebar__link">Menüpunkt 1</a>
+ *       </li>
+ *       <li class="sidebar__item sidebar__item--active">
+ *         <a href="#" class="sidebar__link">Menüpunkt 2</a>
+ *       </li>
+ *       <li class="sidebar__item">
+ *         <a href="#" class="sidebar__link">Menüpunkt 3</a>
+ *       </li>
+ *     </ul>
+ *   </nav>
+ * </aside>
+ * 
+ * Mit Überschrift:
+ * <aside class="sidebar">
+ *   <div class="sidebar__header">
+ *     <h3 class="sidebar__title">Kategorien</h3>
+ *   </div>
+ *   <nav class="sidebar__nav">...</nav>
+ * </aside>
+ * 
+ * Verschachteltes Menü:
+ * <ul class="sidebar__menu">
+ *   <li class="sidebar__item">
+ *     <a href="#" class="sidebar__link">Hauptmenü</a>
+ *     <ul class="sidebar__submenu">
+ *       <li class="sidebar__item">
+ *         <a href="#" class="sidebar__link">Untermenü 1</a>
+ *       </li>
+ *       <li class="sidebar__item">
+ *         <a href="#" class="sidebar__link">Untermenü 2</a>
+ *       </li>
+ *     </ul>
+ *   </li>
+ * </ul>
+ * 
+ * Varianten:
+ * <aside class="sidebar sidebar--left">Links positioniert (Standard)</aside>
+ * <aside class="sidebar sidebar--right">Rechts positioniert</aside>
+ * <aside class="sidebar sidebar--light">Heller Hintergrund</aside>
+ * <aside class="sidebar sidebar--dark">Dunkler Hintergrund</aside>
+ * 
+ * Responsives Verhalten:
+ * <aside class="sidebar sidebar--collapsible">
+ *   <button class="sidebar__toggle">Menü</button>
+ *   <div class="sidebar__content">...</div>
+ * </aside>
+ */
+
+
     .sidebar {
       grid-column: span 3;
       padding-block: var(--space-4);
@@ -18,5 +79,5 @@
         order: 2;
       }
     }
-  }
+
   

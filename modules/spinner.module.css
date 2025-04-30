@@ -1,10 +1,46 @@
-/*
- * Spinner Module
- *
- * Rotierender Ladeindikator.
+/**
+ * Spinner-Modul
+ * 
+ * Ladeanzeigen und Animationen für asynchrone Prozesse.
+ * Spinner zeigen Benutzern an, dass eine Operation im Hintergrund ausgeführt wird.
+ * 
+ * @layer: module-spinner
+ * 
+ * Grundlegende Verwendung:
+ * <div class="spinner"></div>
+ * 
+ * Größenvarianten:
+ * <div class="spinner spinner--xs"></div>
+ * <div class="spinner spinner--sm"></div>
+ * <div class="spinner spinner--md"></div>
+ * <div class="spinner spinner--lg"></div>
+ * <div class="spinner spinner--xl"></div>
+ * 
+ * Varianten:
+ * <div class="spinner spinner--ring"></div>    <!-- Ring-Stil (Standard) -->
+ * <div class="spinner spinner--dots"></div>    <!-- Punkte-Animation -->
+ * <div class="spinner spinner--pulse"></div>   <!-- Pulsierender Kreis -->
+ * <div class="spinner spinner--bounce"></div>  <!-- Springende Punkte -->
+ * 
+ * Farbvarianten:
+ * <div class="spinner spinner--primary"></div>
+ * <div class="spinner spinner--secondary"></div>
+ * <div class="spinner spinner--light"></div>
+ * <div class="spinner spinner--dark"></div>
+ * 
+ * Mit Text:
+ * <div class="spinner-container">
+ *   <div class="spinner"></div>
+ *   <span class="spinner-text">Lädt...</span>
+ * </div>
+ * 
+ * Vollbildschirm-Overlay:
+ * <div class="spinner-overlay">
+ *   <div class="spinner spinner--lg"></div>
+ * </div>
  */
 
- @layer module-spinner {
+
     .spinner {
       width: 1.5rem;
       height: 1.5rem;
@@ -19,5 +55,5 @@
         transform: rotate(360deg);
       }
     }
-  }
+
   

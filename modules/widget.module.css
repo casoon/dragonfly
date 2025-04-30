@@ -4,7 +4,52 @@
  * Flexible Boxen für Dashboards und Seitenlayouts.
  */
 
- @layer module-widget {
+/**
+ * Widget-Modul
+ * 
+ * Wiederverwendbare UI-Widgets für modulare Benutzeroberflächen.
+ * Widgets sind eigenständige Komponenten, die bestimmte Funktionen oder Inhalte kapseln.
+ * 
+ * @layer: module-widget
+ * 
+ * Grundlegende Verwendung:
+ * <div class="widget">
+ *   <div class="widget__header">Widget-Titel</div>
+ *   <div class="widget__body">Widget-Inhalt</div>
+ *   <div class="widget__footer">Widget-Fußzeile</div>
+ * </div>
+ * 
+ * Varianten:
+ * <div class="widget widget--primary">Primär-Widget</div>
+ * <div class="widget widget--secondary">Sekundär-Widget</div>
+ * <div class="widget widget--light">Helles Widget</div>
+ * <div class="widget widget--dark">Dunkles Widget</div>
+ * 
+ * Größen:
+ * <div class="widget widget--sm">Klein</div>
+ * <div class="widget widget--md">Mittel (Standard)</div>
+ * <div class="widget widget--lg">Groß</div>
+ * <div class="widget widget--full">Volle Breite</div>
+ * 
+ * Zustände:
+ * <div class="widget widget--loading">Ladend</div>
+ * <div class="widget widget--collapsed">Eingeklappt</div>
+ * <div class="widget widget--expanded">Ausgeklappt</div>
+ * 
+ * Widget mit Aktionsbuttons:
+ * <div class="widget">
+ *   <div class="widget__header">
+ *     <h3 class="widget__title">Statistik</h3>
+ *     <div class="widget__actions">
+ *       <button class="widget__action">Aktualisieren</button>
+ *       <button class="widget__action">Einklappen</button>
+ *     </div>
+ *   </div>
+ *   <div class="widget__body">...</div>
+ * </div>
+ */
+
+
   .widget {
     background-color: var(--color-white);
     border: 1px solid var(--color-gray-200);
@@ -17,4 +62,4 @@
     border-color: var(--color-primary);
     background-color: color-mix(in oklab, var(--color-primary), white 90%);
   }
-}
+

@@ -4,7 +4,55 @@
  * Kombiniert mehrere Inputs mit Add-ons (z. B. Buttons oder Icons).
  */
 
- @layer module-input-group {
+/**
+ * Input-Group-Modul
+ * 
+ * Gruppierte Eingabeelemente für zusammengehörende Formularfelder.
+ * Input-Groups ermöglichen die Kombination von Eingabefeldern mit Addons, Buttons oder Labels.
+ * 
+ * @layer: module-input-group
+ * 
+ * Grundlegende Verwendung:
+ * <div class="input-group">
+ *   <span class="input-group__addon">https://</span>
+ *   <input type="text" class="input" placeholder="example.com">
+ * </div>
+ * 
+ * Mit Button:
+ * <div class="input-group">
+ *   <input type="text" class="input" placeholder="Suchen...">
+ *   <button class="button">Suchen</button>
+ * </div>
+ * 
+ * Mit Icon:
+ * <div class="input-group">
+ *   <span class="input-group__icon"><!-- Icon hier --></span>
+ *   <input type="text" class="input" placeholder="Benutzername">
+ * </div>
+ * 
+ * Mit Addons auf beiden Seiten:
+ * <div class="input-group">
+ *   <span class="input-group__addon">$</span>
+ *   <input type="number" class="input" placeholder="0.00">
+ *   <span class="input-group__addon">.00</span>
+ * </div>
+ * 
+ * Dropdown mit Button:
+ * <div class="input-group">
+ *   <select class="select">
+ *     <option>Option 1</option>
+ *     <option>Option 2</option>
+ *   </select>
+ *   <button class="button button--primary">Bestätigen</button>
+ * </div>
+ * 
+ * Größenvarianten:
+ * <div class="input-group input-group--sm">...</div>
+ * <div class="input-group input-group--md">...</div>
+ * <div class="input-group input-group--lg">...</div>
+ */
+
+
   .input-group {
     display: flex;
     width: 100%;
@@ -31,4 +79,4 @@
     font-size: var(--font-size-sm);
     white-space: nowrap;
   }
-}
+

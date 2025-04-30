@@ -4,7 +4,46 @@
  * Layoutregeln für ein responsives Card-Grid. Nutzt Container Queries für Spaltenanzahl.
  */
 
- @layer module-card {
+/**
+ * Card-Modul
+ * 
+ * Container für Inhaltsblöcke, die zusammengehörende Informationen präsentieren.
+ * Cards bieten eine visuelle Gruppierung von zusammengehörigen Inhalten und Aktionen.
+ * 
+ * @layer: module-card
+ * 
+ * Grundlegende Verwendung:
+ * <div class="card">
+ *   <div class="card__header">Kartentitel</div>
+ *   <div class="card__body">Karteninhalt</div>
+ *   <div class="card__footer">Kartenfußzeile</div>
+ * </div>
+ * 
+ * Varianten:
+ * <div class="card card--primary">Primäre Karte</div>
+ * <div class="card card--secondary">Sekundäre Karte</div>
+ * <div class="card card--outlined">Umrissene Karte</div>
+ * <div class="card card--flat">Flache Karte (ohne Schatten)</div>
+ * 
+ * Mit Bild:
+ * <div class="card">
+ *   <img class="card__image" src="image.jpg" alt="Bild">
+ *   <div class="card__body">Karteninhalt mit Bild</div>
+ * </div>
+ * 
+ * Horizontale Karte:
+ * <div class="card card--horizontal">
+ *   <img class="card__image" src="image.jpg" alt="Bild">
+ *   <div class="card__body">Horizontale Karte</div>
+ * </div>
+ * 
+ * Aktionskarte:
+ * <div class="card card--interactive">
+ *   <div class="card__body">Klickbare Karte</div>
+ * </div>
+ */
+
+
   .card-grid {
     display: grid;
     gap: var(--space-4);
@@ -25,4 +64,4 @@
     font-size: var(--font-size-lg);
     margin: 0;
   }
-}
+

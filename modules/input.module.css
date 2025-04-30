@@ -1,10 +1,44 @@
-/*
- * Input Module
- *
- * Gestaltete Eingabefelder für Text, Zahl etc.
+/**
+ * Input-Modul
+ * 
+ * Texteingabefelder für Formulare und Benutzerinteraktion.
+ * Eingabefelder dienen als primäre Schnittstelle für Textdaten in Formularen.
+ * 
+ * @layer: module-input
+ * 
+ * Grundlegende Verwendung:
+ * <input type="text" class="input" placeholder="Text eingeben">
+ * 
+ * Varianten:
+ * <input type="text" class="input input--primary" placeholder="Primär">
+ * <input type="text" class="input input--success" placeholder="Erfolg">
+ * <input type="text" class="input input--warning" placeholder="Warnung">
+ * <input type="text" class="input input--danger" placeholder="Gefahr">
+ * 
+ * Größen:
+ * <input type="text" class="input input--sm" placeholder="Klein">
+ * <input type="text" class="input input--md" placeholder="Mittel (Standard)">
+ * <input type="text" class="input input--lg" placeholder="Groß">
+ * 
+ * Zustände:
+ * <input type="text" class="input" disabled placeholder="Deaktiviert">
+ * <input type="text" class="input input--error" placeholder="Fehler">
+ * <input type="text" class="input input--readonly" readonly placeholder="Schreibgeschützt">
+ * 
+ * Mit Icon:
+ * <div class="input-wrapper">
+ *   <span class="input-icon"><!-- Icon hier --></span>
+ *   <input type="text" class="input" placeholder="Mit Icon">
+ * </div>
+ * 
+ * Mit Addon:
+ * <div class="input-group">
+ *   <span class="input-addon">https://</span>
+ *   <input type="text" class="input" placeholder="example.com">
+ * </div>
  */
 
- @layer module-input {
+
   .input {
     display: block;
     width: 100%;
@@ -33,4 +67,4 @@
     color: var(--color-gray-500);
     cursor: not-allowed;
   }
-}
+

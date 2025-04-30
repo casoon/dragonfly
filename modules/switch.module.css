@@ -4,7 +4,61 @@
  * Toggle-Schalter für Boolean-Werte.
  */
 
- @layer module-switch {
+/**
+ * Switch-Modul
+ * 
+ * Umschalter für binäre Ja/Nein- oder Ein/Aus-Optionen.
+ * Switches bieten eine intuitive Alternative zu Checkboxen für Ein/Aus-Zustände.
+ * 
+ * @layer: module-switch
+ * 
+ * Grundlegende Verwendung:
+ * <label class="switch">
+ *   <input type="checkbox" class="switch__input">
+ *   <span class="switch__toggle"></span>
+ *   <span class="switch__label">Benachrichtigungen</span>
+ * </label>
+ * 
+ * Zustände:
+ * <label class="switch">
+ *   <input type="checkbox" class="switch__input" checked>
+ *   <span class="switch__toggle"></span>
+ *   <span class="switch__label">Aktiviert</span>
+ * </label>
+ * 
+ * <label class="switch">
+ *   <input type="checkbox" class="switch__input" disabled>
+ *   <span class="switch__toggle"></span>
+ *   <span class="switch__label">Deaktiviert</span>
+ * </label>
+ * 
+ * Größenvarianten:
+ * <label class="switch switch--sm">
+ *   <input type="checkbox" class="switch__input">
+ *   <span class="switch__toggle"></span>
+ *   <span class="switch__label">Klein</span>
+ * </label>
+ * 
+ * <label class="switch switch--md">
+ *   <input type="checkbox" class="switch__input">
+ *   <span class="switch__toggle"></span>
+ *   <span class="switch__label">Mittel (Standard)</span>
+ * </label>
+ * 
+ * <label class="switch switch--lg">
+ *   <input type="checkbox" class="switch__input">
+ *   <span class="switch__toggle"></span>
+ *   <span class="switch__label">Groß</span>
+ * </label>
+ * 
+ * Farbvarianten:
+ * <label class="switch switch--primary">...</label>
+ * <label class="switch switch--success">...</label>
+ * <label class="switch switch--warning">...</label>
+ * <label class="switch switch--danger">...</label>
+ */
+
+
     .switch {
       display: inline-block;
       width: 2.5rem;
@@ -35,5 +89,5 @@
     .switch--checked::before {
       transform: translateX(1.25rem);
     }
-  }
+
   

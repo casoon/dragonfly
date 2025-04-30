@@ -4,7 +4,51 @@
  * Standardisierte Buttons mit Varianten und Zuständen.
  */
 
- @layer components {
+/**
+ * Button-Modul
+ * 
+ * Interaktive Schaltflächen für Benutzeraktionen und Formularsteuerung.
+ * Buttons sind die primären interaktiven Elemente der Benutzeroberfläche.
+ * 
+ * @layer: module-button
+ * 
+ * Verwendung:
+ * <button class="button">Standard Button</button>
+ * 
+ * Varianten:
+ * <button class="button button--primary">Primär</button>
+ * <button class="button button--secondary">Sekundär</button>
+ * <button class="button button--tertiary">Tertiär</button>
+ * <button class="button button--success">Erfolg</button>
+ * <button class="button button--warning">Warnung</button>
+ * <button class="button button--danger">Gefahr</button>
+ * <button class="button button--info">Info</button>
+ * <button class="button button--link">Link-Style</button>
+ * 
+ * Größen:
+ * <button class="button button--xs">Extra Klein</button>
+ * <button class="button button--sm">Klein</button>
+ * <button class="button button--md">Mittel (Standard)</button>
+ * <button class="button button--lg">Groß</button>
+ * <button class="button button--xl">Extra Groß</button>
+ * 
+ * Zustände:
+ * <button class="button" disabled>Deaktiviert</button>
+ * <button class="button button--loading">Lädt...</button>
+ * 
+ * Mit Icon:
+ * <button class="button button--with-icon">
+ *   <span class="button__icon"><!-- Icon hier --></span>
+ *   <span>Button mit Icon</span>
+ * </button>
+ * 
+ * Nur Icon:
+ * <button class="button button--icon-only">
+ *   <span class="button__icon"><!-- Icon hier --></span>
+ * </button>
+ */
+
+
   .button {
     display: inline-flex;
     align-items: center;
@@ -56,4 +100,4 @@
     padding-block: var(--space-3);
     font-size: var(--font-size-base);
   }
-}
+

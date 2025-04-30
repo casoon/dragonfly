@@ -178,6 +178,7 @@ Die Hauptdateien im Wurzelverzeichnis steuern die gesamte Bibliothek:
 
 - `base/`: Grundlegende CSS-Layer
 - `modules/`: UI-Komponenten als CSS-Module
+  - Siehe [Moduldokumentation](modules/README.md) für Details zu allen verfügbaren Komponenten
 - `effects/`: Spezielle Effekte und Interaktionen
 - `themes/`: Theme-Varianten und Farbschemata
 - `icons/`: Icon-Definitionen

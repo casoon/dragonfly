@@ -4,7 +4,52 @@
  * Hauptbereich für Inhaltsdarstellung. Flexibles Grid mit Subgrid-Option.
  */
 
- @layer module-content {
+/**
+ * Content-Modul
+ * 
+ * Allgemeine Inhaltsformatierung für Textbereiche und Artikelinhalte.
+ * Das Content-Modul bietet eine konsistente Textdarstellung für umfangreiche Inhaltsbereiche.
+ * 
+ * @layer: module-content
+ * 
+ * Grundlegende Verwendung:
+ * <div class="content">
+ *   <h1>Überschrift</h1>
+ *   <p>Absatztext mit <a href="#">Link</a> und <strong>hervorgehobenem Text</strong>.</p>
+ *   <h2>Unterüberschrift</h2>
+ *   <p>Weiterer Text mit <em>betontem Inhalt</em> und <code>Code-Beispiel</code>.</p>
+ *   <blockquote>Zitat oder hervorgehobener Text</blockquote>
+ * </div>
+ * 
+ * Typografische Elemente werden automatisch formatiert:
+ * - Überschriften (h1-h6)
+ * - Absätze
+ * - Listen (ul, ol)
+ * - Blockzitate
+ * - Code-Blöcke
+ * - Tabellen
+ * - Bilder und Medienelemente
+ * 
+ * Varianten:
+ * <div class="content content--large">Größere Schrift</div>
+ * <div class="content content--small">Kleinere Schrift</div>
+ * <div class="content content--tight">Engere Zeilenabstände</div>
+ * <div class="content content--relaxed">Weitere Zeilenabstände</div>
+ * 
+ * Mit Randmarkierungen:
+ * <div class="content content--with-sidebar">
+ *   <p>Inhalt mit Randbemerkungen</p>
+ *   <aside class="content__note">Randbemerkung</aside>
+ * </div>
+ * 
+ * Für Druckausgabe optimiert:
+ * <div class="content content--print-friendly">
+ *   <h1>Druckfreundlicher Inhalt</h1>
+ *   <p>Dieser Inhalt ist für den Druck optimiert.</p>
+ * </div>
+ */
+
+
     .content {
       grid-column: span 9;
       display: grid;
@@ -18,5 +63,5 @@
         order: 1;
       }
     }
-  }
+
   

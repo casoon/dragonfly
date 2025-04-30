@@ -4,7 +4,49 @@
  * Zentrale Komponente für modale Dialoge.
  */
 
- @layer module-modal {
+/**
+ * Modal-Modul
+ * 
+ * Dialogfenster und Overlays für fokussierte Benutzerinteraktionen.
+ * Modals werden verwendet, um wichtige Informationen anzuzeigen oder Benutzerentscheidungen zu erfordern.
+ * 
+ * @layer: module-modal
+ * 
+ * Grundlegende Verwendung:
+ * <div class="modal">
+ *   <div class="modal__backdrop"></div>
+ *   <div class="modal__container">
+ *     <div class="modal__header">
+ *       <h3 class="modal__title">Modaltitel</h3>
+ *       <button class="modal__close">&times;</button>
+ *     </div>
+ *     <div class="modal__body">
+ *       Modalinhalt
+ *     </div>
+ *     <div class="modal__footer">
+ *       <button class="button">Abbrechen</button>
+ *       <button class="button button--primary">Bestätigen</button>
+ *     </div>
+ *   </div>
+ * </div>
+ * 
+ * Größenvarianten:
+ * <div class="modal modal--small">...</div>
+ * <div class="modal modal--medium">...</div>
+ * <div class="modal modal--large">...</div>
+ * <div class="modal modal--fullscreen">...</div>
+ * 
+ * Position:
+ * <div class="modal modal--center">...</div>
+ * <div class="modal modal--top">...</div>
+ * <div class="modal modal--bottom">...</div>
+ * 
+ * Animation (erfordert JS):
+ * <div class="modal modal--fade">...</div>
+ * <div class="modal modal--slide">...</div>
+ */
+
+
     .modal-overlay {
       position: fixed;
       inset: 0;
@@ -44,4 +86,3 @@
       justify-content: flex-end;
       gap: var(--space-3);
     }
-  }

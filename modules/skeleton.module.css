@@ -1,10 +1,50 @@
-/*
- * Skeleton Module
- *
- * Platzhalter für ladende Inhalte mit Animation.
+/**
+ * Skeleton-Modul
+ * 
+ * Ladezustands-Platzhalter für Inhalte, die noch geladen werden.
+ * Skeleton-Loader verbessern die wahrgenommene Performance und verhindern Layout-Shifts.
+ * 
+ * @layer: module-skeleton
+ * 
+ * Grundlegende Verwendung:
+ * <div class="skeleton"></div>
+ * 
+ * Formen:
+ * <div class="skeleton skeleton--text">Textzeile</div>
+ * <div class="skeleton skeleton--circle">Kreis</div>
+ * <div class="skeleton skeleton--rect">Rechteck</div>
+ * <div class="skeleton skeleton--avatar">Avatar</div>
+ * <div class="skeleton skeleton--button">Button</div>
+ * 
+ * Varianten:
+ * <div class="skeleton skeleton--pulse">Mit Pulsieren</div>
+ * <div class="skeleton skeleton--wave">Mit Wellenbewegung</div>
+ * 
+ * Größen:
+ * <div class="skeleton skeleton--text skeleton--sm">Klein</div>
+ * <div class="skeleton skeleton--text skeleton--md">Mittel</div>
+ * <div class="skeleton skeleton--text skeleton--lg">Groß</div>
+ * 
+ * Komplexe Layoutbeispiele:
+ * <div class="skeleton-card">
+ *   <div class="skeleton skeleton--rect skeleton--image"></div>
+ *   <div class="skeleton skeleton--text skeleton--title"></div>
+ *   <div class="skeleton skeleton--text"></div>
+ *   <div class="skeleton skeleton--text"></div>
+ *   <div class="skeleton skeleton--text skeleton--short"></div>
+ * </div>
+ * 
+ * Artikel-Ladeansicht:
+ * <div class="skeleton-article">
+ *   <div class="skeleton skeleton--text skeleton--heading"></div>
+ *   <div class="skeleton skeleton--text skeleton--subheading"></div>
+ *   <div class="skeleton skeleton--text"></div>
+ *   <div class="skeleton skeleton--text"></div>
+ *   <div class="skeleton skeleton--text"></div>
+ * </div>
  */
 
- @layer module-skeleton {
+
     .skeleton {
       background-color: var(--color-gray-200);
       border-radius: var(--radius-sm);
@@ -24,4 +64,3 @@
         opacity: 0.4;
       }
     }
-  }

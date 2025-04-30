@@ -5,7 +5,67 @@
  * Nutzt Subgrid und Container Queries zur optimalen Skalierung.
  */
 
- @layer module-header {
+/**
+ * Header-Modul
+ * 
+ * Kopfzeilenkomponenten für Websites und Anwendungen.
+ * Der Header dient als Navigationsbereich und wichtiger Orientierungspunkt für Benutzer.
+ * 
+ * @layer: module-header
+ * 
+ * Grundlegende Verwendung:
+ * <header class="header">
+ *   <div class="header__logo">
+ *     <img src="logo.png" alt="Logo" />
+ *   </div>
+ *   <nav class="header__nav">
+ *     <ul class="header__menu">
+ *       <li><a href="#" class="header__link">Startseite</a></li>
+ *       <li><a href="#" class="header__link">Produkte</a></li>
+ *       <li><a href="#" class="header__link">Über uns</a></li>
+ *       <li><a href="#" class="header__link">Kontakt</a></li>
+ *     </ul>
+ *   </nav>
+ *   <div class="header__actions">
+ *     <button class="button">Login</button>
+ *   </div>
+ * </header>
+ * 
+ * Fixierter Header:
+ * <header class="header header--fixed">...</header>
+ * 
+ * Sticky Header (bleibt beim Scrollen sichtbar):
+ * <header class="header header--sticky">...</header>
+ * 
+ * Transparenter Header (für Hero-Bereiche):
+ * <header class="header header--transparent">...</header>
+ * 
+ * Varianten:
+ * <header class="header header--primary">...</header>
+ * <header class="header header--light">...</header>
+ * <header class="header header--dark">...</header>
+ * 
+ * Mit Suchfunktion:
+ * <header class="header">
+ *   <!-- ... -->
+ *   <div class="header__search">
+ *     <input type="search" class="input" placeholder="Suchen...">
+ *     <button class="button button--icon-only">
+ *       <span class="icon">🔍</span>
+ *     </button>
+ *   </div>
+ * </header>
+ * 
+ * Responsive mit Hamburger-Menü:
+ * <header class="header">
+ *   <div class="header__logo">Logo</div>
+ *   <button class="header__toggle hamburger" aria-label="Menü öffnen"></button>
+ *   <nav class="header__nav header__nav--mobile-hidden">
+ *     <!-- Menüpunkte -->
+ *   </nav>
+ * </header>
+ */
+
     .header {
       display: grid;
       grid-template-columns: subgrid;
@@ -56,5 +116,5 @@
         justify-content: flex-end;
       }
     }
-  }
+
   

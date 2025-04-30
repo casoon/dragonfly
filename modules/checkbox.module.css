@@ -4,7 +4,55 @@
  * Standard- und benutzerdefinierte Checkbox-Komponente mit Fokus- und Check-Stilen.
  */
 
- @layer module-checkbox {
+/**
+ * Checkbox-Modul
+ * 
+ * Auswahlkästchen für Formulare und Einstellungen.
+ * Checkboxen erlauben Benutzern die Auswahl mehrerer Optionen aus einer Liste.
+ * 
+ * @layer: module-checkbox
+ * 
+ * Grundlegende Verwendung:
+ * <label class="checkbox">
+ *   <input type="checkbox" class="checkbox__input">
+ *   <span class="checkbox__label">Option auswählen</span>
+ * </label>
+ * 
+ * Zustände:
+ * <label class="checkbox">
+ *   <input type="checkbox" class="checkbox__input" checked>
+ *   <span class="checkbox__label">Ausgewählt</span>
+ * </label>
+ * 
+ * <label class="checkbox">
+ *   <input type="checkbox" class="checkbox__input" disabled>
+ *   <span class="checkbox__label">Deaktiviert</span>
+ * </label>
+ * 
+ * Varianten:
+ * <label class="checkbox checkbox--small">
+ *   <input type="checkbox" class="checkbox__input">
+ *   <span class="checkbox__label">Kleine Checkbox</span>
+ * </label>
+ * 
+ * <label class="checkbox checkbox--large">
+ *   <input type="checkbox" class="checkbox__input">
+ *   <span class="checkbox__label">Große Checkbox</span>
+ * </label>
+ * 
+ * Formular-Gruppen:
+ * <div class="checkbox-group">
+ *   <label class="checkbox">
+ *     <input type="checkbox" class="checkbox__input">
+ *     <span class="checkbox__label">Option 1</span>
+ *   </label>
+ *   <label class="checkbox">
+ *     <input type="checkbox" class="checkbox__input">
+ *     <span class="checkbox__label">Option 2</span>
+ *   </label>
+ * </div>
+ */
+
     .checkbox {
       display: inline-flex;
       align-items: center;
@@ -47,4 +95,3 @@
       outline: 2px solid var(--color-primary);
       outline-offset: 2px;
     }
-  }

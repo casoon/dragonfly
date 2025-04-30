@@ -1,10 +1,56 @@
-/*
- * Code Module
- *
- * Formatierung für Inline-Code und Codeblöcke mit Syntax-Kompatibilität.
+/**
+ * Code-Modul
+ * 
+ * Formatierung für Code-Blöcke und Inline-Code-Elemente.
+ * Code-Komponenten stellen Quellcode und Code-Schnipsel übersichtlich dar.
+ * 
+ * @layer: module-code
+ * 
+ * Grundlegende Verwendung:
+ * <pre class="code">
+ *   <code>function example() {
+ *     return "Hello World";
+ *   }</code>
+ * </pre>
+ * 
+ * Inline-Code:
+ * <p>Verwenden Sie <code class="code-inline">console.log()</code> zum Debuggen.</p>
+ * 
+ * Mit Syntax-Hervorhebung (erfordert zusätzliches JS):
+ * <pre class="code code--highlighted">
+ *   <code class="language-javascript">
+ *     function example() {
+ *       return "Hello World";
+ *     }
+ *   </code>
+ * </pre>
+ * 
+ * Mit Zeilennummern:
+ * <pre class="code code--numbered">
+ *   <div class="code__line-numbers">1</div>
+ *   <code>function example() {</code>
+ *   <div class="code__line-numbers">2</div>
+ *   <code>  return "Hello World";</code>
+ *   <div class="code__line-numbers">3</div>
+ *   <code>}</code>
+ * </pre>
+ * 
+ * Varianten:
+ * <pre class="code code--dark">Dunkles Theme</pre>
+ * <pre class="code code--light">Helles Theme</pre>
+ * 
+ * Mit Kopierknopf:
+ * <div class="code-container">
+ *   <pre class="code">...</pre>
+ *   <button class="code__copy-button">Kopieren</button>
+ * </div>
+ * 
+ * Terminal-Output:
+ * <pre class="code code--terminal">
+ *   <code>$ npm install @casoon/ui-lib</code>
+ * </pre>
  */
 
- @layer module-code {
   .code-inline {
     font-family: var(--font-family-mono);
     background: var(--color-gray-100);
@@ -27,4 +73,4 @@
   .code-block pre {
     margin: 0;
   }
-}
+

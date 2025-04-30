@@ -4,7 +4,52 @@
  * Gestylter Range-Slider mit Fokus- und Hover-Zustand.
  */
 
- @layer module-slider {
+/**
+ * Slider-Modul
+ * 
+ * Schieberegler für die Auswahl von Werten innerhalb eines bestimmten Bereichs.
+ * Slider bieten eine intuitive Oberfläche zur Auswahl numerischer Werte.
+ * 
+ * @layer: module-slider
+ * 
+ * Grundlegende Verwendung:
+ * <input type="range" class="slider" min="0" max="100" value="50">
+ * 
+ * Mit Wertebereichsanzeige:
+ * <div class="slider-container">
+ *   <input type="range" class="slider" min="0" max="100" value="50">
+ *   <div class="slider__labels">
+ *     <span>0</span>
+ *     <span>50</span>
+ *     <span>100</span>
+ *   </div>
+ * </div>
+ * 
+ * Mit aktuellem Wert:
+ * <div class="slider-container">
+ *   <input type="range" class="slider" min="0" max="100" value="50">
+ *   <output class="slider__value">50</output>
+ * </div>
+ * 
+ * Varianten:
+ * <input type="range" class="slider slider--primary">
+ * <input type="range" class="slider slider--secondary">
+ * <input type="range" class="slider slider--success">
+ * <input type="range" class="slider slider--danger">
+ * 
+ * Größen:
+ * <input type="range" class="slider slider--sm">
+ * <input type="range" class="slider slider--md">
+ * <input type="range" class="slider slider--lg">
+ * 
+ * Bereichsslider (range):
+ * <div class="slider-range">
+ *   <input type="range" class="slider slider--lower" min="0" max="100" value="30">
+ *   <input type="range" class="slider slider--upper" min="0" max="100" value="70">
+ *   <div class="slider-range__track"></div>
+ * </div>
+ */
+
     .slider {
       appearance: none;
       width: 100%;
@@ -26,4 +71,3 @@
     .slider:focus::-webkit-slider-thumb {
       background-color: var(--color-primary-dark);
     }
-  }

@@ -4,7 +4,61 @@
  * UI-Komponente für Datei-Uploads oder Dateidarstellung.
  */
 
- @layer module-file {
+/**
+ * File-Modul
+ * 
+ * Datei-Upload und -Anzeige für Formulare und Dokumentverwaltung.
+ * File-Komponenten ermöglichen Benutzern das Hochladen, Auswählen und Verwalten von Dateien.
+ * 
+ * @layer: module-file
+ * 
+ * Grundlegende Verwendung:
+ * <div class="file">
+ *   <input type="file" id="file-upload" class="file__input">
+ *   <label for="file-upload" class="file__label">Datei auswählen</label>
+ * </div>
+ * 
+ * Mit Vorschau:
+ * <div class="file file--with-preview">
+ *   <input type="file" id="file-upload-preview" class="file__input">
+ *   <label for="file-upload-preview" class="file__label">Datei auswählen</label>
+ *   <div class="file__preview">
+ *     <img src="preview.jpg" alt="Vorschau">
+ *   </div>
+ * </div>
+ * 
+ * Drag & Drop-Bereich:
+ * <div class="file-dropzone">
+ *   <input type="file" id="file-drop" class="file__input" multiple>
+ *   <div class="file-dropzone__content">
+ *     <div class="file-dropzone__icon"><!-- Icon hier --></div>
+ *     <p>Dateien hierher ziehen oder <label for="file-drop" class="file-dropzone__browse">durchsuchen</label></p>
+ *   </div>
+ * </div>
+ * 
+ * Dateiliste:
+ * <ul class="file-list">
+ *   <li class="file-item">
+ *     <div class="file-item__icon"><!-- Datei-Icon --></div>
+ *     <div class="file-item__info">
+ *       <div class="file-item__name">dokument.pdf</div>
+ *       <div class="file-item__size">1.2 MB</div>
+ *     </div>
+ *     <button class="file-item__remove">&times;</button>
+ *   </li>
+ * </ul>
+ * 
+ * Upload-Fortschritt:
+ * <div class="file-upload">
+ *   <div class="file-upload__info">dokument.pdf</div>
+ *   <div class="file-upload__progress">
+ *     <div class="file-upload__progress-bar" style="width: 75%"></div>
+ *   </div>
+ *   <div class="file-upload__percentage">75%</div>
+ * </div>
+ */
+
+
   .file-upload {
     display: flex;
     flex-direction: column;
@@ -42,4 +96,4 @@
     border-radius: var(--radius-sm);
     font-size: var(--font-size-xs);
   }
-}
+

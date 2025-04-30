@@ -1,10 +1,59 @@
-/*
- * Select Module
- *
- * Gestylte Dropdown-Auswahlfelder.
+/**
+ * Select-Modul
+ * 
+ * Dropdown-Auswahlmenüs für Formulare und Benutzereinstellungen.
+ * Select-Elemente erlauben dem Benutzer die Auswahl aus einer vordefinierten Liste von Optionen.
+ * 
+ * @layer: module-select
+ * 
+ * Grundlegende Verwendung:
+ * <select class="select">
+ *   <option>Option 1</option>
+ *   <option>Option 2</option>
+ *   <option>Option 3</option>
+ * </select>
+ * 
+ * Größenvarianten:
+ * <select class="select select--sm">Klein</select>
+ * <select class="select select--md">Mittel (Standard)</select>
+ * <select class="select select--lg">Groß</select>
+ * 
+ * Zustände:
+ * <select class="select" disabled>Deaktiviert</select>
+ * <select class="select select--error">Mit Fehler</select>
+ * <select class="select select--success">Erfolgreich</select>
+ * 
+ * Mit Label (über Form-Modul):
+ * <div class="form__group">
+ *   <label class="form__label" for="country">Land</label>
+ *   <select class="select" id="country">
+ *     <option>Deutschland</option>
+ *     <option>Österreich</option>
+ *     <option>Schweiz</option>
+ *   </select>
+ * </div>
+ * 
+ * Mehrfachauswahl:
+ * <select class="select" multiple>
+ *   <option>Option 1</option>
+ *   <option>Option 2</option>
+ *   <option>Option 3</option>
+ * </select>
+ * 
+ * Mit Optionsgruppen:
+ * <select class="select">
+ *   <optgroup label="Gruppe 1">
+ *     <option>Option 1.1</option>
+ *     <option>Option 1.2</option>
+ *   </optgroup>
+ *   <optgroup label="Gruppe 2">
+ *     <option>Option 2.1</option>
+ *     <option>Option 2.2</option>
+ *   </optgroup>
+ * </select>
  */
 
- @layer module-select {
+
     .select {
       display: block;
       width: 100%;
@@ -32,5 +81,5 @@
       color: var(--color-gray-500);
       cursor: not-allowed;
     }
-  }
+
   

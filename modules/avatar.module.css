@@ -4,7 +4,42 @@
  * Kreisrunde Benutzerbilder mit optionalem Status.
  */
 
- @layer module-avatar {
+/**
+ * Avatar-Modul
+ * 
+ * Benutzerprofilbilder und Platzhalter für Benutzerdarstellungen.
+ * Avatare können für Benutzerprofile, Kommentare, Chat-Systeme und Teams verwendet werden.
+ * 
+ * @layer: module-avatar
+ * 
+ * Verwendung:
+ * <div class="avatar">
+ *   <img src="user.jpg" alt="Benutzer">
+ * </div>
+ * 
+ * Größenvarianten:
+ * <div class="avatar avatar--xs">XS-Avatar</div>
+ * <div class="avatar avatar--sm">SM-Avatar</div>
+ * <div class="avatar avatar--md">MD-Avatar</div>
+ * <div class="avatar avatar--lg">LG-Avatar</div>
+ * <div class="avatar avatar--xl">XL-Avatar</div>
+ * 
+ * Form-Varianten:
+ * <div class="avatar avatar--rounded">Abgerundeter Avatar</div>
+ * <div class="avatar avatar--square">Quadratischer Avatar</div>
+ * 
+ * Platzhalter:
+ * <div class="avatar avatar--placeholder">
+ *   <span>JS</span> <!-- Initialen -->
+ * </div>
+ * 
+ * Mit Status:
+ * <div class="avatar avatar--with-status">
+ *   <img src="user.jpg" alt="Benutzer">
+ *   <span class="avatar__status avatar__status--online"></span>
+ * </div>
+ */
+
     .avatar {
       display: inline-block;
       width: 3rem;
@@ -34,4 +69,3 @@
       border: 2px solid white;
       background-color: var(--color-success);
     }
-  }

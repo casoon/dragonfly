@@ -4,7 +4,51 @@
  * Fortschrittsanzeige als Balken.
  */
 
- @layer module-progress {
+/**
+ * Progress-Modul
+ * 
+ * Fortschrittsbalken und -anzeigen zur Visualisierung von Prozessfortschritten.
+ * Fortschrittsanzeigen informieren Benutzer über den Status laufender Operationen.
+ * 
+ * @layer: module-progress
+ * 
+ * Grundlegende Verwendung:
+ * <div class="progress">
+ *   <div class="progress__bar" style="width: 75%"></div>
+ * </div>
+ * 
+ * Mit Prozentanzeige:
+ * <div class="progress progress--with-label">
+ *   <div class="progress__bar" style="width: 75%"></div>
+ *   <span class="progress__label">75%</span>
+ * </div>
+ * 
+ * Varianten:
+ * <div class="progress progress--primary">...</div>
+ * <div class="progress progress--success">...</div>
+ * <div class="progress progress--warning">...</div>
+ * <div class="progress progress--danger">...</div>
+ * 
+ * Größen:
+ * <div class="progress progress--sm">...</div>
+ * <div class="progress progress--md">...</div>
+ * <div class="progress progress--lg">...</div>
+ * 
+ * Gestreift:
+ * <div class="progress progress--striped">...</div>
+ * 
+ * Animiert:
+ * <div class="progress progress--animated">...</div>
+ * 
+ * Schritte:
+ * <div class="progress-steps">
+ *   <div class="progress-step progress-step--completed">Schritt 1</div>
+ *   <div class="progress-step progress-step--active">Schritt 2</div>
+ *   <div class="progress-step">Schritt 3</div>
+ * </div>
+ */
+
+
     .progress {
       background-color: var(--color-gray-200);
       border-radius: var(--radius-full);
@@ -18,5 +62,5 @@
       background-color: var(--color-primary);
       transition: width var(--transition-normal);
     }
-  }
+
   
