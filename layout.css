@@ -456,255 +456,226 @@
      * Flexbox-Layout-Utilities für flexible UI-Komponenten.
      * Verwendung: <div class="flex flex-row gap-4 items-center">...</div>
      */
+    
+    /* Flex-Basis */
     .flex { display: flex; }
+    .flex-inline { display: inline-flex; }
+    
+    /* Flex-Richtung */
     .flex-row { flex-direction: row; }
+    .flex-row-reverse { flex-direction: row-reverse; }
     .flex-col { flex-direction: column; }
+    .flex-col-reverse { flex-direction: column-reverse; }
+    
+    /* Flex-Wrap */
     .flex-wrap { flex-wrap: wrap; }
     .flex-nowrap { flex-wrap: nowrap; }
+    .flex-wrap-reverse { flex-wrap: wrap-reverse; }
+    
+    /* Flex-Wachstum und -Schrumpfung */
     .flex-1 { flex: 1 1 0%; }
     .flex-auto { flex: 1 1 auto; }
     .flex-initial { flex: 0 1 auto; }
     .flex-none { flex: none; }
-
-    /* Flex Grow */
+    
+    /* Flex-Wachstum */
     .flex-grow-0 { flex-grow: 0; }
     .flex-grow { flex-grow: 1; }
-
-    /* Flex Shrink */
+    
+    /* Flex-Schrumpfung */
     .flex-shrink-0 { flex-shrink: 0; }
     .flex-shrink { flex-shrink: 1; }
-
-    /* Flex Basis */
+    
+    /* Flex-Basis */
     .flex-basis-auto { flex-basis: auto; }
     .flex-basis-0 { flex-basis: 0; }
+    .flex-basis-full { flex-basis: 100%; }
+    .flex-basis-50 { flex-basis: 50%; }
+    .flex-basis-25 { flex-basis: 25%; }
+    .flex-basis-75 { flex-basis: 75%; }
+    .flex-basis-33 { flex-basis: 33.3333%; }
+    .flex-basis-66 { flex-basis: 66.6667%; }
+    
+    /* Ausrichtung: justify-content (Hauptachse) */
+    .justify-start { justify-content: flex-start; }
+    .justify-end { justify-content: flex-end; }
+    .justify-center { justify-content: center; }
+    .justify-between { justify-content: space-between; }
+    .justify-around { justify-content: space-around; }
+    .justify-evenly { justify-content: space-evenly; }
+    
+    /* Ausrichtung: align-items (Querachse) */
+    .items-start { align-items: flex-start; }
+    .items-end { align-items: flex-end; }
+    .items-center { align-items: center; }
+    .items-baseline { align-items: baseline; }
+    .items-stretch { align-items: stretch; }
+    
+    /* Ausrichtung: align-self (einzelne Items) */
+    .self-start { align-self: flex-start; }
+    .self-end { align-self: flex-end; }
+    .self-center { align-self: center; }
+    .self-baseline { align-self: baseline; }
+    .self-stretch { align-self: stretch; }
+    
+    /* Ausrichtung: align-content (mehrere Zeilen) */
+    .content-start { align-content: flex-start; }
+    .content-end { align-content: flex-end; }
+    .content-center { align-content: center; }
+    .content-between { align-content: space-between; }
+    .content-around { align-content: space-around; }
+    .content-stretch { align-content: stretch; }
 
-    /* Flex Container & Items mit typischen Mustern */
+    /* ===========================
+     * 4. FLEX-LAYOUT-KOMPONENTEN
+     *=========================== */
+    
+    /* Häufig verwendete Flex-Layouts */
     .flex-center {
         display: flex;
         align-items: center;
         justify-content: center;
     }
-
+    
     .flex-between {
         display: flex;
         align-items: center;
         justify-content: space-between;
     }
+    
+    .flex-start {
+        display: flex;
+        align-items: flex-start;
+    }
+    
+    .flex-end {
+        display: flex;
+        align-items: flex-end;
+    }
 
-    /* 
-     * Flex-Layout mit auto-fit für flexible Spalten
-     * Umschlagbarer Flex-Container mit definierter Mindestbreite für Items
-     */
+    /* Flex-Spalten-Layouts mit festen Bruchteilen */
+    .flex-col-2, .flex-col-3, .flex-col-4 {
+        display: flex;
+        gap: var(--space-4);
+    }
+    
+    .flex-col-2 > * {
+        flex: 1 1 calc(50% - var(--space-4) / 2);
+    }
+    
+    .flex-col-3 > * {
+        flex: 1 1 calc(33.333% - var(--space-4) * 2 / 3);
+    }
+    
+    .flex-col-4 > * {
+        flex: 1 1 calc(25% - var(--space-4) * 3 / 4);
+    }
+    
+    /* Auto-Layout mit flexibler Mindestbreite */
     .flex-auto-layout {
         display: flex;
         flex-wrap: wrap;
         gap: var(--space-4);
     }
-
+    
     .flex-auto-layout > * {
         flex: 1 1 var(--flex-auto-min-width, 15rem);
     }
-
-    /*
-     * Flex-Column-Layouts mit verschiedenen Breiten
-     * Einfachere Alternativen zu den detaillierteren Bruchklassen
-     */
-    .flex-col-2 {
-        display: flex;
-        gap: var(--space-4);
-    }
-
-    .flex-col-2 > * {
-        flex: 1 1 calc(50% - var(--space-4) / 2);
-    }
-
-    .flex-col-3 {
-        display: flex;
-        gap: var(--space-4);
-    }
-
-    .flex-col-3 > * {
-        flex: 1 1 calc(33.333% - var(--space-4) * 2 / 3);
-    }
-
-    .flex-col-4 {
-        display: flex;
-        gap: var(--space-4);
-    }
-
-    .flex-col-4 > * {
-        flex: 1 1 calc(25% - var(--space-4) * 3 / 4);
-    }
     
-    /* Responsive Flex-Layouts (umschalten zwischen Spalten/Zeilen) */
-    .flex-responsive-cols {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-4);
-    }
-
-    @media (width >= 768px) {
-        .flex-responsive-cols {
-            flex-direction: row;
-        }
-    }
-
-    /* Flex-Layout, das von column zu row wechselt bei wachsender Container-Breite */
-    .layout-flex {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-4);
-
-        @container layout (min-width: 30rem) {
-            flex-flow: row wrap;
-        }
-
-        @container layout (min-width: 48rem) {
-            flex-wrap: nowrap;
-            gap: var(--space-6);
-        }
-    }
-
-    /* Stack mit wachsendem vertikalen Abstand */
-    .layout-stack {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-4);
-
-        @container layout (min-width: 30rem) {
-            gap: var(--space-6);
-        }
-
-        @container layout (min-width: 48rem) {
-            gap: var(--space-8);
-        }
-
-        @container layout (min-width: 62rem) {
-            gap: var(--space-10);
-        }
-    }
-
-    /* 
-     * Flex Container Queries 
-     * 
-     * Responsive Flexbox-Layout basierend auf Container-Breite.
-     * Wechselt von Spalten- zu Zeilenanordnung bei größeren Breiten.
-     */
-    .flex-responsive {
-        display: flex;
-        flex-flow: column;
-        gap: var(--space-sm);
-
-        @container component (min-width: 500px) {
-            flex-flow: row wrap;
-            gap: var(--space-md);
-        }
-
-        @container component (min-width: 700px) {
-            flex-flow: row nowrap;
-            gap: var(--space-lg);
-        }
-    }
-
-    /* 
-     * Stack Container Queries 
-     * 
-     * Vertikaler Stack, der bei größeren Breiten horizontal wird.
-     */
-    .stack-responsive {
-        display: flex;
-        flex-flow: column;
-        gap: var(--space-sm);
-
-        @container component (min-width: 500px) {
-            flex-flow: row;
-            gap: var(--space-md);
-        }
-
-        @container component (min-width: 700px) {
-            gap: var(--space-lg);
-        }
-    }
-
+    /* Stack-Layout (vertikale Ausrichtung mit Abständen) */
     .stack {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
     }
-
+    
     .stack > * + * {
         margin-top: var(--space-4);
     }
-
+    
     .stack-sm > * + * {
         margin-top: var(--space-2);
     }
-
+    
     .stack-lg > * + * {
         margin-top: var(--space-6);
     }
 
-    .flex-cq-cols {
+    /* =============================
+     * 5. RESPONSIVE FLEX-LAYOUTS
+     *============================= */
+    
+    /* Responsive Flex-Container mit Media Queries */
+    .flex-responsive-cols {
         display: flex;
         flex-direction: column;
         gap: var(--space-4);
     }
-
-    @container flex-layout (min-width: 30rem) {
-        .flex-cq-cols {
+    
+    @media (width >= 768px) {
+        .flex-responsive-cols {
             flex-direction: row;
         }
-        
-        .flex-cq-cols > * {
-            flex: 1;
-        }
     }
-
-    .flex-cq-auto {
+    
+    /* Responsive Flex mit automatischer Ausrichtung */
+    .flex-responsive {
         display: flex;
-        flex-wrap: wrap;
-        gap: var(--space-4);
+        flex-flow: column;
+        gap: var(--space-sm);
     }
-
-    .flex-cq-auto > * {
-        flex-basis: 100%;
+    
+    @container component (min-width: 500px) {
+        .flex-responsive {
+            flex-flow: row wrap;
+            gap: var(--space-md);
+        }
     }
-
-    @container flex-layout (min-width: 30rem) {
-        .flex-cq-auto > * {
-            flex-basis: calc(50% - var(--space-4) / 2);
+    
+    @container component (min-width: 700px) {
+        .flex-responsive {
+            flex-flow: row nowrap;
+            gap: var(--space-lg);
+        }
+    }
+    
+    /* Responsive Stack/Row Layout */
+    .stack-responsive {
+        display: flex;
+        flex-flow: column;
+        gap: var(--space-sm);
+    }
+    
+    @container component (min-width: 500px) {
+        .stack-responsive {
+            flex-flow: row;
+            gap: var(--space-md);
+        }
+    }
+    
+    @container component (min-width: 700px) {
+        .stack-responsive {
+            gap: var(--space-lg);
         }
     }
 
-    @container flex-layout (min-width: 50rem) {
-        .flex-cq-auto > * {
-            flex-basis: calc(33.333% - var(--space-4) * 2 / 3);
-        }
-    }
-
-    @container flex-layout (min-width: 65rem) {
-        .flex-cq-auto > * {
-            flex-basis: calc(25% - var(--space-4) * 3 / 4);
-        }
-    }
-
-    /* 
-     * Container-Query basierte Flex-Layouts
-     * 
-     * Diese Layouts passen sich basierend auf der Breite des Containers an,
-     * nicht auf der Viewport-Breite, was lokalisierte Responsivität ermöglicht.
-     */
+    /* ==============================
+     * 6. CONTAINER-QUERY FLEX-LAYOUTS
+     *============================== */
+    
+    /* Container für Container-Queries */
     .flex-container {
         container-type: inline-size;
         container-name: flex-layout;
     }
-
+    
+    /* Spalten-basiertes Layout mit Container-Queries */
     .flex-cq-cols {
         display: flex;
         flex-direction: column;
         gap: var(--space-4);
     }
-
+    
     @container flex-layout (min-width: 30rem) {
         .flex-cq-cols {
             flex-direction: row;
@@ -714,48 +685,84 @@
             flex: 1;
         }
     }
-
+    
+    /* Auto-Layout mit Container-Queries */
     .flex-cq-auto {
         display: flex;
         flex-wrap: wrap;
         gap: var(--space-4);
     }
-
+    
     .flex-cq-auto > * {
         flex-basis: 100%;
     }
-
+    
     @container flex-layout (min-width: 30rem) {
         .flex-cq-auto > * {
             flex-basis: calc(50% - var(--space-4) / 2);
         }
     }
-
+    
     @container flex-layout (min-width: 50rem) {
         .flex-cq-auto > * {
             flex-basis: calc(33.333% - var(--space-4) * 2 / 3);
         }
     }
-
+    
     @container flex-layout (min-width: 65rem) {
         .flex-cq-auto > * {
             flex-basis: calc(25% - var(--space-4) * 3 / 4);
         }
     }
-
-    /* Container-Query Varianten für Flex-Layout Bruchteile */
+    
+    /* Container-Query Bruchteile */
     @container flex-layout (min-width: 30rem) {
         .cq-sm\:w-1\/2 { width: 50%; }
         .cq-sm\:w-1\/3 { width: 33.3333%; }
         .cq-sm\:w-2\/3 { width: 66.6667%; }
     }
-
+    
     @container flex-layout (min-width: 50rem) {
         .cq-md\:w-1\/2 { width: 50%; }
         .cq-md\:w-1\/3 { width: 33.3333%; }
         .cq-md\:w-2\/3 { width: 66.6667%; }
         .cq-md\:w-1\/4 { width: 25%; }
         .cq-md\:w-3\/4 { width: 75%; }
+    }
+    
+    /* Layout-Flex mit Container Queries */
+    .layout-flex {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-4);
+    
+        @container layout (min-width: 30rem) {
+            flex-flow: row wrap;
+        }
+    
+        @container layout (min-width: 48rem) {
+            flex-wrap: nowrap;
+            gap: var(--space-6);
+        }
+    }
+    
+    /* Stack mit wachsendem vertikalen Abstand */
+    .layout-stack {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-4);
+    
+        @container layout (min-width: 30rem) {
+            gap: var(--space-6);
+        }
+    
+        @container layout (min-width: 48rem) {
+            gap: var(--space-8);
+        }
+    
+        @container layout (min-width: 62rem) {
+            gap: var(--space-10);
+        }
     }
 
     /* ===================================
