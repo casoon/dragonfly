@@ -1,0 +1,173 @@
+/*
+ * Form Module
+ *
+ * Layout und Standardstile für Formularelemente.
+ */
+
+/**
+ * Form-Komponente
+ * 
+ * Formularstrukturen und -layouts für Dateneingabe und Benutzerinteraktion.
+ * Diese Komponente bietet Basisstile für Formulare und deren Komponenten.
+ * 
+ * @layer components.form
+ * 
+ * Grundlegende Verwendung:
+ * <form class="form">
+ *   <div class="group">
+ *     <label class="label" for="name">Name</label>
+ *     <input class="input" id="name" type="text">
+ *   </div>
+ *   <div class="group">
+ *     <label class="label" for="email">E-Mail</label>
+ *     <input class="input" id="email" type="email">
+ *   </div>
+ *   <div class="actions">
+ *     <button class="button primary" type="submit">Absenden</button>
+ *   </div>
+ * </form>
+ * 
+ * Horizontales Layout:
+ * <form class="form horizontal">
+ *   <div class="group">
+ *     <label class="label" for="username">Benutzername</label>
+ *     <input class="input" id="username" type="text">
+ *   </div>
+ * </form>
+ * 
+ * Mit Hilfetext:
+ * <div class="group">
+ *   <label class="label" for="password">Passwort</label>
+ *   <input class="input" id="password" type="password">
+ *   <div class="helper">Mindestens 8 Zeichen</div>
+ * </div>
+ * 
+ * Validierungsstatus:
+ * <div class="group valid">
+ *   <label class="label" for="valid">Gültige Eingabe</label>
+ *   <input class="input" id="valid" type="text">
+ *   <div class="feedback">Eingabe ist gültig</div>
+ * </div>
+ * 
+ * <div class="group invalid">
+ *   <label class="label" for="invalid">Ungültige Eingabe</label>
+ *   <input class="input" id="invalid" type="text">
+ *   <div class="feedback">Bitte korrigieren Sie die Eingabe</div>
+ * </div>
+ */
+
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    width: 100%;
+    
+    /* Formulargruppe für ein Feld */
+    .group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      
+      /* Validierungszustände */
+      &.valid {
+        .input {
+          border-color: var(--color-success);
+        }
+        
+        .feedback {
+          color: var(--color-success);
+        }
+      }
+      
+      &.invalid {
+        .input {
+          border-color: var(--color-error);
+        }
+        
+        .feedback {
+          color: var(--color-error);
+        }
+      }
+    }
+    
+    /* Labels */
+    .label {
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-medium);
+      display: inline-block;
+      margin-bottom: var(--space-1);
+      
+      &.required::after {
+        content: "*";
+        color: var(--color-error);
+        margin-left: var(--space-1);
+      }
+    }
+    
+    /* Hilfetexte */
+    .helper {
+      font-size: var(--font-size-xs);
+      color: var(--color-gray-600);
+      margin-top: var(--space-1);
+    }
+    
+    /* Feedback für Validierung */
+    .feedback {
+      font-size: var(--font-size-xs);
+      margin-top: var(--space-1);
+    }
+    
+    /* Aktions-Container (für Buttons) */
+    .actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: var(--space-3);
+      margin-top: var(--space-2);
+    }
+    
+    /* Horizontales Layout */
+    &.horizontal {
+      .group {
+        flex-direction: row;
+        align-items: center;
+        
+        .label {
+          width: 30%;
+          margin-bottom: 0;
+          margin-right: var(--space-4);
+        }
+        
+        .input {
+          flex: 1;
+        }
+        
+        .helper, 
+        .feedback {
+          margin-left: calc(30% + var(--space-4));
+        }
+      }
+    }
+    
+    /* Inline Layout für Checkboxen/Radios */
+    .inline {
+      flex-direction: row;
+      align-items: center;
+      gap: var(--space-3);
+      
+      .label {
+        margin-bottom: 0;
+        margin-left: var(--space-2);
+      }
+    }
+    
+    /* Kompaktes Layout */
+    &.compact {
+      gap: var(--space-2);
+      
+      .group {
+        gap: var(--space-1);
+      }
+    }
+  }
+

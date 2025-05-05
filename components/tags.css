@@ -1,0 +1,178 @@
+/**
+ * Tags-Komponente
+ * 
+ * Tag-Elemente für Kategorisierung, Filterung und Kennzeichnung von Inhalten.
+ * Tags bieten eine kompakte Darstellung von Kategorien, Eigenschaften oder Status.
+ * 
+ * @layer components.tags
+ * 
+ * Grundlegende Verwendung:
+ * <span class="tag">Standard-Tag</span>
+ * 
+ * Farbvarianten:
+ * <span class="tag primary">Primär</span>
+ * <span class="tag secondary">Sekundär</span>
+ * <span class="tag success">Erfolg</span>
+ * <span class="tag warning">Warnung</span>
+ * <span class="tag danger">Gefahr</span>
+ * <span class="tag info">Info</span>
+ * 
+ * Größenvarianten:
+ * <span class="tag sm">Klein</span>
+ * <span class="tag md">Mittel (Standard)</span>
+ * <span class="tag lg">Groß</span>
+ * 
+ * Stiloptionen:
+ * <span class="tag outlined">Umriss</span>
+ * <span class="tag rounded">Abgerundet</span>
+ * <span class="tag pill">Pill-Form</span>
+ * 
+ * Mit Icon:
+ * <span class="tag with-icon">
+ *   <span class="icon"><!-- Icon hier --></span>
+ *   Tag mit Icon
+ * </span>
+ * 
+ * Entfernbare Tags:
+ * <span class="tag removable">
+ *   Entfernbar
+ *   <button class="remove">&times;</button>
+ * </span>
+ * 
+ * Tag-Gruppe:
+ * <div class="tag-group">
+ *   <span class="tag">Tag 1</span>
+ *   <span class="tag">Tag 2</span>
+ *   <span class="tag">Tag 3</span>
+ * </div>
+ */
+
+
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1;
+    border-radius: 9999px;
+    background-color: var(--color-gray-100, #f3f4f6);
+    color: var(--color-text, #111827);
+    white-space: nowrap;
+    cursor: default;
+    user-select: none;
+    transition: background-color 150ms ease-in-out;
+    
+    &:hover {
+      background-color: var(--color-gray-200, #e5e7eb);
+    }
+    
+    /* Varianten */
+    &.clickable {
+      cursor: pointer;
+    }
+    
+    /* Farbvarianten */
+    &.primary {
+      background-color: var(--color-primary-100, #dbeafe);
+      color: var(--color-primary-800, #1e40af);
+    }
+    
+    &.secondary {
+      background-color: var(--color-secondary-100, #f3e8ff);
+      color: var(--color-secondary-800, #5b21b6);
+    }
+    
+    &.success {
+      background-color: var(--color-success-100, #dcfce7);
+      color: var(--color-success-800, #166534);
+    }
+    
+    &.warning {
+      background-color: var(--color-warning-100, #fef3c7);
+      color: var(--color-warning-800, #92400e);
+    }
+    
+    &.danger {
+      background-color: var(--color-error-100, #fee2e2);
+      color: var(--color-error-800, #991b1b);
+    }
+    
+    &.info {
+      background-color: var(--color-info-100, #e0f2fe);
+      color: var(--color-info-800, #075985);
+    }
+    
+    /* Form-Varianten */
+    &.rounded {
+      border-radius: 0.5rem;
+    }
+    
+    &.pill {
+      border-radius: 9999px;
+    }
+    
+    &.outlined {
+      background-color: transparent;
+      border: 1px solid currentcolor;
+      
+      &.primary {
+        color: var(--color-primary-600);
+      }
+    }
+    
+    /* Größenvarianten */
+    &.sm {
+      font-size: 0.75rem;
+      padding: 0.25rem 0.5rem;
+    }
+    
+    &.lg {
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
+    }
+    
+    /* Elemente */
+    .icon {
+      margin-right: 0.25rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1em;
+      height: 1em;
+    }
+    
+    .remove {
+      margin-left: 0.25rem;
+      margin-right: -0.25rem;
+      width: 1.25em;
+      height: 1.25em;
+      border-radius: 50%;
+      border: none;
+      background: transparent;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      line-height: 1;
+      cursor: pointer;
+      color: currentcolor;
+      opacity: 0.7;
+      transition: opacity 150ms ease;
+      
+      &:hover {
+        opacity: 1;
+        background-color: rgb(0 0 0 / 10%);
+      }
+    }
+  }
+  
+  /* Tag-Gruppe */
+  .tag-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+
+  

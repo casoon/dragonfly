@@ -1,0 +1,120 @@
+/*
+ * Table-Komponente
+ *
+ * Gestylte Tabellen mit responsivem Verhalten.
+ */
+
+/**
+ * Table-Komponente
+ * 
+ * Tabellen und Datenraster für strukturierte Informationsdarstellung.
+ * Tabellen eignen sich für den Vergleich von Daten und die Darstellung von strukturierten Informationen.
+ * 
+ * @layer components.table
+ * 
+ * Grundlegende Verwendung:
+ * <table class="table">
+ *   <thead>
+ *     <tr>
+ *       <th>Spalte 1</th>
+ *       <th>Spalte 2</th>
+ *     </tr>
+ *   </thead>
+ *   <tbody>
+ *     <tr>
+ *       <td>Zelle 1</td>
+ *       <td>Zelle 2</td>
+ *     </tr>
+ *   </tbody>
+ * </table>
+ * 
+ * Varianten:
+ * <table class="table striped">...</table>  <!-- Abwechselnd gefärbte Zeilen -->
+ * <table class="table bordered">...</table>  <!-- Mit Rahmen -->
+ * <table class="table hoverable">...</table> <!-- Hover-Effekt für Zeilen -->
+ * <table class="table compact">...</table>   <!-- Kompaktes Layout -->
+ * <table class="table responsive">...</table> <!-- Responsives Layout -->
+ * 
+ * Zellenausrichtung:
+ * <td class="left">Links ausgerichtet</td>
+ * <td class="center">Zentriert</td>
+ * <td class="right">Rechts ausgerichtet</td>
+ * 
+ * Statuszeilen:
+ * <tr class="success">...</tr>
+ * <tr class="warning">...</tr>
+ * <tr class="danger">...</tr>
+ */
+
+
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--font-size-sm);
+    
+    /* Basiselemente */
+    thead {
+      background-color: var(--color-gray-100);
+    }
+    
+    th,
+    td {
+      padding: var(--space-3);
+      border: 1px solid var(--color-gray-300);
+      text-align: left;
+    }
+    
+    /* Tabellen-Varianten */
+    &.striped tbody tr:nth-child(odd) {
+      background-color: var(--color-gray-50);
+    }
+    
+    &.hoverable tbody tr:hover {
+      background-color: var(--color-gray-100);
+    }
+    
+    &.bordered th,
+    &.bordered td {
+      border: 1px solid var(--color-gray-300);
+    }
+    
+    &.compact th,
+    &.compact td {
+      padding: var(--space-2);
+    }
+    
+    &.responsive {
+      @media (width <= 768px) {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+      }
+    }
+    
+    /* Zellenausrichtungen */
+    .left {
+      text-align: left;
+    }
+    
+    .center {
+      text-align: center;
+    }
+    
+    .right {
+      text-align: right;
+    }
+    
+    /* Statuszeilen */
+    .success {
+      background-color: var(--color-success-100);
+    }
+    
+    .warning {
+      background-color: var(--color-warning-100);
+    }
+    
+    .danger {
+      background-color: var(--color-error-100);
+    }
+  }
+

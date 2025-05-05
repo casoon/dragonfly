@@ -1,0 +1,168 @@
+/**
+ * Code-Komponente
+ * 
+ * Formatierung für Code-Blöcke und Inline-Code-Elemente.
+ * Code-Komponenten stellen Quellcode und Code-Schnipsel übersichtlich dar.
+ * 
+ * @layer components.code
+ * 
+ * Grundlegende Verwendung:
+ * <pre class="code">
+ *   <code>function example() {
+ *     return "Hello World";
+ *   }</code>
+ * </pre>
+ * 
+ * Inline-Code:
+ * <p>Verwenden Sie <code class="code-inline">console.log()</code> zum Debuggen.</p>
+ * 
+ * Mit Syntax-Hervorhebung (erfordert zusätzliches JS):
+ * <pre class="code highlighted">
+ *   <code class="language-javascript">
+ *     function example() {
+ *       return "Hello World";
+ *     }
+ *   </code>
+ * </pre>
+ * 
+ * Mit Zeilennummern:
+ * <pre class="code numbered">
+ *   <div class="line-numbers">1</div>
+ *   <code>function example() {</code>
+ *   <div class="line-numbers">2</div>
+ *   <code>  return "Hello World";</code>
+ *   <div class="line-numbers">3</div>
+ *   <code>}</code>
+ * </pre>
+ * 
+ * Varianten:
+ * <pre class="code dark">Dunkles Theme</pre>
+ * <pre class="code light">Helles Theme</pre>
+ * 
+ * Mit Kopierknopf:
+ * <div class="code-container">
+ *   <pre class="code">...</pre>
+ *   <button class="copy-button">Kopieren</button>
+ * </div>
+ * 
+ * Terminal-Output:
+ * <pre class="code terminal">
+ *   <code>$ npm install @casoon/ui-lib</code>
+ * </pre>
+ */
+
+
+  /* Inline-Code */
+  .code-inline {
+    font-family: var(--font-family-mono);
+    background: var(--color-gray-100);
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-sm);
+    color: var(--color-primary-700);
+  }
+  
+  /* Code-Block */
+  .code {
+    display: block;
+    font-family: var(--font-family-mono);
+    background: var(--color-gray-100);
+    color: var(--color-gray-800);
+    padding: var(--space-4);
+    border-radius: var(--radius-md);
+    overflow-x: auto;
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-snug);
+    margin: var(--space-4) 0;
+    border: 1px solid var(--color-gray-200);
+    
+    pre {
+      margin: 0;
+    }
+    
+    code {
+      display: block;
+      font-family: inherit;
+    }
+    
+    /* Zeilennummern */
+    &.numbered {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: var(--space-4);
+      
+      .line-numbers {
+        color: var(--color-gray-500);
+        text-align: right;
+        user-select: none;
+        padding-right: var(--space-2);
+        border-right: 1px solid var(--color-gray-300);
+      }
+    }
+    
+    /* Varianten */
+    &.dark {
+      background-color: var(--color-gray-900);
+      color: var(--color-gray-100);
+      border-color: var(--color-gray-800);
+    }
+    
+    &.light {
+      background-color: var(--color-white);
+      color: var(--color-gray-900);
+      border-color: var(--color-gray-200);
+    }
+    
+    &.terminal {
+      background-color: var(--color-gray-900);
+      color: var(--color-gray-100);
+      border-color: var(--color-gray-800);
+      
+      &::before {
+        content: '>';
+        color: var(--color-gray-500);
+        margin-right: var(--space-2);
+      }
+    }
+    
+    &.highlighted {
+      /* Beispielfarben für Syntax-Hervorhebung - diese würden normalerweise
+         durch eine JavaScript-Bibliothek wie Prism.js oder Highlight.js gesetzt */
+      .keyword { color: var(--color-primary-600); }
+      .string { color: var(--color-success-600); }
+      .comment { color: var(--color-gray-500); font-style: italic; }
+      .function { color: var(--color-secondary-600); }
+      .number { color: var(--color-warning-600); }
+    }
+  }
+  
+  /* Container mit Kopierknopf */
+  .code-container {
+    position: relative;
+    
+    .copy-button {
+      position: absolute;
+      top: var(--space-2);
+      right: var(--space-2);
+      background-color: var(--color-gray-200);
+      color: var(--color-gray-700);
+      border: none;
+      border-radius: var(--radius-sm);
+      padding: var(--space-1) var(--space-2);
+      font-size: var(--font-size-xs);
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity var(--transition-fast);
+      
+      &:hover {
+        background-color: var(--color-gray-300);
+        color: var(--color-gray-900);
+      }
+    }
+    
+    &:hover .copy-button {
+      opacity: 1;
+    }
+  }
+
+

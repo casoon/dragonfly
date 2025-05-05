@@ -1,0 +1,168 @@
+/*
+ * Hamburger-Komponente
+ *
+ * Hamburger-Menü-Icon mit Animation und Toggle-Zustand.
+ */
+
+/**
+ * Hamburger-Komponente
+ * 
+ * Mobile Menü-Icons für Navigation auf kleinen Bildschirmen.
+ * Hamburger-Icons dienen als kompakte Schaltfläche für das Aus- und Einklappen von Navigationsmenüs.
+ * 
+ * @layer components.hamburger
+ * 
+ * Grundlegende Verwendung:
+ * <button class="hamburger" aria-label="Menü öffnen">
+ *   <span class="line"></span>
+ *   <span class="line"></span>
+ *   <span class="line"></span>
+ * </button>
+ * 
+ * Aktiver Zustand (geöffnet):
+ * <button class="hamburger active" aria-label="Menü schließen">
+ *   <span class="line"></span>
+ *   <span class="line"></span>
+ *   <span class="line"></span>
+ * </button>
+ * 
+ * Varianten:
+ * <button class="hamburger spin">...</button>      <!-- Drehanimation -->
+ * <button class="hamburger squeeze">...</button>   <!-- Quetschanimation -->
+ * <button class="hamburger arrow">...</button>     <!-- Pfeilanimation -->
+ * <button class="hamburger collapse">...</button>  <!-- Einklappen -->
+ * 
+ * Größen:
+ * <button class="hamburger sm">...</button>  <!-- Klein -->
+ * <button class="hamburger md">...</button>  <!-- Mittel (Standard) -->
+ * <button class="hamburger lg">...</button>  <!-- Groß -->
+ * 
+ * Farben:
+ * <button class="hamburger light">...</button>  <!-- Heller Hintergrund -->
+ * <button class="hamburger dark">...</button>   <!-- Dunkler Hintergrund -->
+ * <button class="hamburger primary">...</button> <!-- Primärfarbe -->
+ */
+
+
+  .hamburger {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 24px;
+    padding: 4px 0;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    
+    .line {
+      display: block;
+      height: 2px;
+      width: 100%;
+      background-color: var(--color-gray-800);
+      border-radius: 2px;
+      transition: all var(--transition-fast) ease-in-out;
+    }
+    
+    /* Aktiver Zustand */
+    &.active {
+      .line:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+      
+      .line:nth-child(2) {
+        opacity: 0;
+      }
+      
+      .line:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+      }
+    }
+    
+    /* Varianten */
+    &.spin {
+      &.active {
+        .line:nth-child(1) {
+          transform: rotate(135deg);
+          margin-top: 8px;
+        }
+        
+        .line:nth-child(2) {
+          opacity: 0;
+        }
+        
+        .line:nth-child(3) {
+          transform: rotate(-135deg);
+          margin-top: -16px;
+        }
+      }
+    }
+    
+    &.squeeze {
+      &.active {
+        .line:nth-child(1) {
+          transform: translateY(8px) rotate(45deg);
+        }
+        
+        .line:nth-child(2) {
+          transform: scaleX(0);
+        }
+        
+        .line:nth-child(3) {
+          transform: translateY(-8px) rotate(-45deg);
+        }
+      }
+    }
+    
+    &.arrow {
+      &.active {
+        .line:nth-child(1) {
+          width: 50%;
+          transform: translateY(3px) translateX(6px) rotate(45deg);
+        }
+        
+        .line:nth-child(2) {
+          opacity: 1;
+        }
+        
+        .line:nth-child(3) {
+          width: 50%;
+          transform: translateY(-3px) translateX(6px) rotate(-45deg);
+        }
+      }
+    }
+    
+    /* Größenvarianten */
+    &.sm {
+      width: 18px;
+      height: 18px;
+      
+      .line {
+        height: 1px;
+      }
+    }
+    
+    &.lg {
+      width: 30px;
+      height: 30px;
+      
+      .line {
+        height: 3px;
+      }
+    }
+    
+    /* Farbvarianten */
+    &.light .line {
+      background-color: var(--color-white);
+    }
+    
+    &.dark .line {
+      background-color: var(--color-gray-900);
+    }
+    
+    &.primary .line {
+      background-color: var(--color-primary);
+    }
+  }
+
+  

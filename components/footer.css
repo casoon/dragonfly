@@ -1,0 +1,303 @@
+/*
+ * Footer Module
+ *
+ * Layoutregeln für den Seitenfußbereich. Unterstützt Subgrid, Container Queries und responsives Verhalten.
+ */
+
+/**
+ * Footer-Komponente
+ * 
+ * Fußzeilenkomponenten für Websites und Anwendungen.
+ * Der Footer enthält zusätzliche Navigationselemente, Kontaktinformationen und rechtliche Hinweise.
+ * 
+ * @layer components.footer
+ * 
+ * Grundlegende Verwendung:
+ * <footer class="footer">
+ *   <div class="logo">
+ *     <img src="logo.png" alt="Logo">
+ *   </div>
+ *   <div class="content">
+ *     <div class="section">
+ *       <h4 class="heading">Über uns</h4>
+ *       <p>Kurze Unternehmensbeschreibung</p>
+ *     </div>
+ *     <div class="section">
+ *       <h4 class="heading">Links</h4>
+ *       <ul class="links">
+ *         <li><a href="#" class="link">Startseite</a></li>
+ *         <li><a href="#" class="link">Produkte</a></li>
+ *         <li><a href="#" class="link">Über uns</a></li>
+ *         <li><a href="#" class="link">Kontakt</a></li>
+ *       </ul>
+ *     </div>
+ *     <div class="section">
+ *       <h4 class="heading">Kontakt</h4>
+ *       <address class="address">
+ *         Musterstraße 123<br>
+ *         12345 Musterstadt<br>
+ *         info@beispiel.de
+ *       </address>
+ *     </div>
+ *   </div>
+ *   <div class="bottom">
+ *     <p class="copyright">&copy; 2023 Unternehmen. Alle Rechte vorbehalten.</p>
+ *     <div class="social">
+ *       <a href="#" class="social-link"><!-- Social Icon 1 --></a>
+ *       <a href="#" class="social-link"><!-- Social Icon 2 --></a>
+ *     </div>
+ *   </div>
+ * </footer>
+ * 
+ * Varianten:
+ * <footer class="footer light">...</footer>
+ * <footer class="footer dark">...</footer>
+ * <footer class="footer primary">...</footer>
+ * 
+ * Minimaler Footer:
+ * <footer class="footer minimal">
+ *   <p class="copyright">&copy; 2023 Unternehmen</p>
+ *   <ul class="legal">
+ *     <li><a href="#">Impressum</a></li>
+ *     <li><a href="#">Datenschutz</a></li>
+ *     <li><a href="#">AGB</a></li>
+ *   </ul>
+ * </footer>
+ */
+
+
+  .footer {
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: span 12;
+    grid-template-rows: auto;
+    padding-block: var(--space-6);
+    gap: var(--space-4);
+    border-top: 1px solid var(--color-gray-300);
+    background-color: var(--color-white);
+    
+    /* Logo-Bereich */
+    .logo {
+      grid-column: span 3;
+      
+      img {
+        max-width: 150px;
+        height: auto;
+      }
+    }
+    
+    /* Inhaltsbereiche */
+    .content {
+      grid-column: span 9;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-6);
+    }
+    
+    /* Sektionen */
+    .section {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+    
+    /* Überschriften */
+    .heading {
+      font-size: var(--font-size-base);
+      font-weight: var(--font-weight-semibold);
+      margin-top: 0;
+      margin-bottom: var(--space-2);
+      color: var(--color-gray-900);
+    }
+    
+    /* Linklisten */
+    .links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+    
+    /* Links */
+    .link {
+      color: var(--color-gray-700);
+      text-decoration: none;
+      transition: color var(--transition-fast);
+      
+      &:hover {
+        color: var(--color-primary);
+      }
+    }
+    
+    /* Adresse */
+    .address {
+      font-style: normal;
+      color: var(--color-gray-700);
+      line-height: 1.5;
+    }
+    
+    /* Unterer Bereich */
+    .bottom {
+      grid-column: span 12;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: var(--space-4);
+      border-top: 1px solid var(--color-gray-200);
+      margin-top: var(--space-4);
+    }
+    
+    /* Copyright */
+    .copyright {
+      font-size: var(--font-size-sm);
+      color: var(--color-gray-600);
+      margin: 0;
+    }
+    
+    /* Social Media */
+    .social {
+      display: flex;
+      gap: var(--space-3);
+      
+      .social-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2rem;
+        height: 2rem;
+        color: var(--color-gray-600);
+        border-radius: 50%;
+        background-color: var(--color-gray-100);
+        transition: background-color var(--transition-fast), color var(--transition-fast);
+        
+        &:hover {
+          background-color: var(--color-primary);
+          color: white;
+        }
+      }
+    }
+    
+    /* Rechtliche Links */
+    .legal {
+      display: flex;
+      gap: var(--space-4);
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      
+      a {
+        color: var(--color-gray-600);
+        text-decoration: none;
+        font-size: var(--font-size-sm);
+        
+        &:hover {
+          color: var(--color-primary);
+        }
+      }
+    }
+    
+    /* Varianten */
+    &.light {
+      background-color: var(--color-gray-50);
+    }
+    
+    &.dark {
+      background-color: var(--color-gray-900);
+      color: var(--color-gray-200);
+      border-top-color: var(--color-gray-700);
+      
+      .heading {
+        color: white;
+      }
+      
+      .link, .address {
+        color: var(--color-gray-300);
+      }
+      
+      .link:hover {
+        color: white;
+      }
+      
+      .bottom {
+        border-top-color: var(--color-gray-700);
+      }
+      
+      .copyright, .legal a {
+        color: var(--color-gray-400);
+      }
+      
+      .social-link {
+        background-color: var(--color-gray-800);
+        color: var(--color-gray-300);
+      }
+    }
+    
+    &.primary {
+      background-color: var(--color-primary);
+      color: white;
+      border-top-color: color-mix(in srgb, white 20%, transparent);
+      
+      .heading {
+        color: white;
+      }
+      
+      .link, .address {
+        color: color-mix(in srgb, white 80%, transparent);
+      }
+      
+      .link:hover {
+        color: white;
+      }
+      
+      .bottom {
+        border-top-color: color-mix(in srgb, white 20%, transparent);
+      }
+      
+      .copyright, .legal a {
+        color: color-mix(in srgb, white 80%, transparent);
+      }
+      
+      .social-link {
+        background-color: color-mix(in srgb, white 20%, transparent);
+        color: white;
+      }
+    }
+    
+    &.minimal {
+      padding-block: var(--space-4);
+      
+      .bottom {
+        border-top: none;
+        margin-top: 0;
+        padding-top: 0;
+      }
+    }
+    
+    /* Responsive Anpassungen */
+    @container layout (max-width: 768px) {
+      .logo {
+        grid-column: span 12;
+        margin-bottom: var(--space-4);
+      }
+      
+      .content {
+        grid-column: span 12;
+        grid-template-columns: 1fr;
+        gap: var(--space-8);
+      }
+      
+      .bottom {
+        flex-direction: column;
+        gap: var(--space-4);
+        text-align: center;
+      }
+      
+      .legal {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+  }
+

@@ -1,0 +1,102 @@
+/*
+ * Cards Module
+ *
+ * Layoutregeln für ein responsives Card-Grid. Nutzt Flexbox und Grid für flexible Layouts.
+ */
+
+/**
+ * Card-Modul
+ * 
+ * Container für Inhaltsblöcke, die zusammengehörende Informationen präsentieren.
+ * Cards bieten eine visuelle Gruppierung von zusammengehörigen Inhalten und Aktionen.
+ * 
+ * @layer: module-card
+ * 
+ * Grundlegende Verwendung:
+ * <div class="card">
+ *   <h3>Kartentitel</h3>
+ *   <p>Karteninhalt</p>
+ * </div>
+ * 
+ * Mit Grid-Layout:
+ * <div class="card-grid">
+ *   <div class="card">Karte 1</div>
+ *   <div class="card">Karte 2</div>
+ *   <div class="card">Karte 3</div>
+ * </div>
+ * 
+ * Varianten (können mit Utility-Klassen kombiniert werden):
+ * <div class="card primary">Primäre Karte</div>
+ * <div class="card surface">Karte mit Hintergrundfarbe</div>
+ * <div class="card border">Karte mit Rahmen</div>
+ * <div class="card shadow-lg">Karte mit stärkerem Schatten</div>
+ * <div class="card p-6">Karte mit mehr Padding</div>
+ */
+
+
+  .card-grid {
+    display: grid;
+    gap: var(--space-4);
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    border-radius: var(--radius-md);
+    background-color: var(--color-surface);
+    padding: var(--space-4);
+    box-shadow: var(--shadow-sm);
+
+    /* Element-Styling */
+    h3 {
+      font-size: var(--font-size-lg);
+      margin: 0;
+    }
+
+    img {
+      width: 100%;
+      border-radius: var(--radius-sm);
+      object-fit: cover;
+    }
+
+    /* Varianten */
+    &.primary {
+      background-color: var(--color-primary);
+      color: white;
+    }
+
+    &.surface {
+      background-color: var(--color-surface);
+    }
+
+    &.border {
+      border: 1px solid var(--color-gray-200);
+      box-shadow: none;
+    }
+
+    /* Layout-Varianten */
+    &.horizontal {
+      flex-direction: row;
+      align-items: center;
+
+      img {
+        width: 120px;
+        height: 120px;
+      }
+    }
+
+    /* Interaktive Varianten */
+    &.interactive {
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+      &:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-md);
+      }
+    }
+  }
+
+

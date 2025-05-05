@@ -1,0 +1,228 @@
+/*
+ * Sidebar Module
+ *
+ * Layoutregeln für die Sidebar-Navigation oder Kontextinhalte. Nutzt Grid-Spaltenlogik und Container Queries.
+ */
+
+/**
+ * Sidebar-Komponente
+ * 
+ * Seitenleisten-Navigation und -Inhalte für Layouts mit Nebenspalten.
+ * Sidebars dienen als zusätzlicher Navigationsbereich oder zur Darstellung von Kontextinformationen.
+ * 
+ * @layer components.sidebar
+ * 
+ * Grundlegende Verwendung:
+ * <aside class="sidebar">
+ *   <nav class="nav">
+ *     <ul class="menu">
+ *       <li class="item">
+ *         <a href="#" class="link">Menüpunkt 1</a>
+ *       </li>
+ *       <li class="item active">
+ *         <a href="#" class="link">Menüpunkt 2</a>
+ *       </li>
+ *       <li class="item">
+ *         <a href="#" class="link">Menüpunkt 3</a>
+ *       </li>
+ *     </ul>
+ *   </nav>
+ * </aside>
+ * 
+ * Mit Überschrift:
+ * <aside class="sidebar">
+ *   <div class="header">
+ *     <h3 class="title">Kategorien</h3>
+ *   </div>
+ *   <nav class="nav">...</nav>
+ * </aside>
+ * 
+ * Verschachteltes Menü:
+ * <ul class="menu">
+ *   <li class="item">
+ *     <a href="#" class="link">Hauptmenü</a>
+ *     <ul class="submenu">
+ *       <li class="item">
+ *         <a href="#" class="link">Untermenü 1</a>
+ *       </li>
+ *       <li class="item">
+ *         <a href="#" class="link">Untermenü 2</a>
+ *       </li>
+ *     </ul>
+ *   </li>
+ * </ul>
+ * 
+ * Varianten:
+ * <aside class="sidebar left">Links positioniert (Standard)</aside>
+ * <aside class="sidebar right">Rechts positioniert</aside>
+ * <aside class="sidebar light">Heller Hintergrund</aside>
+ * <aside class="sidebar dark">Dunkler Hintergrund</aside>
+ * 
+ * Responsives Verhalten:
+ * <aside class="sidebar collapsible">
+ *   <button class="toggle">Menü</button>
+ *   <div class="content">...</div>
+ * </aside>
+ */
+
+
+  .sidebar {
+    grid-column: span 3;
+    padding-block: var(--space-4);
+    padding-inline: var(--space-3);
+    background-color: var(--color-gray-100);
+    
+    /* Header-Bereich */
+    .header {
+      margin-bottom: var(--space-4);
+      border-bottom: 1px solid var(--color-gray-200);
+      padding-bottom: var(--space-2);
+      
+      .title {
+        font-size: var(--font-size-lg);
+        font-weight: var(--font-weight-medium);
+        color: var(--color-gray-900);
+        margin: 0;
+      }
+    }
+    
+    /* Navigation */
+    .nav {
+      width: 100%;
+    }
+    
+    /* Menüliste */
+    .menu {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-1);
+    }
+    
+    /* Menüelemente */
+    .item {
+      width: 100%;
+      
+      &.active {
+        > .link {
+          color: var(--color-primary);
+          font-weight: var(--font-weight-medium);
+          background-color: color-mix(in srgb, var(--color-primary) 10%, transparent);
+        }
+      }
+    }
+    
+    /* Menülinks */
+    .link {
+      display: block;
+      padding: var(--space-2) var(--space-3);
+      color: var(--color-gray-700);
+      text-decoration: none;
+      border-radius: var(--radius-md);
+      transition: background-color var(--transition-fast), color var(--transition-fast);
+      
+      &:hover {
+        background-color: var(--color-gray-200);
+        color: var(--color-gray-900);
+      }
+    }
+    
+    /* Untermenü */
+    .submenu {
+      list-style: none;
+      padding-left: var(--space-4);
+      margin: var(--space-1) 0 0 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-1);
+      
+      .link {
+        font-size: var(--font-size-sm);
+        padding: var(--space-1) var(--space-3);
+      }
+    }
+    
+    /* Toggle-Button für Collapse */
+    .toggle {
+      display: none;
+      width: 100%;
+      padding: var(--space-2) var(--space-3);
+      text-align: left;
+      background-color: var(--color-gray-200);
+      border: none;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      font-weight: var(--font-weight-medium);
+      
+      &:hover {
+        background-color: var(--color-gray-300);
+      }
+    }
+    
+    /* Inhalt (für Collapse) */
+    .content {
+      width: 100%;
+    }
+    
+    /* Varianten */
+    &.left {
+      /* Standard (wie oben definiert) */
+    }
+    
+    &.right {
+      order: 2;
+    }
+    
+    &.light {
+      background-color: var(--color-gray-50);
+    }
+    
+    &.dark {
+      background-color: var(--color-gray-800);
+      color: var(--color-gray-100);
+      
+      .title {
+        color: var(--color-white);
+      }
+      
+      .link {
+        color: var(--color-gray-300);
+        
+        &:hover {
+          background-color: var(--color-gray-700);
+          color: var(--color-white);
+        }
+      }
+      
+      .item.active > .link {
+        background-color: color-mix(in srgb, var(--color-primary) 30%, transparent);
+      }
+    }
+    
+    /* Collapsible-Verhalten */
+    &.collapsible {
+      @media (width <= 768px) {
+        .toggle {
+          display: block;
+        }
+        
+        .content {
+          display: none;
+          
+          &.open {
+            display: block;
+          }
+        }
+      }
+    }
+    
+    /* Responsive Anpassungen */
+    @container layout (max-width: 768px) {
+      grid-column: span 12;
+      order: 2;
+    }
+  }
+
+  

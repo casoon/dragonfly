@@ -6,6 +6,7 @@ Dieses Dokument beschreibt die Struktur, Konzepte und Verwendung des Casoon UI D
 
 - [Projektstruktur](#projektstruktur)
 - [CSS-Architektur](#css-architektur)
+- [CSS-Nesting & Komponenten-Struktur](#css-nesting--komponenten-struktur)
 - [Design-Tokens](#design-tokens)
 - [Farben](#farben)
 - [Typografie](#typografie)
@@ -23,7 +24,7 @@ Das Casoon UI Design-System ist wie folgt strukturiert:
 ```
 casoon-ui-lib/
 ├── core.css              # Haupt-CSS-Datei mit Layer-Imports
-├── modules/              # CSS-Module für Komponenten
+├── components/           # CSS-Module für Komponenten
 ├── layers/               # CSS-Layer für Grundfunktionen
 │   ├── tokens.css        # Design-Tokens und Variablen
 │   ├── reset.css         # CSS-Reset
@@ -81,11 +82,152 @@ Diese Layer-Struktur ermöglicht eine klare Hierarchie und Konfliktlösung bei C
 
 ### CSS-Module
 
-Für Komponenten werden CSS-Module verwendet, die im Verzeichnis `modules/` liegen. Diese können in Projekten selektiv importiert werden:
+Für Komponenten werden CSS-Module verwendet, die im Verzeichnis `components/` liegen. Diese können in Projekten selektiv importiert werden:
 
 ```js
-import styles from 'casoon-ui-lib/modules/button.module.css';
+import styles from 'casoon-ui-lib/components/button.module.css';
 ```
+
+## CSS-Nesting & Komponenten-Struktur
+
+Das Design-System verwendet modernes CSS mit nativer Verschachtelung (Nesting) anstelle von BEM-Methodik für eine lesbarere und wartbarere Codestruktur.
+
+### Grundprinzipien
+
+1. **Komponenten-basierte Struktur** - Jede Komponente ist in einem eigenen Modul mit eigenem Namespace (`@layer`) definiert
+2. **CSS-Nesting** - Elemente und Zustände werden durch verschachtelte Selektoren anstatt durch Namenskonventionen (BEM) definiert
+3. **Flache Klassenstruktur** - Vermeidung verschachtelter Klassen wie `.button__icon` zugunsten von `.button .icon`
+4. **Modifikatoren als direkte Klassen** - Verwendung kombinierter Klassen (`.button.primary`) statt BEM-Modifikatoren (`.button--primary`)
+
+### Struktur einer Komponente
+
+Eine typische Komponente im Casoon UI Design-System folgt diesem Aufbau:
+
+```css
+@layer components {
+  .component-name {
+    /* Basis-Styling der Komponente */
+    
+    /* Unterelemente */
+    h3 {
+      /* Styling für direkte h3-Kinder */
+    }
+    
+    p {
+      /* Styling für direkte p-Kinder */
+    }
+    
+    .icon {
+      /* Styling für .icon-Kinder innerhalb der Komponente */
+    }
+    
+    /* Zustände */
+    &:hover {
+      /* Hover-Zustand */
+    }
+    
+    &:focus {
+      /* Fokus-Zustand */
+    }
+    
+    &:disabled {
+      /* Deaktivierter Zustand */
+    }
+    
+    /* Varianten/Modifikatoren */
+    &.primary {
+      /* Primär-Variante */
+    }
+    
+    &.small {
+      /* Größenvariante klein */
+    }
+    
+    &.large {
+      /* Größenvariante groß */
+    }
+    
+    /* Komplexe Verschachtelungen */
+    &.with-icon {
+      /* Layout mit Icon */
+      
+      .icon {
+        /* Icon-Styling speziell in dieser Variante */
+      }
+    }
+    
+    /* Responsive Verhalten */
+    @media (min-width: 768px) {
+      /* Änderungen bei größeren Bildschirmen */
+    }
+  }
+}
+```
+
+### Namenskonventionen
+
+| Typ | Konvention | Beispiel | Vorheriges BEM-Equivalent |
+|-----|------------|----------|---------------------------|
+| Komponente | `.komponente` | `.card` | `.card` |
+| Unterelement | `.komponente element` oder direkt via Selektor | `.card h3` oder `.card .title` | `.card__title` |
+| Variante/Modifikator | `.komponente.variante` | `.card.primary` | `.card--primary` |
+| Zustand | `.komponente.zustand` oder `.komponente:zustand` | `.card.active` oder `.card:hover` | `.card--active` |
+| Größenvariante | `.komponente.größe` | `.card.small` | `.card--small` |
+
+### Beispiel: Button-Komponente
+
+#### Vorher (BEM):
+```css
+.button { /* Basis-Styling */ }
+.button--primary { /* Primäre Variante */ }
+.button--small { /* Kleine Größe */ }
+.button__icon { /* Icon-Element */ }
+```
+
+#### Nachher (CSS-Nesting):
+```css
+.button {
+  /* Basis-Styling */
+  
+  &.primary {
+    /* Primäre Variante */
+  }
+  
+  &.small {
+    /* Kleine Größe */
+  }
+  
+  .icon {
+    /* Icon-Element */
+  }
+}
+```
+
+### HTML-Nutzung
+
+#### Vorher (BEM):
+```html
+<button class="button button--primary button--small">
+  <span class="button__icon">→</span>
+  Klick mich
+</button>
+```
+
+#### Nachher (Flache Struktur):
+```html
+<button class="button primary small">
+  <span class="icon">→</span>
+  Klick mich
+</button>
+```
+
+### Vorteile des neuen Ansatzes
+
+1. **Lesbarkeit** - Die Struktur der Komponente und ihre Varianten sind im CSS klar strukturiert und visuell abbildbar
+2. **Vereinfachtes HTML** - Weniger Klassen im Markup, bessere Lesbarkeit
+3. **Wartbarkeit** - Eng zusammengehörende Styles bleiben zusammen, keine Fragmentierung über mehrere Selektoren
+4. **Performance** - Geringere Spezifität der Selektoren, bessere Browser-Optimierung
+5. **Kompatibilität mit Utility-Klassen** - Einfache Kombination mit Utility-Klassen für schnelle Anpassungen
 
 ## Design-Tokens
 
@@ -420,21 +562,354 @@ Das System unterstützt Container-Queries für komponentenbasierte responsive La
 
 ## Komponenten
 
-Die Bibliothek enthält über 30 vorgefertigte Komponenten als CSS-Module im `modules/` Verzeichnis:
+Die Bibliothek enthält über 30 vorgefertigte Komponenten als CSS-Module im `components/` Verzeichnis:
 
-- Alert (`alert.module.css`)
-- Avatar (`avatar.module.css`)
-- Badge (`badge.module.css`)
-- Button (`button.module.css`)
-- Card (`card.module.css`)
-- Checkbox (`checkbox.module.css`)
-- Form (`form.module.css`)
-- Input (`input.module.css`)
-- Modal (`modal.module.css`)
-- Tabs (`tabs.module.css`)
+- Alert (`alert.css`)
+- Avatar (`avatar.css`)
+- Badge (`badge.css`)
+- Button (`button.css`)
+- Card (`card.css`)
+- Checkbox (`checkbox.css`)
+- Form (`form.css`)
+- Input (`input.css`)
+- Modal (`modal.css`)
+- Tabs (`tabs.css`)
 - und viele weitere...
 
 Jede Komponente ist als separates CSS-Modul implementiert und kann einzeln importiert werden.
+
+### Neue Komponenten-Struktur
+
+Alle Komponenten verwenden den modernen CSS-Nesting-Ansatz mit @layer und bieten eine konsistente Struktur:
+
+#### Card-Komponente
+
+```css
+@layer components {
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    border-radius: var(--radius-md);
+    background-color: var(--color-surface);
+    padding: var(--space-4);
+    box-shadow: var(--shadow-sm);
+
+    /* Element-Styling */
+    h3 {
+      font-size: var(--font-size-lg);
+      margin: 0;
+    }
+
+    img {
+      width: 100%;
+      border-radius: var(--radius-sm);
+      object-fit: cover;
+    }
+
+    /* Varianten */
+    &.primary {
+      background-color: var(--color-primary);
+      color: white;
+    }
+
+    &.border {
+      border: 1px solid var(--color-gray-200);
+      box-shadow: none;
+    }
+
+    /* Layout-Varianten */
+    &.horizontal {
+      flex-direction: row;
+      align-items: center;
+
+      img {
+        width: 120px;
+        height: 120px;
+      }
+    }
+
+    /* Interaktive Varianten */
+    &.interactive {
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+      &:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-md);
+      }
+    }
+  }
+}
+```
+
+Verwendung:
+```html
+<!-- Einfache Karte -->
+<div class="card">
+  <h3>Kartentitel</h3>
+  <p>Karteninhalt</p>
+</div>
+
+<!-- Varianten kombinieren -->
+<div class="card primary interactive">
+  <h3>Interaktive primäre Karte</h3>
+  <p>Klicke mich!</p>
+</div>
+
+<!-- Mit Utilities kombinieren -->
+<div class="card border p-6 mb-4">
+  <h3>Karte mit mehr Padding und Margin</h3>
+</div>
+```
+
+#### Button-Komponente
+
+```css
+@layer components {
+  .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding-inline: var(--space-4);
+    padding-block: var(--space-2);
+    border-radius: var(--radius-md);
+    font-weight: var(--font-weight-medium);
+    font-size: var(--font-size-sm);
+    line-height: 1.25;
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+
+    &:hover {
+      background-color: var(--color-primary-dark);
+    }
+
+    /* Varianten */
+    &.secondary {
+      background-color: var(--color-secondary);
+
+      &:hover {
+        background-color: var(--color-secondary-dark);
+      }
+    }
+
+    /* Größen */
+    &.sm {
+      padding-inline: var(--space-3);
+      padding-block: var(--space-1);
+      font-size: var(--font-size-xs);
+    }
+
+    &.lg {
+      padding-inline: var(--space-6);
+      padding-block: var(--space-3);
+      font-size: var(--font-size-base);
+    }
+
+    /* Icon-Handling */
+    &.with-icon {
+      gap: var(--space-2);
+
+      .icon {
+        display: inline-flex;
+        width: 1em;
+        height: 1em;
+      }
+    }
+  }
+}
+```
+
+Verwendung:
+```html
+<!-- Standard Button -->
+<button class="button">Standard Button</button>
+
+<!-- Button mit Variante und Größe -->
+<button class="button secondary sm">Kleiner Sekundärbutton</button>
+
+<!-- Button mit Icon -->
+<button class="button with-icon">
+  <span class="icon">→</span>
+  Weiter
+</button>
+```
+
+#### Input-Komponente
+
+```css
+@layer components {
+  .input {
+    display: block;
+    width: 100%;
+    padding: var(--space-2) var(--space-3);
+    font-size: var(--font-size-base);
+    border: 1px solid var(--color-gray-300);
+    border-radius: var(--radius-md);
+    background-color: var(--color-white);
+    color: var(--color-gray-900);
+    transition: border-color var(--transition-fast);
+
+    &:focus {
+      outline: none;
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-primary) 50%, transparent);
+    }
+
+    /* Varianten nach Status */
+    &.invalid {
+      border-color: var(--color-error);
+      background-color: color-mix(in srgb, var(--color-error) 5%, white);
+    }
+
+    /* Größenvarianten */
+    &.sm {
+      padding: var(--space-1) var(--space-2);
+      font-size: var(--font-size-sm);
+    }
+  }
+
+  /* Container für Inputs mit Icons */
+  .input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    .input {
+      padding-left: var(--space-8);
+    }
+
+    .input-icon {
+      position: absolute;
+      left: var(--space-3);
+      color: var(--color-gray-400);
+      pointer-events: none;
+    }
+  }
+}
+```
+
+Verwendung:
+```html
+<!-- Standard Input -->
+<input type="text" class="input" placeholder="Text eingeben">
+
+<!-- Input mit Status -->
+<input type="text" class="input invalid" placeholder="Ungültige Eingabe">
+
+<!-- Input mit Icon -->
+<div class="input-wrapper">
+  <span class="input-icon">🔍</span>
+  <input type="search" class="input" placeholder="Suchen...">
+</div>
+```
+
+#### Checkbox-Komponente
+
+```css
+@layer components {
+  .checkbox {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    cursor: pointer;
+    font-size: var(--font-size-sm);
+    
+    /* Die Checkbox selbst */
+    input[type="checkbox"] {
+      appearance: none;
+      width: 1rem;
+      height: 1rem;
+      border: 1px solid var(--color-gray-400);
+      border-radius: var(--radius-sm);
+      background-color: white;
+      display: inline-block;
+      vertical-align: middle;
+      position: relative;
+      transition: all var(--transition-fast);
+      
+      /* Checked-Zustand */
+      &:checked {
+        background-color: var(--color-primary);
+        border-color: var(--color-primary);
+        
+        &::after {
+          content: "";
+          position: absolute;
+          top: 2px;
+          left: 4px;
+          width: 3px;
+          height: 6px;
+          border: solid white;
+          border-width: 0 2px 2px 0;
+          transform: rotate(45deg);
+        }
+      }
+    }
+    
+    /* Größenvarianten */
+    &.small {
+      font-size: var(--font-size-xs);
+      
+      input[type="checkbox"] {
+        width: 0.875rem;
+        height: 0.875rem;
+      }
+    }
+  }
+}
+```
+
+Verwendung:
+```html
+<!-- Standard Checkbox -->
+<label class="checkbox">
+  <input type="checkbox">
+  <span>Option auswählen</span>
+</label>
+
+<!-- Kleine Checkbox -->
+<label class="checkbox small">
+  <input type="checkbox">
+  <span>Kleinere Option</span>
+</label>
+
+<!-- Gruppe von Checkboxen -->
+<div class="checkbox-group">
+  <label class="checkbox">
+    <input type="checkbox">
+    <span>Option 1</span>
+  </label>
+  <label class="checkbox">
+    <input type="checkbox">
+    <span>Option 2</span>
+  </label>
+</div>
+```
+
+### Migration von BEM zu CSS-Nesting
+
+Für bestehende Projekte, die die Bibliothek verwenden, kann ein schrittweiser Migrationspfad befolgt werden:
+
+1. **Beide Klassen parallel unterstützen**: Während der Migration können sowohl die alten BEM-Klassen als auch die neuen Klassen unterstützt werden
+
+   ```css
+   .button,
+   .button--primary {
+     /* Gemeinsame Styles */
+   }
+   
+   .button.primary {
+     /* Neue Struktur - gleiche Styles */
+   }
+   ```
+
+2. **Selektive Migration**: Komponenten können schrittweise migriert werden, ohne das gesamte System auf einmal umzustellen
+
+3. **Deprecation-Hinweise**: In der Dokumentation können alte BEM-Klassen als veraltet markiert werden
 
 ## Themes
 
@@ -572,7 +1047,7 @@ Alle Utility-Klassen können mit Breakpoint-Präfixen verwendet werden:
 ```astro
 ---
 import 'casoon-ui-lib/core.css';
-import styles from 'casoon-ui-lib/modules/button.module.css';
+import styles from 'casoon-ui-lib/components/button.css';
 ---
 
 <button class={styles.button}>

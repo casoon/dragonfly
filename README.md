@@ -124,7 +124,7 @@ Die Bibliothek nutzt eine präzise konfigurierte Hierarchie von CSS-Layers zur S
        smooth-scroll,        /* Scrollverhalten */
        accessibility,        /* Barrierefreiheit */
        icons,                /* Icon-System */
-       modules,              /* UI-Komponenten */
+       components,           /* UI-Komponenten */
        animations,           /* Bewegungssystem */
        effects,              /* Visuelle Effekte */
        themes;               /* Theming-System */
@@ -141,13 +141,13 @@ npm run test:lightningcss
 
 ## Eigene Komponenten erstellen
 
-Sie können eigene Komponenten in den `modules`-Layer einbinden:
+Sie können eigene Komponenten in den `components`-Layer einbinden:
 
 ```css
 /* Ihre Komponenten-Datei */
 @import url('path/to/@casoon/ui-lib/core.css');
 
-@layer modules {
+@layer components {
   .my-component {
     /* Komponenten-Styles unter Nutzung der Design-Tokens */
     padding: var(--space-4);
@@ -170,15 +170,15 @@ Die Hauptdateien im Wurzelverzeichnis steuern die gesamte Bibliothek:
 - `typography.css`: Typografie-System und Textformatierung
 - `animations.css`: Bewegungs- und Übergangssystem
 - `effects.css`: Visuelle Effekte und Interaktionen
-- `modules.css`: Import aller UI-Komponenten
+- `components.css`: Import aller UI-Komponenten
 - `themes.css`: Theming-System und Farbschemata
 - `icons.css`: Icon-System und -Integration
 
 ### Unterverzeichnisse
 
 - `base/`: Grundlegende CSS-Layer
-- `modules/`: UI-Komponenten als CSS-Module
-  - Siehe [Moduldokumentation](modules/README.md) für Details zu allen verfügbaren Komponenten
+- `components/`: UI-Komponenten als CSS-Module
+  - Siehe [Komponentendokumentation](components/README.md) für Details zu allen verfügbaren Komponenten
 - `effects/`: Spezielle Effekte und Interaktionen
 - `themes/`: Theme-Varianten und Farbschemata
 - `icons/`: Icon-Definitionen
@@ -223,11 +223,11 @@ Die Casoon UI Library ist ein fortschrittliches Design-System, das als solide Ba
 ├── typography.css        # Typografie-System
 ├── animations.css        # Animations- und Bewegungssystem
 ├── effects.css           # Visuelle Effekte
-├── modules.css           # Komponenten-Importe
+├── components.css        # Komponenten-Importe
 ├── themes.css            # Theming-System
 ├── icons.css             # Icon-System
 ├── base/                 # Grundlegende CSS-Layer
-├── modules/              # UI-Komponenten als CSS-Module
+├── components/           # UI-Komponenten als CSS-Module
 ├── effects/              # Spezielle Effekte und Interaktionen
 ├── themes/               # Theme-Varianten und Farbschemata
 └── icons/                # Icon-Definitionen

@@ -1,0 +1,248 @@
+/*
+ * Header Module
+ *
+ * Enthält spezifische Layoutregeln für die Kopfzeile.
+ * Nutzt Subgrid und Container Queries zur optimalen Skalierung.
+ */
+
+/**
+ * Header-Komponente
+ * 
+ * Kopfzeilenkomponenten für Websites und Anwendungen.
+ * Der Header dient als Navigationsbereich und wichtiger Orientierungspunkt für Benutzer.
+ * 
+ * @layer components.header
+ * 
+ * Grundlegende Verwendung:
+ * <header class="header">
+ *   <div class="logo">
+ *     <img src="logo.png" alt="Logo" />
+ *   </div>
+ *   <nav class="nav">
+ *     <ul class="menu">
+ *       <li><a href="#" class="link">Startseite</a></li>
+ *       <li><a href="#" class="link">Produkte</a></li>
+ *       <li><a href="#" class="link">Über uns</a></li>
+ *       <li><a href="#" class="link">Kontakt</a></li>
+ *     </ul>
+ *   </nav>
+ *   <div class="actions">
+ *     <button class="button">Login</button>
+ *   </div>
+ * </header>
+ * 
+ * Fixierter Header:
+ * <header class="header fixed">...</header>
+ * 
+ * Sticky Header (bleibt beim Scrollen sichtbar):
+ * <header class="header sticky">...</header>
+ * 
+ * Transparenter Header (für Hero-Bereiche):
+ * <header class="header transparent">...</header>
+ * 
+ * Varianten:
+ * <header class="header primary">...</header>
+ * <header class="header light">...</header>
+ * <header class="header dark">...</header>
+ * 
+ * Mit Suchfunktion:
+ * <header class="header">
+ *   <!-- ... -->
+ *   <div class="search">
+ *     <input type="search" class="input" placeholder="Suchen...">
+ *     <button class="button icon-only">
+ *       <span class="icon">🔍</span>
+ *     </button>
+ *   </div>
+ * </header>
+ * 
+ * Responsive mit Hamburger-Menü:
+ * <header class="header">
+ *   <div class="logo">Logo</div>
+ *   <button class="toggle hamburger" aria-label="Menü öffnen"></button>
+ *   <nav class="nav mobile-hidden">
+ *     <!-- Menüpunkte -->
+ *   </nav>
+ * </header>
+ */
+
+
+  .header {
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: span 12;
+    grid-template-rows: auto;
+    align-items: center;
+    padding-block: var(--space-4);
+    gap: var(--space-4);
+    
+    /* Logo-Bereich */
+    .logo {
+      grid-column: 1 / span 3;
+      display: flex;
+      align-items: center;
+      
+      img {
+        max-height: 40px;
+        width: auto;
+      }
+    }
+    
+    /* Navigationsbereich */
+    .nav {
+      grid-column: 4 / span 6;
+      display: flex;
+      justify-content: center;
+      gap: var(--space-4);
+      
+      .menu {
+        display: flex;
+        gap: var(--space-4);
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      
+      .link {
+        display: inline-block;
+        color: var(--color-gray-700);
+        font-weight: var(--font-weight-medium);
+        text-decoration: none;
+        padding: var(--space-2);
+        transition: color var(--transition-fast);
+        
+        &:hover {
+          color: var(--color-primary);
+        }
+        
+        &.active {
+          color: var(--color-primary);
+          font-weight: var(--font-weight-semibold);
+        }
+      }
+      
+      &.mobile-hidden {
+        @media (width <= 768px) {
+          display: none;
+        }
+      }
+    }
+    
+    /* Aktionsbereich (Buttons, etc.) */
+    .actions {
+      grid-column: 10 / span 3;
+      display: flex;
+      justify-content: flex-end;
+      gap: var(--space-2);
+    }
+    
+    /* Suchbereich */
+    .search {
+      display: flex;
+      width: 100%;
+      max-width: 300px;
+      
+      .input {
+        flex: 1;
+      }
+    }
+    
+    /* Toggle-Button für mobile Navigation */
+    .toggle {
+      display: none;
+      
+      @media (width <= 768px) {
+        display: block;
+        grid-column: 12;
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+    }
+    
+    /* Varianten */
+    &.fixed {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: var(--z-index-header);
+      background-color: var(--color-white);
+      box-shadow: var(--shadow-sm);
+    }
+    
+    &.sticky {
+      position: sticky;
+      top: 0;
+      z-index: var(--z-index-header);
+      background-color: var(--color-white);
+      box-shadow: var(--shadow-sm);
+    }
+    
+    &.transparent {
+      background-color: transparent;
+      
+      .link {
+        color: var(--color-white);
+        
+        &:hover {
+          color: var(--color-gray-200);
+        }
+      }
+    }
+    
+    &.primary {
+      background-color: var(--color-primary);
+      color: white;
+      
+      .link {
+        color: white;
+        
+        &:hover {
+          color: var(--color-gray-100);
+        }
+      }
+    }
+    
+    &.light {
+      background-color: var(--color-gray-100);
+    }
+    
+    &.dark {
+      background-color: var(--color-gray-900);
+      color: white;
+      
+      .link {
+        color: var(--color-gray-100);
+        
+        &:hover {
+          color: var(--color-white);
+        }
+      }
+    }
+    
+    /* Responsive Anpassungen */
+    @container layout (max-width: 768px) {
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: auto auto;
+      
+      .logo {
+        grid-column: 1 / span 6;
+      }
+      
+      .nav {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+      }
+      
+      .actions {
+        grid-column: 7 / span 5;
+        justify-content: flex-end;
+      }
+    }
+  }
+
+
+  

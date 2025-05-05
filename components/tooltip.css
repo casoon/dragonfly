@@ -1,0 +1,178 @@
+/**
+ * Tooltip-Komponente
+ * 
+ * Informations-Tooltips und Hinweistexte für UI-Elemente.
+ * Tooltips bieten zusätzliche Informationen oder Hilfestellungen zu Elementen.
+ * 
+ * @layer components.tooltip
+ * 
+ * Grundlegende Verwendung:
+ * <div class="tooltip">
+ *   <button class="trigger">Hover mich</button>
+ *   <div class="content">Tooltip-Inhalt</div>
+ * </div>
+ * 
+ * Positionsvarianten:
+ * <div class="tooltip top">Oben</div>
+ * <div class="tooltip right">Rechts</div>
+ * <div class="tooltip bottom">Unten</div>
+ * <div class="tooltip left">Links</div>
+ * 
+ * Größenvarianten:
+ * <div class="tooltip sm">Klein</div>
+ * <div class="tooltip md">Mittel (Standard)</div>
+ * <div class="tooltip lg">Groß</div>
+ * 
+ * Varianten:
+ * <div class="tooltip light">Heller Hintergrund</div>
+ * <div class="tooltip dark">Dunkler Hintergrund (Standard)</div>
+ * <div class="tooltip primary">Primärfarbe</div>
+ * 
+ * Mit Pfeil:
+ * <div class="tooltip arrow">
+ *   <button class="trigger">Mit Pfeil</button>
+ *   <div class="content">Tooltip mit Pfeil</div>
+ * </div>
+ * 
+ * Mit HTML-Inhalt:
+ * <div class="tooltip">
+ *   <button class="trigger">Komplexer Inhalt</button>
+ *   <div class="content">
+ *     <h4>Überschrift</h4>
+ *     <p>Mehrere Zeilen Text sind möglich.</p>
+ *   </div>
+ * </div>
+ */
+
+
+  .tooltip {
+    position: relative;
+    display: inline-block;
+    
+    .trigger {
+      display: inline-block;
+      cursor: pointer;
+    }
+    
+    .content {
+      position: absolute;
+      z-index: var(--z-index-tooltip);
+      background-color: var(--color-gray-900);
+      color: var(--color-white);
+      padding: var(--space-2) var(--space-3);
+      border-radius: var(--radius-sm);
+      font-size: var(--font-size-xs);
+      white-space: nowrap;
+      box-shadow: var(--shadow-sm);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s, visibility 0.2s;
+    }
+    
+    /* Trigger-Interaktion */
+    &:hover .content,
+    .trigger:focus + .content {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    /* Positionsvarianten */
+    &.top .content {
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-8px);
+      margin-bottom: var(--space-1);
+    }
+    
+    &.right .content {
+      top: 50%;
+      left: 100%;
+      transform: translateY(-50%) translateX(8px);
+      margin-left: var(--space-1);
+    }
+    
+    &.bottom .content {
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(8px);
+      margin-top: var(--space-1);
+    }
+    
+    &.left .content {
+      top: 50%;
+      right: 100%;
+      transform: translateY(-50%) translateX(-8px);
+      margin-right: var(--space-1);
+    }
+    
+    /* Größenvarianten */
+    &.sm .content {
+      padding: var(--space-1) var(--space-2);
+      font-size: var(--font-size-xs);
+    }
+    
+    &.lg .content {
+      padding: var(--space-3) var(--space-4);
+      font-size: var(--font-size-sm);
+      white-space: normal;
+      max-width: 250px;
+    }
+    
+    /* Farbvarianten */
+    &.light .content {
+      background-color: var(--color-white);
+      color: var(--color-gray-900);
+      border: 1px solid var(--color-gray-200);
+    }
+    
+    &.primary .content {
+      background-color: var(--color-primary);
+      color: white;
+    }
+    
+    /* Mit Pfeil */
+    &.arrow .content::before {
+      content: "";
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background-color: inherit;
+      border: inherit;
+      border-width: 1px;
+      transform: rotate(45deg);
+    }
+    
+    &.arrow.top .content::before {
+      bottom: -4px;
+      left: 50%;
+      margin-left: -4px;
+      border-top: 0;
+      border-left: 0;
+    }
+    
+    &.arrow.right .content::before {
+      left: -4px;
+      top: 50%;
+      margin-top: -4px;
+      border-right: 0;
+      border-bottom: 0;
+    }
+    
+    &.arrow.bottom .content::before {
+      top: -4px;
+      left: 50%;
+      margin-left: -4px;
+      border-bottom: 0;
+      border-right: 0;
+    }
+    
+    &.arrow.left .content::before {
+      right: -4px;
+      top: 50%;
+      margin-top: -4px;
+      border-left: 0;
+      border-top: 0;
+    }
+  }
+
+

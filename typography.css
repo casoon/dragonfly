@@ -140,6 +140,15 @@
     text-overflow: ellipsis;
     white-space: nowrap;
   }
+
+  .hover-underline {
+    text-decoration: none;
+    transition: text-decoration 0.2s ease;
+  }
+
+  .hover-underline:hover {
+    text-decoration: underline;
+  }
 }
 
 @layer responsive {

@@ -29,7 +29,7 @@
  * Modul-System
  * Wiederverwendbare UI-Komponenten in eigenständigen Dateien
  */
-@import url("modules.css") layer(modules);
+@import url("components.css") layer(components);
 
 /* 
  * Animations-System

@@ -1,0 +1,261 @@
+/*
+ * Notification Module
+ *
+ * Benachrichtigungen und Systemmeldungen (Toast/Messages).
+ */
+
+/**
+ * Notification-Komponente
+ * 
+ * System- und Benutzermeldungen für wichtige Mitteilungen und Updates.
+ * Notifications informieren Benutzer über Ereignisse, Aktivitäten oder Statusänderungen.
+ * 
+ * @layer components.notification
+ * 
+ * Grundlegende Verwendung:
+ * <div class="notification">
+ *   <div class="icon"><!-- Icon hier --></div>
+ *   <div class="content">
+ *     <div class="title">Neue Nachricht</div>
+ *     <div class="message">Sie haben eine neue Nachricht erhalten.</div>
+ *   </div>
+ *   <button class="close">&times;</button>
+ * </div>
+ * 
+ * Varianten:
+ * <div class="notification info">Informativ</div>
+ * <div class="notification success">Erfolg</div>
+ * <div class="notification warning">Warnung</div>
+ * <div class="notification error">Fehler</div>
+ * 
+ * Positionen:
+ * <div class="notification top-right">Oben rechts</div>
+ * <div class="notification top-left">Oben links</div>
+ * <div class="notification bottom-right">Unten rechts</div>
+ * <div class="notification bottom-left">Unten links</div>
+ * 
+ * Mit Aktionen:
+ * <div class="notification">
+ *   <div class="content">Neue Anfrage</div>
+ *   <div class="actions">
+ *     <button class="button small primary">Annehmen</button>
+ *     <button class="button small">Ablehnen</button>
+ *   </div>
+ * </div>
+ * 
+ * Mit Timer:
+ * <div class="notification with-timer">
+ *   <div class="content">Diese Meldung verschwindet in 5 Sekunden</div>
+ *   <div class="timer"></div>
+ * </div>
+ * 
+ * Gruppierte Benachrichtigungen:
+ * <div class="notification-center">
+ *   <div class="notification">Benachrichtigung 1</div>
+ *   <div class="notification">Benachrichtigung 2</div>
+ * </div>
+ */
+
+
+  .notification {
+    display: flex;
+    align-items: start;
+    gap: var(--space-3);
+    padding: var(--space-3);
+    border-radius: var(--radius-md);
+    background-color: var(--color-gray-100);
+    border: 1px solid var(--color-gray-300);
+    font-size: var(--font-size-sm);
+    max-width: 100%;
+    box-shadow: var(--shadow-sm);
+    
+    /* Varianten */
+    &.success {
+      background-color: var(--color-success);
+      color: white;
+    }
+    
+    &.error {
+      background-color: var(--color-error);
+      color: white;
+    }
+    
+    &.warning {
+      background-color: var(--color-warning);
+      color: black;
+    }
+    
+    &.info {
+      background-color: var(--color-info);
+      color: white;
+    }
+    
+    /* Icon */
+    .icon {
+      flex-shrink: 0;
+      margin-top: 2px;
+      font-size: 1.25rem;
+      line-height: 1;
+    }
+    
+    /* Inhalt */
+    .content {
+      flex: 1;
+      
+      .title {
+        font-weight: var(--font-weight-medium);
+        margin-bottom: var(--space-1);
+      }
+      
+      .message {
+        color: inherit;
+        opacity: 0.9;
+      }
+    }
+    
+    /* Schließen-Knopf */
+    .close {
+      flex-shrink: 0;
+      margin-left: auto;
+      background: none;
+      border: none;
+      color: currentcolor;
+      opacity: 0.7;
+      cursor: pointer;
+      font-size: 1.25rem;
+      line-height: 1;
+      padding: 0.25rem;
+      transition: opacity var(--transition-fast);
+      
+      &:hover {
+        opacity: 1;
+      }
+    }
+    
+    /* Aktionen */
+    .actions {
+      display: flex;
+      gap: var(--space-2);
+      margin-top: var(--space-2);
+    }
+    
+    /* Timer */
+    .timer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 3px;
+      background-color: rgb(255 255 255 / 50%);
+      animation: notification-timer 5s linear forwards;
+    }
+    
+    /* Positionen */
+    &.top-right,
+    &.top-left,
+    &.bottom-right,
+    &.bottom-left {
+      position: fixed;
+      z-index: var(--z-index-notification);
+      margin: var(--space-4);
+    }
+    
+    &.top-right {
+      top: 0;
+      right: 0;
+    }
+    
+    &.top-left {
+      top: 0;
+      left: 0;
+    }
+    
+    &.bottom-right {
+      bottom: 0;
+      right: 0;
+    }
+    
+    &.bottom-left {
+      bottom: 0;
+      left: 0;
+    }
+    
+    /* Animationen */
+    &.animate-in {
+      animation: notification-slide-in 0.3s ease-out;
+    }
+    
+    &.animate-out {
+      animation: notification-slide-out 0.3s ease-in forwards;
+    }
+    
+    &.with-timer {
+      position: relative;
+      overflow: hidden;
+    }
+  }
+  
+  /* Notification-Center */
+  .notification-center {
+    position: fixed;
+    z-index: var(--z-index-notification);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    max-width: 100%;
+    width: 350px;
+    
+    &.top-right {
+      top: 0;
+      right: 0;
+      margin: var(--space-4);
+    }
+    
+    &.top-left {
+      top: 0;
+      left: 0;
+      margin: var(--space-4);
+    }
+    
+    &.bottom-right {
+      bottom: 0;
+      right: 0;
+      margin: var(--space-4);
+    }
+    
+    &.bottom-left {
+      bottom: 0;
+      left: 0;
+      margin: var(--space-4);
+    }
+  }
+  
+  /* Animationen */
+  @keyframes notification-timer {
+    from { width: 100%; }
+    to { width: 0; }
+  }
+  
+  @keyframes notification-slide-in {
+    from { 
+      transform: translateX(100%);
+      opacity: 0;
+    }
+
+    to { 
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes notification-slide-out {
+    from { 
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    to { 
+      transform: translateX(100%);
+      opacity: 0;
+    }
+  }
+

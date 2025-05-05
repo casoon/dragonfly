@@ -1,0 +1,154 @@
+/*
+ * Button Module
+ *
+ * Standardisierte Buttons mit Varianten und Zuständen.
+ */
+
+/**
+ * Button-Modul
+ * 
+ * Interaktive Schaltflächen für Benutzeraktionen und Formularsteuerung.
+ * Buttons sind die primären interaktiven Elemente der Benutzeroberfläche.
+ * 
+ * @layer: module-button
+ * 
+ * Verwendung:
+ * <button class="button">Standard Button</button>
+ * 
+ * Varianten:
+ * <button class="button primary">Primär</button>
+ * <button class="button secondary">Sekundär</button>
+ * <button class="button tertiary">Tertiär</button>
+ * <button class="button success">Erfolg</button>
+ * <button class="button warning">Warnung</button>
+ * <button class="button danger">Gefahr</button>
+ * <button class="button info">Info</button>
+ * <button class="button link">Link-Style</button>
+ * 
+ * Größen:
+ * <button class="button xs">Extra Klein</button>
+ * <button class="button sm">Klein</button>
+ * <button class="button md">Mittel (Standard)</button>
+ * <button class="button lg">Groß</button>
+ * <button class="button xl">Extra Groß</button>
+ * 
+ * Zustände:
+ * <button class="button" disabled>Deaktiviert</button>
+ * <button class="button loading">Lädt...</button>
+ * 
+ * Mit Icon:
+ * <button class="button with-icon">
+ *   <span class="icon"><!-- Icon hier --></span>
+ *   <span>Button mit Icon</span>
+ * </button>
+ * 
+ * Nur Icon:
+ * <button class="button icon-only">
+ *   <span class="icon"><!-- Icon hier --></span>
+ * </button>
+ */
+
+
+  .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding-inline: var(--space-4);
+    padding-block: var(--space-2);
+    border-radius: var(--radius-md);
+    font-weight: var(--font-weight-medium);
+    font-size: var(--font-size-sm);
+    line-height: 1.25;
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+
+    &:hover {
+      background-color: var(--color-primary-dark);
+    }
+
+    /* Varianten */
+    &.secondary {
+      background-color: var(--color-secondary);
+
+      &:hover {
+        background-color: var(--color-secondary-dark);
+      }
+    }
+
+    &.outline {
+      background-color: transparent;
+      border: 1px solid var(--color-primary);
+      color: var(--color-primary);
+
+      &:hover {
+        background-color: var(--color-primary-light);
+        color: white;
+      }
+    }
+
+    /* Größen */
+    &.sm {
+      padding-inline: var(--space-3);
+      padding-block: var(--space-1);
+      font-size: var(--font-size-xs);
+    }
+
+    &.lg {
+      padding-inline: var(--space-6);
+      padding-block: var(--space-3);
+      font-size: var(--font-size-base);
+    }
+
+    /* Zustände */
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    &.loading {
+      position: relative;
+      color: transparent;
+
+      &::after {
+        content: "";
+        position: absolute;
+        width: 1rem;
+        height: 1rem;
+        border: 2px solid currentcolor;
+        border-radius: 50%;
+        border-right-color: transparent;
+        animation: spin 1s linear infinite;
+      }
+    }
+
+    /* Icon-Handling */
+    &.with-icon {
+      gap: var(--space-2);
+
+      .icon {
+        display: inline-flex;
+        width: 1em;
+        height: 1em;
+      }
+    }
+
+    &.icon-only {
+      padding: var(--space-2);
+      aspect-ratio: 1;
+
+      .icon {
+        width: 1.25em;
+        height: 1.25em;
+      }
+    }
+  }
+
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+

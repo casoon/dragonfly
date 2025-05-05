@@ -1,0 +1,157 @@
+/*
+ * Input Group Module
+ *
+ * Kombiniert mehrere Inputs mit Add-ons (z. B. Buttons oder Icons).
+ */
+
+/**
+ * Input-Group-Komponente
+ * 
+ * Gruppierte Eingabeelemente für zusammengehörende Formularfelder.
+ * Input-Groups ermöglichen die Kombination von Eingabefeldern mit Addons, Buttons oder Labels.
+ * 
+ * @layer components.input-group
+ * 
+ * Grundlegende Verwendung:
+ * <div class="input-group">
+ *   <span class="addon">https://</span>
+ *   <input type="text" class="input" placeholder="example.com">
+ * </div>
+ * 
+ * Mit Button:
+ * <div class="input-group">
+ *   <input type="text" class="input" placeholder="Suchen...">
+ *   <button class="button">Suchen</button>
+ * </div>
+ * 
+ * Mit Icon:
+ * <div class="input-group">
+ *   <span class="icon"><!-- Icon hier --></span>
+ *   <input type="text" class="input" placeholder="Benutzername">
+ * </div>
+ * 
+ * Mit Addons auf beiden Seiten:
+ * <div class="input-group">
+ *   <span class="addon">$</span>
+ *   <input type="number" class="input" placeholder="0.00">
+ *   <span class="addon">.00</span>
+ * </div>
+ * 
+ * Dropdown mit Button:
+ * <div class="input-group">
+ *   <select class="select">
+ *     <option>Option 1</option>
+ *     <option>Option 2</option>
+ *   </select>
+ *   <button class="button primary">Bestätigen</button>
+ * </div>
+ * 
+ * Größenvarianten:
+ * <div class="input-group sm">...</div>
+ * <div class="input-group md">...</div>
+ * <div class="input-group lg">...</div>
+ */
+
+
+  .input-group {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+    border: 1px solid var(--color-gray-300);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    
+    /* Allgemeine Styles für alle Kinder-Elemente */
+    > * {
+      border: none;
+      outline: none;
+      padding: var(--space-2) var(--space-3);
+      font-size: var(--font-size-sm);
+    }
+    
+    /* Addon-Elemente */
+    .addon {
+      background-color: var(--color-gray-100);
+      color: var(--color-gray-700);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 var(--space-3);
+      font-size: var(--font-size-sm);
+      white-space: nowrap;
+    }
+    
+    /* Icon-Elemente */
+    .icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.5rem;
+      color: var(--color-gray-500);
+      background-color: transparent;
+      
+      &:hover {
+        color: var(--color-gray-700);
+      }
+    }
+    
+    /* Input innerhalb der Gruppe */
+    .input {
+      flex: 1;
+      min-width: 0;
+      
+      &:focus {
+        box-shadow: none;
+      }
+    }
+    
+    /* Button innerhalb der Gruppe */
+    .button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-2) var(--space-4);
+      border-radius: 0;
+      
+      &:first-child {
+        border-top-left-radius: var(--radius-md);
+        border-bottom-left-radius: var(--radius-md);
+      }
+      
+      &:last-child {
+        border-top-right-radius: var(--radius-md);
+        border-bottom-right-radius: var(--radius-md);
+      }
+    }
+    
+    /* Größenvarianten */
+    &.sm {
+      > * {
+        padding: var(--space-1) var(--space-2);
+        font-size: var(--font-size-xs);
+      }
+      
+      .button {
+        padding: var(--space-1) var(--space-3);
+      }
+    }
+    
+    &.lg {
+      > * {
+        padding: var(--space-3) var(--space-4);
+        font-size: var(--font-size-base);
+      }
+      
+      .button {
+        padding: var(--space-3) var(--space-5);
+      }
+    }
+    
+    /* Zustände */
+    &:focus-within {
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-primary) 25%, transparent);
+    }
+  }
+
+

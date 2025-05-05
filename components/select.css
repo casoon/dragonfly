@@ -1,0 +1,143 @@
+/**
+ * Select-Komponente
+ * 
+ * Dropdown-Auswahlmenüs für Formulare und Benutzereinstellungen.
+ * Select-Elemente erlauben dem Benutzer die Auswahl aus einer vordefinierten Liste von Optionen.
+ * 
+ * @layer components.select
+ * 
+ * Grundlegende Verwendung:
+ * <select class="select">
+ *   <option>Option 1</option>
+ *   <option>Option 2</option>
+ *   <option>Option 3</option>
+ * </select>
+ * 
+ * Größenvarianten:
+ * <select class="select sm">Klein</select>
+ * <select class="select">Mittel (Standard)</select>
+ * <select class="select lg">Groß</select>
+ * 
+ * Zustände:
+ * <select class="select" disabled>Deaktiviert</select>
+ * <select class="select error">Mit Fehler</select>
+ * <select class="select success">Erfolgreich</select>
+ * 
+ * Mit Label (über Form-Komponente):
+ * <div class="form-group">
+ *   <label class="form-label" for="country">Land</label>
+ *   <select class="select" id="country">
+ *     <option>Deutschland</option>
+ *     <option>Österreich</option>
+ *     <option>Schweiz</option>
+ *   </select>
+ * </div>
+ * 
+ * Mehrfachauswahl:
+ * <select class="select" multiple>
+ *   <option>Option 1</option>
+ *   <option>Option 2</option>
+ *   <option>Option 3</option>
+ * </select>
+ * 
+ * Mit Optionsgruppen:
+ * <select class="select">
+ *   <optgroup label="Gruppe 1">
+ *     <option>Option 1.1</option>
+ *     <option>Option 1.2</option>
+ *   </optgroup>
+ *   <optgroup label="Gruppe 2">
+ *     <option>Option 2.1</option>
+ *     <option>Option 2.2</option>
+ *   </optgroup>
+ * </select>
+ */
+
+
+  .select {
+    display: block;
+    width: 100%;
+    padding: var(--space-2) var(--space-3);
+    font-size: var(--font-size-base);
+    border: 1px solid var(--color-gray-300);
+    border-radius: var(--radius-md);
+    background-color: var(--color-white);
+    color: var(--color-gray-900);
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 20 20' fill='none' stroke='%23666' stroke-width='2' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 8l4 4 4-4'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right var(--space-3) center;
+    background-size: 1rem;
+    cursor: pointer;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+    
+    &:focus {
+      outline: none;
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-primary) 50%, transparent);
+    }
+    
+    &:disabled {
+      background-color: var(--color-gray-100);
+      color: var(--color-gray-500);
+      cursor: not-allowed;
+      opacity: 0.7;
+    }
+    
+    /* Größenvarianten */
+    &.sm {
+      padding: var(--space-1) var(--space-2);
+      font-size: var(--font-size-sm);
+      background-position: right var(--space-2) center;
+      background-size: 0.875rem;
+    }
+    
+    &.lg {
+      padding: var(--space-3) var(--space-4);
+      font-size: var(--font-size-lg);
+      background-position: right var(--space-4) center;
+      background-size: 1.25rem;
+    }
+    
+    /* Zustandsvarianten */
+    &.error {
+      border-color: var(--color-error);
+      background-color: color-mix(in srgb, var(--color-error) 3%, var(--color-white));
+      
+      &:focus {
+        box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-error) 30%, transparent);
+      }
+    }
+    
+    &.success {
+      border-color: var(--color-success);
+      background-color: color-mix(in srgb, var(--color-success) 3%, var(--color-white));
+      
+      &:focus {
+        box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-success) 30%, transparent);
+      }
+    }
+    
+    /* Multiple-Auswahl */
+    &[multiple] {
+      background-image: none;
+      padding: var(--space-1);
+      
+      option {
+        padding: var(--space-1) var(--space-2);
+        border-radius: var(--radius-sm);
+        
+        &:checked {
+          background-color: color-mix(in srgb, var(--color-primary) 15%, transparent);
+        }
+      }
+    }
+    
+    /* Optgroups */
+    optgroup {
+      font-weight: var(--font-weight-medium);
+      color: var(--color-gray-700);
+    }
+  }
+
+  

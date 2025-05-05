@@ -23,7 +23,7 @@ Die Layer sind in `base.css` in einer präzisen Hierarchie definiert:
        smooth-scroll,        /* Scrollverhalten */
        accessibility,        /* Barrierefreiheit */
        icons,                /* Icon-System */
-       modules,              /* UI-Komponenten */
+       components,           /* UI-Komponenten */
        animations,           /* Bewegungssystem */
        effects,              /* Visuelle Effekte */
        themes;               /* Theming-System */
@@ -176,11 +176,11 @@ Atomare Hilfsklassen für häufige Styling-Aufgaben.
 }
 ```
 
-#### modules
-UI-Komponenten und komplexere Modul-Systeme.
+#### components
+UI-Komponenten und komplexere Komponenten-Systeme.
 
 ```css
-@layer modules {
+@layer components {
   .card {
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-sm);
@@ -233,8 +233,8 @@ Importieren Sie einfach die `core.css`-Datei, die automatisch das komplette Laye
   }
 }
 
-/* Erstellen Sie eigene Module mit UI-Komponenten */
-@layer modules {
+/* Erstellen Sie eigene Komponenten */
+@layer components {
   .feature-card {
     border-radius: var(--radius-lg);
     padding: var(--space-6);

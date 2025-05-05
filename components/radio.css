@@ -1,0 +1,149 @@
+/**
+ * Radio-Komponente
+ * 
+ * Radio-Button-Auswahlelemente für Formulare und Einstellungen.
+ * Radio-Buttons ermöglichen die Auswahl einer einzelnen Option aus einer Gruppe.
+ * 
+ * @layer components.radio
+ * 
+ * Grundlegende Verwendung:
+ * <div class="radio-group">
+ *   <label class="radio">
+ *     <input type="radio" name="options" checked>
+ *     <span class="label">Option 1</span>
+ *   </label>
+ *   <label class="radio">
+ *     <input type="radio" name="options">
+ *     <span class="label">Option 2</span>
+ *   </label>
+ * </div>
+ * 
+ * Zustände:
+ * <label class="radio">
+ *   <input type="radio" checked>
+ *   <span class="label">Ausgewählt</span>
+ * </label>
+ * 
+ * <label class="radio">
+ *   <input type="radio" disabled>
+ *   <span class="label">Deaktiviert</span>
+ * </label>
+ * 
+ * Größenvarianten:
+ * <label class="radio sm">
+ *   <input type="radio">
+ *   <span class="label">Klein</span>
+ * </label>
+ * 
+ * <label class="radio">
+ *   <input type="radio">
+ *   <span class="label">Mittel (Standard)</span>
+ * </label>
+ * 
+ * <label class="radio lg">
+ *   <input type="radio">
+ *   <span class="label">Groß</span>
+ * </label>
+ * 
+ * Horizontale Ausrichtung:
+ * <div class="radio-group horizontal">
+ *   <label class="radio">
+ *     <input type="radio" name="horizontalOptions">
+ *     <span class="label">Option 1</span>
+ *   </label>
+ *   <label class="radio">
+ *     <input type="radio" name="horizontalOptions">
+ *     <span class="label">Option 2</span>
+ *   </label>
+ * </div>
+ */
+
+
+  .radio {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    cursor: pointer;
+    font-size: var(--font-size-sm);
+    
+    input[type="radio"] {
+      appearance: none;
+      width: 1rem;
+      height: 1rem;
+      border-radius: 9999px;
+      border: 2px solid var(--color-gray-400);
+      background-color: var(--color-white);
+      transition: all var(--transition-fast);
+      position: relative;
+      
+      &:checked {
+        background-color: var(--color-primary);
+        border-color: var(--color-primary);
+        
+        &::after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 0.375rem;
+          height: 0.375rem;
+          border-radius: 9999px;
+          background-color: white;
+        }
+      }
+      
+      &:focus-visible {
+        outline: 2px solid var(--color-primary);
+        outline-offset: 2px;
+      }
+      
+      &:disabled {
+        background-color: var(--color-gray-100);
+        border-color: var(--color-gray-300);
+        cursor: not-allowed;
+        
+        & ~ .label {
+          color: var(--color-gray-400);
+          cursor: not-allowed;
+        }
+      }
+    }
+    
+    /* Größenvarianten */
+    &.sm {
+      font-size: var(--font-size-xs);
+      
+      input[type="radio"] {
+        width: 0.875rem;
+        height: 0.875rem;
+      }
+    }
+    
+    &.lg {
+      font-size: var(--font-size-base);
+      
+      input[type="radio"] {
+        width: 1.25rem;
+        height: 1.25rem;
+        
+        &:checked::after {
+          width: 0.5rem;
+          height: 0.5rem;
+        }
+      }
+    }
+  }
+  
+  .radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    
+    &.horizontal {
+      flex-flow: row wrap;
+      align-items: center;
+    }
+  }
+
+  
