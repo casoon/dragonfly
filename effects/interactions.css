@@ -53,12 +53,7 @@
  * - Reduzierte Bewegung wird automatisch berücksichtigt
  */
 
-
-    :root {
-    container-type: inline-size;
-    container-name: root;
-    }
-
+@layer interactions {
     /* Drag & Drop */
     .draggable {
         cursor: grab;
@@ -503,4 +498,6 @@
             transform: scale(1.4);
         }
     } 
+
+}
 

@@ -1,4 +1,5 @@
 
+@layer base {
     /* Base Effects */
     .shadow-sm {
         box-shadow: var(--shadow-sm);
@@ -80,3 +81,4 @@
             transform: none !important;
         }
     }
+}

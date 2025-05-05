@@ -44,7 +44,7 @@
  * </div>
  */
 
-
+@layer skeleton {
   .skeleton {
     background-color: var(--color-gray-200);
     border-radius: var(--radius-sm);
@@ -172,4 +172,5 @@
       transform: translateX(100%);
     }
   }
+}
 

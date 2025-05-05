@@ -49,7 +49,7 @@
  * </div>
  */
 
-
+@layer content {
   .content {
     grid-column: span 9;
     display: grid;
@@ -264,5 +264,4 @@
       }
     }
   }
-
-  
+}

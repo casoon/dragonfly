@@ -64,7 +64,7 @@
  * </div>
  */
 
-
+@layer blog {
   /* Blog-Post */
   .blog-post {
     max-width: 65ch;
@@ -272,6 +272,4 @@
       }
     }
   }
-
-
-  
+}

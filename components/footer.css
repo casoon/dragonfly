@@ -65,7 +65,7 @@
  * </footer>
  */
 
-
+@layer footer {
   .footer {
     display: grid;
     grid-template-columns: subgrid;
@@ -300,4 +300,5 @@
       }
     }
   }
+}
 

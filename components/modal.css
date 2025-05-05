@@ -46,7 +46,7 @@
  * <div class="modal slide">...</div>
  */
 
-
+@layer modal {
   .modal {
     position: fixed;
     inset: 0;
@@ -191,4 +191,5 @@
       to { transform: translateY(0); opacity: 1; }
     }
   }
+}
 

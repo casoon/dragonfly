@@ -46,7 +46,7 @@
  * <tr class="danger">...</tr>
  */
 
-
+@layer table {
   .table {
     width: 100%;
     border-collapse: collapse;
@@ -117,4 +117,5 @@
       background-color: var(--color-error-100);
     }
   }
+}
 

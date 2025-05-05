@@ -53,7 +53,7 @@
  * </div>
  */
 
-
+@layer checkbox {
   .checkbox {
     display: inline-flex;
     align-items: center;
@@ -146,3 +146,4 @@
     flex-direction: column;
     gap: var(--space-3);
   }
+}

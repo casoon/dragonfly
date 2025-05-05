@@ -38,7 +38,7 @@
  * </div>
  */
 
-
+@layer avatar {
   .avatar {
     display: inline-block;
     width: 3rem;
@@ -116,4 +116,4 @@
       position: relative;
     }
   }
-
+}

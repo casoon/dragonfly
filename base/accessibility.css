@@ -17,7 +17,7 @@
  * @hinweis Die CSS-Variablen für Fokusfarben sollten mit dem Design-System abgestimmt sein.
  */
 
-
+@layer accessibility {
   /* Fokus-Stile verbessern */
   :focus {
     outline: 2px solid var(--color-focus);
@@ -114,3 +114,4 @@
       margin-right: var(--spacing-xs);
     }
   }
+}

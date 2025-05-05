@@ -23,7 +23,7 @@
  * Logische CSS Properties für Internationalisierung
  */
 
-
+@layer logical-properties {
   /* Basisklassen für Schreibrichtung */
   :root {
     --text-direction: ltr;
@@ -771,3 +771,4 @@
       margin-block-start: var(--space-0);
     }
   }
+}

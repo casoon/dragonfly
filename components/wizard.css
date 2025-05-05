@@ -53,7 +53,7 @@
  * <div class="step disabled">...</div>   <!-- Deaktiviert -->
  */
 
-
+@layer wizard {
   .wizard {
     display: flex;
     flex-direction: column;
@@ -271,5 +271,4 @@
       }
     }
   }
-
-
+}

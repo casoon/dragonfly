@@ -41,7 +41,7 @@
  * - Reduzierte Bewegung wird automatisch berücksichtigt
  */
 
-
+@layer filters {
     /* Unschärfe-Effekte */
     .blur-sm {
         filter: blur(4px);
@@ -172,3 +172,4 @@
         transition-property: none;
     }
     }   
+}

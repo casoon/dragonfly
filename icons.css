@@ -8,58 +8,59 @@
  * <span class="icon icon-sm">...</span>
  */
 
+@layer icons {
+    /* Import der Basis-Icon-Styles */
+    @import url('icons/base.css') layer(icons);
 
-/* Import der Basis-Icon-Styles */
-@import url('icons/base.css') layer(icons);
+    /* Zusätzliche Icon-System Konfiguration */
+    .icon-container {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
 
-/* Zusätzliche Icon-System Konfiguration */
-.icon-container {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-}
+    /* Icon mit Text Kombinationen */
+    .icon-text {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-2);
+    }
 
-/* Icon mit Text Kombinationen */
-.icon-text {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-2);
-}
+    .icon-text-reverse {
+        flex-direction: row-reverse;
+    }
 
-.icon-text-reverse {
-    flex-direction: row-reverse;
-}
+    /* Icon-Positionierung */
+    .icon-start {
+        margin-inline-end: var(--space-2);
+    }
 
-/* Icon-Positionierung */
-.icon-start {
-    margin-inline-end: var(--space-2);
-}
+    .icon-end {
+        margin-inline-start: var(--space-2);
+    }
 
-.icon-end {
-    margin-inline-start: var(--space-2);
-}
+    /* Icon Farben */
+    .icon-primary {
+        color: var(--color-primary);
+    }
 
-/* Icon Farben */
-.icon-primary {
-    color: var(--color-primary);
-}
+    .icon-secondary {
+        color: var(--color-secondary);
+    }
 
-.icon-secondary {
-    color: var(--color-secondary);
-}
+    .icon-success {
+        color: var(--color-success);
+    }
 
-.icon-success {
-    color: var(--color-success);
-}
+    .icon-warning {
+        color: var(--color-warning);
+    }
 
-.icon-warning {
-    color: var(--color-warning);
-}
+    .icon-error {
+        color: var(--color-error);
+    }
 
-.icon-error {
-    color: var(--color-error);
-}
-
-.icon-info {
-    color: var(--color-info);
+    .icon-info {
+        color: var(--color-info);
+    }
 }

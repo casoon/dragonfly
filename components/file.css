@@ -58,7 +58,7 @@
  * </div>
  */
 
-
+@layer file {
   /* Basis-Datei-Komponente */
   .file {
     position: relative;
@@ -278,5 +278,6 @@
       background-color: var(--color-error);
     }
   }
+}
 
 

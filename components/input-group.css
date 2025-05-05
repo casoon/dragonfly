@@ -52,7 +52,7 @@
  * <div class="input-group lg">...</div>
  */
 
-
+@layer input-group {
   .input-group {
     display: flex;
     width: 100%;
@@ -153,5 +153,6 @@
       box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-primary) 25%, transparent);
     }
   }
+}
 
 

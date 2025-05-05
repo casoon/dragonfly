@@ -10,7 +10,7 @@
  * @wichtig Diese Datei sollte immer als erstes geladen werden, bevor andere Styles angewendet werden.
  */
 
-
+@layer reset {
     /* Box sizing */
     *,
     *::before,
@@ -448,3 +448,5 @@
     body {
         display: block;
     }
+
+}

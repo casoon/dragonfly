@@ -6,7 +6,7 @@
  * Layout-relevante Utilities sind nun in layout.css ausgelagert.
  */
 
-
+@layer utilities {
   /* ================= DISPLAY ================= */
   .block        { display: block; }
   .inline       { display: inline; }
@@ -398,3 +398,4 @@
     overflow: hidden;
   }
 
+}

@@ -7,7 +7,7 @@
  * mit unterschiedlichen Einheiten, Interpolation von Farben und mehr.
  */
 
-
+@layer custom-properties {
   /* 
    * Farbübergänge animierbar machen 
    * Diese Eigenschaften werden für animierte Farbübergänge verwendet
@@ -171,59 +171,61 @@
   }
 
 
-/* Beispiele für die Verwendung der @property Definitionen */
-.animated-card {
-  background-color: var(--color-primary);
-  border-radius: var(--radius);
-  transform: 
-    rotate(var(--rotation-angle)) 
-    scale(var(--scale-factor))
-    translate(var(--translate-x), var(--translate-y));
-  opacity: var(--opacity);
-  box-shadow: 
-    var(--shadow-x) var(--shadow-y) 
-    var(--shadow-blur) var(--shadow-spread) 
-    var(--shadow-color);
-  transition: 
-    --color-primary 0.3s ease, 
-    --radius 0.3s ease, 
-    --rotation-angle 0.5s ease, 
-    --scale-factor 0.5s ease, 
-    --translate-y 0.5s ease,
-    --opacity 0.3s ease,
-    --shadow-y 0.5s ease,
-    --shadow-blur 0.5s ease;
-}
+  /* Beispiele für die Verwendung der @property Definitionen */
+  .animated-card {
+    background-color: var(--color-primary);
+    border-radius: var(--radius);
+    transform: 
+      rotate(var(--rotation-angle)) 
+      scale(var(--scale-factor))
+      translate(var(--translate-x), var(--translate-y));
+    opacity: var(--opacity);
+    box-shadow: 
+      var(--shadow-x) var(--shadow-y) 
+      var(--shadow-blur) var(--shadow-spread) 
+      var(--shadow-color);
+    transition: 
+      --color-primary 0.3s ease, 
+      --radius 0.3s ease, 
+      --rotation-angle 0.5s ease, 
+      --scale-factor 0.5s ease, 
+      --translate-y 0.5s ease,
+      --opacity 0.3s ease,
+      --shadow-y 0.5s ease,
+      --shadow-blur 0.5s ease;
+  }
 
-.animated-card:hover {
-  --color-primary: var(--color-primary-dark, #4f46e5);
-  --radius: var(--border-radius-lg, 1rem);
-  --rotation-angle: 5deg;
-  --scale-factor: 1.05;
-  --translate-y: -8px;
-  --opacity: 0.9;
-  --shadow-y: 8px;
-  --shadow-blur: 12px;
-}
+  .animated-card:hover {
+    --color-primary: var(--color-primary-dark, #4f46e5);
+    --radius: var(--border-radius-lg, 1rem);
+    --rotation-angle: 5deg;
+    --scale-factor: 1.05;
+    --translate-y: -8px;
+    --opacity: 0.9;
+    --shadow-y: 8px;
+    --shadow-blur: 12px;
+  }
 
-.animated-gradient {
-  background: linear-gradient(
-    var(--gradient-angle), 
-    var(--color-primary) var(--gradient-stop-1), 
-    var(--color-accent) var(--gradient-stop-2)
-  );
-  transition: 
-    --gradient-angle 1s ease, 
-    --color-primary 0.5s ease, 
-    --color-accent 0.5s ease,
-    --gradient-stop-1 0.8s ease,
-    --gradient-stop-2 0.8s ease;
-}
+  .animated-gradient {
+    background: linear-gradient(
+      var(--gradient-angle), 
+      var(--color-primary) var(--gradient-stop-1), 
+      var(--color-accent) var(--gradient-stop-2)
+    );
+    transition: 
+      --gradient-angle 1s ease, 
+      --color-primary 0.5s ease, 
+      --color-accent 0.5s ease,
+      --gradient-stop-1 0.8s ease,
+      --gradient-stop-2 0.8s ease;
+  }
 
-.animated-gradient:hover {
-  --gradient-angle: 135deg;
-  --color-primary: var(--color-primary-light, #4f46e5);
-  --color-accent: var(--color-accent-light, #ec4899);
-  --gradient-stop-1: 30%;
-  --gradient-stop-2: 70%;
-} 
+  .animated-gradient:hover {
+    --gradient-angle: 135deg;
+    --color-primary: var(--color-primary-light, #4f46e5);
+    --color-accent: var(--color-accent-light, #ec4899);
+    --gradient-stop-1: 30%;
+    --gradient-stop-2: 70%;
+  } 
+
+}

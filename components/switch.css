@@ -58,7 +58,7 @@
  * <label class="switch danger">...</label>
  */
 
-
+@layer switch {
   .switch {
     display: inline-flex;
     align-items: center;
@@ -167,6 +167,7 @@
       }
     }
   }
+}
 
 
 

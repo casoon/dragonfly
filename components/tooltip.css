@@ -44,7 +44,7 @@
  * </div>
  */
 
-
+@layer tooltip {
   .tooltip {
     position: relative;
     display: inline-block;
@@ -174,5 +174,6 @@
       border-top: 0;
     }
   }
+}
 
 

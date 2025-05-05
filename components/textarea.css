@@ -37,7 +37,7 @@
  * <textarea class="textarea auto-resize"></textarea>
  */
 
-
+@layer textarea {
   .textarea {
     width: 100%;
     min-height: 6rem;
@@ -123,4 +123,4 @@
       padding-bottom: calc(var(--space-3) + 1.5rem);
     }
   }
-
+}

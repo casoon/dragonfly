@@ -22,7 +22,7 @@
  * @layer components - Wiederverwendbare Scroll-Komponenten
  */
 
-
+@layer smooth-scroll {
   /* Smooth Scroll Variables */
   :root {
     --scroll-behavior: smooth;
@@ -516,4 +516,5 @@
         font-size: var(--font-size-xs);
         margin: var(--spacing-2) var(--position-0);
     }
+  } 
 } 

@@ -48,7 +48,7 @@
  * </div>
  */
 
-
+@layer progress {
   .progress {
     background-color: var(--color-gray-200);
     border-radius: var(--radius-full);
@@ -221,5 +221,6 @@
       }
     }
   }
+}
 
   

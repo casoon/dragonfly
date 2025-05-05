@@ -58,7 +58,7 @@
  * </div>
  */
 
-
+@layer chip {
   .chip {
     display: inline-flex;
     align-items: center;
@@ -205,4 +205,5 @@
       flex-direction: column;
     }
   }
+}
 

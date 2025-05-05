@@ -66,7 +66,7 @@
  * </header>
  */
 
-
+@layer header {
   .header {
     display: grid;
     grid-template-columns: subgrid;
@@ -243,6 +243,7 @@
       }
     }
   }
+}
 
 
   

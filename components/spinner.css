@@ -40,7 +40,7 @@
  * </div>
  */
 
-
+@layer spinner {
     .spinner {
       width: 1.5rem;
       height: 1.5rem;
@@ -55,5 +55,5 @@
         transform: rotate(360deg);
       }
     }
-
+}
   

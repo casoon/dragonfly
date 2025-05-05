@@ -33,7 +33,7 @@
  * <div class="card p-6">Karte mit mehr Padding</div>
  */
 
-
+@layer card {
   .card-grid {
     display: grid;
     gap: var(--space-4);
@@ -98,5 +98,6 @@
       }
     }
   }
+}
 
 

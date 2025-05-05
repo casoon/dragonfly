@@ -38,7 +38,7 @@
  * </div>
  */
 
-
+@layer input {
   .input {
     display: block;
     width: 100%;
@@ -118,5 +118,6 @@
       pointer-events: none;
     }
   }
+}
 
 

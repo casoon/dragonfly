@@ -3,19 +3,21 @@
  * Jede Datei definiert ihre Stile innerhalb ihres zugewiesenen Layers
  */
 
+@layer base {
 /* Reset und Grundlagen */
-@import url("base/reset.css") layer(reset);
+    @import url("base/reset.css");
 
-/* Tokens und Properties */
-@import url("base/tokens.css") layer(tokens);
-@import url("base/custom-properties.css") layer(custom-properties);
+    /* Tokens und Properties */
+    @import url("base/tokens.css");
+    @import url("base/custom-properties.css");
 
-/* Core-Funktionalitäten */
-@import url("base/logical-properties.css") layer(logical-properties);
-@import url("base/colors.css") layer(colors);
-@import url("base/color-mix.css") layer(color-mix);
+    /* Core-Funktionalitäten */
+    @import url("base/logical-properties.css");
+    @import url("base/colors.css");
+    @import url("base/color-mix.css");
 
-/* Utilities und Accessibility */
-@import url("base/utilities.css") layer(utilities);
-@import url("base/smooth-scroll.css") layer(smooth-scroll);
-@import url("base/accessibility.css") layer(accessibility);
+    /* Utilities und Accessibility */
+    @import url("base/utilities.css");
+    @import url("base/smooth-scroll.css");
+    @import url("base/accessibility.css");
+}

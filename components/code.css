@@ -51,7 +51,7 @@
  * </pre>
  */
 
-
+@layer code {
   /* Inline-Code */
   .code-inline {
     font-family: var(--font-family-mono);
@@ -164,5 +164,6 @@
       opacity: 1;
     }
   }
+}
 
 

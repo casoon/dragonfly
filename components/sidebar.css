@@ -65,7 +65,7 @@
  * </aside>
  */
 
-
+@layer sidebar {
   .sidebar {
     grid-column: span 3;
     padding-block: var(--space-4);
@@ -224,5 +224,6 @@
       order: 2;
     }
   }
+}
 
   

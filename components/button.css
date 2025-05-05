@@ -48,7 +48,7 @@
  * </button>
  */
 
-
+@layer button {
   .button {
     display: inline-flex;
     align-items: center;
@@ -150,5 +150,4 @@
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
   }
-
-
+}

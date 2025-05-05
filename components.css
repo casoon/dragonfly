@@ -5,113 +5,110 @@
  * Jedes Modul wird in einem eigenen Layer definiert, um Konflikte zu vermeiden.
  */
 
+@layer components {
+    /* Alert Modul */
+    @import url('components/alert.css');
 
-/* Alert Modul */
-@import url('./components/alert.css') layer(alert);
+    /* Avatar Modul */
+    @import url('components/avatar.css');
 
-/* Avatar Modul */
-@import url('./components/avatar.css') layer(avatar);
+    /* Badge Modul */
+    @import url('components/badge.css');
 
-/* Badge Modul */
-@import url('./components/badge.css') layer(badge);
+    /* Blog Modul */
+    @import url('components/blog.css');
 
-/* Blog Modul */
-@import url('./components/blog.css') layer(blog);
+    /* Button Modul */
+    @import url('components/button.css');
 
-/* Button Modul */
-@import url('./components/button.css') layer(button);
+    /* Card Modul */
+    @import url('components/card.css');
 
-/* Card Modul */
-@import url('./components/card.css') layer(card);
+    /* Checkbox Modul */
+    @import url('components/checkbox.css');
 
-/* Checkbox Modul */
-@import url('./components/checkbox.css') layer(checkbox);
+    /* Chip Modul */
+    @import url('components/chip.css');
 
-/* Chip Modul */
-@import url('./components/chip.css') layer(chip);
+    /* Code Modul */
+    @import url('components/code.css');
 
-/* Code Modul */
-@import url('./components/code.css') layer(code);
+    /* Content Modul */
+    @import url('components/content.css');
 
-/* Content Modul */
-@import url('./components/content.css') layer(content);
+    /* File Modul */
+    @import url('components/file.css');
 
-/* File Modul */
-@import url('./components/file.css') layer(file);
+    /* Footer Modul */
+    @import url('components/footer.css');
 
-/* Footer Modul */
-@import url('./components/footer.css') layer(footer);
+    /* Form Modul */
+    @import url('components/form.css');
 
-/* Form Modul */
-@import url('./components/form.css') layer(form);
+    /* Hamburger Modul */
+    @import url('components/hamburger.css');
 
-/* Hamburger Modul */
-@import url('./components/hamburger.css') layer(hamburger);
+    /* Header Modul */
+    @import url('components/header.css');
 
-/* Header Modul */
-@import url('./components/header.css') layer(header);
+    /* Input Modul */
+    @import url('components/input.css');
 
-/* Input Modul */
-@import url('./components/input.css') layer(input);
+    /* Input Group Modul */
+    @import url('components/input-group.css');
 
-/* Input Group Modul */
-@import url('./components/input-group.css') layer(input-group);
+    /* Modal Modul */
+    @import url('components/modal.css');
 
-/* Modal Modul */
-@import url('./components/modal.css') layer(modal);
+    /* Notification Modul */
+    @import url('components/notification.css');
 
-/* Notification Modul */
-@import url('./components/notification.css') layer(notification);
+    /* Progress Modul */
+    @import url('components/progress.css');
 
-/* Progress Modul */
-@import url('./components/progress.css') layer(progress);
+    /* Radio Modul */
+    @import url('components/radio.css');
 
-/* Radio Modul */
-@import url('./components/radio.css') layer(radio);
+    /* Select Modul */
+    @import url('components/select.css');
 
-/* Select Modul */
-@import url('./components/select.css') layer(select);
+    /* Sidebar Modul */
+    @import url('components/sidebar.css');
 
-/* Sidebar Modul */
-@import url('./components/sidebar.css') layer(sidebar);
+    /* Skeleton Modul */
+    @import url('components/skeleton.css');
 
-/* Skeleton Modul */
-@import url('./components/skeleton.css') layer(skeleton);
+    /* Slider Modul */
+    @import url('components/slider.css');
 
-/* Slider Modul */
-@import url('./components/slider.css') layer(slider);
+    /* Spinner Modul */
+    @import url('components/spinner.css');
 
-/* Spinner Modul */
-@import url('./components/spinner.css') layer(spinner);
+    /* Switch Modul */
+    @import url('components/switch.css');
 
-/* Switch Modul */
-@import url('./components/switch.css') layer(switch);
+    /* Table Modul */
+    @import url('components/table.css');
 
-/* Table Modul */
-@import url('./components/table.css') layer(table);
+    /* Tabs Modul */
+    @import url('components/tabs.css');
 
-/* Tabs Modul */
-@import url('./components/tabs.css') layer(tabs);
+    /* Tags Modul */
+    @import url('components/tags.css');
 
-/* Tags Modul */
-@import url('./components/tags.css') layer(tags);
+    /* Textarea Modul */
+    @import url('components/textarea.css');
 
-/* Textarea Modul */
-@import url('./components/textarea.css') layer(textarea);
+    /* Toast Modul */
+    @import url('components/toast.css');
 
-/* Toast Modul */
-@import url('./components/toast.css') layer(toast);
+    /* Tooltip Modul */
+    @import url('components/tooltip.css');
 
-/* Tooltip Modul */
-@import url('./components/tooltip.css') layer(tooltip);
+    /* Widget Modul */
+    @import url('components/widget.css');
 
-/* Widget Modul */
-@import url('./components/widget.css') layer(widget);
+    /* Wizard Modul */
+    @import url('components/wizard.css');
 
-/* Wizard Modul */
-@import url('./components/wizard.css') layer(wizard);
-
-
-
-
-
+}

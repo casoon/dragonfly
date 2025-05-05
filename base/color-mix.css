@@ -3,689 +3,691 @@
  * base/colors.css
  */
 
-:root {
-  /* blue */
-  --blue-lightest: color-mix(in srgb, var(--color-blue-500) 20%, white);
-  --blue-lighter: color-mix(in srgb, var(--color-blue-500) 40%, white);
-  --blue-light: color-mix(in srgb, var(--color-blue-500) 70%, white);
-  --blue: var(--color-blue-500);
-  --blue-dark: color-mix(in srgb, var(--color-blue-500) 70%, black);
-  --blue-darker: color-mix(in srgb, var(--color-blue-500) 40%, black);
-  --blue-darkest: color-mix(in srgb, var(--color-blue-500) 20%, black);
-
-  /* sky */
-  --sky-lightest: color-mix(in srgb, var(--color-sky-500) 20%, white);
-  --sky-lighter: color-mix(in srgb, var(--color-sky-500) 40%, white);
-  --sky-light: color-mix(in srgb, var(--color-sky-500) 70%, white);
-  --sky: var(--color-sky-500);
-  --sky-dark: color-mix(in srgb, var(--color-sky-500) 70%, black);
-  --sky-darker: color-mix(in srgb, var(--color-sky-500) 40%, black);
-  --sky-darkest: color-mix(in srgb, var(--color-sky-500) 20%, black);
-
-  /* cyan */
-  --cyan-lightest: color-mix(in srgb, var(--color-cyan-500) 20%, white);
-  --cyan-lighter: color-mix(in srgb, var(--color-cyan-500) 40%, white);
-  --cyan-light: color-mix(in srgb, var(--color-cyan-500) 70%, white);
-  --cyan: var(--color-cyan-500);
-  --cyan-dark: color-mix(in srgb, var(--color-cyan-500) 70%, black);
-  --cyan-darker: color-mix(in srgb, var(--color-cyan-500) 40%, black);
-  --cyan-darkest: color-mix(in srgb, var(--color-cyan-500) 20%, black);
-
-  /* mint */
-  --mint-lightest: color-mix(in srgb, var(--color-mint-500) 20%, white);
-  --mint-lighter: color-mix(in srgb, var(--color-mint-500) 40%, white);
-  --mint-light: color-mix(in srgb, var(--color-mint-500) 70%, white);
-  --mint: var(--color-mint-500);
-  --mint-dark: color-mix(in srgb, var(--color-mint-500) 70%, black);
-  --mint-darker: color-mix(in srgb, var(--color-mint-500) 40%, black);
-  --mint-darkest: color-mix(in srgb, var(--color-mint-500) 20%, black);
-
-  /* green */
-  --green-lightest: color-mix(in srgb, var(--color-green-500) 20%, white);
-  --green-lighter: color-mix(in srgb, var(--color-green-500) 40%, white);
-  --green-light: color-mix(in srgb, var(--color-green-500) 70%, white);
-  --green: var(--color-green-500);
-  --green-dark: color-mix(in srgb, var(--color-green-500) 70%, black);
-  --green-darker: color-mix(in srgb, var(--color-green-500) 40%, black);
-  --green-darkest: color-mix(in srgb, var(--color-green-500) 20%, black);
-
-  /* lime */
-  --lime-lightest: color-mix(in srgb, var(--color-lime-500) 20%, white);
-  --lime-lighter: color-mix(in srgb, var(--color-lime-500) 40%, white);
-  --lime-light: color-mix(in srgb, var(--color-lime-500) 70%, white);
-  --lime: var(--color-lime-500);
-  --lime-dark: color-mix(in srgb, var(--color-lime-500) 70%, black);
-  --lime-darker: color-mix(in srgb, var(--color-lime-500) 40%, black);
-  --lime-darkest: color-mix(in srgb, var(--color-lime-500) 20%, black);
-
-  /* yellow */
-  --yellow-lightest: color-mix(in srgb, var(--color-yellow-500) 20%, white);
-  --yellow-lighter: color-mix(in srgb, var(--color-yellow-500) 40%, white);
-  --yellow-light: color-mix(in srgb, var(--color-yellow-500) 70%, white);
-  --yellow: var(--color-yellow-500);
-  --yellow-dark: color-mix(in srgb, var(--color-yellow-500) 70%, black);
-  --yellow-darker: color-mix(in srgb, var(--color-yellow-500) 40%, black);
-  --yellow-darkest: color-mix(in srgb, var(--color-yellow-500) 20%, black);
-
-  /* gold */
-  --gold-lightest: color-mix(in srgb, var(--color-gold-500) 20%, white);
-  --gold-lighter: color-mix(in srgb, var(--color-gold-500) 40%, white);
-  --gold-light: color-mix(in srgb, var(--color-gold-500) 70%, white);
-  --gold: var(--color-gold-500);
-  --gold-dark: color-mix(in srgb, var(--color-gold-500) 70%, black);
-  --gold-darker: color-mix(in srgb, var(--color-gold-500) 40%, black);
-  --gold-darkest: color-mix(in srgb, var(--color-gold-500) 20%, black);
-
-  /* orange */
-  --orange-lightest: color-mix(in srgb, var(--color-orange-500) 20%, white);
-  --orange-lighter: color-mix(in srgb, var(--color-orange-500) 40%, white);
-  --orange-light: color-mix(in srgb, var(--color-orange-500) 70%, white);
-  --orange: var(--color-orange-500);
-  --orange-dark: color-mix(in srgb, var(--color-orange-500) 70%, black);
-  --orange-darker: color-mix(in srgb, var(--color-orange-500) 40%, black);
-  --orange-darkest: color-mix(in srgb, var(--color-orange-500) 20%, black);
-
-  /* coral */
-  --coral-lightest: color-mix(in srgb, var(--color-coral-500) 20%, white);
-  --coral-lighter: color-mix(in srgb, var(--color-coral-500) 40%, white);
-  --coral-light: color-mix(in srgb, var(--color-coral-500) 70%, white);
-  --coral: var(--color-coral-500);
-  --coral-dark: color-mix(in srgb, var(--color-coral-500) 70%, black);
-  --coral-darker: color-mix(in srgb, var(--color-coral-500) 40%, black);
-  --coral-darkest: color-mix(in srgb, var(--color-coral-500) 20%, black);
-
-  /* red */
-  --red-lightest: color-mix(in srgb, var(--color-red-500) 20%, white);
-  --red-lighter: color-mix(in srgb, var(--color-red-500) 40%, white);
-  --red-light: color-mix(in srgb, var(--color-red-500) 70%, white);
-  --red: var(--color-red-500);
-  --red-dark: color-mix(in srgb, var(--color-red-500) 70%, black);
-  --red-darker: color-mix(in srgb, var(--color-red-500) 40%, black);
-  --red-darkest: color-mix(in srgb, var(--color-red-500) 20%, black);
-
-  /* pink */
-  --pink-lightest: color-mix(in srgb, var(--color-pink-500) 20%, white);
-  --pink-lighter: color-mix(in srgb, var(--color-pink-500) 40%, white);
-  --pink-light: color-mix(in srgb, var(--color-pink-500) 70%, white);
-  --pink: var(--color-pink-500);
-  --pink-dark: color-mix(in srgb, var(--color-pink-500) 70%, black);
-  --pink-darker: color-mix(in srgb, var(--color-pink-500) 40%, black);
-  --pink-darkest: color-mix(in srgb, var(--color-pink-500) 20%, black);
-
-  /* rose */
-  --rose-lightest: color-mix(in srgb, var(--color-rose-500) 20%, white);
-  --rose-lighter: color-mix(in srgb, var(--color-rose-500) 40%, white);
-  --rose-light: color-mix(in srgb, var(--color-rose-500) 70%, white);
-  --rose: var(--color-rose-500);
-  --rose-dark: color-mix(in srgb, var(--color-rose-500) 70%, black);
-  --rose-darker: color-mix(in srgb, var(--color-rose-500) 40%, black);
-  --rose-darkest: color-mix(in srgb, var(--color-rose-500) 20%, black);
-
-  /* purple */
-  --purple-lightest: color-mix(in srgb, var(--color-purple-500) 20%, white);
-  --purple-lighter: color-mix(in srgb, var(--color-purple-500) 40%, white);
-  --purple-light: color-mix(in srgb, var(--color-purple-500) 70%, white);
-  --purple: var(--color-purple-500);
-  --purple-dark: color-mix(in srgb, var(--color-purple-500) 70%, black);
-  --purple-darker: color-mix(in srgb, var(--color-purple-500) 40%, black);
-  --purple-darkest: color-mix(in srgb, var(--color-purple-500) 20%, black);
-
-  /* indigo */
-  --indigo-lightest: color-mix(in srgb, var(--color-indigo-500) 20%, white);
-  --indigo-lighter: color-mix(in srgb, var(--color-indigo-500) 40%, white);
-  --indigo-light: color-mix(in srgb, var(--color-indigo-500) 70%, white);
-  --indigo: var(--color-indigo-500);
-  --indigo-dark: color-mix(in srgb, var(--color-indigo-500) 70%, black);
-  --indigo-darker: color-mix(in srgb, var(--color-indigo-500) 40%, black);
-  --indigo-darkest: color-mix(in srgb, var(--color-indigo-500) 20%, black);
-
-  /* gray */
-  --gray-lightest: color-mix(in srgb, var(--color-gray-500) 20%, white);
-  --gray-lighter: color-mix(in srgb, var(--color-gray-500) 40%, white);
-  --gray-light: color-mix(in srgb, var(--color-gray-500) 70%, white);
-  --gray: var(--color-gray-500);
-  --gray-dark: color-mix(in srgb, var(--color-gray-500) 70%, black);
-  --gray-darker: color-mix(in srgb, var(--color-gray-500) 40%, black);
-  --gray-darkest: color-mix(in srgb, var(--color-gray-500) 20%, black);
-
-  /* warm-gray */
-  --warm-gray-lightest: color-mix(in srgb, var(--color-warm-gray-500) 20%, white);
-  --warm-gray-lighter: color-mix(in srgb, var(--color-warm-gray-500) 40%, white);
-  --warm-gray-light: color-mix(in srgb, var(--color-warm-gray-500) 70%, white);
-  --warm-gray: var(--color-warm-gray-500);
-  --warm-gray-dark: color-mix(in srgb, var(--color-warm-gray-500) 70%, black);
-  --warm-gray-darker: color-mix(in srgb, var(--color-warm-gray-500) 40%, black);
-  --warm-gray-darkest: color-mix(in srgb, var(--color-warm-gray-500) 20%, black);
-
-  /* cool-gray */
-  --cool-gray-lightest: color-mix(in srgb, var(--color-cool-gray-500) 20%, white);
-  --cool-gray-lighter: color-mix(in srgb, var(--color-cool-gray-500) 40%, white);
-  --cool-gray-light: color-mix(in srgb, var(--color-cool-gray-500) 70%, white);
-  --cool-gray: var(--color-cool-gray-500);
-  --cool-gray-dark: color-mix(in srgb, var(--color-cool-gray-500) 70%, black);
-  --cool-gray-darker: color-mix(in srgb, var(--color-cool-gray-500) 40%, black);
-  --cool-gray-darkest: color-mix(in srgb, var(--color-cool-gray-500) 20%, black);
-
-  /* azure */
-  --azure-lightest: color-mix(in srgb, var(--color-azure-500) 20%, white);
-  --azure-lighter: color-mix(in srgb, var(--color-azure-500) 40%, white);
-  --azure-light: color-mix(in srgb, var(--color-azure-500) 70%, white);
-  --azure: var(--color-azure-500);
-  --azure-dark: color-mix(in srgb, var(--color-azure-500) 70%, black);
-  --azure-darker: color-mix(in srgb, var(--color-azure-500) 40%, black);
-  --azure-darkest: color-mix(in srgb, var(--color-azure-500) 20%, black);
-
-  /* teal */
-  --teal-lightest: color-mix(in srgb, var(--color-teal-500) 20%, white);
-  --teal-lighter: color-mix(in srgb, var(--color-teal-500) 40%, white);
-  --teal-light: color-mix(in srgb, var(--color-teal-500) 70%, white);
-  --teal: var(--color-teal-500);
-  --teal-dark: color-mix(in srgb, var(--color-teal-500) 70%, black);
-  --teal-darker: color-mix(in srgb, var(--color-teal-500) 40%, black);
-  --teal-darkest: color-mix(in srgb, var(--color-teal-500) 20%, black);
-
-  /* emerald */
-  --emerald-lightest: color-mix(in srgb, var(--color-emerald-500) 20%, white);
-  --emerald-lighter: color-mix(in srgb, var(--color-emerald-500) 40%, white);
-  --emerald-light: color-mix(in srgb, var(--color-emerald-500) 70%, white);
-  --emerald: var(--color-emerald-500);
-  --emerald-dark: color-mix(in srgb, var(--color-emerald-500) 70%, black);
-  --emerald-darker: color-mix(in srgb, var(--color-emerald-500) 40%, black);
-  --emerald-darkest: color-mix(in srgb, var(--color-emerald-500) 20%, black);
-
-  /* olive */
-  --olive-lightest: color-mix(in srgb, var(--color-olive-500) 20%, white);
-  --olive-lighter: color-mix(in srgb, var(--color-olive-500) 40%, white);
-  --olive-light: color-mix(in srgb, var(--color-olive-500) 70%, white);
-  --olive: var(--color-olive-500);
-  --olive-dark: color-mix(in srgb, var(--color-olive-500) 70%, black);
-  --olive-darker: color-mix(in srgb, var(--color-olive-500) 40%, black);
-  --olive-darkest: color-mix(in srgb, var(--color-olive-500) 20%, black);
-
-  /* amber */
-  --amber-lightest: color-mix(in srgb, var(--color-amber-500) 20%, white);
-  --amber-lighter: color-mix(in srgb, var(--color-amber-500) 40%, white);
-  --amber-light: color-mix(in srgb, var(--color-amber-500) 70%, white);
-  --amber: var(--color-amber-500);
-  --amber-dark: color-mix(in srgb, var(--color-amber-500) 70%, black);
-  --amber-darker: color-mix(in srgb, var(--color-amber-500) 40%, black);
-  --amber-darkest: color-mix(in srgb, var(--color-amber-500) 20%, black);
-
-  /* copper */
-  --copper-lightest: color-mix(in srgb, var(--color-copper-500) 20%, white);
-  --copper-lighter: color-mix(in srgb, var(--color-copper-500) 40%, white);
-  --copper-light: color-mix(in srgb, var(--color-copper-500) 70%, white);
-  --copper: var(--color-copper-500);
-  --copper-dark: color-mix(in srgb, var(--color-copper-500) 70%, black);
-  --copper-darker: color-mix(in srgb, var(--color-copper-500) 40%, black);
-  --copper-darkest: color-mix(in srgb, var(--color-copper-500) 20%, black);
-
-  /* cherry */
-  --cherry-lightest: color-mix(in srgb, var(--color-cherry-500) 20%, white);
-  --cherry-lighter: color-mix(in srgb, var(--color-cherry-500) 40%, white);
-  --cherry-light: color-mix(in srgb, var(--color-cherry-500) 70%, white);
-  --cherry: var(--color-cherry-500);
-  --cherry-dark: color-mix(in srgb, var(--color-cherry-500) 70%, black);
-  --cherry-darker: color-mix(in srgb, var(--color-cherry-500) 40%, black);
-  --cherry-darkest: color-mix(in srgb, var(--color-cherry-500) 20%, black);
-
-  /* magenta */
-  --magenta-lightest: color-mix(in srgb, var(--color-magenta-500) 20%, white);
-  --magenta-lighter: color-mix(in srgb, var(--color-magenta-500) 40%, white);
-  --magenta-light: color-mix(in srgb, var(--color-magenta-500) 70%, white);
-  --magenta: var(--color-magenta-500);
-  --magenta-dark: color-mix(in srgb, var(--color-magenta-500) 70%, black);
-  --magenta-darker: color-mix(in srgb, var(--color-magenta-500) 40%, black);
-  --magenta-darkest: color-mix(in srgb, var(--color-magenta-500) 20%, black);
-
-  /* lavender */
-  --lavender-lightest: color-mix(in srgb, var(--color-lavender-500) 20%, white);
-  --lavender-lighter: color-mix(in srgb, var(--color-lavender-500) 40%, white);
-  --lavender-light: color-mix(in srgb, var(--color-lavender-500) 70%, white);
-  --lavender: var(--color-lavender-500);
-  --lavender-dark: color-mix(in srgb, var(--color-lavender-500) 70%, black);
-  --lavender-darker: color-mix(in srgb, var(--color-lavender-500) 40%, black);
-  --lavender-darkest: color-mix(in srgb, var(--color-lavender-500) 20%, black);
-
-  /* bronze */
-  --bronze-lightest: color-mix(in srgb, var(--color-bronze-500) 20%, white);
-  --bronze-lighter: color-mix(in srgb, var(--color-bronze-500) 40%, white);
-  --bronze-light: color-mix(in srgb, var(--color-bronze-500) 70%, white);
-  --bronze: var(--color-bronze-500);
-  --bronze-dark: color-mix(in srgb, var(--color-bronze-500) 70%, black);
-  --bronze-darker: color-mix(in srgb, var(--color-bronze-500) 40%, black);
-  --bronze-darkest: color-mix(in srgb, var(--color-bronze-500) 20%, black);
-
-  /* pearl */
-  --pearl-lightest: color-mix(in srgb, var(--color-pearl-500) 20%, white);
-  --pearl-lighter: color-mix(in srgb, var(--color-pearl-500) 40%, white);
-  --pearl-light: color-mix(in srgb, var(--color-pearl-500) 70%, white);
-  --pearl: var(--color-pearl-500);
-  --pearl-dark: color-mix(in srgb, var(--color-pearl-500) 70%, black);
-  --pearl-darker: color-mix(in srgb, var(--color-pearl-500) 40%, black);
-  --pearl-darkest: color-mix(in srgb, var(--color-pearl-500) 20%, black);
-
-  /* champagne */
-  --champagne-lightest: color-mix(in srgb, var(--color-champagne-500) 20%, white);
-  --champagne-lighter: color-mix(in srgb, var(--color-champagne-500) 40%, white);
-  --champagne-light: color-mix(in srgb, var(--color-champagne-500) 70%, white);
-  --champagne: var(--color-champagne-500);
-  --champagne-dark: color-mix(in srgb, var(--color-champagne-500) 70%, black);
-  --champagne-darker: color-mix(in srgb, var(--color-champagne-500) 40%, black);
-  --champagne-darkest: color-mix(in srgb, var(--color-champagne-500) 20%, black);
-
-  /* taupe */
-  --taupe-lightest: color-mix(in srgb, var(--color-taupe-500) 20%, white);
-  --taupe-lighter: color-mix(in srgb, var(--color-taupe-500) 40%, white);
-  --taupe-light: color-mix(in srgb, var(--color-taupe-500) 70%, white);
-  --taupe: var(--color-taupe-500);
-  --taupe-dark: color-mix(in srgb, var(--color-taupe-500) 70%, black);
-  --taupe-darker: color-mix(in srgb, var(--color-taupe-500) 40%, black);
-  --taupe-darkest: color-mix(in srgb, var(--color-taupe-500) 20%, black);
-
-  /* beige */
-  --beige-lightest: color-mix(in srgb, var(--color-beige-500) 20%, white);
-  --beige-lighter: color-mix(in srgb, var(--color-beige-500) 40%, white);
-  --beige-light: color-mix(in srgb, var(--color-beige-500) 70%, white);
-  --beige: var(--color-beige-500);
-  --beige-dark: color-mix(in srgb, var(--color-beige-500) 70%, black);
-  --beige-darker: color-mix(in srgb, var(--color-beige-500) 40%, black);
-  --beige-darkest: color-mix(in srgb, var(--color-beige-500) 20%, black);
-
-  /* khaki */
-  --khaki-lightest: color-mix(in srgb, var(--color-khaki-500) 20%, white);
-  --khaki-lighter: color-mix(in srgb, var(--color-khaki-500) 40%, white);
-  --khaki-light: color-mix(in srgb, var(--color-khaki-500) 70%, white);
-  --khaki: var(--color-khaki-500);
-  --khaki-dark: color-mix(in srgb, var(--color-khaki-500) 70%, black);
-  --khaki-darker: color-mix(in srgb, var(--color-khaki-500) 40%, black);
-  --khaki-darkest: color-mix(in srgb, var(--color-khaki-500) 20%, black);
-
-  /* terracotta */
-  --terracotta-lightest: color-mix(in srgb, var(--color-terracotta-500) 20%, white);
-  --terracotta-lighter: color-mix(in srgb, var(--color-terracotta-500) 40%, white);
-  --terracotta-light: color-mix(in srgb, var(--color-terracotta-500) 70%, white);
-  --terracotta: var(--color-terracotta-500);
-  --terracotta-dark: color-mix(in srgb, var(--color-terracotta-500) 70%, black);
-  --terracotta-darker: color-mix(in srgb, var(--color-terracotta-500) 40%, black);
-  --terracotta-darkest: color-mix(in srgb, var(--color-terracotta-500) 20%, black);
-
-  /* burgundy */
-  --burgundy-lightest: color-mix(in srgb, var(--color-burgundy-500) 20%, white);
-  --burgundy-lighter: color-mix(in srgb, var(--color-burgundy-500) 40%, white);
-  --burgundy-light: color-mix(in srgb, var(--color-burgundy-500) 70%, white);
-  --burgundy: var(--color-burgundy-500);
-  --burgundy-dark: color-mix(in srgb, var(--color-burgundy-500) 70%, black);
-  --burgundy-darker: color-mix(in srgb, var(--color-burgundy-500) 40%, black);
-  --burgundy-darkest: color-mix(in srgb, var(--color-burgundy-500) 20%, black);
-
-  /* silver */
-  --silver-lightest: color-mix(in srgb, var(--color-silver-500) 20%, white);
-  --silver-lighter: color-mix(in srgb, var(--color-silver-500) 40%, white);
-  --silver-light: color-mix(in srgb, var(--color-silver-500) 70%, white);
-  --silver: var(--color-silver-500);
-  --silver-dark: color-mix(in srgb, var(--color-silver-500) 70%, black);
-  --silver-darker: color-mix(in srgb, var(--color-silver-500) 40%, black);
-  --silver-darkest: color-mix(in srgb, var(--color-silver-500) 20%, black);
-
-  /* platinum */
-  --platinum-lightest: color-mix(in srgb, var(--color-platinum-500) 20%, white);
-  --platinum-lighter: color-mix(in srgb, var(--color-platinum-500) 40%, white);
-  --platinum-light: color-mix(in srgb, var(--color-platinum-500) 70%, white);
-  --platinum: var(--color-platinum-500);
-  --platinum-dark: color-mix(in srgb, var(--color-platinum-500) 70%, black);
-  --platinum-darker: color-mix(in srgb, var(--color-platinum-500) 40%, black);
-  --platinum-darkest: color-mix(in srgb, var(--color-platinum-500) 20%, black);
-
-  /* graphite */
-  --graphite-lightest: color-mix(in srgb, var(--color-graphite-500) 20%, white);
-  --graphite-lighter: color-mix(in srgb, var(--color-graphite-500) 40%, white);
-  --graphite-light: color-mix(in srgb, var(--color-graphite-500) 70%, white);
-  --graphite: var(--color-graphite-500);
-  --graphite-dark: color-mix(in srgb, var(--color-graphite-500) 70%, black);
-  --graphite-darker: color-mix(in srgb, var(--color-graphite-500) 40%, black);
-  --graphite-darkest: color-mix(in srgb, var(--color-graphite-500) 20%, black);
-
-  /* moss */
-  --moss-lightest: color-mix(in srgb, var(--color-moss-500) 20%, white);
-  --moss-lighter: color-mix(in srgb, var(--color-moss-500) 40%, white);
-  --moss-light: color-mix(in srgb, var(--color-moss-500) 70%, white);
-  --moss: var(--color-moss-500);
-  --moss-dark: color-mix(in srgb, var(--color-moss-500) 70%, black);
-  --moss-darker: color-mix(in srgb, var(--color-moss-500) 40%, black);
-  --moss-darkest: color-mix(in srgb, var(--color-moss-500) 20%, black);
-
-  /* jade */
-  --jade-lightest: color-mix(in srgb, var(--color-jade-500) 20%, white);
-  --jade-lighter: color-mix(in srgb, var(--color-jade-500) 40%, white);
-  --jade-light: color-mix(in srgb, var(--color-jade-500) 70%, white);
-  --jade: var(--color-jade-500);
-  --jade-dark: color-mix(in srgb, var(--color-jade-500) 70%, black);
-  --jade-darker: color-mix(in srgb, var(--color-jade-500) 40%, black);
-  --jade-darkest: color-mix(in srgb, var(--color-jade-500) 20%, black);
-
-  /* sapphire */
-  --sapphire-lightest: color-mix(in srgb, var(--color-sapphire-500) 20%, white);
-  --sapphire-lighter: color-mix(in srgb, var(--color-sapphire-500) 40%, white);
-  --sapphire-light: color-mix(in srgb, var(--color-sapphire-500) 70%, white);
-  --sapphire: var(--color-sapphire-500);
-  --sapphire-dark: color-mix(in srgb, var(--color-sapphire-500) 70%, black);
-  --sapphire-darker: color-mix(in srgb, var(--color-sapphire-500) 40%, black);
-  --sapphire-darkest: color-mix(in srgb, var(--color-sapphire-500) 20%, black);
-
-  /* ruby */
-  --ruby-lightest: color-mix(in srgb, var(--color-ruby-500) 20%, white);
-  --ruby-lighter: color-mix(in srgb, var(--color-ruby-500) 40%, white);
-  --ruby-light: color-mix(in srgb, var(--color-ruby-500) 70%, white);
-  --ruby: var(--color-ruby-500);
-  --ruby-dark: color-mix(in srgb, var(--color-ruby-500) 70%, black);
-  --ruby-darker: color-mix(in srgb, var(--color-ruby-500) 40%, black);
-  --ruby-darkest: color-mix(in srgb, var(--color-ruby-500) 20%, black);
-
-  /* amethyst */
-  --amethyst-lightest: color-mix(in srgb, var(--color-amethyst-500) 20%, white);
-  --amethyst-lighter: color-mix(in srgb, var(--color-amethyst-500) 40%, white);
-  --amethyst-light: color-mix(in srgb, var(--color-amethyst-500) 70%, white);
-  --amethyst: var(--color-amethyst-500);
-  --amethyst-dark: color-mix(in srgb, var(--color-amethyst-500) 70%, black);
-  --amethyst-darker: color-mix(in srgb, var(--color-amethyst-500) 40%, black);
-  --amethyst-darkest: color-mix(in srgb, var(--color-amethyst-500) 20%, black);
-
-  /* topaz */
-  --topaz-lightest: color-mix(in srgb, var(--color-topaz-500) 20%, white);
-  --topaz-lighter: color-mix(in srgb, var(--color-topaz-500) 40%, white);
-  --topaz-light: color-mix(in srgb, var(--color-topaz-500) 70%, white);
-  --topaz: var(--color-topaz-500);
-  --topaz-dark: color-mix(in srgb, var(--color-topaz-500) 70%, black);
-  --topaz-darker: color-mix(in srgb, var(--color-topaz-500) 40%, black);
-  --topaz-darkest: color-mix(in srgb, var(--color-topaz-500) 20%, black);
-
-  /* citrine */
-  --citrine-lightest: color-mix(in srgb, var(--color-citrine-500) 20%, white);
-  --citrine-lighter: color-mix(in srgb, var(--color-citrine-500) 40%, white);
-  --citrine-light: color-mix(in srgb, var(--color-citrine-500) 70%, white);
-  --citrine: var(--color-citrine-500);
-  --citrine-dark: color-mix(in srgb, var(--color-citrine-500) 70%, black);
-  --citrine-darker: color-mix(in srgb, var(--color-citrine-500) 40%, black);
-  --citrine-darkest: color-mix(in srgb, var(--color-citrine-500) 20%, black);
-
-  /* peridot */
-  --peridot-lightest: color-mix(in srgb, var(--color-peridot-500) 20%, white);
-  --peridot-lighter: color-mix(in srgb, var(--color-peridot-500) 40%, white);
-  --peridot-light: color-mix(in srgb, var(--color-peridot-500) 70%, white);
-  --peridot: var(--color-peridot-500);
-  --peridot-dark: color-mix(in srgb, var(--color-peridot-500) 70%, black);
-  --peridot-darker: color-mix(in srgb, var(--color-peridot-500) 40%, black);
-  --peridot-darkest: color-mix(in srgb, var(--color-peridot-500) 20%, black);
-
-  /* opal */
-  --opal-lightest: color-mix(in srgb, var(--color-opal-500) 20%, white);
-  --opal-lighter: color-mix(in srgb, var(--color-opal-500) 40%, white);
-  --opal-light: color-mix(in srgb, var(--color-opal-500) 70%, white);
-  --opal: var(--color-opal-500);
-  --opal-dark: color-mix(in srgb, var(--color-opal-500) 70%, black);
-  --opal-darker: color-mix(in srgb, var(--color-opal-500) 40%, black);
-  --opal-darkest: color-mix(in srgb, var(--color-opal-500) 20%, black);
-
-  /* garnet */
-  --garnet-lightest: color-mix(in srgb, var(--color-garnet-500) 20%, white);
-  --garnet-lighter: color-mix(in srgb, var(--color-garnet-500) 40%, white);
-  --garnet-light: color-mix(in srgb, var(--color-garnet-500) 70%, white);
-  --garnet: var(--color-garnet-500);
-  --garnet-dark: color-mix(in srgb, var(--color-garnet-500) 70%, black);
-  --garnet-darker: color-mix(in srgb, var(--color-garnet-500) 40%, black);
-  --garnet-darkest: color-mix(in srgb, var(--color-garnet-500) 20%, black);
-
-  /* onyx */
-  --onyx-lightest: color-mix(in srgb, var(--color-onyx-500) 20%, white);
-  --onyx-lighter: color-mix(in srgb, var(--color-onyx-500) 40%, white);
-  --onyx-light: color-mix(in srgb, var(--color-onyx-500) 70%, white);
-  --onyx: var(--color-onyx-500);
-  --onyx-dark: color-mix(in srgb, var(--color-onyx-500) 70%, black);
-  --onyx-darker: color-mix(in srgb, var(--color-onyx-500) 40%, black);
-  --onyx-darkest: color-mix(in srgb, var(--color-onyx-500) 20%, black);
-
-  /* malachite */
-  --malachite-lightest: color-mix(in srgb, var(--color-malachite-500) 20%, white);
-  --malachite-lighter: color-mix(in srgb, var(--color-malachite-500) 40%, white);
-  --malachite-light: color-mix(in srgb, var(--color-malachite-500) 70%, white);
-  --malachite: var(--color-malachite-500);
-  --malachite-dark: color-mix(in srgb, var(--color-malachite-500) 70%, black);
-  --malachite-darker: color-mix(in srgb, var(--color-malachite-500) 40%, black);
-  --malachite-darkest: color-mix(in srgb, var(--color-malachite-500) 20%, black);
-
-  /* lapis */
-  --lapis-lightest: color-mix(in srgb, var(--color-lapis-500) 20%, white);
-  --lapis-lighter: color-mix(in srgb, var(--color-lapis-500) 40%, white);
-  --lapis-light: color-mix(in srgb, var(--color-lapis-500) 70%, white);
-  --lapis: var(--color-lapis-500);
-  --lapis-dark: color-mix(in srgb, var(--color-lapis-500) 70%, black);
-  --lapis-darker: color-mix(in srgb, var(--color-lapis-500) 40%, black);
-  --lapis-darkest: color-mix(in srgb, var(--color-lapis-500) 20%, black);
-
-  /* turquoise */
-  --turquoise-lightest: color-mix(in srgb, var(--color-turquoise-500) 20%, white);
-  --turquoise-lighter: color-mix(in srgb, var(--color-turquoise-500) 40%, white);
-  --turquoise-light: color-mix(in srgb, var(--color-turquoise-500) 70%, white);
-  --turquoise: var(--color-turquoise-500);
-  --turquoise-dark: color-mix(in srgb, var(--color-turquoise-500) 70%, black);
-  --turquoise-darker: color-mix(in srgb, var(--color-turquoise-500) 40%, black);
-  --turquoise-darkest: color-mix(in srgb, var(--color-turquoise-500) 20%, black);
-
-  /* coral */
-  --coral-lightest: color-mix(in srgb, var(--color-coral-500) 20%, white);
-  --coral-lighter: color-mix(in srgb, var(--color-coral-500) 40%, white);
-  --coral-light: color-mix(in srgb, var(--color-coral-500) 70%, white);
-  --coral: var(--color-coral-500);
-  --coral-dark: color-mix(in srgb, var(--color-coral-500) 70%, black);
-  --coral-darker: color-mix(in srgb, var(--color-coral-500) 40%, black);
-  --coral-darkest: color-mix(in srgb, var(--color-coral-500) 20%, black);
-
-  /* mother-of-pearl */
-  --mother-of-pearl-lightest: color-mix(in srgb, var(--color-mother-of-pearl-500) 20%, white);
-  --mother-of-pearl-lighter: color-mix(in srgb, var(--color-mother-of-pearl-500) 40%, white);
-  --mother-of-pearl-light: color-mix(in srgb, var(--color-mother-of-pearl-500) 70%, white);
-  --mother-of-pearl: var(--color-mother-of-pearl-500);
-  --mother-of-pearl-dark: color-mix(in srgb, var(--color-mother-of-pearl-500) 70%, black);
-  --mother-of-pearl-darker: color-mix(in srgb, var(--color-mother-of-pearl-500) 40%, black);
-  --mother-of-pearl-darkest: color-mix(in srgb, var(--color-mother-of-pearl-500) 20%, black);
-
-  /* obsidian */
-  --obsidian-lightest: color-mix(in srgb, var(--color-obsidian-500) 20%, white);
-  --obsidian-lighter: color-mix(in srgb, var(--color-obsidian-500) 40%, white);
-  --obsidian-light: color-mix(in srgb, var(--color-obsidian-500) 70%, white);
-  --obsidian: var(--color-obsidian-500);
-  --obsidian-dark: color-mix(in srgb, var(--color-obsidian-500) 70%, black);
-  --obsidian-darker: color-mix(in srgb, var(--color-obsidian-500) 40%, black);
-  --obsidian-darkest: color-mix(in srgb, var(--color-obsidian-500) 20%, black);
-
-  /* jadeite */
-  --jadeite-lightest: color-mix(in srgb, var(--color-jadeite-500) 20%, white);
-  --jadeite-lighter: color-mix(in srgb, var(--color-jadeite-500) 40%, white);
-  --jadeite-light: color-mix(in srgb, var(--color-jadeite-500) 70%, white);
-  --jadeite: var(--color-jadeite-500);
-  --jadeite-dark: color-mix(in srgb, var(--color-jadeite-500) 70%, black);
-  --jadeite-darker: color-mix(in srgb, var(--color-jadeite-500) 40%, black);
-  --jadeite-darkest: color-mix(in srgb, var(--color-jadeite-500) 20%, black);
-
-  /* emerald */
-  --emerald-lightest: color-mix(in srgb, var(--color-emerald-500) 20%, white);
-  --emerald-lighter: color-mix(in srgb, var(--color-emerald-500) 40%, white);
-  --emerald-light: color-mix(in srgb, var(--color-emerald-500) 70%, white);
-  --emerald: var(--color-emerald-500);
-  --emerald-dark: color-mix(in srgb, var(--color-emerald-500) 70%, black);
-  --emerald-darker: color-mix(in srgb, var(--color-emerald-500) 40%, black);
-  --emerald-darkest: color-mix(in srgb, var(--color-emerald-500) 20%, black);
-
-  /* aquamarine */
-  --aquamarine-lightest: color-mix(in srgb, var(--color-aquamarine-500) 20%, white);
-  --aquamarine-lighter: color-mix(in srgb, var(--color-aquamarine-500) 40%, white);
-  --aquamarine-light: color-mix(in srgb, var(--color-aquamarine-500) 70%, white);
-  --aquamarine: var(--color-aquamarine-500);
-  --aquamarine-dark: color-mix(in srgb, var(--color-aquamarine-500) 70%, black);
-  --aquamarine-darker: color-mix(in srgb, var(--color-aquamarine-500) 40%, black);
-  --aquamarine-darkest: color-mix(in srgb, var(--color-aquamarine-500) 20%, black);
-
-  /* topaz */
-  --topaz-lightest: color-mix(in srgb, var(--color-topaz-500) 20%, white);
-  --topaz-lighter: color-mix(in srgb, var(--color-topaz-500) 40%, white);
-  --topaz-light: color-mix(in srgb, var(--color-topaz-500) 70%, white);
-  --topaz: var(--color-topaz-500);
-  --topaz-dark: color-mix(in srgb, var(--color-topaz-500) 70%, black);
-  --topaz-darker: color-mix(in srgb, var(--color-topaz-500) 40%, black);
-  --topaz-darkest: color-mix(in srgb, var(--color-topaz-500) 20%, black);
-
-  /* citrine */
-  --citrine-lightest: color-mix(in srgb, var(--color-citrine-500) 20%, white);
-  --citrine-lighter: color-mix(in srgb, var(--color-citrine-500) 40%, white);
-  --citrine-light: color-mix(in srgb, var(--color-citrine-500) 70%, white);
-  --citrine: var(--color-citrine-500);
-  --citrine-dark: color-mix(in srgb, var(--color-citrine-500) 70%, black);
-  --citrine-darker: color-mix(in srgb, var(--color-citrine-500) 40%, black);
-  --citrine-darkest: color-mix(in srgb, var(--color-citrine-500) 20%, black);
-
-  /* peridot */
-  --peridot-lightest: color-mix(in srgb, var(--color-peridot-500) 20%, white);
-  --peridot-lighter: color-mix(in srgb, var(--color-peridot-500) 40%, white);
-  --peridot-light: color-mix(in srgb, var(--color-peridot-500) 70%, white);
-  --peridot: var(--color-peridot-500);
-  --peridot-dark: color-mix(in srgb, var(--color-peridot-500) 70%, black);
-  --peridot-darker: color-mix(in srgb, var(--color-peridot-500) 40%, black);
-  --peridot-darkest: color-mix(in srgb, var(--color-peridot-500) 20%, black);
-
-  /* opal */
-  --opal-lightest: color-mix(in srgb, var(--color-opal-500) 20%, white);
-  --opal-lighter: color-mix(in srgb, var(--color-opal-500) 40%, white);
-  --opal-light: color-mix(in srgb, var(--color-opal-500) 70%, white);
-  --opal: var(--color-opal-500);
-  --opal-dark: color-mix(in srgb, var(--color-opal-500) 70%, black);
-  --opal-darker: color-mix(in srgb, var(--color-opal-500) 40%, black);
-  --opal-darkest: color-mix(in srgb, var(--color-opal-500) 20%, black);
-
-  /* moonstone */
-  --moonstone-lightest: color-mix(in srgb, var(--color-moonstone-500) 20%, white);
-  --moonstone-lighter: color-mix(in srgb, var(--color-moonstone-500) 40%, white);
-  --moonstone-light: color-mix(in srgb, var(--color-moonstone-500) 70%, white);
-  --moonstone: var(--color-moonstone-500);
-  --moonstone-dark: color-mix(in srgb, var(--color-moonstone-500) 70%, black);
-  --moonstone-darker: color-mix(in srgb, var(--color-moonstone-500) 40%, black);
-  --moonstone-darkest: color-mix(in srgb, var(--color-moonstone-500) 20%, black);
-
-  /* labradorite */
-  --labradorite-lightest: color-mix(in srgb, var(--color-labradorite-500) 20%, white);
-  --labradorite-lighter: color-mix(in srgb, var(--color-labradorite-500) 40%, white);
-  --labradorite-light: color-mix(in srgb, var(--color-labradorite-500) 70%, white);
-  --labradorite: var(--color-labradorite-500);
-  --labradorite-dark: color-mix(in srgb, var(--color-labradorite-500) 70%, black);
-  --labradorite-darker: color-mix(in srgb, var(--color-labradorite-500) 40%, black);
-  --labradorite-darkest: color-mix(in srgb, var(--color-labradorite-500) 20%, black);
-
-  /* fluorite */
-  --fluorite-lightest: color-mix(in srgb, var(--color-fluorite-500) 20%, white);
-  --fluorite-lighter: color-mix(in srgb, var(--color-fluorite-500) 40%, white);
-  --fluorite-light: color-mix(in srgb, var(--color-fluorite-500) 70%, white);
-  --fluorite: var(--color-fluorite-500);
-  --fluorite-dark: color-mix(in srgb, var(--color-fluorite-500) 70%, black);
-  --fluorite-darker: color-mix(in srgb, var(--color-fluorite-500) 40%, black);
-  --fluorite-darkest: color-mix(in srgb, var(--color-fluorite-500) 20%, black);
-
-  /* pastel-pink */
-  --pastel-pink-lightest: color-mix(in srgb, var(--color-pastel-pink-500) 20%, white);
-  --pastel-pink-lighter: color-mix(in srgb, var(--color-pastel-pink-500) 40%, white);
-  --pastel-pink-light: color-mix(in srgb, var(--color-pastel-pink-500) 70%, white);
-  --pastel-pink: var(--color-pastel-pink-500);
-  --pastel-pink-dark: color-mix(in srgb, var(--color-pastel-pink-500) 70%, black);
-  --pastel-pink-darker: color-mix(in srgb, var(--color-pastel-pink-500) 40%, black);
-  --pastel-pink-darkest: color-mix(in srgb, var(--color-pastel-pink-500) 20%, black);
-
-  /* pastel-blue */
-  --pastel-blue-lightest: color-mix(in srgb, var(--color-pastel-blue-500) 20%, white);
-  --pastel-blue-lighter: color-mix(in srgb, var(--color-pastel-blue-500) 40%, white);
-  --pastel-blue-light: color-mix(in srgb, var(--color-pastel-blue-500) 70%, white);
-  --pastel-blue: var(--color-pastel-blue-500);
-  --pastel-blue-dark: color-mix(in srgb, var(--color-pastel-blue-500) 70%, black);
-  --pastel-blue-darker: color-mix(in srgb, var(--color-pastel-blue-500) 40%, black);
-  --pastel-blue-darkest: color-mix(in srgb, var(--color-pastel-blue-500) 20%, black);
-
-  /* pastel-green */
-  --pastel-green-lightest: color-mix(in srgb, var(--color-pastel-green-500) 20%, white);
-  --pastel-green-lighter: color-mix(in srgb, var(--color-pastel-green-500) 40%, white);
-  --pastel-green-light: color-mix(in srgb, var(--color-pastel-green-500) 70%, white);
-  --pastel-green: var(--color-pastel-green-500);
-  --pastel-green-dark: color-mix(in srgb, var(--color-pastel-green-500) 70%, black);
-  --pastel-green-darker: color-mix(in srgb, var(--color-pastel-green-500) 40%, black);
-  --pastel-green-darkest: color-mix(in srgb, var(--color-pastel-green-500) 20%, black);
-
-  /* pastel-yellow */
-  --pastel-yellow-lightest: color-mix(in srgb, var(--color-pastel-yellow-500) 20%, white);
-  --pastel-yellow-lighter: color-mix(in srgb, var(--color-pastel-yellow-500) 40%, white);
-  --pastel-yellow-light: color-mix(in srgb, var(--color-pastel-yellow-500) 70%, white);
-  --pastel-yellow: var(--color-pastel-yellow-500);
-  --pastel-yellow-dark: color-mix(in srgb, var(--color-pastel-yellow-500) 70%, black);
-  --pastel-yellow-darker: color-mix(in srgb, var(--color-pastel-yellow-500) 40%, black);
-  --pastel-yellow-darkest: color-mix(in srgb, var(--color-pastel-yellow-500) 20%, black);
-
-  /* pastel-purple */
-  --pastel-purple-lightest: color-mix(in srgb, var(--color-pastel-purple-500) 20%, white);
-  --pastel-purple-lighter: color-mix(in srgb, var(--color-pastel-purple-500) 40%, white);
-  --pastel-purple-light: color-mix(in srgb, var(--color-pastel-purple-500) 70%, white);
-  --pastel-purple: var(--color-pastel-purple-500);
-  --pastel-purple-dark: color-mix(in srgb, var(--color-pastel-purple-500) 70%, black);
-  --pastel-purple-darker: color-mix(in srgb, var(--color-pastel-purple-500) 40%, black);
-  --pastel-purple-darkest: color-mix(in srgb, var(--color-pastel-purple-500) 20%, black);
-
-  /* neon-pink */
-  --neon-pink-lightest: color-mix(in srgb, var(--color-neon-pink-500) 20%, white);
-  --neon-pink-lighter: color-mix(in srgb, var(--color-neon-pink-500) 40%, white);
-  --neon-pink-light: color-mix(in srgb, var(--color-neon-pink-500) 70%, white);
-  --neon-pink: var(--color-neon-pink-500);
-  --neon-pink-dark: color-mix(in srgb, var(--color-neon-pink-500) 70%, black);
-  --neon-pink-darker: color-mix(in srgb, var(--color-neon-pink-500) 40%, black);
-  --neon-pink-darkest: color-mix(in srgb, var(--color-neon-pink-500) 20%, black);
-
-  /* neon-blue */
-  --neon-blue-lightest: color-mix(in srgb, var(--color-neon-blue-500) 20%, white);
-  --neon-blue-lighter: color-mix(in srgb, var(--color-neon-blue-500) 40%, white);
-  --neon-blue-light: color-mix(in srgb, var(--color-neon-blue-500) 70%, white);
-  --neon-blue: var(--color-neon-blue-500);
-  --neon-blue-dark: color-mix(in srgb, var(--color-neon-blue-500) 70%, black);
-  --neon-blue-darker: color-mix(in srgb, var(--color-neon-blue-500) 40%, black);
-  --neon-blue-darkest: color-mix(in srgb, var(--color-neon-blue-500) 20%, black);
-
-  /* neon-green */
-  --neon-green-lightest: color-mix(in srgb, var(--color-neon-green-500) 20%, white);
-  --neon-green-lighter: color-mix(in srgb, var(--color-neon-green-500) 40%, white);
-  --neon-green-light: color-mix(in srgb, var(--color-neon-green-500) 70%, white);
-  --neon-green: var(--color-neon-green-500);
-  --neon-green-dark: color-mix(in srgb, var(--color-neon-green-500) 70%, black);
-  --neon-green-darker: color-mix(in srgb, var(--color-neon-green-500) 40%, black);
-  --neon-green-darkest: color-mix(in srgb, var(--color-neon-green-500) 20%, black);
-
-  /* neon-yellow */
-  --neon-yellow-lightest: color-mix(in srgb, var(--color-neon-yellow-500) 20%, white);
-  --neon-yellow-lighter: color-mix(in srgb, var(--color-neon-yellow-500) 40%, white);
-  --neon-yellow-light: color-mix(in srgb, var(--color-neon-yellow-500) 70%, white);
-  --neon-yellow: var(--color-neon-yellow-500);
-  --neon-yellow-dark: color-mix(in srgb, var(--color-neon-yellow-500) 70%, black);
-  --neon-yellow-darker: color-mix(in srgb, var(--color-neon-yellow-500) 40%, black);
-  --neon-yellow-darkest: color-mix(in srgb, var(--color-neon-yellow-500) 20%, black);
-
-  /* neon-orange */
-  --neon-orange-lightest: color-mix(in srgb, var(--color-neon-orange-500) 20%, white);
-  --neon-orange-lighter: color-mix(in srgb, var(--color-neon-orange-500) 40%, white);
-  --neon-orange-light: color-mix(in srgb, var(--color-neon-orange-500) 70%, white);
-  --neon-orange: var(--color-neon-orange-500);
-  --neon-orange-dark: color-mix(in srgb, var(--color-neon-orange-500) 70%, black);
-  --neon-orange-darker: color-mix(in srgb, var(--color-neon-orange-500) 40%, black);
-  --neon-orange-darkest: color-mix(in srgb, var(--color-neon-orange-500) 20%, black);
-
-  /* neon-purple */
-  --neon-purple-lightest: color-mix(in srgb, var(--color-neon-purple-500) 20%, white);
-  --neon-purple-lighter: color-mix(in srgb, var(--color-neon-purple-500) 40%, white);
-  --neon-purple-light: color-mix(in srgb, var(--color-neon-purple-500) 70%, white);
-  --neon-purple: var(--color-neon-purple-500);
-  --neon-purple-dark: color-mix(in srgb, var(--color-neon-purple-500) 70%, black);
-  --neon-purple-darker: color-mix(in srgb, var(--color-neon-purple-500) 40%, black);
-  --neon-purple-darkest: color-mix(in srgb, var(--color-neon-purple-500) 20%, black);
-
+@layer color-mix {
+  :root {
+    /* blue */
+    --blue-lightest: color-mix(in srgb, var(--color-blue-500) 20%, white);
+    --blue-lighter: color-mix(in srgb, var(--color-blue-500) 40%, white);
+    --blue-light: color-mix(in srgb, var(--color-blue-500) 70%, white);
+    --blue: var(--color-blue-500);
+    --blue-dark: color-mix(in srgb, var(--color-blue-500) 70%, black);
+    --blue-darker: color-mix(in srgb, var(--color-blue-500) 40%, black);
+    --blue-darkest: color-mix(in srgb, var(--color-blue-500) 20%, black);
+
+    /* sky */
+    --sky-lightest: color-mix(in srgb, var(--color-sky-500) 20%, white);
+    --sky-lighter: color-mix(in srgb, var(--color-sky-500) 40%, white);
+    --sky-light: color-mix(in srgb, var(--color-sky-500) 70%, white);
+    --sky: var(--color-sky-500);
+    --sky-dark: color-mix(in srgb, var(--color-sky-500) 70%, black);
+    --sky-darker: color-mix(in srgb, var(--color-sky-500) 40%, black);
+    --sky-darkest: color-mix(in srgb, var(--color-sky-500) 20%, black);
+
+    /* cyan */
+    --cyan-lightest: color-mix(in srgb, var(--color-cyan-500) 20%, white);
+    --cyan-lighter: color-mix(in srgb, var(--color-cyan-500) 40%, white);
+    --cyan-light: color-mix(in srgb, var(--color-cyan-500) 70%, white);
+    --cyan: var(--color-cyan-500);
+    --cyan-dark: color-mix(in srgb, var(--color-cyan-500) 70%, black);
+    --cyan-darker: color-mix(in srgb, var(--color-cyan-500) 40%, black);
+    --cyan-darkest: color-mix(in srgb, var(--color-cyan-500) 20%, black);
+
+    /* mint */
+    --mint-lightest: color-mix(in srgb, var(--color-mint-500) 20%, white);
+    --mint-lighter: color-mix(in srgb, var(--color-mint-500) 40%, white);
+    --mint-light: color-mix(in srgb, var(--color-mint-500) 70%, white);
+    --mint: var(--color-mint-500);
+    --mint-dark: color-mix(in srgb, var(--color-mint-500) 70%, black);
+    --mint-darker: color-mix(in srgb, var(--color-mint-500) 40%, black);
+    --mint-darkest: color-mix(in srgb, var(--color-mint-500) 20%, black);
+
+    /* green */
+    --green-lightest: color-mix(in srgb, var(--color-green-500) 20%, white);
+    --green-lighter: color-mix(in srgb, var(--color-green-500) 40%, white);
+    --green-light: color-mix(in srgb, var(--color-green-500) 70%, white);
+    --green: var(--color-green-500);
+    --green-dark: color-mix(in srgb, var(--color-green-500) 70%, black);
+    --green-darker: color-mix(in srgb, var(--color-green-500) 40%, black);
+    --green-darkest: color-mix(in srgb, var(--color-green-500) 20%, black);
+
+    /* lime */
+    --lime-lightest: color-mix(in srgb, var(--color-lime-500) 20%, white);
+    --lime-lighter: color-mix(in srgb, var(--color-lime-500) 40%, white);
+    --lime-light: color-mix(in srgb, var(--color-lime-500) 70%, white);
+    --lime: var(--color-lime-500);
+    --lime-dark: color-mix(in srgb, var(--color-lime-500) 70%, black);
+    --lime-darker: color-mix(in srgb, var(--color-lime-500) 40%, black);
+    --lime-darkest: color-mix(in srgb, var(--color-lime-500) 20%, black);
+
+    /* yellow */
+    --yellow-lightest: color-mix(in srgb, var(--color-yellow-500) 20%, white);
+    --yellow-lighter: color-mix(in srgb, var(--color-yellow-500) 40%, white);
+    --yellow-light: color-mix(in srgb, var(--color-yellow-500) 70%, white);
+    --yellow: var(--color-yellow-500);
+    --yellow-dark: color-mix(in srgb, var(--color-yellow-500) 70%, black);
+    --yellow-darker: color-mix(in srgb, var(--color-yellow-500) 40%, black);
+    --yellow-darkest: color-mix(in srgb, var(--color-yellow-500) 20%, black);
+
+    /* gold */
+    --gold-lightest: color-mix(in srgb, var(--color-gold-500) 20%, white);
+    --gold-lighter: color-mix(in srgb, var(--color-gold-500) 40%, white);
+    --gold-light: color-mix(in srgb, var(--color-gold-500) 70%, white);
+    --gold: var(--color-gold-500);
+    --gold-dark: color-mix(in srgb, var(--color-gold-500) 70%, black);
+    --gold-darker: color-mix(in srgb, var(--color-gold-500) 40%, black);
+    --gold-darkest: color-mix(in srgb, var(--color-gold-500) 20%, black);
+
+    /* orange */
+    --orange-lightest: color-mix(in srgb, var(--color-orange-500) 20%, white);
+    --orange-lighter: color-mix(in srgb, var(--color-orange-500) 40%, white);
+    --orange-light: color-mix(in srgb, var(--color-orange-500) 70%, white);
+    --orange: var(--color-orange-500);
+    --orange-dark: color-mix(in srgb, var(--color-orange-500) 70%, black);
+    --orange-darker: color-mix(in srgb, var(--color-orange-500) 40%, black);
+    --orange-darkest: color-mix(in srgb, var(--color-orange-500) 20%, black);
+
+    /* coral */
+    --coral-lightest: color-mix(in srgb, var(--color-coral-500) 20%, white);
+    --coral-lighter: color-mix(in srgb, var(--color-coral-500) 40%, white);
+    --coral-light: color-mix(in srgb, var(--color-coral-500) 70%, white);
+    --coral: var(--color-coral-500);
+    --coral-dark: color-mix(in srgb, var(--color-coral-500) 70%, black);
+    --coral-darker: color-mix(in srgb, var(--color-coral-500) 40%, black);
+    --coral-darkest: color-mix(in srgb, var(--color-coral-500) 20%, black);
+
+    /* red */
+    --red-lightest: color-mix(in srgb, var(--color-red-500) 20%, white);
+    --red-lighter: color-mix(in srgb, var(--color-red-500) 40%, white);
+    --red-light: color-mix(in srgb, var(--color-red-500) 70%, white);
+    --red: var(--color-red-500);
+    --red-dark: color-mix(in srgb, var(--color-red-500) 70%, black);
+    --red-darker: color-mix(in srgb, var(--color-red-500) 40%, black);
+    --red-darkest: color-mix(in srgb, var(--color-red-500) 20%, black);
+
+    /* pink */
+    --pink-lightest: color-mix(in srgb, var(--color-pink-500) 20%, white);
+    --pink-lighter: color-mix(in srgb, var(--color-pink-500) 40%, white);
+    --pink-light: color-mix(in srgb, var(--color-pink-500) 70%, white);
+    --pink: var(--color-pink-500);
+    --pink-dark: color-mix(in srgb, var(--color-pink-500) 70%, black);
+    --pink-darker: color-mix(in srgb, var(--color-pink-500) 40%, black);
+    --pink-darkest: color-mix(in srgb, var(--color-pink-500) 20%, black);
+
+    /* rose */
+    --rose-lightest: color-mix(in srgb, var(--color-rose-500) 20%, white);
+    --rose-lighter: color-mix(in srgb, var(--color-rose-500) 40%, white);
+    --rose-light: color-mix(in srgb, var(--color-rose-500) 70%, white);
+    --rose: var(--color-rose-500);
+    --rose-dark: color-mix(in srgb, var(--color-rose-500) 70%, black);
+    --rose-darker: color-mix(in srgb, var(--color-rose-500) 40%, black);
+    --rose-darkest: color-mix(in srgb, var(--color-rose-500) 20%, black);
+
+    /* purple */
+    --purple-lightest: color-mix(in srgb, var(--color-purple-500) 20%, white);
+    --purple-lighter: color-mix(in srgb, var(--color-purple-500) 40%, white);
+    --purple-light: color-mix(in srgb, var(--color-purple-500) 70%, white);
+    --purple: var(--color-purple-500);
+    --purple-dark: color-mix(in srgb, var(--color-purple-500) 70%, black);
+    --purple-darker: color-mix(in srgb, var(--color-purple-500) 40%, black);
+    --purple-darkest: color-mix(in srgb, var(--color-purple-500) 20%, black);
+
+    /* indigo */
+    --indigo-lightest: color-mix(in srgb, var(--color-indigo-500) 20%, white);
+    --indigo-lighter: color-mix(in srgb, var(--color-indigo-500) 40%, white);
+    --indigo-light: color-mix(in srgb, var(--color-indigo-500) 70%, white);
+    --indigo: var(--color-indigo-500);
+    --indigo-dark: color-mix(in srgb, var(--color-indigo-500) 70%, black);
+    --indigo-darker: color-mix(in srgb, var(--color-indigo-500) 40%, black);
+    --indigo-darkest: color-mix(in srgb, var(--color-indigo-500) 20%, black);
+
+    /* gray */
+    --gray-lightest: color-mix(in srgb, var(--color-gray-500) 20%, white);
+    --gray-lighter: color-mix(in srgb, var(--color-gray-500) 40%, white);
+    --gray-light: color-mix(in srgb, var(--color-gray-500) 70%, white);
+    --gray: var(--color-gray-500);
+    --gray-dark: color-mix(in srgb, var(--color-gray-500) 70%, black);
+    --gray-darker: color-mix(in srgb, var(--color-gray-500) 40%, black);
+    --gray-darkest: color-mix(in srgb, var(--color-gray-500) 20%, black);
+
+    /* warm-gray */
+    --warm-gray-lightest: color-mix(in srgb, var(--color-warm-gray-500) 20%, white);
+    --warm-gray-lighter: color-mix(in srgb, var(--color-warm-gray-500) 40%, white);
+    --warm-gray-light: color-mix(in srgb, var(--color-warm-gray-500) 70%, white);
+    --warm-gray: var(--color-warm-gray-500);
+    --warm-gray-dark: color-mix(in srgb, var(--color-warm-gray-500) 70%, black);
+    --warm-gray-darker: color-mix(in srgb, var(--color-warm-gray-500) 40%, black);
+    --warm-gray-darkest: color-mix(in srgb, var(--color-warm-gray-500) 20%, black);
+
+    /* cool-gray */
+    --cool-gray-lightest: color-mix(in srgb, var(--color-cool-gray-500) 20%, white);
+    --cool-gray-lighter: color-mix(in srgb, var(--color-cool-gray-500) 40%, white);
+    --cool-gray-light: color-mix(in srgb, var(--color-cool-gray-500) 70%, white);
+    --cool-gray: var(--color-cool-gray-500);
+    --cool-gray-dark: color-mix(in srgb, var(--color-cool-gray-500) 70%, black);
+    --cool-gray-darker: color-mix(in srgb, var(--color-cool-gray-500) 40%, black);
+    --cool-gray-darkest: color-mix(in srgb, var(--color-cool-gray-500) 20%, black);
+
+    /* azure */
+    --azure-lightest: color-mix(in srgb, var(--color-azure-500) 20%, white);
+    --azure-lighter: color-mix(in srgb, var(--color-azure-500) 40%, white);
+    --azure-light: color-mix(in srgb, var(--color-azure-500) 70%, white);
+    --azure: var(--color-azure-500);
+    --azure-dark: color-mix(in srgb, var(--color-azure-500) 70%, black);
+    --azure-darker: color-mix(in srgb, var(--color-azure-500) 40%, black);
+    --azure-darkest: color-mix(in srgb, var(--color-azure-500) 20%, black);
+
+    /* teal */
+    --teal-lightest: color-mix(in srgb, var(--color-teal-500) 20%, white);
+    --teal-lighter: color-mix(in srgb, var(--color-teal-500) 40%, white);
+    --teal-light: color-mix(in srgb, var(--color-teal-500) 70%, white);
+    --teal: var(--color-teal-500);
+    --teal-dark: color-mix(in srgb, var(--color-teal-500) 70%, black);
+    --teal-darker: color-mix(in srgb, var(--color-teal-500) 40%, black);
+    --teal-darkest: color-mix(in srgb, var(--color-teal-500) 20%, black);
+
+    /* emerald */
+    --emerald-lightest: color-mix(in srgb, var(--color-emerald-500) 20%, white);
+    --emerald-lighter: color-mix(in srgb, var(--color-emerald-500) 40%, white);
+    --emerald-light: color-mix(in srgb, var(--color-emerald-500) 70%, white);
+    --emerald: var(--color-emerald-500);
+    --emerald-dark: color-mix(in srgb, var(--color-emerald-500) 70%, black);
+    --emerald-darker: color-mix(in srgb, var(--color-emerald-500) 40%, black);
+    --emerald-darkest: color-mix(in srgb, var(--color-emerald-500) 20%, black);
+
+    /* olive */
+    --olive-lightest: color-mix(in srgb, var(--color-olive-500) 20%, white);
+    --olive-lighter: color-mix(in srgb, var(--color-olive-500) 40%, white);
+    --olive-light: color-mix(in srgb, var(--color-olive-500) 70%, white);
+    --olive: var(--color-olive-500);
+    --olive-dark: color-mix(in srgb, var(--color-olive-500) 70%, black);
+    --olive-darker: color-mix(in srgb, var(--color-olive-500) 40%, black);
+    --olive-darkest: color-mix(in srgb, var(--color-olive-500) 20%, black);
+
+    /* amber */
+    --amber-lightest: color-mix(in srgb, var(--color-amber-500) 20%, white);
+    --amber-lighter: color-mix(in srgb, var(--color-amber-500) 40%, white);
+    --amber-light: color-mix(in srgb, var(--color-amber-500) 70%, white);
+    --amber: var(--color-amber-500);
+    --amber-dark: color-mix(in srgb, var(--color-amber-500) 70%, black);
+    --amber-darker: color-mix(in srgb, var(--color-amber-500) 40%, black);
+    --amber-darkest: color-mix(in srgb, var(--color-amber-500) 20%, black);
+
+    /* copper */
+    --copper-lightest: color-mix(in srgb, var(--color-copper-500) 20%, white);
+    --copper-lighter: color-mix(in srgb, var(--color-copper-500) 40%, white);
+    --copper-light: color-mix(in srgb, var(--color-copper-500) 70%, white);
+    --copper: var(--color-copper-500);
+    --copper-dark: color-mix(in srgb, var(--color-copper-500) 70%, black);
+    --copper-darker: color-mix(in srgb, var(--color-copper-500) 40%, black);
+    --copper-darkest: color-mix(in srgb, var(--color-copper-500) 20%, black);
+
+    /* cherry */
+    --cherry-lightest: color-mix(in srgb, var(--color-cherry-500) 20%, white);
+    --cherry-lighter: color-mix(in srgb, var(--color-cherry-500) 40%, white);
+    --cherry-light: color-mix(in srgb, var(--color-cherry-500) 70%, white);
+    --cherry: var(--color-cherry-500);
+    --cherry-dark: color-mix(in srgb, var(--color-cherry-500) 70%, black);
+    --cherry-darker: color-mix(in srgb, var(--color-cherry-500) 40%, black);
+    --cherry-darkest: color-mix(in srgb, var(--color-cherry-500) 20%, black);
+
+    /* magenta */
+    --magenta-lightest: color-mix(in srgb, var(--color-magenta-500) 20%, white);
+    --magenta-lighter: color-mix(in srgb, var(--color-magenta-500) 40%, white);
+    --magenta-light: color-mix(in srgb, var(--color-magenta-500) 70%, white);
+    --magenta: var(--color-magenta-500);
+    --magenta-dark: color-mix(in srgb, var(--color-magenta-500) 70%, black);
+    --magenta-darker: color-mix(in srgb, var(--color-magenta-500) 40%, black);
+    --magenta-darkest: color-mix(in srgb, var(--color-magenta-500) 20%, black);
+
+    /* lavender */
+    --lavender-lightest: color-mix(in srgb, var(--color-lavender-500) 20%, white);
+    --lavender-lighter: color-mix(in srgb, var(--color-lavender-500) 40%, white);
+    --lavender-light: color-mix(in srgb, var(--color-lavender-500) 70%, white);
+    --lavender: var(--color-lavender-500);
+    --lavender-dark: color-mix(in srgb, var(--color-lavender-500) 70%, black);
+    --lavender-darker: color-mix(in srgb, var(--color-lavender-500) 40%, black);
+    --lavender-darkest: color-mix(in srgb, var(--color-lavender-500) 20%, black);
+
+    /* bronze */
+    --bronze-lightest: color-mix(in srgb, var(--color-bronze-500) 20%, white);
+    --bronze-lighter: color-mix(in srgb, var(--color-bronze-500) 40%, white);
+    --bronze-light: color-mix(in srgb, var(--color-bronze-500) 70%, white);
+    --bronze: var(--color-bronze-500);
+    --bronze-dark: color-mix(in srgb, var(--color-bronze-500) 70%, black);
+    --bronze-darker: color-mix(in srgb, var(--color-bronze-500) 40%, black);
+    --bronze-darkest: color-mix(in srgb, var(--color-bronze-500) 20%, black);
+
+    /* pearl */
+    --pearl-lightest: color-mix(in srgb, var(--color-pearl-500) 20%, white);
+    --pearl-lighter: color-mix(in srgb, var(--color-pearl-500) 40%, white);
+    --pearl-light: color-mix(in srgb, var(--color-pearl-500) 70%, white);
+    --pearl: var(--color-pearl-500);
+    --pearl-dark: color-mix(in srgb, var(--color-pearl-500) 70%, black);
+    --pearl-darker: color-mix(in srgb, var(--color-pearl-500) 40%, black);
+    --pearl-darkest: color-mix(in srgb, var(--color-pearl-500) 20%, black);
+
+    /* champagne */
+    --champagne-lightest: color-mix(in srgb, var(--color-champagne-500) 20%, white);
+    --champagne-lighter: color-mix(in srgb, var(--color-champagne-500) 40%, white);
+    --champagne-light: color-mix(in srgb, var(--color-champagne-500) 70%, white);
+    --champagne: var(--color-champagne-500);
+    --champagne-dark: color-mix(in srgb, var(--color-champagne-500) 70%, black);
+    --champagne-darker: color-mix(in srgb, var(--color-champagne-500) 40%, black);
+    --champagne-darkest: color-mix(in srgb, var(--color-champagne-500) 20%, black);
+
+    /* taupe */
+    --taupe-lightest: color-mix(in srgb, var(--color-taupe-500) 20%, white);
+    --taupe-lighter: color-mix(in srgb, var(--color-taupe-500) 40%, white);
+    --taupe-light: color-mix(in srgb, var(--color-taupe-500) 70%, white);
+    --taupe: var(--color-taupe-500);
+    --taupe-dark: color-mix(in srgb, var(--color-taupe-500) 70%, black);
+    --taupe-darker: color-mix(in srgb, var(--color-taupe-500) 40%, black);
+    --taupe-darkest: color-mix(in srgb, var(--color-taupe-500) 20%, black);
+
+    /* beige */
+    --beige-lightest: color-mix(in srgb, var(--color-beige-500) 20%, white);
+    --beige-lighter: color-mix(in srgb, var(--color-beige-500) 40%, white);
+    --beige-light: color-mix(in srgb, var(--color-beige-500) 70%, white);
+    --beige: var(--color-beige-500);
+    --beige-dark: color-mix(in srgb, var(--color-beige-500) 70%, black);
+    --beige-darker: color-mix(in srgb, var(--color-beige-500) 40%, black);
+    --beige-darkest: color-mix(in srgb, var(--color-beige-500) 20%, black);
+
+    /* khaki */
+    --khaki-lightest: color-mix(in srgb, var(--color-khaki-500) 20%, white);
+    --khaki-lighter: color-mix(in srgb, var(--color-khaki-500) 40%, white);
+    --khaki-light: color-mix(in srgb, var(--color-khaki-500) 70%, white);
+    --khaki: var(--color-khaki-500);
+    --khaki-dark: color-mix(in srgb, var(--color-khaki-500) 70%, black);
+    --khaki-darker: color-mix(in srgb, var(--color-khaki-500) 40%, black);
+    --khaki-darkest: color-mix(in srgb, var(--color-khaki-500) 20%, black);
+
+    /* terracotta */
+    --terracotta-lightest: color-mix(in srgb, var(--color-terracotta-500) 20%, white);
+    --terracotta-lighter: color-mix(in srgb, var(--color-terracotta-500) 40%, white);
+    --terracotta-light: color-mix(in srgb, var(--color-terracotta-500) 70%, white);
+    --terracotta: var(--color-terracotta-500);
+    --terracotta-dark: color-mix(in srgb, var(--color-terracotta-500) 70%, black);
+    --terracotta-darker: color-mix(in srgb, var(--color-terracotta-500) 40%, black);
+    --terracotta-darkest: color-mix(in srgb, var(--color-terracotta-500) 20%, black);
+
+    /* burgundy */
+    --burgundy-lightest: color-mix(in srgb, var(--color-burgundy-500) 20%, white);
+    --burgundy-lighter: color-mix(in srgb, var(--color-burgundy-500) 40%, white);
+    --burgundy-light: color-mix(in srgb, var(--color-burgundy-500) 70%, white);
+    --burgundy: var(--color-burgundy-500);
+    --burgundy-dark: color-mix(in srgb, var(--color-burgundy-500) 70%, black);
+    --burgundy-darker: color-mix(in srgb, var(--color-burgundy-500) 40%, black);
+    --burgundy-darkest: color-mix(in srgb, var(--color-burgundy-500) 20%, black);
+
+    /* silver */
+    --silver-lightest: color-mix(in srgb, var(--color-silver-500) 20%, white);
+    --silver-lighter: color-mix(in srgb, var(--color-silver-500) 40%, white);
+    --silver-light: color-mix(in srgb, var(--color-silver-500) 70%, white);
+    --silver: var(--color-silver-500);
+    --silver-dark: color-mix(in srgb, var(--color-silver-500) 70%, black);
+    --silver-darker: color-mix(in srgb, var(--color-silver-500) 40%, black);
+    --silver-darkest: color-mix(in srgb, var(--color-silver-500) 20%, black);
+
+    /* platinum */
+    --platinum-lightest: color-mix(in srgb, var(--color-platinum-500) 20%, white);
+    --platinum-lighter: color-mix(in srgb, var(--color-platinum-500) 40%, white);
+    --platinum-light: color-mix(in srgb, var(--color-platinum-500) 70%, white);
+    --platinum: var(--color-platinum-500);
+    --platinum-dark: color-mix(in srgb, var(--color-platinum-500) 70%, black);
+    --platinum-darker: color-mix(in srgb, var(--color-platinum-500) 40%, black);
+    --platinum-darkest: color-mix(in srgb, var(--color-platinum-500) 20%, black);
+
+    /* graphite */
+    --graphite-lightest: color-mix(in srgb, var(--color-graphite-500) 20%, white);
+    --graphite-lighter: color-mix(in srgb, var(--color-graphite-500) 40%, white);
+    --graphite-light: color-mix(in srgb, var(--color-graphite-500) 70%, white);
+    --graphite: var(--color-graphite-500);
+    --graphite-dark: color-mix(in srgb, var(--color-graphite-500) 70%, black);
+    --graphite-darker: color-mix(in srgb, var(--color-graphite-500) 40%, black);
+    --graphite-darkest: color-mix(in srgb, var(--color-graphite-500) 20%, black);
+
+    /* moss */
+    --moss-lightest: color-mix(in srgb, var(--color-moss-500) 20%, white);
+    --moss-lighter: color-mix(in srgb, var(--color-moss-500) 40%, white);
+    --moss-light: color-mix(in srgb, var(--color-moss-500) 70%, white);
+    --moss: var(--color-moss-500);
+    --moss-dark: color-mix(in srgb, var(--color-moss-500) 70%, black);
+    --moss-darker: color-mix(in srgb, var(--color-moss-500) 40%, black);
+    --moss-darkest: color-mix(in srgb, var(--color-moss-500) 20%, black);
+
+    /* jade */
+    --jade-lightest: color-mix(in srgb, var(--color-jade-500) 20%, white);
+    --jade-lighter: color-mix(in srgb, var(--color-jade-500) 40%, white);
+    --jade-light: color-mix(in srgb, var(--color-jade-500) 70%, white);
+    --jade: var(--color-jade-500);
+    --jade-dark: color-mix(in srgb, var(--color-jade-500) 70%, black);
+    --jade-darker: color-mix(in srgb, var(--color-jade-500) 40%, black);
+    --jade-darkest: color-mix(in srgb, var(--color-jade-500) 20%, black);
+
+    /* sapphire */
+    --sapphire-lightest: color-mix(in srgb, var(--color-sapphire-500) 20%, white);
+    --sapphire-lighter: color-mix(in srgb, var(--color-sapphire-500) 40%, white);
+    --sapphire-light: color-mix(in srgb, var(--color-sapphire-500) 70%, white);
+    --sapphire: var(--color-sapphire-500);
+    --sapphire-dark: color-mix(in srgb, var(--color-sapphire-500) 70%, black);
+    --sapphire-darker: color-mix(in srgb, var(--color-sapphire-500) 40%, black);
+    --sapphire-darkest: color-mix(in srgb, var(--color-sapphire-500) 20%, black);
+
+    /* ruby */
+    --ruby-lightest: color-mix(in srgb, var(--color-ruby-500) 20%, white);
+    --ruby-lighter: color-mix(in srgb, var(--color-ruby-500) 40%, white);
+    --ruby-light: color-mix(in srgb, var(--color-ruby-500) 70%, white);
+    --ruby: var(--color-ruby-500);
+    --ruby-dark: color-mix(in srgb, var(--color-ruby-500) 70%, black);
+    --ruby-darker: color-mix(in srgb, var(--color-ruby-500) 40%, black);
+    --ruby-darkest: color-mix(in srgb, var(--color-ruby-500) 20%, black);
+
+    /* amethyst */
+    --amethyst-lightest: color-mix(in srgb, var(--color-amethyst-500) 20%, white);
+    --amethyst-lighter: color-mix(in srgb, var(--color-amethyst-500) 40%, white);
+    --amethyst-light: color-mix(in srgb, var(--color-amethyst-500) 70%, white);
+    --amethyst: var(--color-amethyst-500);
+    --amethyst-dark: color-mix(in srgb, var(--color-amethyst-500) 70%, black);
+    --amethyst-darker: color-mix(in srgb, var(--color-amethyst-500) 40%, black);
+    --amethyst-darkest: color-mix(in srgb, var(--color-amethyst-500) 20%, black);
+
+    /* topaz */
+    --topaz-lightest: color-mix(in srgb, var(--color-topaz-500) 20%, white);
+    --topaz-lighter: color-mix(in srgb, var(--color-topaz-500) 40%, white);
+    --topaz-light: color-mix(in srgb, var(--color-topaz-500) 70%, white);
+    --topaz: var(--color-topaz-500);
+    --topaz-dark: color-mix(in srgb, var(--color-topaz-500) 70%, black);
+    --topaz-darker: color-mix(in srgb, var(--color-topaz-500) 40%, black);
+    --topaz-darkest: color-mix(in srgb, var(--color-topaz-500) 20%, black);
+
+    /* citrine */
+    --citrine-lightest: color-mix(in srgb, var(--color-citrine-500) 20%, white);
+    --citrine-lighter: color-mix(in srgb, var(--color-citrine-500) 40%, white);
+    --citrine-light: color-mix(in srgb, var(--color-citrine-500) 70%, white);
+    --citrine: var(--color-citrine-500);
+    --citrine-dark: color-mix(in srgb, var(--color-citrine-500) 70%, black);
+    --citrine-darker: color-mix(in srgb, var(--color-citrine-500) 40%, black);
+    --citrine-darkest: color-mix(in srgb, var(--color-citrine-500) 20%, black);
+
+    /* peridot */
+    --peridot-lightest: color-mix(in srgb, var(--color-peridot-500) 20%, white);
+    --peridot-lighter: color-mix(in srgb, var(--color-peridot-500) 40%, white);
+    --peridot-light: color-mix(in srgb, var(--color-peridot-500) 70%, white);
+    --peridot: var(--color-peridot-500);
+    --peridot-dark: color-mix(in srgb, var(--color-peridot-500) 70%, black);
+    --peridot-darker: color-mix(in srgb, var(--color-peridot-500) 40%, black);
+    --peridot-darkest: color-mix(in srgb, var(--color-peridot-500) 20%, black);
+
+    /* opal */
+    --opal-lightest: color-mix(in srgb, var(--color-opal-500) 20%, white);
+    --opal-lighter: color-mix(in srgb, var(--color-opal-500) 40%, white);
+    --opal-light: color-mix(in srgb, var(--color-opal-500) 70%, white);
+    --opal: var(--color-opal-500);
+    --opal-dark: color-mix(in srgb, var(--color-opal-500) 70%, black);
+    --opal-darker: color-mix(in srgb, var(--color-opal-500) 40%, black);
+    --opal-darkest: color-mix(in srgb, var(--color-opal-500) 20%, black);
+
+    /* garnet */
+    --garnet-lightest: color-mix(in srgb, var(--color-garnet-500) 20%, white);
+    --garnet-lighter: color-mix(in srgb, var(--color-garnet-500) 40%, white);
+    --garnet-light: color-mix(in srgb, var(--color-garnet-500) 70%, white);
+    --garnet: var(--color-garnet-500);
+    --garnet-dark: color-mix(in srgb, var(--color-garnet-500) 70%, black);
+    --garnet-darker: color-mix(in srgb, var(--color-garnet-500) 40%, black);
+    --garnet-darkest: color-mix(in srgb, var(--color-garnet-500) 20%, black);
+
+    /* onyx */
+    --onyx-lightest: color-mix(in srgb, var(--color-onyx-500) 20%, white);
+    --onyx-lighter: color-mix(in srgb, var(--color-onyx-500) 40%, white);
+    --onyx-light: color-mix(in srgb, var(--color-onyx-500) 70%, white);
+    --onyx: var(--color-onyx-500);
+    --onyx-dark: color-mix(in srgb, var(--color-onyx-500) 70%, black);
+    --onyx-darker: color-mix(in srgb, var(--color-onyx-500) 40%, black);
+    --onyx-darkest: color-mix(in srgb, var(--color-onyx-500) 20%, black);
+
+    /* malachite */
+    --malachite-lightest: color-mix(in srgb, var(--color-malachite-500) 20%, white);
+    --malachite-lighter: color-mix(in srgb, var(--color-malachite-500) 40%, white);
+    --malachite-light: color-mix(in srgb, var(--color-malachite-500) 70%, white);
+    --malachite: var(--color-malachite-500);
+    --malachite-dark: color-mix(in srgb, var(--color-malachite-500) 70%, black);
+    --malachite-darker: color-mix(in srgb, var(--color-malachite-500) 40%, black);
+    --malachite-darkest: color-mix(in srgb, var(--color-malachite-500) 20%, black);
+
+    /* lapis */
+    --lapis-lightest: color-mix(in srgb, var(--color-lapis-500) 20%, white);
+    --lapis-lighter: color-mix(in srgb, var(--color-lapis-500) 40%, white);
+    --lapis-light: color-mix(in srgb, var(--color-lapis-500) 70%, white);
+    --lapis: var(--color-lapis-500);
+    --lapis-dark: color-mix(in srgb, var(--color-lapis-500) 70%, black);
+    --lapis-darker: color-mix(in srgb, var(--color-lapis-500) 40%, black);
+    --lapis-darkest: color-mix(in srgb, var(--color-lapis-500) 20%, black);
+
+    /* turquoise */
+    --turquoise-lightest: color-mix(in srgb, var(--color-turquoise-500) 20%, white);
+    --turquoise-lighter: color-mix(in srgb, var(--color-turquoise-500) 40%, white);
+    --turquoise-light: color-mix(in srgb, var(--color-turquoise-500) 70%, white);
+    --turquoise: var(--color-turquoise-500);
+    --turquoise-dark: color-mix(in srgb, var(--color-turquoise-500) 70%, black);
+    --turquoise-darker: color-mix(in srgb, var(--color-turquoise-500) 40%, black);
+    --turquoise-darkest: color-mix(in srgb, var(--color-turquoise-500) 20%, black);
+
+    /* coral */
+    --coral-lightest: color-mix(in srgb, var(--color-coral-500) 20%, white);
+    --coral-lighter: color-mix(in srgb, var(--color-coral-500) 40%, white);
+    --coral-light: color-mix(in srgb, var(--color-coral-500) 70%, white);
+    --coral: var(--color-coral-500);
+    --coral-dark: color-mix(in srgb, var(--color-coral-500) 70%, black);
+    --coral-darker: color-mix(in srgb, var(--color-coral-500) 40%, black);
+    --coral-darkest: color-mix(in srgb, var(--color-coral-500) 20%, black);
+
+    /* mother-of-pearl */
+    --mother-of-pearl-lightest: color-mix(in srgb, var(--color-mother-of-pearl-500) 20%, white);
+    --mother-of-pearl-lighter: color-mix(in srgb, var(--color-mother-of-pearl-500) 40%, white);
+    --mother-of-pearl-light: color-mix(in srgb, var(--color-mother-of-pearl-500) 70%, white);
+    --mother-of-pearl: var(--color-mother-of-pearl-500);
+    --mother-of-pearl-dark: color-mix(in srgb, var(--color-mother-of-pearl-500) 70%, black);
+    --mother-of-pearl-darker: color-mix(in srgb, var(--color-mother-of-pearl-500) 40%, black);
+    --mother-of-pearl-darkest: color-mix(in srgb, var(--color-mother-of-pearl-500) 20%, black);
+
+    /* obsidian */
+    --obsidian-lightest: color-mix(in srgb, var(--color-obsidian-500) 20%, white);
+    --obsidian-lighter: color-mix(in srgb, var(--color-obsidian-500) 40%, white);
+    --obsidian-light: color-mix(in srgb, var(--color-obsidian-500) 70%, white);
+    --obsidian: var(--color-obsidian-500);
+    --obsidian-dark: color-mix(in srgb, var(--color-obsidian-500) 70%, black);
+    --obsidian-darker: color-mix(in srgb, var(--color-obsidian-500) 40%, black);
+    --obsidian-darkest: color-mix(in srgb, var(--color-obsidian-500) 20%, black);
+
+    /* jadeite */
+    --jadeite-lightest: color-mix(in srgb, var(--color-jadeite-500) 20%, white);
+    --jadeite-lighter: color-mix(in srgb, var(--color-jadeite-500) 40%, white);
+    --jadeite-light: color-mix(in srgb, var(--color-jadeite-500) 70%, white);
+    --jadeite: var(--color-jadeite-500);
+    --jadeite-dark: color-mix(in srgb, var(--color-jadeite-500) 70%, black);
+    --jadeite-darker: color-mix(in srgb, var(--color-jadeite-500) 40%, black);
+    --jadeite-darkest: color-mix(in srgb, var(--color-jadeite-500) 20%, black);
+
+    /* emerald */
+    --emerald-lightest: color-mix(in srgb, var(--color-emerald-500) 20%, white);
+    --emerald-lighter: color-mix(in srgb, var(--color-emerald-500) 40%, white);
+    --emerald-light: color-mix(in srgb, var(--color-emerald-500) 70%, white);
+    --emerald: var(--color-emerald-500);
+    --emerald-dark: color-mix(in srgb, var(--color-emerald-500) 70%, black);
+    --emerald-darker: color-mix(in srgb, var(--color-emerald-500) 40%, black);
+    --emerald-darkest: color-mix(in srgb, var(--color-emerald-500) 20%, black);
+
+    /* aquamarine */
+    --aquamarine-lightest: color-mix(in srgb, var(--color-aquamarine-500) 20%, white);
+    --aquamarine-lighter: color-mix(in srgb, var(--color-aquamarine-500) 40%, white);
+    --aquamarine-light: color-mix(in srgb, var(--color-aquamarine-500) 70%, white);
+    --aquamarine: var(--color-aquamarine-500);
+    --aquamarine-dark: color-mix(in srgb, var(--color-aquamarine-500) 70%, black);
+    --aquamarine-darker: color-mix(in srgb, var(--color-aquamarine-500) 40%, black);
+    --aquamarine-darkest: color-mix(in srgb, var(--color-aquamarine-500) 20%, black);
+
+    /* topaz */
+    --topaz-lightest: color-mix(in srgb, var(--color-topaz-500) 20%, white);
+    --topaz-lighter: color-mix(in srgb, var(--color-topaz-500) 40%, white);
+    --topaz-light: color-mix(in srgb, var(--color-topaz-500) 70%, white);
+    --topaz: var(--color-topaz-500);
+    --topaz-dark: color-mix(in srgb, var(--color-topaz-500) 70%, black);
+    --topaz-darker: color-mix(in srgb, var(--color-topaz-500) 40%, black);
+    --topaz-darkest: color-mix(in srgb, var(--color-topaz-500) 20%, black);
+
+    /* citrine */
+    --citrine-lightest: color-mix(in srgb, var(--color-citrine-500) 20%, white);
+    --citrine-lighter: color-mix(in srgb, var(--color-citrine-500) 40%, white);
+    --citrine-light: color-mix(in srgb, var(--color-citrine-500) 70%, white);
+    --citrine: var(--color-citrine-500);
+    --citrine-dark: color-mix(in srgb, var(--color-citrine-500) 70%, black);
+    --citrine-darker: color-mix(in srgb, var(--color-citrine-500) 40%, black);
+    --citrine-darkest: color-mix(in srgb, var(--color-citrine-500) 20%, black);
+
+    /* peridot */
+    --peridot-lightest: color-mix(in srgb, var(--color-peridot-500) 20%, white);
+    --peridot-lighter: color-mix(in srgb, var(--color-peridot-500) 40%, white);
+    --peridot-light: color-mix(in srgb, var(--color-peridot-500) 70%, white);
+    --peridot: var(--color-peridot-500);
+    --peridot-dark: color-mix(in srgb, var(--color-peridot-500) 70%, black);
+    --peridot-darker: color-mix(in srgb, var(--color-peridot-500) 40%, black);
+    --peridot-darkest: color-mix(in srgb, var(--color-peridot-500) 20%, black);
+
+    /* opal */
+    --opal-lightest: color-mix(in srgb, var(--color-opal-500) 20%, white);
+    --opal-lighter: color-mix(in srgb, var(--color-opal-500) 40%, white);
+    --opal-light: color-mix(in srgb, var(--color-opal-500) 70%, white);
+    --opal: var(--color-opal-500);
+    --opal-dark: color-mix(in srgb, var(--color-opal-500) 70%, black);
+    --opal-darker: color-mix(in srgb, var(--color-opal-500) 40%, black);
+    --opal-darkest: color-mix(in srgb, var(--color-opal-500) 20%, black);
+
+    /* moonstone */
+    --moonstone-lightest: color-mix(in srgb, var(--color-moonstone-500) 20%, white);
+    --moonstone-lighter: color-mix(in srgb, var(--color-moonstone-500) 40%, white);
+    --moonstone-light: color-mix(in srgb, var(--color-moonstone-500) 70%, white);
+    --moonstone: var(--color-moonstone-500);
+    --moonstone-dark: color-mix(in srgb, var(--color-moonstone-500) 70%, black);
+    --moonstone-darker: color-mix(in srgb, var(--color-moonstone-500) 40%, black);
+    --moonstone-darkest: color-mix(in srgb, var(--color-moonstone-500) 20%, black);
+
+    /* labradorite */
+    --labradorite-lightest: color-mix(in srgb, var(--color-labradorite-500) 20%, white);
+    --labradorite-lighter: color-mix(in srgb, var(--color-labradorite-500) 40%, white);
+    --labradorite-light: color-mix(in srgb, var(--color-labradorite-500) 70%, white);
+    --labradorite: var(--color-labradorite-500);
+    --labradorite-dark: color-mix(in srgb, var(--color-labradorite-500) 70%, black);
+    --labradorite-darker: color-mix(in srgb, var(--color-labradorite-500) 40%, black);
+    --labradorite-darkest: color-mix(in srgb, var(--color-labradorite-500) 20%, black);
+
+    /* fluorite */
+    --fluorite-lightest: color-mix(in srgb, var(--color-fluorite-500) 20%, white);
+    --fluorite-lighter: color-mix(in srgb, var(--color-fluorite-500) 40%, white);
+    --fluorite-light: color-mix(in srgb, var(--color-fluorite-500) 70%, white);
+    --fluorite: var(--color-fluorite-500);
+    --fluorite-dark: color-mix(in srgb, var(--color-fluorite-500) 70%, black);
+    --fluorite-darker: color-mix(in srgb, var(--color-fluorite-500) 40%, black);
+    --fluorite-darkest: color-mix(in srgb, var(--color-fluorite-500) 20%, black);
+
+    /* pastel-pink */
+    --pastel-pink-lightest: color-mix(in srgb, var(--color-pastel-pink-500) 20%, white);
+    --pastel-pink-lighter: color-mix(in srgb, var(--color-pastel-pink-500) 40%, white);
+    --pastel-pink-light: color-mix(in srgb, var(--color-pastel-pink-500) 70%, white);
+    --pastel-pink: var(--color-pastel-pink-500);
+    --pastel-pink-dark: color-mix(in srgb, var(--color-pastel-pink-500) 70%, black);
+    --pastel-pink-darker: color-mix(in srgb, var(--color-pastel-pink-500) 40%, black);
+    --pastel-pink-darkest: color-mix(in srgb, var(--color-pastel-pink-500) 20%, black);
+
+    /* pastel-blue */
+    --pastel-blue-lightest: color-mix(in srgb, var(--color-pastel-blue-500) 20%, white);
+    --pastel-blue-lighter: color-mix(in srgb, var(--color-pastel-blue-500) 40%, white);
+    --pastel-blue-light: color-mix(in srgb, var(--color-pastel-blue-500) 70%, white);
+    --pastel-blue: var(--color-pastel-blue-500);
+    --pastel-blue-dark: color-mix(in srgb, var(--color-pastel-blue-500) 70%, black);
+    --pastel-blue-darker: color-mix(in srgb, var(--color-pastel-blue-500) 40%, black);
+    --pastel-blue-darkest: color-mix(in srgb, var(--color-pastel-blue-500) 20%, black);
+
+    /* pastel-green */
+    --pastel-green-lightest: color-mix(in srgb, var(--color-pastel-green-500) 20%, white);
+    --pastel-green-lighter: color-mix(in srgb, var(--color-pastel-green-500) 40%, white);
+    --pastel-green-light: color-mix(in srgb, var(--color-pastel-green-500) 70%, white);
+    --pastel-green: var(--color-pastel-green-500);
+    --pastel-green-dark: color-mix(in srgb, var(--color-pastel-green-500) 70%, black);
+    --pastel-green-darker: color-mix(in srgb, var(--color-pastel-green-500) 40%, black);
+    --pastel-green-darkest: color-mix(in srgb, var(--color-pastel-green-500) 20%, black);
+
+    /* pastel-yellow */
+    --pastel-yellow-lightest: color-mix(in srgb, var(--color-pastel-yellow-500) 20%, white);
+    --pastel-yellow-lighter: color-mix(in srgb, var(--color-pastel-yellow-500) 40%, white);
+    --pastel-yellow-light: color-mix(in srgb, var(--color-pastel-yellow-500) 70%, white);
+    --pastel-yellow: var(--color-pastel-yellow-500);
+    --pastel-yellow-dark: color-mix(in srgb, var(--color-pastel-yellow-500) 70%, black);
+    --pastel-yellow-darker: color-mix(in srgb, var(--color-pastel-yellow-500) 40%, black);
+    --pastel-yellow-darkest: color-mix(in srgb, var(--color-pastel-yellow-500) 20%, black);
+
+    /* pastel-purple */
+    --pastel-purple-lightest: color-mix(in srgb, var(--color-pastel-purple-500) 20%, white);
+    --pastel-purple-lighter: color-mix(in srgb, var(--color-pastel-purple-500) 40%, white);
+    --pastel-purple-light: color-mix(in srgb, var(--color-pastel-purple-500) 70%, white);
+    --pastel-purple: var(--color-pastel-purple-500);
+    --pastel-purple-dark: color-mix(in srgb, var(--color-pastel-purple-500) 70%, black);
+    --pastel-purple-darker: color-mix(in srgb, var(--color-pastel-purple-500) 40%, black);
+    --pastel-purple-darkest: color-mix(in srgb, var(--color-pastel-purple-500) 20%, black);
+
+    /* neon-pink */
+    --neon-pink-lightest: color-mix(in srgb, var(--color-neon-pink-500) 20%, white);
+    --neon-pink-lighter: color-mix(in srgb, var(--color-neon-pink-500) 40%, white);
+    --neon-pink-light: color-mix(in srgb, var(--color-neon-pink-500) 70%, white);
+    --neon-pink: var(--color-neon-pink-500);
+    --neon-pink-dark: color-mix(in srgb, var(--color-neon-pink-500) 70%, black);
+    --neon-pink-darker: color-mix(in srgb, var(--color-neon-pink-500) 40%, black);
+    --neon-pink-darkest: color-mix(in srgb, var(--color-neon-pink-500) 20%, black);
+
+    /* neon-blue */
+    --neon-blue-lightest: color-mix(in srgb, var(--color-neon-blue-500) 20%, white);
+    --neon-blue-lighter: color-mix(in srgb, var(--color-neon-blue-500) 40%, white);
+    --neon-blue-light: color-mix(in srgb, var(--color-neon-blue-500) 70%, white);
+    --neon-blue: var(--color-neon-blue-500);
+    --neon-blue-dark: color-mix(in srgb, var(--color-neon-blue-500) 70%, black);
+    --neon-blue-darker: color-mix(in srgb, var(--color-neon-blue-500) 40%, black);
+    --neon-blue-darkest: color-mix(in srgb, var(--color-neon-blue-500) 20%, black);
+
+    /* neon-green */
+    --neon-green-lightest: color-mix(in srgb, var(--color-neon-green-500) 20%, white);
+    --neon-green-lighter: color-mix(in srgb, var(--color-neon-green-500) 40%, white);
+    --neon-green-light: color-mix(in srgb, var(--color-neon-green-500) 70%, white);
+    --neon-green: var(--color-neon-green-500);
+    --neon-green-dark: color-mix(in srgb, var(--color-neon-green-500) 70%, black);
+    --neon-green-darker: color-mix(in srgb, var(--color-neon-green-500) 40%, black);
+    --neon-green-darkest: color-mix(in srgb, var(--color-neon-green-500) 20%, black);
+
+    /* neon-yellow */
+    --neon-yellow-lightest: color-mix(in srgb, var(--color-neon-yellow-500) 20%, white);
+    --neon-yellow-lighter: color-mix(in srgb, var(--color-neon-yellow-500) 40%, white);
+    --neon-yellow-light: color-mix(in srgb, var(--color-neon-yellow-500) 70%, white);
+    --neon-yellow: var(--color-neon-yellow-500);
+    --neon-yellow-dark: color-mix(in srgb, var(--color-neon-yellow-500) 70%, black);
+    --neon-yellow-darker: color-mix(in srgb, var(--color-neon-yellow-500) 40%, black);
+    --neon-yellow-darkest: color-mix(in srgb, var(--color-neon-yellow-500) 20%, black);
+
+    /* neon-orange */
+    --neon-orange-lightest: color-mix(in srgb, var(--color-neon-orange-500) 20%, white);
+    --neon-orange-lighter: color-mix(in srgb, var(--color-neon-orange-500) 40%, white);
+    --neon-orange-light: color-mix(in srgb, var(--color-neon-orange-500) 70%, white);
+    --neon-orange: var(--color-neon-orange-500);
+    --neon-orange-dark: color-mix(in srgb, var(--color-neon-orange-500) 70%, black);
+    --neon-orange-darker: color-mix(in srgb, var(--color-neon-orange-500) 40%, black);
+    --neon-orange-darkest: color-mix(in srgb, var(--color-neon-orange-500) 20%, black);
+
+    /* neon-purple */
+    --neon-purple-lightest: color-mix(in srgb, var(--color-neon-purple-500) 20%, white);
+    --neon-purple-lighter: color-mix(in srgb, var(--color-neon-purple-500) 40%, white);
+    --neon-purple-light: color-mix(in srgb, var(--color-neon-purple-500) 70%, white);
+    --neon-purple: var(--color-neon-purple-500);
+    --neon-purple-dark: color-mix(in srgb, var(--color-neon-purple-500) 70%, black);
+    --neon-purple-darker: color-mix(in srgb, var(--color-neon-purple-500) 40%, black);
+    --neon-purple-darkest: color-mix(in srgb, var(--color-neon-purple-500) 20%, black);
+
+  }
 }

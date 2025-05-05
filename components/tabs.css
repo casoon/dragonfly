@@ -35,7 +35,7 @@
  * <div class="tabs lg">...</div>  <!-- Groß -->
  */
 
-
+@layer tabs {
   .tabs {
     display: flex;
     flex-direction: column;
@@ -192,4 +192,5 @@
       }
     }
   }
+}
 

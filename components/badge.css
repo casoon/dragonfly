@@ -35,7 +35,7 @@
  * <span class="badge ribbon">Ribbon-Style</span>
  */
 
-
+@layer badge {
   .badge {
     display: inline-block;
     padding: 0.25rem 0.5rem;
@@ -198,5 +198,4 @@
       }
     }
   }
-
- 
+}
