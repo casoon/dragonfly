@@ -15,8 +15,10 @@
 @import url("base/logical-properties.css");
 @import url("base/colors.css");
 @import url("base/color-mix.css");
+
 /* Theme Basis */
 @import url("base/theme.css");
+
 /* Utilities und Accessibility */
 @import url("base/utilities.css");
 @import url("base/smooth-scroll.css");
