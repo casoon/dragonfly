@@ -211,6 +211,18 @@
         --color-gray-700: oklch(65% 0.02 250deg);
         --color-gray-800: oklch(60% 0.02 250deg);
         --color-gray-900: oklch(55% 0.02 250deg);
+        
+        /* System-Grautöne (mit Hue-Berechnung) */
+        --color-gray-hue: 262;
+        --color-system-gray-100: oklch(98.7% 0.003 var(--color-gray-hue));
+        --color-system-gray-200: oklch(97.4% 0.004 var(--color-gray-hue));
+        --color-system-gray-300: oklch(94.2% 0.006 var(--color-gray-hue));
+        --color-system-gray-400: oklch(89% 0.01 var(--color-gray-hue));
+        --color-system-gray-500: oklch(81% 0.014 var(--color-gray-hue));
+        --color-system-gray-600: oklch(68% 0.018 var(--color-gray-hue));
+        --color-system-gray-700: oklch(54% 0.02 var(--color-gray-hue));
+        --color-system-gray-800: oklch(36% 0.015 var(--color-gray-hue));
+        --color-system-gray-900: oklch(22% 0.01 var(--color-gray-hue));
 
         /* Warme Grautöne */
         --color-warm-gray-50: oklch(98% 0.02 30deg);
