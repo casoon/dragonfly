@@ -44,7 +44,7 @@
  */
 
 
-@layer neon {
+@layer effects-neon {
     /* Neon Text */
     .neon-text {
         color: var(--theme-primary-500);

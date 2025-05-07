@@ -18,29 +18,29 @@
  * <body class="theme-high-contrast"> - Aktiviert das High-Contrast Theme für bessere Zugänglichkeit
  */
 
-@layer themes {
-    /* Basis-Theme - Wird immer geladen */
-    @import url('themes/theme-base.css') layer(theme-base);
+
+/* Basis-Theme - Wird immer geladen */
+@import url('themes/theme-base.css') layer(theme-base);
 
 
-    /* Dark Mode - Automatisch über Medienfunktion oder mit .dark-theme Klasse */
-    @import url('themes/dark-mode.css') layer(dark-mode);
+/* Dark Mode - Automatisch über Medienfunktion oder mit .dark-theme Klasse */
+@import url('themes/dark-mode.css') layer(dark-mode);
 
-    /* Marken-Theme mit Unternehmensfarben */
-    @import url('themes/brand.css') layer(brand);
+/* Marken-Theme mit Unternehmensfarben */
+@import url('themes/brand.css') layer(brand);
 
-    /* Standard Theme-Variationen - Aktiviert durch entsprechende Klassen */
-    @import url('themes/day.css') layer(day)    ;         /* .theme-day */
-    @import url('themes/night.css') layer(night);       /* .theme-night */
-    @import url('themes/spring.css') layer(spring);      /* .theme-spring */
-    @import url('themes/summer.css') layer(summer);      /* .theme-summer */
-    @import url('themes/autumn.css') layer(autumn);      /* .theme-autumn */
-    @import url('themes/winter.css') layer(winter);      /* .theme-winter */
-    @import url('themes/forest.css') layer(forest);      /* .theme-forest */
-    @import url('themes/ocean.css') layer(ocean);       /* .theme-ocean */
-    @import url('themes/pastel.css') layer(pastel);      /* .theme-pastel */
-    @import url('themes/neon.css') layer(neon);        /* .theme-neon */
-    @import url('themes/retro.css') layer(retro);       /* .theme-retro */
-    @import url('themes/monochrome.css') layer(monochrome);  /* .theme-monochrome */
-    @import url('themes/sunset.css') layer(sunset);      /* .theme-sunset */
-}
+/* Standard Theme-Variationen - Aktiviert durch entsprechende Klassen */
+@import url('themes/day.css') layer(day)    ;         /* .theme-day */
+@import url('themes/night.css') layer(night);       /* .theme-night */
+@import url('themes/spring.css') layer(spring);      /* .theme-spring */
+@import url('themes/summer.css') layer(summer);      /* .theme-summer */
+@import url('themes/autumn.css') layer(autumn);      /* .theme-autumn */
+@import url('themes/winter.css') layer(winter);      /* .theme-winter */
+@import url('themes/forest.css') layer(forest);      /* .theme-forest */
+@import url('themes/ocean.css') layer(ocean);       /* .theme-ocean */
+@import url('themes/pastel.css') layer(pastel);      /* .theme-pastel */
+@import url('themes/neon.css') layer(neon);        /* .theme-neon */
+@import url('themes/retro.css') layer(retro);       /* .theme-retro */
+@import url('themes/monochrome.css') layer(monochrome);  /* .theme-monochrome */
+@import url('themes/sunset.css') layer(sunset);      /* .theme-sunset */
+

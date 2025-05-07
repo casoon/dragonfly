@@ -53,7 +53,7 @@
  * - Reduzierte Bewegung wird automatisch berücksichtigt
  */
 
-@layer interactions {
+@layer effects-interactions {
     /* Drag & Drop */
     .draggable {
         cursor: grab;

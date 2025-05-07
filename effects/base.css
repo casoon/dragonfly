@@ -1,5 +1,5 @@
 
-@layer base {
+@layer effectsbase {
     /* Base Effects */
     .shadow-sm {
         box-shadow: var(--shadow-sm);

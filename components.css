@@ -5,110 +5,109 @@
  * Jedes Modul wird in einem eigenen Layer definiert, um Konflikte zu vermeiden.
  */
 
-@layer components {
-    /* Alert Modul */
-    @import url('components/alert.css');
 
-    /* Avatar Modul */
-    @import url('components/avatar.css');
+/* Alert Modul */
+@import url('components/alert.css');
 
-    /* Badge Modul */
-    @import url('components/badge.css');
+/* Avatar Modul */
+@import url('components/avatar.css');
 
-    /* Blog Modul */
-    @import url('components/blog.css');
+/* Badge Modul */
+@import url('components/badge.css');
 
-    /* Button Modul */
-    @import url('components/button.css');
+/* Blog Modul */
+@import url('components/blog.css');
 
-    /* Card Modul */
-    @import url('components/card.css');
+/* Button Modul */
+@import url('components/button.css');
 
-    /* Checkbox Modul */
-    @import url('components/checkbox.css');
+/* Card Modul */
+@import url('components/card.css');
 
-    /* Chip Modul */
-    @import url('components/chip.css');
+/* Checkbox Modul */
+@import url('components/checkbox.css');
 
-    /* Code Modul */
-    @import url('components/code.css');
+/* Chip Modul */
+@import url('components/chip.css');
 
-    /* Content Modul */
-    @import url('components/content.css');
+/* Code Modul */
+@import url('components/code.css');
 
-    /* File Modul */
-    @import url('components/file.css');
+/* Content Modul */
+@import url('components/content.css');
 
-    /* Footer Modul */
-    @import url('components/footer.css');
+/* File Modul */
+@import url('components/file.css');
 
-    /* Form Modul */
-    @import url('components/form.css');
+/* Footer Modul */
+@import url('components/footer.css');
 
-    /* Hamburger Modul */
-    @import url('components/hamburger.css');
+/* Form Modul */
+@import url('components/form.css');
 
-    /* Header Modul */
-    @import url('components/header.css');
+/* Hamburger Modul */
+@import url('components/hamburger.css');
 
-    /* Input Modul */
-    @import url('components/input.css');
+/* Header Modul */
+@import url('components/header.css');
 
-    /* Input Group Modul */
-    @import url('components/input-group.css');
+/* Input Modul */
+@import url('components/input.css');
 
-    /* Modal Modul */
-    @import url('components/modal.css');
+/* Input Group Modul */
+@import url('components/input-group.css');
 
-    /* Notification Modul */
-    @import url('components/notification.css');
+/* Modal Modul */
+@import url('components/modal.css');
 
-    /* Progress Modul */
-    @import url('components/progress.css');
+/* Notification Modul */
+@import url('components/notification.css');
 
-    /* Radio Modul */
-    @import url('components/radio.css');
+/* Progress Modul */
+@import url('components/progress.css');
 
-    /* Select Modul */
-    @import url('components/select.css');
+/* Radio Modul */
+@import url('components/radio.css');
 
-    /* Sidebar Modul */
-    @import url('components/sidebar.css');
+/* Select Modul */
+@import url('components/select.css');
 
-    /* Skeleton Modul */
-    @import url('components/skeleton.css');
+/* Sidebar Modul */
+@import url('components/sidebar.css');
 
-    /* Slider Modul */
-    @import url('components/slider.css');
+/* Skeleton Modul */
+@import url('components/skeleton.css');
 
-    /* Spinner Modul */
-    @import url('components/spinner.css');
+/* Slider Modul */
+@import url('components/slider.css');
 
-    /* Switch Modul */
-    @import url('components/switch.css');
+/* Spinner Modul */
+@import url('components/spinner.css');
 
-    /* Table Modul */
-    @import url('components/table.css');
+/* Switch Modul */
+@import url('components/switch.css');
 
-    /* Tabs Modul */
-    @import url('components/tabs.css');
+/* Table Modul */
+@import url('components/table.css');
 
-    /* Tags Modul */
-    @import url('components/tags.css');
+/* Tabs Modul */
+@import url('components/tabs.css');
 
-    /* Textarea Modul */
-    @import url('components/textarea.css');
+/* Tags Modul */
+@import url('components/tags.css');
 
-    /* Toast Modul */
-    @import url('components/toast.css');
+/* Textarea Modul */
+@import url('components/textarea.css');
 
-    /* Tooltip Modul */
-    @import url('components/tooltip.css');
+/* Toast Modul */
+@import url('components/toast.css');
 
-    /* Widget Modul */
-    @import url('components/widget.css');
+/* Tooltip Modul */
+@import url('components/tooltip.css');
 
-    /* Wizard Modul */
-    @import url('components/wizard.css');
+/* Widget Modul */
+@import url('components/widget.css');
 
-}
+/* Wizard Modul */
+@import url('components/wizard.css');
+

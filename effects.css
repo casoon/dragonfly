@@ -26,10 +26,10 @@
  * - Performance-Optimierungen sind implementiert
  */
 
-@layer effects {
-    @import url('effects/base.css');
-    @import url('effects/neon.css');
-    @import url('effects/filters.css');
-    @import url('effects/interactions.css');
-}
+
+@import url('effects/base.css');
+@import url('effects/neon.css');
+@import url('effects/filters.css');
+@import url('effects/interactions.css');
+
 

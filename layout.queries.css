@@ -19,74 +19,74 @@
 
 
 @layer layout-queries {
-/* ================= LAYOUT CONTAINER QUERIES ================= */
+    /* ================= LAYOUT CONTAINER QUERIES ================= */
 
-/* Responsive Klassen für Elemente innerhalb des layout-Containers */
-@container layout (min-width: 30rem) {
-.sm\:flex-row       { flex-direction: row; }
-.sm\:grid-cols-2    { grid-template-columns: repeat(2, 1fr); }
-.sm\:gap-4          { gap: var(--space-4); }
-.sm\:flex-basis-1-2 { flex-basis: 50%; }
-.sm\:flex-basis-1-3 { flex-basis: 33.3333%; }
-.sm\:flex-basis-2-3 { flex-basis: 66.6667%; }
-.sm\:flex-basis-1-4 { flex-basis: 25%; }
-.sm\:flex-basis-3-4 { flex-basis: 75%; }
-}
+    /* Responsive Klassen für Elemente innerhalb des layout-Containers */
+    @container layout (min-width: 30rem) {
+    .sm\:flex-row       { flex-direction: row; }
+    .sm\:grid-cols-2    { grid-template-columns: repeat(2, 1fr); }
+    .sm\:gap-4          { gap: var(--space-4); }
+    .sm\:flex-basis-1-2 { flex-basis: 50%; }
+    .sm\:flex-basis-1-3 { flex-basis: 33.3333%; }
+    .sm\:flex-basis-2-3 { flex-basis: 66.6667%; }
+    .sm\:flex-basis-1-4 { flex-basis: 25%; }
+    .sm\:flex-basis-3-4 { flex-basis: 75%; }
+    }
 
-@container layout (min-width: 48rem) {
-.md\:grid-cols-3    { grid-template-columns: repeat(3, 1fr); }
-.md\:gap-6          { gap: var(--space-6); }
-.md\:flex-nowrap    { flex-wrap: nowrap; }
-.md\:flex-basis-1-2 { flex-basis: 50%; }
-.md\:flex-basis-1-3 { flex-basis: 33.3333%; }
-.md\:flex-basis-2-3 { flex-basis: 66.6667%; }
-.md\:flex-basis-1-4 { flex-basis: 25%; }
-.md\:flex-basis-3-4 { flex-basis: 75%; }
-}
+    @container layout (min-width: 48rem) {
+    .md\:grid-cols-3    { grid-template-columns: repeat(3, 1fr); }
+    .md\:gap-6          { gap: var(--space-6); }
+    .md\:flex-nowrap    { flex-wrap: nowrap; }
+    .md\:flex-basis-1-2 { flex-basis: 50%; }
+    .md\:flex-basis-1-3 { flex-basis: 33.3333%; }
+    .md\:flex-basis-2-3 { flex-basis: 66.6667%; }
+    .md\:flex-basis-1-4 { flex-basis: 25%; }
+    .md\:flex-basis-3-4 { flex-basis: 75%; }
+    }
 
-@container layout (min-width: 62rem) {
-.lg\:grid-cols-4    { grid-template-columns: repeat(4, 1fr); }
-.lg\:gap-8          { gap: var(--space-8); }
-.lg\:flex-basis-1-2 { flex-basis: 50%; }
-.lg\:flex-basis-1-3 { flex-basis: 33.3333%; }
-.lg\:flex-basis-2-3 { flex-basis: 66.6667%; }
-.lg\:flex-basis-1-4 { flex-basis: 25%; }
-.lg\:flex-basis-3-4 { flex-basis: 75%; }
-}
+    @container layout (min-width: 62rem) {
+    .lg\:grid-cols-4    { grid-template-columns: repeat(4, 1fr); }
+    .lg\:gap-8          { gap: var(--space-8); }
+    .lg\:flex-basis-1-2 { flex-basis: 50%; }
+    .lg\:flex-basis-1-3 { flex-basis: 33.3333%; }
+    .lg\:flex-basis-2-3 { flex-basis: 66.6667%; }
+    .lg\:flex-basis-1-4 { flex-basis: 25%; }
+    .lg\:flex-basis-3-4 { flex-basis: 75%; }
+    }
 
-/* ================= COMPONENT CONTAINER QUERIES ================= */
+    /* ================= COMPONENT CONTAINER QUERIES ================= */
 
-/* Responsive Klassen für Elemente innerhalb von component-Containern */
-@container component (min-width: 30rem) {
-.c-sm\:flex-row       { flex-direction: row; }
-.c-sm\:grid-cols-2    { grid-template-columns: repeat(2, 1fr); }
-.c-sm\:gap-4          { gap: var(--space-4); }
-.c-sm\:flex-basis-1-2 { flex-basis: 50%; }
-.c-sm\:flex-basis-1-3 { flex-basis: 33.3333%; }
-.c-sm\:flex-basis-2-3 { flex-basis: 66.6667%; }
-.c-sm\:flex-basis-1-4 { flex-basis: 25%; }
-.c-sm\:flex-basis-3-4 { flex-basis: 75%; }
-}
+    /* Responsive Klassen für Elemente innerhalb von component-Containern */
+    @container component (min-width: 30rem) {
+    .c-sm\:flex-row       { flex-direction: row; }
+    .c-sm\:grid-cols-2    { grid-template-columns: repeat(2, 1fr); }
+    .c-sm\:gap-4          { gap: var(--space-4); }
+    .c-sm\:flex-basis-1-2 { flex-basis: 50%; }
+    .c-sm\:flex-basis-1-3 { flex-basis: 33.3333%; }
+    .c-sm\:flex-basis-2-3 { flex-basis: 66.6667%; }
+    .c-sm\:flex-basis-1-4 { flex-basis: 25%; }
+    .c-sm\:flex-basis-3-4 { flex-basis: 75%; }
+    }
 
-@container component (min-width: 48rem) {
-.c-md\:grid-cols-3    { grid-template-columns: repeat(3, 1fr); }
-.c-md\:gap-6          { gap: var(--space-6); }
-.c-md\:flex-nowrap    { flex-wrap: nowrap; }
-.c-md\:flex-basis-1-2 { flex-basis: 50%; }
-.c-md\:flex-basis-1-3 { flex-basis: 33.3333%; }
-.c-md\:flex-basis-2-3 { flex-basis: 66.6667%; }
-.c-md\:flex-basis-1-4 { flex-basis: 25%; }
-.c-md\:flex-basis-3-4 { flex-basis: 75%; }
-}
+    @container component (min-width: 48rem) {
+    .c-md\:grid-cols-3    { grid-template-columns: repeat(3, 1fr); }
+    .c-md\:gap-6          { gap: var(--space-6); }
+    .c-md\:flex-nowrap    { flex-wrap: nowrap; }
+    .c-md\:flex-basis-1-2 { flex-basis: 50%; }
+    .c-md\:flex-basis-1-3 { flex-basis: 33.3333%; }
+    .c-md\:flex-basis-2-3 { flex-basis: 66.6667%; }
+    .c-md\:flex-basis-1-4 { flex-basis: 25%; }
+    .c-md\:flex-basis-3-4 { flex-basis: 75%; }
+    }
 
-@container component (min-width: 62rem) {
-.c-lg\:grid-cols-4    { grid-template-columns: repeat(4, 1fr); }
-.c-lg\:gap-8          { gap: var(--space-8); }
-.c-lg\:flex-basis-1-2 { flex-basis: 50%; }
-.c-lg\:flex-basis-1-3 { flex-basis: 33.3333%; }
-.c-lg\:flex-basis-2-3 { flex-basis: 66.6667%; }
-.c-lg\:flex-basis-1-4 { flex-basis: 25%; }
-.c-lg\:flex-basis-3-4 { flex-basis: 75%; }
-}
+    @container component (min-width: 62rem) {
+    .c-lg\:grid-cols-4    { grid-template-columns: repeat(4, 1fr); }
+    .c-lg\:gap-8          { gap: var(--space-8); }
+    .c-lg\:flex-basis-1-2 { flex-basis: 50%; }
+    .c-lg\:flex-basis-1-3 { flex-basis: 33.3333%; }
+    .c-lg\:flex-basis-2-3 { flex-basis: 66.6667%; }
+    .c-lg\:flex-basis-1-4 { flex-basis: 25%; }
+    .c-lg\:flex-basis-3-4 { flex-basis: 75%; }
+    }
 
 }
