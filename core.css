@@ -32,12 +32,6 @@
 @import url("components.css");
 
 /* 
- * Theme-System
- * Farbpaletten, Erscheinungsbild und Anpassungen für verschiedene Modi
- */
-@import url("themes.css");
-
-/* 
  * Icon-System
  * SVG-Symbole und Icon-Fonts
  */
