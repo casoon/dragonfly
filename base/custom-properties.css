@@ -7,7 +7,7 @@
  * mit unterschiedlichen Einheiten, Interpolation von Farben und mehr.
  */
 
-@layer custom-properties {
+
   /* 
    * Farbübergänge animierbar machen 
    * Diese Eigenschaften werden für animierte Farbübergänge verwendet
@@ -16,31 +16,31 @@
   @property --color-primary {
     syntax: '<color>';
     inherits: false;
-    initial-value: #3b82f6;
+    initial-value: var(--color-blue-600);
   }
 
   @property --color-accent {
     syntax: '<color>';
     inherits: false;
-    initial-value: #8b5cf6;
+    initial-value: var(--color-purple-600);
   }
 
   @property --color-text {
     syntax: '<color>';
     inherits: true;
-    initial-value: #1f2937;
+    initial-value: var(--color-gray-900);
   }
 
   @property --color-background {
     syntax: '<color>';
     inherits: false;
-    initial-value: #f9fafb;
+    initial-value: var(--color-gray-50);
   }
   
   @property --color-surface {
     syntax: '<color>';
     inherits: false;
-    initial-value: #fff;
+    initial-value: var(--color-white);
   }
 
   /* 
@@ -228,4 +228,3 @@
     --gradient-stop-2: 70%;
   } 
 
-}
