@@ -1,36 +1,36 @@
-@layer theme {
-    :root {
-      /* =================== BASIS =================== */
-      --color-primary: var(--color-blue-600);
-      --color-secondary: var(--color-gray-600);
-      --color-accent: var(--color-orange-500);
-      --color-success: var(--color-green-600);
-      --color-warning: var(--color-yellow-500);
-      --color-error: var(--color-red-600);
-      --color-info: var(--color-blue-600);
-  
-      /* ================ TEXT & HINTERGRUND (Default) ================ */
-      --color-text: var(--color-gray-900);
-      --color-background: var(--color-gray-50);
-  
-      /* ================ ERGÄNZUNGSFARBEN ================ */
-      --color-grey-dark: var(--color-gray-900);
-      --color-grey-neutral: var(--color-gray-200);
-      --color-grey-soft: var(--color-gray-400);
-      --color-grey-deep: var(--color-gray-700);
-      --color-rose-beige: var(--color-rose-100);
-      --color-violet-muted: var(--color-purple-200);
-  
-      /* ================ PASTELLFARBEN ================ */
-      --color-pastel-pink: var(--color-pink-100);
-      --color-pastel-blue: var(--color-blue-100);
-      --color-pastel-mint: var(--color-green-100);
-      --color-pastel-lilac: var(--color-purple-100);
-      --color-pastel-peach: var(--color-orange-100);
-      --color-pastel-lavender: var(--color-purple-100);
-      --color-pastel-babyblue: var(--color-sky-100);
-      --color-pastel-coral: var(--color-red-100);
-      --color-pastel-yellow: var(--color-yellow-100);
-    }
-  }
+
+:root {
+    /* =================== BASIS =================== */
+    --color-primary: var(--color-blue-600);
+    --color-secondary: var(--color-gray-600);
+    --color-accent: var(--color-orange-500);
+    --color-success: var(--color-green-600);
+    --color-warning: var(--color-yellow-500);
+    --color-error: var(--color-red-600);
+    --color-info: var(--color-blue-600);
+
+    /* ================ TEXT & HINTERGRUND (Default) ================ */
+    --color-text: var(--color-gray-900);
+    --color-background: var(--color-gray-50);
+
+    /* ================ ERGÄNZUNGSFARBEN ================ */
+    --color-grey-dark: var(--color-gray-900);
+    --color-grey-neutral: var(--color-gray-200);
+    --color-grey-soft: var(--color-gray-400);
+    --color-grey-deep: var(--color-gray-700);
+    --color-rose-beige: var(--color-rose-100);
+    --color-violet-muted: var(--color-purple-200);
+
+    /* ================ PASTELLFARBEN ================ */
+    --color-pastel-pink: var(--color-pink-100);
+    --color-pastel-blue: var(--color-blue-100);
+    --color-pastel-mint: var(--color-green-100);
+    --color-pastel-lilac: var(--color-purple-100);
+    --color-pastel-peach: var(--color-orange-100);
+    --color-pastel-lavender: var(--color-purple-100);
+    --color-pastel-babyblue: var(--color-sky-100);
+    --color-pastel-coral: var(--color-red-100);
+    --color-pastel-yellow: var(--color-yellow-100);
+}
+
   
