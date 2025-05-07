@@ -1,0 +1,156 @@
+/**
+ * Typing-Effekte
+ * 
+ * Diese Datei enthält verschiedene Typing-Effekte für moderne UIs.
+ * Die Effekte sind performant optimiert und berücksichtigen reduzierte Bewegung.
+ */
+
+.typing {
+    position: relative;
+    display: inline-block;
+}
+
+.typing::after {
+    content: '|';
+    position: absolute;
+    right: -0.5em;
+    animation: typing-cursor 1s step-end infinite;
+}
+
+.typing-sm::after {
+    font-size: 0.875em;
+}
+
+.typing-lg::after {
+    font-size: 1.25em;
+}
+
+.typing-slow::after {
+    animation-duration: 1.5s;
+}
+
+.typing-fast::after {
+    animation-duration: 0.5s;
+}
+
+.typing-text {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typing-text 3s steps(40, end);
+}
+
+.typing-text-sm {
+    font-size: 0.875em;
+    animation-duration: 2s;
+}
+
+.typing-text-lg {
+    font-size: 1.25em;
+    animation-duration: 4s;
+}
+
+.typing-text-slow {
+    animation-duration: 4s;
+}
+
+.typing-text-fast {
+    animation-duration: 2s;
+}
+
+.typing-blink {
+    position: relative;
+    display: inline-block;
+}
+
+.typing-blink::after {
+    content: '|';
+    position: absolute;
+    right: -0.5em;
+    animation: typing-blink 1s step-end infinite;
+}
+
+.typing-blink-sm::after {
+    font-size: 0.875em;
+}
+
+.typing-blink-lg::after {
+    font-size: 1.25em;
+}
+
+.typing-blink-slow::after {
+    animation-duration: 1.5s;
+}
+
+.typing-blink-fast::after {
+    animation-duration: 0.5s;
+}
+
+.typing-color-primary::after {
+    color: var(--typing-primary, #3b82f6);
+}
+
+.typing-color-secondary::after {
+    color: var(--typing-secondary, #6b7280);
+}
+
+.typing-color-success::after {
+    color: var(--typing-success, #10b981);
+}
+
+.typing-color-error::after {
+    color: var(--typing-error, #ef4444);
+}
+
+.typing-color-warning::after {
+    color: var(--typing-warning, #f59e0b);
+}
+
+.typing-color-info::after {
+    color: var(--typing-info, #06b6d4);
+}
+
+@keyframes typing-cursor {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+@keyframes typing-text {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes typing-blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Reduzierte Bewegung */
+@media (prefers-reduced-motion: reduce) {
+    .typing::after,
+    .typing-text,
+    .typing-blink::after {
+        animation: none;
+    }
+    
+    .typing::after,
+    .typing-blink::after {
+        opacity: 1;
+    }
+    
+    .typing-text {
+        width: 100%;
+    }
+} 

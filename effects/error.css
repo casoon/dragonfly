@@ -1,0 +1,135 @@
+/**
+ * Error-Effekte
+ * 
+ * Diese Datei enthält verschiedene Error-Effekte für moderne UIs.
+ * Die Effekte sind performant optimiert und berücksichtigen reduzierte Bewegung.
+ */
+
+.error-shake {
+    animation: error-shake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+.error-shake-sm {
+    animation: error-shake-sm 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+.error-shake-lg {
+    animation: error-shake-lg 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+.error-border {
+    border: 2px solid var(--error-color, #ef4444);
+    animation: error-pulse 2s infinite;
+}
+
+.error-border-sm {
+    border-width: 1px;
+}
+
+.error-border-lg {
+    border-width: 3px;
+}
+
+.error-bg {
+    background-color: var(--error-bg, rgba(239, 68, 68, 0.1));
+    animation: error-pulse 2s infinite;
+}
+
+.error-bg-sm {
+    background-color: var(--error-bg-sm, rgba(239, 68, 68, 0.05));
+}
+
+.error-bg-lg {
+    background-color: var(--error-bg-lg, rgba(239, 68, 68, 0.2));
+}
+
+.error-text {
+    color: var(--error-text, #ef4444);
+}
+
+.error-text-sm {
+    color: var(--error-text-sm, #f87171);
+}
+
+.error-text-lg {
+    color: var(--error-text-lg, #dc2626);
+}
+
+.error-glow {
+    box-shadow: 0 0 10px var(--error-glow, rgba(239, 68, 68, 0.5));
+    animation: error-pulse 2s infinite;
+}
+
+.error-glow-sm {
+    box-shadow: 0 0 5px var(--error-glow-sm, rgba(239, 68, 68, 0.3));
+}
+
+.error-glow-lg {
+    box-shadow: 0 0 15px var(--error-glow-lg, rgba(239, 68, 68, 0.7));
+}
+
+@keyframes error-shake {
+    10%, 90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+    20%, 80% {
+        transform: translate3d(2px, 0, 0);
+    }
+    30%, 50%, 70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+    40%, 60% {
+        transform: translate3d(4px, 0, 0);
+    }
+}
+
+@keyframes error-shake-sm {
+    10%, 90% {
+        transform: translate3d(-0.5px, 0, 0);
+    }
+    20%, 80% {
+        transform: translate3d(1px, 0, 0);
+    }
+    30%, 50%, 70% {
+        transform: translate3d(-2px, 0, 0);
+    }
+    40%, 60% {
+        transform: translate3d(2px, 0, 0);
+    }
+}
+
+@keyframes error-shake-lg {
+    10%, 90% {
+        transform: translate3d(-2px, 0, 0);
+    }
+    20%, 80% {
+        transform: translate3d(4px, 0, 0);
+    }
+    30%, 50%, 70% {
+        transform: translate3d(-8px, 0, 0);
+    }
+    40%, 60% {
+        transform: translate3d(8px, 0, 0);
+    }
+}
+
+@keyframes error-pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+/* Reduzierte Bewegung */
+@media (prefers-reduced-motion: reduce) {
+    .error-shake,
+    .error-shake-sm,
+    .error-shake-lg,
+    .error-border,
+    .error-bg,
+    .error-glow {
+        animation: none;
+    }
+} 

@@ -1,0 +1,68 @@
+/**
+ * Outline-Effekte
+ * 
+ * Diese Datei enthält verschiedene Outline-Effekte für moderne UIs.
+ * Die Effekte sind performant optimiert und berücksichtigen reduzierte Bewegung.
+ */
+
+.outline-none {
+    outline: none;
+}
+
+.outline {
+    outline: 2px solid var(--outline-color, currentColor);
+    outline-offset: 2px;
+}
+
+.outline-dashed {
+    outline: 2px dashed var(--outline-color, currentColor);
+    outline-offset: 2px;
+}
+
+.outline-dotted {
+    outline: 2px dotted var(--outline-color, currentColor);
+    outline-offset: 2px;
+}
+
+.outline-double {
+    outline: 4px double var(--outline-color, currentColor);
+    outline-offset: 2px;
+}
+
+.outline-thin {
+    outline: 1px solid var(--outline-color, currentColor);
+    outline-offset: 1px;
+}
+
+.outline-thick {
+    outline: 4px solid var(--outline-color, currentColor);
+    outline-offset: 4px;
+}
+
+.outline-offset-none {
+    outline-offset: 0;
+}
+
+.outline-offset-sm {
+    outline-offset: 2px;
+}
+
+.outline-offset-md {
+    outline-offset: 4px;
+}
+
+.outline-offset-lg {
+    outline-offset: 8px;
+}
+
+.outline-focus:focus {
+    outline: 2px solid var(--outline-focus-color, var(--color-primary));
+    outline-offset: 2px;
+}
+
+/* Reduzierte Bewegung */
+@media (prefers-reduced-motion: reduce) {
+    .outline-focus:focus {
+        transition: none;
+    }
+} 

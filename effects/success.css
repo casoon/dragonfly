@@ -1,0 +1,157 @@
+/**
+ * Success-Effekte
+ * 
+ * Diese Datei enthält verschiedene Success-Effekte für moderne UIs.
+ * Die Effekte sind performant optimiert und berücksichtigen reduzierte Bewegung.
+ */
+
+.success-bounce {
+    animation: success-bounce 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+.success-bounce-sm {
+    animation: success-bounce-sm 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+.success-bounce-lg {
+    animation: success-bounce-lg 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+.success-border {
+    border: 2px solid var(--success-color, #10b981);
+    animation: success-pulse 2s infinite;
+}
+
+.success-border-sm {
+    border-width: 1px;
+}
+
+.success-border-lg {
+    border-width: 3px;
+}
+
+.success-bg {
+    background-color: var(--success-bg, rgba(16, 185, 129, 0.1));
+    animation: success-pulse 2s infinite;
+}
+
+.success-bg-sm {
+    background-color: var(--success-bg-sm, rgba(16, 185, 129, 0.05));
+}
+
+.success-bg-lg {
+    background-color: var(--success-bg-lg, rgba(16, 185, 129, 0.2));
+}
+
+.success-text {
+    color: var(--success-text, #10b981);
+}
+
+.success-text-sm {
+    color: var(--success-text-sm, #34d399);
+}
+
+.success-text-lg {
+    color: var(--success-text-lg, #059669);
+}
+
+.success-glow {
+    box-shadow: 0 0 10px var(--success-glow, rgba(16, 185, 129, 0.5));
+    animation: success-pulse 2s infinite;
+}
+
+.success-glow-sm {
+    box-shadow: 0 0 5px var(--success-glow-sm, rgba(16, 185, 129, 0.3));
+}
+
+.success-glow-lg {
+    box-shadow: 0 0 15px var(--success-glow-lg, rgba(16, 185, 129, 0.7));
+}
+
+.success-check {
+    position: relative;
+}
+
+.success-check::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--success-color, #10b981);
+    font-size: 1.5em;
+    animation: success-check 0.5s ease-in-out;
+}
+
+@keyframes success-bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes success-bounce-sm {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-5px);
+    }
+    60% {
+        transform: translateY(-2px);
+    }
+}
+
+@keyframes success-bounce-lg {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-20px);
+    }
+    60% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes success-pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+@keyframes success-check {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
+
+/* Reduzierte Bewegung */
+@media (prefers-reduced-motion: reduce) {
+    .success-bounce,
+    .success-bounce-sm,
+    .success-bounce-lg,
+    .success-border,
+    .success-bg,
+    .success-glow,
+    .success-check::after {
+        animation: none;
+    }
+} 

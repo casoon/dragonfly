@@ -93,19 +93,6 @@
       background-color: var(--color-info);
     }
     
-    /* Animation */
-    @keyframes toast-slide-in {
-      from {
-        transform: translateY(100%);
-        opacity: 0;
-      }
-
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
-    
     /* Positionen (als zusätzliche Klasse auf einem Container) */
     &-container {
       position: fixed;
@@ -135,5 +122,18 @@
         left: 0;
       }
     }
+  }
+}
+
+/* Animation */
+@keyframes toast-slide-in {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
 }

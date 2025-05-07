@@ -1,0 +1,231 @@
+/**
+ * Hover-Effekte
+ * 
+ * Diese Datei enthält verschiedene Hover-Effekte für moderne UIs.
+ * Die Effekte sind performant optimiert und berücksichtigen reduzierte Bewegung.
+ */
+
+.hover-scale {
+    transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+    transform: scale(1.05);
+}
+
+.hover-scale-sm {
+    transition: transform 0.3s ease;
+}
+
+.hover-scale-sm:hover {
+    transform: scale(1.02);
+}
+
+.hover-scale-lg {
+    transition: transform 0.3s ease;
+}
+
+.hover-scale-lg:hover {
+    transform: scale(1.1);
+}
+
+.hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.hover-lift-sm {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift-sm:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.hover-lift-lg {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift-lg:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.hover-tilt {
+    transition: transform 0.3s ease;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.hover-tilt:hover {
+    transform: rotateX(10deg) rotateY(10deg);
+}
+
+.hover-tilt-sm {
+    transition: transform 0.3s ease;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.hover-tilt-sm:hover {
+    transform: rotateX(5deg) rotateY(5deg);
+}
+
+.hover-tilt-lg {
+    transition: transform 0.3s ease;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.hover-tilt-lg:hover {
+    transform: rotateX(15deg) rotateY(15deg);
+}
+
+.hover-glow {
+    transition: box-shadow 0.3s ease;
+}
+
+.hover-glow:hover {
+    box-shadow: 0 0 20px var(--hover-glow-color, rgba(59, 130, 246, 0.5));
+}
+
+.hover-glow-sm {
+    transition: box-shadow 0.3s ease;
+}
+
+.hover-glow-sm:hover {
+    box-shadow: 0 0 10px var(--hover-glow-color, rgba(59, 130, 246, 0.5));
+}
+
+.hover-glow-lg {
+    transition: box-shadow 0.3s ease;
+}
+
+.hover-glow-lg:hover {
+    box-shadow: 0 0 30px var(--hover-glow-color, rgba(59, 130, 246, 0.5));
+}
+
+.hover-border {
+    position: relative;
+    transition: border-color 0.3s ease;
+}
+
+.hover-border::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--hover-border-color, #3b82f6);
+    transition: width 0.3s ease;
+}
+
+.hover-border:hover::after {
+    width: 100%;
+}
+
+.hover-border-sm::after {
+    height: 1px;
+}
+
+.hover-border-lg::after {
+    height: 3px;
+}
+
+.hover-bg {
+    transition: background-color 0.3s ease;
+}
+
+.hover-bg:hover {
+    background-color: var(--hover-bg-color, rgba(59, 130, 246, 0.1));
+}
+
+.hover-bg-sm:hover {
+    background-color: var(--hover-bg-color-sm, rgba(59, 130, 246, 0.05));
+}
+
+.hover-bg-lg:hover {
+    background-color: var(--hover-bg-color-lg, rgba(59, 130, 246, 0.2));
+}
+
+.hover-color-primary {
+    --hover-glow-color: var(--hover-primary, rgba(59, 130, 246, 0.5));
+    --hover-border-color: var(--hover-primary, #3b82f6);
+    --hover-bg-color: var(--hover-primary-bg, rgba(59, 130, 246, 0.1));
+}
+
+.hover-color-secondary {
+    --hover-glow-color: var(--hover-secondary, rgba(107, 114, 128, 0.5));
+    --hover-border-color: var(--hover-secondary, #6b7280);
+    --hover-bg-color: var(--hover-secondary-bg, rgba(107, 114, 128, 0.1));
+}
+
+.hover-color-success {
+    --hover-glow-color: var(--hover-success, rgba(16, 185, 129, 0.5));
+    --hover-border-color: var(--hover-success, #10b981);
+    --hover-bg-color: var(--hover-success-bg, rgba(16, 185, 129, 0.1));
+}
+
+.hover-color-error {
+    --hover-glow-color: var(--hover-error, rgba(239, 68, 68, 0.5));
+    --hover-border-color: var(--hover-error, #ef4444);
+    --hover-bg-color: var(--hover-error-bg, rgba(239, 68, 68, 0.1));
+}
+
+.hover-color-warning {
+    --hover-glow-color: var(--hover-warning, rgba(245, 158, 11, 0.5));
+    --hover-border-color: var(--hover-warning, #f59e0b);
+    --hover-bg-color: var(--hover-warning-bg, rgba(245, 158, 11, 0.1));
+}
+
+.hover-color-info {
+    --hover-glow-color: var(--hover-info, rgba(6, 182, 212, 0.5));
+    --hover-border-color: var(--hover-info, #06b6d4);
+    --hover-bg-color: var(--hover-info-bg, rgba(6, 182, 212, 0.1));
+}
+
+/* Reduzierte Bewegung */
+@media (prefers-reduced-motion: reduce) {
+    .hover-scale,
+    .hover-scale-sm,
+    .hover-scale-lg,
+    .hover-lift,
+    .hover-lift-sm,
+    .hover-lift-lg,
+    .hover-tilt,
+    .hover-tilt-sm,
+    .hover-tilt-lg,
+    .hover-glow,
+    .hover-glow-sm,
+    .hover-glow-lg,
+    .hover-border,
+    .hover-border-sm,
+    .hover-border-lg,
+    .hover-bg,
+    .hover-bg-sm,
+    .hover-bg-lg {
+        transition: none;
+    }
+    
+    .hover-scale:hover,
+    .hover-scale-sm:hover,
+    .hover-scale-lg:hover,
+    .hover-lift:hover,
+    .hover-lift-sm:hover,
+    .hover-lift-lg:hover,
+    .hover-tilt:hover,
+    .hover-tilt-sm:hover,
+    .hover-tilt-lg:hover {
+        transform: none;
+    }
+    
+    .hover-border::after {
+        transition: none;
+    }
+} 

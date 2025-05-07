@@ -22,6 +22,18 @@
  * @layer components - Wiederverwendbare Scroll-Komponenten
  */
 
+/* Animationen */
+@keyframes scroll-timeline-fade {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 @layer smooth-scroll {
   /* Smooth Scroll Variables */
   :root {
@@ -281,29 +293,17 @@
   }
 
   /* Scroll Timeline Animation */
-  @keyframes scroll-timeline-fade {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
   .scroll-timeline-animation {
-    animation: scroll-timeline-fade linear;
+    animation: scroll-timeline-fade 1s ease-out forwards;
     animation-timeline: view();
-    animation-range: entry 25% cover 50%;
+    animation-range: entry 10% cover 30%;
   }
 
   /* Scroll Performance */
   .scroll-performance {
-    will-change: transform;
-    transform: translateZ(0);
+    will-change: transform, opacity;
     backface-visibility: hidden;
+    transform: translateZ(0);
   }
 
   /* Respektiere Nutzereinstellung für reduzierte Bewegung */

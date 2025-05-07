@@ -1,0 +1,276 @@
+/**
+ * Ladeeffekte
+ * 
+ * Diese Datei enthält verschiedene Ladeeffekte für moderne UIs.
+ * Die Effekte sind performant optimiert und berücksichtigen reduzierte Bewegung.
+ */
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid var(--loading-color, rgba(0, 0, 0, 0.1));
+    border-left-color: var(--loading-spinner-color, #3b82f6);
+    border-radius: 50%;
+    animation: loading-spin 1s linear infinite;
+}
+
+.loading-spinner-sm {
+    width: 20px;
+    height: 20px;
+    border-width: 2px;
+}
+
+.loading-spinner-lg {
+    width: 60px;
+    height: 60px;
+    border-width: 6px;
+}
+
+.loading-pulse {
+    width: 40px;
+    height: 40px;
+    background: var(--loading-pulse-color, #3b82f6);
+    border-radius: 50%;
+    animation: loading-pulse 1s ease-in-out infinite;
+}
+
+.loading-pulse-sm {
+    width: 20px;
+    height: 20px;
+}
+
+.loading-pulse-lg {
+    width: 60px;
+    height: 60px;
+}
+
+.loading-dots {
+    display: flex;
+    gap: 4px;
+}
+
+.loading-dots::before,
+.loading-dots::after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: var(--loading-dots-color, #3b82f6);
+    border-radius: 50%;
+    animation: loading-dots 1s ease-in-out infinite;
+}
+
+.loading-dots::after {
+    animation-delay: 0.5s;
+}
+
+.loading-dots-sm::before,
+.loading-dots-sm::after {
+    width: 4px;
+    height: 4px;
+}
+
+.loading-dots-lg::before,
+.loading-dots-lg::after {
+    width: 12px;
+    height: 12px;
+}
+
+.loading-progress {
+    width: 100%;
+    height: 4px;
+    background: var(--loading-progress-bg, rgba(0, 0, 0, 0.1));
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.loading-progress::after {
+    content: '';
+    display: block;
+    width: 40%;
+    height: 100%;
+    background: var(--loading-progress-color, #3b82f6);
+    animation: loading-progress 1s ease-in-out infinite;
+}
+
+.loading-progress-sm {
+    height: 2px;
+}
+
+.loading-progress-lg {
+    height: 6px;
+}
+
+.loading-skeleton {
+    background: linear-gradient(
+        90deg,
+        var(--loading-skeleton-start, rgba(0, 0, 0, 0.1)) 0%,
+        var(--loading-skeleton-end, rgba(0, 0, 0, 0.2)) 50%,
+        var(--loading-skeleton-start, rgba(0, 0, 0, 0.1)) 100%
+    );
+    background-size: 200% 100%;
+    animation: loading-skeleton 1.5s ease-in-out infinite;
+}
+
+.loading-skeleton-sm {
+    background-size: 150% 100%;
+    animation-duration: 1s;
+}
+
+.loading-skeleton-lg {
+    background-size: 300% 100%;
+    animation-duration: 2s;
+}
+
+.loading-shimmer {
+    position: relative;
+    overflow: hidden;
+}
+
+.loading-shimmer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        var(--loading-shimmer-color, rgba(255, 255, 255, 0.2)) 50%,
+        transparent 100%
+    );
+    animation: loading-shimmer 1.5s ease-in-out infinite;
+}
+
+.loading-color-primary {
+    --loading-spinner-color: var(--loading-primary, #3b82f6);
+    --loading-pulse-color: var(--loading-primary, #3b82f6);
+    --loading-dots-color: var(--loading-primary, #3b82f6);
+    --loading-progress-color: var(--loading-primary, #3b82f6);
+}
+
+.loading-color-secondary {
+    --loading-spinner-color: var(--loading-secondary, #6b7280);
+    --loading-pulse-color: var(--loading-secondary, #6b7280);
+    --loading-dots-color: var(--loading-secondary, #6b7280);
+    --loading-progress-color: var(--loading-secondary, #6b7280);
+}
+
+.loading-color-success {
+    --loading-spinner-color: var(--loading-success, #10b981);
+    --loading-pulse-color: var(--loading-success, #10b981);
+    --loading-dots-color: var(--loading-success, #10b981);
+    --loading-progress-color: var(--loading-success, #10b981);
+}
+
+.loading-color-error {
+    --loading-spinner-color: var(--loading-error, #ef4444);
+    --loading-pulse-color: var(--loading-error, #ef4444);
+    --loading-dots-color: var(--loading-error, #ef4444);
+    --loading-progress-color: var(--loading-error, #ef4444);
+}
+
+.loading-color-warning {
+    --loading-spinner-color: var(--loading-warning, #f59e0b);
+    --loading-pulse-color: var(--loading-warning, #f59e0b);
+    --loading-dots-color: var(--loading-warning, #f59e0b);
+    --loading-progress-color: var(--loading-warning, #f59e0b);
+}
+
+.loading-color-info {
+    --loading-spinner-color: var(--loading-info, #06b6d4);
+    --loading-pulse-color: var(--loading-info, #06b6d4);
+    --loading-dots-color: var(--loading-info, #06b6d4);
+    --loading-progress-color: var(--loading-info, #06b6d4);
+}
+
+@keyframes loading-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes loading-pulse {
+    0%, 100% {
+        transform: scale(0.8);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes loading-dots {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes loading-progress {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(250%);
+    }
+}
+
+@keyframes loading-skeleton {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+@keyframes loading-shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Reduzierte Bewegung */
+@media (prefers-reduced-motion: reduce) {
+    .loading-spinner,
+    .loading-pulse,
+    .loading-dots::before,
+    .loading-dots::after,
+    .loading-progress::after,
+    .loading-skeleton,
+    .loading-shimmer::after {
+        animation: none;
+    }
+    
+    .loading-spinner {
+        border-left-color: transparent;
+    }
+    
+    .loading-pulse {
+        opacity: 0.5;
+    }
+    
+    .loading-dots::before,
+    .loading-dots::after {
+        transform: translateY(0);
+    }
+    
+    .loading-progress::after {
+        transform: translateX(0);
+    }
+    
+    .loading-skeleton {
+        background: var(--loading-skeleton-start, rgba(0, 0, 0, 0.1));
+    }
+    
+    .loading-shimmer::after {
+        display: none;
+    }
+} 

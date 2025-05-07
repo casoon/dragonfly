@@ -1,0 +1,62 @@
+/**
+ * Leuchteffekte
+ * 
+ * Diese Datei enthält verschiedene Leuchteffekte für moderne UIs.
+ * Die Effekte sind performant optimiert und berücksichtigen reduzierte Bewegung.
+ */
+
+.glow {
+    box-shadow: 0 0 10px var(--glow-color, var(--color-primary));
+    transition: box-shadow var(--transition-normal);
+}
+
+.glow-hover:hover {
+    box-shadow: 0 0 20px var(--glow-color, var(--color-primary));
+}
+
+.glow-pulse {
+    animation: glow-pulse 2s infinite;
+}
+
+.glow-text {
+    text-shadow: 0 0 10px var(--glow-color, var(--color-primary));
+}
+
+.glow-border {
+    border: 1px solid var(--glow-color, var(--color-primary));
+    box-shadow: 0 0 10px var(--glow-color, var(--color-primary));
+}
+
+.glow-strong {
+    box-shadow: 
+        0 0 10px var(--glow-color, var(--color-primary)),
+        0 0 20px var(--glow-color, var(--color-primary)),
+        0 0 30px var(--glow-color, var(--color-primary));
+}
+
+.glow-soft {
+    box-shadow: 0 0 15px var(--glow-color, var(--color-primary));
+    filter: blur(5px);
+}
+
+@keyframes glow-pulse {
+    0% { box-shadow: 0 0 5px var(--glow-color, var(--color-primary)); }
+    50% { box-shadow: 0 0 20px var(--glow-color, var(--color-primary)); }
+    100% { box-shadow: 0 0 5px var(--glow-color, var(--color-primary)); }
+}
+
+/* Reduzierte Bewegung */
+@media (prefers-reduced-motion: reduce) {
+    .glow-pulse {
+        animation: none;
+    }
+    
+    .glow,
+    .glow-hover,
+    .glow-text,
+    .glow-border,
+    .glow-strong,
+    .glow-soft {
+        transition: none;
+    }
+} 

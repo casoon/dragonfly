@@ -1,0 +1,127 @@
+/**
+ * Transform-Effekte
+ * 
+ * Diese Datei enthält verschiedene Transform-Effekte für moderne UIs.
+ * Die Effekte sind performant optimiert und berücksichtigen reduzierte Bewegung.
+ */
+
+.transform-none {
+    transform: none;
+}
+
+.transform-scale-sm {
+    transform: scale(0.95);
+}
+
+.transform-scale-md {
+    transform: scale(1.05);
+}
+
+.transform-scale-lg {
+    transform: scale(1.1);
+}
+
+.transform-rotate-sm {
+    transform: rotate(5deg);
+}
+
+.transform-rotate-md {
+    transform: rotate(15deg);
+}
+
+.transform-rotate-lg {
+    transform: rotate(45deg);
+}
+
+.transform-skew-sm {
+    transform: skew(5deg);
+}
+
+.transform-skew-md {
+    transform: skew(15deg);
+}
+
+.transform-skew-lg {
+    transform: skew(45deg);
+}
+
+.transform-translate-x-sm {
+    transform: translateX(0.25rem);
+}
+
+.transform-translate-x-md {
+    transform: translateX(0.5rem);
+}
+
+.transform-translate-x-lg {
+    transform: translateX(1rem);
+}
+
+.transform-translate-y-sm {
+    transform: translateY(0.25rem);
+}
+
+.transform-translate-y-md {
+    transform: translateY(0.5rem);
+}
+
+.transform-translate-y-lg {
+    transform: translateY(1rem);
+}
+
+.transform-origin-center {
+    transform-origin: center;
+}
+
+.transform-origin-top {
+    transform-origin: top;
+}
+
+.transform-origin-bottom {
+    transform-origin: bottom;
+}
+
+.transform-origin-left {
+    transform-origin: left;
+}
+
+.transform-origin-right {
+    transform-origin: right;
+}
+
+.transform-origin-top-left {
+    transform-origin: top left;
+}
+
+.transform-origin-top-right {
+    transform-origin: top right;
+}
+
+.transform-origin-bottom-left {
+    transform-origin: bottom left;
+}
+
+.transform-origin-bottom-right {
+    transform-origin: bottom right;
+}
+
+/* Reduzierte Bewegung */
+@media (prefers-reduced-motion: reduce) {
+    .transform-scale-sm,
+    .transform-scale-md,
+    .transform-scale-lg,
+    .transform-rotate-sm,
+    .transform-rotate-md,
+    .transform-rotate-lg,
+    .transform-skew-sm,
+    .transform-skew-md,
+    .transform-skew-lg,
+    .transform-translate-x-sm,
+    .transform-translate-x-md,
+    .transform-translate-x-lg,
+    .transform-translate-y-sm,
+    .transform-translate-y-md,
+    .transform-translate-y-lg {
+        transition: none;
+    }
+} 

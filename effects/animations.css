@@ -1,15 +1,36 @@
 /**
- * Animations- und Übergangssystem
- *
- * Diese Datei implementiert ein umfassendes System für CSS-Animationen, Transitionen
- * und Bewegungseffekte. Sie kombiniert klassische CSS-Animationen mit modernen
- * APIs wie View Transitions und Scroll-Driven Animations.
- *
- * @performance Optimiert für Performance durch hardwarebeschleunigte Properties
- * @a11y Unterstützt `prefers-reduced-motion` für Barrierefreiheit
- * @responsive Skalierbar durch CSS-Variablen und responsive Werte
- * @fallback Enthält Fallbacks für nicht unterstützte Browser
+ * Animation-Effekte
+ * 
+ * Diese Datei enthält verschiedene Animation-Effekte für moderne UIs.
+ * Die Effekte sind performant optimiert und berücksichtigen reduzierte Bewegung.
  */
+
+/* Animationen */
+@keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slide-up {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slide-from-left {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slide-from-right {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
 
 @layer animations {
     :root {
@@ -115,32 +136,6 @@
         animation-range: entry 10% cover 40%;
     }
 
-    @keyframes fade-in {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
-
-    @keyframes slide-up {
-        to {
-        opacity: 1;
-        transform: translateY(0);
-        }
-    }
-
-    @keyframes slide-from-left {
-        to {
-        opacity: 1;
-        transform: translateX(0);
-        }
-    }
-
-    @keyframes slide-from-right {
-        to {
-        opacity: 1;
-        transform: translateX(0);
-        }
-    }
-
     /* Interaction States */
     .interaction-scale {
         transition: transform var(--animation-duration-normal) var(--ease-spring);
@@ -190,5 +185,207 @@
         transition-duration: var(--animation-duration-normal);
         transition-timing-function: var(--ease-in-out);
     }
-
 }
+
+/* Animation Effects */
+.animate-bounce {
+    animation: bounce 1s infinite;
+}
+
+.animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
+
+.animate-ping {
+    animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.animate-wiggle {
+    animation: wiggle 1s ease-in-out infinite;
+}
+
+.animate-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+.animate-shake {
+    animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+.animate-heartbeat {
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+.animate-jello {
+    animation: jello 1s ease-in-out infinite;
+}
+
+.animate-rubber {
+    animation: rubber 1s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(-25%);
+        animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+    }
+    50% {
+        transform: translateY(0);
+        animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes ping {
+    75%, 100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+@keyframes wiggle {
+    0%, 100% {
+        transform: rotate(-3deg);
+    }
+    50% {
+        transform: rotate(3deg);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes shake {
+    10%, 90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+    20%, 80% {
+        transform: translate3d(2px, 0, 0);
+    }
+    30%, 50%, 70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+    40%, 60% {
+        transform: translate3d(4px, 0, 0);
+    }
+}
+
+@keyframes heartbeat {
+    0% {
+        transform: scale(1);
+    }
+    14% {
+        transform: scale(1.3);
+    }
+    28% {
+        transform: scale(1);
+    }
+    42% {
+        transform: scale(1.3);
+    }
+    70% {
+        transform: scale(1);
+    }
+}
+
+@keyframes jello {
+    0%, 100% {
+        transform: scale3d(1, 1, 1);
+    }
+    30% {
+        transform: scale3d(1.25, 0.75, 1);
+    }
+    40% {
+        transform: scale3d(0.75, 1.25, 1);
+    }
+    50% {
+        transform: scale3d(1.15, 0.85, 1);
+    }
+    65% {
+        transform: scale3d(0.95, 1.05, 1);
+    }
+    75% {
+        transform: scale3d(1.05, 0.95, 1);
+    }
+}
+
+@keyframes rubber {
+    0% {
+        transform: scale3d(1, 1, 1);
+    }
+    30% {
+        transform: scale3d(1.25, 0.75, 1);
+    }
+    40% {
+        transform: scale3d(0.75, 1.25, 1);
+    }
+    50% {
+        transform: scale3d(1.15, 0.85, 1);
+    }
+    65% {
+        transform: scale3d(0.95, 1.05, 1);
+    }
+    75% {
+        transform: scale3d(1.05, 0.95, 1);
+    }
+    100% {
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+/* Reduzierte Bewegung */
+@media (prefers-reduced-motion: reduce) {
+    .animate-bounce,
+    .animate-pulse,
+    .animate-spin,
+    .animate-ping,
+    .animate-wiggle,
+    .animate-float,
+    .animate-shake,
+    .animate-heartbeat,
+    .animate-jello,
+    .animate-rubber,
+    .scroll-fade-in,
+    .scroll-slide-up,
+    .scroll-slide-from-left,
+    .scroll-slide-from-right {
+        animation: none;
+    }
+    
+    .interaction-scale,
+    .hover-glow,
+    .tap-feedback,
+    .transition-opacity,
+    .transition-transform,
+    .transition-shadow,
+    .transition-colors {
+        transition: none;
+    }
+} 

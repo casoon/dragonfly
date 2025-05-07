@@ -1,0 +1,79 @@
+/**
+ * Glanzeffekte
+ * 
+ * Diese Datei enthält verschiedene Glanzeffekte für moderne UIs.
+ * Die Effekte sind performant optimiert und berücksichtigen reduzierte Bewegung.
+ */
+
+.shine {
+    position: relative;
+    overflow: hidden;
+}
+
+.shine::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
+    transform: rotate(45deg);
+    animation: shine-effect 3s infinite;
+}
+
+.shine-hover:hover::after {
+    animation: shine-effect 1s;
+}
+
+.shine-strong::after {
+    background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+}
+
+.shine-soft::after {
+    background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(255, 255, 255, 0.05),
+        transparent
+    );
+}
+
+.shine-color::after {
+    background: linear-gradient(
+        45deg,
+        transparent,
+        var(--shine-color, rgba(255, 255, 255, 0.2)),
+        transparent
+    );
+}
+
+@keyframes shine-effect {
+    0% {
+        transform: translateX(-100%) rotate(45deg);
+    }
+    100% {
+        transform: translateX(100%) rotate(45deg);
+    }
+}
+
+/* Reduzierte Bewegung */
+@media (prefers-reduced-motion: reduce) {
+    .shine::after,
+    .shine-hover:hover::after,
+    .shine-strong::after,
+    .shine-soft::after,
+    .shine-color::after {
+        animation: none;
+    }
+} 

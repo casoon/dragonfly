@@ -43,8 +43,38 @@
  * - Reduzierte Bewegung wird automatisch berücksichtigt
  */
 
+/* Animationen */
+@keyframes neon-pulse {
+    from {
+        opacity: 1;
+    }
 
-@layer effects-neon {
+    to {
+        opacity: 0.7;
+    }
+}
+
+@keyframes neon-flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        text-shadow: var(--spacing-0) var(--spacing-0) var(--spacing-5) currentcolor,
+                    var(--spacing-0) var(--spacing-0) var(--spacing-10) currentcolor,
+                    var(--spacing-0) var(--spacing-0) var(--spacing-20) currentcolor;
+    }
+
+    20%, 24%, 55% {
+        text-shadow: var(--display-none);
+    }
+}
+
+@keyframes flicker {
+    0%, 100% { opacity: 1; }
+    30% { opacity: 0.7; }
+    50% { opacity: 1; }
+    70% { opacity: 0.8; }
+    90% { opacity: 0.5; }
+}
+
+
     /* Neon Text */
     .neon-text {
         color: var(--theme-primary-500);
@@ -91,17 +121,6 @@
                     var(--spacing-0) var(--spacing-0) var(--spacing-20) var(--theme-accent-500);
     }
 
-    /* Animation */
-    @keyframes neon-pulse {
-        from {
-            opacity: 1;
-        }
-
-        to {
-            opacity: 0.7;
-        }
-    }
-
     /* Reduced Motion */
     @container root (prefers-reduced-motion: reduce) {
         .neon-text,
@@ -113,7 +132,6 @@
             transition: none;
         }
     }
-
 
     /* Animation Variants */
     .neon-text-slow {
@@ -138,19 +156,6 @@
                     var(--spacing-0) var(--spacing-0) var(--spacing-20) currentcolor;
     }
 
-    /* Keyframes */
-    @keyframes neon-flicker {
-        0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-            text-shadow: var(--spacing-0) var(--spacing-0) var(--spacing-5) currentcolor,
-                        var(--spacing-0) var(--spacing-0) var(--spacing-10) currentcolor,
-                        var(--spacing-0) var(--spacing-0) var(--spacing-20) currentcolor;
-        }
-
-        20%, 24%, 55% {
-            text-shadow: var(--display-none);
-        }
-    }
-
     /* Zusätzliche Glow-Effekte */
     .glow {
         color: var(--glow-color, var(--theme-info-500));
@@ -169,15 +174,6 @@
             0 0 20px var(--glow-button-color, var(--theme-accent-500)),
             0 0 30px var(--glow-button-color, var(--theme-accent-500));
         z-index: 1;
-    }
-
-    /* Flicker Animation */
-    @keyframes flicker {
-        0%, 100% { opacity: 1; }
-        30% { opacity: 0.7; }
-        50% { opacity: 1; }
-        70% { opacity: 0.8; }
-        90% { opacity: 0.5; }
     }
 
     .flicker-element {
@@ -209,4 +205,3 @@
             aspect-ratio: 16/9;
         }
     } 
-}

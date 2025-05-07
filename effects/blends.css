@@ -1,0 +1,100 @@
+/**
+ * Blend-Effekte
+ * 
+ * Diese Datei enthält verschiedene Blend-Effekte für moderne UIs.
+ * Die Effekte sind performant optimiert und berücksichtigen reduzierte Bewegung.
+ */
+
+.blend-multiply {
+    mix-blend-mode: multiply;
+}
+
+.blend-screen {
+    mix-blend-mode: screen;
+}
+
+.blend-overlay {
+    mix-blend-mode: overlay;
+}
+
+.blend-darken {
+    mix-blend-mode: darken;
+}
+
+.blend-lighten {
+    mix-blend-mode: lighten;
+}
+
+.blend-color-dodge {
+    mix-blend-mode: color-dodge;
+}
+
+.blend-color-burn {
+    mix-blend-mode: color-burn;
+}
+
+.blend-hard-light {
+    mix-blend-mode: hard-light;
+}
+
+.blend-soft-light {
+    mix-blend-mode: soft-light;
+}
+
+.blend-difference {
+    mix-blend-mode: difference;
+}
+
+.blend-exclusion {
+    mix-blend-mode: exclusion;
+}
+
+.blend-hue {
+    mix-blend-mode: hue;
+}
+
+.blend-saturation {
+    mix-blend-mode: saturation;
+}
+
+.blend-color {
+    mix-blend-mode: color;
+}
+
+.blend-luminosity {
+    mix-blend-mode: luminosity;
+}
+
+.blend-normal {
+    mix-blend-mode: normal;
+}
+
+.blend-isolate {
+    isolation: isolate;
+}
+
+.blend-auto {
+    isolation: auto;
+}
+
+/* Reduzierte Bewegung */
+@media (prefers-reduced-motion: reduce) {
+    .blend-multiply,
+    .blend-screen,
+    .blend-overlay,
+    .blend-darken,
+    .blend-lighten,
+    .blend-color-dodge,
+    .blend-color-burn,
+    .blend-hard-light,
+    .blend-soft-light,
+    .blend-difference,
+    .blend-exclusion,
+    .blend-hue,
+    .blend-saturation,
+    .blend-color,
+    .blend-luminosity,
+    .blend-normal {
+        transition: none;
+    }
+} 

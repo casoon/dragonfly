@@ -1,0 +1,119 @@
+/**
+ * Fokus-Effekte
+ * 
+ * Diese Datei enthält verschiedene Fokus-Effekte für moderne UIs.
+ * Die Effekte sind performant optimiert und berücksichtigen reduzierte Bewegung.
+ */
+
+.focus-ring {
+    transition: box-shadow 0.2s ease;
+}
+
+.focus-ring:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--focus-ring-color, rgba(59, 130, 246, 0.5));
+}
+
+.focus-ring-sm {
+    transition: box-shadow 0.2s ease;
+}
+
+.focus-ring-sm:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--focus-ring-color, rgba(59, 130, 246, 0.5));
+}
+
+.focus-ring-lg {
+    transition: box-shadow 0.2s ease;
+}
+
+.focus-ring-lg:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px var(--focus-ring-color, rgba(59, 130, 246, 0.5));
+}
+
+.focus-outline {
+    transition: outline 0.2s ease;
+}
+
+.focus-outline:focus {
+    outline: 2px solid var(--focus-outline-color, #3b82f6);
+    outline-offset: 2px;
+}
+
+.focus-outline-sm:focus {
+    outline-width: 1px;
+    outline-offset: 1px;
+}
+
+.focus-outline-lg:focus {
+    outline-width: 3px;
+    outline-offset: 3px;
+}
+
+.focus-bg {
+    transition: background-color 0.2s ease;
+}
+
+.focus-bg:focus {
+    background-color: var(--focus-bg-color, rgba(59, 130, 246, 0.1));
+}
+
+.focus-bg-sm:focus {
+    background-color: var(--focus-bg-color-sm, rgba(59, 130, 246, 0.05));
+}
+
+.focus-bg-lg:focus {
+    background-color: var(--focus-bg-color-lg, rgba(59, 130, 246, 0.2));
+}
+
+.focus-color-primary {
+    --focus-ring-color: var(--focus-primary, rgba(59, 130, 246, 0.5));
+    --focus-outline-color: var(--focus-primary, #3b82f6);
+    --focus-bg-color: var(--focus-primary-bg, rgba(59, 130, 246, 0.1));
+}
+
+.focus-color-secondary {
+    --focus-ring-color: var(--focus-secondary, rgba(107, 114, 128, 0.5));
+    --focus-outline-color: var(--focus-secondary, #6b7280);
+    --focus-bg-color: var(--focus-secondary-bg, rgba(107, 114, 128, 0.1));
+}
+
+.focus-color-success {
+    --focus-ring-color: var(--focus-success, rgba(16, 185, 129, 0.5));
+    --focus-outline-color: var(--focus-success, #10b981);
+    --focus-bg-color: var(--focus-success-bg, rgba(16, 185, 129, 0.1));
+}
+
+.focus-color-error {
+    --focus-ring-color: var(--focus-error, rgba(239, 68, 68, 0.5));
+    --focus-outline-color: var(--focus-error, #ef4444);
+    --focus-bg-color: var(--focus-error-bg, rgba(239, 68, 68, 0.1));
+}
+
+.focus-color-warning {
+    --focus-ring-color: var(--focus-warning, rgba(245, 158, 11, 0.5));
+    --focus-outline-color: var(--focus-warning, #f59e0b);
+    --focus-bg-color: var(--focus-warning-bg, rgba(245, 158, 11, 0.1));
+}
+
+.focus-color-info {
+    --focus-ring-color: var(--focus-info, rgba(6, 182, 212, 0.5));
+    --focus-outline-color: var(--focus-info, #06b6d4);
+    --focus-bg-color: var(--focus-info-bg, rgba(6, 182, 212, 0.1));
+}
+
+/* Reduzierte Bewegung */
+@media (prefers-reduced-motion: reduce) {
+    .focus-ring,
+    .focus-ring-sm,
+    .focus-ring-lg,
+    .focus-outline,
+    .focus-outline-sm,
+    .focus-outline-lg,
+    .focus-bg,
+    .focus-bg-sm,
+    .focus-bg-lg {
+        transition: none;
+    }
+} 

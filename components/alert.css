@@ -106,17 +106,17 @@
     &.animate {
       animation: alertFadeIn 0.3s ease-out;
     }
-    
-    @keyframes alertFadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(-10px);
-      }
+  }
+}
 
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+@keyframes alertFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

@@ -1,0 +1,216 @@
+/**
+ * Partikel-Effekte
+ * 
+ * Diese Datei enthält verschiedene Partikel-Effekte für moderne UIs.
+ * Die Effekte sind performant optimiert und berücksichtigen reduzierte Bewegung.
+ */
+
+.particles {
+    position: relative;
+    overflow: hidden;
+}
+
+.particles::before,
+.particles::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--particle-color, rgba(255, 255, 255, 0.5));
+    border-radius: 50%;
+    animation: particles-float 3s infinite;
+}
+
+.particles::after {
+    animation-delay: 1.5s;
+}
+
+.particles-sm::before,
+.particles-sm::after {
+    width: 2px;
+    height: 2px;
+}
+
+.particles-lg::before,
+.particles-lg::after {
+    width: 6px;
+    height: 6px;
+}
+
+.particles-slow::before,
+.particles-slow::after {
+    animation-duration: 4s;
+}
+
+.particles-fast::before,
+.particles-fast::after {
+    animation-duration: 2s;
+}
+
+.particles-dots {
+    position: relative;
+    overflow: hidden;
+}
+
+.particles-dots::before,
+.particles-dots::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--particle-dots-color, rgba(255, 255, 255, 0.5));
+    border-radius: 50%;
+    animation: particles-dots 3s infinite;
+}
+
+.particles-dots::after {
+    animation-delay: 1.5s;
+}
+
+.particles-dots-sm::before,
+.particles-dots-sm::after {
+    width: 2px;
+    height: 2px;
+}
+
+.particles-dots-lg::before,
+.particles-dots-lg::after {
+    width: 6px;
+    height: 6px;
+}
+
+.particles-dots-slow::before,
+.particles-dots-slow::after {
+    animation-duration: 4s;
+}
+
+.particles-dots-fast::before,
+.particles-dots-fast::after {
+    animation-duration: 2s;
+}
+
+.particles-lines {
+    position: relative;
+    overflow: hidden;
+}
+
+.particles-lines::before,
+.particles-lines::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 20px;
+    background: var(--particle-lines-color, rgba(255, 255, 255, 0.5));
+    animation: particles-lines 3s infinite;
+}
+
+.particles-lines::after {
+    animation-delay: 1.5s;
+}
+
+.particles-lines-sm::before,
+.particles-lines-sm::after {
+    width: 1px;
+    height: 10px;
+}
+
+.particles-lines-lg::before,
+.particles-lines-lg::after {
+    width: 3px;
+    height: 30px;
+}
+
+.particles-lines-slow::before,
+.particles-lines-slow::after {
+    animation-duration: 4s;
+}
+
+.particles-lines-fast::before,
+.particles-lines-fast::after {
+    animation-duration: 2s;
+}
+
+.particles-color-primary::before,
+.particles-color-primary::after {
+    background: var(--particle-primary, rgba(59, 130, 246, 0.5));
+}
+
+.particles-color-secondary::before,
+.particles-color-secondary::after {
+    background: var(--particle-secondary, rgba(107, 114, 128, 0.5));
+}
+
+.particles-color-success::before,
+.particles-color-success::after {
+    background: var(--particle-success, rgba(16, 185, 129, 0.5));
+}
+
+.particles-color-error::before,
+.particles-color-error::after {
+    background: var(--particle-error, rgba(239, 68, 68, 0.5));
+}
+
+.particles-color-warning::before,
+.particles-color-warning::after {
+    background: var(--particle-warning, rgba(245, 158, 11, 0.5));
+}
+
+.particles-color-info::before,
+.particles-color-info::after {
+    background: var(--particle-info, rgba(6, 182, 212, 0.5));
+}
+
+@keyframes particles-float {
+    0% {
+        transform: translate(0, 0);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(100px, -100px);
+        opacity: 0;
+    }
+}
+
+@keyframes particles-dots {
+    0% {
+        transform: translate(0, 0);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-100px, 100px);
+        opacity: 0;
+    }
+}
+
+@keyframes particles-lines {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(100px, 100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Reduzierte Bewegung */
+@media (prefers-reduced-motion: reduce) {
+    .particles::before,
+    .particles::after,
+    .particles-dots::before,
+    .particles-dots::after,
+    .particles-lines::before,
+    .particles-lines::after {
+        animation: none;
+        opacity: 0;
+    }
+} 

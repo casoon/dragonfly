@@ -134,16 +134,7 @@
     &.animated .bar {
       animation: progress-animation 1s linear infinite;
     }
-    
-    @keyframes progress-animation {
-      from {
-        background-position: 1rem 0;
-      }
-
-      to {
-        background-position: 0 0;
-      }
-    }
+  
   }
   
   /* Fortschrittsschritte */
@@ -223,4 +214,12 @@
   }
 }
 
-  
+@keyframes progress-animation {
+  from {
+    background-position: 1rem 0;
+  }
+
+  to {
+    background-position: 0 0;
+  }
+}

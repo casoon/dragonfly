@@ -1,0 +1,42 @@
+/**
+ * Clip-Path Effekte
+ * 
+ * Diese Datei enthält verschiedene Clip-Path-Effekte für moderne UIs.
+ * Die Effekte sind performant optimiert und berücksichtigen reduzierte Bewegung.
+ */
+
+.clip-circle {
+    clip-path: circle(50% at 50% 50%);
+}
+
+.clip-polygon {
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.clip-star {
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+.clip-wave {
+    clip-path: path('M0,50 C20,40 40,60 60,50 C80,40 100,60 100,50 L100,100 L0,100 Z');
+}
+
+.clip-arrow {
+    clip-path: polygon(0% 20%, 60% 20%, 60% 0%, 100% 50%, 60% 100%, 60% 80%, 0% 80%);
+}
+
+.clip-chat {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%);
+}
+
+.clip-hover:hover {
+    clip-path: var(--clip-hover-path);
+    transition: clip-path var(--transition-normal);
+}
+
+/* Reduzierte Bewegung */
+@media (prefers-reduced-motion: reduce) {
+    .clip-hover:hover {
+        transition: none;
+    }
+} 

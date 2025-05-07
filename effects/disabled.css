@@ -1,0 +1,108 @@
+/**
+ * Disabled-Effekte
+ * 
+ * Diese Datei enthält verschiedene Disabled-Effekte für moderne UIs.
+ * Die Effekte sind performant optimiert und berücksichtigen reduzierte Bewegung.
+ */
+
+.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    cursor: not-allowed;
+    user-select: none;
+}
+
+.disabled-sm {
+    opacity: 0.7;
+}
+
+.disabled-lg {
+    opacity: 0.3;
+}
+
+.disabled-blur {
+    filter: blur(1px);
+    pointer-events: none;
+    cursor: not-allowed;
+    user-select: none;
+}
+
+.disabled-blur-sm {
+    filter: blur(0.5px);
+}
+
+.disabled-blur-lg {
+    filter: blur(2px);
+}
+
+.disabled-grayscale {
+    filter: grayscale(100%);
+    pointer-events: none;
+    cursor: not-allowed;
+    user-select: none;
+}
+
+.disabled-grayscale-sm {
+    filter: grayscale(50%);
+}
+
+.disabled-grayscale-lg {
+    filter: grayscale(100%) brightness(0.8);
+}
+
+.disabled-border {
+    border-style: dashed;
+    pointer-events: none;
+    cursor: not-allowed;
+    user-select: none;
+}
+
+.disabled-border-sm {
+    border-width: 1px;
+}
+
+.disabled-border-lg {
+    border-width: 3px;
+}
+
+.disabled-bg {
+    background-color: var(--disabled-bg, rgba(0, 0, 0, 0.05));
+    pointer-events: none;
+    cursor: not-allowed;
+    user-select: none;
+}
+
+.disabled-bg-sm {
+    background-color: var(--disabled-bg-sm, rgba(0, 0, 0, 0.02));
+}
+
+.disabled-bg-lg {
+    background-color: var(--disabled-bg-lg, rgba(0, 0, 0, 0.1));
+}
+
+.disabled-text {
+    color: var(--disabled-text, rgba(0, 0, 0, 0.5));
+    pointer-events: none;
+    cursor: not-allowed;
+    user-select: none;
+}
+
+.disabled-text-sm {
+    color: var(--disabled-text-sm, rgba(0, 0, 0, 0.7));
+}
+
+.disabled-text-lg {
+    color: var(--disabled-text-lg, rgba(0, 0, 0, 0.3));
+}
+
+/* Reduzierte Bewegung */
+@media (prefers-reduced-motion: reduce) {
+    .disabled,
+    .disabled-blur,
+    .disabled-grayscale,
+    .disabled-border,
+    .disabled-bg,
+    .disabled-text {
+        transition: none;
+    }
+} 

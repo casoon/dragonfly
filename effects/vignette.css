@@ -1,0 +1,77 @@
+/**
+ * Vignettierungseffekte
+ * 
+ * Diese Datei enthält verschiedene Vignettierungseffekte für moderne UIs.
+ * Die Effekte sind performant optimiert und berücksichtigen reduzierte Bewegung.
+ */
+
+.vignette {
+    position: relative;
+}
+
+.vignette::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+        circle at center,
+        transparent 0%,
+        rgba(0, 0, 0, 0.3) 100%
+    );
+    pointer-events: none;
+}
+
+.vignette-strong::after {
+    background: radial-gradient(
+        circle at center,
+        transparent 0%,
+        rgba(0, 0, 0, 0.5) 100%
+    );
+}
+
+.vignette-soft::after {
+    background: radial-gradient(
+        circle at center,
+        transparent 0%,
+        rgba(0, 0, 0, 0.2) 100%
+    );
+}
+
+.vignette-color::after {
+    background: radial-gradient(
+        circle at center,
+        transparent 0%,
+        var(--vignette-color, rgba(0, 0, 0, 0.3)) 100%
+    );
+}
+
+.vignette-top::after {
+    background: radial-gradient(
+        circle at top,
+        transparent 0%,
+        rgba(0, 0, 0, 0.3) 100%
+    );
+}
+
+.vignette-bottom::after {
+    background: radial-gradient(
+        circle at bottom,
+        transparent 0%,
+        rgba(0, 0, 0, 0.3) 100%
+    );
+}
+
+.vignette-hover:hover::after {
+    opacity: 0.8;
+    transition: opacity var(--transition-normal);
+}
+
+/* Reduzierte Bewegung */
+@media (prefers-reduced-motion: reduce) {
+    .vignette-hover:hover::after {
+        transition: none;
+    }
+} 

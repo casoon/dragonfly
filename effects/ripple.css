@@ -1,0 +1,107 @@
+/**
+ * Ripple-Effekte
+ * 
+ * Diese Datei enthält verschiedene Ripple-Effekte für moderne UIs.
+ * Die Effekte sind performant optimiert und berücksichtigen reduzierte Bewegung.
+ */
+
+.ripple {
+    position: relative;
+    overflow: hidden;
+}
+
+.ripple::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    background-image: radial-gradient(circle, var(--ripple-color, rgba(255, 255, 255, 0.3)) 10%, transparent 10.01%);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    transform: scale(10, 10);
+    opacity: 0;
+    transition: transform 0.5s, opacity 0.5s;
+}
+
+.ripple:active::after {
+    transform: scale(0, 0);
+    opacity: 0.3;
+    transition: 0s;
+}
+
+.ripple-sm::after {
+    background-image: radial-gradient(circle, var(--ripple-color-sm, rgba(255, 255, 255, 0.2)) 5%, transparent 5.01%);
+}
+
+.ripple-lg::after {
+    background-image: radial-gradient(circle, var(--ripple-color-lg, rgba(255, 255, 255, 0.4)) 15%, transparent 15.01%);
+}
+
+.ripple-slow::after {
+    transition: transform 0.8s, opacity 0.8s;
+}
+
+.ripple-fast::after {
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.ripple-color-primary::after {
+    background-image: radial-gradient(circle, var(--ripple-primary, rgba(59, 130, 246, 0.3)) 10%, transparent 10.01%);
+}
+
+.ripple-color-secondary::after {
+    background-image: radial-gradient(circle, var(--ripple-secondary, rgba(107, 114, 128, 0.3)) 10%, transparent 10.01%);
+}
+
+.ripple-color-success::after {
+    background-image: radial-gradient(circle, var(--ripple-success, rgba(16, 185, 129, 0.3)) 10%, transparent 10.01%);
+}
+
+.ripple-color-error::after {
+    background-image: radial-gradient(circle, var(--ripple-error, rgba(239, 68, 68, 0.3)) 10%, transparent 10.01%);
+}
+
+.ripple-color-warning::after {
+    background-image: radial-gradient(circle, var(--ripple-warning, rgba(245, 158, 11, 0.3)) 10%, transparent 10.01%);
+}
+
+.ripple-color-info::after {
+    background-image: radial-gradient(circle, var(--ripple-info, rgba(6, 182, 212, 0.3)) 10%, transparent 10.01%);
+}
+
+.ripple-outline {
+    position: relative;
+    overflow: hidden;
+}
+
+.ripple-outline::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    border: 2px solid var(--ripple-outline-color, rgba(255, 255, 255, 0.3));
+    border-radius: inherit;
+    transform: scale(1.5);
+    opacity: 0;
+    transition: transform 0.5s, opacity 0.5s;
+}
+
+.ripple-outline:active::after {
+    transform: scale(1);
+    opacity: 0.3;
+    transition: 0s;
+}
+
+/* Reduzierte Bewegung */
+@media (prefers-reduced-motion: reduce) {
+    .ripple::after,
+    .ripple-outline::after {
+        transition: none;
+    }
+} 

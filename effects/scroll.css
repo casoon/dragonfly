@@ -1,0 +1,64 @@
+/**
+ * Scroll-Effekte
+ * 
+ * Diese Datei enthält verschiedene Scroll-Effekte für moderne UIs.
+ * Die Effekte sind performant optimiert und berücksichtigen reduzierte Bewegung.
+ */
+
+.scroll-smooth {
+    scroll-behavior: smooth;
+}
+
+.scroll-snap-x {
+    scroll-snap-type: x mandatory;
+}
+
+.scroll-snap-y {
+    scroll-snap-type: y mandatory;
+}
+
+.scroll-snap-start {
+    scroll-snap-align: start;
+}
+
+.scroll-snap-center {
+    scroll-snap-align: center;
+}
+
+.scroll-snap-end {
+    scroll-snap-align: end;
+}
+
+.scroll-hide {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.scroll-hide::-webkit-scrollbar {
+    display: none;
+}
+
+.scroll-thin {
+    scrollbar-width: thin;
+}
+
+.scroll-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+.scroll-thin::-webkit-scrollbar-track {
+    background: var(--scroll-track-color, transparent);
+}
+
+.scroll-thin::-webkit-scrollbar-thumb {
+    background: var(--scroll-thumb-color, rgba(0, 0, 0, 0.2));
+    border-radius: 3px;
+}
+
+/* Reduzierte Bewegung */
+@media (prefers-reduced-motion: reduce) {
+    .scroll-smooth {
+        scroll-behavior: auto;
+    }
+} 

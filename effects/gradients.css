@@ -1,0 +1,85 @@
+/**
+ * Farbverläufe
+ * 
+ * Diese Datei enthält verschiedene Farbverläufe für moderne UIs.
+ * Die Effekte sind performant optimiert und berücksichtigen reduzierte Bewegung.
+ */
+
+.gradient-primary {
+    background: linear-gradient(
+        45deg,
+        var(--color-primary),
+        var(--color-primary-light)
+    );
+}
+
+.gradient-secondary {
+    background: linear-gradient(
+        45deg,
+        var(--color-secondary),
+        var(--color-secondary-light)
+    );
+}
+
+.gradient-accent {
+    background: linear-gradient(
+        45deg,
+        var(--color-accent),
+        var(--color-accent-light)
+    );
+}
+
+.gradient-rainbow {
+    background: linear-gradient(
+        45deg,
+        #ff0000,
+        #ff7f00,
+        #ffff00,
+        #00ff00,
+        #0000ff,
+        #4b0082,
+        #8b00ff
+    );
+    background-size: 200% 200%;
+    animation: gradient-shift 5s ease infinite;
+}
+
+.gradient-metallic {
+    background: linear-gradient(
+        45deg,
+        #e6e6e6,
+        #ffffff,
+        #e6e6e6
+    );
+}
+
+.gradient-iridescent {
+    background: linear-gradient(
+        45deg,
+        #ff0000,
+        #ff7300,
+        #fffb00,
+        #48ff00,
+        #00ffd5,
+        #002bff,
+        #7a00ff,
+        #ff00c8,
+        #ff0000
+    );
+    background-size: 200% 200%;
+    animation: gradient-shift 5s ease infinite;
+}
+
+@keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Reduzierte Bewegung */
+@media (prefers-reduced-motion: reduce) {
+    .gradient-rainbow,
+    .gradient-iridescent {
+        animation: none;
+    }
+} 

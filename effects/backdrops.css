@@ -1,0 +1,92 @@
+/**
+ * Backdrop-Effekte
+ * 
+ * Diese Datei enthält verschiedene Backdrop-Effekte für moderne UIs.
+ * Die Effekte sind performant optimiert und berücksichtigen reduzierte Bewegung.
+ */
+
+.backdrop-blur-sm {
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+.backdrop-blur-md {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.backdrop-blur-lg {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.backdrop-brightness {
+    backdrop-filter: brightness(var(--backdrop-brightness, 0.8));
+    -webkit-backdrop-filter: brightness(var(--backdrop-brightness, 0.8));
+}
+
+.backdrop-contrast {
+    backdrop-filter: contrast(var(--backdrop-contrast, 1.2));
+    -webkit-backdrop-filter: contrast(var(--backdrop-contrast, 1.2));
+}
+
+.backdrop-grayscale {
+    backdrop-filter: grayscale(var(--backdrop-grayscale, 0.5));
+    -webkit-backdrop-filter: grayscale(var(--backdrop-grayscale, 0.5));
+}
+
+.backdrop-hue-rotate {
+    backdrop-filter: hue-rotate(var(--backdrop-hue-rotate, 90deg));
+    -webkit-backdrop-filter: hue-rotate(var(--backdrop-hue-rotate, 90deg));
+}
+
+.backdrop-invert {
+    backdrop-filter: invert(var(--backdrop-invert, 0.5));
+    -webkit-backdrop-filter: invert(var(--backdrop-invert, 0.5));
+}
+
+.backdrop-opacity {
+    backdrop-filter: opacity(var(--backdrop-opacity, 0.5));
+    -webkit-backdrop-filter: opacity(var(--backdrop-opacity, 0.5));
+}
+
+.backdrop-saturate {
+    backdrop-filter: saturate(var(--backdrop-saturate, 1.5));
+    -webkit-backdrop-filter: saturate(var(--backdrop-saturate, 1.5));
+}
+
+.backdrop-sepia {
+    backdrop-filter: sepia(var(--backdrop-sepia, 0.5));
+    -webkit-backdrop-filter: sepia(var(--backdrop-sepia, 0.5));
+}
+
+.backdrop-multiple {
+    backdrop-filter: 
+        blur(8px)
+        brightness(0.8)
+        contrast(1.2)
+        saturate(1.5);
+    -webkit-backdrop-filter: 
+        blur(8px)
+        brightness(0.8)
+        contrast(1.2)
+        saturate(1.5);
+}
+
+/* Reduzierte Bewegung */
+@media (prefers-reduced-motion: reduce) {
+    .backdrop-blur-sm,
+    .backdrop-blur-md,
+    .backdrop-blur-lg,
+    .backdrop-brightness,
+    .backdrop-contrast,
+    .backdrop-grayscale,
+    .backdrop-hue-rotate,
+    .backdrop-invert,
+    .backdrop-opacity,
+    .backdrop-saturate,
+    .backdrop-sepia,
+    .backdrop-multiple {
+        transition: none;
+    }
+} 

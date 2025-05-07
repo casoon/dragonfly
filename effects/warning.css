@@ -1,0 +1,150 @@
+/**
+ * Warning-Effekte
+ * 
+ * Diese Datei enthält verschiedene Warning-Effekte für moderne UIs.
+ * Die Effekte sind performant optimiert und berücksichtigen reduzierte Bewegung.
+ */
+
+.warning-pulse {
+    animation: warning-pulse 2s infinite;
+}
+
+.warning-pulse-sm {
+    animation: warning-pulse-sm 2s infinite;
+}
+
+.warning-pulse-lg {
+    animation: warning-pulse-lg 2s infinite;
+}
+
+.warning-border {
+    border: 2px solid var(--warning-color, #f59e0b);
+    animation: warning-pulse 2s infinite;
+}
+
+.warning-border-sm {
+    border-width: 1px;
+}
+
+.warning-border-lg {
+    border-width: 3px;
+}
+
+.warning-bg {
+    background-color: var(--warning-bg, rgba(245, 158, 11, 0.1));
+    animation: warning-pulse 2s infinite;
+}
+
+.warning-bg-sm {
+    background-color: var(--warning-bg-sm, rgba(245, 158, 11, 0.05));
+}
+
+.warning-bg-lg {
+    background-color: var(--warning-bg-lg, rgba(245, 158, 11, 0.2));
+}
+
+.warning-text {
+    color: var(--warning-text, #f59e0b);
+}
+
+.warning-text-sm {
+    color: var(--warning-text-sm, #fbbf24);
+}
+
+.warning-text-lg {
+    color: var(--warning-text-lg, #d97706);
+}
+
+.warning-glow {
+    box-shadow: 0 0 10px var(--warning-glow, rgba(245, 158, 11, 0.5));
+    animation: warning-pulse 2s infinite;
+}
+
+.warning-glow-sm {
+    box-shadow: 0 0 5px var(--warning-glow-sm, rgba(245, 158, 11, 0.3));
+}
+
+.warning-glow-lg {
+    box-shadow: 0 0 15px var(--warning-glow-lg, rgba(245, 158, 11, 0.7));
+}
+
+.warning-flash {
+    animation: warning-flash 1s infinite;
+}
+
+.warning-flash-sm {
+    animation: warning-flash-sm 1s infinite;
+}
+
+.warning-flash-lg {
+    animation: warning-flash-lg 1s infinite;
+}
+
+@keyframes warning-pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+@keyframes warning-pulse-sm {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.8;
+    }
+}
+
+@keyframes warning-pulse-lg {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.6;
+    }
+}
+
+@keyframes warning-flash {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+@keyframes warning-flash-sm {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+@keyframes warning-flash-lg {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.3;
+    }
+}
+
+/* Reduzierte Bewegung */
+@media (prefers-reduced-motion: reduce) {
+    .warning-pulse,
+    .warning-pulse-sm,
+    .warning-pulse-lg,
+    .warning-border,
+    .warning-bg,
+    .warning-glow,
+    .warning-flash,
+    .warning-flash-sm,
+    .warning-flash-lg {
+        animation: none;
+    }
+} 

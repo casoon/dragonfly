@@ -1,0 +1,232 @@
+/**
+ * Active-Effekte
+ * 
+ * Diese Datei enthält verschiedene Active-Effekte für moderne UIs.
+ * Die Effekte sind performant optimiert und berücksichtigen reduzierte Bewegung.
+ */
+
+.active-scale {
+    transition: transform 0.2s ease;
+}
+
+.active-scale:active {
+    transform: scale(0.95);
+}
+
+.active-scale-sm {
+    transition: transform 0.2s ease;
+}
+
+.active-scale-sm:active {
+    transform: scale(0.98);
+}
+
+.active-scale-lg {
+    transition: transform 0.2s ease;
+}
+
+.active-scale-lg:active {
+    transform: scale(0.9);
+}
+
+.active-lift {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.active-lift:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.active-lift-sm {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.active-lift-sm:active {
+    transform: translateY(1px);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.active-lift-lg {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.active-lift-lg:active {
+    transform: translateY(4px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.active-tilt {
+    transition: transform 0.2s ease;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.active-tilt:active {
+    transform: rotateX(-5deg) rotateY(-5deg);
+}
+
+.active-tilt-sm {
+    transition: transform 0.2s ease;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.active-tilt-sm:active {
+    transform: rotateX(-2deg) rotateY(-2deg);
+}
+
+.active-tilt-lg {
+    transition: transform 0.2s ease;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.active-tilt-lg:active {
+    transform: rotateX(-10deg) rotateY(-10deg);
+}
+
+.active-glow {
+    transition: box-shadow 0.2s ease;
+}
+
+.active-glow:active {
+    box-shadow: 0 0 10px var(--active-glow-color, rgba(59, 130, 246, 0.3));
+}
+
+.active-glow-sm {
+    transition: box-shadow 0.2s ease;
+}
+
+.active-glow-sm:active {
+    box-shadow: 0 0 5px var(--active-glow-color, rgba(59, 130, 246, 0.3));
+}
+
+.active-glow-lg {
+    transition: box-shadow 0.2s ease;
+}
+
+.active-glow-lg:active {
+    box-shadow: 0 0 15px var(--active-glow-color, rgba(59, 130, 246, 0.3));
+}
+
+.active-border {
+    position: relative;
+    transition: border-color 0.2s ease;
+}
+
+.active-border::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--active-border-color, #3b82f6);
+    transition: opacity 0.2s ease;
+    opacity: 0;
+}
+
+.active-border:active::after {
+    opacity: 1;
+}
+
+.active-border-sm::after {
+    height: 1px;
+}
+
+.active-border-lg::after {
+    height: 3px;
+}
+
+.active-bg {
+    transition: background-color 0.2s ease;
+}
+
+.active-bg:active {
+    background-color: var(--active-bg-color, rgba(59, 130, 246, 0.2));
+}
+
+.active-bg-sm:active {
+    background-color: var(--active-bg-color-sm, rgba(59, 130, 246, 0.1));
+}
+
+.active-bg-lg:active {
+    background-color: var(--active-bg-color-lg, rgba(59, 130, 246, 0.3));
+}
+
+.active-color-primary {
+    --active-glow-color: var(--active-primary, rgba(59, 130, 246, 0.3));
+    --active-border-color: var(--active-primary, #3b82f6);
+    --active-bg-color: var(--active-primary-bg, rgba(59, 130, 246, 0.2));
+}
+
+.active-color-secondary {
+    --active-glow-color: var(--active-secondary, rgba(107, 114, 128, 0.3));
+    --active-border-color: var(--active-secondary, #6b7280);
+    --active-bg-color: var(--active-secondary-bg, rgba(107, 114, 128, 0.2));
+}
+
+.active-color-success {
+    --active-glow-color: var(--active-success, rgba(16, 185, 129, 0.3));
+    --active-border-color: var(--active-success, #10b981);
+    --active-bg-color: var(--active-success-bg, rgba(16, 185, 129, 0.2));
+}
+
+.active-color-error {
+    --active-glow-color: var(--active-error, rgba(239, 68, 68, 0.3));
+    --active-border-color: var(--active-error, #ef4444);
+    --active-bg-color: var(--active-error-bg, rgba(239, 68, 68, 0.2));
+}
+
+.active-color-warning {
+    --active-glow-color: var(--active-warning, rgba(245, 158, 11, 0.3));
+    --active-border-color: var(--active-warning, #f59e0b);
+    --active-bg-color: var(--active-warning-bg, rgba(245, 158, 11, 0.2));
+}
+
+.active-color-info {
+    --active-glow-color: var(--active-info, rgba(6, 182, 212, 0.3));
+    --active-border-color: var(--active-info, #06b6d4);
+    --active-bg-color: var(--active-info-bg, rgba(6, 182, 212, 0.2));
+}
+
+/* Reduzierte Bewegung */
+@media (prefers-reduced-motion: reduce) {
+    .active-scale,
+    .active-scale-sm,
+    .active-scale-lg,
+    .active-lift,
+    .active-lift-sm,
+    .active-lift-lg,
+    .active-tilt,
+    .active-tilt-sm,
+    .active-tilt-lg,
+    .active-glow,
+    .active-glow-sm,
+    .active-glow-lg,
+    .active-border,
+    .active-border-sm,
+    .active-border-lg,
+    .active-bg,
+    .active-bg-sm,
+    .active-bg-lg {
+        transition: none;
+    }
+    
+    .active-scale:active,
+    .active-scale-sm:active,
+    .active-scale-lg:active,
+    .active-lift:active,
+    .active-lift-sm:active,
+    .active-lift-lg:active,
+    .active-tilt:active,
+    .active-tilt-sm:active,
+    .active-tilt-lg:active {
+        transform: none;
+    }
+    
+    .active-border::after {
+        transition: none;
+    }
+} 
