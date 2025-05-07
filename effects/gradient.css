@@ -75,7 +75,6 @@
         var(--gradient-start, #3b82f6),
         var(--gradient-end, #8b5cf6)
     );
-    -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
 }
@@ -128,9 +127,11 @@
     0% {
         background-position: 0% 50%;
     }
+
     50% {
         background-position: 100% 50%;
     }
+
     100% {
         background-position: 0% 50%;
     }

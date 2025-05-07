@@ -31,16 +31,16 @@
 }
 
 .warning-bg {
-    background-color: var(--warning-bg, rgba(245, 158, 11, 0.1));
+    background-color: var(--warning-bg, rgb(245 158 11 / 10%));
     animation: warning-pulse 2s infinite;
 }
 
 .warning-bg-sm {
-    background-color: var(--warning-bg-sm, rgba(245, 158, 11, 0.05));
+    background-color: var(--warning-bg-sm, rgb(245 158 11 / 5%));
 }
 
 .warning-bg-lg {
-    background-color: var(--warning-bg-lg, rgba(245, 158, 11, 0.2));
+    background-color: var(--warning-bg-lg, rgb(245 158 11 / 20%));
 }
 
 .warning-text {
@@ -56,16 +56,16 @@
 }
 
 .warning-glow {
-    box-shadow: 0 0 10px var(--warning-glow, rgba(245, 158, 11, 0.5));
+    box-shadow: 0 0 10px var(--warning-glow, rgb(245 158 11 / 50%));
     animation: warning-pulse 2s infinite;
 }
 
 .warning-glow-sm {
-    box-shadow: 0 0 5px var(--warning-glow-sm, rgba(245, 158, 11, 0.3));
+    box-shadow: 0 0 5px var(--warning-glow-sm, rgb(245 158 11 / 30%));
 }
 
 .warning-glow-lg {
-    box-shadow: 0 0 15px var(--warning-glow-lg, rgba(245, 158, 11, 0.7));
+    box-shadow: 0 0 15px var(--warning-glow-lg, rgb(245 158 11 / 70%));
 }
 
 .warning-flash {
@@ -84,6 +84,7 @@
     0%, 100% {
         opacity: 1;
     }
+
     50% {
         opacity: 0.7;
     }
@@ -93,6 +94,7 @@
     0%, 100% {
         opacity: 1;
     }
+
     50% {
         opacity: 0.8;
     }
@@ -102,6 +104,7 @@
     0%, 100% {
         opacity: 1;
     }
+
     50% {
         opacity: 0.6;
     }
@@ -111,6 +114,7 @@
     0%, 100% {
         opacity: 1;
     }
+
     50% {
         opacity: 0.5;
     }
@@ -120,6 +124,7 @@
     0%, 100% {
         opacity: 1;
     }
+
     50% {
         opacity: 0.7;
     }
@@ -129,6 +134,7 @@
     0%, 100% {
         opacity: 1;
     }
+
     50% {
         opacity: 0.3;
     }

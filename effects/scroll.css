@@ -52,7 +52,7 @@
 }
 
 .scroll-thin::-webkit-scrollbar-thumb {
-    background: var(--scroll-thumb-color, rgba(0, 0, 0, 0.2));
+    background: var(--scroll-thumb-color, rgb(0 0 0 / 20%));
     border-radius: 3px;
 }
 

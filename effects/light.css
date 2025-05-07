@@ -17,7 +17,7 @@
     height: 200%;
     background: radial-gradient(
         circle at center,
-        var(--light-color, rgba(255, 255, 255, 0.8)) 0%,
+        var(--light-color, rgb(255 255 255 / 80%)) 0%,
         transparent 50%
     );
     transform: translate(-25%, -25%);
@@ -37,7 +37,7 @@
     background: linear-gradient(
         45deg,
         transparent,
-        var(--light-color, rgba(255, 255, 255, 0.3)),
+        var(--light-color, rgb(255 255 255 / 30%)),
         transparent
     );
     transform: translate(-25%, -25%);
@@ -55,7 +55,7 @@
     inset: 0;
     background: radial-gradient(
         circle at var(--light-x, 50%) var(--light-y, 50%),
-        var(--light-color, rgba(255, 255, 255, 0.2)) 0%,
+        var(--light-color, rgb(255 255 255 / 20%)) 0%,
         transparent 70%
     );
     pointer-events: none;

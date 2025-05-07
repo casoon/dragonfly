@@ -32,18 +32,6 @@
 @import url("components.css");
 
 /* 
- * Animations-System
- * Bewegung, Übergänge und zeitbasierte Effekte
- */
-@import url("animations.css");
-
-/* 
- * Effekt-System
- * Visuelle Effekte, Interaktionen und dekorative Elemente
- */
-@import url("effects.css");
-
-/* 
  * Theme-System
  * Farbpaletten, Erscheinungsbild und Anpassungen für verschiedene Modi
  */

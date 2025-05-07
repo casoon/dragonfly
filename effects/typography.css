@@ -6,15 +6,15 @@
  */
 
 .text-shadow-sm {
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    text-shadow: 0 1px 2px rgb(0 0 0 / 10%);
 }
 
 .text-shadow-md {
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-shadow: 0 2px 4px rgb(0 0 0 / 10%);
 }
 
 .text-shadow-lg {
-    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-shadow: 0 4px 8px rgb(0 0 0 / 10%);
 }
 
 .text-shadow-glow {
@@ -42,7 +42,6 @@
 
 .text-gradient {
     background: var(--text-gradient, linear-gradient(45deg, #ff6b6b, #4ecdc4));
-    -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
 }
@@ -51,11 +50,10 @@
     background: linear-gradient(
         90deg,
         transparent 0%,
-        rgba(255, 255, 255, 0.2) 50%,
+        rgb(255 255 255 / 20%) 50%,
         transparent 100%
     );
     background-size: 200% 100%;
-    -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     animation: text-shine 3s linear infinite;
@@ -85,6 +83,7 @@
     0% {
         background-position: 200% 0;
     }
+
     100% {
         background-position: -200% 0;
     }

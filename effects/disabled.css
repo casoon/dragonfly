@@ -66,33 +66,33 @@
 }
 
 .disabled-bg {
-    background-color: var(--disabled-bg, rgba(0, 0, 0, 0.05));
+    background-color: var(--disabled-bg, rgb(0 0 0 / 5%));
     pointer-events: none;
     cursor: not-allowed;
     user-select: none;
 }
 
 .disabled-bg-sm {
-    background-color: var(--disabled-bg-sm, rgba(0, 0, 0, 0.02));
+    background-color: var(--disabled-bg-sm, rgb(0 0 0 / 2%));
 }
 
 .disabled-bg-lg {
-    background-color: var(--disabled-bg-lg, rgba(0, 0, 0, 0.1));
+    background-color: var(--disabled-bg-lg, rgb(0 0 0 / 10%));
 }
 
 .disabled-text {
-    color: var(--disabled-text, rgba(0, 0, 0, 0.5));
+    color: var(--disabled-text, rgb(0 0 0 / 50%));
     pointer-events: none;
     cursor: not-allowed;
     user-select: none;
 }
 
 .disabled-text-sm {
-    color: var(--disabled-text-sm, rgba(0, 0, 0, 0.7));
+    color: var(--disabled-text-sm, rgb(0 0 0 / 70%));
 }
 
 .disabled-text-lg {
-    color: var(--disabled-text-lg, rgba(0, 0, 0, 0.3));
+    color: var(--disabled-text-lg, rgb(0 0 0 / 30%));
 }
 
 /* Reduzierte Bewegung */
