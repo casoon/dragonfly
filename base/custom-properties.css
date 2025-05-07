@@ -16,31 +16,31 @@
   @property --color-primary {
     syntax: '<color>';
     inherits: false;
-    initial-value: var(--color-blue-600);
+    initial-value: #3b82f6;
   }
 
   @property --color-accent {
     syntax: '<color>';
     inherits: false;
-    initial-value: var(--color-purple-600);
+    initial-value: #8b5cf6;
   }
 
   @property --color-text {
     syntax: '<color>';
     inherits: true;
-    initial-value: var(--color-gray-900);
+    initial-value: #1f2937;
   }
 
   @property --color-background {
     syntax: '<color>';
     inherits: false;
-    initial-value: var(--color-gray-50);
+    initial-value: #f9fafb;
   }
   
   @property --color-surface {
     syntax: '<color>';
     inherits: false;
-    initial-value: var(--color-white);
+    initial-value: #fff;
   }
 
   /* 
