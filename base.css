@@ -9,7 +9,8 @@
 
 /* Tokens und Properties */
 @import url("base/tokens.css");
-@import url("base/custom-properties.css");
+
+/* @import url("base/custom-properties.css"); */
 
 /* Core-Funktionalitäten */
 @import url("base/logical-properties.css");
