@@ -1,4 +1,7 @@
 :root {
+    /* Color Scheme für automatischen Dark Mode */
+    color-scheme: light dark;
+    
     /* =================== BASIS-FARBEN =================== */
     --color-primary: var(--color-blue-600);
     --color-primary-hover: var(--color-blue-700);
@@ -39,29 +42,29 @@
     --color-info-dark: var(--color-blue-900);
 
     /* =================== UI-FARBEN =================== */
-    --color-text: var(--color-gray-900);
-    --color-text-muted: var(--color-gray-600);
-    --color-text-light: var(--color-gray-400);
-    --color-text-inverted: var(--color-white);
-    --color-background: var(--color-gray-50);
-    --color-background-alt: var(--color-gray-100);
-    --color-background-elevated: var(--color-white);
-    --color-background-inverted: var(--color-gray-900);
+    --color-text: light-dark(var(--color-gray-900), var(--color-gray-100));
+    --color-text-muted: light-dark(var(--color-gray-600), var(--color-gray-400));
+    --color-text-light: light-dark(var(--color-gray-400), var(--color-gray-600));
+    --color-text-inverted: light-dark(var(--color-white), var(--color-gray-900));
+    --color-background: light-dark(var(--color-gray-50), var(--color-gray-900));
+    --color-background-alt: light-dark(var(--color-gray-100), var(--color-gray-800));
+    --color-background-elevated: light-dark(var(--color-white), var(--color-gray-800));
+    --color-background-inverted: light-dark(var(--color-gray-900), var(--color-gray-50));
 
     /* =================== BORDER & SHADOW =================== */
-    --color-border: var(--color-gray-200);
-    --color-border-hover: var(--color-gray-300);
-    --color-border-focus: var(--color-blue-500);
-    --color-border-error: var(--color-red-500);
-    --color-shadow-sm: rgb(0 0 0 / 5%);
-    --color-shadow-md: rgb(0 0 0 / 10%);
-    --color-shadow-lg: rgb(0 0 0 / 15%);
-    --color-shadow-xl: rgb(0 0 0 / 20%);
+    --color-border: light-dark(var(--color-gray-200), var(--color-gray-700));
+    --color-border-hover: light-dark(var(--color-gray-300), var(--color-gray-600));
+    --color-border-focus: light-dark(var(--color-blue-500), var(--color-blue-400));
+    --color-border-error: light-dark(var(--color-red-500), var(--color-red-400));
+    --color-shadow-sm: light-dark(rgb(0 0 0 / 5%), rgb(0 0 0 / 20%));
+    --color-shadow-md: light-dark(rgb(0 0 0 / 10%), rgb(0 0 0 / 30%));
+    --color-shadow-lg: light-dark(rgb(0 0 0 / 15%), rgb(0 0 0 / 40%));
+    --color-shadow-xl: light-dark(rgb(0 0 0 / 20%), rgb(0 0 0 / 50%));
 
     /* =================== FOCUS & OUTLINE =================== */
-    --color-focus-ring: var(--color-blue-500);
-    --color-focus-ring-offset: var(--color-white);
-    --color-outline: var(--color-blue-500);
+    --color-focus-ring: light-dark(var(--color-blue-500), var(--color-blue-400));
+    --color-focus-ring-offset: light-dark(var(--color-white), var(--color-gray-900));
+    --color-outline: light-dark(var(--color-blue-500), var(--color-blue-400));
 
     /* =================== ERGÄNZUNGSFARBEN =================== */
     --color-grey-dark: var(--color-gray-900);
@@ -83,9 +86,14 @@
     --color-pastel-yellow: var(--color-yellow-100);
 }
 
-/* System Dark Mode */
+/* Die Verwendung von light-dark() macht die alten Media Queries überflüssig */
+
+/* (Der folgende Media Query wird zur Rückwärtskompatibilität beibehalten) */
 @media (prefers-color-scheme: dark) {
     :root {
+        /* Dieser Abschnitt ist jetzt redundant, da light-dark() bereits verwendet wird */
+
+        /* Es bleibt nur für ältere Browser, die light-dark() nicht unterstützen */
         --color-text: var(--color-gray-100);
         --color-text-muted: var(--color-gray-400);
         --color-text-light: var(--color-gray-600);
@@ -108,8 +116,9 @@
     }
 }
 
-/* Manueller Dark Mode */
+/* Manueller Dark Mode ist immer noch nützlich für explizite Umschaltung */
 .dark-mode {
+    /* Diese Variablen werden in Zukunft light-dark() überschreiben */
     --color-text: var(--color-gray-100);
     --color-text-muted: var(--color-gray-400);
     --color-text-light: var(--color-gray-600);

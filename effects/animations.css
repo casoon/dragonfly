@@ -104,6 +104,77 @@
     .iteration-thrice, .thrice { animation-iteration-count: var(--iteration-thrice); }
     .iteration-infinite, .infinite { animation-iteration-count: var(--iteration-infinite); }
 
+    /* Fade-In-Animationen */
+    .fade-in {
+        animation: fade-in var(--animation-duration-normal) var(--ease-out) forwards;
+    }
+    
+    @starting-style {
+        .fade-in {
+            opacity: 0;
+        }
+    }
+
+    /* Slide-In-Up Animationen */
+    .slide-in-up {
+        animation: slide-up var(--animation-duration-normal) var(--ease-out) forwards;
+    }
+    
+    @starting-style {
+        .slide-in-up {
+            opacity: 0;
+            transform: translateY(var(--move-md));
+        }
+    }
+
+    /* Slide-In-Left Animationen */
+    .slide-in-left {
+        animation: slide-from-left var(--animation-duration-normal) var(--ease-out) forwards;
+    }
+    
+    @starting-style {
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(calc(var(--move-md) * -1));
+        }
+    }
+
+    /* Slide-In-Right Animationen */
+    .slide-in-right {
+        animation: slide-from-right var(--animation-duration-normal) var(--ease-out) forwards;
+    }
+    
+    @starting-style {
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(var(--move-md));
+        }
+    }
+
+    /* Scale-In Animationen */
+    .scale-in {
+        animation: scale-in var(--animation-duration-normal) var(--ease-spring) forwards;
+    }
+    
+    @starting-style {
+        .scale-in {
+            opacity: 0;
+            transform: scale(var(--scale-sm));
+        }
+    }
+
+    /* Popover-spezifische Animationen */
+    .popover-enter {
+        animation: popover-enter var(--animation-duration-normal) var(--ease-spring) forwards;
+    }
+    
+    @starting-style {
+        .popover-enter {
+            opacity: 0;
+            transform: translateY(var(--move-sm)) scale(var(--scale-xs));
+        }
+    }
+
     /* Scroll-Driven Examples */
     .scroll-fade-in {
         opacity: 0;
@@ -135,7 +206,7 @@
         animation-timeline: view();
         animation-range: entry 10% cover 40%;
     }
-
+    
     /* Interaction States */
     .interaction-scale {
         transition: transform var(--animation-duration-normal) var(--ease-spring);
@@ -184,6 +255,30 @@
         transition-property: color, background-color, border-color;
         transition-duration: var(--animation-duration-normal);
         transition-timing-function: var(--ease-in-out);
+    }
+}
+
+@keyframes scale-in {
+    from {
+        opacity: 0;
+        transform: scale(var(--scale-sm));
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes popover-enter {
+    from {
+        opacity: 0;
+        transform: translateY(var(--move-sm)) scale(var(--scale-xs));
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
     }
 }
 

@@ -2,6 +2,13 @@
 
 Ein modulares, leichtgewichtiges CSS-Framework und Design-System für moderne Webprojekte. Optimiert für Astro JS, LightningCSS und Container Queries mit @layer-basierter Architektur und umfassender Barrierefreiheit.
 
+## Neuerungen in Version 0.4.10
+
+- **Überarbeitetes Formular-System**: Umfassende RTL-Unterstützung, verbesserte Dark Mode-Unterstützung mit `light-dark()` und innovative Validierung mit `:has()`-Selektoren
+- **Vereinheitlichte Formular-Nomenklatur**: Konsistente Klassennamen mit `form-*` Präfix und bessere Organisation durch spezialisierte Klassen wie `form-layout-inline` und `form-inline-controls`
+- **Robustere Light/Dark Mode-Unterstützung**: Implementierung von `color-scheme: light dark` und Fallback-Mechanismen für optimale Browser-Kompatibilität
+- **Verbesserte Barrierefreiheit**: Umfassende Tastatur-Navigation und optimierte Screenreader-Unterstützung
+
 ## Neuerungen in Version 0.3.14
 
 - **Optimierte CSS-Layer-Struktur**: Verbesserte Hierarchie und präzisere Dokumentation aller Layer
@@ -232,3 +239,76 @@ Die Casoon UI Library ist ein fortschrittliches Design-System, das als solide Ba
 ├── themes/               # Theme-Varianten und Farbschemata
 └── icons/                # Icon-Definitionen
 ```
+
+## Neue Features in Version 2.0
+
+### Flüssige Interpolation mit interpolate-size
+
+Die neue Version unterstützt `interpolate-size: allow-keywords`, ein modernes CSS-Feature, das flüssige Übergänge zwischen Größenwerten (inkl. Schlüsselwörtern) ermöglicht.
+
+```css
+/* Globale Einstellung in base/tokens.css */
+:root {
+  interpolate-size: allow-keywords;
+}
+```
+
+#### Vorteile:
+
+- Nahtlose Übergänge zwischen Größenwerten beim Responsiv-Design
+- Unterstützung von CSS-Schlüsselwörtern (small, medium, large)
+- Bessere visuelle Kontinuität bei Container- und Viewport-Größenänderungen
+
+### Flüssige Typografie
+
+Das Framework bietet jetzt einen umfangreichen Satz an flüssigen Typografieelementen:
+
+```html
+<!-- Flüssig skalierende Überschriften -->
+<h1 class="fluid-heading xxl">Große Überschrift</h1>
+<h2 class="fluid-heading xl">Mittlere Überschrift</h2>
+
+<!-- Absatz mit optimaler Lesbarkeit und Flüssigkeit -->
+<p class="fluid-paragraph">Text mit optimaler Lesebreite und flüssiger Größenanpassung.</p>
+
+<!-- Blockzitat mit flüssiger Skalierung -->
+<blockquote class="fluid-quote">Ein hervorgehobenes Zitat mit automatischer Größenanpassung</blockquote>
+
+<!-- Mit interpolate-size:allow-keywords arbeitende Text-Klassen -->
+<p class="size-keyword-text larger">Dieser Text nutzt die Interpolation zwischen CSS-Schlüsselwörtern</p>
+```
+
+### Adaptive Komponenten
+
+Komponenten können jetzt mit flüssigen Übergängen skalieren:
+
+```html
+<!-- Flüssig skalierende Karte -->
+<div class="card fluid">
+  <h3>Adaptive Karte</h3>
+  <p>Skaliert flüssig basierend auf der Container-Größe.</p>
+</div>
+
+<!-- Flüssig skalierender Button -->
+<button class="button fluid">Adaptive Button</button>
+```
+
+## Architektur
+
+Das Framework ist in logische Schichten organisiert:
+
+- `base/`: Grundlegende Design-Tokens und Resets
+- `typography.css`: Typografie-System inkl. flüssiger Textelemente
+- `layout/`: Layoutsystem mit Container Queries
+- `components/`: Wiederverwendbare UI-Komponenten
+- `utilities/`: Hilfsfunktionen und Utility-Klassen
+- `effects/`: Animationen, Transitions und visuelle Effekte
+
+## Browser-Kompatibilität
+
+Die flüssige Interpolation mit `interpolate-size: allow-keywords` wird unterstützt in:
+- Chrome/Edge ab Version 120
+- Safari ab Version 17
+- Firefox ab Version 121 (mit Flag)
+
+Für ältere Browser werden Fallback-Werte verwendet.

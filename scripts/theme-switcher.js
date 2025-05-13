@@ -1,6 +1,9 @@
 /**
  * Casoon UI Theme Switcher
  * Ein einfaches Script zum Umschalten zwischen verschiedenen Themes
+ * 
+ * Unterstützt sowohl die light-dark() CSS-Syntax als auch klassische Theming-Ansätze.
+ * Moderne Browser werden automatisch vom color-scheme und light-dark() profitieren.
  */
 
 // Storage-Schlüssel für das Theme
@@ -17,7 +20,7 @@ const DEFAULT_THEME = 'theme-day';
 function initThemeSwitcher() {
   // Gespeichertes Theme laden
   const savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
-  const isDarkMode = localStorage.getItem(DARK_MODE_STORAGE_KEY) === 'true';
+  const savedDarkMode = localStorage.getItem(DARK_MODE_STORAGE_KEY);
   
   // System-Präferenzen prüfen
   const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -29,18 +32,22 @@ function initThemeSwitcher() {
     setTheme(DEFAULT_THEME);
   }
   
-  // Dark Mode anwenden basierend auf gespeicherter Einstellung oder System-Präferenz
-  if (isDarkMode || (prefersDarkMode && localStorage.getItem(DARK_MODE_STORAGE_KEY) === null)) {
-    document.documentElement.classList.add('dark-theme');
+  // Dark Mode anwenden, wenn er explizit gespeichert wurde
+  // Bei Browsern mit light-dark() Unterstützung dient dies als Override
+  if (savedDarkMode === 'true' || (prefersDarkMode && savedDarkMode === null)) {
+    document.documentElement.classList.add('dark-mode');
+  } else if (savedDarkMode === 'false') {
+    document.documentElement.classList.remove('dark-mode');
   }
   
   // Auf Änderungen der System-Präferenzen reagieren
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
     if (localStorage.getItem(DARK_MODE_STORAGE_KEY) === null) {
+      // Nur automatisch umschalten, wenn der Benutzer keine explizite Präferenz gesetzt hat
       if (event.matches) {
-        document.documentElement.classList.add('dark-theme');
+        document.documentElement.classList.add('dark-mode');
       } else {
-        document.documentElement.classList.remove('dark-theme');
+        document.documentElement.classList.remove('dark-mode');
       }
     }
   });
@@ -71,21 +78,44 @@ function setTheme(themeName) {
 
 /**
  * Dark Mode umschalten
+ * Dies überschreibt die automatische Erkennung durch color-scheme und light-dark()
  */
 function toggleDarkMode() {
-  const isDarkMode = document.documentElement.classList.contains('dark-theme');
+  const isDarkMode = document.documentElement.classList.contains('dark-mode');
   
   if (isDarkMode) {
-    document.documentElement.classList.remove('dark-theme');
+    document.documentElement.classList.remove('dark-mode');
     localStorage.setItem(DARK_MODE_STORAGE_KEY, 'false');
   } else {
-    document.documentElement.classList.add('dark-theme');
+    document.documentElement.classList.add('dark-mode');
     localStorage.setItem(DARK_MODE_STORAGE_KEY, 'true');
   }
   
   // Event auslösen
   document.dispatchEvent(new CustomEvent('darkModeChanged', { 
     detail: { darkMode: !isDarkMode } 
+  }));
+}
+
+/**
+ * Dark Mode auf Systemeinstellung zurücksetzen
+ * Entfernt die manuelle Präferenz und lässt light-dark() & color-scheme automatisch arbeiten
+ */
+function resetDarkMode() {
+  const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  
+  if (prefersDarkMode) {
+    document.documentElement.classList.add('dark-mode');
+  } else {
+    document.documentElement.classList.remove('dark-mode');
+  }
+  
+  // Gespeicherte Präferenz löschen
+  localStorage.removeItem(DARK_MODE_STORAGE_KEY);
+  
+  // Event auslösen
+  document.dispatchEvent(new CustomEvent('darkModeChanged', { 
+    detail: { darkMode: prefersDarkMode, auto: true } 
   }));
 }
 
@@ -105,7 +135,17 @@ function getCurrentTheme() {
  * @returns {boolean} - True wenn Dark Mode aktiv ist
  */
 function isDarkModeActive() {
-  return document.documentElement.classList.contains('dark-theme');
+  // Prüfe zunächst explizite Klasse
+  if (document.documentElement.classList.contains('dark-mode')) {
+    return true;
+  }
+  
+  // Sonst prüfe System-Präferenz falls kein expliziter Override vorhanden ist
+  if (localStorage.getItem(DARK_MODE_STORAGE_KEY) === null) {
+    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+  
+  return false;
 }
 
 /**
@@ -154,6 +194,7 @@ if (typeof module !== 'undefined' && module.exports) {
     initThemeSwitcher,
     setTheme,
     toggleDarkMode,
+    resetDarkMode,
     getCurrentTheme,
     isDarkModeActive,
     toggleHighContrast,

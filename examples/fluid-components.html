@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flüssige UI-Komponenten mit interpolate-size: allow-keywords</title>
+  
+  <!-- Basis-CSS importieren -->
+  <link rel="stylesheet" href="../base/tokens.css">
+  <link rel="stylesheet" href="../components/typography.css">
+  
+  <!-- Komponenten-CSS importieren -->
+  <link rel="stylesheet" href="../components/badge.css">
+  <link rel="stylesheet" href="../components/tooltip.css">
+  <link rel="stylesheet" href="../components/modal.css">
+  <link rel="stylesheet" href="../components/table.css">
+  <link rel="stylesheet" href="../components/form.css">
+  <link rel="stylesheet" href="../components/button.css">
+  <link rel="stylesheet" href="../components/avatar.css">
+  <link rel="stylesheet" href="../components/card.css">
+  
+  <style>
+    /* Styling für die Demo */
+    body {
+      padding: 2rem;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    h1, h2, h3 {
+      color: var(--color-primary-700);
+    }
+    
+    section {
+      margin-bottom: 3rem;
+      padding: 2rem;
+      border: 1px solid var(--color-gray-200);
+      border-radius: var(--radius-lg);
+    }
+    
+    .demo-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    
+    .demo-item {
+      min-width: 250px;
+      flex: 1;
+    }
+    
+    .container-demo {
+      resize: horizontal;
+      overflow: auto;
+      min-width: 200px;
+      max-width: 100%;
+      padding: 2rem;
+      border: 2px dashed var(--color-primary-300);
+      margin-bottom: 1.5rem;
+      container-type: inline-size;
+    }
+    
+    .code-example {
+      background: var(--color-gray-100);
+      padding: 1rem;
+      border-radius: var(--radius-md);
+      font-family: monospace;
+      white-space: pre-wrap;
+      margin-bottom: 1rem;
+    }
+    
+    .demo-modal-trigger {
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+    
+    /* Modales Dialogfenster öffnen/schließen */
+    #modal-fluid,
+    #modal-adaptive,
+    #modal-fluid-small,
+    #modal-fluid-large {
+      display: none;
+    }
+    
+    #modal-fluid.open,
+    #modal-adaptive.open,
+    #modal-fluid-small.open,
+    #modal-fluid-large.open {
+      display: flex;
+    }
+  </style>
+</head>
+<body>
+  <h1 class="fluid-heading">Flüssige UI-Komponenten mit interpolate-size</h1>
+  
+  <p class="fluid-paragraph">Diese Seite demonstriert verschiedene UI-Komponenten, die die Funktion 
+  <code>interpolate-size: allow-keywords</code> nutzen, um flüssige Größenänderungen zu ermöglichen. 
+  Ändern Sie die Größe Ihres Browserfensters oder ziehen Sie an den Container-Grenzen, um die 
+  flüssige Skalierung zu beobachten.</p>
+  
+  <section>
+    <h2 class="fluid-heading">Badge-Komponente</h2>
+    
+    <div class="demo-row">
+      <div class="demo-item">
+        <h3>Flüssige Badges mit Schlüsselwörtern</h3>
+        <div class="code-example">&lt;span class="badge fluid small"&gt;Klein&lt;/span&gt;
+&lt;span class="badge fluid medium"&gt;Medium&lt;/span&gt;
+&lt;span class="badge fluid large"&gt;Groß&lt;/span&gt;</div>
+        
+        <span class="badge fluid small">Klein</span>
+        <span class="badge fluid medium primary">Medium</span>
+        <span class="badge fluid large success">Groß</span>
+        <span class="badge fluid x-large warning">X-Large</span>
+      </div>
+      
+      <div class="demo-item">
+        <h3>Container-adaptive Badges</h3>
+        <p>Ziehen Sie die Größe des Containers, um zu sehen, wie sich die Badges anpassen:</p>
+        
+        <div class="container-demo">
+          <span class="badge adaptive">Adaptiv</span>
+          <span class="badge adaptive primary">Primär</span>
+          <span class="badge adaptive success">Erfolg</span>
+          <span class="badge adaptive warning">Warnung</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section>
+    <h2 class="fluid-heading">Tooltip-Komponente</h2>
+    
+    <div class="demo-row">
+      <div class="demo-item">
+        <h3>Flüssige Tooltips mit Schlüsselwörtern</h3>
+        <div class="code-example">&lt;div class="tooltip fluid small"&gt;
+  &lt;button class="trigger"&gt;Tooltip&lt;/button&gt;
+  &lt;div class="content"&gt;Inhalt&lt;/div&gt;
+&lt;/div&gt;</div>
+        
+        <div class="tooltip fluid small bottom">
+          <button class="trigger">Klein</button>
+          <div class="content">Kleiner Tooltip</div>
+        </div>
+        
+        <div class="tooltip fluid medium right">
+          <button class="trigger">Medium</button>
+          <div class="content">Medium Tooltip</div>
+        </div>
+        
+        <div class="tooltip fluid large top">
+          <button class="trigger">Groß</button>
+          <div class="content">Großer Tooltip</div>
+        </div>
+      </div>
+      
+      <div class="demo-item">
+        <h3>Container-adaptive Tooltips</h3>
+        <p>Ziehen Sie die Größe des Containers, um zu sehen, wie sich die Tooltips anpassen:</p>
+        
+        <div class="container-demo">
+          <div class="tooltip adaptive right">
+            <button class="trigger">Adaptiver Tooltip</button>
+            <div class="content">Dieser Tooltip passt sich an die Container-Größe an</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section>
+    <h2 class="fluid-heading">Tabellen-Komponente</h2>
+    
+    <div class="demo-row">
+      <div class="demo-item">
+        <h3>Flüssige Tabelle mit Schlüsselwörtern</h3>
+        
+        <table class="table fluid bordered">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Alter</th>
+              <th>Stadt</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Max Mustermann</td>
+              <td>34</td>
+              <td>Berlin</td>
+            </tr>
+            <tr>
+              <td>Anna Schmidt</td>
+              <td>28</td>
+              <td>Hamburg</td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <div class="demo-row">
+          <button onclick="document.querySelector('.table.fluid').classList.remove('small', 'medium', 'large', 'x-large'); document.querySelector('.table.fluid').classList.add('small')">Klein</button>
+          <button onclick="document.querySelector('.table.fluid').classList.remove('small', 'medium', 'large', 'x-large'); document.querySelector('.table.fluid').classList.add('medium')">Medium</button>
+          <button onclick="document.querySelector('.table.fluid').classList.remove('small', 'medium', 'large', 'x-large'); document.querySelector('.table.fluid').classList.add('large')">Groß</button>
+          <button onclick="document.querySelector('.table.fluid').classList.remove('small', 'medium', 'large', 'x-large'); document.querySelector('.table.fluid').classList.add('x-large')">X-Large</button>
+        </div>
+      </div>
+      
+      <div class="demo-item">
+        <h3>Container-adaptive Tabelle</h3>
+        <p>Ziehen Sie die Größe des Containers, um zu sehen, wie sich die Tabelle anpasst:</p>
+        
+        <div class="container-demo">
+          <table class="table adaptive bordered striped">
+            <thead>
+              <tr>
+                <th>Produkt</th>
+                <th>Preis</th>
+                <th>Verfügbarkeit</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Produkt A</td>
+                <td>19,99 €</td>
+                <td>Auf Lager</td>
+              </tr>
+              <tr>
+                <td>Produkt B</td>
+                <td>29,99 €</td>
+                <td>Nicht verfügbar</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section>
+    <h2 class="fluid-heading">Formular-Komponente</h2>
+    
+    <div class="demo-row">
+      <div class="demo-item">
+        <h3>Flüssiges Formular mit Schlüsselwörtern</h3>
+        
+        <form class="form fluid">
+          <div class="group">
+            <label class="label" for="name-fluid">Name</label>
+            <input class="input" id="name-fluid" type="text">
+            <div class="helper">Bitte geben Sie Ihren vollen Namen ein</div>
+          </div>
+          <div class="group">
+            <label class="label" for="email-fluid">E-Mail</label>
+            <input class="input" id="email-fluid" type="email">
+          </div>
+          <div class="actions">
+            <button type="button">Abbrechen</button>
+            <button type="submit">Absenden</button>
+          </div>
+        </form>
+        
+        <div class="demo-row">
+          <button onclick="document.querySelector('.form.fluid').classList.remove('small', 'medium', 'large', 'x-large'); document.querySelector('.form.fluid').classList.add('small')">Klein</button>
+          <button onclick="document.querySelector('.form.fluid').classList.remove('small', 'medium', 'large', 'x-large'); document.querySelector('.form.fluid').classList.add('medium')">Medium</button>
+          <button onclick="document.querySelector('.form.fluid').classList.remove('small', 'medium', 'large', 'x-large'); document.querySelector('.form.fluid').classList.add('large')">Groß</button>
+        </div>
+      </div>
+      
+      <div class="demo-item">
+        <h3>Container-adaptives Formular</h3>
+        <p>Ziehen Sie die Größe des Containers, um zu sehen, wie sich das Formular anpasst:</p>
+        
+        <div class="container-demo">
+          <form class="form adaptive">
+            <div class="group">
+              <label class="label" for="name-adaptive">Name</label>
+              <input class="input" id="name-adaptive" type="text">
+            </div>
+            <div class="group">
+              <label class="label" for="email-adaptive">E-Mail</label>
+              <input class="input" id="email-adaptive" type="email">
+              <div class="helper">Wir werden Ihre E-Mail nicht weitergeben</div>
+            </div>
+            <div class="actions">
+              <button type="submit">Absenden</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section>
+    <h2 class="fluid-heading">Modal-Komponente</h2>
+    
+    <div class="demo-row">
+      <div class="demo-item">
+        <h3>Flüssige Modals mit Schlüsselwörtern</h3>
+        
+        <button class="demo-modal-trigger" onclick="document.getElementById('modal-fluid').classList.add('open')">Modal öffnen (Medium)</button>
+        <button class="demo-modal-trigger" onclick="document.getElementById('modal-fluid-small').classList.add('open')">Modal öffnen (Klein)</button>
+        <button class="demo-modal-trigger" onclick="document.getElementById('modal-fluid-large').classList.add('open')">Modal öffnen (Groß)</button>
+        
+        <div id="modal-fluid" class="modal fluid medium fade">
+          <div class="backdrop" onclick="document.getElementById('modal-fluid').classList.remove('open')"></div>
+          <div class="container">
+            <div class="header">
+              <h3 class="title">Flüssiges Modal</h3>
+              <button class="close" onclick="document.getElementById('modal-fluid').classList.remove('open')">&times;</button>
+            </div>
+            <div class="body">
+              <p>Dieses Modal verwendet <code>interpolate-size: allow-keywords</code> für flüssige Größenanpassung.</p>
+              <p>Es nutzt CSS-Schlüsselwörter wie <code>font-size: medium</code>.</p>
+            </div>
+            <div class="footer">
+              <button onclick="document.getElementById('modal-fluid').classList.remove('open')">Schließen</button>
+            </div>
+          </div>
+        </div>
+        
+        <div id="modal-fluid-small" class="modal fluid small fade">
+          <div class="backdrop" onclick="document.getElementById('modal-fluid-small').classList.remove('open')"></div>
+          <div class="container">
+            <div class="header">
+              <h3 class="title">Kleines Modal</h3>
+              <button class="close" onclick="document.getElementById('modal-fluid-small').classList.remove('open')">&times;</button>
+            </div>
+            <div class="body">
+              <p>Dieses Modal verwendet die kleine Größenvariante <code>font-size: small</code>.</p>
+            </div>
+            <div class="footer">
+              <button onclick="document.getElementById('modal-fluid-small').classList.remove('open')">Schließen</button>
+            </div>
+          </div>
+        </div>
+        
+        <div id="modal-fluid-large" class="modal fluid large fade">
+          <div class="backdrop" onclick="document.getElementById('modal-fluid-large').classList.remove('open')"></div>
+          <div class="container">
+            <div class="header">
+              <h3 class="title">Großes Modal</h3>
+              <button class="close" onclick="document.getElementById('modal-fluid-large').classList.remove('open')">&times;</button>
+            </div>
+            <div class="body">
+              <p>Dieses Modal verwendet die große Größenvariante <code>font-size: large</code>.</p>
+              <p>Alle Maße skalieren proportional mit.</p>
+            </div>
+            <div class="footer">
+              <button onclick="document.getElementById('modal-fluid-large').classList.remove('open')">Schließen</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="demo-item">
+        <h3>Container-adaptives Modal</h3>
+        <p>Ziehen Sie die Größe des Containers, um zu sehen, wie sich das Modal anpassen würde:</p>
+        
+        <button class="demo-modal-trigger" onclick="document.getElementById('modal-adaptive').classList.add('open')">Adaptives Modal öffnen</button>
+        
+        <div id="modal-adaptive" class="modal adaptive fade">
+          <div class="backdrop" onclick="document.getElementById('modal-adaptive').classList.remove('open')"></div>
+          <div class="container">
+            <div class="header">
+              <h3 class="title">Adaptives Modal</h3>
+              <button class="close" onclick="document.getElementById('modal-adaptive').classList.remove('open')">&times;</button>
+            </div>
+            <div class="body">
+              <p>Dieses Modal passt sich an die Container-Größe an.</p>
+              <p>Es nutzt Container-Queries und <code>clamp()</code>-Funktionen.</p>
+            </div>
+            <div class="footer">
+              <button onclick="document.getElementById('modal-adaptive').classList.remove('open')">Schließen</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section>
+    <h2 class="fluid-heading">Avatar-Komponente</h2>
+    
+    <div class="demo-row">
+      <div class="demo-item">
+        <h3>Flüssige Avatare mit Schlüsselwörtern</h3>
+        
+        <div class="avatar fluid small">
+          <img src="https://placekitten.com/100/100" alt="Benutzer">
+        </div>
+        
+        <div class="avatar fluid medium">
+          <img src="https://placekitten.com/100/100" alt="Benutzer">
+        </div>
+        
+        <div class="avatar fluid large">
+          <img src="https://placekitten.com/100/100" alt="Benutzer">
+        </div>
+        
+        <div class="avatar fluid x-large">
+          <img src="https://placekitten.com/100/100" alt="Benutzer">
+        </div>
+      </div>
+      
+      <div class="demo-item">
+        <h3>Container-adaptive Avatare</h3>
+        <p>Ziehen Sie die Größe des Containers, um zu sehen, wie sich die Avatare anpassen:</p>
+        
+        <div class="container-demo">
+          <div class="avatar adaptive">
+            <img src="https://placekitten.com/200/200" alt="Benutzer">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <footer>
+    <p>Diese Beispielseite zeigt die Verwendung von <code>interpolate-size: allow-keywords</code> in verschiedenen UI-Komponenten.</p>
+    <p>Weitere Informationen finden Sie in der <a href="../README.md">Dokumentation</a>.</p>
+  </footer>
+</body>
+</html> 

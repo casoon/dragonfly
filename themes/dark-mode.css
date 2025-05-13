@@ -4,9 +4,14 @@
  * Diese Datei definiert das Dark Mode Theme.
  * Die Farben orientieren sich an den Variablen aus colors.css.
  * Das Theme wird nur aktiviert, wenn die Klasse "theme-dark-mode" auf einem Element angewendet wird.
+ * 
+ * Diese Version verwendet die moderne light-dark() Syntax für automatischen Dark Mode.
  */
 
 .theme-dark-mode {
+    /* Aktiviere automatisches Color Scheme */
+    color-scheme: light dark;
+    
     /* =================== BASIS-FARBEN =================== */
 
     /* Primary Colors */
@@ -83,32 +88,32 @@
     --color-info-dark: var(--color-sky-900);
 
     /* =================== UI-FARBEN =================== */
-    --color-text: var(--color-gray-100);
-    --color-text-muted: var(--color-gray-400);
-    --color-text-light: var(--color-gray-600);
-    --color-text-inverted: var(--color-gray-900);
-    --color-background: var(--color-gray-900);
-    --color-background-alt: var(--color-gray-800);
-    --color-background-elevated: var(--color-gray-800);
-    --color-background-inverted: var(--color-gray-50);
+    --color-text: light-dark(var(--color-gray-900), var(--color-gray-100));
+    --color-text-muted: light-dark(var(--color-gray-600), var(--color-gray-400));
+    --color-text-light: light-dark(var(--color-gray-400), var(--color-gray-600));
+    --color-text-inverted: light-dark(var(--color-gray-100), var(--color-gray-900));
+    --color-background: light-dark(var(--color-gray-50), var(--color-gray-900));
+    --color-background-alt: light-dark(var(--color-gray-100), var(--color-gray-800));
+    --color-background-elevated: light-dark(var(--color-white), var(--color-gray-800));
+    --color-background-inverted: light-dark(var(--color-gray-900), var(--color-gray-50));
 
     /* =================== BORDER & SHADOW =================== */
-    --color-border: var(--color-gray-700);
-    --color-border-hover: var(--color-gray-600);
-    --color-border-focus: var(--color-primary-400);
-    --color-border-error: var(--color-error-400);
-    --color-shadow-sm: rgb(0 0 0 / 20%);
-    --color-shadow-md: rgb(0 0 0 / 30%);
-    --color-shadow-lg: rgb(0 0 0 / 40%);
-    --color-shadow-xl: rgb(0 0 0 / 50%);
+    --color-border: light-dark(var(--color-gray-200), var(--color-gray-700));
+    --color-border-hover: light-dark(var(--color-gray-300), var(--color-gray-600));
+    --color-border-focus: light-dark(var(--color-primary-500), var(--color-primary-400));
+    --color-border-error: light-dark(var(--color-error-500), var(--color-error-400));
+    --color-shadow-sm: light-dark(rgb(0 0 0 / 5%), rgb(0 0 0 / 20%));
+    --color-shadow-md: light-dark(rgb(0 0 0 / 10%), rgb(0 0 0 / 30%));
+    --color-shadow-lg: light-dark(rgb(0 0 0 / 15%), rgb(0 0 0 / 40%));
+    --color-shadow-xl: light-dark(rgb(0 0 0 / 20%), rgb(0 0 0 / 50%));
 
     /* =================== FOCUS & OUTLINE =================== */
-    --color-focus-ring: var(--color-primary-400);
-    --color-focus-ring-offset: var(--color-gray-900);
-    --color-outline: var(--color-primary-400);
+    --color-focus-ring: light-dark(var(--color-primary-500), var(--color-primary-400));
+    --color-focus-ring-offset: light-dark(var(--color-white), var(--color-gray-900));
+    --color-outline: light-dark(var(--color-primary-500), var(--color-primary-400));
 }
 
-/* System Dark Mode */
+/* Für ältere Browser ohne light-dark() Unterstützung */
 @media (prefers-color-scheme: dark) {
     .theme-dark-mode {
         --color-text: var(--color-gray-100);

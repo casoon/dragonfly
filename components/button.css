@@ -46,6 +46,9 @@
  * <button class="button icon-only">
  *   <span class="icon"><!-- Icon hier --></span>
  * </button>
+ * 
+ * Flüssig skalierender Button (nutzt interpolate-size):
+ * <button class="button fluid">Adaptive Button</button>
  */
 
 @layer button {
@@ -100,6 +103,26 @@
       padding-inline: var(--space-6);
       padding-block: var(--space-3);
       font-size: var(--font-size-base);
+    }
+    
+    /* Fluid Button mit interpolate-size */
+    &.fluid {
+      /* Flüssig skalierende Font-Größe basierend auf Container-Größe */
+      font-size: medium; /* wird mit allow-keywords flüssiger */
+      
+      /* Flüssige Padding-Anpassung im Container */
+      @container (min-width: 400px) {
+        padding-inline: var(--space-5);
+        padding-block: var(--space-3);
+        font-size: large;
+      }
+      
+      @container (min-width:
+       600px) {
+        padding-inline: var(--space-6);
+        padding-block: var(--space-4);
+        font-size: x-large;
+      }
     }
 
     /* Zustände */

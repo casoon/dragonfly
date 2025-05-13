@@ -16,6 +16,7 @@ Dieses Dokument beschreibt die Struktur, Konzepte und Verwendung des Casoon UI D
 - [Brand-Anpassungen](#brand-anpassungen)
 - [Utility-Klassen](#utility-klassen)
 - [Verwendung im Projekt](#verwendung-im-projekt)
+- [Formulare](#formulare)
 
 ## Projektstruktur
 
@@ -1096,4 +1097,264 @@ import styles from 'casoon-ui-lib/components/button.css';
     <!-- 1 Spalte bei kleinen Containern, 2 Spalten ab Container-Größe MD -->
   </div>
 </div>
+```
+
+## Typografie und Flüssige Größenanpassung
+
+### Typografiesystem
+
+Das Typografiesystem bietet konsistente Größen, Abstände und Text-Styles für alle Projektkomponenten. 
+
+#### Traditionelle Typografieklassen
+
+```css
+/* Größen */
+.text-xs, .text-sm, .text-base, .text-lg, .text-xl, .text-2xl, ...
+
+/* Gewichte */
+.font-normal, .font-medium, .font-semibold, .font-bold
+
+/* Zeilenhöhen */
+.leading-none, .leading-tight, .leading-normal, .leading-loose
+
+/* Ausrichtung */
+.text-left, .text-center, .text-right
+```
+
+#### Moderne Flüssige Typografie
+
+CASOON UI Lib unterstützt jetzt flüssige Typografie mit `interpolate-size: allow-keywords`:
+
+```css
+/* Flüssige Überschriften mit Viewport-basierter Anpassung */
+.fluid-heading.xxl { font-size: clamp(var(--text-2xl), 5vw + 1rem, var(--text-4xl)); }
+.fluid-heading.xl { font-size: clamp(var(--text-xl), 4vw + 0.5rem, var(--text-3xl)); }
+/* weitere Größen verfügbar */
+
+/* Flüssige Paragraphen mit optimaler Lesebreite */
+.fluid-paragraph { 
+  font-size: clamp(var(--text-sm), 1vw + 0.5rem, var(--text-base));
+  max-width: 70ch; 
+}
+
+/* Container-adaptive Texte (basierend auf Container-Queries) */
+.adaptive-text {
+  font-size: var(--text-base);
+  @container (min-width: 400px) { font-size: var(--text-lg); }
+  @container (min-width: 600px) { font-size: var(--text-xl); }
+}
+
+/* Flüssige Schlüsselwort-Texte (nutzen interpolate-size: allow-keywords) */
+.size-keyword-text { font-size: medium; }
+.size-keyword-text.larger { font-size: large; }
+.size-keyword-text.largest { font-size: x-large; }
+```
+
+### Anwendungsbeispiele
+
+#### Optimale Lesbarkeit mit flüssiger Typografie
+
+```html
+<article class="container-query">
+  <h1 class="fluid-heading xxl">Hauptüberschrift</h1>
+  <p class="fluid-paragraph">
+    Dieser Text verwendet flüssige Typografie und passt sich automatisch 
+    an die Viewport-Größe an. Die maximale Breite von 70 Zeichen sorgt für 
+    optimale Lesbarkeit auf allen Geräten.
+  </p>
+  <blockquote class="fluid-quote">
+    Dieses Zitat skaliert flüssig zwischen den definierten Größen.
+  </blockquote>
+</article>
+```
+
+#### Schlüsselwort-basierte Typografie-Interpolation
+
+```html
+<!-- Container mit eigener Größenskalierung -->
+<div class="container-query" style="resize: horizontal; overflow: auto;">
+  <p class="size-keyword-text">
+    Standardtext mit medium-Größe
+  </p>
+  <p class="size-keyword-text larger">
+    Größerer Text mit large-Größe (interpoliert)
+  </p>
+  <p class="size-keyword-text largest">
+    Noch größerer Text mit x-large-Größe (interpoliert)
+  </p>
+</div>
+```
+
+### Best Practices für Flüssige Typografie
+
+1. **Kontinuität wahren**: Nutze `clamp()` mit sinnvollen Min- und Max-Werten, um sprunghafte Größenänderungen zu vermeiden
+2. **Container-Queries verwenden**: Für komponentenspezifische Anpassungen sind Container-Queries oft präziser als Viewport-Queries
+3. **Lesbarkeit priorisieren**: Stelle sicher, dass Textgrößen auch im kleinsten Zustand noch lesbar sind
+4. **Mit Keywords experimentieren**: Die `interpolate-size: allow-keywords` Eigenschaft ermöglicht kreative Übergänge zwischen CSS-Schlüsselwörtern
+5. **Vermeidung von Layout Shifts**: Setze immer Min- und Max-Werte bei clamp(), um unerwartete Layout-Verschiebungen zu verhindern 
+
+## Formulare
+
+Das CASOON UI-Lib Framework bietet ein umfassendes Formular-System mit modernen Funktionen und optimaler Barrierefreiheit.
+
+### Basisklassen für Formulare
+
+Das Formular-System basiert auf einem konsistenten Klassensystem:
+
+```html
+<form class="form">
+  <div class="form-group">
+    <label class="form-label" for="name">Name</label>
+    <input type="text" class="form-control" id="name">
+    <div class="form-text">Hilfetext</div>
+  </div>
+  
+  <div class="form-group">
+    <label class="form-label" for="email">E-Mail</label>
+    <input type="email" class="form-control" id="email">
+  </div>
+  
+  <div class="form-actions">
+    <button type="submit" class="button primary">Absenden</button>
+    <button type="reset" class="button">Zurücksetzen</button>
+  </div>
+</form>
+```
+
+### Formular-Layouts
+
+Das Framework bietet verschiedene Layout-Optionen für Formulare:
+
+#### Gestapeltes Layout (Standard)
+
+```html
+<form class="form form-stacked">
+  <!-- Formularfelder werden vertikal angeordnet -->
+</form>
+```
+
+#### Horizontales Layout
+
+```html
+<form class="form form-horizontal">
+  <!-- Labels und Eingabefelder nebeneinander -->
+</form>
+```
+
+#### Layout mit mehreren Spalten
+
+```html
+<form class="form">
+  <div class="form-row">
+    <div class="form-group">
+      <label class="form-label" for="firstname">Vorname</label>
+      <input type="text" class="form-control" id="firstname">
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="lastname">Nachname</label>
+      <input type="text" class="form-control" id="lastname">
+    </div>
+  </div>
+</form>
+```
+
+#### Inline-Layout für Formulare
+
+```html
+<form class="form-layout-inline">
+  <!-- Kompakte horizontale Anordnung des gesamten Formulars -->
+</form>
+```
+
+#### Inline-Controls für Checkboxen und Radios
+
+```html
+<div class="form-group form-inline-controls">
+  <input type="checkbox" class="form-check-input" id="check1">
+  <label class="form-label" for="check1">Option 1</label>
+  
+  <input type="checkbox" class="form-check-input" id="check2">
+  <label class="form-label" for="check2">Option 2</label>
+</div>
+```
+
+### Validierung
+
+Das Formular-System unterstützt zwei Validierungsansätze:
+
+#### Klassische Validierung mit Klassen
+
+```html
+<div class="form-group valid">
+  <input type="text" class="form-control" value="Gültige Eingabe">
+  <div class="feedback">Eingabe ist gültig!</div>
+</div>
+
+<div class="form-group invalid">
+  <input type="text" class="form-control" value="Ungültige Eingabe">
+  <div class="feedback">Bitte korrigieren Sie Ihre Eingabe.</div>
+</div>
+```
+
+#### Moderne Validierung mit :has()
+
+Das Framework nutzt moderne `:has()`-Selektoren, um den Validierungsstatus visuell darzustellen:
+
+```html
+<!-- Der Browser zeigt automatisch visuelle Indikatoren basierend auf dem Eingabestatus -->
+<form class="form">
+  <div class="form-group">
+    <label class="form-label" for="email">E-Mail</label>
+    <input type="email" class="form-control" id="email" required>
+  </div>
+</form>
+```
+
+Die `:has()`-Selektoren fügen automatisch folgende visuelle Indikatoren hinzu:
+- Linker Rand in der entsprechenden Validierungsfarbe
+- Symbolindikatoren im Label
+- Farbliche Kennzeichnung der Feedback-Meldungen
+
+### Sonderfunktionen
+
+#### RTL-Unterstützung
+
+Das Formular-System unterstützt bidirektionale Layouts mit `[dir="rtl"]`:
+
+```html
+<html dir="rtl">
+  <!-- Formularelemente werden automatisch für RTL-Sprachen angepasst -->
+  <form class="form">...</form>
+</html>
+```
+
+#### Dark Mode
+
+Formulare unterstützen Dark Mode automatisch durch `color-scheme: light dark` und die `light-dark()` CSS-Funktion:
+
+```html
+<!-- Passt sich automatisch dem Systemthema an -->
+<form class="form">...</form>
+```
+
+#### Adaptive Formulare
+
+Für Container-basierte responsive Formulare:
+
+```html
+<div class="container-query">
+  <form class="form adaptive">
+    <!-- Passt sich an Container-Größe an -->
+  </form>
+</div>
+```
+
+#### Flüssige Formulare
+
+Für flüssige Größenanpassung mit CSS-Schlüsselwörtern:
+
+```html
+<form class="form fluid medium">
+  <!-- Flüssige Größenanpassung mit 'small', 'medium', 'large', 'x-large' -->
+</form>
 ``` 
