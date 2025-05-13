@@ -397,6 +397,40 @@ Die Typografie ist in `layers/typography.css` definiert:
 --font-size-5xl: 3rem;      /* 48px */
 ```
 
+### Text-Wrap-Optimierung
+
+Das Design-System verwendet moderne `text-wrap`-Eigenschaften für verbesserte Lesbarkeit und optimale Textdarstellung:
+
+```css
+/* Optimierte Zeilenumbrüche für Überschriften */
+h1, h2, h3, h4, h5, h6 { text-wrap: balance; }
+
+/* Text-Wrap-Utilities */
+.text-balance { text-wrap: balance; }
+.text-pretty { text-wrap: pretty; }
+```
+
+#### Text-Wrap-Eigenschaften
+
+| Eigenschaft | Beschreibung | Anwendungsfall |
+|-------------|--------------|---------------|
+| `text-wrap: balance` | Optimiert Zeilenumbrüche für gleichmäßige Zeilenlängen | Ideal für Überschriften, kurze Texte, Buttons |
+| `text-wrap: pretty` | Vermeidet einzelne Wörter in der letzten Zeile (Schusterjungen) | Ideal für Fließtexte, Paragraphen, längere Textabschnitte |
+
+#### Beispielanwendung
+
+```html
+<!-- Überschrift mit ausgeglichene Zeilenlängen -->
+<h1 class="text-balance">Diese Überschrift hat ausgeglichene Zeilenlängen</h1>
+
+<!-- Längerer Text mit optimiertem Umbruch -->
+<p class="text-pretty">
+  Dieser Paragraph verwendet text-wrap: pretty für optimale Lesbarkeit,
+  indem einzelne Wörter am Ende von Textblöcken vermieden werden und
+  eine gleichmäßigere Textverteilung erreicht wird.
+</p>
+```
+
 ### Schriftstärken
 
 ```css
@@ -1100,266 +1134,6 @@ import styles from 'casoon-ui-lib/components/button.css';
 </div>
 ```
 
-## Typografie und Flüssige Größenanpassung
-
-### Typografiesystem
-
-Das Typografiesystem bietet konsistente Größen, Abstände und Text-Styles für alle Projektkomponenten. 
-
-#### Traditionelle Typografieklassen
-
-```css
-/* Größen */
-.text-xs, .text-sm, .text-base, .text-lg, .text-xl, .text-2xl, ...
-
-/* Gewichte */
-.font-normal, .font-medium, .font-semibold, .font-bold
-
-/* Zeilenhöhen */
-.leading-none, .leading-tight, .leading-normal, .leading-loose
-
-/* Ausrichtung */
-.text-left, .text-center, .text-right
-```
-
-#### Moderne Flüssige Typografie
-
-CASOON UI Lib unterstützt jetzt flüssige Typografie mit `interpolate-size: allow-keywords`:
-
-```css
-/* Flüssige Überschriften mit Viewport-basierter Anpassung */
-.fluid-heading.xxl { font-size: clamp(var(--text-2xl), 5vw + 1rem, var(--text-4xl)); }
-.fluid-heading.xl { font-size: clamp(var(--text-xl), 4vw + 0.5rem, var(--text-3xl)); }
-/* weitere Größen verfügbar */
-
-/* Flüssige Paragraphen mit optimaler Lesebreite */
-.fluid-paragraph { 
-  font-size: clamp(var(--text-sm), 1vw + 0.5rem, var(--text-base));
-  max-width: 70ch; 
-}
-
-/* Container-adaptive Texte (basierend auf Container-Queries) */
-.adaptive-text {
-  font-size: var(--text-base);
-  @container (min-width: 400px) { font-size: var(--text-lg); }
-  @container (min-width: 600px) { font-size: var(--text-xl); }
-}
-
-/* Flüssige Schlüsselwort-Texte (nutzen interpolate-size: allow-keywords) */
-.size-keyword-text { font-size: medium; }
-.size-keyword-text.larger { font-size: large; }
-.size-keyword-text.largest { font-size: x-large; }
-```
-
-### Anwendungsbeispiele
-
-#### Optimale Lesbarkeit mit flüssiger Typografie
-
-```html
-<article class="container-query">
-  <h1 class="fluid-heading xxl">Hauptüberschrift</h1>
-  <p class="fluid-paragraph">
-    Dieser Text verwendet flüssige Typografie und passt sich automatisch 
-    an die Viewport-Größe an. Die maximale Breite von 70 Zeichen sorgt für 
-    optimale Lesbarkeit auf allen Geräten.
-  </p>
-  <blockquote class="fluid-quote">
-    Dieses Zitat skaliert flüssig zwischen den definierten Größen.
-  </blockquote>
-</article>
-```
-
-#### Schlüsselwort-basierte Typografie-Interpolation
-
-```html
-<!-- Container mit eigener Größenskalierung -->
-<div class="container-query" style="resize: horizontal; overflow: auto;">
-  <p class="size-keyword-text">
-    Standardtext mit medium-Größe
-  </p>
-  <p class="size-keyword-text larger">
-    Größerer Text mit large-Größe (interpoliert)
-  </p>
-  <p class="size-keyword-text largest">
-    Noch größerer Text mit x-large-Größe (interpoliert)
-  </p>
-</div>
-```
-
-### Best Practices für Flüssige Typografie
-
-1. **Kontinuität wahren**: Nutze `clamp()` mit sinnvollen Min- und Max-Werten, um sprunghafte Größenänderungen zu vermeiden
-2. **Container-Queries verwenden**: Für komponentenspezifische Anpassungen sind Container-Queries oft präziser als Viewport-Queries
-3. **Lesbarkeit priorisieren**: Stelle sicher, dass Textgrößen auch im kleinsten Zustand noch lesbar sind
-4. **Mit Keywords experimentieren**: Die `interpolate-size: allow-keywords` Eigenschaft ermöglicht kreative Übergänge zwischen CSS-Schlüsselwörtern
-5. **Vermeidung von Layout Shifts**: Setze immer Min- und Max-Werte bei clamp(), um unerwartete Layout-Verschiebungen zu verhindern 
-
-## Formulare
-
-Das CASOON UI-Lib Framework bietet ein umfassendes Formular-System mit modernen Funktionen und optimaler Barrierefreiheit.
-
-### Basisklassen für Formulare
-
-Das Formular-System basiert auf einem konsistenten Klassensystem:
-
-```html
-<form class="form">
-  <div class="form-group">
-    <label class="form-label" for="name">Name</label>
-    <input type="text" class="form-control" id="name">
-    <div class="form-text">Hilfetext</div>
-  </div>
-  
-  <div class="form-group">
-    <label class="form-label" for="email">E-Mail</label>
-    <input type="email" class="form-control" id="email">
-  </div>
-  
-  <div class="form-actions">
-    <button type="submit" class="button primary">Absenden</button>
-    <button type="reset" class="button">Zurücksetzen</button>
-  </div>
-</form>
-```
-
-### Formular-Layouts
-
-Das Framework bietet verschiedene Layout-Optionen für Formulare:
-
-#### Gestapeltes Layout (Standard)
-
-```html
-<form class="form form-stacked">
-  <!-- Formularfelder werden vertikal angeordnet -->
-</form>
-```
-
-#### Horizontales Layout
-
-```html
-<form class="form form-horizontal">
-  <!-- Labels und Eingabefelder nebeneinander -->
-</form>
-```
-
-#### Layout mit mehreren Spalten
-
-```html
-<form class="form">
-  <div class="form-row">
-    <div class="form-group">
-      <label class="form-label" for="firstname">Vorname</label>
-      <input type="text" class="form-control" id="firstname">
-    </div>
-    <div class="form-group">
-      <label class="form-label" for="lastname">Nachname</label>
-      <input type="text" class="form-control" id="lastname">
-    </div>
-  </div>
-</form>
-```
-
-#### Inline-Layout für Formulare
-
-```html
-<form class="form-layout-inline">
-  <!-- Kompakte horizontale Anordnung des gesamten Formulars -->
-</form>
-```
-
-#### Inline-Controls für Checkboxen und Radios
-
-```html
-<div class="form-group form-inline-controls">
-  <input type="checkbox" class="form-check-input" id="check1">
-  <label class="form-label" for="check1">Option 1</label>
-  
-  <input type="checkbox" class="form-check-input" id="check2">
-  <label class="form-label" for="check2">Option 2</label>
-</div>
-```
-
-### Validierung
-
-Das Formular-System unterstützt zwei Validierungsansätze:
-
-#### Klassische Validierung mit Klassen
-
-```html
-<div class="form-group valid">
-  <input type="text" class="form-control" value="Gültige Eingabe">
-  <div class="feedback">Eingabe ist gültig!</div>
-</div>
-
-<div class="form-group invalid">
-  <input type="text" class="form-control" value="Ungültige Eingabe">
-  <div class="feedback">Bitte korrigieren Sie Ihre Eingabe.</div>
-</div>
-```
-
-#### Moderne Validierung mit :has()
-
-Das Framework nutzt moderne `:has()`-Selektoren, um den Validierungsstatus visuell darzustellen:
-
-```html
-<!-- Der Browser zeigt automatisch visuelle Indikatoren basierend auf dem Eingabestatus -->
-<form class="form">
-  <div class="form-group">
-    <label class="form-label" for="email">E-Mail</label>
-    <input type="email" class="form-control" id="email" required>
-  </div>
-</form>
-```
-
-Die `:has()`-Selektoren fügen automatisch folgende visuelle Indikatoren hinzu:
-- Linker Rand in der entsprechenden Validierungsfarbe
-- Symbolindikatoren im Label
-- Farbliche Kennzeichnung der Feedback-Meldungen
-
-### Sonderfunktionen
-
-#### RTL-Unterstützung
-
-Das Formular-System unterstützt bidirektionale Layouts mit `[dir="rtl"]`:
-
-```html
-<html dir="rtl">
-  <!-- Formularelemente werden automatisch für RTL-Sprachen angepasst -->
-  <form class="form">...</form>
-</html>
-```
-
-#### Dark Mode
-
-Formulare unterstützen Dark Mode automatisch durch `color-scheme: light dark` und die `light-dark()` CSS-Funktion:
-
-```html
-<!-- Passt sich automatisch dem Systemthema an -->
-<form class="form">...</form>
-```
-
-#### Adaptive Formulare
-
-Für Container-basierte responsive Formulare:
-
-```html
-<div class="container-query">
-  <form class="form adaptive">
-    <!-- Passt sich an Container-Größe an -->
-  </form>
-</div>
-```
-
-#### Flüssige Formulare
-
-Für flüssige Größenanpassung mit CSS-Schlüsselwörtern:
-
-```html
-<form class="form fluid medium">
-  <!-- Flüssige Größenanpassung mit 'small', 'medium', 'large', 'x-large' -->
-</form>
-```
-
 ## Animationen
 
 Das Animationssystem von Casoon UI wurde grundlegend überarbeitet und bietet nun eine einheitliche, performante und barrierefreie Lösung für Bewegungen in der Benutzeroberfläche.
@@ -1582,314 +1356,207 @@ Besonders nützlich ist die Kombination mit Container-Queries für responsive An
 </div>
 ```
 
-5. **Zeitachsen** - Sequenzielle Darstellung von zeitlich geordneten Ereignissen
+### Backdrop-Komponenten
 
-### Experimentelles Feature: Animation Composition
-
-> **Hinweis**: Diese Funktion ist experimentell und hat aktuell nur eingeschränkte Browserunterstützung. Verwenden Sie sie nur in Projekten, die modernste Browser voraussetzen oder mit angemessenen Fallbacks.
-
-Die `animation-composition`-Eigenschaft ermöglicht die Kombination mehrerer Animationen auf neuartige Weise:
-
-| Wert | Beschreibung |
-|------|--------------|
-| `replace` | Animation ersetzt bestehende Animationen (Standard) |
-| `add` | Animation wird zu bestehenden Animationen addiert |
-| `accumulate` | Animation wird auf bestehende Animationen aufaddiert |
-
-#### Utilities für Animation Composition
-
-```css
-.composition-replace     /* Ersetzt andere Animationen (Standard) */
-.composition-add         /* Addiert Animation zu anderen hinzu */
-.composition-accumulate  /* Rechnet Animation auf andere auf */
-```
-
-#### Vordefinierte kombinierte Animationen
+Backdrops sind halbtransparente Überlagerungen, die als Hintergrund für modale Dialoge, Popover und andere UI-Elemente dienen. Sie helfen, den Fokus auf den Vordergrundinhalt zu lenken und eine visuelle Hierarchie zu schaffen.
 
 ```html
-<!-- Bounce-Effekt mit Einblenden kombiniert -->
-<div class="animate animate-combined-bounce">
-  Dieses Element springt und blendet gleichzeitig ein.
+<!-- Standard Backdrop (dunkler Hintergrund) -->
+<div class="backdrop">
+  <!-- Inhalte im Vordergrund -->
 </div>
 
-<!-- Wackel-Effekt mit Einblenden kombiniert -->
-<div class="animate animate-combined-shake">
-  Dieses Element wackelt während des Einblendens.
+<!-- Backdrop mit Unschärfe-Effekt -->
+<div class="backdrop backdrop-blur">
+  <!-- Inhalte im Vordergrund -->
 </div>
 
-<!-- Bewegung entlang eines Pfades (rechts + nach oben) -->
-<div class="animate animate-path">
-  Dieses Element bewegt sich diagonal.
+<!-- Heller Backdrop -->
+<div class="backdrop backdrop-light">
+  <!-- Inhalte im Vordergrund -->
 </div>
 
-<!-- Einzoomen mit anschließendem Sprung -->
-<div class="animate animate-zoom-bounce">
-  Dieses Element zoomt ein und springt dann.
-</div>
-```
-
-#### Eigene kombinierte Animationen
-
-```html
-<!-- Manuelle Kombination mehrerer Animationen -->
-<div class="animate" style="
-  animation: slide-in-left 0.5s, fade-in 0.3s, bounce 1s 0.5s;
-  animation-composition: accumulate;
-  animation-fill-mode: both;">
-  Dieses Element kombiniert mehrere Animationen.
+<!-- Backdrop mit stärkerer Deckkraft -->
+<div class="backdrop backdrop-strong">
+  <!-- Inhalte im Vordergrund -->
 </div>
 ```
 
-Die Verwendung von `animation-composition` eröffnet neue Möglichkeiten für komplexe Animationssequenzen, ohne mehrere Keyframes definieren zu müssen. Dies ist besonders nützlich für:
-
-1. **Kombinierte Bewegungen** - z.B. horizontale + vertikale Bewegung für diagonale Pfade
-2. **Überlagerte Effekte** - z.B. Einblenden während einer anderen Animation
-3. **Komplexe Sequenzen** - Kombination mehrerer Animationstypen für natürlichere Bewegungen
-
-### Dialog-Animationen
-
-Das Framework bietet spezialisierte Animationen für `<dialog>`-Elemente und modale Fenster:
-
-```html
-<!-- Standard-Dialog mit Animation -->
-<dialog class="animated">
-  Dieser Dialog wird animiert ein- und ausgeblendet.
-</dialog>
-
-<!-- Manuelles Anwenden der Animationsklassen -->
-<div class="modal dialog-animated dialog-enter">
-  <!-- Benutzerdefiniertes modales Fenster -->
-</div>
-```
-
-#### Dialog-Animationsklassen
+#### Backdrop-Varianten
 
 | Klasse | Beschreibung |
 |--------|--------------|
-| `dialog-enter` | Einblendanimation für Dialoge (Skalieren + Gleiten) |
-| `dialog-exit` | Ausblendanimation für Dialoge |
-| `dialog-animated` | Basisklasse für Dialog-Animationen |
-| `dialog-backdrop-animated` | Animiert den Backdrop-Hintergrund |
-| `dialog.animated` | Vollständig animierter Dialog (Einblenden, Ausblenden, Hintergrund) |
+| `.backdrop` | Standard-Backdrop mit dunklem Hintergrund (75% Deckkraft) |
+| `.backdrop-blur` | Fügt einen Unschärfe-Effekt hinzu (4px Standardunschärfe) |
+| `.backdrop-light` | Heller Hintergrund mit geringerer Deckkraft (25%) |
+| `.backdrop-dark` | Dunkler Hintergrund (75% Deckkraft) |
+| `.backdrop-medium` | Mittlere Deckkraft (50%) |
+| `.backdrop-strong` | Hohe Deckkraft (85%) |
+
+#### Animierte Backdrops
+
+Backdrop-Komponenten können auch mit Übergängen ein- und ausgeblendet werden:
+
+```html
+<!-- Backdrop mit CSS-Transition statt Animation -->
+<div class="backdrop-transition">
+  <!-- Inhalte im Vordergrund -->
+</div>
+
+<!-- Ausblenden des Backdrops -->
+<script>
+  // Backdrop ausblenden
+  document.querySelector('.backdrop-transition').classList.add('exit');
+  
+  // Nach der Animation entfernen
+  setTimeout(() => {
+    document.querySelector('.backdrop-transition').remove();
+  }, 300); // Entspricht var(--backdrop-animation-duration)
+</script>
+```
 
 #### Anpassbare Parameter
 
 ```css
 :root {
-  --dialog-offset: -20px;        /* Startversatz für die Einblendanimation */
-  --dialog-duration: 250ms;      /* Animationsdauer */
-  --dialog-backdrop-opacity: 0.5; /* Deckkraft des Hintergrunds */
+  --backdrop-opacity: 0.75;       /* Grundlegende Deckkraft */
+  --backdrop-blur: 4px;           /* Unschärfe-Stärke */
+  --backdrop-bg-color: rgb(0 0 0 / var(--backdrop-opacity)); /* Hintergrundfarbe */
+  --backdrop-animation-duration: 300ms; /* Animations-/Transition-Dauer */
 }
 ```
 
-#### JavaScript-Integration
+### Transition-Behavior: Allow-Discrete
 
-```js
-// Dialog mit Animation öffnen
-const dialog = document.querySelector('dialog.animated');
-dialog.showModal();
-
-// Dialog mit Animation schließen
-dialog.addEventListener('click', () => {
-  dialog.setAttribute('closing', '');
-  
-  dialog.addEventListener('animationend', () => {
-    dialog.removeAttribute('closing');
-    dialog.close();
-  }, { once: true });
-});
-```
-
-### Fokus-Animationen
-
-Die Klasse `.focus-ring-animated` bietet einen pulsierenden Fokus-Ring für verbesserte Barrierefreiheit:
+Mit der neuen CSS-Eigenschaft `transition-behavior: allow-discrete` können Übergänge zwischen normalerweise nicht-interpolierbaren Eigenschaften wie `display`, `visibility` oder `position` realisiert werden. Dies ermöglicht sanftere UI-Übergänge ohne JavaScript-Hacks.
 
 ```html
-<!-- Button mit animiertem Fokus-Ring -->
-<button class="focus-ring-animated">
-  Fokussiere mich mit Tab
+<!-- Element mit Übergang zwischen sichtbar und unsichtbar -->
+<div class="fade-discrete">
+  Dies wird sanft ein- und ausgeblendet, inklusive visibility-Wechsel.
+</div>
+
+<!-- Element, das komplett aus dem DOM-Fluss entfernt wird, wenn ausgeblendet -->
+<div class="fade-remove">
+  Dies wird sanft ein- und ausgeblendet und aus dem Fluss entfernt, wenn unsichtbar.
+</div>
+```
+
+#### Verfügbare Utility-Klassen
+
+| Klasse | Beschreibung |
+|--------|--------------|
+| `.transition-allow-discrete` | Grundklasse, die `transition-behavior: allow-discrete` aktiviert |
+| `.fade-discrete` | Übergang zwischen sichtbar und unsichtbar (`opacity` + `visibility`) |
+| `.fade-remove` | Übergang zwischen sichtbar und entfernt (`opacity` + `visibility` + `display`) |
+| `.transition-aria-state` | Erlaubt sanfte Übergänge bei gleichzeitiger Änderung von ARIA-Zuständen |
+| `.animate-visibility` | Gesteuerte Ein-/Ausblendung über die `.visible` Klasse |
+
+#### Anwendungsbeispiel mit `.animate-visibility`
+
+```html
+<div class="animate-visibility">
+  Dieser Inhalt ist standardmäßig unsichtbar.
+</div>
+
+<script>
+  // Einblenden des Elements
+  document.querySelector('.animate-visibility').classList.add('visible');
+  
+  // Später wieder ausblenden
+  document.querySelector('.animate-visibility').classList.remove('visible');
+</script>
+```
+
+#### Kombination mit ARIA-Zuständen für Barrierefreiheit
+
+```html
+<button aria-expanded="false" class="transition-aria-state">
+  Menü anzeigen
 </button>
-
-<!-- Farbvarianten -->
-<button class="focus-ring-animated primary">Primärfarbe</button>
-<button class="focus-ring-animated warning">Warnfarbe</button>
-<button class="focus-ring-animated error">Fehlerfarbe</button>
-```
-
-#### Vorteile des animierten Fokus-Rings
-
-1. **Erhöhte Sichtbarkeit** - Der pulsierende Effekt macht den Fokus deutlicher erkennbar
-2. **Verbesserte Barrierefreiheit** - Hilft Menschen mit kognitiven Einschränkungen, den Fokus leichter zu verfolgen
-3. **High-Contrast-Modus** - Automatische Anpassung an den High-Contrast-Modus des Betriebssystems
-4. **Benutzerdefinierte Farben** - Verwendung verschiedener Farbvarianten für unterschiedliche Elemente
-
-#### Anpassbare Parameter
-
-```css
-:root {
-  --focus-color: rgba(66, 153, 225, 0.6); /* Farbe des Fokus-Rings */
-  --focus-ring-size: 4px;                 /* Stärke des Fokus-Rings */
-  --focus-animation-duration: 1.5s;       /* Dauer der Pulsanimation */
-}
-```
-
-### Gestaffelte Animationen (Staggered Animations)
-
-Gestaffelte Animationen ermöglichen sequentielle Animation mehrerer Elemente mit automatisch gestaffelten Verzögerungen:
-
-```html
-<!-- Grundlegende gestaffelte Animation -->
-<ul class="staggered-container staggered-fade-in">
-  <li>Element 1 (erscheint zuerst)</li>
-  <li>Element 2 (erscheint als zweites)</li>
-  <li>Element 3 (erscheint als drittes)</li>
-  <!-- usw. -->
-</ul>
-
-<!-- Gestaffelte Animation nach oben gleiten -->
-<div class="staggered-container staggered-slide-in-up">
-  <div>Element 1</div>
-  <div>Element 2</div>
-  <div>Element 3</div>
+<div id="menu" aria-hidden="true" class="animate-visibility">
+  <!-- Menüinhalt -->
 </div>
 
-<!-- Angepasste Verzögerungsinkremente -->
-<ul class="staggered-container staggered-fade-in stagger-increment-large">
-  <li>Element 1 (längere Verzögerung zwischen Elementen)</li>
-  <li>Element 2</li>
-  <li>Element 3</li>
-</ul>
-
-<!-- Umgekehrte Reihenfolge -->
-<ul class="staggered-container staggered-fade-in stagger-reverse">
-  <li>Element 1 (erscheint zuletzt)</li>
-  <li>Element 2 (erscheint als vorletztes)</li>
-  <li>Element 3 (erscheint als erstes)</li>
-</ul>
+<script>
+  const button = document.querySelector('button');
+  const menu = document.querySelector('#menu');
+  
+  button.addEventListener('click', () => {
+    const isExpanded = button.getAttribute('aria-expanded') === 'true';
+    
+    // ARIA-Zustände aktualisieren (mit sanftem Übergang)
+    button.setAttribute('aria-expanded', !isExpanded);
+    menu.setAttribute('aria-hidden', isExpanded);
+    
+    // Sichtbarkeit umschalten
+    menu.classList.toggle('visible', !isExpanded);
+  });
+</script>
 ```
 
-#### Klassen für gestaffelte Animationen
+#### Vorteile gegenüber traditionellen Techniken
+
+1. **Sauberer Code** - Keine JavaScript-Timer oder Callback-Hacks nötig
+2. **Bessere Performance** - Der Browser kann Übergänge optimieren
+3. **Verbesserte Barrierefreiheit** - ARIA-Zustände können mit visuellen Änderungen synchronisiert werden
+4. **Vermeidung von Layout-Shifts** - Sanfte Übergänge zwischen verschiedenen Layout-Zuständen
+
+### Flüssige Interpolation mit interpolate-size
+
+Die CSS-Eigenschaft `interpolate-size: allow-keywords` ermöglicht flüssige Übergänge zwischen CSS-Schlüsselwörtern wie `small`, `medium` und `large`. Dies eröffnet neue Möglichkeiten für responsive und adaptive Animationen.
+
+```html
+<!-- Element mit flüssiger Größenanpassung -->
+<div class="animate-keyword-size keyword-size-md">
+  Diese Schriftgröße passt sich flüssig an
+</div>
+
+<!-- Element, das bei Hover flüssig wächst -->
+<div class="hover-grow">
+  Diese Text wird größer, wenn man darüber hovert
+</div>
+```
+
+#### Verfügbare Utility-Klassen
 
 | Klasse | Beschreibung |
 |--------|--------------|
-| `staggered-container` | Container für gestaffelte Elemente |
-| `staggered-fade-in` | Fade-in-Animation für alle Kindelemente |
-| `staggered-slide-in-up` | Aufwärts-Slide-Animation für alle Kindelemente |
-| `staggered-slide-in-down` | Abwärts-Slide-Animation für alle Kindelemente |
-| `staggered-slide-in-left` | Links-Slide-Animation für alle Kindelemente |
-| `staggered-slide-in-right` | Rechts-Slide-Animation für alle Kindelemente |
-| `stagger-group-1, -2, -3` | Verzögerungsgruppen mit unterschiedlichen Basis-Delays |
-| `stagger-increment-small, -normal, -large` | Anpassung der Zeitabstände zwischen Elementen |
-| `stagger-reverse` | Umkehrung der Animationsreihenfolge (letztes zuerst) |
+| `.animate-keyword-size` | Basisklasse für flüssige Interpolation zwischen Schlüsselwörtern |
+| `.keyword-size-xs` | Setzt die Schriftgröße auf `x-small` |
+| `.keyword-size-sm` | Setzt die Schriftgröße auf `small` |
+| `.keyword-size-md` | Setzt die Schriftgröße auf `medium` |
+| `.keyword-size-lg` | Setzt die Schriftgröße auf `large` |
+| `.keyword-size-xl` | Setzt die Schriftgröße auf `x-large` |
+| `.hover-grow` | Element wächst bei Hover von `medium` zu `large` |
+| `.animate-grow-fade` | Kombinierte Animation mit Größenwachstum und Einblenden |
 
-#### Anpassbare Parameter
-
-```css
-:root {
-  --stagger-base-delay: 50ms;       /* Basis-Verzögerung vor der ersten Animation */
-  --stagger-increment: 50ms;        /* Zeitinkrement zwischen den Elementen */
-  --stagger-max-delay: 1000ms;      /* Maximale Verzögerung für viele Elemente */
-}
-```
-
-#### Anwendungsfälle
-
-1. **Listendarstellungen** - Gestaffelte Einblendung von Listenelementen
-2. **Grid-Layouts** - Sequenzielle Animation von Grid-Elementen
-3. **Menüs** - Elegantes Einblenden von Menüpunkten
-4. **Galerie-Elemente** - Abgestufte Darstellung von Bildern oder Inhaltsblöcken
-5. **Zeitachsen** - Sequenzielle Darstellung von zeitlich geordneten Ereignissen
-
-### Animation-Kontextklassen
-
-Mit Animation-Kontextklassen können Sie Animation-Parameter für einen ganzen Container und alle seine Kindelemente überschreiben, ohne die globalen Werte zu ändern:
+#### Anwendungsbeispiel mit Hover-Effekt
 
 ```html
-<!-- Container mit schnelleren Animationen -->
-<div class="animation-context-fast">
-  <button class="animate fade-in">Wird schneller eingeblendet</button>
-  <div class="animate slide-in-up">Gleitet schneller ein</div>
-  
-  <!-- Animationen können weiterhin individuell angepasst werden -->
-  <div class="animate slide-in-left duration-slow">
-    Langsamer als Standardanimationen im schnellen Kontext
-  </div>
+<div class="hover-grow">
+  Dieser Text wächst flüssig, wenn der Mauszeiger darüber schwebt
 </div>
 
-<!-- Container mit größeren Skalierungseffekten -->
-<div class="scale-context-lg">
-  <div class="animate scale-in">
-    Wird mit stärkerer Skalierung eingeblendet
-  </div>
+<!-- Kombination mit anderen Animationseffekten -->
+<div class="hover-grow animate-pulse">
+  Dieser Text pulsiert und wächst bei Hover
 </div>
 ```
 
-#### Verfügbare Kontextklassen
-
-| Typ | Klassen | Beeinflusste Parameter |
-|-----|---------|------------------------|
-| **Geschwindigkeit** | `.animation-context-fastest`<br>`.animation-context-fast`<br>`.animation-context-slow` | `--animation-duration-*` |
-| **Skalierung** | `.scale-context-xs`<br>`.scale-context-sm`<br>`.scale-context-md`<br>`.scale-context-lg` | `--scale-*` |
-| **Bewegungsdistanz** | `.move-context-small`<br>`.move-context-medium`<br>`.move-context-large` | `--move-*`, `--slide-distance` |
-| **Verzögerung** | `.delay-context-short`<br>`.delay-context-medium`<br>`.delay-context-long` | `--delay-*`, `--stagger-*` |
-
-#### Animation-Präsets
-
-Das Framework bietet auch vordefinierte Animation-Stile, die mehrere Parameter gleichzeitig anpassen:
+#### Keyframe-Animationen mit Schlüsselwörtern
 
 ```html
-<!-- Energische, schnelle Animationen -->
-<div class="animation-context-energetic">
-  <!-- Alle Animationen hier werden dynamischer und energischer -->
-</div>
-
-<!-- Subtile, dezente Animationen -->
-<div class="animation-context-subtle">
-  <!-- Alle Animationen hier werden zurückhaltender und dezenter -->
-</div>
-
-<!-- Verspielte Animationen mit Bounce-Effekten -->
-<div class="animation-context-playful">
-  <!-- Alle Animationen hier werden verspielter mit mehr Federkraft -->
+<div class="animate-grow-fade">
+  Diese Animation beginnt mit x-small und blendet sich ein, 
+  während sie flüssig bis large wächst
 </div>
 ```
 
-#### Verschachtelte Kontextklassen
+#### Vorteile von interpolate-size
 
-Kontextklassen können verschachtelt werden, wobei die innerste Klasse die äußere überschreibt:
-
-```html
-<div class="animation-context-slow">
-  <!-- Langsame Animationen -->
-  
-  <div class="animation-context-fast">
-    <!-- Schnelle Animationen überschreiben den langsamen Kontext -->
-  </div>
-</div>
-```
-
-#### Kombinieren mit Container-Queries
-
-Besonders nützlich ist die Kombination mit Container-Queries für responsive Animationen:
-
-```html
-<style>
-  @container (max-width: 600px) {
-    .responsive-container {
-      /* Kleine Bildschirme: subtile Animationen */
-      composes: animation-context-subtle;
-    }
-  }
-  
-  @container (min-width: 601px) {
-    .responsive-container {
-      /* Große Bildschirme: verspielte Animationen */
-      composes: animation-context-playful;
-    }
-  }
-</style>
-
-<div class="container-query responsive-container">
-  <!-- Animationen passen sich automatisch der Container-Größe an -->
-</div>
-```
+1. **Natürlichere Übergänge** - Flüssige Interpolation statt abrupter Änderungen
+2. **Einfachere Mediaquery-Integration** - Kombinierbar mit Container- und Viewport-Queries
+3. **Keine Sprünge** - Verhindert plötzliche Größenänderungen bei Breakpoints
+4. **Bessere UX** - Sanftere visuelle Änderungen für den Nutzer
+5. **Semantische Größenbezeichnungen** - Nutzung von aussagekräftigen Schlüsselwörtern statt Pixelwerten

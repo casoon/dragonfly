@@ -55,17 +55,17 @@
   }
 
   @layer headings {
-    h1, .h1 { font-size: var(--font-size-4xl); font-weight: var(--font-weight-bold); line-height: var(--line-height-tight); margin-bottom: var(--space-4); }
+    h1, .h1 { font-size: var(--font-size-4xl); font-weight: var(--font-weight-bold); line-height: var(--line-height-tight); margin-bottom: var(--space-4); text-wrap: balance; }
 
-    h2, .h2 { font-size: var(--font-size-3xl); font-weight: var(--font-weight-bold); line-height: var(--line-height-tight); margin-bottom: var(--space-3); }
+    h2, .h2 { font-size: var(--font-size-3xl); font-weight: var(--font-weight-bold); line-height: var(--line-height-tight); margin-bottom: var(--space-3); text-wrap: balance; }
 
-    h3, .h3 { font-size: var(--font-size-2xl); font-weight: var(--font-weight-semibold); line-height: var(--line-height-snug); margin-bottom: var(--space-3); }
+    h3, .h3 { font-size: var(--font-size-2xl); font-weight: var(--font-weight-semibold); line-height: var(--line-height-snug); margin-bottom: var(--space-3); text-wrap: balance; }
 
-    h4, .h4 { font-size: var(--font-size-xl); font-weight: var(--font-weight-semibold); line-height: var(--line-height-snug); margin-bottom: var(--space-2); }
+    h4, .h4 { font-size: var(--font-size-xl); font-weight: var(--font-weight-semibold); line-height: var(--line-height-snug); margin-bottom: var(--space-2); text-wrap: balance; }
 
-    h5, .h5 { font-size: var(--font-size-lg); font-weight: var(--font-weight-medium); line-height: var(--line-height-normal); margin-bottom: var(--space-2); }
+    h5, .h5 { font-size: var(--font-size-lg); font-weight: var(--font-weight-medium); line-height: var(--line-height-normal); margin-bottom: var(--space-2); text-wrap: balance; }
 
-    h6, .h6 { font-size: var(--font-size-base); font-weight: var(--font-weight-medium); line-height: var(--line-height-normal); margin-bottom: var(--space-2); }
+    h6, .h6 { font-size: var(--font-size-base); font-weight: var(--font-weight-medium); line-height: var(--line-height-normal); margin-bottom: var(--space-2); text-wrap: balance; }
   }
 
   @layer text {
@@ -159,6 +159,14 @@
 
     .text-right { text-align: right; }
 
+    /* Text-Wrap Utilities 
+     * - balance: Optimiert Zeilenumbrüche für gleiche Zeilenlängen, ideal für Überschriften
+     * - pretty: Optimiert Zeilenumbrüche für bessere Lesbarkeit, ideal für längere Texte
+     */
+    .text-balance { text-wrap: balance; }
+
+    .text-pretty { text-wrap: pretty; }
+
     .uppercase { text-transform: uppercase; }
 
     .lowercase { text-transform: lowercase; }
@@ -209,6 +217,7 @@
     .fluid-heading {
       font-weight: var(--font-weight-bold);
       line-height: var(--line-height-tight);
+      text-wrap: balance;
       
       /* Interpoliert flüssig zwischen Größen abhängig vom Container/Viewport */
       &.xxl {
