@@ -10,15 +10,15 @@
 }
 
 .vignette::after {
-    content: '';
-    position: absolute;
-    inset: 0;
     background: radial-gradient(
         circle at center,
         transparent 0%,
         rgb(0 0 0 / 30%) 100%
     );
+    content: '';
+    inset: 0;
     pointer-events: none;
+    position: absolute;
 }
 
 .vignette-strong::after {
@@ -62,7 +62,7 @@
 }
 
 .vignette-hover:hover::after {
-    opacity: 0.8;
+    opacity: 80%;
     transition: opacity var(--transition-normal);
 }
 

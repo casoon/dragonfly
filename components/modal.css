@@ -57,18 +57,18 @@
 
 @layer modal {
   .modal {
-    position: fixed;
-    inset: 0;
-    z-index: var(--z-index-modal);
-    display: flex;
     align-items: center;
+    display: flex;
+    inset: 0;
     justify-content: center;
+    position: fixed;
+    z-index: var(--z-index-modal);
     
     /* Hintergrund-Overlay */
     .backdrop {
-      position: fixed;
-      inset: 0;
       background: rgb(0 0 0 / 50%);
+      inset: 0;
+      position: fixed;
       z-index: var(--z-index-modal-backdrop);
     }
     
@@ -76,22 +76,22 @@
     .container {
       background: var(--color-white);
       border-radius: var(--radius-lg);
-      padding: var(--space-6);
-      width: 100%;
-      max-width: 32rem;
-      z-index: var(--z-index-modal);
       box-shadow: var(--shadow-lg);
-      overflow: hidden;
       display: flex;
       flex-direction: column;
       gap: var(--space-4);
+      max-width: 32rem;
+      overflow: hidden;
+      padding: var(--space-6);
       position: relative;
+      width: 100%;
+      z-index: var(--z-index-modal);
     }
     
     /* Modal-Header */
     .header {
-      display: flex;
       align-items: center;
+      display: flex;
       justify-content: space-between;
       
       .title {
@@ -103,11 +103,11 @@
       .close {
         background: none;
         border: none;
+        color: var(--color-gray-500);
+        cursor: pointer;
         font-size: 1.5rem;
         line-height: 1;
         padding: 0.25rem;
-        cursor: pointer;
-        color: var(--color-gray-500);
         transition: color var(--transition-fast);
         
         &:hover {
@@ -118,17 +118,17 @@
     
     /* Modal-Inhalt */
     .body {
-      font-size: var(--font-size-base);
       color: var(--color-gray-800);
-      overflow-y: auto;
+      font-size: var(--font-size-base);
       max-height: 70vh;
+      overflow-y: auto;
     }
     
     /* Modal-Footer */
     .footer {
       display: flex;
-      justify-content: flex-end;
       gap: var(--space-3);
+      justify-content: flex-end;
       margin-top: var(--space-2);
     }
     
@@ -146,10 +146,10 @@
     }
     
     &.fullscreen .container {
+      border-radius: 0;
+      height: 100%;
       max-width: 100%;
       width: 100%;
-      height: 100%;
-      border-radius: 0;
     }
     
     /* Flüssige Größenanpassung mit interpolate-size: allow-keywords */
@@ -159,8 +159,8 @@
       
       .container {
         border-radius: 0.75em;
-        padding: 1.5em;
         gap: 1em;
+        padding: 1.5em;
       }
       
       .header .title {
@@ -215,10 +215,10 @@
       container-type: inline-size;
       
       .container {
-        max-width: 90cqi;
-        padding: clamp(var(--space-4), 2cqi, var(--space-8));
         border-radius: clamp(var(--radius-md), 1cqi, var(--radius-xl));
         gap: clamp(var(--space-2), 1cqi, var(--space-6));
+        max-width: 90cqi;
+        padding: clamp(var(--space-4), 2cqi, var(--space-8));
       }
       
       .header .title {
@@ -252,9 +252,9 @@
       align-items: flex-start;
       
       .container {
-        margin-top: 5vh;
         border-top-left-radius: 0;
         border-top-right-radius: 0;
+        margin-top: 5vh;
       }
     }
     
@@ -262,9 +262,9 @@
       align-items: flex-end;
       
       .container {
-        margin-bottom: 0;
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
+        margin-bottom: 0;
       }
     }
     
@@ -285,11 +285,13 @@
 }
 
 @keyframes modalFadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from { opacity: 0%; }
+
+  to { opacity: 100%; }
 }
 
 @keyframes modalSlideUp {
-  from { transform: translateY(20px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+  from { opacity: 0%; transform: translateY(20px); }
+
+  to { opacity: 100%; transform: translateY(0); }
 }

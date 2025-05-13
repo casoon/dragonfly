@@ -6,19 +6,19 @@
  */
 
 .particles {
-    position: relative;
     overflow: hidden;
+    position: relative;
 }
 
 .particles::before,
 .particles::after {
-    content: '';
-    position: absolute;
-    width: 4px;
-    height: 4px;
+    animation: particles-float 3s infinite;
     background: var(--particle-color, rgb(255 255 255 / 50%));
     border-radius: 50%;
-    animation: particles-float 3s infinite;
+    content: '';
+    height: 4px;
+    position: absolute;
+    width: 4px;
 }
 
 .particles::after {
@@ -27,14 +27,14 @@
 
 .particles-sm::before,
 .particles-sm::after {
-    width: 2px;
     height: 2px;
+    width: 2px;
 }
 
 .particles-lg::before,
 .particles-lg::after {
-    width: 6px;
     height: 6px;
+    width: 6px;
 }
 
 .particles-slow::before,
@@ -48,19 +48,19 @@
 }
 
 .particles-dots {
-    position: relative;
     overflow: hidden;
+    position: relative;
 }
 
 .particles-dots::before,
 .particles-dots::after {
-    content: '';
-    position: absolute;
-    width: 4px;
-    height: 4px;
+    animation: particles-dots 3s infinite;
     background: var(--particle-dots-color, rgb(255 255 255 / 50%));
     border-radius: 50%;
-    animation: particles-dots 3s infinite;
+    content: '';
+    height: 4px;
+    position: absolute;
+    width: 4px;
 }
 
 .particles-dots::after {
@@ -69,14 +69,14 @@
 
 .particles-dots-sm::before,
 .particles-dots-sm::after {
-    width: 2px;
     height: 2px;
+    width: 2px;
 }
 
 .particles-dots-lg::before,
 .particles-dots-lg::after {
-    width: 6px;
     height: 6px;
+    width: 6px;
 }
 
 .particles-dots-slow::before,
@@ -90,18 +90,18 @@
 }
 
 .particles-lines {
-    position: relative;
     overflow: hidden;
+    position: relative;
 }
 
 .particles-lines::before,
 .particles-lines::after {
+    animation: particles-lines 3s infinite;
+    background: var(--particle-lines-color, rgb(255 255 255 / 50%));
     content: '';
+    height: 20px;
     position: absolute;
     width: 2px;
-    height: 20px;
-    background: var(--particle-lines-color, rgb(255 255 255 / 50%));
-    animation: particles-lines 3s infinite;
 }
 
 .particles-lines::after {
@@ -110,14 +110,14 @@
 
 .particles-lines-sm::before,
 .particles-lines-sm::after {
-    width: 1px;
     height: 10px;
+    width: 1px;
 }
 
 .particles-lines-lg::before,
 .particles-lines-lg::after {
-    width: 3px;
     height: 30px;
+    width: 3px;
 }
 
 .particles-lines-slow::before,
@@ -162,49 +162,49 @@
 
 @keyframes particles-float {
     0% {
+        opacity: 0%;
         transform: translate(0, 0);
-        opacity: 0;
     }
 
     50% {
-        opacity: 1;
+        opacity: 100%;
     }
 
     100% {
+        opacity: 0%;
         transform: translate(100px, -100px);
-        opacity: 0;
     }
 }
 
 @keyframes particles-dots {
     0% {
+        opacity: 0%;
         transform: translate(0, 0);
-        opacity: 0;
     }
 
     50% {
-        opacity: 1;
+        opacity: 100%;
     }
 
     100% {
+        opacity: 0%;
         transform: translate(-100px, 100px);
-        opacity: 0;
     }
 }
 
 @keyframes particles-lines {
     0% {
+        opacity: 0%;
         transform: translate(0, 0) rotate(0deg);
-        opacity: 0;
     }
 
     50% {
-        opacity: 1;
+        opacity: 100%;
     }
 
     100% {
+        opacity: 0%;
         transform: translate(100px, 100px) rotate(360deg);
-        opacity: 0;
     }
 }
 
@@ -217,6 +217,6 @@
     .particles-lines::before,
     .particles-lines::after {
         animation: none;
-        opacity: 0;
+        opacity: 0%;
     }
 } 

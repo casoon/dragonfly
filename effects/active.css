@@ -34,8 +34,8 @@
 }
 
 .active-lift:active {
-    transform: translateY(2px);
     box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+    transform: translateY(2px);
 }
 
 .active-lift-sm {
@@ -43,8 +43,8 @@
 }
 
 .active-lift-sm:active {
-    transform: translateY(1px);
     box-shadow: 0 1px 2px rgb(0 0 0 / 10%);
+    transform: translateY(1px);
 }
 
 .active-lift-lg {
@@ -52,14 +52,14 @@
 }
 
 .active-lift-lg:active {
-    transform: translateY(4px);
     box-shadow: 0 4px 8px rgb(0 0 0 / 10%);
+    transform: translateY(4px);
 }
 
 .active-tilt {
-    transition: transform 0.2s ease;
-    transform-style: preserve-3d;
     perspective: 1000px;
+    transform-style: preserve-3d;
+    transition: transform 0.2s ease;
 }
 
 .active-tilt:active {
@@ -67,9 +67,9 @@
 }
 
 .active-tilt-sm {
-    transition: transform 0.2s ease;
-    transform-style: preserve-3d;
     perspective: 1000px;
+    transform-style: preserve-3d;
+    transition: transform 0.2s ease;
 }
 
 .active-tilt-sm:active {
@@ -77,9 +77,9 @@
 }
 
 .active-tilt-lg {
-    transition: transform 0.2s ease;
-    transform-style: preserve-3d;
     perspective: 1000px;
+    transform-style: preserve-3d;
+    transition: transform 0.2s ease;
 }
 
 .active-tilt-lg:active {
@@ -116,19 +116,19 @@
 }
 
 .active-border::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
     background: var(--active-border-color, #3b82f6);
+    bottom: 0;
+    content: '';
+    height: 2px;
+    left: 0;
+    opacity: 0%;
+    position: absolute;
     transition: opacity 0.2s ease;
-    opacity: 0;
+    width: 100%;
 }
 
 .active-border:active::after {
-    opacity: 1;
+    opacity: 100%;
 }
 
 .active-border-sm::after {

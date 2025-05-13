@@ -26,13 +26,13 @@
 
     /* Set core body defaults */
     body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        line-height: 1.5;
         min-height: 100vh;
         scroll-behavior: smooth;
         text-rendering: optimizespeed;
-        line-height: 1.5;
         text-size-adjust: 100%;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
     }
 
     /* Remove list styles */
@@ -54,8 +54,8 @@
     /* Make images easier to work with */
     img,
     picture {
-        max-width: 100%;
         display: block;
+        max-width: 100%;
     }
 
     /* Inherit fonts for inputs and buttons */
@@ -75,18 +75,18 @@
         *, *::before, *::after {
             animation-duration: 0.01ms !important;
             animation-iteration-count: 1 !important;
-            transition-duration: 0.01ms !important;
             scroll-behavior: auto !important;
+            transition-duration: 0.01ms !important;
         }
     }
 
     /* Remove default button styles */
     button {
+        appearance: auto;
         background: none;
         border: none;
-        padding: 0;
         cursor: pointer;
-        appearance: auto;
+        padding: 0;
     }
 
     /* Remove default input styles */
@@ -107,8 +107,8 @@
     /* Remove default fieldset styles */
     fieldset {
         border: none;
-        padding: 0;
         margin: 0;
+        padding: 0;
     }
 
     /* Remove default legend styles */
@@ -218,7 +218,6 @@
 
     q::before,
     q::after {
-        content: '';
         content: none;
     }
 

@@ -30,6 +30,7 @@
 }
 
 .gradient-rainbow {
+    animation: gradient-shift 5s ease infinite;
     background: linear-gradient(
         45deg,
         #f00,
@@ -41,7 +42,6 @@
         #8b00ff
     );
     background-size: 200% 200%;
-    animation: gradient-shift 5s ease infinite;
 }
 
 .gradient-metallic {
@@ -54,6 +54,7 @@
 }
 
 .gradient-iridescent {
+    animation: gradient-shift 5s ease infinite;
     background: linear-gradient(
         45deg,
         #f00,
@@ -67,12 +68,13 @@
         #f00
     );
     background-size: 200% 200%;
-    animation: gradient-shift 5s ease infinite;
 }
 
 @keyframes gradient-shift {
     0% { background-position: 0% 50%; }
+
     50% { background-position: 100% 50%; }
+
     100% { background-position: 0% 50%; }
 }
 

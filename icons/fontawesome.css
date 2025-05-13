@@ -8,26 +8,26 @@
 
     /* Base Icon */
     .fa {
-        display: inline-block;
-        width: 1em;
-        height: 1em;
-        vertical-align: -0.125em;
         background-color: var(--color-current);
-        mask-size: contain;
+        display: inline-block;
+        height: 1em;
         mask-position: center;
         mask-repeat: no-repeat;
+        mask-size: contain;
+        vertical-align: -0.125em;
+        width: 1em;
     }
 
     /* Font Awesome als CSS Icon */
     .fa-icon {
-        display: inline-block;
-        width: 1em;
-        height: 1em;
-        vertical-align: -0.125em;
         background-color: var(--icon-color, currentcolor);
-        mask-size: contain;
+        display: inline-block;
+        height: 1em;
         mask-position: center;
         mask-repeat: no-repeat;
+        mask-size: contain;
+        vertical-align: -0.125em;
+        width: 1em;
     }
 
     /* Font Awesome Icons */
@@ -49,28 +49,28 @@
 
     /* Icon Sizes */
     .fa-xs {
-        width: 0.75em;
         height: 0.75em;
+        width: 0.75em;
     }
 
     .fa-sm {
-        width: 0.875em;
         height: 0.875em;
+        width: 0.875em;
     }
 
     .fa-lg {
-        width: 1.25em;
         height: 1.25em;
+        width: 1.25em;
     }
 
     .fa-xl {
-        width: 1.5em;
         height: 1.5em;
+        width: 1.5em;
     }
 
     .fa-2xl {
-        width: 2em;
         height: 2em;
+        width: 2em;
     }
 
     /* Icon Alignment */

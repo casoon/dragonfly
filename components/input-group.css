@@ -54,41 +54,41 @@
 
 @layer input-group {
   .input-group {
-    display: flex;
-    width: 100%;
     align-items: stretch;
     border: 1px solid var(--color-gray-300);
     border-radius: var(--radius-md);
+    display: flex;
     overflow: hidden;
+    width: 100%;
     
     /* Allgemeine Styles für alle Kinder-Elemente */
     > * {
       border: none;
+      font-size: var(--font-size-sm);
       outline: none;
       padding: var(--space-2) var(--space-3);
-      font-size: var(--font-size-sm);
     }
     
     /* Addon-Elemente */
     .addon {
+      align-items: center;
       background-color: var(--color-gray-100);
       color: var(--color-gray-700);
       display: flex;
-      align-items: center;
+      font-size: var(--font-size-sm);
       justify-content: center;
       padding: 0 var(--space-3);
-      font-size: var(--font-size-sm);
       white-space: nowrap;
     }
     
     /* Icon-Elemente */
     .icon {
-      display: flex;
       align-items: center;
+      background-color: transparent;
+      color: var(--color-gray-500);
+      display: flex;
       justify-content: center;
       width: 2.5rem;
-      color: var(--color-gray-500);
-      background-color: transparent;
       
       &:hover {
         color: var(--color-gray-700);
@@ -107,28 +107,28 @@
     
     /* Button innerhalb der Gruppe */
     .button {
-      display: flex;
       align-items: center;
+      border-radius: 0;
+      display: flex;
       justify-content: center;
       padding: var(--space-2) var(--space-4);
-      border-radius: 0;
       
       &:first-child {
-        border-top-left-radius: var(--radius-md);
         border-bottom-left-radius: var(--radius-md);
+        border-top-left-radius: var(--radius-md);
       }
       
       &:last-child {
-        border-top-right-radius: var(--radius-md);
         border-bottom-right-radius: var(--radius-md);
+        border-top-right-radius: var(--radius-md);
       }
     }
     
     /* Größenvarianten */
     &.sm {
       > * {
-        padding: var(--space-1) var(--space-2);
         font-size: var(--font-size-xs);
+        padding: var(--space-1) var(--space-2);
       }
       
       .button {
@@ -138,8 +138,8 @@
     
     &.lg {
       > * {
-        padding: var(--space-3) var(--space-4);
         font-size: var(--font-size-base);
+        padding: var(--space-3) var(--space-4);
       }
       
       .button {

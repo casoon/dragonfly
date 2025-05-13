@@ -34,8 +34,8 @@
 }
 
 .hover-lift:hover {
-    transform: translateY(-5px);
     box-shadow: 0 10px 20px rgb(0 0 0 / 10%);
+    transform: translateY(-5px);
 }
 
 .hover-lift-sm {
@@ -43,8 +43,8 @@
 }
 
 .hover-lift-sm:hover {
-    transform: translateY(-2px);
     box-shadow: 0 5px 10px rgb(0 0 0 / 10%);
+    transform: translateY(-2px);
 }
 
 .hover-lift-lg {
@@ -52,14 +52,14 @@
 }
 
 .hover-lift-lg:hover {
-    transform: translateY(-10px);
     box-shadow: 0 20px 40px rgb(0 0 0 / 10%);
+    transform: translateY(-10px);
 }
 
 .hover-tilt {
-    transition: transform 0.3s ease;
-    transform-style: preserve-3d;
     perspective: 1000px;
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease;
 }
 
 .hover-tilt:hover {
@@ -67,9 +67,9 @@
 }
 
 .hover-tilt-sm {
-    transition: transform 0.3s ease;
-    transform-style: preserve-3d;
     perspective: 1000px;
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease;
 }
 
 .hover-tilt-sm:hover {
@@ -77,9 +77,9 @@
 }
 
 .hover-tilt-lg {
-    transition: transform 0.3s ease;
-    transform-style: preserve-3d;
     perspective: 1000px;
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease;
 }
 
 .hover-tilt-lg:hover {
@@ -116,14 +116,14 @@
 }
 
 .hover-border::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
     background: var(--hover-border-color, #3b82f6);
+    bottom: 0;
+    content: '';
+    height: 2px;
+    left: 0;
+    position: absolute;
     transition: width 0.3s ease;
+    width: 0;
 }
 
 .hover-border:hover::after {

@@ -40,26 +40,26 @@
 
 @layer input {
   .input {
-    display: block;
-    width: 100%;
-    padding: var(--space-2) var(--space-3);
-    font-size: var(--font-size-base);
+    background-color: var(--color-white);
     border: 1px solid var(--color-gray-300);
     border-radius: var(--radius-md);
-    background-color: var(--color-white);
     color: var(--color-gray-900);
+    display: block;
+    font-size: var(--font-size-base);
+    padding: var(--space-2) var(--space-3);
     transition: border-color var(--transition-fast), background-color var(--transition-fast);
+    width: 100%;
 
     &:focus {
-      outline: none;
       border-color: var(--color-primary);
       box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-primary) 50%, transparent);
+      outline: none;
     }
 
     /* Varianten nach Status */
     &.invalid {
-      border-color: var(--color-error);
       background-color: color-mix(in srgb, var(--color-error) 5%, white);
+      border-color: var(--color-error);
     }
 
     &:disabled {
@@ -91,31 +91,31 @@
 
     /* Größenvarianten */
     &.sm {
-      padding: var(--space-1) var(--space-2);
       font-size: var(--font-size-sm);
+      padding: var(--space-1) var(--space-2);
     }
 
     &.lg {
-      padding: var(--space-3) var(--space-4);
       font-size: var(--font-size-lg);
+      padding: var(--space-3) var(--space-4);
     }
   }
 
   /* Container für Inputs mit Icons */
   .input-wrapper {
-    position: relative;
-    display: flex;
     align-items: center;
+    display: flex;
+    position: relative;
 
     .input {
       padding-left: var(--space-8);
     }
 
     .input-icon {
-      position: absolute;
-      left: var(--space-3);
       color: var(--color-gray-400);
+      left: var(--space-3);
       pointer-events: none;
+      position: absolute;
     }
   }
 }

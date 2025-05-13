@@ -39,47 +39,47 @@
 
 @layer textarea {
   .textarea {
-    width: 100%;
-    min-height: 6rem;
-    padding: var(--space-3);
-    font-size: var(--font-size-base);
+    background-color: var(--color-white);
     border: 1px solid var(--color-gray-300);
     border-radius: var(--radius-md);
-    resize: vertical;
-    background-color: var(--color-white);
     color: var(--color-gray-900);
+    font-size: var(--font-size-base);
+    min-height: 6rem;
+    padding: var(--space-3);
+    resize: vertical;
     transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+    width: 100%;
     
     &:focus {
-      outline: none;
       border-color: var(--color-primary);
       box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-primary) 50%, transparent);
+      outline: none;
     }
     
     &:disabled {
       background-color: var(--color-gray-100);
       color: var(--color-gray-500);
       cursor: not-allowed;
-      opacity: 0.7;
+      opacity: 70%;
     }
     
     /* Größenvarianten */
     &.sm {
+      font-size: var(--font-size-sm);
       min-height: 4rem;
       padding: var(--space-2);
-      font-size: var(--font-size-sm);
     }
     
     &.lg {
+      font-size: var(--font-size-lg);
       min-height: 8rem;
       padding: var(--space-4);
-      font-size: var(--font-size-lg);
     }
     
     /* Zustandsvarianten */
     &.error {
-      border-color: var(--color-error);
       background-color: color-mix(in srgb, var(--color-error) 3%, var(--color-white));
+      border-color: var(--color-error);
       
       &:focus {
         box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-error) 30%, transparent);
@@ -87,8 +87,8 @@
     }
     
     &.success {
-      border-color: var(--color-success);
       background-color: color-mix(in srgb, var(--color-success) 3%, var(--color-white));
+      border-color: var(--color-success);
       
       &:focus {
         box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-success) 30%, transparent);
@@ -111,12 +111,12 @@
     width: 100%;
     
     .counter {
-      position: absolute;
       bottom: var(--space-2);
-      right: var(--space-3);
-      font-size: var(--font-size-xs);
       color: var(--color-gray-500);
+      font-size: var(--font-size-xs);
       pointer-events: none;
+      position: absolute;
+      right: var(--space-3);
     }
     
     .textarea {

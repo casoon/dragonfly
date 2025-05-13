@@ -61,31 +61,31 @@
 @layer file {
   /* Basis-Datei-Komponente */
   .file {
-    position: relative;
     display: inline-flex;
     flex-direction: column;
     gap: var(--space-2);
+    position: relative;
     width: 100%;
     
     input[type="file"] {
+      height: 0.1px;
+      opacity: 0%;
+      overflow: hidden;
       position: absolute;
       width: 0.1px;
-      height: 0.1px;
-      opacity: 0;
-      overflow: hidden;
       z-index: -1;
     }
     
     .label {
-      display: inline-flex;
       align-items: center;
+      background-color: var(--color-primary);
+      border-radius: var(--radius-md);
+      color: white;
+      cursor: pointer;
+      display: inline-flex;
+      font-size: var(--font-size-sm);
       gap: var(--space-2);
       padding: var(--space-2) var(--space-4);
-      border-radius: var(--radius-md);
-      background-color: var(--color-primary);
-      color: white;
-      font-size: var(--font-size-sm);
-      cursor: pointer;
       transition: background-color var(--transition-fast);
       
       &:hover {
@@ -93,8 +93,8 @@
       }
       
       .icon {
-        width: 1.25rem;
         height: 1.25rem;
+        width: 1.25rem;
       }
     }
     
@@ -105,9 +105,9 @@
       margin-top: var(--space-2);
       
       img {
-        max-width: 100px;
-        max-height: 100px;
         border-radius: var(--radius-sm);
+        max-height: 100px;
+        max-width: 100px;
         object-fit: cover;
       }
     }
@@ -121,36 +121,36 @@
   
   /* Drag & Drop Zone */
   .file-dropzone {
-    display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding: var(--space-6);
+    background-color: var(--color-gray-50);
     border: 2px dashed var(--color-gray-300);
     border-radius: var(--radius-lg);
-    background-color: var(--color-gray-50);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: var(--space-6);
     transition: border-color var(--transition-fast), background-color var(--transition-fast);
     
     input[type="file"] {
+      height: 0.1px;
+      opacity: 0%;
+      overflow: hidden;
       position: absolute;
       width: 0.1px;
-      height: 0.1px;
-      opacity: 0;
-      overflow: hidden;
       z-index: -1;
     }
     
     .content {
+      align-items: center;
+      color: var(--color-gray-600);
       display: flex;
       flex-direction: column;
-      align-items: center;
       gap: var(--space-3);
       text-align: center;
-      color: var(--color-gray-600);
       
       .icon {
-        font-size: 2rem;
         color: var(--color-gray-400);
+        font-size: 2rem;
       }
       
       p {
@@ -169,8 +169,8 @@
     }
     
     &:hover, &.active {
-      border-color: var(--color-primary);
       background-color: color-mix(in srgb, var(--color-primary) 5%, transparent);
+      border-color: var(--color-primary);
     }
   }
   
@@ -180,20 +180,20 @@
     flex-direction: column;
     gap: var(--space-2);
     list-style: none;
-    padding: 0;
     margin: var(--space-3) 0;
+    padding: 0;
     
     .file-item {
-      display: flex;
       align-items: center;
+      background-color: var(--color-gray-100);
+      border-radius: var(--radius-md);
+      display: flex;
       gap: var(--space-3);
       padding: var(--space-2) var(--space-3);
-      border-radius: var(--radius-md);
-      background-color: var(--color-gray-100);
       
       .icon {
-        font-size: 1.5rem;
         color: var(--color-gray-500);
+        font-size: 1.5rem;
       }
       
       .info {
@@ -204,25 +204,25 @@
         }
         
         .size {
-          font-size: var(--font-size-xs);
           color: var(--color-gray-500);
+          font-size: var(--font-size-xs);
         }
       }
       
       .remove {
-        display: flex;
         align-items: center;
-        justify-content: center;
-        width: 1.5rem;
-        height: 1.5rem;
-        border-radius: 50%;
-        border: none;
         background-color: var(--color-gray-200);
+        border: none;
+        border-radius: 50%;
         color: var(--color-gray-700);
-        font-size: var(--font-size-lg);
-        line-height: 1;
         cursor: pointer;
+        display: flex;
+        font-size: var(--font-size-lg);
+        height: 1.5rem;
+        justify-content: center;
+        line-height: 1;
         transition: background-color var(--transition-fast);
+        width: 1.5rem;
         
         &:hover {
           background-color: var(--color-error-light);
@@ -241,8 +241,8 @@
     
     .info {
       display: flex;
-      justify-content: space-between;
       font-size: var(--font-size-sm);
+      justify-content: space-between;
       
       .name {
         font-weight: var(--font-weight-medium);
@@ -250,24 +250,24 @@
     }
     
     .progress {
-      width: 100%;
-      height: 0.5rem;
       background-color: var(--color-gray-200);
       border-radius: var(--radius-full);
+      height: 0.5rem;
       overflow: hidden;
+      width: 100%;
       
       .progress-bar {
-        height: 100%;
         background-color: var(--color-primary);
         border-radius: var(--radius-full);
+        height: 100%;
         transition: width 0.3s ease;
       }
     }
     
     .percentage {
       align-self: flex-end;
-      font-size: var(--font-size-xs);
       color: var(--color-gray-600);
+      font-size: var(--font-size-xs);
     }
     
     &.success .progress-bar {

@@ -18,8 +18,8 @@
 }
 
 .warning-border {
-    border: 2px solid var(--warning-color, #f59e0b);
     animation: warning-pulse 2s infinite;
+    border: 2px solid var(--warning-color, #f59e0b);
 }
 
 .warning-border-sm {
@@ -31,8 +31,8 @@
 }
 
 .warning-bg {
-    background-color: var(--warning-bg, rgb(245 158 11 / 10%));
     animation: warning-pulse 2s infinite;
+    background-color: var(--warning-bg, rgb(245 158 11 / 10%));
 }
 
 .warning-bg-sm {
@@ -56,8 +56,8 @@
 }
 
 .warning-glow {
-    box-shadow: 0 0 10px var(--warning-glow, rgb(245 158 11 / 50%));
     animation: warning-pulse 2s infinite;
+    box-shadow: 0 0 10px var(--warning-glow, rgb(245 158 11 / 50%));
 }
 
 .warning-glow-sm {
@@ -82,61 +82,61 @@
 
 @keyframes warning-pulse {
     0%, 100% {
-        opacity: 1;
+        opacity: 100%;
     }
 
     50% {
-        opacity: 0.7;
+        opacity: 70%;
     }
 }
 
 @keyframes warning-pulse-sm {
     0%, 100% {
-        opacity: 1;
+        opacity: 100%;
     }
 
     50% {
-        opacity: 0.8;
+        opacity: 80%;
     }
 }
 
 @keyframes warning-pulse-lg {
     0%, 100% {
-        opacity: 1;
+        opacity: 100%;
     }
 
     50% {
-        opacity: 0.6;
+        opacity: 60%;
     }
 }
 
 @keyframes warning-flash {
     0%, 100% {
-        opacity: 1;
+        opacity: 100%;
     }
 
     50% {
-        opacity: 0.5;
+        opacity: 50%;
     }
 }
 
 @keyframes warning-flash-sm {
     0%, 100% {
-        opacity: 1;
+        opacity: 100%;
     }
 
     50% {
-        opacity: 0.7;
+        opacity: 70%;
     }
 }
 
 @keyframes warning-flash-lg {
     0%, 100% {
-        opacity: 1;
+        opacity: 100%;
     }
 
     50% {
-        opacity: 0.3;
+        opacity: 30%;
     }
 }
 

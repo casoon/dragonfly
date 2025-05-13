@@ -135,7 +135,7 @@
     .morph-pulse,
     .morph-pulse-sm,
     .morph-pulse-lg {
-        transition: none;
         animation: none;
+        transition: none;
     }
 } 

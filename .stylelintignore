@@ -19,4 +19,18 @@ docs/
 
 # Editor-spezifische Dateien
 .vscode/
-.idea/ 
+.idea/
+
+# Ignoriere Konfigurationsdateien
+*.js
+!stylelint.config.js
+*.json
+*.md
+*.log
+
+# Ignoriere Testdateien
+tests/
+
+# Ignoriere Builds
+dist/
+build/ 

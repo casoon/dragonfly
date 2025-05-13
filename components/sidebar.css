@@ -67,21 +67,21 @@
 
 @layer sidebar {
   .sidebar {
+    background-color: var(--color-gray-100);
     grid-column: span 3;
     padding-block: var(--space-4);
     padding-inline: var(--space-3);
-    background-color: var(--color-gray-100);
     
     /* Header-Bereich */
     .header {
-      margin-bottom: var(--space-4);
       border-bottom: 1px solid var(--color-gray-200);
+      margin-bottom: var(--space-4);
       padding-bottom: var(--space-2);
       
       .title {
+        color: var(--color-gray-900);
         font-size: var(--font-size-lg);
         font-weight: var(--font-weight-medium);
-        color: var(--color-gray-900);
         margin: 0;
       }
     }
@@ -93,12 +93,12 @@
     
     /* Menüliste */
     .menu {
-      list-style: none;
-      padding: 0;
-      margin: 0;
       display: flex;
       flex-direction: column;
       gap: var(--space-1);
+      list-style: none;
+      margin: 0;
+      padding: 0;
     }
     
     /* Menüelemente */
@@ -107,20 +107,20 @@
       
       &.active {
         > .link {
+          background-color: color-mix(in srgb, var(--color-primary) 10%, transparent);
           color: var(--color-primary);
           font-weight: var(--font-weight-medium);
-          background-color: color-mix(in srgb, var(--color-primary) 10%, transparent);
         }
       }
     }
     
     /* Menülinks */
     .link {
+      border-radius: var(--radius-md);
+      color: var(--color-gray-700);
       display: block;
       padding: var(--space-2) var(--space-3);
-      color: var(--color-gray-700);
       text-decoration: none;
-      border-radius: var(--radius-md);
       transition: background-color var(--transition-fast), color var(--transition-fast);
       
       &:hover {
@@ -131,12 +131,12 @@
     
     /* Untermenü */
     .submenu {
-      list-style: none;
-      padding-left: var(--space-4);
-      margin: var(--space-1) 0 0 0;
       display: flex;
       flex-direction: column;
       gap: var(--space-1);
+      list-style: none;
+      margin: var(--space-1) 0 0 0;
+      padding-left: var(--space-4);
       
       .link {
         font-size: var(--font-size-sm);
@@ -146,15 +146,15 @@
     
     /* Toggle-Button für Collapse */
     .toggle {
-      display: none;
-      width: 100%;
-      padding: var(--space-2) var(--space-3);
-      text-align: left;
       background-color: var(--color-gray-200);
       border: none;
       border-radius: var(--radius-md);
       cursor: pointer;
+      display: none;
       font-weight: var(--font-weight-medium);
+      padding: var(--space-2) var(--space-3);
+      text-align: left;
+      width: 100%;
       
       &:hover {
         background-color: var(--color-gray-300);

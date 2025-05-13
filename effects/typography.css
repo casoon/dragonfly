@@ -47,16 +47,16 @@
 }
 
 .text-shine {
+    animation: text-shine 3s linear infinite;
     background: linear-gradient(
         90deg,
         transparent 0%,
         rgb(255 255 255 / 20%) 50%,
         transparent 100%
     );
-    background-size: 200% 100%;
     background-clip: text;
+    background-size: 200% 100%;
     color: transparent;
-    animation: text-shine 3s linear infinite;
 }
 
 .text-blur-sm {

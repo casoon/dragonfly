@@ -6,42 +6,42 @@
  */
 
 .loading-spinner {
-    width: 40px;
-    height: 40px;
+    animation: loading-spin 1s linear infinite;
     border: 4px solid var(--loading-color, rgb(0 0 0 / 10%));
     border-left-color: var(--loading-spinner-color, #3b82f6);
     border-radius: 50%;
-    animation: loading-spin 1s linear infinite;
+    height: 40px;
+    width: 40px;
 }
 
 .loading-spinner-sm {
-    width: 20px;
-    height: 20px;
     border-width: 2px;
+    height: 20px;
+    width: 20px;
 }
 
 .loading-spinner-lg {
-    width: 60px;
-    height: 60px;
     border-width: 6px;
+    height: 60px;
+    width: 60px;
 }
 
 .loading-pulse {
-    width: 40px;
-    height: 40px;
+    animation: loading-pulse 1s ease-in-out infinite;
     background: var(--loading-pulse-color, #3b82f6);
     border-radius: 50%;
-    animation: loading-pulse 1s ease-in-out infinite;
+    height: 40px;
+    width: 40px;
 }
 
 .loading-pulse-sm {
-    width: 20px;
     height: 20px;
+    width: 20px;
 }
 
 .loading-pulse-lg {
-    width: 60px;
     height: 60px;
+    width: 60px;
 }
 
 .loading-dots {
@@ -51,12 +51,12 @@
 
 .loading-dots::before,
 .loading-dots::after {
-    content: '';
-    width: 8px;
-    height: 8px;
+    animation: loading-dots 1s ease-in-out infinite;
     background: var(--loading-dots-color, #3b82f6);
     border-radius: 50%;
-    animation: loading-dots 1s ease-in-out infinite;
+    content: '';
+    height: 8px;
+    width: 8px;
 }
 
 .loading-dots::after {
@@ -65,31 +65,31 @@
 
 .loading-dots-sm::before,
 .loading-dots-sm::after {
-    width: 4px;
     height: 4px;
+    width: 4px;
 }
 
 .loading-dots-lg::before,
 .loading-dots-lg::after {
-    width: 12px;
     height: 12px;
+    width: 12px;
 }
 
 .loading-progress {
-    width: 100%;
-    height: 4px;
     background: var(--loading-progress-bg, rgb(0 0 0 / 10%));
     border-radius: 2px;
+    height: 4px;
     overflow: hidden;
+    width: 100%;
 }
 
 .loading-progress::after {
+    animation: loading-progress 1s ease-in-out infinite;
+    background: var(--loading-progress-color, #3b82f6);
     content: '';
     display: block;
-    width: 40%;
     height: 100%;
-    background: var(--loading-progress-color, #3b82f6);
-    animation: loading-progress 1s ease-in-out infinite;
+    width: 40%;
 }
 
 .loading-progress-sm {
@@ -101,6 +101,7 @@
 }
 
 .loading-skeleton {
+    animation: loading-skeleton 1.5s ease-in-out infinite;
     background: linear-gradient(
         90deg,
         var(--loading-skeleton-start, rgb(0 0 0 / 10%)) 0%,
@@ -108,38 +109,37 @@
         var(--loading-skeleton-start, rgb(0 0 0 / 10%)) 100%
     );
     background-size: 200% 100%;
-    animation: loading-skeleton 1.5s ease-in-out infinite;
 }
 
 .loading-skeleton-sm {
-    background-size: 150% 100%;
     animation-duration: 1s;
+    background-size: 150% 100%;
 }
 
 .loading-skeleton-lg {
-    background-size: 300% 100%;
     animation-duration: 2s;
+    background-size: 300% 100%;
 }
 
 .loading-shimmer {
-    position: relative;
     overflow: hidden;
+    position: relative;
 }
 
 .loading-shimmer::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    animation: loading-shimmer 1.5s ease-in-out infinite;
     background: linear-gradient(
         90deg,
         transparent 0%,
         var(--loading-shimmer-color, rgb(255 255 255 / 20%)) 50%,
         transparent 100%
     );
-    animation: loading-shimmer 1.5s ease-in-out infinite;
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
 }
 
 .loading-color-primary {
@@ -192,13 +192,13 @@
 
 @keyframes loading-pulse {
     0%, 100% {
+        opacity: 50%;
         transform: scale(0.8);
-        opacity: 0.5;
     }
 
     50% {
+        opacity: 100%;
         transform: scale(1);
-        opacity: 1;
     }
 }
 
@@ -259,7 +259,7 @@
     }
     
     .loading-pulse {
-        opacity: 0.5;
+        opacity: 50%;
     }
     
     .loading-dots::before,

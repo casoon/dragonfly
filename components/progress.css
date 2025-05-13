@@ -52,28 +52,28 @@
   .progress {
     background-color: var(--color-gray-200);
     border-radius: var(--radius-full);
-    overflow: hidden;
     height: 1rem;
-    width: 100%;
+    overflow: hidden;
     position: relative;
+    width: 100%;
     
     /* Der Fortschrittsbalken */
     .bar {
-      height: 100%;
       background-color: var(--color-primary);
+      height: 100%;
       transition: width var(--transition-normal);
     }
     
     /* Prozentanzeige */
     .label {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
       color: var(--color-white);
       font-size: var(--font-size-xs);
       font-weight: var(--font-weight-medium);
+      left: 50%;
+      position: absolute;
       text-shadow: 0 0 2px rgb(0 0 0 / 50%);
+      top: 50%;
+      transform: translate(-50%, -50%);
       z-index: 1;
     }
     
@@ -140,41 +140,41 @@
   /* Fortschrittsschritte */
   .progress-steps {
     display: flex;
-    width: 100%;
     margin: var(--space-4) 0;
+    width: 100%;
     
     .step {
-      flex: 1;
-      text-align: center;
-      position: relative;
-      padding-top: var(--space-4);
-      font-size: var(--font-size-sm);
       color: var(--color-gray-600);
+      flex: 1;
+      font-size: var(--font-size-sm);
+      padding-top: var(--space-4);
+      position: relative;
+      text-align: center;
       
       /* Punktindikator */
       &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 1rem;
-        height: 1rem;
-        border-radius: 50%;
         background-color: var(--color-gray-300);
         border: 2px solid var(--color-gray-200);
+        border-radius: 50%;
+        content: '';
+        height: 1rem;
+        left: 50%;
+        position: absolute;
+        top: 0;
+        transform: translateX(-50%);
+        width: 1rem;
         z-index: 1;
       }
       
       /* Verbindungslinie zwischen Schritten */
       &::after {
+        background-color: var(--color-gray-200);
         content: '';
+        height: 2px;
+        left: 0;
         position: absolute;
         top: 0.5rem;
-        left: 0;
         width: 100%;
-        height: 2px;
-        background-color: var(--color-gray-200);
         z-index: 0;
       }
       

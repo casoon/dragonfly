@@ -27,47 +27,48 @@
 
 @layer popover {
   .popover {
+    animation: popover-enter var(--animation-duration-normal, 300ms) cubic-bezier(0.68, -0.6, 0.32, 1.6) forwards;
+    background: var(--color-background, #fff);
+    border: 1px solid var(--color-border, #e5e7eb);
+    border-radius: 0.5rem;
+    box-shadow: 0 8px 32px rgb(0 0 0 / 18%), 0 1.5px 4px rgb(0 0 0 / 8%);
+    color: var(--color-text, #222);
+    max-width: 90vw;
+    min-width: 200px;
+    padding: 1rem;
     position: absolute;
     z-index: 1000;
-    min-width: 200px;
-    max-width: 90vw;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    background: var(--color-background, #fff);
-    color: var(--color-text, #222);
-    box-shadow: 0 8px 32px rgb(0 0 0 / 18%), 0 1.5px 4px rgb(0 0 0 / 8%);
-    border: 1px solid var(--color-border, #e5e7eb);
-    animation: popover-enter var(--animation-duration-normal, 300ms) cubic-bezier(0.68, -0.6, 0.32, 1.6) forwards;
   }
   
   @starting-style {
     .popover {
-      opacity: 0;
+      opacity: 0%;
       transform: translateY(8px) scale(0.98);
     }
   }
 
   .popover[popover] {
+    display: block;
+
     /* Ermöglicht Styling für native Popover-API */
     inset: unset;
-    top: 100%;
     left: 0;
     margin-top: 0.5rem;
-    display: block;
+    top: 100%;
   }
 
   /* Optional: Arrow */
   .popover::before {
-    content: '';
-    position: absolute;
-    top: -8px;
-    left: 2rem;
-    width: 16px;
-    height: 8px;
-    clip-path: polygon(50% 0, 0 100%, 100% 100%);
     background: var(--color-background, #fff);
     border-left: 1px solid var(--color-border, #e5e7eb);
     border-top: 1px solid var(--color-border, #e5e7eb);
+    clip-path: polygon(50% 0, 0 100%, 100% 100%);
+    content: '';
+    height: 8px;
+    left: 2rem;
+    position: absolute;
+    top: -8px;
+    width: 16px;
     z-index: 1;
   }
 
@@ -75,8 +76,8 @@
   @media (prefers-color-scheme: dark) {
     .popover {
       background: var(--color-background-dark, #222);
-      color: var(--color-text-dark, #fff);
       border-color: var(--color-border-dark, #444);
+      color: var(--color-text-dark, #fff);
     }
 
     .popover::before {

@@ -16,38 +16,38 @@
     /* Basis Icon Styles */
     .icon {
         display: inline-block;
-        width: 1em;
-        height: 1em;
-        stroke-width: 0;
-        stroke: currentcolor;
         fill: currentcolor;
+        height: 1em;
+        stroke: currentcolor;
+        stroke-width: 0;
         vertical-align: middle;
+        width: 1em;
     }
 
     /* Größenvarianten */
     .icon-xs {
-        width: 0.5em;
         height: 0.5em;
+        width: 0.5em;
     }
 
     .icon-sm {
-        width: 0.75em;
         height: 0.75em;
+        width: 0.75em;
     }
 
     .icon-lg {
-        width: 1.25em;
         height: 1.25em;
+        width: 1.25em;
     }
 
     .icon-xl {
-        width: 1.5em;
         height: 1.5em;
+        width: 1.5em;
     }
 
     .icon-2xl {
-        width: 2em;
         height: 2em;
+        width: 2em;
     }
 
     /* Ausrichtung */

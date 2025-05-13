@@ -46,6 +46,7 @@
 }
 
 .gradient-animated {
+    animation: gradient-shift 3s ease infinite;
     background: linear-gradient(
         45deg,
         var(--gradient-start, #3b82f6),
@@ -53,7 +54,6 @@
         var(--gradient-end, #3b82f6)
     );
     background-size: 200% 200%;
-    animation: gradient-shift 3s ease infinite;
 }
 
 .gradient-hover {
@@ -80,13 +80,13 @@
 }
 
 .gradient-border {
-    position: relative;
     background: linear-gradient(
         45deg,
         var(--gradient-start, #3b82f6),
         var(--gradient-end, #8b5cf6)
     );
     padding: 2px;
+    position: relative;
 }
 
 .gradient-border > * {

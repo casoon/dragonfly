@@ -67,12 +67,12 @@
 @layer blog {
   /* Blog-Post */
   .blog-post {
-    max-width: 65ch;
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-relaxed);
     margin-inline: auto;
+    max-width: 65ch;
     padding-block: var(--space-6);
     padding-inline: var(--space-4);
-    line-height: var(--line-height-relaxed);
-    font-size: var(--font-size-base);
     
     /* Standard-Elemente im Blogpost */
     h1, h2, h3 {
@@ -86,16 +86,16 @@
     }
     
     img {
-      max-width: 100%;
       border-radius: var(--radius-md);
       margin-block: var(--space-4);
+      max-width: 100%;
     }
     
     pre, code {
-      font-family: var(--font-family-mono);
       background: var(--color-gray-100);
-      padding: var(--space-1) var(--space-2);
       border-radius: var(--radius-sm);
+      font-family: var(--font-family-mono);
+      padding: var(--space-1) var(--space-2);
     }
     
     /* Strukturelemente */
@@ -104,15 +104,15 @@
       
       .title {
         font-size: var(--font-size-2xl);
-        margin-top: 0;
         margin-bottom: var(--space-2);
+        margin-top: 0;
       }
       
       .meta {
         color: var(--color-gray-600);
-        font-size: var(--font-size-sm);
         display: flex;
         flex-wrap: wrap;
+        font-size: var(--font-size-sm);
         gap: var(--space-3);
       }
       
@@ -145,40 +145,40 @@
   
   /* Blog-Karte */
   .blog-card {
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
     display: flex;
     flex-direction: column;
-    border-radius: var(--radius-md);
     overflow: hidden;
-    box-shadow: var(--shadow-sm);
     transition: transform 0.2s, box-shadow 0.2s;
     
     &:hover {
-      transform: translateY(-4px);
       box-shadow: var(--shadow-md);
+      transform: translateY(-4px);
     }
     
     .image {
-      width: 100%;
       height: 200px;
       object-fit: cover;
+      width: 100%;
     }
     
     .content {
-      padding: var(--space-4);
-      flex: 1;
       display: flex;
+      flex: 1;
       flex-direction: column;
+      padding: var(--space-4);
       
       .title {
         font-size: var(--font-size-lg);
-        margin-top: 0;
         margin-bottom: var(--space-2);
+        margin-top: 0;
       }
       
       .excerpt {
         color: var(--color-gray-700);
-        margin-bottom: var(--space-4);
         flex: 1;
+        margin-bottom: var(--space-4);
       }
       
       .link {
@@ -197,17 +197,17 @@
   /* Blog-Liste */
   .blog-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: var(--space-6);
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   }
   
   /* Blog-Navigation */
   .blog-nav {
+    border-top: 1px solid var(--color-gray-200);
     display: flex;
     justify-content: space-between;
     margin-top: var(--space-8);
     padding-top: var(--space-4);
-    border-top: 1px solid var(--color-gray-200);
     
     a {
       color: var(--color-primary);
@@ -235,8 +235,8 @@
     
     .label {
       display: block;
-      margin-bottom: var(--space-2);
       font-weight: var(--font-weight-medium);
+      margin-bottom: var(--space-2);
     }
     
     .buttons {
@@ -245,15 +245,15 @@
     }
     
     .button {
-      display: inline-flex;
       align-items: center;
+      border-radius: var(--radius-md);
+      color: white;
+      display: inline-flex;
+      font-size: var(--font-size-sm);
       justify-content: center;
       min-width: 100px;
       padding: var(--space-2) var(--space-3);
-      border-radius: var(--radius-md);
       text-decoration: none;
-      color: white;
-      font-size: var(--font-size-sm);
       
       &.twitter {
         background-color: #1DA1F2;
@@ -268,7 +268,7 @@
       }
       
       &:hover {
-        opacity: 0.9;
+        opacity: 90%;
       }
     }
   }

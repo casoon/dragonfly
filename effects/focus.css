@@ -10,8 +10,8 @@
 }
 
 .focus-ring:focus {
-    outline: none;
     box-shadow: 0 0 0 3px var(--focus-ring-color, rgb(59 130 246 / 50%));
+    outline: none;
 }
 
 .focus-ring-sm {
@@ -19,8 +19,8 @@
 }
 
 .focus-ring-sm:focus {
-    outline: none;
     box-shadow: 0 0 0 2px var(--focus-ring-color, rgb(59 130 246 / 50%));
+    outline: none;
 }
 
 .focus-ring-lg {
@@ -28,8 +28,8 @@
 }
 
 .focus-ring-lg:focus {
-    outline: none;
     box-shadow: 0 0 0 4px var(--focus-ring-color, rgb(59 130 246 / 50%));
+    outline: none;
 }
 
 .focus-outline {
@@ -42,13 +42,13 @@
 }
 
 .focus-outline-sm:focus {
-    outline-width: 1px;
     outline-offset: 1px;
+    outline-width: 1px;
 }
 
 .focus-outline-lg:focus {
-    outline-width: 3px;
     outline-offset: 3px;
+    outline-width: 3px;
 }
 
 .focus-bg {

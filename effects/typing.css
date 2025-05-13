@@ -6,15 +6,15 @@
  */
 
 .typing {
-    position: relative;
     display: inline-block;
+    position: relative;
 }
 
 .typing::after {
+    animation: typing-cursor 1s step-end infinite;
     content: '|';
     position: absolute;
     right: -0.5em;
-    animation: typing-cursor 1s step-end infinite;
 }
 
 .typing-sm::after {
@@ -34,20 +34,20 @@
 }
 
 .typing-text {
+    animation: typing-text 3s steps(40, end);
     display: inline-block;
     overflow: hidden;
     white-space: nowrap;
-    animation: typing-text 3s steps(40, end);
 }
 
 .typing-text-sm {
-    font-size: 0.875em;
     animation-duration: 2s;
+    font-size: 0.875em;
 }
 
 .typing-text-lg {
-    font-size: 1.25em;
     animation-duration: 4s;
+    font-size: 1.25em;
 }
 
 .typing-text-slow {
@@ -59,15 +59,15 @@
 }
 
 .typing-blink {
-    position: relative;
     display: inline-block;
+    position: relative;
 }
 
 .typing-blink::after {
+    animation: typing-blink 1s step-end infinite;
     content: '|';
     position: absolute;
     right: -0.5em;
-    animation: typing-blink 1s step-end infinite;
 }
 
 .typing-blink-sm::after {
@@ -112,11 +112,11 @@
 
 @keyframes typing-cursor {
     0%, 100% {
-        opacity: 1;
+        opacity: 100%;
     }
 
     50% {
-        opacity: 0;
+        opacity: 0%;
     }
 }
 
@@ -132,11 +132,11 @@
 
 @keyframes typing-blink {
     0%, 100% {
-        opacity: 1;
+        opacity: 100%;
     }
 
     50% {
-        opacity: 0;
+        opacity: 0%;
     }
 }
 
@@ -150,7 +150,7 @@
     
     .typing::after,
     .typing-blink::after {
-        opacity: 1;
+        opacity: 100%;
     }
     
     .typing-text {

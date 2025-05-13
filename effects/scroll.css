@@ -30,8 +30,8 @@
 }
 
 .scroll-hide {
-    scrollbar-width: none;
     -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 .scroll-hide::-webkit-scrollbar {
@@ -43,8 +43,8 @@
 }
 
 .scroll-thin::-webkit-scrollbar {
-    width: 6px;
     height: 6px;
+    width: 6px;
 }
 
 .scroll-thin::-webkit-scrollbar-track {

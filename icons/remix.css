@@ -8,25 +8,25 @@
 
     /* Base Icon */
     .ri {
-        display: var(--display-inline-block);
-        width: var(--spacing-6);
-        height: var(--spacing-6);
-        vertical-align: var(--position-middle);
         background-color: currentcolor;
-        mask-size: var(--position-100);
+        display: var(--display-inline-block);
+        height: var(--spacing-6);
         mask-position: var(--position-center);
         mask-repeat: var(--bg-no-repeat);
+        mask-size: var(--position-100);
+        vertical-align: var(--position-middle);
+        width: var(--spacing-6);
     }
 
     .ri-icon {
-        display: var(--display-inline-block);
-        width: var(--spacing-6);
-        height: var(--spacing-6);
-        vertical-align: var(--position-middle);
         background-color: currentcolor;
-        mask-size: var(--position-100);
+        display: var(--display-inline-block);
+        height: var(--spacing-6);
         mask-position: var(--position-center);
         mask-repeat: var(--bg-no-repeat);
+        mask-size: var(--position-100);
+        vertical-align: var(--position-middle);
+        width: var(--spacing-6);
     }
 
     /* Remix Icons */
@@ -48,45 +48,45 @@
 
     /* Remix Varianten */
     .ri-line {
-        stroke-width: 2;
         fill: none;
+        stroke-width: 2;
     }
 
     .ri-fill {
-        stroke-width: 0;
         fill: currentcolor;
+        stroke-width: 0;
     }
 
     .ri-dual {
-        stroke-width: 2;
         fill: currentcolor;
-        opacity: 0.5;
+        opacity: 50%;
+        stroke-width: 2;
     }
 
     /* Icon Sizes */
     .ri-xs {
-        width: var(--spacing-4);
         height: var(--spacing-4);
+        width: var(--spacing-4);
     }
 
     .ri-sm {
-        width: var(--spacing-5);
         height: var(--spacing-5);
+        width: var(--spacing-5);
     }
 
     .ri-lg {
-        width: var(--spacing-7);
         height: var(--spacing-7);
+        width: var(--spacing-7);
     }
 
     .ri-xl {
-        width: var(--spacing-8);
         height: var(--spacing-8);
+        width: var(--spacing-8);
     }
 
     .ri-2xl {
-        width: var(--spacing-10);
         height: var(--spacing-10);
+        width: var(--spacing-10);
     }
 
     /* Icon Alignment */

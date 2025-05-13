@@ -17,6 +17,7 @@ Dieses Dokument beschreibt die Struktur, Konzepte und Verwendung des Casoon UI D
 - [Utility-Klassen](#utility-klassen)
 - [Verwendung im Projekt](#verwendung-im-projekt)
 - [Formulare](#formulare)
+- [Animationen](#animationen)
 
 ## Projektstruktur
 
@@ -1357,4 +1358,538 @@ Für flüssige Größenanpassung mit CSS-Schlüsselwörtern:
 <form class="form fluid medium">
   <!-- Flüssige Größenanpassung mit 'small', 'medium', 'large', 'x-large' -->
 </form>
-``` 
+```
+
+## Animationen
+
+Das Animationssystem von Casoon UI wurde grundlegend überarbeitet und bietet nun eine einheitliche, performante und barrierefreie Lösung für Bewegungen in der Benutzeroberfläche.
+
+### Grundprinzipien
+
+1. **Einheitliche Namensgebung** - Alle Animationen folgen einem konsistenten Benennungsschema (z.B. `slide-in-*` statt verschiedener Varianten)
+2. **Custom Properties** - Animationsparameter werden über CSS-Variablen gesteuert für einfache Anpassungen
+3. **Barrierefreiheit** - Vollständige Unterstützung für `prefers-reduced-motion` und spezielle Utility-Klassen
+4. **Performanz** - Optimierte Keyframe-Animationen, die GPU-Beschleunigung nutzen
+
+### Animations-Struktur
+
+Die Animationen sind in folgenden Kategorien organisiert:
+
+```css
+/* Basis-Keyframes für häufig verwendete Animationen */
+@keyframes fade-in { ... }
+@keyframes slide-in-up { ... }
+@keyframes scale-in { ... }
+
+@layer animations {
+  /* Animation-Parameter als Custom Properties */
+  :root {
+    --animation-duration-normal: 300ms;
+    --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+    --move-md: 16px;
+    /* ... weitere Parameter ... */
+  }
+
+  /* Basisklassen für alle Animationen */
+  @layer animation-base { ... }
+  
+  /* Animation-Modifikatoren (Dauer, Verzögerung, etc.) */
+  @layer animation-duration { ... }
+  @layer animation-delay { ... }
+  @layer animation-iterations { ... }
+  
+  /* Barrierefreiheit-Utilities */
+  @layer motion-preferences { ... }
+  
+  /* Animations-Kategorien */
+  @layer fade-animations { ... }
+  @layer slide-animations { ... }
+  @layer scale-animations { ... }
+  @layer scroll-animations { ... }
+  @layer complex-animations { ... }
+}
+```
+
+### Animationsklassen
+
+| Kategorie | Klassen | Beschreibung |
+|-----------|---------|--------------|
+| Fade | `.fade-in`, `.fade-out` | Ein-/Ausblenden von Elementen |
+| Slide | `.slide-in-up`, `.slide-in-down`, `.slide-in-left`, `.slide-in-right` | Hereingleiten von Elementen |
+| Scale | `.scale-in`, `.scale-out` | Größenänderung beim Ein-/Ausblenden |
+| Scroll | `.scroll-fade-in`, `.scroll-slide-in-up`, `.scroll-slide-in-left`, `.scroll-slide-in-right` | Scroll-getriebene Animationen |
+| Komplex | `.animate-bounce`, `.animate-pulse`, `.animate-spin`, `.animate-ping`, `.animate-wiggle`, `.animate-float`, `.animate-shake`, `.animate-heartbeat`, `.animate-elastic` | Komplexe Animationseffekte |
+
+### Parameter-Anpassung
+
+Animationsparameter können über CSS-Variablen angepasst werden:
+
+```css
+/* Globale Anpassung */
+:root {
+  --animation-duration-normal: 500ms; /* Längere Standarddauer */
+  --ease-bounce: cubic-bezier(0.5, -0.5, 0.1, 1.5); /* Stärkerer Bounce-Effekt */
+}
+
+/* Anpassung für einzelne Elemente */
+.my-element {
+  --slide-distance: 30px; /* Größere Bewegungsdistanz */
+  --bounce-height: 40%; /* Höherer Sprung */
+}
+```
+
+### Barrierefreiheit
+
+Das Animationssystem berücksichtigt die Barrierefreiheit durch:
+
+1. **Automatische Deaktivierung** - Alle Animationen werden bei `prefers-reduced-motion: reduce` automatisch deaktiviert
+2. **Motion-Safe-Utility** - Mit `.motion-safe` gekennzeichnete Elemente werden nur animiert, wenn keine reduzierten Bewegungen bevorzugt werden
+3. **Motion-Reduce-Utility** - Mit `.motion-reduce` gekennzeichnete Elemente werden nur angezeigt, wenn reduzierte Bewegungen bevorzugt werden
+
+```html
+<!-- Wird nur animiert, wenn keine reduzierten Bewegungen bevorzugt werden -->
+<div class="card motion-safe animate fade-in">
+  <!-- Animierter Inhalt -->
+</div>
+
+<!-- Alternative Version für reduzierte Bewegung -->
+<div class="card motion-reduce">
+  <!-- Statischer Inhalt ohne Animation -->
+</div>
+```
+
+### Beispiele
+
+#### Einfache Einblend-Animation:
+```html
+<div class="animate fade-in">
+  Diese Inhalt wird sanft eingeblendet.
+</div>
+```
+
+#### Komplexe Animation mit Parametern:
+```html
+<div class="animate animate-bounce infinite" style="--bounce-height: 20%;">
+  Dieses Element springt wiederholt um 20% seiner Höhe.
+</div>
+```
+
+#### Scroll-getriebene Animation:
+```html
+<div class="scroll-slide-in-up">
+  Dieses Element gleitet von unten herein, sobald es ins Viewport scrollt.
+</div>
+```
+
+#### Animation mit angepassten Parametern:
+```html
+<div class="animate slide-in-left duration-slow delay-md">
+  Dieses Element gleitet langsam von links herein, mit mittlerer Verzögerung.
+</div>
+```
+
+### Animation-Kontextklassen
+
+Mit Animation-Kontextklassen können Sie Animation-Parameter für einen ganzen Container und alle seine Kindelemente überschreiben, ohne die globalen Werte zu ändern:
+
+```html
+<!-- Container mit schnelleren Animationen -->
+<div class="animation-context-fast">
+  <button class="animate fade-in">Wird schneller eingeblendet</button>
+  <div class="animate slide-in-up">Gleitet schneller ein</div>
+  
+  <!-- Animationen können weiterhin individuell angepasst werden -->
+  <div class="animate slide-in-left duration-slow">
+    Langsamer als Standardanimationen im schnellen Kontext
+  </div>
+</div>
+
+<!-- Container mit größeren Skalierungseffekten -->
+<div class="scale-context-lg">
+  <div class="animate scale-in">
+    Wird mit stärkerer Skalierung eingeblendet
+  </div>
+</div>
+```
+
+#### Verfügbare Kontextklassen
+
+| Typ | Klassen | Beeinflusste Parameter |
+|-----|---------|------------------------|
+| **Geschwindigkeit** | `.animation-context-fastest`<br>`.animation-context-fast`<br>`.animation-context-slow` | `--animation-duration-*` |
+| **Skalierung** | `.scale-context-xs`<br>`.scale-context-sm`<br>`.scale-context-md`<br>`.scale-context-lg` | `--scale-*` |
+| **Bewegungsdistanz** | `.move-context-small`<br>`.move-context-medium`<br>`.move-context-large` | `--move-*`, `--slide-distance` |
+| **Verzögerung** | `.delay-context-short`<br>`.delay-context-medium`<br>`.delay-context-long` | `--delay-*`, `--stagger-*` |
+
+#### Animation-Präsets
+
+Das Framework bietet auch vordefinierte Animation-Stile, die mehrere Parameter gleichzeitig anpassen:
+
+```html
+<!-- Energische, schnelle Animationen -->
+<div class="animation-context-energetic">
+  <!-- Alle Animationen hier werden dynamischer und energischer -->
+</div>
+
+<!-- Subtile, dezente Animationen -->
+<div class="animation-context-subtle">
+  <!-- Alle Animationen hier werden zurückhaltender und dezenter -->
+</div>
+
+<!-- Verspielte Animationen mit Bounce-Effekten -->
+<div class="animation-context-playful">
+  <!-- Alle Animationen hier werden verspielter mit mehr Federkraft -->
+</div>
+```
+
+#### Verschachtelte Kontextklassen
+
+Kontextklassen können verschachtelt werden, wobei die innerste Klasse die äußere überschreibt:
+
+```html
+<div class="animation-context-slow">
+  <!-- Langsame Animationen -->
+  
+  <div class="animation-context-fast">
+    <!-- Schnelle Animationen überschreiben den langsamen Kontext -->
+  </div>
+</div>
+```
+
+#### Kombinieren mit Container-Queries
+
+Besonders nützlich ist die Kombination mit Container-Queries für responsive Animationen:
+
+```html
+<style>
+  @container (max-width: 600px) {
+    .responsive-container {
+      /* Kleine Bildschirme: subtile Animationen */
+      composes: animation-context-subtle;
+    }
+  }
+  
+  @container (min-width: 601px) {
+    .responsive-container {
+      /* Große Bildschirme: verspielte Animationen */
+      composes: animation-context-playful;
+    }
+  }
+</style>
+
+<div class="container-query responsive-container">
+  <!-- Animationen passen sich automatisch der Container-Größe an -->
+</div>
+```
+
+5. **Zeitachsen** - Sequenzielle Darstellung von zeitlich geordneten Ereignissen
+
+### Experimentelles Feature: Animation Composition
+
+> **Hinweis**: Diese Funktion ist experimentell und hat aktuell nur eingeschränkte Browserunterstützung. Verwenden Sie sie nur in Projekten, die modernste Browser voraussetzen oder mit angemessenen Fallbacks.
+
+Die `animation-composition`-Eigenschaft ermöglicht die Kombination mehrerer Animationen auf neuartige Weise:
+
+| Wert | Beschreibung |
+|------|--------------|
+| `replace` | Animation ersetzt bestehende Animationen (Standard) |
+| `add` | Animation wird zu bestehenden Animationen addiert |
+| `accumulate` | Animation wird auf bestehende Animationen aufaddiert |
+
+#### Utilities für Animation Composition
+
+```css
+.composition-replace     /* Ersetzt andere Animationen (Standard) */
+.composition-add         /* Addiert Animation zu anderen hinzu */
+.composition-accumulate  /* Rechnet Animation auf andere auf */
+```
+
+#### Vordefinierte kombinierte Animationen
+
+```html
+<!-- Bounce-Effekt mit Einblenden kombiniert -->
+<div class="animate animate-combined-bounce">
+  Dieses Element springt und blendet gleichzeitig ein.
+</div>
+
+<!-- Wackel-Effekt mit Einblenden kombiniert -->
+<div class="animate animate-combined-shake">
+  Dieses Element wackelt während des Einblendens.
+</div>
+
+<!-- Bewegung entlang eines Pfades (rechts + nach oben) -->
+<div class="animate animate-path">
+  Dieses Element bewegt sich diagonal.
+</div>
+
+<!-- Einzoomen mit anschließendem Sprung -->
+<div class="animate animate-zoom-bounce">
+  Dieses Element zoomt ein und springt dann.
+</div>
+```
+
+#### Eigene kombinierte Animationen
+
+```html
+<!-- Manuelle Kombination mehrerer Animationen -->
+<div class="animate" style="
+  animation: slide-in-left 0.5s, fade-in 0.3s, bounce 1s 0.5s;
+  animation-composition: accumulate;
+  animation-fill-mode: both;">
+  Dieses Element kombiniert mehrere Animationen.
+</div>
+```
+
+Die Verwendung von `animation-composition` eröffnet neue Möglichkeiten für komplexe Animationssequenzen, ohne mehrere Keyframes definieren zu müssen. Dies ist besonders nützlich für:
+
+1. **Kombinierte Bewegungen** - z.B. horizontale + vertikale Bewegung für diagonale Pfade
+2. **Überlagerte Effekte** - z.B. Einblenden während einer anderen Animation
+3. **Komplexe Sequenzen** - Kombination mehrerer Animationstypen für natürlichere Bewegungen
+
+### Dialog-Animationen
+
+Das Framework bietet spezialisierte Animationen für `<dialog>`-Elemente und modale Fenster:
+
+```html
+<!-- Standard-Dialog mit Animation -->
+<dialog class="animated">
+  Dieser Dialog wird animiert ein- und ausgeblendet.
+</dialog>
+
+<!-- Manuelles Anwenden der Animationsklassen -->
+<div class="modal dialog-animated dialog-enter">
+  <!-- Benutzerdefiniertes modales Fenster -->
+</div>
+```
+
+#### Dialog-Animationsklassen
+
+| Klasse | Beschreibung |
+|--------|--------------|
+| `dialog-enter` | Einblendanimation für Dialoge (Skalieren + Gleiten) |
+| `dialog-exit` | Ausblendanimation für Dialoge |
+| `dialog-animated` | Basisklasse für Dialog-Animationen |
+| `dialog-backdrop-animated` | Animiert den Backdrop-Hintergrund |
+| `dialog.animated` | Vollständig animierter Dialog (Einblenden, Ausblenden, Hintergrund) |
+
+#### Anpassbare Parameter
+
+```css
+:root {
+  --dialog-offset: -20px;        /* Startversatz für die Einblendanimation */
+  --dialog-duration: 250ms;      /* Animationsdauer */
+  --dialog-backdrop-opacity: 0.5; /* Deckkraft des Hintergrunds */
+}
+```
+
+#### JavaScript-Integration
+
+```js
+// Dialog mit Animation öffnen
+const dialog = document.querySelector('dialog.animated');
+dialog.showModal();
+
+// Dialog mit Animation schließen
+dialog.addEventListener('click', () => {
+  dialog.setAttribute('closing', '');
+  
+  dialog.addEventListener('animationend', () => {
+    dialog.removeAttribute('closing');
+    dialog.close();
+  }, { once: true });
+});
+```
+
+### Fokus-Animationen
+
+Die Klasse `.focus-ring-animated` bietet einen pulsierenden Fokus-Ring für verbesserte Barrierefreiheit:
+
+```html
+<!-- Button mit animiertem Fokus-Ring -->
+<button class="focus-ring-animated">
+  Fokussiere mich mit Tab
+</button>
+
+<!-- Farbvarianten -->
+<button class="focus-ring-animated primary">Primärfarbe</button>
+<button class="focus-ring-animated warning">Warnfarbe</button>
+<button class="focus-ring-animated error">Fehlerfarbe</button>
+```
+
+#### Vorteile des animierten Fokus-Rings
+
+1. **Erhöhte Sichtbarkeit** - Der pulsierende Effekt macht den Fokus deutlicher erkennbar
+2. **Verbesserte Barrierefreiheit** - Hilft Menschen mit kognitiven Einschränkungen, den Fokus leichter zu verfolgen
+3. **High-Contrast-Modus** - Automatische Anpassung an den High-Contrast-Modus des Betriebssystems
+4. **Benutzerdefinierte Farben** - Verwendung verschiedener Farbvarianten für unterschiedliche Elemente
+
+#### Anpassbare Parameter
+
+```css
+:root {
+  --focus-color: rgba(66, 153, 225, 0.6); /* Farbe des Fokus-Rings */
+  --focus-ring-size: 4px;                 /* Stärke des Fokus-Rings */
+  --focus-animation-duration: 1.5s;       /* Dauer der Pulsanimation */
+}
+```
+
+### Gestaffelte Animationen (Staggered Animations)
+
+Gestaffelte Animationen ermöglichen sequentielle Animation mehrerer Elemente mit automatisch gestaffelten Verzögerungen:
+
+```html
+<!-- Grundlegende gestaffelte Animation -->
+<ul class="staggered-container staggered-fade-in">
+  <li>Element 1 (erscheint zuerst)</li>
+  <li>Element 2 (erscheint als zweites)</li>
+  <li>Element 3 (erscheint als drittes)</li>
+  <!-- usw. -->
+</ul>
+
+<!-- Gestaffelte Animation nach oben gleiten -->
+<div class="staggered-container staggered-slide-in-up">
+  <div>Element 1</div>
+  <div>Element 2</div>
+  <div>Element 3</div>
+</div>
+
+<!-- Angepasste Verzögerungsinkremente -->
+<ul class="staggered-container staggered-fade-in stagger-increment-large">
+  <li>Element 1 (längere Verzögerung zwischen Elementen)</li>
+  <li>Element 2</li>
+  <li>Element 3</li>
+</ul>
+
+<!-- Umgekehrte Reihenfolge -->
+<ul class="staggered-container staggered-fade-in stagger-reverse">
+  <li>Element 1 (erscheint zuletzt)</li>
+  <li>Element 2 (erscheint als vorletztes)</li>
+  <li>Element 3 (erscheint als erstes)</li>
+</ul>
+```
+
+#### Klassen für gestaffelte Animationen
+
+| Klasse | Beschreibung |
+|--------|--------------|
+| `staggered-container` | Container für gestaffelte Elemente |
+| `staggered-fade-in` | Fade-in-Animation für alle Kindelemente |
+| `staggered-slide-in-up` | Aufwärts-Slide-Animation für alle Kindelemente |
+| `staggered-slide-in-down` | Abwärts-Slide-Animation für alle Kindelemente |
+| `staggered-slide-in-left` | Links-Slide-Animation für alle Kindelemente |
+| `staggered-slide-in-right` | Rechts-Slide-Animation für alle Kindelemente |
+| `stagger-group-1, -2, -3` | Verzögerungsgruppen mit unterschiedlichen Basis-Delays |
+| `stagger-increment-small, -normal, -large` | Anpassung der Zeitabstände zwischen Elementen |
+| `stagger-reverse` | Umkehrung der Animationsreihenfolge (letztes zuerst) |
+
+#### Anpassbare Parameter
+
+```css
+:root {
+  --stagger-base-delay: 50ms;       /* Basis-Verzögerung vor der ersten Animation */
+  --stagger-increment: 50ms;        /* Zeitinkrement zwischen den Elementen */
+  --stagger-max-delay: 1000ms;      /* Maximale Verzögerung für viele Elemente */
+}
+```
+
+#### Anwendungsfälle
+
+1. **Listendarstellungen** - Gestaffelte Einblendung von Listenelementen
+2. **Grid-Layouts** - Sequenzielle Animation von Grid-Elementen
+3. **Menüs** - Elegantes Einblenden von Menüpunkten
+4. **Galerie-Elemente** - Abgestufte Darstellung von Bildern oder Inhaltsblöcken
+5. **Zeitachsen** - Sequenzielle Darstellung von zeitlich geordneten Ereignissen
+
+### Animation-Kontextklassen
+
+Mit Animation-Kontextklassen können Sie Animation-Parameter für einen ganzen Container und alle seine Kindelemente überschreiben, ohne die globalen Werte zu ändern:
+
+```html
+<!-- Container mit schnelleren Animationen -->
+<div class="animation-context-fast">
+  <button class="animate fade-in">Wird schneller eingeblendet</button>
+  <div class="animate slide-in-up">Gleitet schneller ein</div>
+  
+  <!-- Animationen können weiterhin individuell angepasst werden -->
+  <div class="animate slide-in-left duration-slow">
+    Langsamer als Standardanimationen im schnellen Kontext
+  </div>
+</div>
+
+<!-- Container mit größeren Skalierungseffekten -->
+<div class="scale-context-lg">
+  <div class="animate scale-in">
+    Wird mit stärkerer Skalierung eingeblendet
+  </div>
+</div>
+```
+
+#### Verfügbare Kontextklassen
+
+| Typ | Klassen | Beeinflusste Parameter |
+|-----|---------|------------------------|
+| **Geschwindigkeit** | `.animation-context-fastest`<br>`.animation-context-fast`<br>`.animation-context-slow` | `--animation-duration-*` |
+| **Skalierung** | `.scale-context-xs`<br>`.scale-context-sm`<br>`.scale-context-md`<br>`.scale-context-lg` | `--scale-*` |
+| **Bewegungsdistanz** | `.move-context-small`<br>`.move-context-medium`<br>`.move-context-large` | `--move-*`, `--slide-distance` |
+| **Verzögerung** | `.delay-context-short`<br>`.delay-context-medium`<br>`.delay-context-long` | `--delay-*`, `--stagger-*` |
+
+#### Animation-Präsets
+
+Das Framework bietet auch vordefinierte Animation-Stile, die mehrere Parameter gleichzeitig anpassen:
+
+```html
+<!-- Energische, schnelle Animationen -->
+<div class="animation-context-energetic">
+  <!-- Alle Animationen hier werden dynamischer und energischer -->
+</div>
+
+<!-- Subtile, dezente Animationen -->
+<div class="animation-context-subtle">
+  <!-- Alle Animationen hier werden zurückhaltender und dezenter -->
+</div>
+
+<!-- Verspielte Animationen mit Bounce-Effekten -->
+<div class="animation-context-playful">
+  <!-- Alle Animationen hier werden verspielter mit mehr Federkraft -->
+</div>
+```
+
+#### Verschachtelte Kontextklassen
+
+Kontextklassen können verschachtelt werden, wobei die innerste Klasse die äußere überschreibt:
+
+```html
+<div class="animation-context-slow">
+  <!-- Langsame Animationen -->
+  
+  <div class="animation-context-fast">
+    <!-- Schnelle Animationen überschreiben den langsamen Kontext -->
+  </div>
+</div>
+```
+
+#### Kombinieren mit Container-Queries
+
+Besonders nützlich ist die Kombination mit Container-Queries für responsive Animationen:
+
+```html
+<style>
+  @container (max-width: 600px) {
+    .responsive-container {
+      /* Kleine Bildschirme: subtile Animationen */
+      composes: animation-context-subtle;
+    }
+  }
+  
+  @container (min-width: 601px) {
+    .responsive-container {
+      /* Große Bildschirme: verspielte Animationen */
+      composes: animation-context-playful;
+    }
+  }
+</style>
+
+<div class="container-query responsive-container">
+  <!-- Animationen passen sich automatisch der Container-Größe an -->
+</div>
+```

@@ -6,29 +6,29 @@
  */
 
 .ripple {
-    position: relative;
     overflow: hidden;
+    position: relative;
 }
 
 .ripple::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    pointer-events: none;
     background-image: radial-gradient(circle, var(--ripple-color, rgb(255 255 255 / 30%)) 10%, transparent 10.01%);
-    background-repeat: no-repeat;
     background-position: 50%;
+    background-repeat: no-repeat;
+    content: '';
+    height: 100%;
+    left: 0;
+    opacity: 0%;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
     transform: scale(10, 10);
-    opacity: 0;
     transition: transform 0.5s, opacity 0.5s;
+    width: 100%;
 }
 
 .ripple:active::after {
+    opacity: 30%;
     transform: scale(0, 0);
-    opacity: 0.3;
     transition: 0s;
 }
 
@@ -73,28 +73,28 @@
 }
 
 .ripple-outline {
-    position: relative;
     overflow: hidden;
+    position: relative;
 }
 
 .ripple-outline::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    pointer-events: none;
     border: 2px solid var(--ripple-outline-color, rgb(255 255 255 / 30%));
     border-radius: inherit;
+    content: '';
+    height: 100%;
+    left: 0;
+    opacity: 0%;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
     transform: scale(1.5);
-    opacity: 0;
     transition: transform 0.5s, opacity 0.5s;
+    width: 100%;
 }
 
 .ripple-outline:active::after {
+    opacity: 30%;
     transform: scale(1);
-    opacity: 0.3;
     transition: 0s;
 }
 

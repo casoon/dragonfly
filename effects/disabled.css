@@ -6,24 +6,24 @@
  */
 
 .disabled {
-    opacity: 0.5;
-    pointer-events: none;
     cursor: not-allowed;
+    opacity: 50%;
+    pointer-events: none;
     user-select: none;
 }
 
 .disabled-sm {
-    opacity: 0.7;
+    opacity: 70%;
 }
 
 .disabled-lg {
-    opacity: 0.3;
+    opacity: 30%;
 }
 
 .disabled-blur {
+    cursor: not-allowed;
     filter: blur(1px);
     pointer-events: none;
-    cursor: not-allowed;
     user-select: none;
 }
 
@@ -36,9 +36,9 @@
 }
 
 .disabled-grayscale {
+    cursor: not-allowed;
     filter: grayscale(100%);
     pointer-events: none;
-    cursor: not-allowed;
     user-select: none;
 }
 
@@ -52,8 +52,8 @@
 
 .disabled-border {
     border-style: dashed;
-    pointer-events: none;
     cursor: not-allowed;
+    pointer-events: none;
     user-select: none;
 }
 
@@ -67,8 +67,8 @@
 
 .disabled-bg {
     background-color: var(--disabled-bg, rgb(0 0 0 / 5%));
-    pointer-events: none;
     cursor: not-allowed;
+    pointer-events: none;
     user-select: none;
 }
 
@@ -82,8 +82,8 @@
 
 .disabled-text {
     color: var(--disabled-text, rgb(0 0 0 / 50%));
-    pointer-events: none;
     cursor: not-allowed;
+    pointer-events: none;
     user-select: none;
 }
 

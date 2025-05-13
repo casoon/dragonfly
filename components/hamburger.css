@@ -45,23 +45,23 @@
 
 @layer hamburger {
   .hamburger {
-    display: inline-flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 24px;
-    height: 24px;
-    padding: 4px 0;
-    cursor: pointer;
     background: transparent;
     border: none;
+    cursor: pointer;
+    display: inline-flex;
+    flex-direction: column;
+    height: 24px;
+    justify-content: space-between;
+    padding: 4px 0;
+    width: 24px;
     
     .line {
-      display: block;
-      height: 2px;
-      width: 100%;
       background-color: var(--color-gray-800);
       border-radius: 2px;
+      display: block;
+      height: 2px;
       transition: all var(--transition-fast) ease-in-out;
+      width: 100%;
     }
     
     /* Aktiver Zustand */
@@ -71,7 +71,7 @@
       }
       
       .line:nth-child(2) {
-        opacity: 0;
+        opacity: 0%;
       }
       
       .line:nth-child(3) {
@@ -83,17 +83,17 @@
     &.spin {
       &.active {
         .line:nth-child(1) {
-          transform: rotate(135deg);
           margin-top: 8px;
+          transform: rotate(135deg);
         }
         
         .line:nth-child(2) {
-          opacity: 0;
+          opacity: 0%;
         }
         
         .line:nth-child(3) {
-          transform: rotate(-135deg);
           margin-top: -16px;
+          transform: rotate(-135deg);
         }
       }
     }
@@ -117,25 +117,25 @@
     &.arrow {
       &.active {
         .line:nth-child(1) {
-          width: 50%;
           transform: translateY(3px) translateX(6px) rotate(45deg);
+          width: 50%;
         }
         
         .line:nth-child(2) {
-          opacity: 1;
+          opacity: 100%;
         }
         
         .line:nth-child(3) {
-          width: 50%;
           transform: translateY(-3px) translateX(6px) rotate(-45deg);
+          width: 50%;
         }
       }
     }
     
     /* Größenvarianten */
     &.sm {
-      width: 18px;
       height: 18px;
+      width: 18px;
       
       .line {
         height: 1px;
@@ -143,8 +143,8 @@
     }
     
     &.lg {
-      width: 30px;
       height: 30px;
+      width: 30px;
       
       .line {
         height: 3px;

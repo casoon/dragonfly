@@ -8,25 +8,25 @@
 
     /* Base Icon */
     .ph {
-        display: var(--display-inline-block);
-        width: var(--spacing-6);
-        height: var(--spacing-6);
-        vertical-align: var(--position-middle);
         background-color: currentcolor;
-        mask-size: var(--position-100);
+        display: var(--display-inline-block);
+        height: var(--spacing-6);
         mask-position: var(--position-center);
         mask-repeat: var(--bg-no-repeat);
+        mask-size: var(--position-100);
+        vertical-align: var(--position-middle);
+        width: var(--spacing-6);
     }
 
     .ph-icon {
-        display: var(--display-inline-block);
-        width: var(--spacing-6);
-        height: var(--spacing-6);
-        vertical-align: var(--position-middle);
         background-color: currentcolor;
-        mask-size: var(--position-100);
+        display: var(--display-inline-block);
+        height: var(--spacing-6);
         mask-position: var(--position-center);
         mask-repeat: var(--bg-no-repeat);
+        mask-size: var(--position-100);
+        vertical-align: var(--position-middle);
+        width: var(--spacing-6);
     }
 
     /* Phosphor Icons */
@@ -48,50 +48,50 @@
 
     /* Phosphor Varianten */
     .ph-regular {
-        stroke-width: 2;
         fill: none;
+        stroke-width: 2;
     }
 
     .ph-bold {
-        stroke-width: 3;
         fill: none;
+        stroke-width: 3;
     }
 
     .ph-fill {
-        stroke-width: 0;
         fill: currentcolor;
+        stroke-width: 0;
     }
 
     .ph-duotone {
-        stroke-width: 2;
         fill: currentcolor;
-        opacity: 0.5;
+        opacity: 50%;
+        stroke-width: 2;
     }
 
     /* Icon Sizes */
     .ph-xs {
-        width: var(--spacing-4);
         height: var(--spacing-4);
+        width: var(--spacing-4);
     }
 
     .ph-sm {
-        width: var(--spacing-5);
         height: var(--spacing-5);
+        width: var(--spacing-5);
     }
 
     .ph-lg {
-        width: var(--spacing-7);
         height: var(--spacing-7);
+        width: var(--spacing-7);
     }
 
     .ph-xl {
-        width: var(--spacing-8);
         height: var(--spacing-8);
+        width: var(--spacing-8);
     }
 
     .ph-2xl {
-        width: var(--spacing-10);
         height: var(--spacing-10);
+        width: var(--spacing-10);
     }
 
     /* Icon Alignment */

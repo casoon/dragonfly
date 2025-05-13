@@ -1,7 +1,25 @@
 module.exports = {
   extends: ['stylelint-config-standard'],
-  plugins: ['stylelint-use-logical'],
+  plugins: [
+    'stylelint-use-logical',
+    'stylelint-order' // Plugin für die Sortierung von CSS-Eigenschaften
+  ],
   rules: {
+    // 🔢 Sortierung von CSS-Eigenschaften
+    'order/properties-alphabetical-order': true, // Alphabetische Sortierung von Properties
+    
+    // 🚫 Keine doppelten Properties in einem Deklarationsblock
+    'declaration-block-no-duplicate-properties': true,
+    
+    // 📏 Leerzeile vor Custom Properties
+    'custom-property-empty-line-before': [
+      'always',
+      {
+        except: ['first-nested', 'after-comment', 'after-custom-property'],
+        ignore: ['inside-single-line-block']
+      }
+    ],
+    
     // 🔠 Namenskonventionen (z. B. --color-primary-base, --space-sm)
     'custom-property-pattern': null,
 
@@ -23,6 +41,22 @@ module.exports = {
 
     // 📐 Logische Properties bevorzugen (deaktiviert)
     'csstools/use-logical': null,
+
+    // 📝 Zusätzliche Anpassungen für die Animations-Datei
+    'rule-empty-line-before': ['always', {
+      except: ['first-nested'],
+      ignore: ['after-comment']
+    }],
+    'declaration-empty-line-before': ['always', {
+      except: ['first-nested', 'after-comment', 'after-declaration'],
+      ignore: ['inside-single-line-block']
+    }],
+    'alpha-value-notation': 'percentage',
+    'color-function-notation': 'modern',
+    'value-keyword-case': ['lower', {
+      ignoreProperties: ['/^--/'],
+      ignoreKeywords: ['currentColor']
+    }],
 
     // ❌ Deaktivierte Regeln (Design-System-Ausnahmen)
     'no-empty-source': null,

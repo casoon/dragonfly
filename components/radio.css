@@ -60,36 +60,36 @@
 
 @layer radio {
   .radio {
-    display: inline-flex;
     align-items: center;
-    gap: var(--space-2);
     cursor: pointer;
+    display: inline-flex;
     font-size: var(--font-size-sm);
+    gap: var(--space-2);
     
     input[type="radio"] {
       appearance: none;
-      width: 1rem;
-      height: 1rem;
-      border-radius: 9999px;
-      border: 2px solid var(--color-gray-400);
       background-color: var(--color-white);
-      transition: all var(--transition-fast);
+      border: 2px solid var(--color-gray-400);
+      border-radius: 9999px;
+      height: 1rem;
       position: relative;
+      transition: all var(--transition-fast);
+      width: 1rem;
       
       &:checked {
         background-color: var(--color-primary);
         border-color: var(--color-primary);
         
         &::after {
+          background-color: white;
+          border-radius: 9999px;
           content: "";
+          height: 0.375rem;
+          left: 50%;
           position: absolute;
           top: 50%;
-          left: 50%;
           transform: translate(-50%, -50%);
           width: 0.375rem;
-          height: 0.375rem;
-          border-radius: 9999px;
-          background-color: white;
         }
       }
       
@@ -115,8 +115,8 @@
       font-size: var(--font-size-xs);
       
       input[type="radio"] {
-        width: 0.875rem;
         height: 0.875rem;
+        width: 0.875rem;
       }
     }
     
@@ -124,12 +124,12 @@
       font-size: var(--font-size-base);
       
       input[type="radio"] {
-        width: 1.25rem;
         height: 1.25rem;
+        width: 1.25rem;
         
         &:checked::after {
-          width: 0.5rem;
           height: 0.5rem;
+          width: 0.5rem;
         }
       }
     }
@@ -141,8 +141,8 @@
     gap: var(--space-2);
     
     &.horizontal {
-      flex-flow: row wrap;
       align-items: center;
+      flex-flow: row wrap;
     }
   }
 }

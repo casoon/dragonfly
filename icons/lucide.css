@@ -8,25 +8,25 @@
 
     /* Base Icon */
     .lucide {
-        display: var(--display-inline-block);
-        width: var(--spacing-6);
-        height: var(--spacing-6);
-        vertical-align: var(--position-middle);
         background-color: currentcolor;
-        mask-size: var(--position-100);
+        display: var(--display-inline-block);
+        height: var(--spacing-6);
         mask-position: var(--position-center);
         mask-repeat: var(--bg-no-repeat);
+        mask-size: var(--position-100);
+        vertical-align: var(--position-middle);
+        width: var(--spacing-6);
     }
 
     .lucide-icon {
-        display: var(--display-inline-block);
-        width: var(--spacing-6);
-        height: var(--spacing-6);
-        vertical-align: var(--position-middle);
         background-color: currentcolor;
-        mask-size: var(--position-100);
+        display: var(--display-inline-block);
+        height: var(--spacing-6);
         mask-position: var(--position-center);
         mask-repeat: var(--bg-no-repeat);
+        mask-size: var(--position-100);
+        vertical-align: var(--position-middle);
+        width: var(--spacing-6);
     }
 
     /* Lucide Icons */
@@ -48,28 +48,28 @@
 
     /* Icon Sizes */
     .lucide-xs {
-        width: var(--spacing-4);
         height: var(--spacing-4);
+        width: var(--spacing-4);
     }
 
     .lucide-sm {
-        width: var(--spacing-5);
         height: var(--spacing-5);
+        width: var(--spacing-5);
     }
 
     .lucide-lg {
-        width: var(--spacing-7);
         height: var(--spacing-7);
+        width: var(--spacing-7);
     }
 
     .lucide-xl {
-        width: var(--spacing-8);
         height: var(--spacing-8);
+        width: var(--spacing-8);
     }
 
     .lucide-2xl {
-        width: var(--spacing-10);
         height: var(--spacing-10);
+        width: var(--spacing-10);
     }
 
     /* Icon Alignment */

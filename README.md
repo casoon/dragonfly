@@ -2,6 +2,19 @@
 
 Ein modulares, leichtgewichtiges CSS-Framework und Design-System für moderne Webprojekte. Optimiert für Astro JS, LightningCSS und Container Queries mit @layer-basierter Architektur und umfassender Barrierefreiheit.
 
+## Neuerungen in Version 0.5.0
+
+- **Optimierte Animations-CSS**: Vereinheitlichtes Benennungsschema (`slide-in-*` statt `slide-from-*`), reduzierte Redundanz und verbesserte Custom Properties
+- **Erweiterte Barrierefreiheit in Animationen**: Implementierung von `.motion-safe` und `.motion-reduce` Utilities für optimale `prefers-reduced-motion`-Unterstützung
+- **Experimentelles Feature**: Unterstützung für `animation-composition` zur Kombination mehrerer Animationen (experimentell)
+- **Dialog-Animationen**: Spezielle Animationen für modale Fenster und `<dialog>`-Elemente mit `.dialog-enter`/`.dialog-exit`
+- **Animierte Fokus-Indikatoren**: Pulsierende Fokus-Ringe für bessere Barrierefreiheit mit `.focus-ring-animated`
+- **Gestaffelte Animationen**: Sequentielle Animationen für Listen und Gruppen mit automatisch verzögerten Animationen
+- **Vollständige Dark Mode-Integration**: Durchgängige Implementierung mit `color-scheme: light dark` und `light-dark()` CSS-Funktion
+- **Umfassender RTL-Support**: Erweiterte bidirektionale Layouts mit `[dir="rtl"]` Selektoren für alle Komponenten
+- **Moderne CSS-Validierung**: Implementierung der `:has()`-Selektor-Validierung mit visuellen Indikatoren
+- **Verbesserte Formular-Layouts**: Neue Klassen `.form-stacked`, `.form-layout-inline` und `.form-inline-controls`
+
 ## Neuerungen in Version 0.4.10
 
 - **Überarbeitetes Formular-System**: Umfassende RTL-Unterstützung, verbesserte Dark Mode-Unterstützung mit `light-dark()` und innovative Validierung mit `:has()`-Selektoren

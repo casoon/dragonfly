@@ -54,27 +54,27 @@
 @layer code {
   /* Inline-Code */
   .code-inline {
-    font-family: var(--font-family-mono);
     background: var(--color-gray-100);
-    padding: var(--space-1) var(--space-2);
     border-radius: var(--radius-sm);
-    font-size: var(--font-size-sm);
     color: var(--color-primary-700);
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-sm);
+    padding: var(--space-1) var(--space-2);
   }
   
   /* Code-Block */
   .code {
+    background: var(--color-gray-100);
+    border: 1px solid var(--color-gray-200);
+    border-radius: var(--radius-md);
+    color: var(--color-gray-800);
     display: block;
     font-family: var(--font-family-mono);
-    background: var(--color-gray-100);
-    color: var(--color-gray-800);
-    padding: var(--space-4);
-    border-radius: var(--radius-md);
-    overflow-x: auto;
     font-size: var(--font-size-sm);
     line-height: var(--line-height-snug);
     margin: var(--space-4) 0;
-    border: 1px solid var(--color-gray-200);
+    overflow-x: auto;
+    padding: var(--space-4);
     
     pre {
       margin: 0;
@@ -88,39 +88,39 @@
     /* Zeilennummern */
     &.numbered {
       display: grid;
-      grid-template-columns: auto 1fr;
       gap: var(--space-4);
+      grid-template-columns: auto 1fr;
       
       .line-numbers {
+        border-right: 1px solid var(--color-gray-300);
         color: var(--color-gray-500);
+        padding-right: var(--space-2);
         text-align: right;
         user-select: none;
-        padding-right: var(--space-2);
-        border-right: 1px solid var(--color-gray-300);
       }
     }
     
     /* Varianten */
     &.dark {
       background-color: var(--color-gray-900);
-      color: var(--color-gray-100);
       border-color: var(--color-gray-800);
+      color: var(--color-gray-100);
     }
     
     &.light {
       background-color: var(--color-white);
-      color: var(--color-gray-900);
       border-color: var(--color-gray-200);
+      color: var(--color-gray-900);
     }
     
     &.terminal {
       background-color: var(--color-gray-900);
-      color: var(--color-gray-100);
       border-color: var(--color-gray-800);
+      color: var(--color-gray-100);
       
       &::before {
-        content: '>';
         color: var(--color-gray-500);
+        content: '>';
         margin-right: var(--space-2);
       }
     }
@@ -129,9 +129,13 @@
       /* Beispielfarben für Syntax-Hervorhebung - diese würden normalerweise
          durch eine JavaScript-Bibliothek wie Prism.js oder Highlight.js gesetzt */
       .keyword { color: var(--color-primary-600); }
+
       .string { color: var(--color-success-600); }
+
       .comment { color: var(--color-gray-500); font-style: italic; }
+
       .function { color: var(--color-secondary-600); }
+
       .number { color: var(--color-warning-600); }
     }
   }
@@ -141,17 +145,17 @@
     position: relative;
     
     .copy-button {
-      position: absolute;
-      top: var(--space-2);
-      right: var(--space-2);
       background-color: var(--color-gray-200);
-      color: var(--color-gray-700);
       border: none;
       border-radius: var(--radius-sm);
-      padding: var(--space-1) var(--space-2);
-      font-size: var(--font-size-xs);
+      color: var(--color-gray-700);
       cursor: pointer;
-      opacity: 0;
+      font-size: var(--font-size-xs);
+      opacity: 0%;
+      padding: var(--space-1) var(--space-2);
+      position: absolute;
+      right: var(--space-2);
+      top: var(--space-2);
       transition: opacity var(--transition-fast);
       
       &:hover {
@@ -161,7 +165,7 @@
     }
     
     &:hover .copy-button {
-      opacity: 1;
+      opacity: 100%;
     }
   }
 }

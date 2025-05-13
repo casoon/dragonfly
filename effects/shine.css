@@ -6,25 +6,25 @@
  */
 
 .shine {
-    position: relative;
     overflow: hidden;
+    position: relative;
 }
 
 .shine::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
+    animation: shine-effect 3s infinite;
     background: linear-gradient(
         45deg,
         transparent,
         rgb(255 255 255 / 10%),
         transparent
     );
+    content: '';
+    height: 200%;
+    left: -50%;
+    position: absolute;
+    top: -50%;
     transform: rotate(45deg);
-    animation: shine-effect 3s infinite;
+    width: 200%;
 }
 
 .shine-hover:hover::after {

@@ -73,16 +73,19 @@ Das Formular-System wurde umfassend überarbeitet und bietet nun:
 ### Verbesserte Dark Mode-Unterstützung
 - Integrierte `color-scheme: light dark` für native Unterstützung
 - Verwendung der `light-dark()` CSS-Funktion mit Fallback-Mechanismen
+- Automatische Anpassung an Systemeinstellungen via `prefers-color-scheme`
 - Vollständig angepasste Farbgebung für alle Formularelemente
 
 ### RTL-Unterstützung
 - Vollständige bidirektionale Layouts mit `[dir="rtl"]` Selektoren
 - Umgekehrte Ausrichtung für Formularlabels, Checkboxen, Radios, etc.
 - Korrekte Randradien und Positionierung in RTL-Layouts
+- Konsistente Textausrichtung und Symbolplatzierung
 
 ### Moderne Formular-Layouts
-- `.form-layout-inline` für horizontale Formularlayouts
 - `.form-stacked` für explizite vertikale Anordnung
+- `.form-layout-inline` für horizontale Formularlayouts
+- `.form-inline-controls` für Inline-Steuerelemente innerhalb einer Zeile
 - `.form-horizontal` für Label-Input-Paare auf derselben Zeile
 - Responsive Anpassung für mobile Geräte
 
@@ -90,16 +93,53 @@ Das Formular-System wurde umfassend überarbeitet und bietet nun:
 - Nutzung des `:has()`-Selektors für fortschrittliche Validierungseffekte
 - Visuelle Indikatoren (farbige Ränder, Symbole) basierend auf Validierungsstatus
 - Fallback für ältere Browser via konventionelle Klassen
+- Dynamische Validierungsfeedbacks ohne JavaScript
 
 ### Beispiel mit modernen Validierungseffekten:
 ```html
-<form class="form was-validated">
+<form class="form">
   <div class="form-group">
     <label class="form-label" for="email">E-Mail</label>
     <input type="email" class="form-control" id="email" required>
     <div class="feedback">Bitte geben Sie eine gültige E-Mail ein.</div>
   </div>
 </form>
+```
+
+### Beispiel für RTL-Support:
+```html
+<form class="form" dir="rtl">
+  <div class="form-group">
+    <label class="form-label required" for="name">الاسم</label>
+    <input type="text" class="form-control" id="name" required>
+  </div>
+</form>
+```
+
+### Beispiel für Inline-Formularlayout:
+```html
+<form class="form-layout-inline">
+  <div class="form-group">
+    <label class="form-label" for="search">Suche</label>
+    <input type="search" class="form-control" id="search">
+  </div>
+  <button type="submit" class="button primary">Suchen</button>
+</form>
+```
+
+### Beispiel für Inline-Steuerelemente:
+```html
+<div class="form-inline-controls">
+  <label class="form-label" for="preference">Präferenz</label>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="preference" id="pref1" value="option1">
+    <label class="form-check-label" for="pref1">Option 1</label>
+  </div>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="preference" id="pref2" value="option2">
+    <label class="form-check-label" for="pref2">Option 2</label>
+  </div>
+</div>
 ```
 
 ## Erweiterung und Anpassung

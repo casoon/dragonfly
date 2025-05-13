@@ -8,40 +8,40 @@
 
     /* Base Icon */
     .heroicon {
-        display: var(--display-inline-block);
-        width: var(--spacing-6);
-        height: var(--spacing-6);
-        vertical-align: var(--position-middle);
         background-color: currentcolor;
-        mask-size: var(--position-100);
+        display: var(--display-inline-block);
+        height: var(--spacing-6);
         mask-position: var(--position-center);
         mask-repeat: var(--bg-no-repeat);
+        mask-size: var(--position-100);
+        vertical-align: var(--position-middle);
+        width: var(--spacing-6);
     }
 
     /* Icon Sizes */
     .heroicon-xs {
-        width: var(--spacing-4);
         height: var(--spacing-4);
+        width: var(--spacing-4);
     }
 
     .heroicon-sm {
-        width: var(--spacing-5);
         height: var(--spacing-5);
+        width: var(--spacing-5);
     }
 
     .heroicon-lg {
-        width: var(--spacing-7);
         height: var(--spacing-7);
+        width: var(--spacing-7);
     }
 
     .heroicon-xl {
-        width: var(--spacing-8);
         height: var(--spacing-8);
+        width: var(--spacing-8);
     }
 
     .heroicon-2xl {
-        width: var(--spacing-10);
         height: var(--spacing-10);
+        width: var(--spacing-10);
     }
 
     /* Icon Alignment */
@@ -78,25 +78,25 @@
 
     /* Heroicons */
     .hi {
-        display: var(--display-inline-block);
-        width: var(--spacing-6);
-        height: var(--spacing-6);
-        vertical-align: var(--position-middle);
         background-color: currentcolor;
-        mask-size: var(--position-100);
+        display: var(--display-inline-block);
+        height: var(--spacing-6);
         mask-position: var(--position-center);
         mask-repeat: var(--bg-no-repeat);
+        mask-size: var(--position-100);
+        vertical-align: var(--position-middle);
+        width: var(--spacing-6);
     }
 
     .hi-icon {
-        display: var(--display-inline-block);
-        width: var(--spacing-6);
-        height: var(--spacing-6);
-        vertical-align: var(--position-middle);
         background-color: currentcolor;
-        mask-size: var(--position-100);
+        display: var(--display-inline-block);
+        height: var(--spacing-6);
         mask-position: var(--position-center);
         mask-repeat: var(--bg-no-repeat);
+        mask-size: var(--position-100);
+        vertical-align: var(--position-middle);
+        width: var(--spacing-6);
     }
 
     .hi-home {
@@ -117,28 +117,28 @@
 
     /* Icon Sizes */
     .hi-xs {
-        width: var(--spacing-4);
         height: var(--spacing-4);
+        width: var(--spacing-4);
     }
 
     .hi-sm {
-        width: var(--spacing-5);
         height: var(--spacing-5);
+        width: var(--spacing-5);
     }
 
     .hi-lg {
-        width: var(--spacing-7);
         height: var(--spacing-7);
+        width: var(--spacing-7);
     }
 
     .hi-xl {
-        width: var(--spacing-8);
         height: var(--spacing-8);
+        width: var(--spacing-8);
     }
 
     .hi-2xl {
-        width: var(--spacing-10);
         height: var(--spacing-10);
+        width: var(--spacing-10);
     }
 
     /* Icon Alignment */

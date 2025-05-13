@@ -46,11 +46,11 @@
 /* Animationen */
 @keyframes neon-pulse {
     from {
-        opacity: 1;
+        opacity: 100%;
     }
 
     to {
-        opacity: 0.7;
+        opacity: 70%;
     }
 }
 
@@ -67,21 +67,25 @@
 }
 
 @keyframes flicker {
-    0%, 100% { opacity: 1; }
-    30% { opacity: 0.7; }
-    50% { opacity: 1; }
-    70% { opacity: 0.8; }
-    90% { opacity: 0.5; }
+    0%, 100% { opacity: 100%; }
+
+    30% { opacity: 70%; }
+
+    50% { opacity: 100%; }
+
+    70% { opacity: 80%; }
+
+    90% { opacity: 50%; }
 }
 
 
     /* Neon Text */
     .neon-text {
+        animation: neon-pulse 1.5s ease-in-out infinite alternate;
         color: var(--theme-primary-500);
         text-shadow: var(--spacing-0) var(--spacing-0) var(--spacing-5) var(--theme-primary-500),
                      var(--spacing-0) var(--spacing-0) var(--spacing-10) var(--theme-primary-500),
                      var(--spacing-0) var(--spacing-0) var(--spacing-20) var(--theme-primary-500);
-        animation: neon-pulse 1.5s ease-in-out infinite alternate;
     }
 
     .neon-text-secondary {
@@ -100,11 +104,11 @@
 
     /* Neon Border */
     .neon-border {
+        animation: neon-pulse 1.5s ease-in-out infinite alternate;
         border: var(--spacing-2) solid var(--theme-primary-500);
         box-shadow: var(--spacing-0) var(--spacing-0) var(--spacing-5) var(--theme-primary-500),
                     var(--spacing-0) var(--spacing-0) var(--spacing-10) var(--theme-primary-500),
                     var(--spacing-0) var(--spacing-0) var(--spacing-20) var(--theme-primary-500);
-        animation: neon-pulse 1.5s ease-in-out infinite alternate;
     }
 
     .neon-border-secondary {
@@ -167,12 +171,12 @@
     }
 
     .glow-button {
-        position: relative;
         box-shadow: 
             0 0 8px var(--glow-button-color, var(--theme-accent-500)),
             0 0 15px var(--glow-button-color, var(--theme-accent-500)),
             0 0 20px var(--glow-button-color, var(--theme-accent-500)),
             0 0 30px var(--glow-button-color, var(--theme-accent-500));
+        position: relative;
         z-index: 1;
     }
 
@@ -200,8 +204,8 @@
         }
         
         .neon-box {
-            width: 100%;
-            height: auto;
             aspect-ratio: 16/9;
+            height: auto;
+            width: 100%;
         }
     } 

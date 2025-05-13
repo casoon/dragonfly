@@ -76,34 +76,34 @@
 
 .interactive:disabled {
     cursor: not-allowed;
-    opacity: 0.6;
+    opacity: 60%;
 }
 
 /* Klick-Effekte */
 .click-ripple {
-    position: relative;
     overflow: hidden;
+    position: relative;
 }
 
 .click-ripple::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    pointer-events: none;
     background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
-    background-repeat: no-repeat;
     background-position: 50%;
+    background-repeat: no-repeat;
+    content: '';
+    height: 100%;
+    left: 0;
+    opacity: 0%;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
     transform: scale(10, 10);
-    opacity: 0;
     transition: transform 0.5s, opacity 1s;
+    width: 100%;
 }
 
 .click-ripple:active::after {
+    opacity: 30%;
     transform: scale(0, 0);
-    opacity: 0.3;
     transition: 0s;
 }
 
@@ -122,8 +122,8 @@
 }
 
 .drag-feedback:active {
-    transform: scale(1.02);
     box-shadow: 0 4px 8px rgb(0 0 0 / 10%);
+    transform: scale(1.02);
 }
 
 /* Scroll-Effekte */
@@ -132,9 +132,9 @@
 }
 
 .scroll-snap {
-    scroll-snap-type: x mandatory;
-    overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
 }
 
 .scroll-snap-item {
@@ -156,8 +156,8 @@
 }
 
 .hover-lift:hover {
-    transform: translateY(-2px);
     box-shadow: 0 4px 8px rgb(0 0 0 / 10%);
+    transform: translateY(-2px);
 }
 
 .hover-scale {
@@ -196,14 +196,14 @@
 
 /* Deaktivierte Zustände */
 .disabled {
-    pointer-events: none;
-    opacity: 0.6;
     cursor: not-allowed;
+    opacity: 60%;
+    pointer-events: none;
 }
 
 .disabled-feedback {
     filter: grayscale(1);
-    opacity: 0.7;
+    opacity: 70%;
 }
 
 /* Reduzierte Bewegung */
@@ -248,24 +248,24 @@
 
 /* Ladezustände */
 .loading {
-    position: relative;
     overflow: hidden;
+    position: relative;
 }
 
 .loading::after {
-    content: '';
-    position: absolute;
-    inset-block-start: var(--interaction-tooltip-top-start);
-    inset-inline-start: var(--interaction-tooltip-left-start);
-    inline-size: 100%;
-    block-size: 100%;
+    animation: loading 1.5s infinite;
     background: linear-gradient(
         90deg,
         transparent,
         rgb(255 255 255 / 20%),
         transparent
     );
-    animation: loading 1.5s infinite;
+    block-size: 100%;
+    content: '';
+    inline-size: 100%;
+    inset-block-start: var(--interaction-tooltip-top-start);
+    inset-inline-start: var(--interaction-tooltip-left-start);
+    position: absolute;
     will-change: transform;
 }
 
@@ -285,8 +285,8 @@
 @container root (width <= 640px) {
     /* Anpassungen für Touch-Interaktionen auf kleinen Displays */
     .drag-handle {
-        width: 32px;
         height: 32px;
+        width: 32px;
     }
     
     .drag-item {
@@ -328,18 +328,18 @@
     }
     
     .hover-text-mask {
-        position: relative;
         overflow: hidden;
+        position: relative;
     }
     
     .hover-text-mask::before {
+        background: var(--color-gradient);
+        block-size: 100%;
         content: '';
-        position: absolute;
+        inline-size: 100%;
         inset-block-start: 0;
         inset-inline-start: 0;
-        inline-size: 100%;
-        block-size: 100%;
-        background: var(--color-gradient);
+        position: absolute;
         transform: translateX(-100%);
         transition: transform 0.3s ease;
         will-change: transform;
@@ -355,11 +355,11 @@
     }
     
     .card-flip-inner {
-        position: relative;
-        inline-size: 100%;
         block-size: 100%;
-        transition: transform 0.6s;
+        inline-size: 100%;
+        position: relative;
         transform-style: preserve-3d;
+        transition: transform 0.6s;
         will-change: transform;
     }
     
@@ -368,10 +368,10 @@
     }
     
     .card-flip-front, .card-flip-back {
-        position: absolute;
-        inline-size: 100%;
-        block-size: 100%;
         backface-visibility: hidden;
+        block-size: 100%;
+        inline-size: 100%;
+        position: absolute;
     }
     
     .card-flip-back {
@@ -395,38 +395,38 @@
     
     /* Touch-Ripple-Effekt */
     .touch-ripple {
-        position: relative;
         overflow: hidden;
+        position: relative;
     }
     
     .touch-ripple::after {
-        content: '';
-        position: absolute;
-        inset-block-start: 50%;
-        inset-inline-start: 50%;
-        inline-size: 0;
+        background: var(--color-ripple, rgb(255 255 255 / 30%));
         block-size: 0;
         border-radius: 50%;
-        background: var(--color-ripple, rgb(255 255 255 / 30%));
+        content: '';
+        inline-size: 0;
+        inset-block-start: 50%;
+        inset-inline-start: 50%;
+        opacity: 0%;
+        position: absolute;
         transform: translate(-50%, -50%);
         transition: inline-size 0.5s ease-out, block-size 0.5s ease-out, opacity 0.5s ease-out;
         will-change: inline-size, block-size, opacity;
-        opacity: 0;
     }
     
     .touch-ripple:active::after {
-        inline-size: 200%;
         block-size: 200%;
-        opacity: 1;
+        inline-size: 200%;
+        opacity: 100%;
     }
     
     /* Text-Masken-Effekt */
     .text-mask {
         background-clip: text;
-        color: transparent;
         background-image: linear-gradient(90deg, var(--color-text), var(--color-primary));
         background-position: 0 0;
         background-size: 200%;
+        color: transparent;
         transition: background-position 0.3s ease;
     }
     
@@ -446,49 +446,49 @@
     
     /* Falteffekt */
     .fold-reveal {
-        perspective: 1000px;
         overflow: hidden;
+        perspective: 1000px;
     }
     
     .fold-reveal-content {
-        transform-origin: top;
-        transform: rotateX(-90deg);
-        transition: transform 0.3s ease;
-        opacity: 0;
         height: 0;
+        opacity: 0%;
+        transform: rotateX(-90deg);
+        transform-origin: top;
+        transition: transform 0.3s ease;
     }
     
     .fold-reveal.unfolded .fold-reveal-content {
-        transform: rotateX(0);
-        opacity: 1;
         height: auto;
+        opacity: 100%;
+        transform: rotateX(0);
     }
 }
 
 .feedback-ripple {
-    position: relative;
     overflow: hidden;
+    position: relative;
 }
 
 .feedback-ripple::after {
-    content: '';
-    position: absolute;
-    inset-block-start: 50%;
-    inset-inline-start: 50%;
-    inline-size: 0;
+    background: var(--color-feedback, rgb(var(--color-primary-rgb) / 20%));
     block-size: 0;
     border-radius: 50%;
-    background: var(--color-feedback, rgb(var(--color-primary-rgb) / 20%));
+    content: '';
+    inline-size: 0;
+    inset-block-start: 50%;
+    inset-inline-start: 50%;
+    opacity: 0%;
+    position: absolute;
     transform: translate(-50%, -50%);
     transition: inline-size 0.4s ease-out, block-size 0.4s ease-out, opacity 0.4s ease-out;
     will-change: inline-size, block-size, opacity;
-    opacity: 0;
 }
 
 .feedback-ripple:active::after {
-    inline-size: 150%;
     block-size: 150%;
-    opacity: 1;
+    inline-size: 150%;
+    opacity: 100%;
 }
 
 @container (pointer: coarse) {
@@ -499,8 +499,8 @@
 
 .slider-handle {
     cursor: grab;
-    will-change: transform;
     transition: transform 0.15s ease;
+    will-change: transform;
 }
 
 .slider-handle:active {

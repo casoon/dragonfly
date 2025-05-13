@@ -5,30 +5,258 @@
  * Die Effekte sind performant optimiert und berücksichtigen reduzierte Bewegung.
  */
 
-/* Animationen */
+/* Basis-Keyframes */
 @keyframes fade-in {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from { opacity: 0%; }
+
+    to { opacity: 100%; }
 }
 
-@keyframes slide-up {
+@keyframes fade-out {
+    from { opacity: 100%; }
+
+    to { opacity: 0%; }
+}
+
+@keyframes scale-in {
+    from {
+        opacity: 0%;
+        transform: scale(var(--scale-sm, 0.95));
+    }
+
     to {
-        opacity: 1;
+        opacity: 100%;
+        transform: scale(1);
+    }
+}
+
+@keyframes slide-in-up {
+    from {
+        opacity: 0%;
+        transform: translateY(var(--slide-distance, var(--move-md, 16px)));
+    }
+
+    to {
+        opacity: 100%;
         transform: translateY(0);
     }
 }
 
-@keyframes slide-from-left {
+@keyframes slide-in-down {
+    from {
+        opacity: 0%;
+        transform: translateY(calc(-1 * var(--slide-distance, var(--move-md, 16px))));
+    }
+
     to {
-        opacity: 1;
+        opacity: 100%;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slide-in-left {
+    from {
+        opacity: 0%;
+        transform: translateX(calc(-1 * var(--slide-distance, var(--move-md, 16px))));
+    }
+
+    to {
+        opacity: 100%;
         transform: translateX(0);
     }
 }
 
-@keyframes slide-from-right {
+@keyframes slide-in-right {
+    from {
+        opacity: 0%;
+        transform: translateX(var(--slide-distance, var(--move-md, 16px)));
+    }
+
     to {
-        opacity: 1;
+        opacity: 100%;
         transform: translateX(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(calc(-1 * var(--bounce-height, 25%)));
+    }
+
+    60% {
+        transform: translateY(calc(-1 * var(--bounce-height, 25%) / 2));
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 100%;
+    }
+
+    50% {
+        opacity: var(--pulse-opacity-min, 50%);
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes ping {
+    0% {
+        opacity: 100%;
+        transform: scale(1);
+    }
+
+    75%, 100% {
+        opacity: 0%;
+        transform: scale(var(--ping-scale, 2));
+    }
+}
+
+@keyframes wiggle {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(var(--wiggle-angle, 3deg));
+    }
+
+    75% {
+        transform: rotate(calc(-1 * var(--wiggle-angle, 3deg)));
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(calc(-1 * var(--float-distance, 10px)));
+    }
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(calc(-1 * var(--shake-distance, var(--shake-distance-sm, 1px))));
+    }
+
+    20%, 40%, 60%, 80% {
+        transform: translateX(var(--shake-distance, var(--shake-distance-sm, 1px)));
+    }
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    14% {
+        transform: scale(var(--heartbeat-scale, 1.3));
+    }
+
+    28% {
+        transform: scale(1);
+    }
+
+    42% {
+        transform: scale(var(--heartbeat-scale, 1.3));
+    }
+
+    70% {
+        transform: scale(1);
+    }
+}
+
+@keyframes elastic {
+    0% {
+        transform: scale(1, 1);
+    }
+
+    12.5% {
+        transform: scale(var(--elastic-scale-x-large, 1.25), var(--elastic-scale-y-small, 0.75));
+    }
+
+    25% {
+        transform: scale(var(--elastic-scale-x-small, 0.75), var(--elastic-scale-y-large, 1.25));
+    }
+
+    37.5% {
+        transform: scale(var(--elastic-scale-x-medium, 1.15), var(--elastic-scale-y-medium, 0.85));
+    }
+
+    50% {
+        transform: scale(var(--elastic-scale-x-tiny, 0.95), var(--elastic-scale-y-tiny, 1.05));
+    }
+
+    62.5% {
+        transform: scale(var(--elastic-scale-x-mini, 1.05), var(--elastic-scale-y-mini, 0.95));
+    }
+
+    75% {
+        transform: scale(0.985, 1.015);
+    }
+
+    87.5% {
+        transform: scale(1.01, 0.99);
+    }
+
+    100% {
+        transform: scale(1, 1);
+    }
+}
+
+@keyframes dialog-enter {
+    from {
+        opacity: 0%;
+        transform: scale(0.95) translateY(var(--dialog-offset, -20px));
+    }
+
+    to {
+        opacity: 100%;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes dialog-exit {
+    from {
+        opacity: 100%;
+        transform: scale(1);
+    }
+
+    to {
+        opacity: 0%;
+        transform: scale(0.95) translateY(var(--dialog-offset, -20px));
+    }
+}
+
+@keyframes focus-pulse {
+    0% {
+        box-shadow: 0 0 0 0 var(--focus-color, rgb(66 153 225 / 60%));
+    }
+
+    70% {
+        box-shadow: 0 0 0 var(--focus-ring-size, 4px) transparent;
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 transparent;
     }
 }
 
@@ -58,6 +286,11 @@
         --move-lg: 24px;
         --move-xl: 36px;
 
+        /* Animation-spezifische Parameter */
+        --slide-distance: var(--move-md);
+        --scroll-slide-distance: 30px;
+        --scroll-slide-from-edge: 100%;
+        
         /* Scale */
         --scale-xs: 0.98;
         --scale-sm: 0.95;
@@ -77,409 +310,932 @@
         --iteration-twice: 2;
         --iteration-thrice: 3;
         --iteration-infinite: infinite;
+        
+        /* Animation-spezifische Parameter */
+        --bounce-height: 25%;
+        --pulse-opacity-min: 0.5;
+        --ping-scale: 2;
+        --wiggle-angle: 3deg;
+        --float-distance: 10px;
+        --shake-distance-sm: 1px;
+        --shake-distance-md: 2px;
+        --shake-distance-lg: 4px;
+        --heartbeat-scale: 1.3;
+        --elastic-scale-x-large: 1.25;
+        --elastic-scale-y-small: 0.75;
+        --elastic-scale-x-small: 0.75;
+        --elastic-scale-y-large: 1.25;
+        --elastic-scale-x-medium: 1.15;
+        --elastic-scale-y-medium: 0.85;
+        --elastic-scale-x-tiny: 0.95;
+        --elastic-scale-y-tiny: 1.05;
+        --elastic-scale-x-mini: 1.05;
+        --elastic-scale-y-mini: 0.95;
+        
+        /* Dialog-Animation Parameter */
+        --dialog-offset: -20px;
+        --dialog-duration: 250ms;
+        --dialog-backdrop-opacity: 0.5;
+        
+        /* Fokus-Animation Parameter */
+        --focus-color: rgb(66 153 225 / 60%);
+        --focus-ring-size: 4px;
+        --focus-animation-duration: 1.5s;
+        
+        /* Gestaffelte Animationen */
+        --stagger-base-delay: 50ms;
+        --stagger-increment: 50ms;
+        --stagger-max-delay: 1000ms;
     }
 
-    /* Basic Utilities */
-    .animate {
-        animation-duration: var(--animation-duration-normal);
-        animation-fill-mode: both;
-        animation-timing-function: var(--ease-in-out-cubic);
-    }
-
-    /* Animation Direction */
-    .direction-normal { animation-direction: normal; }
-    .direction-reverse { animation-direction: reverse; }
-    .direction-alternate { animation-direction: alternate; }
-    .direction-alternate-reverse { animation-direction: alternate-reverse; }
-
-    /* Fill Mode */
-    .fill-none { animation-fill-mode: none; }
-    .fill-forwards { animation-fill-mode: forwards; }
-    .fill-backwards { animation-fill-mode: backwards; }
-    .fill-both { animation-fill-mode: both; }
-
-    /* Iteration Count */
-    .iteration-once, .once { animation-iteration-count: var(--iteration-once); }
-    .iteration-twice, .twice { animation-iteration-count: var(--iteration-twice); }
-    .iteration-thrice, .thrice { animation-iteration-count: var(--iteration-thrice); }
-    .iteration-infinite, .infinite { animation-iteration-count: var(--iteration-infinite); }
-
-    /* Fade-In-Animationen */
-    .fade-in {
-        animation: fade-in var(--animation-duration-normal) var(--ease-out) forwards;
-    }
+    /**
+     * ==========================================
+     * Animation Utility-Klassen
+     * ==========================================
+     */
     
-    @starting-style {
+    /* Animation Basis-Utility */
+    @layer animation-base {
+        .animate {
+            animation-duration: var(--animation-duration-normal);
+            animation-fill-mode: both;
+            animation-timing-function: var(--ease-in-out-cubic);
+        }
+    }
+
+    /* Animation Richtungs-Utilities */
+    @layer animation-direction {
+        .direction-normal { animation-direction: normal; }
+
+        .direction-reverse { animation-direction: reverse; }
+
+        .direction-alternate { animation-direction: alternate; }
+
+        .direction-alternate-reverse { animation-direction: alternate-reverse; }
+    }
+
+    /* Animation Fill-Mode Utilities */
+    @layer animation-fill {
+        .fill-none { animation-fill-mode: none; }
+
+        .fill-forwards { animation-fill-mode: forwards; }
+
+        .fill-backwards { animation-fill-mode: backwards; }
+
+        .fill-both { animation-fill-mode: both; }
+    }
+
+    /* Animation Iterations-Utilities */
+    @layer animation-iterations {
+        .iteration-once, .once { animation-iteration-count: var(--iteration-once); }
+
+        .iteration-twice, .twice { animation-iteration-count: var(--iteration-twice); }
+
+        .iteration-thrice, .thrice { animation-iteration-count: var(--iteration-thrice); }
+
+        .iteration-infinite, .infinite { animation-iteration-count: var(--iteration-infinite); }
+    }
+
+    /* Animation Delay-Utilities */
+    @layer animation-delay {
+        .delay-xs { animation-delay: var(--delay-xs); }
+
+        .delay-sm { animation-delay: var(--delay-sm); }
+
+        .delay-md { animation-delay: var(--delay-md); }
+
+        .delay-lg { animation-delay: var(--delay-lg); }
+
+        .delay-xl { animation-delay: var(--delay-xl); }
+    }
+
+    /* Animation Duration-Utilities */
+    @layer animation-duration {
+        .duration-fastest { animation-duration: var(--animation-duration-fastest); }
+
+        .duration-fast { animation-duration: var(--animation-duration-fast); }
+
+        .duration-normal { animation-duration: var(--animation-duration-normal); }
+
+        .duration-slow { animation-duration: var(--animation-duration-slow); }
+
+        .duration-slower { animation-duration: var(--animation-duration-slower); }
+
+        .duration-slowest { animation-duration: var(--animation-duration-slowest); }
+    }
+
+    /**
+     * ==========================================
+     * Barrierefreiheit Motion-Utilities
+     * ==========================================
+     */
+    @layer motion-preferences {
+        /* Aktiviert Animationen nur, wenn keine reduzierten Bewegungen bevorzugt werden */
+        .motion-safe {
+            /* Standardmäßig keine Animationen/Übergänge */
+            animation: none !important;
+            transition: none !important;
+        }
+
+        /* Für reduzierte Bewegung optimierte Stile */
+        .motion-reduce {
+            /* Deaktiviert in Standardmodus */
+            display: none;
+        }
+
+        /* Bei aktivierter Bewegung: motion-safe aktivieren, motion-reduce deaktivieren */
+        @media (prefers-reduced-motion: no-preference) {
+            .motion-safe {
+                /* Animation- und Transition-Eigenschaften wiederherstellen */
+                animation: unset !important;
+                transition: unset !important;
+            }
+
+            .motion-reduce {
+                display: none;
+            }
+        }
+
+        /* Bei reduzierter Bewegung: motion-safe deaktivieren, motion-reduce aktivieren */
+        @media (prefers-reduced-motion: reduce) {
+            .motion-safe {
+                /* Animation- und Transition-Eigenschaften deaktivieren */
+                animation: none !important;
+                transition: none !important;
+            }
+
+            .motion-reduce {
+                display: revert;
+            }
+        }
+    }
+
+    /**
+     * ==========================================
+     * Effekt-Animationen
+     * ==========================================
+     */
+    
+    /* Einblend-Animationen */
+    @layer fade-animations {
         .fade-in {
-            opacity: 0;
+            animation-name: fade-in;
+        }
+        
+        .fade-out {
+            animation-name: fade-out;
         }
     }
 
-    /* Slide-In-Up Animationen */
-    .slide-in-up {
-        animation: slide-up var(--animation-duration-normal) var(--ease-out) forwards;
-    }
-    
-    @starting-style {
+    /* Slide-Animationen */
+    @layer slide-animations {
         .slide-in-up {
-            opacity: 0;
-            transform: translateY(var(--move-md));
+            animation-name: slide-in-up;
         }
-    }
-
-    /* Slide-In-Left Animationen */
-    .slide-in-left {
-        animation: slide-from-left var(--animation-duration-normal) var(--ease-out) forwards;
-    }
-    
-    @starting-style {
+        
+        .slide-in-down {
+            animation-name: slide-in-down;
+        }
+        
         .slide-in-left {
-            opacity: 0;
-            transform: translateX(calc(var(--move-md) * -1));
+            animation-name: slide-in-left;
         }
-    }
-
-    /* Slide-In-Right Animationen */
-    .slide-in-right {
-        animation: slide-from-right var(--animation-duration-normal) var(--ease-out) forwards;
-    }
-    
-    @starting-style {
+        
         .slide-in-right {
-            opacity: 0;
-            transform: translateX(var(--move-md));
+            animation-name: slide-in-right;
         }
     }
 
-    /* Scale-In Animationen */
-    .scale-in {
-        animation: scale-in var(--animation-duration-normal) var(--ease-spring) forwards;
-    }
-    
-    @starting-style {
+    /* Scale-Animationen */
+    @layer scale-animations {
         .scale-in {
-            opacity: 0;
-            transform: scale(var(--scale-sm));
+            animation-name: scale-in;
+        }
+        
+        .scale-out {
+            animation-direction: reverse;
+            animation-name: scale-in;
         }
     }
 
-    /* Popover-spezifische Animationen */
-    .popover-enter {
-        animation: popover-enter var(--animation-duration-normal) var(--ease-spring) forwards;
-    }
-    
-    @starting-style {
-        .popover-enter {
-            opacity: 0;
-            transform: translateY(var(--move-sm)) scale(var(--scale-xs));
+    /* Scroll-Animationen */
+    @layer scroll-animations {
+        .scroll-fade-in {
+            animation: fade-in var(--animation-duration-normal) var(--ease-out) forwards;
+            animation-range: entry 10% cover 30%;
+            animation-timeline: view();
+            opacity: 0%;
+            will-change: opacity;
+        }
+        
+        .scroll-slide-in-up {
+            animation: slide-in-up var(--animation-duration-normal) var(--ease-out) forwards;
+            animation-range: entry 10% cover 30%;
+            animation-timeline: view();
+            opacity: 0%;
+            transform: translateY(var(--scroll-slide-distance));
+            will-change: transform, opacity;
+        }
+        
+        .scroll-slide-in-left {
+            animation: slide-in-left var(--animation-duration-normal) var(--ease-out) forwards;
+            animation-range: entry 10% cover 30%;
+            animation-timeline: view();
+            opacity: 0%;
+            transform: translateX(calc(-1 * var(--scroll-slide-distance)));
+            will-change: transform, opacity;
+        }
+        
+        .scroll-slide-in-right {
+            animation: slide-in-right var(--animation-duration-normal) var(--ease-out) forwards;
+            animation-range: entry 10% cover 30%;
+            animation-timeline: view();
+            opacity: 0%;
+            transform: translateX(var(--scroll-slide-distance));
+            will-change: transform, opacity;
         }
     }
 
-    /* Scroll-Driven Examples */
-    .scroll-fade-in {
-        opacity: 0;
-        animation: fade-in 1s var(--ease-out) forwards;
-        animation-timeline: view();
-        animation-range: entry 10% cover 30%;
+    /* Interaktions-Animationen */
+    @layer interaction-animations {
+        .interaction-scale {
+            transition: transform var(--animation-duration-fast) var(--ease-out);
+        }
+        
+        .interaction-scale:active {
+            transform: scale(var(--scale-xs));
+        }
+        
+        .hover-glow {
+            transition: box-shadow var(--animation-duration-normal) var(--ease-out);
+        }
+        
+        .hover-glow:hover {
+            box-shadow: 0 0 10px var(--color-primary-500, rgb(0 123 255 / 50%));
+        }
+        
+        .tap-feedback {
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .tap-feedback:active::after {
+            background-color: currentColor;
+            content: "";
+            height: 100%;
+            left: 0;
+            opacity: 10%;
+            pointer-events: none;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
     }
 
-    .scroll-slide-up {
-        opacity: 0;
-        transform: translateY(30px);
-        animation: slide-up 0.8s ease-out forwards;
-        animation-timeline: view();
-        animation-range: entry 10% cover 40%;
+    /* Transition-Utilities */
+    @layer transition-utilities {
+        .transition-opacity {
+            transition-duration: var(--animation-duration-normal);
+            transition-property: opacity;
+            transition-timing-function: var(--ease-in-out);
+        }
+        
+        .transition-transform {
+            transition-duration: var(--animation-duration-normal);
+            transition-property: transform;
+            transition-timing-function: var(--ease-in-out);
+        }
+        
+        .transition-shadow {
+            transition-duration: var(--animation-duration-normal);
+            transition-property: box-shadow;
+            transition-timing-function: var(--ease-in-out);
+        }
+        
+        .transition-colors {
+            transition-duration: var(--animation-duration-normal);
+            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+            transition-timing-function: var(--ease-in-out);
+        }
+        
+        .transition-all {
+            transition-duration: var(--animation-duration-normal);
+            transition-property: all;
+            transition-timing-function: var(--ease-in-out);
+        }
     }
 
-    .scroll-slide-from-left {
-        opacity: 0;
-        transform: translateX(-100%);
-        animation: slide-from-left 0.8s ease-out forwards;
-        animation-timeline: view();
-        animation-range: entry 10% cover 40%;
+    /* Komplexe Animationen */
+    @layer complex-animations {
+        .animate-bounce {
+            animation: bounce var(--animation-duration-slow) var(--ease-in-out) infinite;
+        }
+        
+        .animate-pulse {
+            animation: pulse var(--animation-duration-slower) var(--ease-in-out) infinite;
+        }
+        
+        .animate-spin {
+            animation: spin var(--animation-duration-slowest) var(--ease-linear) infinite;
+        }
+        
+        .animate-ping {
+            animation: ping var(--animation-duration-slow) var(--ease-out) infinite;
+        }
+        
+        .animate-wiggle {
+            animation: wiggle var(--animation-duration-normal) var(--ease-in-out) infinite;
+        }
+        
+        .animate-float {
+            animation: float var(--animation-duration-slower) var(--ease-in-out) infinite;
+        }
+        
+        .animate-shake {
+            animation: shake var(--animation-duration-fast) var(--ease-in-out) var(--iteration-twice);
+        }
+        
+        .animate-heartbeat {
+            animation: heartbeat var(--animation-duration-slow) var(--ease-in-out) infinite;
+        }
+        
+        .animate-elastic {
+            animation: elastic var(--animation-duration-slow) var(--ease-out) var(--iteration-once);
+        }
     }
 
-    .scroll-slide-from-right {
-        opacity: 0;
-        transform: translateX(100%);
-        animation: slide-from-right 0.8s ease-out forwards;
-        animation-timeline: view();
-        animation-range: entry 10% cover 40%;
+    /**
+     * ==========================================
+     * Experimentelles Feature: Animation Composition
+     * ==========================================
+     * 
+     * HINWEIS: Diese Funktion ist experimentell und hat derzeit eingeschränkte Browserunterstützung.
+     * Nur in modernsten Browsern verwenden oder mit entsprechenden Fallbacks.
+     * 
+     * animation-composition bestimmt, wie Animationen miteinander kombiniert werden:
+     * - replace: Animation ersetzt bestehende Animationen (Standard)
+     * - add: Animation wird zu bestehenden Animationen hinzugefügt
+     * - accumulate: Animation wird zu bestehenden Animationen hinzugerechnet
+     */
+    @layer animation-composition {
+        /* Animation-Composition Utilities */
+        .composition-replace {
+            animation-composition: replace;
+        }
+        
+        .composition-add {
+            animation-composition: add;
+        }
+        
+        .composition-accumulate {
+            animation-composition: accumulate;
+        }
+        
+        /* Experimentelle Präsets mit composition */
+        .animate-combined-bounce {
+            animation-composition: accumulate;
+            animation-duration: var(--animation-duration-slow), var(--animation-duration-normal);
+            animation-name: bounce, fade-in;
+        }
+        
+        .animate-combined-shake {
+            animation-composition: accumulate;
+            animation-duration: var(--animation-duration-fast), var(--animation-duration-normal);
+            animation-name: shake, fade-in;
+        }
+        
+        /* Kombinierte Bewegungen mit accumulate */
+        .animate-path {
+            animation: 
+                slide-in-right var(--animation-duration-slow) var(--ease-out),
+                slide-in-up var(--animation-duration-normal) var(--ease-out) var(--delay-sm);
+            animation-composition: accumulate;
+            animation-fill-mode: both;
+        }
+        
+        .animate-zoom-bounce {
+            animation: 
+                scale-in var(--animation-duration-normal) var(--ease-out),
+                bounce var(--animation-duration-slow) var(--ease-bounce) var(--delay-sm);
+            animation-composition: accumulate;
+            animation-fill-mode: both;
+        }
+    }
+
+    /**
+     * ==========================================
+     * Dialog-Animationen
+     * ==========================================
+     */
+    @layer dialog-animations {
+        /* Dialog-Animationen für <dialog> Element und modale Fenster */
+        .dialog-animated {
+            animation-duration: var(--dialog-duration);
+            animation-fill-mode: both;
+            animation-timing-function: var(--ease-out);
+            transform-origin: center top;
+            will-change: transform, opacity;
+        }
+
+        /* Einblenden mit Scale und Slide */
+        .dialog-enter {
+            animation-name: dialog-enter;
+        }
+
+        /* Ausblenden mit Scale und Slide */
+        .dialog-exit {
+            animation-name: dialog-exit;
+        }
+
+        /* Backdrop-Animationen */
+        .dialog-backdrop-animated::backdrop {
+            animation: fade-in var(--dialog-duration) var(--ease-out);
+            animation-fill-mode: both;
+            background-color: rgb(0 0 0 / var(--dialog-backdrop-opacity));
+        }
+
+        /* Direkte Anwendung auf <dialog>-Element */
+        dialog.animated {
+            animation: dialog-enter var(--dialog-duration) var(--ease-out);
+            animation-fill-mode: both;
+        }
+
+        dialog.animated::backdrop {
+            animation: fade-in var(--dialog-duration) var(--ease-out);
+            animation-fill-mode: both;
+            background-color: rgb(0 0 0 / var(--dialog-backdrop-opacity));
+        }
+
+        dialog.animated[closing] {
+            animation: dialog-exit var(--dialog-duration) var(--ease-in-out);
+        }
+
+        dialog.animated[closing]::backdrop {
+            animation: fade-out var(--dialog-duration) var(--ease-in-out);
+        }
+    }
+
+    /**
+     * ==========================================
+     * Fokus-Animationen
+     * ==========================================
+     */
+    @layer focus-animations {
+        /* Animierter Fokus-Ring für verbesserte Barrierefreiheit */
+        .focus-ring-animated {
+            outline: none;
+            position: relative;
+            transition: box-shadow var(--animation-duration-normal) var(--ease-out);
+        }
+
+        .focus-ring-animated:focus-visible {
+            animation: focus-pulse var(--focus-animation-duration) var(--ease-out) infinite;
+            box-shadow: 0 0 0 var(--focus-ring-size) var(--focus-color);
+        }
+
+        /* Varianten für unterschiedliche Farben */
+        .focus-ring-animated.primary:focus-visible {
+            --focus-color: var(--color-primary-500, rgb(66 153 225 / 60%));
+        }
+
+        .focus-ring-animated.warning:focus-visible {
+            --focus-color: var(--color-warning-500, rgb(237 137 54 / 60%));
+        }
+
+        .focus-ring-animated.error:focus-visible {
+            --focus-color: var(--color-error-500, rgb(245 101 101 / 60%));
+        }
+
+        /* Verstärkter Fokus-Ring für Screenreader-Nutzer */
+        .sr-focus-style {
+            display: none;
+        }
+
+        @media screen and (forced-colors: active) {
+            .focus-ring-animated:focus-visible {
+                animation: none;
+                box-shadow: none;
+                outline: 3px solid CanvasText;
+            }
+            
+            .sr-focus-style {
+                border: 3px solid CanvasText;
+                display: block;
+                height: calc(100% + 10px);
+                left: -5px;
+                pointer-events: none;
+                position: absolute;
+                top: -5px;
+                width: calc(100% + 10px);
+                z-index: 1;
+            }
+        }
+
+        @media (prefers-contrast: more) {
+            .focus-ring-animated {
+                animation: none;
+                outline: 2px solid var(--focus-color, currentColor);
+            }
+        }
+    }
+
+    /**
+     * ==========================================
+     * Gestaffelte Animationen (Staggered)
+     * ==========================================
+     */
+    @layer staggered-animations {
+        /* Container für gestaffelte Animationen */
+        .staggered-container > * {
+            animation-fill-mode: both;
+            opacity: 0%;
+        }
+
+        /* Gestaffelte Einblendanimation */
+        .staggered-fade-in > * {
+            animation-duration: var(--animation-duration-normal);
+            animation-name: fade-in;
+            animation-timing-function: var(--ease-out);
+        }
+
+        /* Gestaffelte Slide-Up-Animation */
+        .staggered-slide-in-up > * {
+            animation-duration: var(--animation-duration-normal);
+            animation-name: slide-in-up;
+            animation-timing-function: var(--ease-out);
+        }
+        
+        /* Gestaffelte Slide-Down-Animation */
+        .staggered-slide-in-down > * {
+            animation-duration: var(--animation-duration-normal);
+            animation-name: slide-in-down;
+            animation-timing-function: var(--ease-out);
+        }
+        
+        /* Gestaffelte Slide-Left-Animation */
+        .staggered-slide-in-left > * {
+            animation-duration: var(--animation-duration-normal);
+            animation-name: slide-in-left;
+            animation-timing-function: var(--ease-out);
+        }
+        
+        /* Gestaffelte Slide-Right-Animation */
+        .staggered-slide-in-right > * {
+            animation-duration: var(--animation-duration-normal);
+            animation-name: slide-in-right;
+            animation-timing-function: var(--ease-out);
+        }
+
+        /* Automatische Verzögerungen basierend auf nth-child */
+        .staggered-container > *:nth-child(1) { animation-delay: calc(var(--stagger-base-delay)); }
+
+        .staggered-container > *:nth-child(2) { animation-delay: calc(var(--stagger-base-delay) + var(--stagger-increment) * 1); }
+
+        .staggered-container > *:nth-child(3) { animation-delay: calc(var(--stagger-base-delay) + var(--stagger-increment) * 2); }
+
+        .staggered-container > *:nth-child(4) { animation-delay: calc(var(--stagger-base-delay) + var(--stagger-increment) * 3); }
+
+        .staggered-container > *:nth-child(5) { animation-delay: calc(var(--stagger-base-delay) + var(--stagger-increment) * 4); }
+
+        .staggered-container > *:nth-child(6) { animation-delay: calc(var(--stagger-base-delay) + var(--stagger-increment) * 5); }
+
+        .staggered-container > *:nth-child(7) { animation-delay: calc(var(--stagger-base-delay) + var(--stagger-increment) * 6); }
+
+        .staggered-container > *:nth-child(8) { animation-delay: calc(var(--stagger-base-delay) + var(--stagger-increment) * 7); }
+
+        .staggered-container > *:nth-child(9) { animation-delay: calc(var(--stagger-base-delay) + var(--stagger-increment) * 8); }
+
+        .staggered-container > *:nth-child(10) { animation-delay: calc(var(--stagger-base-delay) + var(--stagger-increment) * 9); }
+
+        .staggered-container > *:nth-child(n+11) { animation-delay: min(calc(var(--stagger-base-delay) + var(--stagger-increment) * 10), var(--stagger-max-delay)); }
+
+        /* Verzögerungsgruppen */
+        .stagger-group-1 > * { --stagger-base-delay: 0ms; }
+
+        .stagger-group-2 > * { --stagger-base-delay: 100ms; }
+
+        .stagger-group-3 > * { --stagger-base-delay: 200ms; }
+
+        /* Verzögerungsinkremente */
+        .stagger-increment-small > * { --stagger-increment: 25ms; }
+
+        .stagger-increment-normal > * { --stagger-increment: 50ms; }
+
+        .stagger-increment-large > * { --stagger-increment: 100ms; }
+        
+        /* Richtung der Staffelung ändern (umkehren) */
+        .stagger-reverse {
+            counter-reset: section;
+        }
+        
+        .stagger-reverse > * {
+            counter-increment: section;
+        }
+        
+        .stagger-reverse > *:nth-child(1) { animation-delay: calc(var(--stagger-base-delay) + var(--stagger-increment) * 9); }
+
+        .stagger-reverse > *:nth-child(2) { animation-delay: calc(var(--stagger-base-delay) + var(--stagger-increment) * 8); }
+
+        .stagger-reverse > *:nth-child(3) { animation-delay: calc(var(--stagger-base-delay) + var(--stagger-increment) * 7); }
+
+        .stagger-reverse > *:nth-child(4) { animation-delay: calc(var(--stagger-base-delay) + var(--stagger-increment) * 6); }
+
+        .stagger-reverse > *:nth-child(5) { animation-delay: calc(var(--stagger-base-delay) + var(--stagger-increment) * 5); }
+
+        .stagger-reverse > *:nth-child(6) { animation-delay: calc(var(--stagger-base-delay) + var(--stagger-increment) * 4); }
+
+        .stagger-reverse > *:nth-child(7) { animation-delay: calc(var(--stagger-base-delay) + var(--stagger-increment) * 3); }
+
+        .stagger-reverse > *:nth-child(8) { animation-delay: calc(var(--stagger-base-delay) + var(--stagger-increment) * 2); }
+
+        .stagger-reverse > *:nth-child(9) { animation-delay: calc(var(--stagger-base-delay) + var(--stagger-increment) * 1); }
+
+        .stagger-reverse > *:nth-child(10) { animation-delay: calc(var(--stagger-base-delay)); }
+    }
+}
+
+/**
+ * ==========================================
+ * Animations-Kontexte
+ * ==========================================
+ * 
+ * Diese Klassen ermöglichen es, Animation-Parameter für einen Container und alle seine
+ * Kindelemente zu überschreiben, ohne die globalen Werte zu ändern.
+ */
+@layer animation-contexts {
+    /* Geschwindigkeits-Kontexte */
+    .animation-context-fastest {
+        --animation-duration-fastest: 80ms;
+        --animation-duration-fast: 120ms;
+        --animation-duration-normal: 200ms;
+        --animation-duration-slow: 350ms;
+        --animation-duration-slower: 500ms;
+        --animation-duration-slowest: 750ms;
     }
     
-    /* Interaction States */
-    .interaction-scale {
-        transition: transform var(--animation-duration-normal) var(--ease-spring);
+    .animation-context-fast {
+        --animation-duration-fastest: 100ms;
+        --animation-duration-fast: 150ms;
+        --animation-duration-normal: 250ms;
+        --animation-duration-slow: 400ms;
+        --animation-duration-slower: 600ms;
+        --animation-duration-slowest: 800ms;
     }
-
-    .interaction-scale:active {
-        transform: scale(var(--scale-sm));
+    
+    .animation-context-slow {
+        --animation-duration-fastest: 150ms;
+        --animation-duration-fast: 250ms;
+        --animation-duration-normal: 450ms;
+        --animation-duration-slow: 700ms;
+        --animation-duration-slower: 1000ms;
+        --animation-duration-slowest: 1500ms;
     }
-
-    .hover-glow {
-        transition: box-shadow var(--animation-duration-normal) var(--ease-out);
+    
+    /* Skalierungs-Kontexte */
+    .scale-context-xs {
+        --scale-xs: 0.99;
+        --scale-sm: 0.97;
+        --scale-md: 0.95;
+        --scale-lg: 1.03;
+        --scale-xl: 1.05;
     }
-
-    .hover-glow:hover {
-        box-shadow: 0 0 10px rgb(0 123 255 / 60%);
+    
+    .scale-context-sm {
+        --scale-xs: 0.98;
+        --scale-sm: 0.95;
+        --scale-md: 0.9;
+        --scale-lg: 1.05;
+        --scale-xl: 1.1;
     }
-
-    .tap-feedback {
-        transition: transform 150ms var(--ease-in);
+    
+    .scale-context-md {
+        --scale-xs: 0.96;
+        --scale-sm: 0.92;
+        --scale-md: 0.85;
+        --scale-lg: 1.08;
+        --scale-xl: 1.15;
     }
-
-    .tap-feedback:active {
-        transform: scale(0.97);
+    
+    .scale-context-lg {
+        --scale-xs: 0.94;
+        --scale-sm: 0.88;
+        --scale-md: 0.8;
+        --scale-lg: 1.12;
+        --scale-xl: 1.2;
     }
-
-    /* Transition Helpers */
-    .transition-opacity {
-        transition-property: opacity;
-        transition-duration: var(--animation-duration-normal);
-        transition-timing-function: var(--ease-in-out);
+    
+    /* Bewegungs-Kontexte */
+    .move-context-small {
+        --move-xs: 2px;
+        --move-sm: 4px;
+        --move-md: 8px;
+        --move-lg: 16px;
+        --move-xl: 24px;
+        --slide-distance: var(--move-md);
     }
-
-    .transition-transform {
-        transition-property: transform;
-        transition-duration: var(--animation-duration-normal);
-        transition-timing-function: var(--ease-in-out);
+    
+    .move-context-medium {
+        --move-xs: 4px;
+        --move-sm: 8px;
+        --move-md: 16px;
+        --move-lg: 24px;
+        --move-xl: 36px;
+        --slide-distance: var(--move-md);
     }
-
-    .transition-shadow {
-        transition-property: box-shadow;
-        transition-duration: var(--animation-duration-normal);
-        transition-timing-function: var(--ease-in-out);
+    
+    .move-context-large {
+        --move-xs: 8px;
+        --move-sm: 16px;
+        --move-md: 32px;
+        --move-lg: 48px;
+        --move-xl: 64px;
+        --slide-distance: var(--move-md);
     }
-
-    .transition-colors {
-        transition-property: color, background-color, border-color;
-        transition-duration: var(--animation-duration-normal);
-        transition-timing-function: var(--ease-in-out);
+    
+    /* Verzögerungs-Kontexte */
+    .delay-context-short {
+        --delay-xs: 25ms;
+        --delay-sm: 50ms;
+        --delay-md: 100ms;
+        --delay-lg: 200ms;
+        --delay-xl: 300ms;
+        --stagger-base-delay: 30ms;
+        --stagger-increment: 30ms;
     }
-}
-
-@keyframes scale-in {
-    from {
-        opacity: 0;
-        transform: scale(var(--scale-sm));
+    
+    .delay-context-medium {
+        --delay-xs: 50ms;
+        --delay-sm: 100ms;
+        --delay-md: 200ms;
+        --delay-lg: 300ms;
+        --delay-xl: 500ms;
+        --stagger-base-delay: 50ms;
+        --stagger-increment: 50ms;
     }
-
-    to {
-        opacity: 1;
-        transform: scale(1);
+    
+    .delay-context-long {
+        --delay-xs: 100ms;
+        --delay-sm: 200ms;
+        --delay-md: 400ms;
+        --delay-lg: 600ms;
+        --delay-xl: 800ms;
+        --stagger-base-delay: 100ms;
+        --stagger-increment: 100ms;
     }
-}
-
-@keyframes popover-enter {
-    from {
-        opacity: 0;
-        transform: translateY(var(--move-sm)) scale(var(--scale-xs));
+    
+    /* Animations-Präset-Kontexte */
+    .animation-context-energetic {
+        --animation-duration-normal: 250ms;
+        --move-md: 24px;
+        --scale-sm: 0.9;
+        --scale-lg: 1.1;
+        --ease-out: cubic-bezier(0.11, 0.5, 0.24, 1);
+        --ease-bounce: cubic-bezier(0.25, -0.25, 0.1, 1.3);
+        --stagger-increment: 30ms;
     }
-
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
+    
+    .animation-context-subtle {
+        --animation-duration-normal: 400ms;
+        --move-md: 8px;
+        --scale-sm: 0.98;
+        --scale-lg: 1.02;
+        --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+        --ease-in-out: cubic-bezier(0.42, 0, 0.58, 1);
+        --stagger-increment: 70ms;
     }
-}
-
-/* Animation Effects */
-.animate-bounce {
-    animation: bounce 1s infinite;
-}
-
-.animate-pulse {
-    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
-.animate-spin {
-    animation: spin 1s linear infinite;
-}
-
-.animate-ping {
-    animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
-}
-
-.animate-wiggle {
-    animation: wiggle 1s ease-in-out infinite;
-}
-
-.animate-float {
-    animation: float 3s ease-in-out infinite;
-}
-
-.animate-shake {
-    animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
-}
-
-.animate-heartbeat {
-    animation: heartbeat 1.5s ease-in-out infinite;
-}
-
-.animate-jello {
-    animation: jello 1s ease-in-out infinite;
-}
-
-.animate-rubber {
-    animation: rubber 1s ease-in-out infinite;
-}
-
-@keyframes bounce {
-    0%, 100% {
-        transform: translateY(-25%);
-        animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+    
+    .animation-context-playful {
+        --animation-duration-normal: 350ms;
+        --move-md: 20px;
+        --scale-sm: 0.85;
+        --scale-lg: 1.15;
+        --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        --ease-spring: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+        --wiggle-angle: 4deg;
+        --bounce-height: 35%;
+        --stagger-increment: 40ms;
     }
-
-    50% {
-        transform: translateY(0);
-        animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    
+    /* Automatische Anwendung der Kontextparameter auf Kindelemente */
+    
+    /* Geschwindigkeits-Kontexte auf Animationen */
+    :where(.animation-context-fastest *) {
+        animation-duration: var(--animation-duration-normal);
     }
-}
-
-@keyframes pulse {
-    0%, 100% {
-        opacity: 1;
+    
+    :where(.animation-context-fast *) {
+        animation-duration: var(--animation-duration-normal);
     }
-
-    50% {
-        opacity: 0.5;
+    
+    :where(.animation-context-slow *) {
+        animation-duration: var(--animation-duration-normal);
     }
-}
-
-@keyframes spin {
-    from {
-        transform: rotate(0deg);
+    
+    /* Automatische Anwendung auf spezifische Animationstypen */
+    :where(.animation-context-fastest *).animate-fade-in,
+    :where(.animation-context-fastest *).fade-in {
+        animation-duration: var(--animation-duration-fast);
     }
-
-    to {
-        transform: rotate(360deg);
+    
+    :where(.animation-context-fastest *).animate-slide-in-up,
+    :where(.animation-context-fastest *).slide-in-up {
+        animation-duration: var(--animation-duration-normal);
     }
-}
-
-@keyframes ping {
-    75%, 100% {
-        transform: scale(2);
-        opacity: 0;
+    
+    /* Skalierungs-Kontexte auf transform-basierte Animationen */
+    :where(.scale-context-xs *).scale-in,
+    :where(.scale-context-xs *).scale-out {
+        --scale-sm: var(--scale-sm);
     }
-}
-
-@keyframes wiggle {
-    0%, 100% {
-        transform: rotate(-3deg);
+    
+    :where(.scale-context-sm *).scale-in,
+    :where(.scale-context-sm *).scale-out {
+        --scale-sm: var(--scale-sm);
     }
-
-    50% {
-        transform: rotate(3deg);
+    
+    :where(.scale-context-md *).scale-in,
+    :where(.scale-context-md *).scale-out {
+        --scale-sm: var(--scale-sm);
     }
-}
-
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0);
+    
+    :where(.scale-context-lg *).scale-in,
+    :where(.scale-context-lg *).scale-out {
+        --scale-sm: var(--scale-sm);
     }
-
-    50% {
-        transform: translateY(-10px);
+    
+    /* Bewegungs-Kontexte auf Slide-Animationen */
+    :where(.move-context-small *).slide-in-up,
+    :where(.move-context-small *).slide-in-down,
+    :where(.move-context-small *).slide-in-left,
+    :where(.move-context-small *).slide-in-right {
+        --slide-distance: var(--move-md);
     }
-}
-
-@keyframes shake {
-    10%, 90% {
-        transform: translate3d(-1px, 0, 0);
+    
+    :where(.move-context-medium *).slide-in-up,
+    :where(.move-context-medium *).slide-in-down,
+    :where(.move-context-medium *).slide-in-left,
+    :where(.move-context-medium *).slide-in-right {
+        --slide-distance: var(--move-md);
     }
-
-    20%, 80% {
-        transform: translate3d(2px, 0, 0);
+    
+    :where(.move-context-large *).slide-in-up,
+    :where(.move-context-large *).slide-in-down,
+    :where(.move-context-large *).slide-in-left,
+    :where(.move-context-large *).slide-in-right {
+        --slide-distance: var(--move-md);
     }
-
-    30%, 50%, 70% {
-        transform: translate3d(-4px, 0, 0);
+    
+    /* Verzögerungs-Kontexte auf gestaffelte Animationen */
+    :where(.delay-context-short *).staggered-container > * {
+        --stagger-increment: var(--stagger-increment);
     }
-
-    40%, 60% {
-        transform: translate3d(4px, 0, 0);
+    
+    :where(.delay-context-medium *).staggered-container > * {
+        --stagger-increment: var(--stagger-increment);
     }
-}
-
-@keyframes heartbeat {
-    0% {
-        transform: scale(1);
+    
+    :where(.delay-context-long *).staggered-container > * {
+        --stagger-increment: var(--stagger-increment);
     }
-
-    14% {
-        transform: scale(1.3);
+    
+    /* Animationspräsets automatisch auf alle Animationstypen anwenden */
+    :where(.animation-context-energetic *) {
+        animation-duration: var(--animation-duration-normal);
+        animation-timing-function: var(--ease-out);
     }
-
-    28% {
-        transform: scale(1);
+    
+    :where(.animation-context-subtle *) {
+        animation-duration: var(--animation-duration-normal);
+        animation-timing-function: var(--ease-out);
     }
-
-    42% {
-        transform: scale(1.3);
+    
+    :where(.animation-context-playful *) {
+        animation-duration: var(--animation-duration-normal);
+        animation-timing-function: var(--ease-bounce);
     }
-
-    70% {
-        transform: scale(1);
-    }
-}
-
-@keyframes jello {
-    0%, 100% {
-        transform: scale3d(1, 1, 1);
-    }
-
-    30% {
-        transform: scale3d(1.25, 0.75, 1);
-    }
-
-    40% {
-        transform: scale3d(0.75, 1.25, 1);
-    }
-
-    50% {
-        transform: scale3d(1.15, 0.85, 1);
-    }
-
-    65% {
-        transform: scale3d(0.95, 1.05, 1);
-    }
-
-    75% {
-        transform: scale3d(1.05, 0.95, 1);
-    }
-}
-
-@keyframes rubber {
-    0% {
-        transform: scale3d(1, 1, 1);
-    }
-
-    30% {
-        transform: scale3d(1.25, 0.75, 1);
-    }
-
-    40% {
-        transform: scale3d(0.75, 1.25, 1);
-    }
-
-    50% {
-        transform: scale3d(1.15, 0.85, 1);
-    }
-
-    65% {
-        transform: scale3d(0.95, 1.05, 1);
-    }
-
-    75% {
-        transform: scale3d(1.05, 0.95, 1);
-    }
-
-    100% {
-        transform: scale3d(1, 1, 1);
+    
+    /* Spezifische Animationstypen in Präsets anpassen */
+    :where(.animation-context-playful *).animate-bounce,
+    :where(.animation-context-playful *).bounce {
+        --bounce-height: var(--bounce-height);
     }
 }
 
-/* Reduzierte Bewegung */
+/* Reduzierte Bewegung für alle Animation-Klassen */
 @media (prefers-reduced-motion: reduce) {
+    .animate,
+    .fade-in,
+    .fade-out,
+    .slide-in-up,
+    .slide-in-down,
+    .slide-in-left,
+    .slide-in-right,
+    .scale-in,
+    .scale-out,
+    .scroll-fade-in,
+    .scroll-slide-in-up,
+    .scroll-slide-in-left,
+    .scroll-slide-in-right,
     .animate-bounce,
     .animate-pulse,
     .animate-spin,
@@ -488,22 +1244,95 @@
     .animate-float,
     .animate-shake,
     .animate-heartbeat,
-    .animate-jello,
-    .animate-rubber,
-    .scroll-fade-in,
-    .scroll-slide-up,
-    .scroll-slide-from-left,
-    .scroll-slide-from-right {
-        animation: none;
-    }
-    
+    .animate-elastic,
     .interaction-scale,
     .hover-glow,
     .tap-feedback,
-    .transition-opacity,
-    .transition-transform,
-    .transition-shadow,
-    .transition-colors {
-        transition: none;
+    .dialog-enter,
+    .dialog-exit,
+    .dialog-backdrop-animated,
+    .focus-ring-animated,
+    .staggered-container > *,
+    .staggered-fade-in > *,
+    .staggered-slide-in-up > *,
+    .staggered-slide-in-down > *,
+    .staggered-slide-in-left > *,
+    .staggered-slide-in-right > * {
+        animation: none !important;
+        transition: none !important;
+    }
+} 
+
+/* Erhöhter Kontrast für alle Animation-Klassen */
+@media (prefers-contrast: more) {
+    /* Grundlegende Änderungen für alle Elemente mit Animation */
+    .animate,
+    .fade-in,
+    .fade-out,
+    .slide-in-up,
+    .slide-in-down,
+    .slide-in-left,
+    .slide-in-right,
+    .scale-in,
+    .scale-out,
+    .scroll-fade-in,
+    .scroll-slide-in-up,
+    .scroll-slide-in-left,
+    .scroll-slide-in-right {
+        /* Vereinfachte Animationen beibehalten, aber mit erhöhtem Kontrast arbeiten */
+        --animation-duration-normal: 200ms; /* Schnellere Animationen */
+        --animation-duration-slow: 300ms;
+
+        animation-timing-function: linear; /* Vereinfachte Timing-Funktion */
+    }
+    
+    /* Komplexe Animationen deaktivieren oder vereinfachen */
+    .animate-bounce,
+    .animate-pulse,
+    .animate-spin,
+    .animate-ping,
+    .animate-wiggle,
+    .animate-float,
+    .animate-shake,
+    .animate-heartbeat,
+    .animate-elastic {
+        animation: none !important; /* Komplexe Animationen vollständig deaktivieren */
+    }
+    
+    /* Interaktionen vereinfachen */
+    .interaction-scale:active,
+    .hover-glow:hover {
+        box-shadow: 0 0 0 2px currentColor !important;
+        transform: none !important;
+    }
+    
+    /* Feedback-Effekte durch höheren Kontrast ersetzen */
+    .tap-feedback:active::after {
+        opacity: 30% !important; /* Erhöhter Kontrast für Tap-Feedback */
+    }
+    
+    /* Dialog-Animationen vereinfachen */
+    .dialog-enter,
+    .dialog-exit,
+    .dialog-backdrop-animated,
+    dialog.animated,
+    dialog.animated::backdrop {
+        animation-duration: 150ms !important;
+        animation-timing-function: linear !important;
+    }
+    
+    /* Gestaffelte Animationen vereinfachen */
+    .staggered-container > * {
+        --stagger-increment: 30ms; /* Kürzere Verzögerung zwischen Elementen */
+    }
+    
+    /* Bessere Sichtbarkeit für fokussierte Elemente */
+    button:focus-visible,
+    a:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible {
+        outline: 2px solid currentColor !important;
+        outline-offset: 2px !important;
     }
 } 

@@ -164,13 +164,13 @@
 @layer utilities {
   /* Dark Mode Toggle Utilities */
   .dark-mode-toggle {
-    display: inline-flex;
     align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    padding: var(--space-2);
-    border-radius: var(--border-radius-full);
     background-color: var(--color-bg-secondary);
+    border-radius: var(--border-radius-full);
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    padding: var(--space-2);
     transition: background-color var(--transition-normal) var(--ease-in-out-cubic);
   }
   
@@ -181,8 +181,8 @@
   /* Dark Mode nur für bestimmte Container */
   .dark-theme-container {
     background-color: var(--color-bg-primary);
-    color: var(--color-text-primary);
     border-color: var(--color-border);
+    color: var(--color-text-primary);
   }
   
   /* Inverse Farben für Light/Dark Kontrast innerhalb von Containern */
