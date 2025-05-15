@@ -58,7 +58,7 @@
  * </div>
  */
 
-@layer chip {
+@layer components {
   .chip {
     align-items: center;
     background-color: var(--color-gray-200);

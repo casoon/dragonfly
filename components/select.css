@@ -53,7 +53,7 @@
  * </select>
  */
 
-@layer select {
+@layer components {
   .select {
     appearance: none;
     background-color: var(--color-white);

@@ -5,135 +5,139 @@
  * Die Effekte sind performant optimiert und berücksichtigen reduzierte Bewegung.
  */
 
-/* Basis Neo-Effekte */
-.neo {
-    background: var(--neo-bg, #e0e5ec);
-    border-radius: 10px;
-    box-shadow: 
-        8px 8px 16px var(--neo-shadow-dark, #a3b1c6),
-        -8px -8px 16px var(--neo-shadow-light, #fff);
-}
+@layer components {
+    /* Basis Neo-Effekte */
+    .neo {
+        background: var(--neo-bg, #e0e5ec);
+        border-radius: 10px;
+        box-shadow: 
+            8px 8px 16px var(--neo-shadow-dark, #a3b1c6),
+            -8px -8px 16px var(--neo-shadow-light, #fff);
+    }
 
-.neo-inset {
-    background: var(--neo-bg, #e0e5ec);
-    border-radius: 10px;
-    box-shadow: 
-        inset 8px 8px 16px var(--neo-shadow-dark, #a3b1c6),
-        inset -8px -8px 16px var(--neo-shadow-light, #fff);
-}
+    .neo-inset {
+        background: var(--neo-bg, #e0e5ec);
+        border-radius: 10px;
+        box-shadow: 
+            inset 8px 8px 16px var(--neo-shadow-dark, #a3b1c6),
+            inset -8px -8px 16px var(--neo-shadow-light, #fff);
+    }
 
-/* Größen-Varianten */
-.neo-sm {
-    border-radius: 6px;
-    box-shadow: 
-        4px 4px 8px var(--neo-shadow-dark, #a3b1c6),
-        -4px -4px 8px var(--neo-shadow-light, #fff);
-}
+    /* Größen-Varianten */
+    .neo-sm {
+        border-radius: 6px;
+        box-shadow: 
+            4px 4px 8px var(--neo-shadow-dark, #a3b1c6),
+            -4px -4px 8px var(--neo-shadow-light, #fff);
+    }
 
-.neo-lg {
-    border-radius: 16px;
-    box-shadow: 
-        12px 12px 24px var(--neo-shadow-dark, #a3b1c6),
-        -12px -12px 24px var(--neo-shadow-light, #fff);
-}
+    .neo-lg {
+        border-radius: 16px;
+        box-shadow: 
+            12px 12px 24px var(--neo-shadow-dark, #a3b1c6),
+            -12px -12px 24px var(--neo-shadow-light, #fff);
+    }
 
-/* Hover-Effekte */
-.neo-hover {
-    transition: all 0.3s ease;
-}
+    /* Hover-Effekte */
+    .neo-hover {
+        transition: all 0.3s ease;
+    }
 
-.neo-hover:hover {
-    box-shadow: 
-        12px 12px 24px var(--neo-shadow-dark, #a3b1c6),
-        -12px -12px 24px var(--neo-shadow-light, #fff);
-    transform: translateY(-2px);
-}
+    .neo-hover:hover {
+        box-shadow: 
+            12px 12px 24px var(--neo-shadow-dark, #a3b1c6),
+            -12px -12px 24px var(--neo-shadow-light, #fff);
+        transform: translateY(-2px);
+    }
 
-.neo-hover-inset:hover {
-    box-shadow: 
-        inset 12px 12px 24px var(--neo-shadow-dark, #a3b1c6),
-        inset -12px -12px 24px var(--neo-shadow-light, #fff);
-}
+    .neo-hover-inset:hover {
+        box-shadow: 
+            inset 12px 12px 24px var(--neo-shadow-dark, #a3b1c6),
+            inset -12px -12px 24px var(--neo-shadow-light, #fff);
+    }
 
-/* Aktive Zustände */
-.neo-active {
-    transition: all 0.2s ease;
-}
+    /* Aktive Zustände */
+    .neo-active {
+        transition: all 0.2s ease;
+    }
 
-.neo-active:active {
-    box-shadow: 
-        inset 4px 4px 8px var(--neo-shadow-dark, #a3b1c6),
-        inset -4px -4px 8px var(--neo-shadow-light, #fff);
-    transform: scale(0.98);
-}
+    .neo-active:active {
+        box-shadow: 
+            inset 4px 4px 8px var(--neo-shadow-dark, #a3b1c6),
+            inset -4px -4px 8px var(--neo-shadow-light, #fff);
+        transform: scale(0.98);
+    }
 
-/* Farb-Varianten */
-.neo-primary {
-    --neo-bg: var(--color-primary-light, #e6f3ff);
-    --neo-shadow-dark: var(--color-primary-dark, #b3d1ff);
-    --neo-shadow-light: var(--color-primary-lighter, #f0f7ff);
-}
+    /* Farb-Varianten */
+    .neo-primary {
+        --neo-bg: var(--color-primary-light, #e6f3ff);
+        --neo-shadow-dark: var(--color-primary-dark, #b3d1ff);
+        --neo-shadow-light: var(--color-primary-lighter, #f0f7ff);
+    }
 
-.neo-secondary {
-    --neo-bg: var(--color-secondary-light, #f0f0f0);
-    --neo-shadow-dark: var(--color-secondary-dark, #d1d1d1);
-    --neo-shadow-light: var(--color-secondary-lighter, #fff);
-}
+    .neo-secondary {
+        --neo-bg: var(--color-secondary-light, #f0f0f0);
+        --neo-shadow-dark: var(--color-secondary-dark, #d1d1d1);
+        --neo-shadow-light: var(--color-secondary-lighter, #fff);
+    }
 
-.neo-success {
-    --neo-bg: var(--color-success-light, #e6fff0);
-    --neo-shadow-dark: var(--color-success-dark, #b3ffd1);
-    --neo-shadow-light: var(--color-success-lighter, #f0fff7);
-}
+    .neo-success {
+        --neo-bg: var(--color-success-light, #e6fff0);
+        --neo-shadow-dark: var(--color-success-dark, #b3ffd1);
+        --neo-shadow-light: var(--color-success-lighter, #f0fff7);
+    }
 
-.neo-error {
-    --neo-bg: var(--color-error-light, #ffe6e6);
-    --neo-shadow-dark: var(--color-error-dark, #ffb3b3);
-    --neo-shadow-light: var(--color-error-lighter, #fff0f0);
-}
+    .neo-error {
+        --neo-bg: var(--color-error-light, #ffe6e6);
+        --neo-shadow-dark: var(--color-error-dark, #ffb3b3);
+        --neo-shadow-light: var(--color-error-lighter, #fff0f0);
+    }
 
-.neo-warning {
-    --neo-bg: var(--color-warning-light, #fff7e6);
-    --neo-shadow-dark: var(--color-warning-dark, #ffe0b3);
-    --neo-shadow-light: var(--color-warning-lighter, #fffaf0);
-}
+    .neo-warning {
+        --neo-bg: var(--color-warning-light, #fff7e6);
+        --neo-shadow-dark: var(--color-warning-dark, #ffe0b3);
+        --neo-shadow-light: var(--color-warning-lighter, #fffaf0);
+    }
 
-.neo-info {
-    --neo-bg: var(--color-info-light, #e6f7ff);
-    --neo-shadow-dark: var(--color-info-dark, #b3e0ff);
-    --neo-shadow-light: var(--color-info-lighter, #f0f9ff);
-}
+    .neo-info {
+        --neo-bg: var(--color-info-light, #e6f7ff);
+        --neo-shadow-dark: var(--color-info-dark, #b3e0ff);
+        --neo-shadow-light: var(--color-info-lighter, #f0f9ff);
+    }
 
-/* Spezielle Effekte */
-.neo-glow {
-    box-shadow: 
-        8px 8px 16px var(--neo-shadow-dark, #a3b1c6),
-        -8px -8px 16px var(--neo-shadow-light, #fff),
-        0 0 20px var(--neo-glow, rgb(59 130 246 / 50%));
-}
+    /* Spezielle Effekte */
+    .neo-glow {
+        box-shadow: 
+            8px 8px 16px var(--neo-shadow-dark, #a3b1c6),
+            -8px -8px 16px var(--neo-shadow-light, #fff),
+            0 0 20px var(--neo-glow, rgb(59 130 246 / 50%));
+    }
 
-.neo-border {
-    border: 2px solid var(--neo-border, rgb(59 130 246 / 20%));
-}
+    .neo-border {
+        border: 2px solid var(--neo-border, rgb(59 130 246 / 20%));
+    }
 
-.neo-gradient {
-    background: linear-gradient(
-        145deg,
-        var(--neo-gradient-start, #e0e5ec),
-        var(--neo-gradient-end, #fff)
-    );
+    .neo-gradient {
+        background: linear-gradient(
+            145deg,
+            var(--neo-gradient-start, #e0e5ec),
+            var(--neo-gradient-end, #fff)
+        );
+    }
 }
 
 /* Reduzierte Bewegung */
 @media (prefers-reduced-motion: reduce) {
-    .neo-hover,
-    .neo-hover-inset,
-    .neo-active {
-        transition: none;
-    }
-    
-    .neo-hover:hover,
-    .neo-active:active {
-        transform: none;
+    @layer components {
+        .neo-hover,
+        .neo-hover-inset,
+        .neo-active {
+            transition: none;
+        }
+        
+        .neo-hover:hover,
+        .neo-active:active {
+            transform: none;
+        }
     }
 } 

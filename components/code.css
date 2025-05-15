@@ -51,7 +51,7 @@
  * </pre>
  */
 
-@layer code {
+@layer components {
   /* Inline-Code */
   .code-inline {
     background: var(--color-gray-100);

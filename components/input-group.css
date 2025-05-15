@@ -10,7 +10,7 @@
  * Gruppierte Eingabeelemente für zusammengehörende Formularfelder.
  * Input-Groups ermöglichen die Kombination von Eingabefeldern mit Addons, Buttons oder Labels.
  * 
- * @layer components.input-group
+ * @layer components
  * 
  * Grundlegende Verwendung:
  * <div class="input-group">
@@ -52,7 +52,7 @@
  * <div class="input-group lg">...</div>
  */
 
-@layer input-group {
+@layer components {
   .input-group {
     align-items: stretch;
     border: 1px solid var(--color-gray-300);

@@ -5,185 +5,7 @@
  * Die Effekte sind performant optimiert und berücksichtigen reduzierte Bewegung.
  */
 
-.loading-spinner {
-    animation: loading-spin 1s linear infinite;
-    border: 4px solid var(--loading-color, rgb(0 0 0 / 10%));
-    border-left-color: var(--loading-spinner-color, #3b82f6);
-    border-radius: 50%;
-    height: 40px;
-    width: 40px;
-}
-
-.loading-spinner-sm {
-    border-width: 2px;
-    height: 20px;
-    width: 20px;
-}
-
-.loading-spinner-lg {
-    border-width: 6px;
-    height: 60px;
-    width: 60px;
-}
-
-.loading-pulse {
-    animation: loading-pulse 1s ease-in-out infinite;
-    background: var(--loading-pulse-color, #3b82f6);
-    border-radius: 50%;
-    height: 40px;
-    width: 40px;
-}
-
-.loading-pulse-sm {
-    height: 20px;
-    width: 20px;
-}
-
-.loading-pulse-lg {
-    height: 60px;
-    width: 60px;
-}
-
-.loading-dots {
-    display: flex;
-    gap: 4px;
-}
-
-.loading-dots::before,
-.loading-dots::after {
-    animation: loading-dots 1s ease-in-out infinite;
-    background: var(--loading-dots-color, #3b82f6);
-    border-radius: 50%;
-    content: '';
-    height: 8px;
-    width: 8px;
-}
-
-.loading-dots::after {
-    animation-delay: 0.5s;
-}
-
-.loading-dots-sm::before,
-.loading-dots-sm::after {
-    height: 4px;
-    width: 4px;
-}
-
-.loading-dots-lg::before,
-.loading-dots-lg::after {
-    height: 12px;
-    width: 12px;
-}
-
-.loading-progress {
-    background: var(--loading-progress-bg, rgb(0 0 0 / 10%));
-    border-radius: 2px;
-    height: 4px;
-    overflow: hidden;
-    width: 100%;
-}
-
-.loading-progress::after {
-    animation: loading-progress 1s ease-in-out infinite;
-    background: var(--loading-progress-color, #3b82f6);
-    content: '';
-    display: block;
-    height: 100%;
-    width: 40%;
-}
-
-.loading-progress-sm {
-    height: 2px;
-}
-
-.loading-progress-lg {
-    height: 6px;
-}
-
-.loading-skeleton {
-    animation: loading-skeleton 1.5s ease-in-out infinite;
-    background: linear-gradient(
-        90deg,
-        var(--loading-skeleton-start, rgb(0 0 0 / 10%)) 0%,
-        var(--loading-skeleton-end, rgb(0 0 0 / 20%)) 50%,
-        var(--loading-skeleton-start, rgb(0 0 0 / 10%)) 100%
-    );
-    background-size: 200% 100%;
-}
-
-.loading-skeleton-sm {
-    animation-duration: 1s;
-    background-size: 150% 100%;
-}
-
-.loading-skeleton-lg {
-    animation-duration: 2s;
-    background-size: 300% 100%;
-}
-
-.loading-shimmer {
-    overflow: hidden;
-    position: relative;
-}
-
-.loading-shimmer::after {
-    animation: loading-shimmer 1.5s ease-in-out infinite;
-    background: linear-gradient(
-        90deg,
-        transparent 0%,
-        var(--loading-shimmer-color, rgb(255 255 255 / 20%)) 50%,
-        transparent 100%
-    );
-    content: '';
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
-}
-
-.loading-color-primary {
-    --loading-spinner-color: var(--loading-primary, #3b82f6);
-    --loading-pulse-color: var(--loading-primary, #3b82f6);
-    --loading-dots-color: var(--loading-primary, #3b82f6);
-    --loading-progress-color: var(--loading-primary, #3b82f6);
-}
-
-.loading-color-secondary {
-    --loading-spinner-color: var(--loading-secondary, #6b7280);
-    --loading-pulse-color: var(--loading-secondary, #6b7280);
-    --loading-dots-color: var(--loading-secondary, #6b7280);
-    --loading-progress-color: var(--loading-secondary, #6b7280);
-}
-
-.loading-color-success {
-    --loading-spinner-color: var(--loading-success, #10b981);
-    --loading-pulse-color: var(--loading-success, #10b981);
-    --loading-dots-color: var(--loading-success, #10b981);
-    --loading-progress-color: var(--loading-success, #10b981);
-}
-
-.loading-color-error {
-    --loading-spinner-color: var(--loading-error, #ef4444);
-    --loading-pulse-color: var(--loading-error, #ef4444);
-    --loading-dots-color: var(--loading-error, #ef4444);
-    --loading-progress-color: var(--loading-error, #ef4444);
-}
-
-.loading-color-warning {
-    --loading-spinner-color: var(--loading-warning, #f59e0b);
-    --loading-pulse-color: var(--loading-warning, #f59e0b);
-    --loading-dots-color: var(--loading-warning, #f59e0b);
-    --loading-progress-color: var(--loading-warning, #f59e0b);
-}
-
-.loading-color-info {
-    --loading-spinner-color: var(--loading-info, #06b6d4);
-    --loading-pulse-color: var(--loading-info, #06b6d4);
-    --loading-dots-color: var(--loading-info, #06b6d4);
-    --loading-progress-color: var(--loading-info, #06b6d4);
-}
-
+/* Animationen - außerhalb von @layer definieren */
 @keyframes loading-spin {
     to {
         transform: rotate(360deg);
@@ -204,11 +26,13 @@
 
 @keyframes loading-dots {
     0%, 100% {
-        transform: translateY(0);
+        opacity: 50%;
+        transform: scale(0.7);
     }
 
     50% {
-        transform: translateY(-10px);
+        opacity: 100%;
+        transform: scale(1);
     }
 }
 
@@ -218,64 +42,247 @@
     }
 
     100% {
-        transform: translateX(250%);
+        transform: translateX(100%);
     }
 }
 
 @keyframes loading-skeleton {
     0% {
-        background-position: 200% 0;
+        background-position: 100% 0;
     }
 
     100% {
-        background-position: -200% 0;
+        background-position: -100% 0;
     }
 }
 
 @keyframes loading-shimmer {
-    0% {
-        transform: translateX(-100%);
-    }
-
     100% {
         transform: translateX(100%);
     }
 }
 
-/* Reduzierte Bewegung */
-@media (prefers-reduced-motion: reduce) {
-    .loading-spinner,
-    .loading-pulse,
-    .loading-dots::before,
-    .loading-dots::after,
-    .loading-progress::after,
-    .loading-skeleton,
-    .loading-shimmer::after {
-        animation: none;
-    }
-    
+/* Komponenten-Styles */
+@layer components {
     .loading-spinner {
-        border-left-color: transparent;
+        border: 4px solid var(--loading-color, rgb(0 0 0 / 10%));
+        border-left-color: var(--loading-spinner-color, #3b82f6);
+        border-radius: 50%;
+        height: 40px;
+        width: 40px;
     }
-    
+
+    .loading-spinner-sm {
+        border-width: 2px;
+        height: 20px;
+        width: 20px;
+    }
+
+    .loading-spinner-lg {
+        border-width: 6px;
+        height: 60px;
+        width: 60px;
+    }
+
     .loading-pulse {
-        opacity: 50%;
+        background: var(--loading-pulse-color, #3b82f6);
+        border-radius: 50%;
+        height: 40px;
+        width: 40px;
     }
-    
+
+    .loading-pulse-sm {
+        height: 20px;
+        width: 20px;
+    }
+
+    .loading-pulse-lg {
+        height: 60px;
+        width: 60px;
+    }
+
+    .loading-dots {
+        display: flex;
+        gap: 4px;
+    }
+
     .loading-dots::before,
     .loading-dots::after {
-        transform: translateY(0);
+        background: var(--loading-dots-color, #3b82f6);
+        border-radius: 50%;
+        content: '';
+        height: 8px;
+        width: 8px;
     }
-    
+
+    .loading-dots-sm::before,
+    .loading-dots-sm::after {
+        height: 4px;
+        width: 4px;
+    }
+
+    .loading-dots-lg::before,
+    .loading-dots-lg::after {
+        height: 12px;
+        width: 12px;
+    }
+
+    .loading-progress {
+        background: var(--loading-progress-bg, rgb(0 0 0 / 10%));
+        border-radius: 2px;
+        height: 4px;
+        overflow: hidden;
+        width: 100%;
+    }
+
     .loading-progress::after {
-        transform: translateX(0);
+        background: var(--loading-progress-color, #3b82f6);
+        content: '';
+        display: block;
+        height: 100%;
+        width: 40%;
     }
-    
+
+    .loading-progress-sm {
+        height: 2px;
+    }
+
+    .loading-progress-lg {
+        height: 6px;
+    }
+
     .loading-skeleton {
-        background: var(--loading-skeleton-start, rgb(0 0 0 / 10%));
+        background: linear-gradient(
+            90deg,
+            var(--loading-skeleton-start, rgb(0 0 0 / 10%)) 0%,
+            var(--loading-skeleton-end, rgb(0 0 0 / 20%)) 50%,
+            var(--loading-skeleton-start, rgb(0 0 0 / 10%)) 100%
+        );
+        background-size: 200% 100%;
+    }
+
+    .loading-skeleton-sm {
+        background-size: 150% 100%;
+    }
+
+    .loading-skeleton-lg {
+        background-size: 300% 100%;
+    }
+
+    .loading-shimmer {
+        overflow: hidden;
+        position: relative;
+    }
+
+    .loading-shimmer::after {
+        background: linear-gradient(
+            90deg,
+            transparent 0%,
+            var(--loading-shimmer-color, rgb(255 255 255 / 20%)) 50%,
+            transparent 100%
+        );
+        content: '';
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+
+    .loading-color-primary {
+        --loading-spinner-color: var(--loading-primary, #3b82f6);
+        --loading-pulse-color: var(--loading-primary, #3b82f6);
+        --loading-dots-color: var(--loading-primary, #3b82f6);
+        --loading-progress-color: var(--loading-primary, #3b82f6);
+    }
+
+    .loading-color-secondary {
+        --loading-spinner-color: var(--loading-secondary, #6b7280);
+        --loading-pulse-color: var(--loading-secondary, #6b7280);
+        --loading-dots-color: var(--loading-secondary, #6b7280);
+        --loading-progress-color: var(--loading-secondary, #6b7280);
+    }
+
+    .loading-color-success {
+        --loading-spinner-color: var(--loading-success, #10b981);
+        --loading-pulse-color: var(--loading-success, #10b981);
+        --loading-dots-color: var(--loading-success, #10b981);
+        --loading-progress-color: var(--loading-success, #10b981);
+    }
+
+    .loading-color-error {
+        --loading-spinner-color: var(--loading-error, #ef4444);
+        --loading-pulse-color: var(--loading-error, #ef4444);
+        --loading-dots-color: var(--loading-error, #ef4444);
+        --loading-progress-color: var(--loading-error, #ef4444);
+    }
+
+    .loading-color-warning {
+        --loading-spinner-color: var(--loading-warning, #f59e0b);
+        --loading-pulse-color: var(--loading-warning, #f59e0b);
+        --loading-dots-color: var(--loading-warning, #f59e0b);
+        --loading-progress-color: var(--loading-warning, #f59e0b);
+    }
+
+    .loading-color-info {
+        --loading-spinner-color: var(--loading-info, #06b6d4);
+        --loading-pulse-color: var(--loading-info, #06b6d4);
+        --loading-dots-color: var(--loading-info, #06b6d4);
+        --loading-progress-color: var(--loading-info, #06b6d4);
+    }
+}
+
+/* Animations-Styles */
+@layer animations {
+    .loading-spinner {
+        animation: loading-spin 1s linear infinite;
+    }
+
+    .loading-pulse {
+        animation: loading-pulse 1s ease-in-out infinite;
+    }
+
+    .loading-dots::before,
+    .loading-dots::after {
+        animation: loading-dots 1s ease-in-out infinite;
+    }
+
+    .loading-dots::after {
+        animation-delay: 0.5s;
+    }
+
+    .loading-progress::after {
+        animation: loading-progress 1s ease-in-out infinite;
+    }
+
+    .loading-skeleton {
+        animation: loading-skeleton 1.5s ease-in-out infinite;
     }
     
+    .loading-skeleton-sm {
+        animation-duration: 1s;
+    }
+
+    .loading-skeleton-lg {
+        animation-duration: 2s;
+    }
+
     .loading-shimmer::after {
-        display: none;
+        animation: loading-shimmer 1.5s ease-in-out infinite;
+    }
+}
+
+/* Barrierefreiheit - reduzierte Bewegung */
+@media (prefers-reduced-motion: reduce) {
+    @layer animations {
+        .loading-spinner,
+        .loading-pulse,
+        .loading-dots::before,
+        .loading-dots::after,
+        .loading-progress::after,
+        .loading-skeleton,
+        .loading-shimmer::after {
+            animation: none !important;
+        }
     }
 } 

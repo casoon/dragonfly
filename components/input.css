@@ -4,7 +4,7 @@
  * Texteingabefelder für Formulare und Benutzerinteraktion.
  * Eingabefelder dienen als primäre Schnittstelle für Textdaten in Formularen.
  * 
- * @layer: module-input
+ * @layer components
  * 
  * Grundlegende Verwendung:
  * <input type="text" class="input" placeholder="Text eingeben">
@@ -38,7 +38,7 @@
  * </div>
  */
 
-@layer input {
+@layer components {
   .input {
     background-color: var(--color-white);
     border: 1px solid var(--color-gray-300);

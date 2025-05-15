@@ -56,7 +56,7 @@
  * </div>
  */
 
-/* Animationen */
+/* Animationen - außerhalb von @layer definieren */
 @keyframes notification-timer {
   from { width: 100%; }
 
@@ -87,7 +87,8 @@
   }
 }
 
-@layer notification {
+/* Komponenten-Styles */
+@layer components {
   .notification {
     align-items: start;
     background-color: var(--color-gray-100);
@@ -172,7 +173,6 @@
     
     /* Timer */
     .timer {
-      animation: notification-timer 5s linear forwards;
       background-color: rgb(255 255 255 / 50%);
       bottom: 0;
       height: 3px;
@@ -208,15 +208,6 @@
     &.bottom-left {
       bottom: 0;
       left: 0;
-    }
-    
-    /* Animationen */
-    &.animate-in {
-      animation: notification-slide-in 0.3s ease-out;
-    }
-    
-    &.animate-out {
-      animation: notification-slide-out 0.3s ease-in forwards;
     }
     
     &.with-timer {
@@ -257,6 +248,28 @@
       bottom: 0;
       left: 0;
       margin: var(--space-4);
+    }
+  }
+}
+
+/* Animations-Styles */
+@layer animations {
+  .notification {
+    &.animate-in {
+      animation-duration: 0.3s;
+      animation-name: notification-slide-in;
+      animation-timing-function: ease-out;
+    }
+    
+    &.animate-out {
+      animation-duration: 0.3s;
+      animation-fill-mode: forwards;
+      animation-name: notification-slide-out;
+      animation-timing-function: ease-in;
+    }
+    
+    .timer {
+      animation: notification-timer 5s linear forwards;
     }
   }
 }

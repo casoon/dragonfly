@@ -5,104 +5,108 @@
  * Die Effekte sind performant optimiert und berücksichtigen reduzierte Bewegung.
  */
 
-.disabled {
-    cursor: not-allowed;
-    opacity: 50%;
-    pointer-events: none;
-    user-select: none;
-}
+@layer components {
+    .disabled {
+        cursor: not-allowed;
+        opacity: 50%;
+        pointer-events: none;
+        user-select: none;
+    }
 
-.disabled-sm {
-    opacity: 70%;
-}
+    .disabled-sm {
+        opacity: 70%;
+    }
 
-.disabled-lg {
-    opacity: 30%;
-}
+    .disabled-lg {
+        opacity: 30%;
+    }
 
-.disabled-blur {
-    cursor: not-allowed;
-    filter: blur(1px);
-    pointer-events: none;
-    user-select: none;
-}
+    .disabled-blur {
+        cursor: not-allowed;
+        filter: blur(1px);
+        pointer-events: none;
+        user-select: none;
+    }
 
-.disabled-blur-sm {
-    filter: blur(0.5px);
-}
+    .disabled-blur-sm {
+        filter: blur(0.5px);
+    }
 
-.disabled-blur-lg {
-    filter: blur(2px);
-}
+    .disabled-blur-lg {
+        filter: blur(2px);
+    }
 
-.disabled-grayscale {
-    cursor: not-allowed;
-    filter: grayscale(100%);
-    pointer-events: none;
-    user-select: none;
-}
+    .disabled-grayscale {
+        cursor: not-allowed;
+        filter: grayscale(100%);
+        pointer-events: none;
+        user-select: none;
+    }
 
-.disabled-grayscale-sm {
-    filter: grayscale(50%);
-}
+    .disabled-grayscale-sm {
+        filter: grayscale(50%);
+    }
 
-.disabled-grayscale-lg {
-    filter: grayscale(100%) brightness(0.8);
-}
+    .disabled-grayscale-lg {
+        filter: grayscale(100%) brightness(0.8);
+    }
 
-.disabled-border {
-    border-style: dashed;
-    cursor: not-allowed;
-    pointer-events: none;
-    user-select: none;
-}
+    .disabled-border {
+        border-style: dashed;
+        cursor: not-allowed;
+        pointer-events: none;
+        user-select: none;
+    }
 
-.disabled-border-sm {
-    border-width: 1px;
-}
+    .disabled-border-sm {
+        border-width: 1px;
+    }
 
-.disabled-border-lg {
-    border-width: 3px;
-}
+    .disabled-border-lg {
+        border-width: 3px;
+    }
 
-.disabled-bg {
-    background-color: var(--disabled-bg, rgb(0 0 0 / 5%));
-    cursor: not-allowed;
-    pointer-events: none;
-    user-select: none;
-}
+    .disabled-bg {
+        background-color: var(--disabled-bg, rgb(0 0 0 / 5%));
+        cursor: not-allowed;
+        pointer-events: none;
+        user-select: none;
+    }
 
-.disabled-bg-sm {
-    background-color: var(--disabled-bg-sm, rgb(0 0 0 / 2%));
-}
+    .disabled-bg-sm {
+        background-color: var(--disabled-bg-sm, rgb(0 0 0 / 2%));
+    }
 
-.disabled-bg-lg {
-    background-color: var(--disabled-bg-lg, rgb(0 0 0 / 10%));
-}
+    .disabled-bg-lg {
+        background-color: var(--disabled-bg-lg, rgb(0 0 0 / 10%));
+    }
 
-.disabled-text {
-    color: var(--disabled-text, rgb(0 0 0 / 50%));
-    cursor: not-allowed;
-    pointer-events: none;
-    user-select: none;
-}
+    .disabled-text {
+        color: var(--disabled-text, rgb(0 0 0 / 50%));
+        cursor: not-allowed;
+        pointer-events: none;
+        user-select: none;
+    }
 
-.disabled-text-sm {
-    color: var(--disabled-text-sm, rgb(0 0 0 / 70%));
-}
+    .disabled-text-sm {
+        color: var(--disabled-text-sm, rgb(0 0 0 / 70%));
+    }
 
-.disabled-text-lg {
-    color: var(--disabled-text-lg, rgb(0 0 0 / 30%));
+    .disabled-text-lg {
+        color: var(--disabled-text-lg, rgb(0 0 0 / 30%));
+    }
 }
 
 /* Reduzierte Bewegung */
 @media (prefers-reduced-motion: reduce) {
-    .disabled,
-    .disabled-blur,
-    .disabled-grayscale,
-    .disabled-border,
-    .disabled-bg,
-    .disabled-text {
-        transition: none;
+    @layer components {
+        .disabled,
+        .disabled-blur,
+        .disabled-grayscale,
+        .disabled-border,
+        .disabled-bg,
+        .disabled-text {
+            transition: none;
+        }
     }
 } 

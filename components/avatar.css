@@ -50,7 +50,7 @@
  * </div>
  */
 
-@layer avatar {
+@layer components {
   .avatar {
     background-color: var(--color-gray-200);
     border-radius: 9999px;

@@ -58,7 +58,7 @@
  * </div>
  */
 
-@layer radio {
+@layer components {
   .radio {
     align-items: center;
     cursor: pointer;

@@ -48,7 +48,19 @@
  * </div>
  */
 
-@layer progress {
+/* Animationen - außerhalb von @layer definieren */
+@keyframes progress-animation {
+  from {
+    background-position: 1rem 0;
+  }
+
+  to {
+    background-position: 0 0;
+  }
+}
+
+/* Komponenten-Styles */
+@layer components {
   .progress {
     background-color: var(--color-gray-200);
     border-radius: var(--radius-full);
@@ -129,12 +141,6 @@
       );
       background-size: 1rem 1rem;
     }
-    
-    /* Animierter Fortschrittsbalken */
-    &.animated .bar {
-      animation: progress-animation 1s linear infinite;
-    }
-  
   }
   
   /* Fortschrittsschritte */
@@ -214,12 +220,11 @@
   }
 }
 
-@keyframes progress-animation {
-  from {
-    background-position: 1rem 0;
-  }
-
-  to {
-    background-position: 0 0;
+/* Animations-Styles */
+@layer animations {
+  .progress {
+    &.animated .bar {
+      animation: progress-animation 1s linear infinite;
+    }
   }
 }

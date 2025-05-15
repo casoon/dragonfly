@@ -55,7 +55,7 @@
  * <div class="tooltip fluid large">Groß</div>
  */
 
-@layer tooltip {
+@layer components {
   .tooltip {
     display: inline-block;
     position: relative;

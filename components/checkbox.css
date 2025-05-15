@@ -10,7 +10,7 @@
  * Auswahlkästchen für Formulare und Einstellungen.
  * Checkboxen erlauben Benutzern die Auswahl mehrerer Optionen aus einer Liste.
  * 
- * @layer: module-checkbox
+ * @layer components.checkbox
  * 
  * Grundlegende Verwendung:
  * <label class="checkbox">
@@ -53,7 +53,7 @@
  * </div>
  */
 
-@layer checkbox {
+@layer components {
   .checkbox {
     align-items: center;
     cursor: pointer;

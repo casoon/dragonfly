@@ -5,59 +5,6 @@
  * Die Effekte sind performant optimiert und berücksichtigen reduzierte Bewegung.
  */
 
-.shine {
-    overflow: hidden;
-    position: relative;
-}
-
-.shine::after {
-    animation: shine-effect 3s infinite;
-    background: linear-gradient(
-        45deg,
-        transparent,
-        rgb(255 255 255 / 10%),
-        transparent
-    );
-    content: '';
-    height: 200%;
-    left: -50%;
-    position: absolute;
-    top: -50%;
-    transform: rotate(45deg);
-    width: 200%;
-}
-
-.shine-hover:hover::after {
-    animation: shine-effect 1s;
-}
-
-.shine-strong::after {
-    background: linear-gradient(
-        45deg,
-        transparent,
-        rgb(255 255 255 / 30%),
-        transparent
-    );
-}
-
-.shine-soft::after {
-    background: linear-gradient(
-        45deg,
-        transparent,
-        rgb(255 255 255 / 5%),
-        transparent
-    );
-}
-
-.shine-color::after {
-    background: linear-gradient(
-        45deg,
-        transparent,
-        var(--shine-color, rgb(255 255 255 / 20%)),
-        transparent
-    );
-}
-
 @keyframes shine-effect {
     0% {
         transform: translateX(-100%) rotate(45deg);
@@ -68,13 +15,70 @@
     }
 }
 
+@layer components {
+    .shine {
+        overflow: hidden;
+        position: relative;
+    }
+
+    .shine::after {
+        animation: shine-effect 3s infinite;
+        background: linear-gradient(
+            45deg,
+            transparent,
+            rgb(255 255 255 / 10%),
+            transparent
+        );
+        content: '';
+        height: 200%;
+        left: -50%;
+        position: absolute;
+        top: -50%;
+        transform: rotate(45deg);
+        width: 200%;
+    }
+
+    .shine-hover:hover::after {
+        animation: shine-effect 1s;
+    }
+
+    .shine-strong::after {
+        background: linear-gradient(
+            45deg,
+            transparent,
+            rgb(255 255 255 / 30%),
+            transparent
+        );
+    }
+
+    .shine-soft::after {
+        background: linear-gradient(
+            45deg,
+            transparent,
+            rgb(255 255 255 / 5%),
+            transparent
+        );
+    }
+
+    .shine-color::after {
+        background: linear-gradient(
+            45deg,
+            transparent,
+            var(--shine-color, rgb(255 255 255 / 20%)),
+            transparent
+        );
+    }
+}
+
 /* Reduzierte Bewegung */
 @media (prefers-reduced-motion: reduce) {
-    .shine::after,
-    .shine-hover:hover::after,
-    .shine-strong::after,
-    .shine-soft::after,
-    .shine-color::after {
-        animation: none;
+    @layer components {
+        .shine::after,
+        .shine-hover:hover::after,
+        .shine-strong::after,
+        .shine-soft::after,
+        .shine-color::after {
+            animation: none;
+        }
     }
 } 

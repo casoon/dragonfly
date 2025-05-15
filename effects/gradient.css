@@ -5,124 +5,6 @@
  * Die Effekte sind performant optimiert und berücksichtigen reduzierte Bewegung.
  */
 
-.gradient {
-    background: linear-gradient(
-        45deg,
-        var(--gradient-start, #3b82f6),
-        var(--gradient-end, #8b5cf6)
-    );
-}
-
-.gradient-horizontal {
-    background: linear-gradient(
-        90deg,
-        var(--gradient-start, #3b82f6),
-        var(--gradient-end, #8b5cf6)
-    );
-}
-
-.gradient-vertical {
-    background: linear-gradient(
-        180deg,
-        var(--gradient-start, #3b82f6),
-        var(--gradient-end, #8b5cf6)
-    );
-}
-
-.gradient-radial {
-    background: radial-gradient(
-        circle at center,
-        var(--gradient-start, #3b82f6),
-        var(--gradient-end, #8b5cf6)
-    );
-}
-
-.gradient-conic {
-    background: conic-gradient(
-        from 0deg,
-        var(--gradient-start, #3b82f6),
-        var(--gradient-end, #8b5cf6)
-    );
-}
-
-.gradient-animated {
-    animation: gradient-shift 3s ease infinite;
-    background: linear-gradient(
-        45deg,
-        var(--gradient-start, #3b82f6),
-        var(--gradient-mid, #8b5cf6),
-        var(--gradient-end, #3b82f6)
-    );
-    background-size: 200% 200%;
-}
-
-.gradient-hover {
-    background: linear-gradient(
-        45deg,
-        var(--gradient-start, #3b82f6),
-        var(--gradient-end, #8b5cf6)
-    );
-    transition: background-position 0.3s ease;
-}
-
-.gradient-hover:hover {
-    background-position: 100% 100%;
-}
-
-.gradient-text {
-    background: linear-gradient(
-        45deg,
-        var(--gradient-start, #3b82f6),
-        var(--gradient-end, #8b5cf6)
-    );
-    background-clip: text;
-    color: transparent;
-}
-
-.gradient-border {
-    background: linear-gradient(
-        45deg,
-        var(--gradient-start, #3b82f6),
-        var(--gradient-end, #8b5cf6)
-    );
-    padding: 2px;
-    position: relative;
-}
-
-.gradient-border > * {
-    background: var(--gradient-bg, white);
-}
-
-.gradient-color-primary {
-    --gradient-start: var(--gradient-primary-start, #3b82f6);
-    --gradient-end: var(--gradient-primary-end, #1d4ed8);
-}
-
-.gradient-color-secondary {
-    --gradient-start: var(--gradient-secondary-start, #6b7280);
-    --gradient-end: var(--gradient-secondary-end, #374151);
-}
-
-.gradient-color-success {
-    --gradient-start: var(--gradient-success-start, #10b981);
-    --gradient-end: var(--gradient-success-end, #047857);
-}
-
-.gradient-color-error {
-    --gradient-start: var(--gradient-error-start, #ef4444);
-    --gradient-end: var(--gradient-error-end, #b91c1c);
-}
-
-.gradient-color-warning {
-    --gradient-start: var(--gradient-warning-start, #f59e0b);
-    --gradient-end: var(--gradient-warning-end, #b45309);
-}
-
-.gradient-color-info {
-    --gradient-start: var(--gradient-info-start, #06b6d4);
-    --gradient-end: var(--gradient-info-end, #0e7490);
-}
-
 @keyframes gradient-shift {
     0% {
         background-position: 0% 50%;
@@ -137,18 +19,140 @@
     }
 }
 
+@layer components {
+    .gradient {
+        background: linear-gradient(
+            45deg,
+            var(--gradient-start, #3b82f6),
+            var(--gradient-end, #8b5cf6)
+        );
+    }
+
+    .gradient-horizontal {
+        background: linear-gradient(
+            90deg,
+            var(--gradient-start, #3b82f6),
+            var(--gradient-end, #8b5cf6)
+        );
+    }
+
+    .gradient-vertical {
+        background: linear-gradient(
+            180deg,
+            var(--gradient-start, #3b82f6),
+            var(--gradient-end, #8b5cf6)
+        );
+    }
+
+    .gradient-radial {
+        background: radial-gradient(
+            circle at center,
+            var(--gradient-start, #3b82f6),
+            var(--gradient-end, #8b5cf6)
+        );
+    }
+
+    .gradient-conic {
+        background: conic-gradient(
+            from 0deg,
+            var(--gradient-start, #3b82f6),
+            var(--gradient-end, #8b5cf6)
+        );
+    }
+
+    .gradient-animated {
+        animation: gradient-shift 3s ease infinite;
+        background: linear-gradient(
+            45deg,
+            var(--gradient-start, #3b82f6),
+            var(--gradient-mid, #8b5cf6),
+            var(--gradient-end, #3b82f6)
+        );
+        background-size: 200% 200%;
+    }
+
+    .gradient-hover {
+        background: linear-gradient(
+            45deg,
+            var(--gradient-start, #3b82f6),
+            var(--gradient-end, #8b5cf6)
+        );
+        transition: background-position 0.3s ease;
+    }
+
+    .gradient-hover:hover {
+        background-position: 100% 100%;
+    }
+
+    .gradient-text {
+        background: linear-gradient(
+            45deg,
+            var(--gradient-start, #3b82f6),
+            var(--gradient-end, #8b5cf6)
+        );
+        background-clip: text;
+        color: transparent;
+    }
+
+    .gradient-border {
+        background: linear-gradient(
+            45deg,
+            var(--gradient-start, #3b82f6),
+            var(--gradient-end, #8b5cf6)
+        );
+        padding: 2px;
+        position: relative;
+    }
+
+    .gradient-border > * {
+        background: var(--gradient-bg, white);
+    }
+
+    .gradient-color-primary {
+        --gradient-start: var(--gradient-primary-start, #3b82f6);
+        --gradient-end: var(--gradient-primary-end, #1d4ed8);
+    }
+
+    .gradient-color-secondary {
+        --gradient-start: var(--gradient-secondary-start, #6b7280);
+        --gradient-end: var(--gradient-secondary-end, #374151);
+    }
+
+    .gradient-color-success {
+        --gradient-start: var(--gradient-success-start, #10b981);
+        --gradient-end: var(--gradient-success-end, #047857);
+    }
+
+    .gradient-color-error {
+        --gradient-start: var(--gradient-error-start, #ef4444);
+        --gradient-end: var(--gradient-error-end, #b91c1c);
+    }
+
+    .gradient-color-warning {
+        --gradient-start: var(--gradient-warning-start, #f59e0b);
+        --gradient-end: var(--gradient-warning-end, #b45309);
+    }
+
+    .gradient-color-info {
+        --gradient-start: var(--gradient-info-start, #06b6d4);
+        --gradient-end: var(--gradient-info-end, #0e7490);
+    }
+}
+
 /* Reduzierte Bewegung */
 @media (prefers-reduced-motion: reduce) {
-    .gradient-animated {
-        animation: none;
-        background-size: 100% 100%;
-    }
-    
-    .gradient-hover {
-        transition: none;
-    }
-    
-    .gradient-hover:hover {
-        background-position: 0% 0%;
+    @layer components {
+        .gradient-animated {
+            animation: none;
+            background-size: 100% 100%;
+        }
+        
+        .gradient-hover {
+            transition: none;
+        }
+        
+        .gradient-hover:hover {
+            background-position: 0% 0%;
+        }
     }
 } 

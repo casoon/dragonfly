@@ -58,7 +58,7 @@
  * <label class="switch danger">...</label>
  */
 
-@layer switch {
+@layer components {
   .switch {
     align-items: center;
     cursor: pointer;

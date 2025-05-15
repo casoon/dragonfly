@@ -32,7 +32,21 @@
  * </div>
  */
 
- @layer alert {
+/* Animationen - außerhalb von @layer definieren */
+@keyframes alertFadeIn {
+  from {
+    opacity: 0%;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 100%;
+    transform: translateY(0);
+  }
+}
+
+/* Komponenten-Styles */
+@layer components {
   .alert {
     align-items: start;
     background-color: var(--color-gray-100);
@@ -101,22 +115,16 @@
     &.dismissible {
       padding-right: var(--space-3);
     }
-    
-    /* Animationen */
-    &.animate {
-      animation: alertFadeIn 0.3s ease-out;
-    }
   }
 }
 
-@keyframes alertFadeIn {
-  from {
-    opacity: 0%;
-    transform: translateY(-10px);
-  }
-
-  to {
-    opacity: 100%;
-    transform: translateY(0);
+/* Animations-Styles */
+@layer animations {
+  .alert {
+    &.animate {
+      animation-duration: 0.3s;
+      animation-name: alertFadeIn;
+      animation-timing-function: ease-out;
+    }
   }
 }

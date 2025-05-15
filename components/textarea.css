@@ -37,7 +37,7 @@
  * <textarea class="textarea auto-resize"></textarea>
  */
 
-@layer textarea {
+@layer components {
   .textarea {
     background-color: var(--color-white);
     border: 1px solid var(--color-gray-300);

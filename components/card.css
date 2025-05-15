@@ -10,7 +10,7 @@
  * Container für Inhaltsblöcke, die zusammengehörende Informationen präsentieren.
  * Cards bieten eine visuelle Gruppierung von zusammengehörigen Inhalten und Aktionen.
  * 
- * @layer: module-card
+ * @layer components.card
  * 
  * Grundlegende Verwendung:
  * <div class="card">
@@ -39,7 +39,7 @@
  * </div>
  */
 
-@layer card {
+@layer components {
   .card-grid {
     display: grid;
     gap: var(--space-4);

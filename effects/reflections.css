@@ -5,56 +5,6 @@
  * Die Effekte sind performant optimiert und berücksichtigen reduzierte Bewegung.
  */
 
-.reflection {
-    overflow: hidden;
-    position: relative;
-}
-
-.reflection::after {
-    background: linear-gradient(
-        to bottom,
-        transparent,
-        var(--reflection-color, rgb(255 255 255 / 20%))
-    );
-    content: '';
-    inset: 0;
-    opacity: 50%;
-    pointer-events: none;
-    position: absolute;
-    transform: scaleY(-1);
-}
-
-.reflection-strong::after {
-    background: linear-gradient(
-        to bottom,
-        transparent,
-        var(--reflection-color, rgb(255 255 255 / 40%))
-    );
-    opacity: 70%;
-}
-
-.reflection-soft::after {
-    background: linear-gradient(
-        to bottom,
-        transparent,
-        var(--reflection-color, rgb(255 255 255 / 10%))
-    );
-    opacity: 30%;
-}
-
-.reflection-color::after {
-    background: linear-gradient(
-        to bottom,
-        transparent,
-        var(--reflection-color, rgb(255 255 255 / 20%))
-    );
-    mix-blend-mode: overlay;
-}
-
-.reflection-hover:hover::after {
-    animation: reflection-shine 2s infinite;
-}
-
 @keyframes reflection-shine {
     0% { transform: scaleY(-1) translateY(0); }
 
@@ -63,9 +13,63 @@
     100% { transform: scaleY(-1) translateY(0); }
 }
 
+@layer components {
+    .reflection {
+        overflow: hidden;
+        position: relative;
+    }
+
+    .reflection::after {
+        background: linear-gradient(
+            to bottom,
+            transparent,
+            var(--reflection-color, rgb(255 255 255 / 20%))
+        );
+        content: '';
+        inset: 0;
+        opacity: 50%;
+        pointer-events: none;
+        position: absolute;
+        transform: scaleY(-1);
+    }
+
+    .reflection-strong::after {
+        background: linear-gradient(
+            to bottom,
+            transparent,
+            var(--reflection-color, rgb(255 255 255 / 40%))
+        );
+        opacity: 70%;
+    }
+
+    .reflection-soft::after {
+        background: linear-gradient(
+            to bottom,
+            transparent,
+            var(--reflection-color, rgb(255 255 255 / 10%))
+        );
+        opacity: 30%;
+    }
+
+    .reflection-color::after {
+        background: linear-gradient(
+            to bottom,
+            transparent,
+            var(--reflection-color, rgb(255 255 255 / 20%))
+        );
+        mix-blend-mode: overlay;
+    }
+
+    .reflection-hover:hover::after {
+        animation: reflection-shine 2s infinite;
+    }
+}
+
 /* Reduzierte Bewegung */
 @media (prefers-reduced-motion: reduce) {
-    .reflection-hover:hover::after {
-        animation: none;
+    @layer components {
+        .reflection-hover:hover::after {
+            animation: none;
+        }
     }
 } 

@@ -5,81 +5,6 @@
  * Die Effekte sind performant optimiert und berücksichtigen reduzierte Bewegung.
  */
 
-.warning-pulse {
-    animation: warning-pulse 2s infinite;
-}
-
-.warning-pulse-sm {
-    animation: warning-pulse-sm 2s infinite;
-}
-
-.warning-pulse-lg {
-    animation: warning-pulse-lg 2s infinite;
-}
-
-.warning-border {
-    animation: warning-pulse 2s infinite;
-    border: 2px solid var(--warning-color, #f59e0b);
-}
-
-.warning-border-sm {
-    border-width: 1px;
-}
-
-.warning-border-lg {
-    border-width: 3px;
-}
-
-.warning-bg {
-    animation: warning-pulse 2s infinite;
-    background-color: var(--warning-bg, rgb(245 158 11 / 10%));
-}
-
-.warning-bg-sm {
-    background-color: var(--warning-bg-sm, rgb(245 158 11 / 5%));
-}
-
-.warning-bg-lg {
-    background-color: var(--warning-bg-lg, rgb(245 158 11 / 20%));
-}
-
-.warning-text {
-    color: var(--warning-text, #f59e0b);
-}
-
-.warning-text-sm {
-    color: var(--warning-text-sm, #fbbf24);
-}
-
-.warning-text-lg {
-    color: var(--warning-text-lg, #d97706);
-}
-
-.warning-glow {
-    animation: warning-pulse 2s infinite;
-    box-shadow: 0 0 10px var(--warning-glow, rgb(245 158 11 / 50%));
-}
-
-.warning-glow-sm {
-    box-shadow: 0 0 5px var(--warning-glow-sm, rgb(245 158 11 / 30%));
-}
-
-.warning-glow-lg {
-    box-shadow: 0 0 15px var(--warning-glow-lg, rgb(245 158 11 / 70%));
-}
-
-.warning-flash {
-    animation: warning-flash 1s infinite;
-}
-
-.warning-flash-sm {
-    animation: warning-flash-sm 1s infinite;
-}
-
-.warning-flash-lg {
-    animation: warning-flash-lg 1s infinite;
-}
-
 @keyframes warning-pulse {
     0%, 100% {
         opacity: 100%;
@@ -140,17 +65,96 @@
     }
 }
 
+@layer components {
+    .warning-pulse {
+        animation: warning-pulse 2s infinite;
+    }
+
+    .warning-pulse-sm {
+        animation: warning-pulse-sm 2s infinite;
+    }
+
+    .warning-pulse-lg {
+        animation: warning-pulse-lg 2s infinite;
+    }
+
+    .warning-border {
+        animation: warning-pulse 2s infinite;
+        border: 2px solid var(--warning-color, #f59e0b);
+    }
+
+    .warning-border-sm {
+        border-width: 1px;
+    }
+
+    .warning-border-lg {
+        border-width: 3px;
+    }
+
+    .warning-bg {
+        animation: warning-pulse 2s infinite;
+        background-color: var(--warning-bg, rgb(245 158 11 / 10%));
+    }
+
+    .warning-bg-sm {
+        background-color: var(--warning-bg-sm, rgb(245 158 11 / 5%));
+    }
+
+    .warning-bg-lg {
+        background-color: var(--warning-bg-lg, rgb(245 158 11 / 20%));
+    }
+
+    .warning-text {
+        color: var(--warning-text, #f59e0b);
+    }
+
+    .warning-text-sm {
+        color: var(--warning-text-sm, #fbbf24);
+    }
+
+    .warning-text-lg {
+        color: var(--warning-text-lg, #d97706);
+    }
+
+    .warning-glow {
+        animation: warning-pulse 2s infinite;
+        box-shadow: 0 0 10px var(--warning-glow, rgb(245 158 11 / 50%));
+    }
+
+    .warning-glow-sm {
+        box-shadow: 0 0 5px var(--warning-glow-sm, rgb(245 158 11 / 30%));
+    }
+
+    .warning-glow-lg {
+        box-shadow: 0 0 15px var(--warning-glow-lg, rgb(245 158 11 / 70%));
+    }
+
+    .warning-flash {
+        animation: warning-flash 1s infinite;
+    }
+
+    .warning-flash-sm {
+        animation: warning-flash-sm 1s infinite;
+    }
+
+    .warning-flash-lg {
+        animation: warning-flash-lg 1s infinite;
+    }
+}
+
 /* Reduzierte Bewegung */
 @media (prefers-reduced-motion: reduce) {
-    .warning-pulse,
-    .warning-pulse-sm,
-    .warning-pulse-lg,
-    .warning-border,
-    .warning-bg,
-    .warning-glow,
-    .warning-flash,
-    .warning-flash-sm,
-    .warning-flash-lg {
-        animation: none;
+    @layer components {
+        .warning-pulse,
+        .warning-pulse-sm,
+        .warning-pulse-lg,
+        .warning-border,
+        .warning-bg,
+        .warning-glow,
+        .warning-flash,
+        .warning-flash-sm,
+        .warning-flash-lg {
+            animation: none;
+        }
     }
 } 

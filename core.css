@@ -1,40 +1,64 @@
 /**
- * Core CSS
- *
- * Zentrale Datei zur Organisation und Priorisierung aller CSS-Layer und -Module.
- * Hier werden alle Layer deklariert und die entsprechenden CSS-Dateien importiert.
- * Die Reihenfolge der Importe bestimmt die Kaskaden-Priorität (spätere haben Vorrang).
+ * Casoon UI Design System - Core CSS
+ * 
+ * Dieses Stylesheet definiert die Layer-Struktur und importiert
+ * alle benötigten CSS-Module.
  */
 
-/* 
- * Basis-System
- * Enthält Reset, Custom Properties, Tokens und logische Eigenschaften
- */
-@import url("base.css");
+/* Definition der globalen Layer-Reihenfolge gemäß layers.css */
+@layer reset,        /* CSS-Reset und Normalisierung */
+       tokens,       /* Design-Tokens und Variablen */
+       base,         /* Grundlegende Elementstile (enthält logical-properties, accessibility, elements) */
+       logical-properties, /* Sub-Layer von base: Logische Eigenschaften für RTL/LTR Support */
+       accessibility, /* Sub-Layer von base: Barrierefreiheits-bezogene Stile */
+       elements,     /* Sub-Layer von base: Grundlegende HTML-Element-Stile */
+       colors,       /* Farbdefinitionen und Schema (enthält color-mix) */
+       color-mix,    /* Sub-Layer von colors: Farb-Mischungen und -Transformationen */
+       typography,   /* Typografie-Stile */
+       layout,       /* Layout-Systeme und Grid (enthält layout-queries) */
+       layout-queries, /* Sub-Layer von layout: Container-Queries für Layouts */
+       utilities,    /* Hilfsstilklassen */
+       components,   /* Komponentenstile (enthält form) */
+       form,         /* Sub-Layer von components: Formular-bezogene Stile */
+       animations,   /* Animationsdefinitionen (enthält animation-contexts) */
+       animation-contexts, /* Sub-Layer von animations: Kontextbezogene Animationen */
+       effects,      /* Visuelle Effekte (enthält smooth-scroll) */
+       smooth-scroll, /* Sub-Layer von effects: Scrolling-Verhalten und -Effekte */
+       icons,        /* Icon-Stile */
+       themes;       /* Theme-Varianten */
 
-/* 
- * Layout-System
- * Container, Grid, Flexbox-Layouts und responsive Anpassungen
- */
-@import url("layout.css");
-@import url("layout.queries.css");
 
-/* 
- * Typografie-System
- * Schriftarten, Größen, Abstände und Text-Formatierungen
- */
-@import url("typography.css") layer(typography);
+/*
+* Import der Layer-Definitionen
+* Jede Datei definiert ihre Stile innerhalb ihres zugewiesenen Layers
+*/
 
-/* 
- * Modul-System
- * Wiederverwendbare UI-Komponenten in eigenständigen Dateien
- */
-@import url("components.css");
 
-/* 
- * Icon-System
- * SVG-Symbole und Icon-Fonts
- */
-@import url("icons.css");
+/* Reset und Grundlagen */
+@import url("base/reset.css");
+
+/* Tokens und Properties */
+@import url("base/tokens.css");
+
+/* Core-Funktionalitäten */
+@import url("base/logical-properties.css");
+@import url("base/colors.css");
+@import url("base/color-mix.css");
+
+/* Elemente */
+@import url("base/elements.css");
+
+/* Theme Basis */
+@import url("base/theme.css");
+
+/* Utilities und Accessibility */
+@import url("base/utilities.css");
+@import url("base/smooth-scroll.css");
+@import url("base/accessibility.css");
+
+/* CSS-Imports */
+@import url('typography.css');
+@import url('layout.css');
+@import url('icons.css');
 
 

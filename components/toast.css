@@ -36,10 +36,23 @@
  * </div>
  */
 
-@layer toast {
+/* Animation - außerhalb von @layer definieren */
+@keyframes toast-slide-in {
+  from {
+    opacity: 0%;
+    transform: translateY(100%);
+  }
+
+  to {
+    opacity: 100%;
+    transform: translateY(0);
+  }
+}
+
+/* Komponenten-Styles */
+@layer components {
   .toast {
     align-items: center;
-    animation: toast-slide-in 0.3s ease-out;
     background-color: var(--color-gray-800);
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-md);
@@ -125,15 +138,9 @@
   }
 }
 
-/* Animation */
-@keyframes toast-slide-in {
-  from {
-    opacity: 0%;
-    transform: translateY(100%);
-  }
-
-  to {
-    opacity: 100%;
-    transform: translateY(0);
+/* Animations-Styles */
+@layer animations {
+  .toast {
+    animation: toast-slide-in 0.3s ease-out;
   }
 }

@@ -65,7 +65,7 @@
  * </aside>
  */
 
-@layer sidebar {
+@layer components {
   .sidebar {
     background-color: var(--color-gray-100);
     grid-column: span 3;

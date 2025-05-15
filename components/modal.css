@@ -55,7 +55,21 @@
  * <div class="modal adaptive">...</div>
  */
 
-@layer modal {
+/* Animationen - außerhalb von @layer definieren */
+@keyframes modalFadeIn {
+  from { opacity: 0%; }
+
+  to { opacity: 100%; }
+}
+
+@keyframes modalSlideUp {
+  from { opacity: 0%; transform: translateY(20px); }
+
+  to { opacity: 100%; transform: translateY(0); }
+}
+
+/* Komponenten-Styles */
+@layer components {
   .modal {
     align-items: center;
     display: flex;
@@ -267,31 +281,18 @@
         margin-bottom: 0;
       }
     }
-    
-    /* Animationen */
-    &.fade {
-      .container {
-        animation: modalFadeIn 0.3s ease-out;
-      }
-    }
-    
-    &.slide {
-      .container {
-        animation: modalSlideUp 0.3s ease-out;
-      }
-    }
-    
   }
 }
 
-@keyframes modalFadeIn {
-  from { opacity: 0%; }
-
-  to { opacity: 100%; }
-}
-
-@keyframes modalSlideUp {
-  from { opacity: 0%; transform: translateY(20px); }
-
-  to { opacity: 100%; transform: translateY(0); }
+/* Animations-Styles */
+@layer animations {
+  .modal {
+    &.fade .container {
+      animation: modalFadeIn 0.3s ease-out;
+    }
+    
+    &.slide .container {
+      animation: modalSlideUp 0.3s ease-out;
+    }
+  }
 }

@@ -10,7 +10,7 @@
  * Mobile Menü-Icons für Navigation auf kleinen Bildschirmen.
  * Hamburger-Icons dienen als kompakte Schaltfläche für das Aus- und Einklappen von Navigationsmenüs.
  * 
- * @layer components.hamburger
+ * @layer components
  * 
  * Grundlegende Verwendung:
  * <button class="hamburger" aria-label="Menü öffnen">
@@ -43,7 +43,7 @@
  * <button class="hamburger primary">...</button> <!-- Primärfarbe -->
  */
 
-@layer hamburger {
+@layer components {
   .hamburger {
     background: transparent;
     border: none;

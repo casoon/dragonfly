@@ -43,7 +43,7 @@
  * - Reduzierte Bewegung wird automatisch berücksichtigt
  */
 
-/* Animationen */
+/* Animationen - immer außerhalb von @layer definieren */
 @keyframes neon-pulse {
     from {
         opacity: 100%;
@@ -78,7 +78,8 @@
     90% { opacity: 50%; }
 }
 
-
+/* Effekte-Definitionen in Layer */
+@layer effects {
     /* Neon Text */
     .neon-text {
         animation: neon-pulse 1.5s ease-in-out infinite alternate;
@@ -123,18 +124,6 @@
         box-shadow: var(--spacing-0) var(--spacing-0) var(--spacing-5) var(--theme-accent-500),
                     var(--spacing-0) var(--spacing-0) var(--spacing-10) var(--theme-accent-500),
                     var(--spacing-0) var(--spacing-0) var(--spacing-20) var(--theme-accent-500);
-    }
-
-    /* Reduced Motion */
-    @container root (prefers-reduced-motion: reduce) {
-        .neon-text,
-        .neon-border,
-        .flicker-element,
-        .flicker-fast,
-        .flicker-slow {
-            animation: none;
-            transition: none;
-        }
     }
 
     /* Animation Variants */
@@ -191,9 +180,26 @@
     .flicker-slow {
         animation: flicker 8s infinite;
     }
+}
 
-    /* Responsive Anpassungen */
-    @media (width <= 640px) {
+/* Barrierefreiheit-Anpassungen */
+@layer utilities {
+    /* Reduced Motion */
+    @container root (prefers-reduced-motion: reduce) {
+        .neon-text,
+        .neon-border,
+        .flicker-element,
+        .flicker-fast,
+        .flicker-slow {
+            animation: none;
+            transition: none;
+        }
+    }
+}
+
+/* Responsive Anpassungen */
+@media (width <= 640px) {
+    @layer effects {
         .neon-sign {
             font-size: 1.5rem;
             padding: 0.5rem 1rem;
@@ -208,4 +214,5 @@
             height: auto;
             width: 100%;
         }
-    } 
+    }
+} 

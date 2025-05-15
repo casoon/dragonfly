@@ -5,71 +5,6 @@
  * Die Effekte sind performant optimiert und berücksichtigen reduzierte Bewegung.
  */
 
-.gradient-primary {
-    background: linear-gradient(
-        45deg,
-        var(--color-primary),
-        var(--color-primary-light)
-    );
-}
-
-.gradient-secondary {
-    background: linear-gradient(
-        45deg,
-        var(--color-secondary),
-        var(--color-secondary-light)
-    );
-}
-
-.gradient-accent {
-    background: linear-gradient(
-        45deg,
-        var(--color-accent),
-        var(--color-accent-light)
-    );
-}
-
-.gradient-rainbow {
-    animation: gradient-shift 5s ease infinite;
-    background: linear-gradient(
-        45deg,
-        #f00,
-        #ff7f00,
-        #ff0,
-        #0f0,
-        #00f,
-        #4b0082,
-        #8b00ff
-    );
-    background-size: 200% 200%;
-}
-
-.gradient-metallic {
-    background: linear-gradient(
-        45deg,
-        #e6e6e6,
-        #fff,
-        #e6e6e6
-    );
-}
-
-.gradient-iridescent {
-    animation: gradient-shift 5s ease infinite;
-    background: linear-gradient(
-        45deg,
-        #f00,
-        #ff7300,
-        #fffb00,
-        #48ff00,
-        #00ffd5,
-        #002bff,
-        #7a00ff,
-        #ff00c8,
-        #f00
-    );
-    background-size: 200% 200%;
-}
-
 @keyframes gradient-shift {
     0% { background-position: 0% 50%; }
 
@@ -78,10 +13,79 @@
     100% { background-position: 0% 50%; }
 }
 
+@layer utilities {
+    .gradient-primary {
+        background: linear-gradient(
+            45deg,
+            var(--color-primary),
+            var(--color-primary-light)
+        );
+    }
+
+    .gradient-secondary {
+        background: linear-gradient(
+            45deg,
+            var(--color-secondary),
+            var(--color-secondary-light)
+        );
+    }
+
+    .gradient-accent {
+        background: linear-gradient(
+            45deg,
+            var(--color-accent),
+            var(--color-accent-light)
+        );
+    }
+
+    .gradient-rainbow {
+        animation: gradient-shift 5s ease infinite;
+        background: linear-gradient(
+            45deg,
+            #f00,
+            #ff7f00,
+            #ff0,
+            #0f0,
+            #00f,
+            #4b0082,
+            #8b00ff
+        );
+        background-size: 200% 200%;
+    }
+
+    .gradient-metallic {
+        background: linear-gradient(
+            45deg,
+            #e6e6e6,
+            #fff,
+            #e6e6e6
+        );
+    }
+
+    .gradient-iridescent {
+        animation: gradient-shift 5s ease infinite;
+        background: linear-gradient(
+            45deg,
+            #f00,
+            #ff7300,
+            #fffb00,
+            #48ff00,
+            #00ffd5,
+            #002bff,
+            #7a00ff,
+            #ff00c8,
+            #f00
+        );
+        background-size: 200% 200%;
+    }
+}
+
 /* Reduzierte Bewegung */
 @media (prefers-reduced-motion: reduce) {
-    .gradient-rainbow,
-    .gradient-iridescent {
-        animation: none;
+    @layer utilities {
+        .gradient-rainbow,
+        .gradient-iridescent {
+            animation: none;
+        }
     }
 } 

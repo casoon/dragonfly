@@ -5,228 +5,233 @@
  * Die Effekte sind performant optimiert und berücksichtigen reduzierte Bewegung.
  */
 
-.active-scale {
-    transition: transform 0.2s ease;
-}
-
-.active-scale:active {
-    transform: scale(0.95);
-}
-
-.active-scale-sm {
-    transition: transform 0.2s ease;
-}
-
-.active-scale-sm:active {
-    transform: scale(0.98);
-}
-
-.active-scale-lg {
-    transition: transform 0.2s ease;
-}
-
-.active-scale-lg:active {
-    transform: scale(0.9);
-}
-
-.active-lift {
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.active-lift:active {
-    box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
-    transform: translateY(2px);
-}
-
-.active-lift-sm {
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.active-lift-sm:active {
-    box-shadow: 0 1px 2px rgb(0 0 0 / 10%);
-    transform: translateY(1px);
-}
-
-.active-lift-lg {
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.active-lift-lg:active {
-    box-shadow: 0 4px 8px rgb(0 0 0 / 10%);
-    transform: translateY(4px);
-}
-
-.active-tilt {
-    perspective: 1000px;
-    transform-style: preserve-3d;
-    transition: transform 0.2s ease;
-}
-
-.active-tilt:active {
-    transform: rotateX(-5deg) rotateY(-5deg);
-}
-
-.active-tilt-sm {
-    perspective: 1000px;
-    transform-style: preserve-3d;
-    transition: transform 0.2s ease;
-}
-
-.active-tilt-sm:active {
-    transform: rotateX(-2deg) rotateY(-2deg);
-}
-
-.active-tilt-lg {
-    perspective: 1000px;
-    transform-style: preserve-3d;
-    transition: transform 0.2s ease;
-}
-
-.active-tilt-lg:active {
-    transform: rotateX(-10deg) rotateY(-10deg);
-}
-
-.active-glow {
-    transition: box-shadow 0.2s ease;
-}
-
-.active-glow:active {
-    box-shadow: 0 0 10px var(--active-glow-color, rgb(59 130 246 / 30%));
-}
-
-.active-glow-sm {
-    transition: box-shadow 0.2s ease;
-}
-
-.active-glow-sm:active {
-    box-shadow: 0 0 5px var(--active-glow-color, rgb(59 130 246 / 30%));
-}
-
-.active-glow-lg {
-    transition: box-shadow 0.2s ease;
-}
-
-.active-glow-lg:active {
-    box-shadow: 0 0 15px var(--active-glow-color, rgb(59 130 246 / 30%));
-}
-
-.active-border {
-    position: relative;
-    transition: border-color 0.2s ease;
-}
-
-.active-border::after {
-    background: var(--active-border-color, #3b82f6);
-    bottom: 0;
-    content: '';
-    height: 2px;
-    left: 0;
-    opacity: 0%;
-    position: absolute;
-    transition: opacity 0.2s ease;
-    width: 100%;
-}
-
-.active-border:active::after {
-    opacity: 100%;
-}
-
-.active-border-sm::after {
-    height: 1px;
-}
-
-.active-border-lg::after {
-    height: 3px;
-}
-
-.active-bg {
-    transition: background-color 0.2s ease;
-}
-
-.active-bg:active {
-    background-color: var(--active-bg-color, rgb(59 130 246 / 20%));
-}
-
-.active-bg-sm:active {
-    background-color: var(--active-bg-color-sm, rgb(59 130 246 / 10%));
-}
-
-.active-bg-lg:active {
-    background-color: var(--active-bg-color-lg, rgb(59 130 246 / 30%));
-}
-
-.active-color-primary {
-    --active-glow-color: var(--active-primary, rgb(59 130 246 / 30%));
-    --active-border-color: var(--active-primary, #3b82f6);
-    --active-bg-color: var(--active-primary-bg, rgb(59 130 246 / 20%));
-}
-
-.active-color-secondary {
-    --active-glow-color: var(--active-secondary, rgb(107 114 128 / 30%));
-    --active-border-color: var(--active-secondary, #6b7280);
-    --active-bg-color: var(--active-secondary-bg, rgb(107 114 128 / 20%));
-}
-
-.active-color-success {
-    --active-glow-color: var(--active-success, rgb(16 185 129 / 30%));
-    --active-border-color: var(--active-success, #10b981);
-    --active-bg-color: var(--active-success-bg, rgb(16 185 129 / 20%));
-}
-
-.active-color-error {
-    --active-glow-color: var(--active-error, rgb(239 68 68 / 30%));
-    --active-border-color: var(--active-error, #ef4444);
-    --active-bg-color: var(--active-error-bg, rgb(239 68 68 / 20%));
-}
-
-.active-color-warning {
-    --active-glow-color: var(--active-warning, rgb(245 158 11 / 30%));
-    --active-border-color: var(--active-warning, #f59e0b);
-    --active-bg-color: var(--active-warning-bg, rgb(245 158 11 / 20%));
-}
-
-.active-color-info {
-    --active-glow-color: var(--active-info, rgb(6 182 212 / 30%));
-    --active-border-color: var(--active-info, #06b6d4);
-    --active-bg-color: var(--active-info-bg, rgb(6 182 212 / 20%));
-}
-
-/* Reduzierte Bewegung */
-@media (prefers-reduced-motion: reduce) {
-    .active-scale,
-    .active-scale-sm,
-    .active-scale-lg,
-    .active-lift,
-    .active-lift-sm,
-    .active-lift-lg,
-    .active-tilt,
-    .active-tilt-sm,
-    .active-tilt-lg,
-    .active-glow,
-    .active-glow-sm,
-    .active-glow-lg,
-    .active-border,
-    .active-border-sm,
-    .active-border-lg,
-    .active-bg,
-    .active-bg-sm,
-    .active-bg-lg {
-        transition: none;
+/* Komponenten-Styles */
+@layer components {
+    .active-scale {
+        transition: transform 0.2s ease;
     }
-    
-    .active-scale:active,
-    .active-scale-sm:active,
-    .active-scale-lg:active,
-    .active-lift:active,
-    .active-lift-sm:active,
-    .active-lift-lg:active,
-    .active-tilt:active,
-    .active-tilt-sm:active,
+
+    .active-scale:active {
+        transform: scale(0.95);
+    }
+
+    .active-scale-sm {
+        transition: transform 0.2s ease;
+    }
+
+    .active-scale-sm:active {
+        transform: scale(0.98);
+    }
+
+    .active-scale-lg {
+        transition: transform 0.2s ease;
+    }
+
+    .active-scale-lg:active {
+        transform: scale(0.9);
+    }
+
+    .active-lift {
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .active-lift:active {
+        box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+        transform: translateY(2px);
+    }
+
+    .active-lift-sm {
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .active-lift-sm:active {
+        box-shadow: 0 1px 2px rgb(0 0 0 / 10%);
+        transform: translateY(1px);
+    }
+
+    .active-lift-lg {
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .active-lift-lg:active {
+        box-shadow: 0 4px 8px rgb(0 0 0 / 10%);
+        transform: translateY(4px);
+    }
+
+    .active-tilt {
+        perspective: 1000px;
+        transform-style: preserve-3d;
+        transition: transform 0.2s ease;
+    }
+
+    .active-tilt:active {
+        transform: rotateX(-5deg) rotateY(-5deg);
+    }
+
+    .active-tilt-sm {
+        perspective: 1000px;
+        transform-style: preserve-3d;
+        transition: transform 0.2s ease;
+    }
+
+    .active-tilt-sm:active {
+        transform: rotateX(-2deg) rotateY(-2deg);
+    }
+
+    .active-tilt-lg {
+        perspective: 1000px;
+        transform-style: preserve-3d;
+        transition: transform 0.2s ease;
+    }
+
     .active-tilt-lg:active {
-        transform: none;
+        transform: rotateX(-10deg) rotateY(-10deg);
     }
-    
+
+    .active-glow {
+        transition: box-shadow 0.2s ease;
+    }
+
+    .active-glow:active {
+        box-shadow: 0 0 10px var(--active-glow-color, rgb(59 130 246 / 30%));
+    }
+
+    .active-glow-sm {
+        transition: box-shadow 0.2s ease;
+    }
+
+    .active-glow-sm:active {
+        box-shadow: 0 0 5px var(--active-glow-color, rgb(59 130 246 / 30%));
+    }
+
+    .active-glow-lg {
+        transition: box-shadow 0.2s ease;
+    }
+
+    .active-glow-lg:active {
+        box-shadow: 0 0 15px var(--active-glow-color, rgb(59 130 246 / 30%));
+    }
+
+    .active-border {
+        position: relative;
+        transition: border-color 0.2s ease;
+    }
+
     .active-border::after {
-        transition: none;
+        background: var(--active-border-color, #3b82f6);
+        bottom: 0;
+        content: '';
+        height: 2px;
+        left: 0;
+        opacity: 0%;
+        position: absolute;
+        transition: opacity 0.2s ease;
+        width: 100%;
+    }
+
+    .active-border:active::after {
+        opacity: 100%;
+    }
+
+    .active-border-sm::after {
+        height: 1px;
+    }
+
+    .active-border-lg::after {
+        height: 3px;
+    }
+
+    .active-bg {
+        transition: background-color 0.2s ease;
+    }
+
+    .active-bg:active {
+        background-color: var(--active-bg-color, rgb(59 130 246 / 20%));
+    }
+
+    .active-bg-sm:active {
+        background-color: var(--active-bg-color-sm, rgb(59 130 246 / 10%));
+    }
+
+    .active-bg-lg:active {
+        background-color: var(--active-bg-color-lg, rgb(59 130 246 / 30%));
+    }
+
+    .active-color-primary {
+        --active-glow-color: var(--active-primary, rgb(59 130 246 / 30%));
+        --active-border-color: var(--active-primary, #3b82f6);
+        --active-bg-color: var(--active-primary-bg, rgb(59 130 246 / 20%));
+    }
+
+    .active-color-secondary {
+        --active-glow-color: var(--active-secondary, rgb(107 114 128 / 30%));
+        --active-border-color: var(--active-secondary, #6b7280);
+        --active-bg-color: var(--active-secondary-bg, rgb(107 114 128 / 20%));
+    }
+
+    .active-color-success {
+        --active-glow-color: var(--active-success, rgb(16 185 129 / 30%));
+        --active-border-color: var(--active-success, #10b981);
+        --active-bg-color: var(--active-success-bg, rgb(16 185 129 / 20%));
+    }
+
+    .active-color-error {
+        --active-glow-color: var(--active-error, rgb(239 68 68 / 30%));
+        --active-border-color: var(--active-error, #ef4444);
+        --active-bg-color: var(--active-error-bg, rgb(239 68 68 / 20%));
+    }
+
+    .active-color-warning {
+        --active-glow-color: var(--active-warning, rgb(245 158 11 / 30%));
+        --active-border-color: var(--active-warning, #f59e0b);
+        --active-bg-color: var(--active-warning-bg, rgb(245 158 11 / 20%));
+    }
+
+    .active-color-info {
+        --active-glow-color: var(--active-info, rgb(6 182 212 / 30%));
+        --active-border-color: var(--active-info, #06b6d4);
+        --active-bg-color: var(--active-info-bg, rgb(6 182 212 / 20%));
+    }
+}
+
+/* Barrierefreiheit - reduzierte Bewegung */
+@media (prefers-reduced-motion: reduce) {
+    @layer components {
+        .active-scale,
+        .active-scale-sm,
+        .active-scale-lg,
+        .active-lift,
+        .active-lift-sm,
+        .active-lift-lg,
+        .active-tilt,
+        .active-tilt-sm,
+        .active-tilt-lg,
+        .active-glow,
+        .active-glow-sm,
+        .active-glow-lg,
+        .active-border,
+        .active-border-sm,
+        .active-border-lg,
+        .active-bg,
+        .active-bg-sm,
+        .active-bg-lg {
+            transition: none;
+        }
+        
+        .active-scale:active,
+        .active-scale-sm:active,
+        .active-scale-lg:active,
+        .active-lift:active,
+        .active-lift-sm:active,
+        .active-lift-lg:active,
+        .active-tilt:active,
+        .active-tilt-sm:active,
+        .active-tilt-lg:active {
+            transform: none;
+        }
+        
+        .active-border::after {
+            transition: none;
+        }
     }
 } 

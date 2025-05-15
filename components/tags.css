@@ -47,7 +47,7 @@
  * </div>
  */
 
-@layer tags {
+@layer components {
   .tag {
     align-items: center;
     background-color: var(--color-gray-100, #f3f4f6);

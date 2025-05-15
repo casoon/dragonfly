@@ -65,7 +65,7 @@
  * </footer>
  */
 
-@layer footer {
+@layer components {
   .footer {
     background-color: var(--color-white);
     border-top: 1px solid var(--color-gray-300);
@@ -266,28 +266,31 @@
     }
     
     &.minimal {
+      grid-template-rows: auto;
       padding-block: var(--space-4);
       
       .bottom {
         border-top: none;
+        grid-column: span 12;
         margin-top: 0;
         padding-top: 0;
       }
     }
     
     /* Responsive Anpassungen */
-    @container layout (max-width: 768px) {
+    @media (width <= 992px) {
       .logo {
         grid-column: span 12;
         margin-bottom: var(--space-4);
       }
       
       .content {
-        gap: var(--space-8);
         grid-column: span 12;
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
       }
-      
+    }
+    
+    @media (width <= 768px) {
       .bottom {
         flex-direction: column;
         gap: var(--space-4);
@@ -297,6 +300,12 @@
       .legal {
         flex-wrap: wrap;
         justify-content: center;
+      }
+    }
+    
+    @media (width <= 576px) {
+      .content {
+        grid-template-columns: 1fr;
       }
     }
   }

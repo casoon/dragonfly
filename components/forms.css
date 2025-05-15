@@ -17,10 +17,10 @@
  * - Umfassende Unterstützung für alle HTML5 Input-Typen
  * - RTL-Unterstützung für mehrsprachige Anwendungen
  * 
- * @layer forms, form, utilities;
+ * @layer components
  */
 
-@layer forms {
+@layer components {
   /**
    * Form Variables
    * 

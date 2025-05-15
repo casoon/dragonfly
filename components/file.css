@@ -58,7 +58,7 @@
  * </div>
  */
 
-@layer file {
+@layer components {
   /* Basis-Datei-Komponente */
   .file {
     display: inline-flex;
@@ -260,14 +260,15 @@
         background-color: var(--color-primary);
         border-radius: var(--radius-full);
         height: 100%;
-        transition: width 0.3s ease;
+        transition: width var(--transition-normal);
+        width: 0;
       }
     }
     
     .percentage {
-      align-self: flex-end;
       color: var(--color-gray-600);
       font-size: var(--font-size-xs);
+      text-align: right;
     }
     
     &.success .progress-bar {

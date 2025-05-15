@@ -66,7 +66,7 @@
  * </header>
  */
 
-@layer header {
+@layer components {
   .header {
     align-items: center;
     display: grid;
@@ -222,7 +222,7 @@
     }
     
     /* Responsive Anpassungen */
-    @container layout (max-width: 768px) {
+    @media (width <= 768px) {
       grid-template-columns: repeat(12, 1fr);
       grid-template-rows: auto auto;
       

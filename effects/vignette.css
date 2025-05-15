@@ -5,70 +5,74 @@
  * Die Effekte sind performant optimiert und berücksichtigen reduzierte Bewegung.
  */
 
-.vignette {
-    position: relative;
-}
+@layer components {
+    .vignette {
+        position: relative;
+    }
 
-.vignette::after {
-    background: radial-gradient(
-        circle at center,
-        transparent 0%,
-        rgb(0 0 0 / 30%) 100%
-    );
-    content: '';
-    inset: 0;
-    pointer-events: none;
-    position: absolute;
-}
+    .vignette::after {
+        background: radial-gradient(
+            circle at center,
+            transparent 0%,
+            rgb(0 0 0 / 30%) 100%
+        );
+        content: '';
+        inset: 0;
+        pointer-events: none;
+        position: absolute;
+    }
 
-.vignette-strong::after {
-    background: radial-gradient(
-        circle at center,
-        transparent 0%,
-        rgb(0 0 0 / 50%) 100%
-    );
-}
+    .vignette-strong::after {
+        background: radial-gradient(
+            circle at center,
+            transparent 0%,
+            rgb(0 0 0 / 50%) 100%
+        );
+    }
 
-.vignette-soft::after {
-    background: radial-gradient(
-        circle at center,
-        transparent 0%,
-        rgb(0 0 0 / 20%) 100%
-    );
-}
+    .vignette-soft::after {
+        background: radial-gradient(
+            circle at center,
+            transparent 0%,
+            rgb(0 0 0 / 20%) 100%
+        );
+    }
 
-.vignette-color::after {
-    background: radial-gradient(
-        circle at center,
-        transparent 0%,
-        var(--vignette-color, rgb(0 0 0 / 30%)) 100%
-    );
-}
+    .vignette-color::after {
+        background: radial-gradient(
+            circle at center,
+            transparent 0%,
+            var(--vignette-color, rgb(0 0 0 / 30%)) 100%
+        );
+    }
 
-.vignette-top::after {
-    background: radial-gradient(
-        circle at top,
-        transparent 0%,
-        rgb(0 0 0 / 30%) 100%
-    );
-}
+    .vignette-top::after {
+        background: radial-gradient(
+            circle at top,
+            transparent 0%,
+            rgb(0 0 0 / 30%) 100%
+        );
+    }
 
-.vignette-bottom::after {
-    background: radial-gradient(
-        circle at bottom,
-        transparent 0%,
-        rgb(0 0 0 / 30%) 100%
-    );
-}
+    .vignette-bottom::after {
+        background: radial-gradient(
+            circle at bottom,
+            transparent 0%,
+            rgb(0 0 0 / 30%) 100%
+        );
+    }
 
-.vignette-hover:hover::after {
-    opacity: 80%;
-    transition: opacity var(--transition-normal);
+    .vignette-hover:hover::after {
+        opacity: 80%;
+        transition: opacity var(--transition-normal);
+    }
 }
 
 /* Reduzierte Bewegung */
 @media (prefers-reduced-motion: reduce) {
-    .vignette-hover:hover::after {
-        transition: none;
+    @layer components {
+        .vignette-hover:hover::after {
+            transition: none;
+        }
     }
 } 
