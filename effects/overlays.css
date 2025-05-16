@@ -50,6 +50,48 @@
         background-color: var(--overlay-color, rgb(0 0 0 / 50%));
         background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)'/%3E%3C/svg%3E");
     }
+
+    .overlay-gradient-horizontal::after {
+        background: linear-gradient(
+            to right,
+            transparent,
+            var(--overlay-color, rgb(0 0 0 / 70%))
+        );
+    }
+
+    .overlay-gradient-diagonal::after {
+        background: linear-gradient(
+            135deg,
+            transparent,
+            var(--overlay-color, rgb(0 0 0 / 70%))
+        );
+    }
+
+    .overlay-gradient-radial::after {
+        background: radial-gradient(
+            circle at center,
+            transparent,
+            var(--overlay-color, rgb(0 0 0 / 70%))
+        );
+    }
+
+    .overlay-gradient-multi::after {
+        background: linear-gradient(
+            to bottom,
+            transparent,
+            rgb(100 0 200 / 40%),
+            var(--overlay-color, rgb(0 0 0 / 70%))
+        );
+    }
+
+    .overlay-gradient-conic::after {
+        background: conic-gradient(
+            from 0deg at 50% 50%,
+            transparent,
+            var(--overlay-color, rgb(0 0 0 / 30%)),
+            transparent
+        );
+    }
 }
 
 /* Reduzierte Bewegung */
@@ -59,7 +101,12 @@
         .overlay-gradient::after,
         .overlay-blur::after,
         .overlay-shine::after,
-        .overlay-texture::after {
+        .overlay-texture::after,
+        .overlay-gradient-horizontal::after,
+        .overlay-gradient-diagonal::after,
+        .overlay-gradient-radial::after,
+        .overlay-gradient-multi::after,
+        .overlay-gradient-conic::after {
             transition: none;
         }
     }

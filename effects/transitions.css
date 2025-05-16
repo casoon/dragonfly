@@ -96,6 +96,222 @@
     }
 }
 
+/* View Transition API */
+@layer components {
+    /* Basis-Konfiguration für View Transitions */
+    :root {
+        view-transition-name: none;
+    }
+
+    /* Element-basierte View Transitions */
+    .view-transition-basic {
+        view-transition-name: auto;
+    }
+
+    /* Benannte View Transitions für spezifische Elemente */
+    .view-transition-hero {
+        view-transition-name: hero;
+    }
+
+    .view-transition-card {
+        view-transition-name: card;
+    }
+
+    .view-transition-header {
+        view-transition-name: header;
+    }
+
+    .view-transition-content {
+        view-transition-name: content;
+    }
+
+    .view-transition-poster {
+        view-transition-name: poster;
+    }
+
+    /* View Transition Animations-Anpassungen */
+    ::view-transition-old(root) {
+        animation: 300ms cubic-bezier(0.4, 0, 0.2, 1) both fade-out;
+    }
+
+    ::view-transition-new(root) {
+        animation: 300ms cubic-bezier(0.4, 0, 0.2, 1) both fade-in;
+    }
+
+    /* Poster Transition Anpassungen */
+    ::view-transition-old(poster),
+    ::view-transition-new(poster) {
+        animation: none;
+        height: 100%;
+        mix-blend-mode: normal;
+    }
+
+    .poster-cover ::view-transition-new(poster) {
+        object-fit: cover;
+    }
+
+    .poster-contain ::view-transition-new(poster) {
+        object-fit: contain;
+    }
+
+    .poster-zoom-in ::view-transition-old(poster) {
+        animation: 400ms cubic-bezier(0.4, 0, 0.2, 1) both zoom-out;
+    }
+
+    .poster-zoom-in ::view-transition-new(poster) {
+        animation: 400ms cubic-bezier(0.4, 0, 0.2, 1) both zoom-in;
+    }
+
+    .poster-flip ::view-transition-old(poster) {
+        animation: 400ms cubic-bezier(0.4, 0, 0.2, 1) both flip-out;
+    }
+
+    .poster-flip ::view-transition-new(poster) {
+        animation: 400ms cubic-bezier(0.4, 0, 0.2, 1) both flip-in;
+    }
+
+    .poster-reveal ::view-transition-old(poster) {
+        animation: 400ms cubic-bezier(0.4, 0, 0.2, 1) both circle-out;
+        clip-path: circle(100% at center);
+    }
+
+    .poster-reveal ::view-transition-new(poster) {
+        animation: 400ms cubic-bezier(0.4, 0, 0.2, 1) both circle-in;
+        clip-path: circle(0% at center);
+    }
+
+    /* Cross-Document Transitions */
+    .cross-fade {
+        animation: cross-fade 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .cross-slide-left {
+        animation: cross-slide-left 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .cross-slide-right {
+        animation: cross-slide-right 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .cross-scale {
+        animation: cross-scale 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Weitere spezifische Transitions für einzelne Elemente */
+    ::view-transition-old(hero) {
+        animation: 300ms cubic-bezier(0.4, 0, 0.2, 1) both scale-down-fade-out;
+    }
+
+    ::view-transition-new(hero) {
+        animation: 300ms cubic-bezier(0.4, 0, 0.2, 1) both scale-up-fade-in;
+    }
+
+    ::view-transition-old(card) {
+        animation: 300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-left-fade-out;
+    }
+
+    ::view-transition-new(card) {
+        animation: 300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-right-fade-in;
+    }
+
+    /* Animations-Keyframes */
+    @keyframes fade-out {
+        from { opacity: 100%; }
+
+        to { opacity: 0%; }
+    }
+
+    @keyframes fade-in {
+        from { opacity: 0%; }
+
+        to { opacity: 100%; }
+    }
+
+    @keyframes scale-down-fade-out {
+        from { opacity: 100%; transform: scale(1); }
+
+        to { opacity: 0%; transform: scale(0.8); }
+    }
+
+    @keyframes scale-up-fade-in {
+        from { opacity: 0%; transform: scale(0.8); }
+
+        to { opacity: 100%; transform: scale(1); }
+    }
+
+    @keyframes slide-left-fade-out {
+        from { opacity: 100%; transform: translateX(0); }
+
+        to { opacity: 0%; transform: translateX(-30px); }
+    }
+
+    @keyframes slide-right-fade-in {
+        from { opacity: 0%; transform: translateX(30px); }
+
+        to { opacity: 100%; transform: translateX(0); }
+    }
+
+    @keyframes cross-fade {
+        from { opacity: 0%; }
+
+        to { opacity: 100%; }
+    }
+
+    @keyframes cross-slide-left {
+        from { transform: translateX(100%); }
+
+        to { transform: translateX(0); }
+    }
+
+    @keyframes cross-slide-right {
+        from { transform: translateX(-100%); }
+
+        to { transform: translateX(0); }
+    }
+
+    @keyframes cross-scale {
+        from { opacity: 0%; transform: scale(0.9); }
+
+        to { opacity: 100%; transform: scale(1); }
+    }
+
+    @keyframes zoom-out {
+        from { opacity: 100%; transform: scale(1); }
+
+        to { opacity: 0%; transform: scale(1.2); }
+    }
+
+    @keyframes zoom-in {
+        from { opacity: 0%; transform: scale(0.8); }
+
+        to { opacity: 100%; transform: scale(1); }
+    }
+
+    @keyframes flip-out {
+        from { opacity: 100%; transform: perspective(800px) rotateY(0); }
+
+        to { opacity: 0%; transform: perspective(800px) rotateY(-90deg); }
+    }
+
+    @keyframes flip-in {
+        from { opacity: 0%; transform: perspective(800px) rotateY(90deg); }
+
+        to { opacity: 100%; transform: perspective(800px) rotateY(0); }
+    }
+
+    @keyframes circle-out {
+        from { clip-path: circle(100% at center); }
+
+        to { clip-path: circle(0% at center); }
+    }
+
+    @keyframes circle-in {
+        from { clip-path: circle(0% at center); }
+
+        to { clip-path: circle(100% at center); }
+    }
+}
+
 /* Reduzierte Bewegung */
 @media (prefers-reduced-motion: reduce) {
     @layer utilities {
@@ -108,6 +324,21 @@
         .transition-height,
         .transition-spacing {
             transition: none;
+        }
+    }
+
+    @layer components {
+        ::view-transition-old(root),
+        ::view-transition-new(root),
+        ::view-transition-old(hero),
+        ::view-transition-new(hero),
+        ::view-transition-old(card),
+        ::view-transition-new(card),
+        .cross-fade,
+        .cross-slide-left,
+        .cross-slide-right,
+        .cross-scale {
+            animation: none;
         }
     }
 } 
