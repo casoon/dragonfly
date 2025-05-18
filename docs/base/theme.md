@@ -1,0 +1,239 @@
+# Theme
+> Last Modified: 18.05.2024
+
+## File Purpose
+
+This file provides styles for theme elements in modern UIs. It includes various components and utility classes optimized for performance and accessibility.
+
+## CSS Utility Classes
+
+### Base Classes
+
+#### `.dark-mode`
+- Description: Styling for dark mode elements
+- Uses: --color-text, --color-text-muted, --color-text-light
+- Creates: Styled dark mode appearance
+
+## CSS Custom Properties (Variables)
+
+### Color Variables
+- `--color-primary` - Default: `var(--color-blue-600)`
+  - Controls the color value for color primary elements
+- `--color-primary-hover` - Default: `var(--color-blue-700)`
+  - Controls the color value for color primary hover elements
+- `--color-primary-active` - Default: `var(--color-blue-800)`
+  - Controls the color value for color primary active elements
+- `--color-primary-light` - Default: `var(--color-blue-100)`
+  - Controls the color value for color primary light elements
+- `--color-primary-dark` - Default: `var(--color-blue-900)`
+  - Controls the color value for color primary dark elements
+- `--color-secondary` - Default: `var(--color-gray-600)`
+  - Controls the color value for color secondary elements
+- `--color-secondary-hover` - Default: `var(--color-gray-700)`
+  - Controls the color value for color secondary hover elements
+- `--color-secondary-active` - Default: `var(--color-gray-800)`
+  - Controls the color value for color secondary active elements
+- `--color-secondary-light` - Default: `var(--color-gray-100)`
+  - Controls the color value for color secondary light elements
+- `--color-secondary-dark` - Default: `var(--color-gray-900)`
+  - Controls the color value for color secondary dark elements
+- `--color-accent` - Default: `var(--color-orange-500)`
+  - Controls the color value for color accent elements
+- `--color-accent-hover` - Default: `var(--color-orange-600)`
+  - Controls the color value for color accent hover elements
+- `--color-accent-active` - Default: `var(--color-orange-700)`
+  - Controls the color value for color accent active elements
+- `--color-accent-light` - Default: `var(--color-orange-100)`
+  - Controls the color value for color accent light elements
+- `--color-accent-dark` - Default: `var(--color-orange-900)`
+  - Controls the color value for color accent dark elements
+- `--color-success` - Default: `var(--color-green-600)`
+  - Controls the color value for color success elements
+- `--color-success-hover` - Default: `var(--color-green-700)`
+  - Controls the color value for color success hover elements
+- `--color-success-active` - Default: `var(--color-green-800)`
+  - Controls the color value for color success active elements
+- `--color-success-light` - Default: `var(--color-green-100)`
+  - Controls the color value for color success light elements
+- `--color-success-dark` - Default: `var(--color-green-900)`
+  - Controls the color value for color success dark elements
+- `--color-warning` - Default: `var(--color-yellow-500)`
+  - Controls the color value for color warning elements
+- `--color-warning-hover` - Default: `var(--color-yellow-600)`
+  - Controls the color value for color warning hover elements
+- `--color-warning-active` - Default: `var(--color-yellow-700)`
+  - Controls the color value for color warning active elements
+- `--color-warning-light` - Default: `var(--color-yellow-100)`
+  - Controls the color value for color warning light elements
+- `--color-warning-dark` - Default: `var(--color-yellow-900)`
+  - Controls the color value for color warning dark elements
+- `--color-error` - Default: `var(--color-red-600)`
+  - Controls the color value for color error elements
+- `--color-error-hover` - Default: `var(--color-red-700)`
+  - Controls the color value for color error hover elements
+- `--color-error-active` - Default: `var(--color-red-800)`
+  - Controls the color value for color error active elements
+- `--color-error-light` - Default: `var(--color-red-100)`
+  - Controls the color value for color error light elements
+- `--color-error-dark` - Default: `var(--color-red-900)`
+  - Controls the color value for color error dark elements
+- `--color-info` - Default: `var(--color-blue-600)`
+  - Controls the color value for color info elements
+- `--color-info-hover` - Default: `var(--color-blue-700)`
+  - Controls the color value for color info hover elements
+- `--color-info-active` - Default: `var(--color-blue-800)`
+  - Controls the color value for color info active elements
+- `--color-info-light` - Default: `var(--color-blue-100)`
+  - Controls the color value for color info light elements
+- `--color-info-dark` - Default: `var(--color-blue-900)`
+  - Controls the color value for color info dark elements
+- `--color-text` - Default: `light-dark(var(--color-gray-900), var(--color-gray-100))`
+  - Controls the color value for color text elements
+- `--color-text-muted` - Default: `light-dark(var(--color-gray-600), var(--color-gray-400))`
+  - Controls the color value for color text muted elements
+- `--color-text-light` - Default: `light-dark(var(--color-gray-400), var(--color-gray-600))`
+  - Controls the color value for color text light elements
+- `--color-text-inverted` - Default: `light-dark(var(--color-white), var(--color-gray-900))`
+  - Controls the color value for color text inverted elements
+- `--color-background` - Default: `light-dark(var(--color-gray-50), var(--color-gray-900))`
+  - Controls the color value for color background elements
+- `--color-background-alt` - Default: `light-dark(var(--color-gray-100), var(--color-gray-800))`
+  - Controls the color value for color background alt elements
+- `--color-background-elevated` - Default: `light-dark(var(--color-white), var(--color-gray-800))`
+  - Controls the color value for color background elevated elements
+- `--color-background-inverted` - Default: `light-dark(var(--color-gray-900), var(--color-gray-50))`
+  - Controls the color value for color background inverted elements
+- `--color-border` - Default: `light-dark(var(--color-gray-200), var(--color-gray-700))`
+  - Controls the color value for color border elements
+- `--color-border-hover` - Default: `light-dark(var(--color-gray-300), var(--color-gray-600))`
+  - Controls the color value for color border hover elements
+- `--color-border-focus` - Default: `light-dark(var(--color-blue-500), var(--color-blue-400))`
+  - Controls the color value for color border focus elements
+- `--color-border-error` - Default: `light-dark(var(--color-red-500), var(--color-red-400))`
+  - Controls the color value for color border error elements
+- `--color-shadow-sm` - Default: `light-dark(rgb(0 0 0 / 5%), rgb(0 0 0 / 20%))`
+  - Controls the color value for color shadow sm elements
+- `--color-shadow-md` - Default: `light-dark(rgb(0 0 0 / 10%), rgb(0 0 0 / 30%))`
+  - Controls the color value for color shadow md elements
+- `--color-shadow-lg` - Default: `light-dark(rgb(0 0 0 / 15%), rgb(0 0 0 / 40%))`
+  - Controls the color value for color shadow lg elements
+- `--color-shadow-xl` - Default: `light-dark(rgb(0 0 0 / 20%), rgb(0 0 0 / 50%))`
+  - Controls the color value for color shadow xl elements
+- `--color-focus-ring` - Default: `light-dark(var(--color-blue-500), var(--color-blue-400))`
+  - Controls the color value for color focus ring elements
+- `--color-focus-ring-offset` - Default: `light-dark(var(--color-white), var(--color-gray-900))`
+  - Controls the color value for color focus ring offset elements
+- `--color-outline` - Default: `light-dark(var(--color-blue-500), var(--color-blue-400))`
+  - Controls the color value for color outline elements
+- `--color-grey-dark` - Default: `var(--color-gray-900)`
+  - Controls the color value for color grey dark elements
+- `--color-grey-neutral` - Default: `var(--color-gray-200)`
+  - Controls the color value for color grey neutral elements
+- `--color-grey-soft` - Default: `var(--color-gray-400)`
+  - Controls the color value for color grey soft elements
+- `--color-grey-deep` - Default: `var(--color-gray-700)`
+  - Controls the color value for color grey deep elements
+- `--color-rose-beige` - Default: `var(--color-rose-100)`
+  - Controls the color value for color rose beige elements
+- `--color-violet-muted` - Default: `var(--color-purple-200)`
+  - Controls the color value for color violet muted elements
+- `--color-pastel-pink` - Default: `var(--color-pink-100)`
+  - Controls the color value for color pastel pink elements
+- `--color-pastel-blue` - Default: `var(--color-blue-100)`
+  - Controls the color value for color pastel blue elements
+- `--color-pastel-mint` - Default: `var(--color-green-100)`
+  - Controls the color value for color pastel mint elements
+- `--color-pastel-lilac` - Default: `var(--color-purple-100)`
+  - Controls the color value for color pastel lilac elements
+- `--color-pastel-peach` - Default: `var(--color-orange-100)`
+  - Controls the color value for color pastel peach elements
+- `--color-pastel-lavender` - Default: `var(--color-purple-100)`
+  - Controls the color value for color pastel lavender elements
+- `--color-pastel-babyblue` - Default: `var(--color-sky-100)`
+  - Controls the color value for color pastel babyblue elements
+- `--color-pastel-coral` - Default: `var(--color-red-100)`
+  - Controls the color value for color pastel coral elements
+- `--color-pastel-yellow` - Default: `var(--color-yellow-100)`
+  - Controls the color value for color pastel yellow elements
+- `--color-text` - Default: `var(--color-gray-100)`
+  - Controls the color value for color text elements
+- `--color-text-muted` - Default: `var(--color-gray-400)`
+  - Controls the color value for color text muted elements
+- `--color-text-light` - Default: `var(--color-gray-600)`
+  - Controls the color value for color text light elements
+- `--color-text-inverted` - Default: `var(--color-gray-900)`
+  - Controls the color value for color text inverted elements
+- `--color-background` - Default: `var(--color-gray-900)`
+  - Controls the color value for color background elements
+- `--color-background-alt` - Default: `var(--color-gray-800)`
+  - Controls the color value for color background alt elements
+- `--color-background-elevated` - Default: `var(--color-gray-800)`
+  - Controls the color value for color background elevated elements
+- `--color-background-inverted` - Default: `var(--color-gray-50)`
+  - Controls the color value for color background inverted elements
+- `--color-border` - Default: `var(--color-gray-700)`
+  - Controls the color value for color border elements
+- `--color-border-hover` - Default: `var(--color-gray-600)`
+  - Controls the color value for color border hover elements
+- `--color-border-focus` - Default: `var(--color-blue-400)`
+  - Controls the color value for color border focus elements
+- `--color-border-error` - Default: `var(--color-red-400)`
+  - Controls the color value for color border error elements
+- `--color-shadow-sm` - Default: `rgb(0 0 0 / 20%)`
+  - Controls the color value for color shadow sm elements
+- `--color-shadow-md` - Default: `rgb(0 0 0 / 30%)`
+  - Controls the color value for color shadow md elements
+- `--color-shadow-lg` - Default: `rgb(0 0 0 / 40%)`
+  - Controls the color value for color shadow lg elements
+- `--color-shadow-xl` - Default: `rgb(0 0 0 / 50%)`
+  - Controls the color value for color shadow xl elements
+- `--color-focus-ring` - Default: `var(--color-blue-400)`
+  - Controls the color value for color focus ring elements
+- `--color-focus-ring-offset` - Default: `var(--color-gray-900)`
+  - Controls the color value for color focus ring offset elements
+- `--color-outline` - Default: `var(--color-blue-400)`
+  - Controls the color value for color outline elements
+- `--color-text` - Default: `var(--color-gray-100)`
+  - Controls the color value for color text elements
+- `--color-text-muted` - Default: `var(--color-gray-400)`
+  - Controls the color value for color text muted elements
+- `--color-text-light` - Default: `var(--color-gray-600)`
+  - Controls the color value for color text light elements
+- `--color-text-inverted` - Default: `var(--color-gray-900)`
+  - Controls the color value for color text inverted elements
+- `--color-background` - Default: `var(--color-gray-900)`
+  - Controls the color value for color background elements
+- `--color-background-alt` - Default: `var(--color-gray-800)`
+  - Controls the color value for color background alt elements
+- `--color-background-elevated` - Default: `var(--color-gray-800)`
+  - Controls the color value for color background elevated elements
+- `--color-background-inverted` - Default: `var(--color-gray-50)`
+  - Controls the color value for color background inverted elements
+- `--color-border` - Default: `var(--color-gray-700)`
+  - Controls the color value for color border elements
+- `--color-border-hover` - Default: `var(--color-gray-600)`
+  - Controls the color value for color border hover elements
+- `--color-border-focus` - Default: `var(--color-blue-400)`
+  - Controls the color value for color border focus elements
+- `--color-border-error` - Default: `var(--color-red-400)`
+  - Controls the color value for color border error elements
+- `--color-shadow-sm` - Default: `rgb(0 0 0 / 20%)`
+  - Controls the color value for color shadow sm elements
+- `--color-shadow-md` - Default: `rgb(0 0 0 / 30%)`
+  - Controls the color value for color shadow md elements
+- `--color-shadow-lg` - Default: `rgb(0 0 0 / 40%)`
+  - Controls the color value for color shadow lg elements
+- `--color-shadow-xl` - Default: `rgb(0 0 0 / 50%)`
+  - Controls the color value for color shadow xl elements
+- `--color-focus-ring` - Default: `var(--color-blue-400)`
+  - Controls the color value for color focus ring elements
+- `--color-focus-ring-offset` - Default: `var(--color-gray-900)`
+  - Controls the color value for color focus ring offset elements
+- `--color-outline` - Default: `var(--color-blue-400)`
+  - Controls the color value for color outline elements
+
+## Responsive / Media Behavior
+
+### `@media (prefers-color-scheme: dark)`
+- Adjusts layout and styling for specific screen conditions
+
