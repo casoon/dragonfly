@@ -1,35 +1,35 @@
-# CSS-Layer-Struktur für Casoon UI
+# CSS Layer Structure for Casoon UI
 
-Dieses Dokument beschreibt die standardisierte Layer-Struktur für das Casoon UI Design-System und bietet Richtlinien für deren Implementierung.
+This document describes the standardized layer structure for the Casoon UI Design System and provides guidelines for its implementation.
 
-## Grundlegende Layer-Hierarchie
+## Basic Layer Hierarchy
 
-Die CSS-Layer sind in einer logischen Hierarchie organisiert, um die Spezifität zu verwalten und Konflikte zwischen Selektoren zu vermeiden. Die Reihenfolge ist wie folgt (von niedrigster zu höchster Priorität):
+The CSS layers are organized in a logical hierarchy to manage specificity and avoid conflicts between selectors. The order is as follows (from lowest to highest priority):
 
 ```css
-@layer reset,        /* CSS-Reset und Normalisierung */
-       tokens,       /* Design-Tokens und Variablen */
-       base,         /* Grundlegende Elementstile (enthält logical-properties, accessibility, elements) */
-       logical-properties, /* Sub-Layer von base: Logische Eigenschaften für RTL/LTR Support */
-       accessibility, /* Sub-Layer von base: Barrierefreiheits-bezogene Stile */
-       elements,     /* Sub-Layer von base: Grundlegende HTML-Element-Stile */
-       colors,       /* Farbdefinitionen und Schema (enthält color-mix) */
-       color-mix,    /* Sub-Layer von colors: Farb-Mischungen und -Transformationen */
-       typography,   /* Typografie-Stile */
-       layout,       /* Layout-Systeme und Grid (enthält layout-queries) */
-       layout-queries, /* Sub-Layer von layout: Container-Queries für Layouts */
-       utilities,    /* Hilfsstilklassen */
-       components,   /* Komponentenstile (enthält form) */
-       form,         /* Sub-Layer von components: Formular-bezogene Stile */
-       animations,   /* Animationsdefinitionen (enthält animation-contexts) */
-       animation-contexts, /* Sub-Layer von animations: Kontextbezogene Animationen */
-       effects,      /* Visuelle Effekte (enthält smooth-scroll) */
-       smooth-scroll, /* Sub-Layer von effects: Scrolling-Verhalten und -Effekte */
-       icons,        /* Icon-Stile */
-       themes;       /* Theme-Varianten */
+@layer reset,        /* CSS reset and normalization */
+       tokens,       /* Design tokens and variables */
+       base,         /* Basic element styles (contains logical-properties, accessibility, elements) */
+       logical-properties, /* Sub-layer of base: Logical properties for RTL/LTR support */
+       accessibility, /* Sub-layer of base: Accessibility-related styles */
+       elements,     /* Sub-layer of base: Basic HTML element styles */
+       colors,       /* Color definitions and schema (contains color-mix) */
+       color-mix,    /* Sub-layer of colors: Color mixtures and transformations */
+       typography,   /* Typography styles */
+       layout,       /* Layout systems and grid (contains layout-queries) */
+       layout-queries, /* Sub-layer of layout: Container queries for layouts */
+       utilities,    /* Helper style classes */
+       components,   /* Component styles (contains form) */
+       form,         /* Sub-layer of components: Form-related styles */
+       animations,   /* Animation definitions (contains animation-contexts) */
+       animation-contexts, /* Sub-layer of animations: Context-related animations */
+       effects,      /* Visual effects (contains smooth-scroll) */
+       smooth-scroll, /* Sub-layer of effects: Scrolling behavior and effects */
+       icons,        /* Icon styles */
+       themes;       /* Theme variants */
 ```
 
-Die logische Hierarchie kann wie folgt visualisiert werden:
+The logical hierarchy can be visualized as follows:
 
 ```
 - base
@@ -53,14 +53,14 @@ Die logische Hierarchie kann wie folgt visualisiert werden:
   └── smooth-scroll
 ```
 
-## Wichtige Regeln
+## Important Rules
 
-### 1. Keyframes außerhalb von Layern definieren
+### 1. Define Keyframes Outside of Layers
 
-**Wichtig:** Alle `@keyframes`-Definitionen müssen außerhalb von `@layer`-Blöcken platziert werden, um Kompatibilitätsprobleme mit Lightning CSS zu vermeiden.
+**Important:** All `@keyframes` definitions must be placed outside of `@layer` blocks to avoid compatibility issues with Lightning CSS.
 
 ```css
-/* RICHTIG ✅ */
+/* CORRECT ✅ */
 @keyframes fade-in {
     from { opacity: 0; }
     to { opacity: 1; }
@@ -73,7 +73,7 @@ Die logische Hierarchie kann wie folgt visualisiert werden:
     }
 }
 
-/* FALSCH ❌ */
+/* INCORRECT ❌ */
 @layer animations {
     @keyframes slide-in {
         from { transform: translateY(20px); opacity: 0; }
@@ -82,42 +82,42 @@ Die logische Hierarchie kann wie folgt visualisiert werden:
 }
 ```
 
-### 2. Komponenten-Layer verwenden
+### 2. Use Component Layers
 
-Verwende den `components`-Layer für alle komponentenbezogenen Stile:
+Use the `components` layer for all component-related styles:
 
 ```css
-/* RICHTIG ✅ */
+/* CORRECT ✅ */
 @layer components {
     .button {
-        /* Button-Styles */
+        /* Button styles */
     }
 }
 
-/* FALSCH ❌ */
+/* INCORRECT ❌ */
 @layer button {
     .button {
-        /* Button-Styles */
+        /* Button styles */
     }
 }
 ```
 
-Für Formular-Komponenten und -Elemente, nutze den `form`-Layer innerhalb des `components`-Layers:
+For form components and elements, use the `form` layer within the `components` layer:
 
 ```css
 @layer form {
     .form-group {
-        /* Formular-Element-Styles */
+        /* Form element styles */
     }
 }
 ```
 
-### 3. Media-Queries mit Layer-Definitionen im Inneren
+### 3. Media Queries with Layer Definitions Inside
 
-Media-Queries sollten Layer-Definitionen umschließen, nicht umgekehrt:
+Media queries should wrap layer definitions, not the other way around:
 
 ```css
-/* RICHTIG ✅ */
+/* CORRECT ✅ */
 @media (max-width: 768px) {
     @layer components {
         .card {
@@ -126,7 +126,7 @@ Media-Queries sollten Layer-Definitionen umschließen, nicht umgekehrt:
     }
 }
 
-/* FALSCH ❌ */
+/* INCORRECT ❌ */
 @layer components {
     @media (max-width: 768px) {
         .card {
@@ -136,39 +136,39 @@ Media-Queries sollten Layer-Definitionen umschließen, nicht umgekehrt:
 }
 ```
 
-## Beispiele
+## Examples
 
-### Typische Komponenten-Datei
+### Typical Component File
 
 ```css
 /**
- * Button-Komponente
+ * Button Component
  *
  * @layer components
  */
 
-/* Keyframes außerhalb von Layern */
+/* Keyframes outside of layers */
 @keyframes button-pulse {
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.05); }
 }
 
-/* Komponenten-Styles */
+/* Component styles */
 @layer components {
     .button {
-        /* Basis-Styles */
+        /* Base styles */
         display: inline-flex;
         align-items: center;
         justify-content: center;
         /* ... */
     }
     
-    /* Varianten */
+    /* Variants */
     .button.primary { /* ... */ }
     .button.secondary { /* ... */ }
 }
 
-/* Animationen für die Komponente */
+/* Animations for the component */
 @layer animations {
     .button.animate-pulse {
         animation-name: button-pulse;
@@ -177,7 +177,7 @@ Media-Queries sollten Layer-Definitionen umschließen, nicht umgekehrt:
     }
 }
 
-/* Effekte für die Komponente */
+/* Effects for the component */
 @layer effects {
     .button.glow {
         box-shadow: 0 0 10px var(--color-primary);
@@ -185,11 +185,11 @@ Media-Queries sollten Layer-Definitionen umschließen, nicht umgekehrt:
 }
 ```
 
-### Formular-Elemente
+### Form Elements
 
 ```css
 /**
- * Formular-Elemente
+ * Form Elements
  *
  * @layer form
  */
@@ -213,21 +213,21 @@ Media-Queries sollten Layer-Definitionen umschließen, nicht umgekehrt:
 }
 ```
 
-## Migration bestehender Dateien
+## Migration of Existing Files
 
-Beim Migrieren bestehender Dateien zur neuen Layer-Struktur:
+When migrating existing files to the new layer structure:
 
-1. Extrahiere alle `@keyframes`-Definitionen und platziere sie außerhalb der `@layer`-Blöcke
-2. Identifiziere den passenden Layer für jeden CSS-Block gemäß der dokumentierten Hierarchie
-3. Überprüfe Medienabfragen und füge Layer-Definitionen innerhalb dieser hinzu, wenn nötig
-4. Für komponenten-spezifische Layer, migriere zu `@layer components`
+1. Extract all `@keyframes` definitions and place them outside the `@layer` blocks
+2. Identify the appropriate layer for each CSS block according to the documented hierarchy
+3. Check media queries and add layer definitions inside them if necessary
+4. For component-specific layers, migrate to `@layer components`
 
-### Beispiel für eine Migration
+### Example of a Migration
 
-Vor der Migration:
+Before migration:
 
 ```css
-/* Alte Struktur mit eigenem Layer */
+/* Old structure with its own layer */
 @layer card {
     .card {
         display: flex;
@@ -236,10 +236,10 @@ Vor der Migration:
 }
 ```
 
-Nach der Migration:
+After migration:
 
 ```css
-/* Neue Struktur mit components-Layer */
+/* New structure with components layer */
 @layer components {
     .card {
         display: flex;
@@ -248,11 +248,51 @@ Nach der Migration:
 }
 ```
 
-## Vorteile der Layer-Struktur
+## Combined Approach with Container Queries
 
-- **Klare Spezifitätsregeln**: Layer lösen Konflikte nach ihrer Reihenfolge in der Hierarchie
-- **Bessere Organisation**: Code ist nach logischen Gruppen strukturiert
-- **Einfachere Wartung**: Änderungen an einem Layer beeinflussen nicht unbeabsichtigt andere
-- **Verbesserte Performance**: Browser können Layer-basierte Styles besser optimieren
-- **Kompatibilität**: Vermeidung von bekannten Issues mit Tools wie Lightning CSS
-- **Bessere Entwicklererfahrung**: Klare Struktur erleichtert das Verständnis des Codes 
+The structure also supports container queries, which should follow the same pattern as media queries:
+
+```css
+@container (min-width: 30rem) {
+    @layer components {
+        .card {
+            flex-direction: row;
+            gap: var(--spacing-4);
+        }
+    }
+}
+```
+
+## Documentation Best Practices
+
+When documenting CSS files, follow these practices:
+
+1. Use JSDoc-style comments to indicate the layer(s) used in a file
+2. Document component variants with clear comments
+3. Explain any special behavior or interactions
+
+Example:
+
+```css
+/**
+ * Alert Component
+ * 
+ * @layer components
+ * @layer animations
+ * 
+ * Provides status and feedback messages to users.
+ * Includes support for different severity levels and
+ * optional animations for appearing/disappearing.
+ */
+```
+
+## Layer-specific Naming Conventions
+
+To make it easier to identify which layer a class belongs to, consider following these naming patterns:
+
+- Utility classes: Functional, descriptive names (`flex`, `hidden`, `mt-4`)
+- Component classes: Component name with modifiers (`button`, `button--primary`, `card__header`)
+- Animation classes: Prefixed with animation intent (`fade-in`, `slide-from-left`)
+- Effect classes: Describes the effect (`shadow-sm`, `glow`, `blur-bg`)
+
+This approach helps maintain clarity about where styles should be placed in the layer structure. 

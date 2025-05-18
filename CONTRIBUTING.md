@@ -1,159 +1,159 @@
-# Beitragen zur CASOON UI Library
+# Contributing to CASOON UI Library
 
-Vielen Dank für dein Interesse, zur CASOON UI Library beizutragen! Diese Anleitung hilft dir, unseren Entwicklungsprozess kennenzulernen und zu verstehen, wie du effektiv mitwirken kannst.
+Thank you for your interest in contributing to the CASOON UI Library! This guide will help you understand our development process and how you can effectively contribute.
 
-## Entwicklungsphilosophie
+## Development Philosophy
 
-Die CASOON UI Library verfolgt diese Grundprinzipien:
+The CASOON UI Library follows these basic principles:
 
-- **Modularität**: Komponenten sollten unabhängig und wiederverwendbar sein
-- **Effizienz**: Optimierung für Performance und LightningCSS
-- **Zugänglichkeit**: Alle Komponenten müssen zugänglich und barrierefrei sein
-- **Konsistenz**: Einheitliches Design und einheitliche API für alle Komponenten
+- **Modularity**: Components should be independent and reusable
+- **Efficiency**: Optimization for performance and LightningCSS
+- **Accessibility**: All components must be accessible and barrier-free
+- **Consistency**: Uniform design and consistent API for all components
 
-## Styleguide
+## Style Guide
 
-### CSS-Konventionen
+### CSS Conventions
 
-1. **Verwende logische Eigenschaften**, wenn möglich:
-   - `inline-size` statt `width`
-   - `block-size` statt `height` 
-   - `inline-start` statt `left`/`right` (je nach Sprachrichtung)
+1. **Use logical properties** whenever possible:
+   - `inline-size` instead of `width`
+   - `block-size` instead of `height` 
+   - `inline-start` instead of `left`/`right` (depending on language direction)
 
-2. **CSS-Werte in Kleinbuchstaben**:
-   - `optimizespeed` statt `optimizeSpeed`
-   - `auto` statt `Auto`
+2. **CSS values in lowercase**:
+   - `optimizespeed` instead of `optimizeSpeed`
+   - `auto` instead of `Auto`
 
-3. **Verwende CSS-Layers korrekt**:
-   - `@layer core { ... }` für Kern-Funktionalität
-   - Module sollten `.module.css` Dateierweiterung verwenden
+3. **Use CSS layers correctly**:
+   - `@layer core { ... }` for core functionality
+   - Modules should use the `.module.css` file extension
 
-4. **CSS-Variablen**:
-   - Folge der bestehenden Benennungskonvention (z.B. `--color-primary-500`)
-   - Definiere neue Variablen in `layers/tokens.css`
-   - Verwende bestehende Variablen, statt neue zu erstellen
+4. **CSS variables**:
+   - Follow the existing naming convention (e.g., `--color-primary-500`)
+   - Define new variables in `layers/tokens.css`
+   - Use existing variables instead of creating new ones
 
-### Neue Komponenten
+### New Components
 
-1. **Studiere bestehende Komponenten** vor dem Erstellen neuer
-2. **Erstelle ein Modul** in `modules/` mit der Erweiterung `.module.css`
-3. **Dokumentiere** mit Kommentaren die Nutzung der Komponente
-4. **Füge Varianten** für verschiedene Anwendungsfälle hinzu
-5. **Teste** die Komponente in verschiedenen Browsern
+1. **Study existing components** before creating new ones
+2. **Create a module** in `modules/` with the extension `.module.css`
+3. **Document** the component's usage with comments
+4. **Add variants** for different use cases
+5. **Test** the component in different browsers
 
-## Beitragsprozess
+## Contribution Process
 
-1. **Forke** das Repository
-2. **Erstelle einen Feature-Branch**: `git checkout -b feature/neue-komponente`
-3. **Entwickle** deine Änderungen
-4. **Führe Linting durch**: `npm run lint`
-5. **Pushe**: `git push origin feature/neue-komponente`
-6. **Erstelle einen Pull Request** mit einer klaren Beschreibung
+1. **Fork** the repository
+2. **Create a feature branch**: `git checkout -b feature/new-component`
+3. **Develop** your changes
+4. **Run linting**: `npm run lint`
+5. **Push**: `git push origin feature/new-component`
+6. **Create a pull request** with a clear description
 
-## Code-Qualität
+## Code Quality
 
-- **Linting**: `npm run lint` muss ohne Fehler durchlaufen
-- **Keine direkten Commits** auf den `main`-Branch
-- **Selbstprüfung**: Überprüfe deine Änderungen auf mögliche Fehler vor dem Einreichen
+- **Linting**: `npm run lint` must complete without errors
+- **No direct commits** to the `main` branch
+- **Self-review**: Check your changes for potential errors before submitting
 
 ## Pull Requests
 
-Dein Pull Request sollte Folgendes enthalten:
+Your pull request should include:
 
-- **Beschreibung** der Änderungen
-- **Kontext** warum die Änderungen notwendig sind
-- **Screenshots**, wenn visuelle Änderungen vorgenommen wurden
-- **Testanweisungen**, wie die Änderungen zu testen sind
+- **Description** of the changes
+- **Context** explaining why the changes are necessary
+- **Screenshots** if visual changes were made
+- **Testing instructions** on how to test the changes
 
-## Kontakt
+## Contact
 
-Bei Fragen oder Unklarheiten wende dich bitte an das CASOON-Entwicklungsteam.
+If you have questions or concerns, please contact the CASOON development team.
 
-## 🚀 Erste Schritte
+## 🚀 Getting Started
 
-1. Forken Sie das Repository
-2. Klonen Sie Ihren Fork: `git clone https://github.com/ihr-username/casoon-ui-lib.git`
-3. Erstellen Sie einen neuen Branch: `git checkout -b feature/ihr-feature-name`
+1. Fork the repository
+2. Clone your fork: `git clone https://github.com/your-username/casoon-ui-lib.git`
+3. Create a new branch: `git checkout -b feature/your-feature-name`
 
 ## 📝 Pull Requests
 
-1. Stellen Sie sicher, dass Ihr Code den Styleguide entspricht
-2. Fügen Sie Tests für neue Funktionen hinzu
-3. Aktualisieren Sie die Dokumentation
-4. Beschreiben Sie Ihre Änderungen im Pull Request
+1. Ensure your code complies with the style guide
+2. Add tests for new features
+3. Update documentation
+4. Describe your changes in the pull request
 
-## 🎨 Styleguide
+## 🎨 Style Guide
 
 ### CSS
-- Verwenden Sie OpenProps für CSS-Variablen
-- Folgen Sie der BEM-Namenskonvention
-- Fügen Sie Kommentare für komplexe CSS-Regeln hinzu
-- Halten Sie die CSS-Dateien modular und organisiert
+- Use OpenProps for CSS variables
+- Follow the BEM naming convention
+- Add comments for complex CSS rules
+- Keep CSS files modular and organized
 
 ### JavaScript/TypeScript
-- Verwenden Sie TypeScript für neue Komponenten
-- Folgen Sie den ESLint-Regeln
-- Fügen Sie JSDoc-Kommentare hinzu
-- Halten Sie die Funktionen klein und fokussiert
+- Use TypeScript for new components
+- Follow ESLint rules
+- Add JSDoc comments
+- Keep functions small and focused
 
-### Dokumentation
-- Aktualisieren Sie die README.md bei relevanten Änderungen
-- Fügen Sie Beispiele für neue Funktionen hinzu
-- Dokumentieren Sie Breaking Changes
+### Documentation
+- Update README.md for relevant changes
+- Add examples for new features
+- Document breaking changes
 
 ## 🧪 Tests
 
-- Fügen Sie Unit-Tests für neue Funktionen hinzu
-- Stellen Sie sicher, dass alle Tests bestanden werden
-- Testen Sie in verschiedenen Browsern
+- Add unit tests for new features
+- Ensure all tests pass
+- Test in different browsers
 
-## 📚 Dokumentation
+## 📚 Documentation
 
-- Aktualisieren Sie die Dokumentation bei Änderungen
-- Fügen Sie Beispiele hinzu
-- Dokumentieren Sie Breaking Changes
+- Update documentation when making changes
+- Add examples
+- Document breaking changes
 
 ## 🐛 Bug Reports
 
-1. Überprüfen Sie, ob der Bug bereits gemeldet wurde
-2. Erstellen Sie ein neues Issue
-3. Beschreiben Sie den Bug detailliert
-4. Fügen Sie Schritte zur Reproduktion hinzu
-5. Geben Sie die erwarteten und tatsächlichen Ergebnisse an
+1. Check if the bug has already been reported
+2. Create a new issue
+3. Describe the bug in detail
+4. Include steps to reproduce
+5. List expected and actual results
 
 ## 💡 Feature Requests
 
-1. Überprüfen Sie, ob das Feature bereits vorgeschlagen wurde
-2. Erstellen Sie ein neues Issue
-3. Beschreiben Sie das Feature detailliert
-4. Erklären Sie den Nutzen des Features
+1. Check if the feature has already been proposed
+2. Create a new issue
+3. Describe the feature in detail
+4. Explain the benefits of the feature
 
 ## 📝 Commit Messages
 
-- Verwenden Sie aussagekräftige Commit Messages
-- Folgen Sie der Konvention: `type(scope): description`
-- Beispiele:
+- Use meaningful commit messages
+- Follow the convention: `type(scope): description`
+- Examples:
   - `feat(animations): add fade-in effect`
   - `fix(grid): correct responsive breakpoints`
   - `docs(readme): update installation instructions`
 
 ## 🔄 Workflow
 
-1. Aktualisieren Sie Ihren Fork mit dem Hauptrepository
-2. Erstellen Sie einen Feature-Branch
-3. Entwickeln Sie Ihre Änderungen
-4. Führen Sie Tests durch
-5. Erstellen Sie einen Pull Request
+1. Update your fork with the main repository
+2. Create a feature branch
+3. Develop your changes
+4. Run tests
+5. Create a pull request
 
 ## 📞 Support
 
-Bei Fragen oder Problemen:
-- Öffnen Sie ein Issue
-- Besuchen Sie die [Homepage](https://www.casoon.de)
-- Kontaktieren Sie uns über GitHub
+If you have questions or issues:
+- Open an issue
+- Visit the [homepage](https://www.casoon.de)
+- Contact us through GitHub
 
-## 📝 Lizenz
+## 📝 License
 
-Mit Ihrem Beitrag stimmen Sie zu, dass Ihre Änderungen unter der MIT-Lizenz veröffentlicht werden.
+By contributing, you agree that your changes will be published under the MIT License.
 
-Vielen Dank für Ihren Beitrag zur Casoon UI Library! 🎉 
+Thank you for your contribution to the Casoon UI Library! 🎉 

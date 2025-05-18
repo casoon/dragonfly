@@ -1,56 +1,56 @@
-# CSS Layer-System
+# CSS Layer System
 
-## Übersicht
+## Overview
 
-Das CSS Layer-System von CASOON UI Lib verwendet `@layer` als zentrales Organisationsprinzip, um Spezifität und Kaskadierung von Stilen präzise zu kontrollieren. Dies ermöglicht ein vorhersehbares, wartbares und konfliktfreies Styling-System mit klarer Hierarchie.
+The CSS Layer System of CASOON UI Lib uses `@layer` as a central organizational principle to precisely control the specificity and cascading of styles. This enables a predictable, maintainable, and conflict-free styling system with a clear hierarchy.
 
-## Struktur des Layer-Systems
+## Structure of the Layer System
 
-Die Layer sind in `base.css` in einer präzisen Hierarchie definiert:
+The layers are defined in `base.css` in a precise hierarchy:
 
 ```css
-@layer reset,                /* Grundlegender Browser-Reset */
-       tokens,               /* Design-Tokens und Variablen */
-       custom-properties,    /* Registrierte CSS-Eigenschaften */
-       core,                 /* Kernfunktionalitäten */
-       logical-properties,   /* Bidirektionale Layouts (RTL/LTR) */
-       colors,               /* Farbsystem */
-       color-mix,            /* Farbmischungen und -varianten */
-       layout,               /* Layout-Grundlagen */
-       layout-queries,       /* Responsive Anpassungen */
-       typography,           /* Typografie-System */
-       utilities,            /* Atomare Utility-Klassen */
-       smooth-scroll,        /* Scrollverhalten */
-       accessibility,        /* Barrierefreiheit */
-       icons,                /* Icon-System */
-       components,           /* UI-Komponenten */
-       animations,           /* Bewegungssystem */
-       effects,              /* Visuelle Effekte */
-       themes;               /* Theming-System */
+@layer reset,                /* Basic browser reset */
+       tokens,               /* Design tokens and variables */
+       custom-properties,    /* Registered CSS properties */
+       core,                 /* Core functionalities */
+       logical-properties,   /* Bidirectional layouts (RTL/LTR) */
+       colors,               /* Color system */
+       color-mix,            /* Color mixtures and variants */
+       layout,               /* Layout basics */
+       layout-queries,       /* Responsive adjustments */
+       typography,           /* Typography system */
+       utilities,            /* Atomic utility classes */
+       smooth-scroll,        /* Scroll behavior */
+       accessibility,        /* Accessibility */
+       icons,                /* Icon system */
+       components,           /* UI components */
+       animations,           /* Motion system */
+       effects,              /* Visual effects */
+       themes;               /* Theming system */
 ```
 
-Die Reihenfolge ist entscheidend für die Kaskadierung: Layer, die früher in der Liste erscheinen, haben eine niedrigere Spezifität als spätere Layer, unabhängig von der Selektorspezifität innerhalb des Layers.
+The order is crucial for cascading: layers that appear earlier in the list have a lower specificity than later layers, regardless of selector specificity within the layer.
 
-## Architekturprinzipien
+## Architectural Principles
 
-Das Layer-System folgt diesen zentralen Prinzipien:
+The layer system follows these central principles:
 
-1. **Hierarchische Priorität**: Spätere Layer überschreiben frühere
-2. **Funktionale Trennung**: Jeder Layer hat eine klar definierte Verantwortung
-3. **Isolation**: Styles in einem Layer beeinflussen nicht unbeabsichtigt andere Layer
-4. **Erweiterbarkeit**: Neue Funktionalität kann in bestehende Layer integriert oder in neuen Layern hinzugefügt werden
-5. **Konfliktvermeidung**: Reduzierung von Spezifitätskonflikten und !important-Deklarationen
+1. **Hierarchical Priority**: Later layers override earlier ones
+2. **Functional Separation**: Each layer has a clearly defined responsibility
+3. **Isolation**: Styles in one layer do not unintentionally affect other layers
+4. **Extensibility**: New functionality can be integrated into existing layers or added in new layers
+5. **Conflict Avoidance**: Reduction of specificity conflicts and !important declarations
 
-## Layer-Beschreibungen und Verwendung
+## Layer Descriptions and Usage
 
-### Grundlegende Layer
+### Basic Layers
 
 #### reset
-Setzt Browser-Standardstile zurück und normalisiert das Rendering zwischen verschiedenen Browsern.
+Resets browser default styles and normalizes rendering across different browsers.
 
 ```css
 @layer reset {
-  /* Browser-Defaults zurücksetzen */
+  /* Reset browser defaults */
   * {
     margin: 0;
     padding: 0;
@@ -60,7 +60,7 @@ Setzt Browser-Standardstile zurück und normalisiert das Rendering zwischen vers
 ```
 
 #### tokens
-Definiert Design-Token-Variablen für das gesamte System. Dies sind die Grundbausteine des Designs.
+Defines design token variables for the entire system. These are the building blocks of the design.
 
 ```css
 @layer tokens {
@@ -68,13 +68,13 @@ Definiert Design-Token-Variablen für das gesamte System. Dies sind die Grundbau
     --space-1: 0.25rem;
     --color-primary: #3b82f6;
     --radius-md: 0.375rem;
-    /* weitere Tokens... */
+    /* more tokens... */
   }
 }
 ```
 
 #### custom-properties
-Registriert CSS-Eigenschaften mit @property für animierbare Übergänge und Verhalten.
+Registers CSS properties with @property for animatable transitions and behavior.
 
 ```css
 @layer custom-properties {
@@ -86,10 +86,10 @@ Registriert CSS-Eigenschaften mit @property für animierbare Übergänge und Ver
 }
 ```
 
-### Kernfunktionalität
+### Core Functionality
 
 #### core
-Enthält fundamentale Styles und Basiskomponenten.
+Contains fundamental styles and base components.
 
 ```css
 @layer core {
@@ -101,7 +101,7 @@ Enthält fundamentale Styles und Basiskomponenten.
 ```
 
 #### logical-properties
-Implementiert bidirektionales Layout mit logischen Eigenschaften.
+Implements bidirectional layout with logical properties.
 
 ```css
 @layer logical-properties {
@@ -116,7 +116,7 @@ Implementiert bidirektionales Layout mit logischen Eigenschaften.
 ```
 
 #### colors
-Definiert das Farbsystem und farbbasierte Klassen.
+Defines the color system and color-based classes.
 
 ```css
 @layer colors {
@@ -130,10 +130,10 @@ Definiert das Farbsystem und farbbasierte Klassen.
 }
 ```
 
-### Layout und Struktur
+### Layout and Structure
 
 #### layout
-Definiert grundlegende Layout-Komponenten wie Container, Grid und Flex-Container.
+Defines basic layout components such as containers, grid, and flex containers.
 
 ```css
 @layer layout {
@@ -152,7 +152,7 @@ Definiert grundlegende Layout-Komponenten wie Container, Grid und Flex-Container
 ```
 
 #### layout-queries
-Implementiert responsive Anpassungen basierend auf Container-Queries.
+Implements responsive adjustments based on container queries.
 
 ```css
 @layer layout-queries {
@@ -163,10 +163,10 @@ Implementiert responsive Anpassungen basierend auf Container-Queries.
 }
 ```
 
-### Zusätzliche Funktionalitäten
+### Additional Functionalities
 
 #### utilities
-Atomare Hilfsklassen für häufige Styling-Aufgaben.
+Atomic helper classes for common styling tasks.
 
 ```css
 @layer utilities {
@@ -177,7 +177,7 @@ Atomare Hilfsklassen für häufige Styling-Aufgaben.
 ```
 
 #### components
-UI-Komponenten und komplexere Komponenten-Systeme.
+UI components and more complex component systems.
 
 ```css
 @layer components {
@@ -197,7 +197,7 @@ UI-Komponenten und komplexere Komponenten-Systeme.
 ```
 
 #### themes
-Theming-System für Farbschemata und Dark Mode.
+Theming system for color schemes and dark mode.
 
 ```css
 @layer themes {
@@ -208,23 +208,23 @@ Theming-System für Farbschemata und Dark Mode.
 }
 ```
 
-## Praktische Anwendung
+## Practical Application
 
-### Basis-Verwendung
+### Basic Usage
 
-Importieren Sie einfach die `core.css`-Datei, die automatisch das komplette Layer-System lädt:
+Simply import the `core.css` file, which automatically loads the complete layer system:
 
 ```html
 <link rel="stylesheet" href="path/to/@casoon/ui-lib/core.css">
 ```
 
-### Eigene Styles mit Layer-Integration
+### Custom Styles with Layer Integration
 
 ```css
-/* Ihre eigene CSS-Datei */
+/* Your own CSS file */
 @import url('path/to/@casoon/ui-lib/core.css');
 
-/* Fügen Sie eigene Utility-Klassen hinzu */
+/* Add your own utility classes */
 @layer utilities {
   .custom-grid {
     display: grid;
@@ -233,7 +233,7 @@ Importieren Sie einfach die `core.css`-Datei, die automatisch das komplette Laye
   }
 }
 
-/* Erstellen Sie eigene Komponenten */
+/* Create your own components */
 @layer components {
   .feature-card {
     border-radius: var(--radius-lg);
@@ -248,69 +248,72 @@ Importieren Sie einfach die `core.css`-Datei, die automatisch das komplette Laye
     margin-bottom: var(--space-2);
   }
 }
+```
 
-/* Passen Sie das Theming an */
-@layer themes {
-  [data-theme="brand"] {
-    --color-primary: #8a2be2;
-    --color-secondary: #ff6b6b;
-  }
+## Available Layers in Detail
+
+### Component Layers
+
+The `components` layer is divided into sublayers for different component types:
+
+```css
+@layer components {
+  @layer base, layout, inputs, feedback, navigation, overlays;
 }
 ```
 
-### Integration mit JS-Frameworks
+This allows for precise control over component priority:
 
-Mit Astro:
+- `components.base`: Basic components like buttons, badges
+- `components.layout`: Layout components like cards, sections
+- `components.inputs`: Form elements and input fields
+- `components.feedback`: Alert messages, notifications
+- `components.navigation`: Navigation elements, menus
+- `components.overlays`: Modal dialogs, popups, tooltips
 
-```astro
----
-// In Ihrer Astro-Komponente
-import '@casoon/ui-lib/core.css';
-import './custom-styles.css'; // Enthält Ihre Layer-Erweiterungen
----
+### Animation and Effect Layers
 
-<div class="container">
-  <div class="layout-grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-    <div class="card">
-      <h2 class="card-title">Komponente 1</h2>
-      <p>Inhalt...</p>
-    </div>
-    <!-- Weitere Karten... -->
-  </div>
-</div>
+The animation system is organized in sequence:
+
+```css
+@layer animations {
+  @layer keyframes, transitions, motion;
+}
+
+@layer effects {
+  @layer shadows, transforms, filters, interactions;
+}
 ```
 
-## Vorteile des Layer-Systems
+### Layer Naming Conventions
 
-1. **Geringere Spezifitätskonflikte**: Layer eliminieren die meisten Spezifitätsprobleme
-2. **Modulare Architektur**: Einfaches Hinzufügen, Entfernen oder Ersetzen von Komponenten
-3. **Klarere Debugging**: Einfaches Nachvollziehen, woher Styles kommen
-4. **Progressive Enhancement**: Layer können schrittweise angewendet werden
-5. **Bessere Team-Zusammenarbeit**: Klare Zuständigkeiten und weniger Überraschungen
-6. **Entwicklungsgeschwindigkeit**: Reduzierung von CSS-Konflikten und Regression-Bugs
+Layer names follow consistent conventions:
+- Singular nouns for concept layers (layout, typography)
+- Plural nouns for collection layers (utilities, components)
+- Descriptive compound names for specialized layers (layout-queries)
 
-## Debugging-Tipps
+## Layer Inheritance
 
-Wenn Styles nicht wie erwartet angewendet werden:
+The system uses `@layer` inheritance to create sublayers:
 
-1. Überprüfen Sie in den DevTools, welchem Layer der Stil zugeordnet ist (Layer werden in der Styles-Ansicht angezeigt)
-2. Überprüfen Sie, ob konkurrierende Stile in Layern mit höherer Priorität definiert sind
-3. Nutzen Sie die Selektorspezifität innerhalb eines Layers für feinere Kontrolle
-4. Vermeiden Sie !important, ergänzen Sie stattdessen Stile im selben Layer
+```css
+/* Parent layer */
+@layer components {
+  /* Base component styles */
+}
 
-## Migration zu diesem Layer-System
-
-Beim Umstellen eines bestehenden Projekts:
-
-1. Beginnen Sie mit den grundlegenden Layern (reset, tokens)
-2. Migrieren Sie schrittweise Komponenten in die entsprechenden Layer
-3. Überprüfen Sie jede Komponente auf Styling-Probleme nach der Migration
-4. Dokumentieren Sie das Layer-System für Ihr Team
+/* Sublayer */
+@layer components.feedback {
+  /* Feedback component specific styles */
+}
+```
 
 ## Best Practices
 
-1. **Layer zur Klassifikation verwenden**: Gruppieren Sie Styles nach ihrer funktionalen Rolle, nicht nach Selektorart
-2. **Layer-Hierarchie respektieren**: Stile strategisch in Layern platzieren, basierend auf ihrer Überschreibungsintention
-3. **Konsistente Benennung**: Style-Klassen entsprechend ihrer Layer-Zugehörigkeit benennen
-4. **Einfache Selektoren**: Komplexe Selektoren vermeiden, da Layer bereits Spezifitätskonflikte lösen
-5. **Layer dokumentieren**: Klare Kommentare und Dokumentation für jeden Layer bereitstellen 
+1. **Respect the Layer Hierarchy**: Place styles in the appropriate layer based on their purpose
+2. **Avoid Layer Overrides**: Don't use `!important` or high-specificity selectors to override styles from other layers
+3. **Maintain Modularity**: Keep related styles grouped in the same layer
+4. **Use Design Tokens**: Reference variables from the tokens layer instead of hardcoding values
+5. **Document Layer Extensions**: When adding to layers, document the purpose and intent of new styles
+
+By following this layered architecture, you create maintainable, conflict-free CSS with clear organization and predictable behavior. 

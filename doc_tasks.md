@@ -1,36 +1,36 @@
-# 📝 Aufgabe: CSS-Dateien dokumentieren (Englisch)
+# 📝 Task: Document CSS Files (English)
 
-## Ziel
+## Objective
 
-Erstelle eine strukturierte und einheitliche Dokumentation (auf Englisch) für alle `.css`-Dateien, die in der `package.json` unter dem Feld `"files"` referenziert sind. Die Dokumentation soll es externen Nutzern und Teammitgliedern ermöglichen, den Zweck, die CSS-Klassen und verwendeten Variablen leicht nachzuvollziehen.
-
----
-
-## Geltungsbereich
-
-- Alle Dateien mit der Endung `.css`
-- Alle Dateien und Ordner, die in der `package.json > files`-Angabe enthalten sind
+Create structured and consistent documentation (in English) for all `.css` files referenced in the `package.json` under the `"files"` field. The documentation should enable external users and team members to easily understand the purpose, CSS classes, and variables used.
 
 ---
 
-## Format der Dokumentation
+## Scope
 
-Für jede `.css`-Datei soll eine eigene `.md`-Datei erstellt werden (z. B. `utilities.css` → `utilities.md`).
+- All files with the `.css` extension
+- All files and folders included in the `package.json > files` specification
 
-### Dokumentationskopf
-Beginne jede Dokumentation mit dem Titel und dem "Last Modified"-Datum:
+---
+
+## Documentation Format
+
+Create a separate `.md` file for each `.css` file (e.g., `utilities.css` → `utilities.md`).
+
+### Documentation Header
+Start each documentation with the title and "Last Modified" date:
 
 ```markdown
 # Component Name
 > Last Modified: DD.MM.YYYY
 ```
 
-Das Datum sollte im Format TT.MM.JJJJ angegeben werden (z.B. 12.05.2024).
+The date should be in the format DD.MM.YYYY (e.g., 12.05.2024).
 
-### 1. **File Purpose (Dateizweck)**  
-Beschreibe kurz den Zweck der Datei in 1–3 Sätzen auf Englisch.
+### 1. **File Purpose**  
+Briefly describe the purpose of the file in 1–3 sentences in English.
 
-Beispiel:
+Example:
 ```markdown
 ## File Purpose
 
@@ -38,14 +38,14 @@ This file provides a collection of component styles for modern UIs. It includes 
 ```
 
 ### 2. **CSS Utility Classes**
-Erstelle eine Liste aller Klassen in der Datei (mit hierarchischer Gliederung), mit:
+Create a list of all classes in the file (with hierarchical structure), including:
 
-- Klassennamen (mit einem vorangestellten `.`)
-- Beschreibung der Klasse (Description)
-- Verwendung der Klasse (Uses)
-- Visueller Effekt (Creates)
+- Class names (with a leading `.`)
+- Description of the class
+- Usage of the class
+- Visual effect created
 
-Beispiel:
+Example:
 ```markdown
 ## CSS Utility Classes
 
@@ -57,8 +57,8 @@ Beispiel:
 - Creates: Container for component content with rounded corners
 ```
 
-### 3. **HTML Structure** (wenn relevant)
-Zeige Beispiele für typische HTML-Strukturen:
+### 3. **HTML Structure** (if relevant)
+Show examples of typical HTML structures:
 
 ```markdown
 ## HTML Structure
@@ -72,16 +72,16 @@ To create a basic component, use the following structure:
 ```
 ```
 
-### 4. **Keyframe Animations** (wenn vorhanden)
-Für jede @keyframes-Definition:
+### 4. **Keyframe Animations** (if present)
+For each @keyframes definition:
 
-- Name mit `@keyframes`-Präfix
-- Kurze Funktionsbeschreibung
-- Verwendete CSS-Eigenschaften
-- Animationsschritte
-- Wo eingesetzt (Klassen, Module etc.)
+- Name with `@keyframes` prefix
+- Brief functional description
+- CSS properties used
+- Animation steps
+- Where implemented (classes, modules, etc.)
 
-Beispiel:
+Example:
 ```markdown
 ## Keyframe Animations
 
@@ -95,13 +95,13 @@ Beispiel:
 ```
 
 ### 5. **CSS Custom Properties (Variables)**
-Liste alle Variablen mit:
+List all variables with:
 
-- Name (in Backticks)
-- Default-Wert
-- Funktionsbeschreibung
+- Name (in backticks)
+- Default value
+- Functional description
 
-Gruppiere ähnliche Variablen:
+Group similar variables:
 
 ```markdown
 ## CSS Custom Properties (Variables)
@@ -113,8 +113,8 @@ Gruppiere ähnliche Variablen:
   - Controls the border radius of the component
 ```
 
-### 6. **Technical Implementation Details** (wenn relevant)
-Beschreibe technische Details zur Implementierung:
+### 6. **Technical Implementation Details** (if relevant)
+Describe technical details of the implementation:
 
 ```markdown
 ## Technical Implementation Details
@@ -125,8 +125,8 @@ The component uses several advanced CSS techniques:
 3. Media queries for responsive behavior
 ```
 
-### 7. **Responsive / Media Behavior** (wenn relevant)
-Beschreibe das Verhalten bei Media Queries:
+### 7. **Responsive / Media Behavior** (if relevant)
+Describe behavior with media queries:
 
 ```markdown
 ## Responsive / Media Behavior
@@ -136,13 +136,13 @@ Beschreibe das Verhalten bei Media Queries:
 - Ensures accessibility for users who are sensitive to motion
 ```
 
-## Allgemeine Hinweise
+## General Notes
 
-- Die Dokumentation soll auf Englisch geschrieben sein
-- Bestehende Dokumentation aus den CSS-Dateien kann genutzt werden, sollte aber anschließend in den CSS-Dateien entfernt werden
-- Vermeide CSS-spezifisches Fachchinesisch, wenn es einfach geht
-- Nutze bei Bedarf Codeblöcke für bessere Lesbarkeit
-- Einheitliche Formatierung hilft bei der späteren Automatisierung
-- Alle Variablennamen und Klassennamen sollten exakt wiedergegeben werden
-- Berücksichtige Barrierefreiheitsaspekte wie "prefers-reduced-motion"
-- Halte dich an die bestehende Dokumentationsstruktur der bereits dokumentierten Effekte 
+- Documentation should be written in English
+- Existing documentation from CSS files can be used but should then be removed from the CSS files
+- Avoid CSS-specific jargon where possible
+- Use code blocks for better readability when needed
+- Consistent formatting helps with later automation
+- All variable names and class names should be reproduced exactly
+- Consider accessibility aspects such as "prefers-reduced-motion"
+- Follow the existing documentation structure of already documented effects 
