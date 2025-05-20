@@ -1,210 +1,182 @@
-# CSS Layer System
+# CSS Layer System (Unified Guide)
+
+> **Note:** This document replaces both the previous `LAYER-SYSTEM.md` and `CSS-LAYER-GUIDE.md`. It provides a comprehensive overview, best practices, and implementation guidelines for the Casoon UI CSS Layer System.
 
 ## Overview
 
-The CSS Layer System of CASOON UI Lib uses `@layer` as a central organizational principle to precisely control the specificity and cascading of styles. This enables a predictable, maintainable, and conflict-free styling system with a clear hierarchy.
+The CSS Layer System of Casoon UI Lib uses `@layer` as a central organizational principle to precisely control the specificity and cascading of styles. This enables a predictable, maintainable, and conflict-free styling system with a clear hierarchy.
 
-## Structure of the Layer System
+## Unified Layer Hierarchy
 
-The layers are defined in `base.css` in a precise hierarchy:
+The CSS layers are organized in a logical hierarchy to manage specificity and avoid conflicts between selectors. The order is as follows (from lowest to highest priority):
 
 ```css
 @layer reset,                /* Basic browser reset */
        tokens,               /* Design tokens and variables */
+       base,                 /* Basic element styles (contains logical-properties, accessibility, elements) */
+       logical-properties,   /* Sub-layer of base: Logical properties for RTL/LTR support */
+       accessibility,        /* Sub-layer of base: Accessibility-related styles */
+       elements,             /* Sub-layer of base: Basic HTML element styles */
        custom-properties,    /* Registered CSS properties */
        core,                 /* Core functionalities */
-       logical-properties,   /* Bidirectional layouts (RTL/LTR) */
-       colors,               /* Color system */
-       color-mix,            /* Color mixtures and variants */
-       layout,               /* Layout basics */
-       layout-queries,       /* Responsive adjustments */
+       colors,               /* Color system (contains color-mix) */
+       color-mix,            /* Sub-layer of colors: Color mixtures and variants */
        typography,           /* Typography system */
+       layout,               /* Layout basics (contains layout-queries) */
+       layout-queries,       /* Sub-layer of layout: Container queries for layouts */
        utilities,            /* Atomic utility classes */
-       smooth-scroll,        /* Scroll behavior */
-       accessibility,        /* Accessibility */
+       components,           /* UI components (contains form) */
+       form,                 /* Sub-layer of components: Form-related styles */
+       animations,           /* Motion system (contains animation-contexts) */
+       animation-contexts,   /* Sub-layer of animations: Context-related animations */
+       effects,              /* Visual effects (contains smooth-scroll) */
+       smooth-scroll,        /* Sub-layer of effects: Scrolling behavior and effects */
        icons,                /* Icon system */
-       components,           /* UI components */
-       animations,           /* Motion system */
-       effects,              /* Visual effects */
        themes;               /* Theming system */
+```
+
+### Visualized Hierarchy
+
+```
+- base
+  ├── logical-properties
+  ├── accessibility
+  └── elements
+- colors
+  └── color-mix
+- layout
+  └── layout-queries
+- components
+  └── form
+- animations
+  └── animation-contexts
+- effects
+  └── smooth-scroll
 ```
 
 The order is crucial for cascading: layers that appear earlier in the list have a lower specificity than later layers, regardless of selector specificity within the layer.
 
 ## Architectural Principles
 
-The layer system follows these central principles:
-
-1. **Hierarchical Priority**: Later layers override earlier ones
-2. **Functional Separation**: Each layer has a clearly defined responsibility
-3. **Isolation**: Styles in one layer do not unintentionally affect other layers
-4. **Extensibility**: New functionality can be integrated into existing layers or added in new layers
-5. **Conflict Avoidance**: Reduction of specificity conflicts and !important declarations
+1. **Hierarchical Priority:** Later layers override earlier ones
+2. **Functional Separation:** Each layer has a clearly defined responsibility
+3. **Isolation:** Styles in one layer do not unintentionally affect other layers
+4. **Extensibility:** New functionality can be integrated into existing layers or added in new layers
+5. **Conflict Avoidance:** Reduction of specificity conflicts and !important declarations
 
 ## Layer Descriptions and Usage
 
 ### Basic Layers
 
-#### reset
-Resets browser default styles and normalizes rendering across different browsers.
-
-```css
-@layer reset {
-  /* Reset browser defaults */
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-}
-```
-
-#### tokens
-Defines design token variables for the entire system. These are the building blocks of the design.
-
-```css
-@layer tokens {
-  :root {
-    --space-1: 0.25rem;
-    --color-primary: #3b82f6;
-    --radius-md: 0.375rem;
-    /* more tokens... */
-  }
-}
-```
-
-#### custom-properties
-Registers CSS properties with @property for animatable transitions and behavior.
-
-```css
-@layer custom-properties {
-  @property --color-mix {
-    syntax: '<color>';
-    inherits: false;
-    initial-value: transparent;
-  }
-}
-```
+- **reset:** Resets browser default styles and normalizes rendering across different browsers.
+- **tokens:** Defines design token variables for the entire system.
+- **base:** Basic element styles, including logical properties, accessibility, and elements.
+- **logical-properties:** Logical properties for RTL/LTR support.
+- **accessibility:** Accessibility-related styles.
+- **elements:** Basic HTML element styles.
+- **custom-properties:** Registers CSS properties with @property for animatable transitions and behavior.
 
 ### Core Functionality
 
-#### core
-Contains fundamental styles and base components.
-
-```css
-@layer core {
-  body {
-    font-family: var(--font-family-base);
-    line-height: var(--line-height-normal);
-  }
-}
-```
-
-#### logical-properties
-Implements bidirectional layout with logical properties.
-
-```css
-@layer logical-properties {
-  .margin-inline-auto {
-    margin-inline: auto;
-  }
-  
-  .padding-inline {
-    padding-inline: var(--space-4);
-  }
-}
-```
-
-#### colors
-Defines the color system and color-based classes.
-
-```css
-@layer colors {
-  .bg-primary {
-    background-color: var(--color-primary);
-  }
-  
-  .text-secondary {
-    color: var(--color-secondary);
-  }
-}
-```
-
-### Layout and Structure
-
-#### layout
-Defines basic layout components such as containers, grid, and flex containers.
-
-```css
-@layer layout {
-  .container {
-    width: 100%;
-    max-width: var(--container-lg);
-    margin-inline: auto;
-    padding-inline: var(--space-4);
-  }
-  
-  .container-query {
-    container-type: inline-size;
-    container-name: layout;
-  }
-}
-```
-
-#### layout-queries
-Implements responsive adjustments based on container queries.
-
-```css
-@layer layout-queries {
-  @container layout (min-width: 30rem) {
-    .sm\:flex-row { flex-direction: row; }
-    .sm\:grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
-  }
-}
-```
+- **core:** Fundamental styles and base components.
+- **colors:** Color system and color-based classes.
+- **color-mix:** Color mixtures and transformations.
+- **typography:** Typography system and text formatting.
+- **layout:** Layout basics, containers, grid, and flex containers.
+- **layout-queries:** Responsive adjustments based on container queries.
 
 ### Additional Functionalities
 
-#### utilities
-Atomic helper classes for common styling tasks.
+- **utilities:** Atomic helper classes for common styling tasks.
+- **components:** UI components and more complex component systems.
+- **form:** Form-related styles as a sub-layer of components.
+- **animations:** Animation definitions and motion system.
+- **animation-contexts:** Context-related animations as a sub-layer of animations.
+- **effects:** Visual effects and interactions.
+- **smooth-scroll:** Scroll behavior and effects as a sub-layer of effects.
+- **icons:** Icon system and integration.
+- **themes:** Theming system for color schemes and dark mode.
+
+## Best Practices & Rules
+
+### 1. Define Keyframes Outside of Layers
+
+All `@keyframes` definitions must be placed outside of `@layer` blocks to avoid compatibility issues with Lightning CSS.
 
 ```css
-@layer utilities {
-  .flex { display: flex; }
-  .gap-4 { gap: var(--space-4); }
-  .w-full { width: 100%; }
+/* CORRECT ✅ */
+@keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@layer animations {
+    .fade-in {
+        animation-name: fade-in;
+        animation-duration: var(--animation-duration-normal);
+    }
+}
+
+/* INCORRECT ❌ */
+@layer animations {
+    @keyframes slide-in {
+        from { transform: translateY(20px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+    }
 }
 ```
 
-#### components
-UI components and more complex component systems.
+### 2. Use Component Layers
+
+Use the `components` layer for all component-related styles:
 
 ```css
+/* CORRECT ✅ */
 @layer components {
-  .card {
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-sm);
-    overflow: hidden;
-  }
-  
-  .button {
-    padding: var(--space-2) var(--space-4);
-    border-radius: var(--radius-md);
-    background-color: var(--color-primary);
-    color: white;
-  }
+    .button {
+        /* Button styles */
+    }
+}
+
+/* INCORRECT ❌ */
+@layer button {
+    .button {
+        /* Button styles */
+    }
 }
 ```
 
-#### themes
-Theming system for color schemes and dark mode.
+For form components and elements, use the `form` layer within the `components` layer:
 
 ```css
-@layer themes {
-  [data-theme="dark"] {
-    --color-background: hsl(222 47% 11%);
-    --color-text: hsl(213 31% 91%);
-  }
+@layer form {
+    .form-group {
+        /* Form element styles */
+    }
+}
+```
+
+### 3. Media Queries with Layer Definitions Inside
+
+Media queries should wrap layer definitions, not the other way around:
+
+```css
+/* CORRECT ✅ */
+@media (max-width: 768px) {
+    @layer components {
+        .card {
+            flex-direction: column;
+        }
+    }
+}
+
+/* INCORRECT ❌ */
+@layer components {
+    @media (max-width: 768px) {
+        .card {
+            flex-direction: column;
+        }
+    }
 }
 ```
 
@@ -250,70 +222,112 @@ Simply import the `core.css` file, which automatically loads the complete layer 
 }
 ```
 
-## Available Layers in Detail
-
-### Component Layers
-
-The `components` layer is divided into sublayers for different component types:
+### Typical Component File Example
 
 ```css
-@layer components {
-  @layer base, layout, inputs, feedback, navigation, overlays;
+/**
+ * Button Component
+ *
+ * @layer components
+ */
+
+/* Keyframes outside of layers */
+@keyframes button-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
 }
-```
 
-This allows for precise control over component priority:
+/* Component styles */
+@layer components {
+    .button {
+        /* Base styles */
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        /* ... */
+    }
+    
+    /* Variants */
+    .button.primary { /* ... */ }
+    .button.secondary { /* ... */ }
+}
 
-- `components.base`: Basic components like buttons, badges
-- `components.layout`: Layout components like cards, sections
-- `components.inputs`: Form elements and input fields
-- `components.feedback`: Alert messages, notifications
-- `components.navigation`: Navigation elements, menus
-- `components.overlays`: Modal dialogs, popups, tooltips
-
-### Animation and Effect Layers
-
-The animation system is organized in sequence:
-
-```css
+/* Animations for the component */
 @layer animations {
-  @layer keyframes, transitions, motion;
+    .button.animate-pulse {
+        animation-name: button-pulse;
+        animation-duration: var(--animation-duration-normal);
+        animation-iteration-count: infinite;
+    }
 }
 
+/* Effects for the component */
 @layer effects {
-  @layer shadows, transforms, filters, interactions;
+    .button.glow {
+        box-shadow: 0 0 10px var(--color-primary);
+    }
 }
 ```
 
-### Layer Naming Conventions
-
-Layer names follow consistent conventions:
-- Singular nouns for concept layers (layout, typography)
-- Plural nouns for collection layers (utilities, components)
-- Descriptive compound names for specialized layers (layout-queries)
-
-## Layer Inheritance
-
-The system uses `@layer` inheritance to create sublayers:
+### Form Elements Example
 
 ```css
-/* Parent layer */
-@layer components {
-  /* Base component styles */
-}
+/**
+ * Form Elements
+ *
+ * @layer form
+ */
 
-/* Sublayer */
-@layer components.feedback {
-  /* Feedback component specific styles */
+@layer form {
+    .form-group {
+        margin-bottom: var(--spacing-4);
+    }
+    
+    .form-label {
+        display: block;
+        margin-bottom: var(--spacing-2);
+    }
+    
+    .form-control {
+        width: 100%;
+        padding: var(--spacing-2) var(--spacing-3);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-md);
+    }
 }
 ```
 
-## Best Practices
+## Migration of Existing Files
 
-1. **Respect the Layer Hierarchy**: Place styles in the appropriate layer based on their purpose
-2. **Avoid Layer Overrides**: Don't use `!important` or high-specificity selectors to override styles from other layers
-3. **Maintain Modularity**: Keep related styles grouped in the same layer
-4. **Use Design Tokens**: Reference variables from the tokens layer instead of hardcoding values
-5. **Document Layer Extensions**: When adding to layers, document the purpose and intent of new styles
+When migrating existing files to the new layer structure:
 
-By following this layered architecture, you create maintainable, conflict-free CSS with clear organization and predictable behavior. 
+1. Extract all `@keyframes` definitions and place them outside the `@layer` blocks
+2. Identify the appropriate layer for each CSS block according to the documented hierarchy
+3. Check media queries and add layer definitions inside them if necessary
+4. For component-specific layers, migrate to `@layer components`
+
+### Example of a Migration
+
+Before migration:
+
+```css
+/* Old structure with its own layer */
+@layer card {
+    .card {
+        display: flex;
+        flex-direction: column;
+    }
+}
+```
+
+After migration:
+
+```css
+/* New structure with components layer */
+@layer components {
+    .card {
+        display: flex;
+        flex-direction: column;
+    }
+}
+``` 

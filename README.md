@@ -111,6 +111,8 @@ npm run test:lightningcss
 
 For a comprehensive guide to all features, best practices, component usage, theming, utilities, and advanced techniques, please refer to the [Style Guide](STYLE-GUIDE.md).
 
+For a detailed explanation of the CSS layer architecture, see the [Layer System Guide](LAYER-SYSTEM.md).
+
 ## License
 MIT
 
