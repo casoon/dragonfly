@@ -1,6 +1,6 @@
 # Casoon UI Style Guide
 
-This document describes the structure, concepts, and usage of the Casoon UI design system.
+This document describes the structure, concepts, and usage of the Casoon UI design system. Casoon UI is a modern, modular, and continuously evolving CSS framework. It is built on the latest CSS standards, prioritizes accessibility, and offers a wide range of reusable components and effects. All features are designed to be framework-agnostic and can be used individually or as a complete system.
 
 ## Table of Contents
 
@@ -600,354 +600,64 @@ The system supports container queries for component-based responsive layouts:
 
 ## Components
 
-The library contains over 30 pre-made components as CSS modules in the `components/` directory:
+Casoon UI provides a comprehensive set of UI components, each implemented as a CSS module and organized in the `components/` directory. Components are structured using the `@layer components` system, with each major component in its own sub-layer to avoid conflicts and ensure maintainability.
 
-- Alert (`alert.css`)
-- Avatar (`avatar.css`)
-- Badge (`badge.css`)
-- Button (`button.css`)
-- Card (`card.css`)
-- Checkbox (`checkbox.css`)
-- Form (`form.css`)
-- Input (`input.css`)
-- Modal (`modal.css`)
-- Tabs (`tabs.css`)
-- and many more...
+### Key Features
+- **Over 30 ready-to-use components**: Button, Card, Input, Modal, Tabs, File, Progress, Notification, Switch, Chip, Tag, Avatar, Tooltip, Wizard, and more.
+- **Sub-layer structure**: Each component can have its own sub-layer (e.g., `@layer components.button`) for precise control.
+- **Import flexibility**: Import all components at once via `components.css` or only the ones you need:
+  ```css
+  /* Import a single component */
+  @import url('@casoon/ui-lib/components/button.css');
+  /* Import all components */
+  @import url('@casoon/ui-lib/components.css');
+  ```
+- **Accessibility**: All components are designed with accessibility in mind (focus states, ARIA, keyboard navigation, color contrast).
+- **Responsive & themable**: Components adapt to different screen sizes and support dark mode, RTL, and custom themes.
+- **State handling**: Support for states like `:hover`, `:active`, `:focus`, `:disabled`, `.invalid`, etc.
+- **Utility-first**: Components can be extended and combined with utility classes for rapid customization.
 
-Each component is implemented as a separate CSS module and can be imported individually.
+### Best Practices
+- Use the provided CSS variables (design tokens) for colors, spacing, and sizing.
+- Extend components by adding your own styles in the appropriate sub-layer.
+- Use semantic HTML and ARIA attributes for accessibility.
+- Combine components with effects and utility classes for advanced UIs.
 
-### New Component Structure
-
-All components use the modern CSS-Nesting approach with @layer and offer a consistent structure:
-
-#### Card Component
-
-```css
-@layer components {
-  .card {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-3);
-    border-radius: var(--radius-md);
-    background-color: var(--color-surface);
-    padding: var(--space-4);
-    box-shadow: var(--shadow-sm);
-
-    /* Element-Styling */
-    h3 {
-      font-size: var(--font-size-lg);
-      margin: 0;
-    }
-
-    img {
-      width: 100%;
-      border-radius: var(--radius-sm);
-      object-fit: cover;
-    }
-
-    /* Variants */
-    &.primary {
-      background-color: var(--color-primary);
-      color: white;
-    }
-
-    &.border {
-      border: 1px solid var(--color-gray-200);
-      box-shadow: none;
-    }
-
-    /* Layout Variants */
-    &.horizontal {
-      flex-direction: row;
-      align-items: center;
-
-      img {
-        width: 120px;
-        height: 120px;
-      }
-    }
-
-    /* Interactive Variants */
-    &.interactive {
-      cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-
-      &:hover {
-        transform: translateY(-4px);
-        box-shadow: var(--shadow-md);
-      }
-    }
-  }
-}
-```
-
-Usage:
+### Example: Advanced File Upload Component
 ```html
-<!-- Simple Card -->
-<div class="card">
-  <h3>Card Title</h3>
-  <p>Card Content</p>
-</div>
-
-<!-- Variant Combination -->
-<div class="card primary interactive">
-  <h3>Interactive Primary Card</h3>
-  <p>Click me!</p>
-</div>
-
-<!-- With Utilities Combination -->
-<div class="card border p-6 mb-4">
-  <h3>Card with More Padding and Margin</h3>
+<div class="file with-preview">
+  <input type="file" id="file-upload-preview">
+  <label for="file-upload-preview" class="label">Choose file</label>
+  <div class="preview">
+    <img src="preview.jpg" alt="Preview">
+  </div>
 </div>
 ```
 
-#### Button Component
-
-```css
-@layer components {
-  .button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding-inline: var(--space-4);
-    padding-block: var(--space-2);
-    border-radius: var(--radius-md);
-    font-weight: var(--font-weight-medium);
-    font-size: var(--font-size-sm);
-    line-height: 1.25;
-    background-color: var(--color-primary);
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: background-color var(--transition-fast);
-
-    &:hover {
-      background-color: var(--color-primary-dark);
-    }
-
-    /* Variants */
-    &.secondary {
-      background-color: var(--color-secondary);
-
-      &:hover {
-        background-color: var(--color-secondary-dark);
-      }
-    }
-
-    /* Sizes */
-    &.sm {
-      padding-inline: var(--space-3);
-      padding-block: var(--space-1);
-      font-size: var(--font-size-xs);
-    }
-
-    &.lg {
-      padding-inline: var(--space-6);
-      padding-block: var(--space-3);
-      font-size: var(--font-size-base);
-    }
-
-    /* Icon Handling */
-    &.with-icon {
-      gap: var(--space-2);
-
-      .icon {
-        display: inline-flex;
-        width: 1em;
-        height: 1em;
-      }
-    }
-  }
-}
-```
-
-Usage:
+### Example: Progress Bar with Steps
 ```html
-<!-- Standard Button -->
-<button class="button">Standard Button</button>
-
-<!-- Button with Variant and Size -->
-<button class="button secondary sm">Smaller Secondary Button</button>
-
-<!-- Button with Icon -->
-<button class="button with-icon">
-  <span class="icon">→</span>
-  Continue
-</button>
-```
-
-#### Input Component
-
-```css
-@layer components {
-  .input {
-    display: block;
-    width: 100%;
-    padding: var(--space-2) var(--space-3);
-    font-size: var(--font-size-base);
-    border: 1px solid var(--color-gray-300);
-    border-radius: var(--radius-md);
-    background-color: var(--color-white);
-    color: var(--color-gray-900);
-    transition: border-color var(--transition-fast);
-
-    &:focus {
-      outline: none;
-      border-color: var(--color-primary);
-      box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-primary) 50%, transparent);
-    }
-
-    /* Variants by Status */
-    &.invalid {
-      border-color: var(--color-error);
-      background-color: color-mix(in srgb, var(--color-error) 5%, white);
-    }
-
-    /* Size Variants */
-    &.sm {
-      padding: var(--space-1) var(--space-2);
-      font-size: var(--font-size-sm);
-    }
-  }
-
-  /* Container for Inputs with Icons */
-  .input-wrapper {
-    position: relative;
-    display: flex;
-    align-items: center;
-
-    .input {
-      padding-left: var(--space-8);
-    }
-
-    .input-icon {
-      position: absolute;
-      left: var(--space-3);
-      color: var(--color-gray-400);
-      pointer-events: none;
-    }
-  }
-}
-```
-
-Usage:
-```html
-<!-- Standard Input -->
-<input type="text" class="input" placeholder="Enter text">
-
-<!-- Input with Status -->
-<input type="text" class="input invalid" placeholder="Invalid Input">
-
-<!-- Input with Icon -->
-<div class="input-wrapper">
-  <span class="input-icon">🔍</span>
-  <input type="search" class="input" placeholder="Search...">
+<div class="progress-steps">
+  <div class="step completed">Step 1</div>
+  <div class="step active">Step 2</div>
+  <div class="step">Step 3</div>
 </div>
 ```
 
-#### Checkbox Component
-
-```css
-@layer components {
-  .checkbox {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-2);
-    cursor: pointer;
-    font-size: var(--font-size-sm);
-    
-    /* The Checkbox itself */
-    input[type="checkbox"] {
-      appearance: none;
-      width: 1rem;
-      height: 1rem;
-      border: 1px solid var(--color-gray-400);
-      border-radius: var(--radius-sm);
-      background-color: white;
-      display: inline-block;
-      vertical-align: middle;
-      position: relative;
-      transition: all var(--transition-fast);
-      
-      /* Checked State */
-      &:checked {
-        background-color: var(--color-primary);
-        border-color: var(--color-primary);
-        
-        &::after {
-          content: "";
-          position: absolute;
-          top: 2px;
-          left: 4px;
-          width: 3px;
-          height: 6px;
-          border: solid white;
-          border-width: 0 2px 2px 0;
-          transform: rotate(45deg);
-        }
-      }
-    }
-    
-    /* Size Variants */
-    &.small {
-      font-size: var(--font-size-xs);
-      
-      input[type="checkbox"] {
-        width: 0.875rem;
-        height: 0.875rem;
-      }
-    }
-  }
-}
-```
-
-Usage:
+### Example: Tabs with Variants
 ```html
-<!-- Standard Checkbox -->
-<label class="checkbox">
-  <input type="checkbox">
-  <span>Select Option</span>
-</label>
-
-<!-- Small Checkbox -->
-<label class="checkbox small">
-  <input type="checkbox">
-  <span>Smaller Option</span>
-</label>
-
-<!-- Group of Checkboxes -->
-<div class="checkbox-group">
-  <label class="checkbox">
-    <input type="checkbox">
-    <span>Option 1</span>
-  </label>
-  <label class="checkbox">
-    <input type="checkbox">
-    <span>Option 2</span>
-  </label>
+<div class="tabs pills">
+  <div class="nav">
+    <button class="tab active">Tab 1</button>
+    <button class="tab">Tab 2</button>
+  </div>
+  <div class="content">
+    <div class="panel active">Content 1</div>
+    <div class="panel">Content 2</div>
+  </div>
 </div>
 ```
 
-### Migration from BEM to CSS Nesting
-
-For existing projects using the library, a step-by-step migration path can be followed:
-
-1. **Support both classes in parallel**: While migrating, both the old BEM classes and the new classes can be supported
-
-   ```css
-   .button,
-   .button--primary {
-     /* Shared styles */
-   }
-   
-   .button.primary {
-     /* New structure - same styles */
-   }
-   ```
-
-2. **Selective Migration**: Components can be migrated gradually without switching the entire system at once
-
-3. **Deprecation Notes**: Old BEM classes can be marked as deprecated in the documentation
+For a full list and detailed usage, see the [components README](components/README.md) and the individual component CSS files.
 
 ## Themes
 
@@ -1669,3 +1379,10 @@ export default function MyApp({ Component, pageProps }) {
 - If you use LightningCSS or another CSS optimizer, check compatibility with Casoon UI's advanced features.
 - You can import only the CSS modules you need for optimal bundle size.
 - For SSR (Server-Side Rendering), make sure to include the CSS in the server-rendered HTML.
+
+## Project Status & Contribution
+
+Casoon UI is under active development. New components, effects, and utilities are added regularly. Feedback, issues, and contributions are highly welcome!
+
+- See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+- Join the community to suggest features or report bugs.
