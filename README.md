@@ -1,79 +1,79 @@
 # @casoon/ui-lib
 
-Ein modularer, leichter CSS-Framework und Designsystem für moderne Webprojekte. Optimiert für Astro JS, LightningCSS und Container Queries mit @layer-basierter Architektur und umfassender Barrierefreiheit.
+A modular, lightweight CSS framework and design system for modern web projects. Optimized for Astro JS, LightningCSS, and Container Queries with a @layer-based architecture and comprehensive accessibility.
 
-## Changelog (Auszug)
+## Changelog (Excerpt)
 
-- **0.5.0**: Optimiertes Animationssystem (neues Namensschema, weniger Redundanz), `.motion-safe`/`.motion-reduce` für `prefers-reduced-motion`, experimentelle `animation-composition`, Dialog- und Fokus-Animationen, Staggered Animations, vollständige Dark-Mode- und RTL-Unterstützung, moderne CSS-Validierung, neue Form-Layouts
-- **0.4.10**: Überarbeitetes Formsystem, konsistente Form-Nomenklatur, robustere Light/Dark-Mode-Unterstützung, verbesserte Accessibility
-- **0.3.x**: Optimierte Layer-Struktur, erweiterte Flex/Grid-Utilities, Container Query Integration, konsistente Logical Properties, striktere Lint-Regeln
-- **2.0**: Fluid Interpolation mit `interpolate-size: allow-keywords`, umfassende Fluid-Typografie, adaptive Komponenten
+- **0.5.0**: Optimized animation system (new naming scheme, less redundancy), `.motion-safe`/`.motion-reduce` for `prefers-reduced-motion`, experimental `animation-composition`, dialog and focus animations, staggered animations, full dark mode and RTL support, modern CSS validation, new form layouts
+- **0.4.10**: Revised form system, consistent form nomenclature, more robust light/dark mode support, improved accessibility
+- **0.3.x**: Optimized layer structure, extended flex/grid utilities, container query integration, consistent logical properties, stricter lint rules
+- **2.0**: Fluid interpolation with `interpolate-size: allow-keywords`, comprehensive fluid typography, adaptive components
 
 ## Installation
 
 ```bash
 npm install @casoon/ui-lib
-# oder
+# or
 yarn add @casoon/ui-lib
-# oder
+# or
 pnpm add @casoon/ui-lib
 ```
 
-## Nutzung
+## Usage
 
-**Basis:**
+**Basic:**
 ```html
 <link rel="stylesheet" href="path/to/@casoon/ui-lib/core.css">
 ```
-**Mit Bundler:**
+**With Bundler:**
 ```js
 import '@casoon/ui-lib/core.css';
 ```
-**Mit Astro:**
+**With Astro:**
 ```astro
 import '@casoon/ui-lib/core.css';
 ```
 
-## Features & Architektur
+## Features & Architecture
 
-- **Moderne CSS-Technologien:** CSS Layers, Custom Properties, Container Queries, Logical Properties
-- **Design Tokens:** Konsistente, anpassbare Design-Basis
-- **Utility-Klassen:** Umfangreiche Utilities für Layout, Typografie, Animation, Effekte
-- **Komponenten:** Wiederverwendbare UI-Komponenten (siehe [Komponenten-Doku](components/README.md))
-- **Barrierefreiheit:** Fokus auf Accessibility, Keyboard-Navigation, Screenreader-Support
-- **Dark Mode & RTL:** Vollständige Unterstützung für Farbmodi und bidirektionale Layouts
-- **Animationssystem:** Optimierte, zugängliche Animationen inkl. Stagger, Dialog, Fokus, experimentelle Komposition
-- **Fluid Interpolation:** `interpolate-size: allow-keywords` für flüssige Übergänge und Typografie
-- **Container Query System:** Präzise, komponentenbasierte Responsivität
+- **Modern CSS technologies:** CSS Layers, Custom Properties, Container Queries, Logical Properties
+- **Design tokens:** Consistent, customizable design foundation
+- **Utility classes:** Extensive utilities for layout, typography, animation, effects
+- **Components:** Reusable UI components (see [Component Docs](components/README.md))
+- **Accessibility:** Focus on accessibility, keyboard navigation, screen reader support
+- **Dark mode & RTL:** Full support for color modes and bidirectional layouts
+- **Animation system:** Optimized, accessible animations incl. stagger, dialog, focus, experimental composition
+- **Fluid interpolation:** `interpolate-size: allow-keywords` for smooth transitions and typography
+- **Container query system:** Precise, component-based responsiveness
 
-## Layer- und Dateistruktur
+## Layer & File Structure
 
 ```
 @casoon/ui-lib/
-├── core.css              # Hauptdatei mit Layer-Imports
-├── base.css              # Basis-Imports und Layer-Struktur
-├── layout.css            # Layout-Komponenten & Utilities
-├── layout.queries.css    # Container Query-Responsivität
-├── typography.css        # Typografie-System
-├── animations.css        # Animations- und Motion-System
-├── effects.css           # Visuelle Effekte
-├── components.css        # Komponenten-Import
-├── themes.css            # Farb- & Theming-System
-├── icons.css             # Icon-System
-├── base/                 # Basis-Layer
-├── components/           # UI-Komponenten (CSS-Module)
-├── effects/              # Effekte & Interaktionen
-├── themes/               # Farbvarianten
-└── icons/                # Icon-Definitionen
+├── core.css              # Main file with layer imports
+├── base.css              # Base imports and layer structure
+├── layout.css            # Layout components & utilities
+├── layout.queries.css    # Container query responsiveness
+├── typography.css        # Typography system
+├── animations.css        # Animation and motion system
+├── effects.css           # Visual effects
+├── components.css        # Component imports
+├── themes.css            # Color & theming system
+├── icons.css             # Icon system
+├── base/                 # Base layers
+├── components/           # UI components (CSS modules)
+├── effects/              # Effects & interactions
+├── themes/               # Color variants
+└── icons/                # Icon definitions
 ```
 
-**Layer-Hierarchie (Auszug):**
+**Layer hierarchy (excerpt):**
 ```css
 @layer reset, tokens, custom-properties, core, logical-properties, colors, color-mix, layout, layout-queries, typography, utilities, smooth-scroll, accessibility, icons, components, animations, effects, themes;
 ```
-Mehr dazu in der [Layer System Dokumentation](LAYER-SYSTEM.md).
+See the [Layer System Documentation](LAYER-SYSTEM.md) for more details.
 
-## Container Query Beispiel
+## Container Query Example
 
 ```html
 <div class="container-query">
@@ -84,9 +84,9 @@ Mehr dazu in der [Layer System Dokumentation](LAYER-SYSTEM.md).
 </div>
 ```
 
-## Eigene Komponenten
+## Custom Components
 
-Eigene Komponenten können im Layer `components` ergänzt werden:
+You can add your own components in the `components` layer:
 ```css
 @layer components {
   .my-component {
@@ -97,21 +97,21 @@ Eigene Komponenten können im Layer `components` ergänzt werden:
 }
 ```
 
-## Kompatibilität
+## Compatibility
 
-- **interpolate-size: allow-keywords**: Chrome/Edge ab 120, Safari ab 17, Firefox ab 121 (mit Flag). Fallbacks für ältere Browser.
+- **interpolate-size: allow-keywords**: Chrome/Edge from 120, Safari from 17, Firefox from 121 (with flag). Fallbacks for older browsers are included.
 
-## Testen
+## Testing
 
 ```bash
 npm run test:lightningcss
 ```
 
-## Lizenz
+## License
 MIT
 
-## Mitwirken
-Beiträge willkommen! Siehe [Contribution Guidelines](CONTRIBUTING.md).
+## Contributing
+Contributions welcome! See [Contribution Guidelines](CONTRIBUTING.md).
 
 ## Status
-🟡 **Beta**: Stabile Kernfunktionen, laufende Verbesserungen, API weitgehend stabil, produktiv in kontrollierten Umgebungen nutzbar.
+🟡 **Beta**: Stable core functionality, ongoing improvements, API largely stable, suitable for production use in controlled environments.
