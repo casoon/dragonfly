@@ -1,78 +1,80 @@
 # Casoon UI Style Guide
 
-Dieses Dokument beschreibt die Struktur, Konzepte und Verwendung des Casoon UI Design-Systems.
+This document describes the structure, concepts, and usage of the Casoon UI design system.
 
-## Inhaltsverzeichnis
+## Table of Contents
 
-- [Projektstruktur](#projektstruktur)
-- [CSS-Architektur](#css-architektur)
-- [CSS-Nesting & Komponenten-Struktur](#css-nesting--komponenten-struktur)
-- [Design-Tokens](#design-tokens)
-- [Farben](#farben)
-- [Typografie](#typografie)
+- [Project Structure](#project-structure)
+- [CSS Architecture](#css-architecture)
+- [CSS Nesting & Component Structure](#css-nesting--component-structure)
+- [Design Tokens](#design-tokens)
+- [Colors](#colors)
+- [Typography](#typography)
 - [Layout](#layout)
-- [Komponenten](#komponenten)
+- [Components](#components)
 - [Themes](#themes)
-- [Brand-Anpassungen](#brand-anpassungen)
-- [Utility-Klassen](#utility-klassen)
-- [Verwendung im Projekt](#verwendung-im-projekt)
-- [Formulare](#formulare)
-- [Animationen](#animationen)
+- [Brand Customization](#brand-customization)
+- [Utility Classes](#utility-classes)
+- [Usage in Projects](#usage-in-projects)
+- [Forms](#forms)
+- [Animations](#animations)
+- [Accessibility Best Practices](#accessibility-best-practices)
+- [Integration with Build Tools](#integration-with-build-tools)
 
-## Projektstruktur
+## Project Structure
 
-Das Casoon UI Design-System ist wie folgt strukturiert:
+The Casoon UI design system is organized as follows:
 
 ```
 casoon-ui-lib/
-├── core.css              # Haupt-CSS-Datei mit Layer-Imports
-├── components/           # CSS-Module für Komponenten
-├── layers/               # CSS-Layer für Grundfunktionen
-│   ├── tokens.css        # Design-Tokens und Variablen
-│   ├── reset.css         # CSS-Reset
-│   ├── colors.css        # Farbdefinitionen
-│   ├── typography.css    # Typografie-Styles
-│   ├── layout.css        # Layout-System
-│   ├── utilities.css     # Utility-Klassen
-│   ├── animations.css    # Animationen
-│   ├── effects.css       # Effekte (Hauptdatei)
-│   ├── effects/          # Zusätzliche Effekte
-│   ├── forms.css         # Formular-Grundstyles
-│   ├── smooth-scroll.css # Scroll-Verhalten
-│   └── icons.css         # Icon-Styles
-├── themes/               # Theme-Varianten
-│   ├── theme-base.css    # Basis-Theme
-│   ├── brand.css         # Marken-Anpassungen
-│   ├── dark-mode.css     # Dunkelmodus
-│   ├── day.css           # Tag-Theme
-│   ├── night.css         # Nacht-Theme
-│   └── weitere Themes...
-└── icons/                # Icon-Styles
+├── core.css              # Main CSS file with layer imports
+├── components/           # CSS modules for components
+├── layers/               # CSS layers for core functionality
+│   ├── tokens.css        # Design tokens and variables
+│   ├── reset.css         # CSS reset
+│   ├── colors.css        # Color definitions
+│   ├── typography.css    # Typography styles
+│   ├── layout.css        # Layout system
+│   ├── utilities.css     # Utility classes
+│   ├── animations.css    # Animations
+│   ├── effects.css       # Effects (main file)
+│   ├── effects/          # Additional effects
+│   ├── forms.css         # Form base styles
+│   ├── smooth-scroll.css # Scroll behavior
+│   └── icons.css         # Icon styles
+├── themes/               # Theme variants
+│   ├── theme-base.css    # Base theme
+│   ├── brand.css         # Brand customizations
+│   ├── dark-mode.css     # Dark mode
+│   ├── day.css           # Day theme
+│   ├── night.css         # Night theme
+│   └── more themes...
+└── icons/                # Icon styles
 ```
 
-## CSS-Architektur
+## CSS Architecture
 
-Das Design-System nutzt moderne CSS-Features und folgt einer Layer-basierten Architektur:
+The design system uses modern CSS features and follows a layer-based architecture:
 
-### CSS-Layer
+### CSS Layers
 
-Die CSS-Styles sind in logische Layer organisiert, die durch das `@layer`-Direktiv definiert werden:
+CSS styles are organized into logical layers, defined using the `@layer` directive:
 
 ```css
 @layer core {
-    /* Grundlegende Styles */
+    /* Core styles */
 }
 
 @layer icons {
-    /* Icon-Styles */
+    /* Icon styles */
 }
 
 @layer animations {
-    /* Animationen */
+    /* Animations */
 }
 
 @layer effects {
-    /* Effekte */
+    /* Effects */
 }
 
 @layer themes {
@@ -80,134 +82,134 @@ Die CSS-Styles sind in logische Layer organisiert, die durch das `@layer`-Direkt
 }
 ```
 
-Diese Layer-Struktur ermöglicht eine klare Hierarchie und Konfliktlösung bei CSS-Selektoren.
+This layer structure enables a clear hierarchy and conflict resolution for CSS selectors.
 
-### CSS-Module
+### CSS Modules
 
-Für Komponenten werden CSS-Module verwendet, die im Verzeichnis `components/` liegen. Diese können in Projekten selektiv importiert werden:
+Components use CSS modules located in the `components/` directory. These can be imported selectively in projects:
 
 ```js
 import styles from 'casoon-ui-lib/components/button.module.css';
 ```
 
-## CSS-Nesting & Komponenten-Struktur
+## CSS Nesting & Component Structure
 
-Das Design-System verwendet modernes CSS mit nativer Verschachtelung (Nesting) anstelle von BEM-Methodik für eine lesbarere und wartbarere Codestruktur.
+The design system uses modern CSS with native nesting instead of BEM methodology for more readable and maintainable code.
 
-### Grundprinzipien
+### Principles
 
-1. **Komponenten-basierte Struktur** - Jede Komponente ist in einem eigenen Modul mit eigenem Namespace (`@layer`) definiert
-2. **CSS-Nesting** - Elemente und Zustände werden durch verschachtelte Selektoren anstatt durch Namenskonventionen (BEM) definiert
-3. **Flache Klassenstruktur** - Vermeidung verschachtelter Klassen wie `.button__icon` zugunsten von `.button .icon`
-4. **Modifikatoren als direkte Klassen** - Verwendung kombinierter Klassen (`.button.primary`) statt BEM-Modifikatoren (`.button--primary`)
+1. **Component-based structure** – Each component is defined in its own module with its own namespace (`@layer`)
+2. **CSS nesting** – Elements and states are defined using nested selectors instead of naming conventions (BEM)
+3. **Flat class structure** – Avoids nested classes like `.button__icon` in favor of `.button .icon`
+4. **Modifiers as direct classes** – Uses combined classes (`.button.primary`) instead of BEM modifiers (`.button--primary`)
 
-### Struktur einer Komponente
+### Component Structure Example
 
-Eine typische Komponente im Casoon UI Design-System folgt diesem Aufbau:
+A typical component in Casoon UI follows this structure:
 
 ```css
 @layer components {
   .component-name {
-    /* Basis-Styling der Komponente */
+    /* Base styling for the component */
     
-    /* Unterelemente */
+    /* Child elements */
     h3 {
-      /* Styling für direkte h3-Kinder */
+      /* Styling for direct h3 children */
     }
     
     p {
-      /* Styling für direkte p-Kinder */
+      /* Styling for direct p children */
     }
     
     .icon {
-      /* Styling für .icon-Kinder innerhalb der Komponente */
+      /* Styling for .icon children within the component */
     }
     
-    /* Zustände */
+    /* States */
     &:hover {
-      /* Hover-Zustand */
+      /* Hover state */
     }
     
     &:focus {
-      /* Fokus-Zustand */
+      /* Focus state */
     }
     
     &:disabled {
-      /* Deaktivierter Zustand */
+      /* Disabled state */
     }
     
-    /* Varianten/Modifikatoren */
+    /* Variants/Modifiers */
     &.primary {
-      /* Primär-Variante */
+      /* Primary variant */
     }
     
     &.small {
-      /* Größenvariante klein */
+      /* Small size variant */
     }
     
     &.large {
-      /* Größenvariante groß */
+      /* Large size variant */
     }
     
-    /* Komplexe Verschachtelungen */
+    /* Complex nesting */
     &.with-icon {
-      /* Layout mit Icon */
+      /* Layout with icon */
       
       .icon {
-        /* Icon-Styling speziell in dieser Variante */
+        /* Icon styling specific to this variant */
       }
     }
     
-    /* Responsive Verhalten */
+    /* Responsive behavior */
     @media (min-width: 768px) {
-      /* Änderungen bei größeren Bildschirmen */
+      /* Changes for larger screens */
     }
   }
 }
 ```
 
-### Namenskonventionen
+### Naming Conventions
 
-| Typ | Konvention | Beispiel | Vorheriges BEM-Equivalent |
-|-----|------------|----------|---------------------------|
-| Komponente | `.komponente` | `.card` | `.card` |
-| Unterelement | `.komponente element` oder direkt via Selektor | `.card h3` oder `.card .title` | `.card__title` |
-| Variante/Modifikator | `.komponente.variante` | `.card.primary` | `.card--primary` |
-| Zustand | `.komponente.zustand` oder `.komponente:zustand` | `.card.active` oder `.card:hover` | `.card--active` |
-| Größenvariante | `.komponente.größe` | `.card.small` | `.card--small` |
+| Type         | Convention                | Example            | Previous BEM Equivalent |
+|--------------|---------------------------|--------------------|------------------------|
+| Component    | `.component`              | `.card`            | `.card`                |
+| Sub-element  | `.component element` or direct selector | `.card h3` or `.card .title` | `.card__title`          |
+| Variant/Modifier | `.component.variant`   | `.card.primary`    | `.card--primary`        |
+| State        | `.component.state` or `.component:state` | `.card.active` or `.card:hover` | `.card--active`         |
+| Size variant | `.component.size`         | `.card.small`      | `.card--small`          |
 
-### Beispiel: Button-Komponente
+### Example: Button Component
 
-#### Vorher (BEM):
+#### Before (BEM):
 ```css
-.button { /* Basis-Styling */ }
-.button--primary { /* Primäre Variante */ }
-.button--small { /* Kleine Größe */ }
-.button__icon { /* Icon-Element */ }
+.button { /* Base styling */ }
+.button--primary { /* Primary variant */ }
+.button--small { /* Small size */ }
+.button__icon { /* Icon element */ }
 ```
 
-#### Nachher (CSS-Nesting):
+#### After (CSS Nesting):
 ```css
 .button {
-  /* Basis-Styling */
+  /* Base styling */
   
   &.primary {
-    /* Primäre Variante */
+    /* Primary variant */
   }
   
   &.small {
-    /* Kleine Größe */
+    /* Small size */
   }
   
   .icon {
-    /* Icon-Element */
+    /* Icon element */
   }
 }
 ```
 
-### HTML-Nutzung
+### HTML Usage
 
-#### Vorher (BEM):
+#### Before (BEM):
 ```html
 <button class="button button--primary button--small">
   <span class="button__icon">→</span>
@@ -215,7 +217,7 @@ Eine typische Komponente im Casoon UI Design-System folgt diesem Aufbau:
 </button>
 ```
 
-#### Nachher (Flache Struktur):
+#### After (Flat Structure):
 ```html
 <button class="button primary small">
   <span class="icon">→</span>
@@ -223,17 +225,17 @@ Eine typische Komponente im Casoon UI Design-System folgt diesem Aufbau:
 </button>
 ```
 
-### Vorteile des neuen Ansatzes
+### Advantages of the new approach
 
-1. **Lesbarkeit** - Die Struktur der Komponente und ihre Varianten sind im CSS klar strukturiert und visuell abbildbar
-2. **Vereinfachtes HTML** - Weniger Klassen im Markup, bessere Lesbarkeit
-3. **Wartbarkeit** - Eng zusammengehörende Styles bleiben zusammen, keine Fragmentierung über mehrere Selektoren
-4. **Performance** - Geringere Spezifität der Selektoren, bessere Browser-Optimierung
-5. **Kompatibilität mit Utility-Klassen** - Einfache Kombination mit Utility-Klassen für schnelle Anpassungen
+1. **Readability** - The structure of the component and its variants are clearly structured in the CSS and visually representable
+2. **Simplified HTML** - Less classes in the markup, better readability
+3. **Maintainability** - Related styles stay together, no fragmentation across multiple selectors
+4. **Performance** - Lower selector specificity, better browser optimization
+5. **Compatibility with Utility Classes** - Easy combination with Utility Classes for quick adaptations
 
-## Design-Tokens
+## Design Tokens
 
-Die Design-Tokens sind in `layers/tokens.css` definiert und umfassen:
+Design tokens are defined in `layers/tokens.css` and include:
 
 ### Spacing
 
@@ -311,11 +313,11 @@ Die Design-Tokens sind in `layers/tokens.css` definiert und umfassen:
 --z-index-tooltip: 1070;
 ```
 
-## Farben
+## Colors
 
-Die Farbpalette ist in `layers/colors.css` definiert und verwendet das moderne OKLCH-Farbmodell für bessere Farbwiedergabe und Zugänglichkeit:
+The color palette is defined in `layers/colors.css` and uses the modern OKLCH color model for better color reproduction and accessibility:
 
-### Primärfarben
+### Primary colors
 
 ```css
 --color-primary: var(--color-blue-600);
@@ -323,7 +325,7 @@ Die Farbpalette ist in `layers/colors.css` definiert und verwendet das moderne O
 --color-primary-dark: var(--color-blue-700);
 ```
 
-### Sekundärfarben
+### Secondary colors
 
 ```css
 --color-secondary: var(--color-gray-600);
@@ -331,7 +333,7 @@ Die Farbpalette ist in `layers/colors.css` definiert und verwendet das moderne O
 --color-secondary-dark: var(--color-gray-700);
 ```
 
-### Akzentfarben
+### Accent colors
 
 ```css
 --color-accent: var(--color-orange-500);
@@ -339,7 +341,7 @@ Die Farbpalette ist in `layers/colors.css` definiert und verwendet das moderne O
 --color-accent-dark: var(--color-orange-600);
 ```
 
-### Statusfarben
+### Status colors
 
 ```css
 --color-success: var(--color-green-600);
@@ -348,34 +350,34 @@ Die Farbpalette ist in `layers/colors.css` definiert und verwendet das moderne O
 --color-info: var(--color-blue-600);
 ```
 
-### Farbpalette
+### Color palette
 
-Das System enthält umfangreiche Farbpaletten in 10er-Abstufungen (50-900) für folgende Farben:
+The system contains extensive color palettes in 10-step increments (50-900) for the following colors:
 
-- Blautöne (blue)
-- Himmelblau (sky)
-- Türkis (cyan)
+- Blue tones (blue)
+- Sky blue (sky)
+- Cyan (cyan)
 - Mint (mint)
-- Grün (green)
-- Limette (lime)
-- Gelb (yellow)
+- Green (green)
+- Lime (lime)
+- Yellow (yellow)
 - Gold (gold)
 - Orange (orange)
-- Koralle (coral)
-- Rot (red)
-- Rosa (pink)
+- Coral (coral)
+- Red (red)
+- Pink (pink)
 - Rose (rose)
-- Violett (purple)
+- Violet (purple)
 - Indigo (indigo)
-- Grau (gray)
-- Warmgrau (warm-gray)
-- Kaltgrau (cool-gray)
+- Gray (gray)
+- Warm gray (warm-gray)
+- Cool gray (cool-gray)
 
-## Typografie
+## Typography
 
-Die Typografie ist in `layers/typography.css` definiert:
+Typography is defined in `layers/typography.css`:
 
-### Schriftfamilien
+### Font families
 
 ```css
 --font-family-sans: system-ui, -apple-system, blinkmacsystemfont, "segoe ui", roboto, "helvetica neue", arial, sans-serif;
@@ -383,7 +385,7 @@ Die Typografie ist in `layers/typography.css` definiert:
 --font-family-mono: ui-monospace, sfmono-regular, menlo, monaco, consolas, "liberation mono", "courier new", monospace;
 ```
 
-### Schriftgrößen
+### Font sizes
 
 ```css
 --font-size-xs: 0.75rem;    /* 12px */
@@ -397,41 +399,41 @@ Die Typografie ist in `layers/typography.css` definiert:
 --font-size-5xl: 3rem;      /* 48px */
 ```
 
-### Text-Wrap-Optimierung
+### Text-Wrap Optimization
 
-Das Design-System verwendet moderne `text-wrap`-Eigenschaften für verbesserte Lesbarkeit und optimale Textdarstellung:
+The design system uses modern `text-wrap` properties for improved readability and optimal text rendering:
 
 ```css
-/* Optimierte Zeilenumbrüche für Überschriften */
+/* Optimized line breaks for headings */
 h1, h2, h3, h4, h5, h6 { text-wrap: balance; }
 
-/* Text-Wrap-Utilities */
+/* Text-Wrap Utilities */
 .text-balance { text-wrap: balance; }
 .text-pretty { text-wrap: pretty; }
 ```
 
-#### Text-Wrap-Eigenschaften
+#### Text-Wrap Properties
 
-| Eigenschaft | Beschreibung | Anwendungsfall |
+| Property | Description | Application Case |
 |-------------|--------------|---------------|
-| `text-wrap: balance` | Optimiert Zeilenumbrüche für gleichmäßige Zeilenlängen | Ideal für Überschriften, kurze Texte, Buttons |
-| `text-wrap: pretty` | Vermeidet einzelne Wörter in der letzten Zeile (Schusterjungen) | Ideal für Fließtexte, Paragraphen, längere Textabschnitte |
+| `text-wrap: balance` | Optimizes line breaks for uniform line lengths | Ideal for headings, short texts, buttons |
+| `text-wrap: pretty` | Avoids single words at the end of the line (stutter) | Ideal for flowing texts, paragraphs, longer text sections |
 
-#### Beispielanwendung
+#### Example Application
 
 ```html
-<!-- Überschrift mit ausgeglichene Zeilenlängen -->
-<h1 class="text-balance">Diese Überschrift hat ausgeglichene Zeilenlängen</h1>
+<!-- Heading with balanced line lengths -->
+<h1 class="text-balance">This heading has balanced line lengths</h1>
 
-<!-- Längerer Text mit optimiertem Umbruch -->
+<!-- Longer text with optimized break -->
 <p class="text-pretty">
-  Dieser Paragraph verwendet text-wrap: pretty für optimale Lesbarkeit,
-  indem einzelne Wörter am Ende von Textblöcken vermieden werden und
-  eine gleichmäßigere Textverteilung erreicht wird.
+  This paragraph uses text-wrap: pretty for optimal readability,
+  by avoiding single words at the end of text blocks and
+  achieving a more uniform text distribution.
 </p>
 ```
 
-### Schriftstärken
+### Font weights
 
 ```css
 --font-weight-light: 300;
@@ -441,7 +443,7 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance; }
 --font-weight-bold: 700;
 ```
 
-### Zeilenhöhen
+### Line heights
 
 ```css
 --line-height-none: 1;
@@ -454,7 +456,7 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance; }
 
 ## Layout
 
-Das Layout-System ist in `layers/layout.css` definiert und bietet flexible Optionen für Grid- und Flex-Layouts:
+The layout system is defined in `layers/layout.css` and offers flexible options for Grid and Flex layouts:
 
 ### Container
 
@@ -475,14 +477,14 @@ Das Layout-System ist in `layers/layout.css` definiert und bietet flexible Optio
     .container { max-width: var(--container-md); }
 }
 
-/* weitere Breakpoints... */
+/* other breakpoints... */
 ```
 
-### Grid-System
+### Grid System
 
-Das Grid-System basiert auf modernen CSS Grid-Technologien und bietet mehrere flexible Layout-Optionen:
+The grid system is based on modern CSS Grid technologies and offers several flexible layout options:
 
-#### Standard-Grid
+#### Standard Grid
 
 ```css
 .grid {
@@ -490,7 +492,7 @@ Das Grid-System basiert auf modernen CSS Grid-Technologien und bietet mehrere fl
     gap: var(--space-0);
 }
 
-/* Spalten-Konfiguration */
+/* Column Configuration */
 .grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
 .grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -499,18 +501,18 @@ Das Grid-System basiert auf modernen CSS Grid-Technologien und bietet mehrere fl
 .grid-cols-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
 .grid-cols-12 { grid-template-columns: repeat(12, minmax(0, 1fr)); }
 
-/* Spalten-Überspannung */
+/* Column Spanning */
 .col-span-1 { grid-column: span 1; }
 .col-span-2 { grid-column: span 2; }
-/* ... bis .col-span-12 und .col-span-full */
+/* ... until .col-span-12 and .col-span-full */
 ```
 
-#### Container-basierte Grids
+#### Container-based Grids
 
-Das System nutzt moderne Container Queries für komponentenbasierte responsive Layouts:
+The system uses modern container queries for component-based responsive layouts:
 
 ```css
-/* Grid-Responsive mit Container Queries */
+/* Grid-Responsive with Container Queries */
 .grid-responsive {
     display: grid;
     gap: var(--space-sm);
@@ -535,7 +537,7 @@ Das System nutzt moderne Container Queries für komponentenbasierte responsive L
     }
 }
 
-/* Layout-Grid mit Container Queries */
+/* Layout-Grid with Container Queries */
 .layout-grid {
     display: grid;
     gap: var(--space-4);
@@ -557,7 +559,7 @@ Das System nutzt moderne Container Queries für komponentenbasierte responsive L
 }
 ```
 
-#### Auto-anpassende Grids
+#### Auto-fitting Grids
 
 ```css
 .grid-auto-fit {
@@ -575,18 +577,18 @@ Das System nutzt moderne Container Queries für komponentenbasierte responsive L
 
 #### Responsive Breakpoint Utilities
 
-Alle Grid-Klassen haben responsive Varianten mit Breakpoint-Präfixen:
+All grid classes have responsive variants with Breakpoint prefixes:
 
 ```css
-/* Bei Viewport-Breiten ab 768px (md) */
+/* At Viewport widths above 768px (md) */
 .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .md\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .md\:col-span-4 { grid-column: span 4; }
 ```
 
-### Container-Queries
+### Container Queries
 
-Das System unterstützt Container-Queries für komponentenbasierte responsive Layouts:
+The system supports container queries for component-based responsive layouts:
 
 ```css
 --container-query-xs: 240px;
@@ -596,9 +598,9 @@ Das System unterstützt Container-Queries für komponentenbasierte responsive La
 --container-query-xl: 960px;
 ```
 
-## Komponenten
+## Components
 
-Die Bibliothek enthält über 30 vorgefertigte Komponenten als CSS-Module im `components/` Verzeichnis:
+The library contains over 30 pre-made components as CSS modules in the `components/` directory:
 
 - Alert (`alert.css`)
 - Avatar (`avatar.css`)
@@ -610,15 +612,15 @@ Die Bibliothek enthält über 30 vorgefertigte Komponenten als CSS-Module im `co
 - Input (`input.css`)
 - Modal (`modal.css`)
 - Tabs (`tabs.css`)
-- und viele weitere...
+- and many more...
 
-Jede Komponente ist als separates CSS-Modul implementiert und kann einzeln importiert werden.
+Each component is implemented as a separate CSS module and can be imported individually.
 
-### Neue Komponenten-Struktur
+### New Component Structure
 
-Alle Komponenten verwenden den modernen CSS-Nesting-Ansatz mit @layer und bieten eine konsistente Struktur:
+All components use the modern CSS-Nesting approach with @layer and offer a consistent structure:
 
-#### Card-Komponente
+#### Card Component
 
 ```css
 @layer components {
@@ -643,7 +645,7 @@ Alle Komponenten verwenden den modernen CSS-Nesting-Ansatz mit @layer und bieten
       object-fit: cover;
     }
 
-    /* Varianten */
+    /* Variants */
     &.primary {
       background-color: var(--color-primary);
       color: white;
@@ -654,7 +656,7 @@ Alle Komponenten verwenden den modernen CSS-Nesting-Ansatz mit @layer und bieten
       box-shadow: none;
     }
 
-    /* Layout-Varianten */
+    /* Layout Variants */
     &.horizontal {
       flex-direction: row;
       align-items: center;
@@ -665,7 +667,7 @@ Alle Komponenten verwenden den modernen CSS-Nesting-Ansatz mit @layer und bieten
       }
     }
 
-    /* Interaktive Varianten */
+    /* Interactive Variants */
     &.interactive {
       cursor: pointer;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -679,27 +681,27 @@ Alle Komponenten verwenden den modernen CSS-Nesting-Ansatz mit @layer und bieten
 }
 ```
 
-Verwendung:
+Usage:
 ```html
-<!-- Einfache Karte -->
+<!-- Simple Card -->
 <div class="card">
-  <h3>Kartentitel</h3>
-  <p>Karteninhalt</p>
+  <h3>Card Title</h3>
+  <p>Card Content</p>
 </div>
 
-<!-- Varianten kombinieren -->
+<!-- Variant Combination -->
 <div class="card primary interactive">
-  <h3>Interaktive primäre Karte</h3>
-  <p>Klicke mich!</p>
+  <h3>Interactive Primary Card</h3>
+  <p>Click me!</p>
 </div>
 
-<!-- Mit Utilities kombinieren -->
+<!-- With Utilities Combination -->
 <div class="card border p-6 mb-4">
-  <h3>Karte mit mehr Padding und Margin</h3>
+  <h3>Card with More Padding and Margin</h3>
 </div>
 ```
 
-#### Button-Komponente
+#### Button Component
 
 ```css
 @layer components {
@@ -723,7 +725,7 @@ Verwendung:
       background-color: var(--color-primary-dark);
     }
 
-    /* Varianten */
+    /* Variants */
     &.secondary {
       background-color: var(--color-secondary);
 
@@ -732,7 +734,7 @@ Verwendung:
       }
     }
 
-    /* Größen */
+    /* Sizes */
     &.sm {
       padding-inline: var(--space-3);
       padding-block: var(--space-1);
@@ -745,7 +747,7 @@ Verwendung:
       font-size: var(--font-size-base);
     }
 
-    /* Icon-Handling */
+    /* Icon Handling */
     &.with-icon {
       gap: var(--space-2);
 
@@ -759,22 +761,22 @@ Verwendung:
 }
 ```
 
-Verwendung:
+Usage:
 ```html
 <!-- Standard Button -->
 <button class="button">Standard Button</button>
 
-<!-- Button mit Variante und Größe -->
-<button class="button secondary sm">Kleiner Sekundärbutton</button>
+<!-- Button with Variant and Size -->
+<button class="button secondary sm">Smaller Secondary Button</button>
 
-<!-- Button mit Icon -->
+<!-- Button with Icon -->
 <button class="button with-icon">
   <span class="icon">→</span>
-  Weiter
+  Continue
 </button>
 ```
 
-#### Input-Komponente
+#### Input Component
 
 ```css
 @layer components {
@@ -795,20 +797,20 @@ Verwendung:
       box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-primary) 50%, transparent);
     }
 
-    /* Varianten nach Status */
+    /* Variants by Status */
     &.invalid {
       border-color: var(--color-error);
       background-color: color-mix(in srgb, var(--color-error) 5%, white);
     }
 
-    /* Größenvarianten */
+    /* Size Variants */
     &.sm {
       padding: var(--space-1) var(--space-2);
       font-size: var(--font-size-sm);
     }
   }
 
-  /* Container für Inputs mit Icons */
+  /* Container for Inputs with Icons */
   .input-wrapper {
     position: relative;
     display: flex;
@@ -828,22 +830,22 @@ Verwendung:
 }
 ```
 
-Verwendung:
+Usage:
 ```html
 <!-- Standard Input -->
-<input type="text" class="input" placeholder="Text eingeben">
+<input type="text" class="input" placeholder="Enter text">
 
-<!-- Input mit Status -->
-<input type="text" class="input invalid" placeholder="Ungültige Eingabe">
+<!-- Input with Status -->
+<input type="text" class="input invalid" placeholder="Invalid Input">
 
-<!-- Input mit Icon -->
+<!-- Input with Icon -->
 <div class="input-wrapper">
   <span class="input-icon">🔍</span>
-  <input type="search" class="input" placeholder="Suchen...">
+  <input type="search" class="input" placeholder="Search...">
 </div>
 ```
 
-#### Checkbox-Komponente
+#### Checkbox Component
 
 ```css
 @layer components {
@@ -854,7 +856,7 @@ Verwendung:
     cursor: pointer;
     font-size: var(--font-size-sm);
     
-    /* Die Checkbox selbst */
+    /* The Checkbox itself */
     input[type="checkbox"] {
       appearance: none;
       width: 1rem;
@@ -867,7 +869,7 @@ Verwendung:
       position: relative;
       transition: all var(--transition-fast);
       
-      /* Checked-Zustand */
+      /* Checked State */
       &:checked {
         background-color: var(--color-primary);
         border-color: var(--color-primary);
@@ -886,7 +888,7 @@ Verwendung:
       }
     }
     
-    /* Größenvarianten */
+    /* Size Variants */
     &.small {
       font-size: var(--font-size-xs);
       
@@ -899,21 +901,21 @@ Verwendung:
 }
 ```
 
-Verwendung:
+Usage:
 ```html
 <!-- Standard Checkbox -->
 <label class="checkbox">
   <input type="checkbox">
-  <span>Option auswählen</span>
+  <span>Select Option</span>
 </label>
 
-<!-- Kleine Checkbox -->
+<!-- Small Checkbox -->
 <label class="checkbox small">
   <input type="checkbox">
-  <span>Kleinere Option</span>
+  <span>Smaller Option</span>
 </label>
 
-<!-- Gruppe von Checkboxen -->
+<!-- Group of Checkboxes -->
 <div class="checkbox-group">
   <label class="checkbox">
     <input type="checkbox">
@@ -926,71 +928,71 @@ Verwendung:
 </div>
 ```
 
-### Migration von BEM zu CSS-Nesting
+### Migration from BEM to CSS Nesting
 
-Für bestehende Projekte, die die Bibliothek verwenden, kann ein schrittweiser Migrationspfad befolgt werden:
+For existing projects using the library, a step-by-step migration path can be followed:
 
-1. **Beide Klassen parallel unterstützen**: Während der Migration können sowohl die alten BEM-Klassen als auch die neuen Klassen unterstützt werden
+1. **Support both classes in parallel**: While migrating, both the old BEM classes and the new classes can be supported
 
    ```css
    .button,
    .button--primary {
-     /* Gemeinsame Styles */
+     /* Shared styles */
    }
    
    .button.primary {
-     /* Neue Struktur - gleiche Styles */
+     /* New structure - same styles */
    }
    ```
 
-2. **Selektive Migration**: Komponenten können schrittweise migriert werden, ohne das gesamte System auf einmal umzustellen
+2. **Selective Migration**: Components can be migrated gradually without switching the entire system at once
 
-3. **Deprecation-Hinweise**: In der Dokumentation können alte BEM-Klassen als veraltet markiert werden
+3. **Deprecation Notes**: Old BEM classes can be marked as deprecated in the documentation
 
 ## Themes
 
-Das Design-System unterstützt ein umfangreiches Theming-System:
+The design system supports an extensive theming system:
 
-### Basis-Theme
+### Base Theme
 
-Das Basis-Theme (`themes/theme-base.css`) definiert die Grundfarben und kann von anderen Themes überschrieben werden.
+The Base Theme (`themes/theme-base.css`) defines the base colors and can be overridden by other themes.
 
-### Jahreszeitenthemes
+### Season Themes
 
-- Tag (`day.css`) - Helles Theme mit Blau-Tönen
-- Nacht (`night.css`) - Dunkles Theme mit Lila-Akzenten
-- Sommer (`summer.css`) - Warmes Theme mit Gelb/Orange-Tönen
-- Winter (`winter.css`) - Kühles Theme mit Blau/Cyan-Tönen
-- Herbst (`autumn.css`) - Herbstliches Theme mit Orange/Rot-Tönen
-- Frühling (`spring.css`) - Frisches Theme mit Grün-Tönen
+- Day (`day.css`) - Light theme with blue tones
+- Night (`night.css`) - Dark theme with purple accent
+- Summer (`summer.css`) - Warm theme with yellow/orange tones
+- Winter (`winter.css`) - Cool theme with blue/cyan tones
+- Autumn (`autumn.css`) - Autumn theme with orange/red tones
+- Spring (`spring.css`) - Fresh theme with green tones
 
-### Spezialthemes
+### Special Themes
 
-- Wald (`forest.css`) - Naturtheme mit Grün-Variationen
-- Ozean (`ocean.css`) - Meeres-Theme mit Cyan/Blau-Tönen
-- Pastell (`pastel.css`) - Sanftes Theme mit Pastellfarben
-- Neon (`neon.css`) - Knalliges Theme mit leuchtenden Farben
-- Retro (`retro.css`) - Vintage-Look mit warmen Farben
-- Monochrom (`monochrome.css`) - Minimalistisches Schwarz-Weiß-Theme
-- Sonnenuntergang (`sunset.css`) - Warmes Theme mit Orange/Rot-Tönen
+- Forest (`forest.css`) - Natural theme with green variations
+- Ocean (`ocean.css`) - Sea theme with cyan/blue tones
+- Pastel (`pastel.css`) - Soft theme with pastel colors
+- Neon (`neon.css`) - Bright theme with glowing colors
+- Retro (`retro.css`) - Vintage look with warm colors
+- Monochrome (`monochrome.css`) - Minimalist black-and-white theme
+- Sunset (`sunset.css`) - Warm theme with orange/red tones
 
-### Funktionsthemes
+### Function Themes
 
-- Dunkelmodus (`dark-mode.css`) - Anpassungen für den Dunkelmodus
-- Barrierefreiheit (`accessibility.css`) - Theme mit hohem Kontrast für bessere Zugänglichkeit
+- Dark Mode (`dark-mode.css`) - Adjustments for dark mode
+- Accessibility (`accessibility.css`) - Theme with high contrast for better accessibility
 
-## Brand-Anpassungen
+## Brand Customization
 
-Das Design-System unterstützt Markenanpassungen über die `themes/brand.css`-Datei:
+The design system supports brand customization through the `themes/brand.css` file:
 
 ```css
 .brand {
-    /* Schriftarten */
+    /* Font families */
     --font-heading: 'Satoshi', sans-serif;
     --font-body: 'Inter', sans-serif;
     --font-accent: 'Poppins', sans-serif;
 
-    /* Direkte Farbwerte */
+    /* Direct color values */
     --color-primary: #111827;
     --color-secondary: #4B5563;
     --color-accent: #3245FF;
@@ -1000,32 +1002,32 @@ Das Design-System unterstützt Markenanpassungen über die `themes/brand.css`-Da
     --color-border: #E5E7EB;
     --color-white: #FFF;
     
-    /* Farbvarianten */
+    /* Color Variants */
     --color-primary-50: #F9FAFB;
     --color-primary-100: #F3F4F6;
-    /* weitere Farbvarianten... */
+    /* other color variants... */
 }
 ```
 
-## Utility-Klassen
+## Utility Classes
 
-Das Design-System enthält umfangreiche Utility-Klassen in `layers/utilities.css` für schnelle Styling-Anpassungen:
+The design system contains extensive utility classes in `layers/utilities.css` for quick styling adaptations:
 
-### Abstand-Utilities
+### Spacing Utilities
 
 ```css
 .m-0 { margin: var(--space-0); }
 .m-1 { margin: var(--space-1); }
 .m-2 { margin: var(--space-2); }
-/* weitere Margin-Utilities... */
+/* other Margin Utilities... */
 
 .p-0 { padding: var(--space-0); }
 .p-1 { padding: var(--space-1); }
 .p-2 { padding: var(--space-2); }
-/* weitere Padding-Utilities... */
+/* other Padding Utilities... */
 ```
 
-### Flex-Utilities
+### Flex Utilities
 
 ```css
 .flex { display: flex; }
@@ -1034,51 +1036,51 @@ Das Design-System enthält umfangreiche Utility-Klassen in `layers/utilities.css
 .flex-col { flex-direction: column; }
 .justify-start { justify-content: flex-start; }
 .justify-center { justify-content: center; }
-/* weitere Flex-Utilities... */
+/* other Flex Utilities... */
 ```
 
-### Text-Utilities
+### Text Utilities
 
 ```css
 .text-xs { font-size: var(--font-size-xs); }
 .text-sm { font-size: var(--font-size-sm); }
 .text-base { font-size: var(--font-size-base); }
-/* weitere Text-Größen-Utilities... */
+/* other Text Size Utilities... */
 
 .font-normal { font-weight: var(--font-weight-normal); }
 .font-medium { font-weight: var(--font-weight-medium); }
 .font-bold { font-weight: var(--font-weight-bold); }
-/* weitere Font-Weight-Utilities... */
+/* other Font-Weight Utilities... */
 ```
 
-### Farb-Utilities
+### Color Utilities
 
 ```css
 .bg-primary { background-color: var(--color-primary); }
 .bg-secondary { background-color: var(--color-secondary); }
 .bg-accent { background-color: var(--color-accent); }
-/* weitere Background-Color-Utilities... */
+/* other Background-Color Utilities... */
 
 .text-primary { color: var(--color-primary); }
 .text-secondary { color: var(--color-secondary); }
 .text-accent { color: var(--color-accent); }
-/* weitere Text-Color-Utilities... */
+/* other Text-Color Utilities... */
 ```
 
 ### Responsive Utilities
 
-Alle Utility-Klassen können mit Breakpoint-Präfixen verwendet werden:
+All utility classes can be used with Breakpoint prefixes:
 
 ```css
-.sm:flex { /* ab 640px */ }
-.md:hidden { /* ab 768px */ }
-.lg:grid-cols-3 { /* ab 1024px */ }
-/* weitere responsive Utilities... */
+.sm:flex { /* above 640px */ }
+.md:hidden { /* above 768px */ }
+.lg:grid-cols-3 { /* above 1024px */ }
+/* other responsive Utilities... */
 ```
 
-## Verwendung im Projekt
+## Usage in Projects
 
-### Integration mit Astro
+### Integration with Astro
 
 ```astro
 ---
@@ -1091,28 +1093,28 @@ import styles from 'casoon-ui-lib/components/button.css';
 </button>
 ```
 
-### Theme aktivieren
+### Theme Activation
 
 ```html
 <body class="theme-ocean">
-  <!-- Inhalte mit Ocean-Theme -->
+  <!-- Ocean-Theme content -->
 </body>
 ```
 
-### Brand-Anpassungen
+### Brand Customization
 
 ```html
 <body class="brand">
-  <!-- Inhalte mit benutzerdefinierten Markenfarben -->
+  <!-- Brand-specific content -->
 </body>
 ```
 
-### Utility-Klassen verwenden
+### Utility Classes Usage
 
 ```html
 <div class="flex justify-between items-center p-4 bg-primary text-white rounded-md">
-  <h2 class="text-xl font-bold">Titel</h2>
-  <button class="px-4 py-2 bg-accent rounded-md">Aktion</button>
+  <h2 class="text-xl font-bold">Title</h2>
+  <button class="px-4 py-2 bg-accent rounded-md">Action</button>
 </div>
 ```
 
@@ -1120,62 +1122,62 @@ import styles from 'casoon-ui-lib/components/button.css';
 
 ```html
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-  <!-- Responsives Grid: 1 Spalte auf Mobilgeräten, 2 auf Tablets, 3 auf Desktops -->
+  <!-- Responsive Grid: 1 column on mobile, 2 on tablets, 3 on desktops -->
 </div>
 ```
 
-### Container-Queries
+### Container Queries
 
 ```html
 <div class="cq-container">
   <div class="grid cq-md:grid-cols-2 gap-4">
-    <!-- 1 Spalte bei kleinen Containern, 2 Spalten ab Container-Größe MD -->
+    <!-- 1 column on small containers, 2 columns above container size MD -->
   </div>
 </div>
 ```
 
-## Animationen
+## Animations
 
-Das Animationssystem von Casoon UI wurde grundlegend überarbeitet und bietet nun eine einheitliche, performante und barrierefreie Lösung für Bewegungen in der Benutzeroberfläche.
+The animation system of Casoon UI has been fundamentally redesigned and now offers a uniform, performant, and accessible solution for movements in the user interface.
 
-### Grundprinzipien
+### Principles
 
-1. **Einheitliche Namensgebung** - Alle Animationen folgen einem konsistenten Benennungsschema (z.B. `slide-in-*` statt verschiedener Varianten)
-2. **Custom Properties** - Animationsparameter werden über CSS-Variablen gesteuert für einfache Anpassungen
-3. **Barrierefreiheit** - Vollständige Unterstützung für `prefers-reduced-motion` und spezielle Utility-Klassen
-4. **Performanz** - Optimierte Keyframe-Animationen, die GPU-Beschleunigung nutzen
+1. **Uniform Naming** - All animations follow a consistent naming scheme (e.g. `slide-in-*` instead of different variants)
+2. **Custom Properties** - Animation parameters are controlled via CSS variables for easy adaptations
+3. **Accessibility** - Full support for `prefers-reduced-motion` and special Utility Classes
+4. **Performance** - Optimized Keyframe Animations, utilizing GPU acceleration
 
-### Animations-Struktur
+### Animation Structure
 
-Die Animationen sind in folgenden Kategorien organisiert:
+Animations are organized into the following categories:
 
 ```css
-/* Basis-Keyframes für häufig verwendete Animationen */
+/* Base Keyframes for frequently used animations */
 @keyframes fade-in { ... }
 @keyframes slide-in-up { ... }
 @keyframes scale-in { ... }
 
 @layer animations {
-  /* Animation-Parameter als Custom Properties */
+  /* Animation Parameters as Custom Properties */
   :root {
     --animation-duration-normal: 300ms;
     --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
     --move-md: 16px;
-    /* ... weitere Parameter ... */
+    /* ... other parameters ... */
   }
 
-  /* Basisklassen für alle Animationen */
+  /* Base Classes for All Animations */
   @layer animation-base { ... }
   
-  /* Animation-Modifikatoren (Dauer, Verzögerung, etc.) */
+  /* Animation Modifiers (Duration, Delay, etc.) */
   @layer animation-duration { ... }
   @layer animation-delay { ... }
   @layer animation-iterations { ... }
   
-  /* Barrierefreiheit-Utilities */
+  /* Accessibility Utilities */
   @layer motion-preferences { ... }
   
-  /* Animations-Kategorien */
+  /* Animation Categories */
   @layer fade-animations { ... }
   @layer slide-animations { ... }
   @layer scale-animations { ... }
@@ -1184,298 +1186,298 @@ Die Animationen sind in folgenden Kategorien organisiert:
 }
 ```
 
-### Animationsklassen
+### Animation Classes
 
-| Kategorie | Klassen | Beschreibung |
+| Category | Classes | Description |
 |-----------|---------|--------------|
-| Fade | `.fade-in`, `.fade-out` | Ein-/Ausblenden von Elementen |
-| Slide | `.slide-in-up`, `.slide-in-down`, `.slide-in-left`, `.slide-in-right` | Hereingleiten von Elementen |
-| Scale | `.scale-in`, `.scale-out` | Größenänderung beim Ein-/Ausblenden |
-| Scroll | `.scroll-fade-in`, `.scroll-slide-in-up`, `.scroll-slide-in-left`, `.scroll-slide-in-right` | Scroll-getriebene Animationen |
-| Komplex | `.animate-bounce`, `.animate-pulse`, `.animate-spin`, `.animate-ping`, `.animate-wiggle`, `.animate-float`, `.animate-shake`, `.animate-heartbeat`, `.animate-elastic` | Komplexe Animationseffekte |
+| Fade | `.fade-in`, `.fade-out` | Fade in/out of elements |
+| Slide | `.slide-in-up`, `.slide-in-down`, `.slide-in-left`, `.slide-in-right` | Slide in elements |
+| Scale | `.scale-in`, `.scale-out` | Size change when fading in/out |
+| Scroll | `.scroll-fade-in`, `.scroll-slide-in-up`, `.scroll-slide-in-left`, `.scroll-slide-in-right` | Scroll-driven animations |
+| Complex | `.animate-bounce`, `.animate-pulse`, `.animate-spin`, `.animate-ping`, `.animate-wiggle`, `.animate-float`, `.animate-shake`, `.animate-heartbeat`, `.animate-elastic` | Complex animation effects |
 
-### Parameter-Anpassung
+### Parameter Adjustment
 
-Animationsparameter können über CSS-Variablen angepasst werden:
+Animation parameters can be adjusted via CSS variables:
 
 ```css
-/* Globale Anpassung */
+/* Global Adjustment */
 :root {
-  --animation-duration-normal: 500ms; /* Längere Standarddauer */
-  --ease-bounce: cubic-bezier(0.5, -0.5, 0.1, 1.5); /* Stärkerer Bounce-Effekt */
+  --animation-duration-normal: 500ms; /* Longer Default Duration */
+  --ease-bounce: cubic-bezier(0.5, -0.5, 0.1, 1.5); /* Stronger Bounce Effect */
 }
 
-/* Anpassung für einzelne Elemente */
+/* Adjustment for Individual Elements */
 .my-element {
-  --slide-distance: 30px; /* Größere Bewegungsdistanz */
-  --bounce-height: 40%; /* Höherer Sprung */
+  --slide-distance: 30px; /* Larger Movement Distance */
+  --bounce-height: 40%; /* Higher Jump */
 }
 ```
 
-### Barrierefreiheit
+### Accessibility
 
-Das Animationssystem berücksichtigt die Barrierefreiheit durch:
+The animation system considers accessibility by:
 
-1. **Automatische Deaktivierung** - Alle Animationen werden bei `prefers-reduced-motion: reduce` automatisch deaktiviert
-2. **Motion-Safe-Utility** - Mit `.motion-safe` gekennzeichnete Elemente werden nur animiert, wenn keine reduzierten Bewegungen bevorzugt werden
-3. **Motion-Reduce-Utility** - Mit `.motion-reduce` gekennzeichnete Elemente werden nur angezeigt, wenn reduzierte Bewegungen bevorzugt werden
+1. **Automatic Deactivation** - All animations are automatically deactivated when `prefers-reduced-motion: reduce` is preferred
+2. **Motion-Safe Utility** - Elements marked with `.motion-safe` are only animated when no reduced motion is preferred
+3. **Motion-Reduce Utility** - Elements marked with `.motion-reduce` are only displayed when reduced motion is preferred
 
 ```html
-<!-- Wird nur animiert, wenn keine reduzierten Bewegungen bevorzugt werden -->
+<!-- Will only animate if no reduced motion is preferred -->
 <div class="card motion-safe animate fade-in">
-  <!-- Animierter Inhalt -->
+  <!-- Animated Content -->
 </div>
 
-<!-- Alternative Version für reduzierte Bewegung -->
+<!-- Alternative Version for Reduced Motion -->
 <div class="card motion-reduce">
-  <!-- Statischer Inhalt ohne Animation -->
+  <!-- Static Content without Animation -->
 </div>
 ```
 
-### Beispiele
+### Examples
 
-#### Einfache Einblend-Animation:
+#### Simple Fade Animation:
 ```html
 <div class="animate fade-in">
-  Diese Inhalt wird sanft eingeblendet.
+  This content will fade in smoothly.
 </div>
 ```
 
-#### Komplexe Animation mit Parametern:
+#### Complex Animation with Parameters:
 ```html
 <div class="animate animate-bounce infinite" style="--bounce-height: 20%;">
-  Dieses Element springt wiederholt um 20% seiner Höhe.
+  This element will bounce repeatedly by 20% of its height.
 </div>
 ```
 
-#### Scroll-getriebene Animation:
+#### Scroll-driven Animation:
 ```html
 <div class="scroll-slide-in-up">
-  Dieses Element gleitet von unten herein, sobald es ins Viewport scrollt.
+  This element will slide in from the bottom when it scrolls into view.
 </div>
 ```
 
-#### Animation mit angepassten Parametern:
+#### Animation with Adjusted Parameters:
 ```html
 <div class="animate slide-in-left duration-slow delay-md">
-  Dieses Element gleitet langsam von links herein, mit mittlerer Verzögerung.
+  This element will slide in slowly from the left, with medium delay.
 </div>
 ```
 
-### Animation-Kontextklassen
+### Animation Context Classes
 
-Mit Animation-Kontextklassen können Sie Animation-Parameter für einen ganzen Container und alle seine Kindelemente überschreiben, ohne die globalen Werte zu ändern:
+With Animation Context Classes, you can override animation parameters for an entire container and all its child elements without changing the global values:
 
 ```html
-<!-- Container mit schnelleren Animationen -->
+<!-- Container with Faster Animations -->
 <div class="animation-context-fast">
-  <button class="animate fade-in">Wird schneller eingeblendet</button>
-  <div class="animate slide-in-up">Gleitet schneller ein</div>
+  <button class="animate fade-in">Will fade in faster</button>
+  <div class="animate slide-in-up">Will slide in faster</div>
   
-  <!-- Animationen können weiterhin individuell angepasst werden -->
+  <!-- Animation parameters can still be individually adjusted -->
   <div class="animate slide-in-left duration-slow">
-    Langsamer als Standardanimationen im schnellen Kontext
+    Slower than Standard Animations in Fast Context
   </div>
 </div>
 
-<!-- Container mit größeren Skalierungseffekten -->
+<!-- Container with Larger Scaling Effects -->
 <div class="scale-context-lg">
   <div class="animate scale-in">
-    Wird mit stärkerer Skalierung eingeblendet
+    Will fade in with Larger Scaling
   </div>
 </div>
 ```
 
-#### Verfügbare Kontextklassen
+#### Available Context Classes
 
-| Typ | Klassen | Beeinflusste Parameter |
+| Type | Classes | Affected Parameters |
 |-----|---------|------------------------|
-| **Geschwindigkeit** | `.animation-context-fastest`<br>`.animation-context-fast`<br>`.animation-context-slow` | `--animation-duration-*` |
-| **Skalierung** | `.scale-context-xs`<br>`.scale-context-sm`<br>`.scale-context-md`<br>`.scale-context-lg` | `--scale-*` |
-| **Bewegungsdistanz** | `.move-context-small`<br>`.move-context-medium`<br>`.move-context-large` | `--move-*`, `--slide-distance` |
-| **Verzögerung** | `.delay-context-short`<br>`.delay-context-medium`<br>`.delay-context-long` | `--delay-*`, `--stagger-*` |
+| **Speed** | `.animation-context-fastest`<br>`.animation-context-fast`<br>`.animation-context-slow` | `--animation-duration-*` |
+| **Scaling** | `.scale-context-xs`<br>`.scale-context-sm`<br>`.scale-context-md`<br>`.scale-context-lg` | `--scale-*` |
+| **Movement Distance** | `.move-context-small`<br>`.move-context-medium`<br>`.move-context-large` | `--move-*`, `--slide-distance` |
+| **Delay** | `.delay-context-short`<br>`.delay-context-medium`<br>`.delay-context-long` | `--delay-*`, `--stagger-*` |
 
-#### Animation-Präsets
+#### Animation Presets
 
-Das Framework bietet auch vordefinierte Animation-Stile, die mehrere Parameter gleichzeitig anpassen:
+The framework also offers predefined animation styles that adjust multiple parameters at once:
 
 ```html
-<!-- Energische, schnelle Animationen -->
+<!-- Energetic, Fast Animations -->
 <div class="animation-context-energetic">
-  <!-- Alle Animationen hier werden dynamischer und energischer -->
+  <!-- All Animations here will be more dynamic and energetic -->
 </div>
 
-<!-- Subtile, dezente Animationen -->
+<!-- Subtle, Deceptive Animations -->
 <div class="animation-context-subtle">
-  <!-- Alle Animationen hier werden zurückhaltender und dezenter -->
+  <!-- All Animations here will be more restrained and deceptive -->
 </div>
 
-<!-- Verspielte Animationen mit Bounce-Effekten -->
+<!-- Playful Animations with Bounce Effects -->
 <div class="animation-context-playful">
-  <!-- Alle Animationen hier werden verspielter mit mehr Federkraft -->
+  <!-- All Animations here will be more playful with more spring force -->
 </div>
 ```
 
-#### Verschachtelte Kontextklassen
+#### Nested Context Classes
 
-Kontextklassen können verschachtelt werden, wobei die innerste Klasse die äußere überschreibt:
+Context classes can be nested, where the innermost class overrides the outer:
 
 ```html
 <div class="animation-context-slow">
-  <!-- Langsame Animationen -->
+  <!-- Slow Animations -->
   
   <div class="animation-context-fast">
-    <!-- Schnelle Animationen überschreiben den langsamen Kontext -->
+    <!-- Fast Animations override the slow context -->
   </div>
 </div>
 ```
 
-#### Kombinieren mit Container-Queries
+#### Combining with Container Queries
 
-Besonders nützlich ist die Kombination mit Container-Queries für responsive Animationen:
+Especially useful is the combination with Container Queries for responsive animations:
 
 ```html
 <style>
   @container (max-width: 600px) {
     .responsive-container {
-      /* Kleine Bildschirme: subtile Animationen */
+      /* Small Screens: subtle Animations */
       composes: animation-context-subtle;
     }
   }
   
   @container (min-width: 601px) {
     .responsive-container {
-      /* Große Bildschirme: verspielte Animationen */
+      /* Large Screens: playful Animations */
       composes: animation-context-playful;
     }
   }
 </style>
 
 <div class="container-query responsive-container">
-  <!-- Animationen passen sich automatisch der Container-Größe an -->
+  <!-- Animations automatically adjust to Container Size -->
 </div>
 ```
 
-### Backdrop-Komponenten
+### Backdrop Components
 
-Backdrops sind halbtransparente Überlagerungen, die als Hintergrund für modale Dialoge, Popover und andere UI-Elemente dienen. Sie helfen, den Fokus auf den Vordergrundinhalt zu lenken und eine visuelle Hierarchie zu schaffen.
+Backdrops are semi-transparent overlays used as backgrounds for modal dialogs, popovers, and other UI elements. They help focus the attention on the foreground content and create a visual hierarchy.
 
 ```html
-<!-- Standard Backdrop (dunkler Hintergrund) -->
+<!-- Standard Backdrop (Dark Background) -->
 <div class="backdrop">
-  <!-- Inhalte im Vordergrund -->
+  <!-- Foreground Content -->
 </div>
 
-<!-- Backdrop mit Unschärfe-Effekt -->
+<!-- Backdrop with Blur Effect -->
 <div class="backdrop backdrop-blur">
-  <!-- Inhalte im Vordergrund -->
+  <!-- Foreground Content -->
 </div>
 
-<!-- Heller Backdrop -->
+<!-- Light Backdrop -->
 <div class="backdrop backdrop-light">
-  <!-- Inhalte im Vordergrund -->
+  <!-- Foreground Content -->
 </div>
 
-<!-- Backdrop mit stärkerer Deckkraft -->
+<!-- Backdrop with Stronger Opacity -->
 <div class="backdrop backdrop-strong">
-  <!-- Inhalte im Vordergrund -->
+  <!-- Foreground Content -->
 </div>
 ```
 
-#### Backdrop-Varianten
+#### Backdrop Variants
 
-| Klasse | Beschreibung |
+| Class | Description |
 |--------|--------------|
-| `.backdrop` | Standard-Backdrop mit dunklem Hintergrund (75% Deckkraft) |
-| `.backdrop-blur` | Fügt einen Unschärfe-Effekt hinzu (4px Standardunschärfe) |
-| `.backdrop-light` | Heller Hintergrund mit geringerer Deckkraft (25%) |
-| `.backdrop-dark` | Dunkler Hintergrund (75% Deckkraft) |
-| `.backdrop-medium` | Mittlere Deckkraft (50%) |
-| `.backdrop-strong` | Hohe Deckkraft (85%) |
+| `.backdrop` | Standard Backdrop with Dark Background (75% Opacity) |
+| `.backdrop-blur` | Adds Blur Effect (4px Default Blur) |
+| `.backdrop-light` | Light Background with Lower Opacity (25%) |
+| `.backdrop-dark` | Dark Background (75% Opacity) |
+| `.backdrop-medium` | Medium Opacity (50%) |
+| `.backdrop-strong` | High Opacity (85%) |
 
-#### Animierte Backdrops
+#### Animated Backdrops
 
-Backdrop-Komponenten können auch mit Übergängen ein- und ausgeblendet werden:
+Backdrop components can also be faded in and out with transitions:
 
 ```html
-<!-- Backdrop mit CSS-Transition statt Animation -->
+<!-- Backdrop with CSS Transition instead of Animation -->
 <div class="backdrop-transition">
-  <!-- Inhalte im Vordergrund -->
+  <!-- Foreground Content -->
 </div>
 
-<!-- Ausblenden des Backdrops -->
+<!-- Backdrop Fade Out -->
 <script>
-  // Backdrop ausblenden
+  // Backdrop fade out
   document.querySelector('.backdrop-transition').classList.add('exit');
   
-  // Nach der Animation entfernen
+  // Remove after Animation
   setTimeout(() => {
     document.querySelector('.backdrop-transition').remove();
-  }, 300); // Entspricht var(--backdrop-animation-duration)
+  }, 300); // Equals var(--backdrop-animation-duration)
 </script>
 ```
 
-#### Anpassbare Parameter
+#### Adjustable Parameters
 
 ```css
 :root {
-  --backdrop-opacity: 0.75;       /* Grundlegende Deckkraft */
-  --backdrop-blur: 4px;           /* Unschärfe-Stärke */
-  --backdrop-bg-color: rgb(0 0 0 / var(--backdrop-opacity)); /* Hintergrundfarbe */
-  --backdrop-animation-duration: 300ms; /* Animations-/Transition-Dauer */
+  --backdrop-opacity: 0.75;       /* Basic Opacity */
+  --backdrop-blur: 4px;           /* Blur Strength */
+  --backdrop-bg-color: rgb(0 0 0 / var(--backdrop-opacity)); /* Background Color */
+  --backdrop-animation-duration: 300ms; /* Animation-/Transition Duration */
 }
 ```
 
-### Transition-Behavior: Allow-Discrete
+### Transition Behavior: Allow-Discrete
 
-Mit der neuen CSS-Eigenschaft `transition-behavior: allow-discrete` können Übergänge zwischen normalerweise nicht-interpolierbaren Eigenschaften wie `display`, `visibility` oder `position` realisiert werden. Dies ermöglicht sanftere UI-Übergänge ohne JavaScript-Hacks.
+With the new CSS property `transition-behavior: allow-discrete`, transitions between normally non-interpolable properties like `display`, `visibility`, or `position` can be realized. This allows smoother UI transitions without JavaScript hacks.
 
 ```html
-<!-- Element mit Übergang zwischen sichtbar und unsichtbar -->
+<!-- Element with Transition between Visible and Invisible -->
 <div class="fade-discrete">
-  Dies wird sanft ein- und ausgeblendet, inklusive visibility-Wechsel.
+  This will fade in and out smoothly, including visibility change.
 </div>
 
-<!-- Element, das komplett aus dem DOM-Fluss entfernt wird, wenn ausgeblendet -->
+<!-- Element that is completely removed from the DOM when invisible -->
 <div class="fade-remove">
-  Dies wird sanft ein- und ausgeblendet und aus dem Fluss entfernt, wenn unsichtbar.
+  This will fade in and out smoothly and remove from flow when invisible.
 </div>
 ```
 
-#### Verfügbare Utility-Klassen
+#### Available Utility Classes
 
-| Klasse | Beschreibung |
+| Class | Description |
 |--------|--------------|
-| `.transition-allow-discrete` | Grundklasse, die `transition-behavior: allow-discrete` aktiviert |
-| `.fade-discrete` | Übergang zwischen sichtbar und unsichtbar (`opacity` + `visibility`) |
-| `.fade-remove` | Übergang zwischen sichtbar und entfernt (`opacity` + `visibility` + `display`) |
-| `.transition-aria-state` | Erlaubt sanfte Übergänge bei gleichzeitiger Änderung von ARIA-Zuständen |
-| `.animate-visibility` | Gesteuerte Ein-/Ausblendung über die `.visible` Klasse |
+| `.transition-allow-discrete` | Base class that activates `transition-behavior: allow-discrete` |
+| `.fade-discrete` | Transition between visible and invisible (`opacity` + `visibility`) |
+| `.fade-remove` | Transition between visible and removed (`opacity` + `visibility` + `display`) |
+| `.transition-aria-state` | Allows smooth transitions when changing ARIA states simultaneously |
+| `.animate-visibility` | Controlled fade in/out via the `.visible` class |
 
-#### Anwendungsbeispiel mit `.animate-visibility`
+#### Example Application with `.animate-visibility`
 
 ```html
 <div class="animate-visibility">
-  Dieser Inhalt ist standardmäßig unsichtbar.
+  This content is standard not visible.
 </div>
 
 <script>
-  // Einblenden des Elements
+  // Element fade in
   document.querySelector('.animate-visibility').classList.add('visible');
   
-  // Später wieder ausblenden
+  // Later fade out
   document.querySelector('.animate-visibility').classList.remove('visible');
 </script>
 ```
 
-#### Kombination mit ARIA-Zuständen für Barrierefreiheit
+#### Combining with ARIA States for Accessibility
 
 ```html
 <button aria-expanded="false" class="transition-aria-state">
-  Menü anzeigen
+  Show Menu
 </button>
 <div id="menu" aria-hidden="true" class="animate-visibility">
-  <!-- Menüinhalt -->
+  <!-- Menu Content -->
 </div>
 
 <script>
@@ -1485,78 +1487,185 @@ Mit der neuen CSS-Eigenschaft `transition-behavior: allow-discrete` können Übe
   button.addEventListener('click', () => {
     const isExpanded = button.getAttribute('aria-expanded') === 'true';
     
-    // ARIA-Zustände aktualisieren (mit sanftem Übergang)
+    // Update ARIA states (with smooth transition)
     button.setAttribute('aria-expanded', !isExpanded);
     menu.setAttribute('aria-hidden', isExpanded);
     
-    // Sichtbarkeit umschalten
+    // Visibility toggle
     menu.classList.toggle('visible', !isExpanded);
   });
 </script>
 ```
 
-#### Vorteile gegenüber traditionellen Techniken
+#### Advantages Over Traditional Techniques
 
-1. **Sauberer Code** - Keine JavaScript-Timer oder Callback-Hacks nötig
-2. **Bessere Performance** - Der Browser kann Übergänge optimieren
-3. **Verbesserte Barrierefreiheit** - ARIA-Zustände können mit visuellen Änderungen synchronisiert werden
-4. **Vermeidung von Layout-Shifts** - Sanfte Übergänge zwischen verschiedenen Layout-Zuständen
+1. **Cleaner Code** - No JavaScript timers or callback hacks needed
+2. **Better Performance** - Browser can optimize transitions
+3. **Improved Accessibility** - ARIA states can be synchronized with visual changes
+4. **Avoiding Layout Shifts** - Smooth transitions between different layout states
 
-### Flüssige Interpolation mit interpolate-size
+### Fluid Interpolation with interpolate-size
 
-Die CSS-Eigenschaft `interpolate-size: allow-keywords` ermöglicht flüssige Übergänge zwischen CSS-Schlüsselwörtern wie `small`, `medium` und `large`. Dies eröffnet neue Möglichkeiten für responsive und adaptive Animationen.
+The CSS property `interpolate-size: allow-keywords` allows fluid transitions between CSS keywords like `small`, `medium`, and `large`. This opens new possibilities for responsive and adaptive animations.
 
 ```html
-<!-- Element mit flüssiger Größenanpassung -->
+<!-- Element with fluid size adjustment -->
 <div class="animate-keyword-size keyword-size-md">
-  Diese Schriftgröße passt sich flüssig an
+  This font size will adjust fluidly
 </div>
 
-<!-- Element, das bei Hover flüssig wächst -->
+<!-- Element that grows when hovered -->
 <div class="hover-grow">
-  Diese Text wird größer, wenn man darüber hovert
+  This text will grow when hovered
 </div>
 ```
 
-#### Verfügbare Utility-Klassen
+#### Available Utility Classes
 
-| Klasse | Beschreibung |
+| Class | Description |
 |--------|--------------|
-| `.animate-keyword-size` | Basisklasse für flüssige Interpolation zwischen Schlüsselwörtern |
-| `.keyword-size-xs` | Setzt die Schriftgröße auf `x-small` |
-| `.keyword-size-sm` | Setzt die Schriftgröße auf `small` |
-| `.keyword-size-md` | Setzt die Schriftgröße auf `medium` |
-| `.keyword-size-lg` | Setzt die Schriftgröße auf `large` |
-| `.keyword-size-xl` | Setzt die Schriftgröße auf `x-large` |
-| `.hover-grow` | Element wächst bei Hover von `medium` zu `large` |
-| `.animate-grow-fade` | Kombinierte Animation mit Größenwachstum und Einblenden |
+| `.animate-keyword-size` | Base class for fluid interpolation between keywords |
+| `.keyword-size-xs` | Sets the font size to `x-small` |
+| `.keyword-size-sm` | Sets the font size to `small` |
+| `.keyword-size-md` | Sets the font size to `medium` |
+| `.keyword-size-lg` | Sets the font size to `large` |
+| `.keyword-size-xl` | Sets the font size to `x-large` |
+| `.hover-grow` | Element grows when hovered from `medium` to `large` |
+| `.animate-grow-fade` | Combined animation with size growth and fade in |
 
-#### Anwendungsbeispiel mit Hover-Effekt
+#### Example Application with Hover Effect
 
 ```html
 <div class="hover-grow">
-  Dieser Text wächst flüssig, wenn der Mauszeiger darüber schwebt
+  This text will grow smoothly when hovered
 </div>
 
-<!-- Kombination mit anderen Animationseffekten -->
+<!-- Combining with Other Animation Effects -->
 <div class="hover-grow animate-pulse">
-  Dieser Text pulsiert und wächst bei Hover
+  This text will pulse and grow when hovered
 </div>
 ```
 
-#### Keyframe-Animationen mit Schlüsselwörtern
+#### Keyframe Animations with Keywords
 
 ```html
 <div class="animate-grow-fade">
-  Diese Animation beginnt mit x-small und blendet sich ein, 
-  während sie flüssig bis large wächst
+  This animation will start from x-small and fade in, 
+  while smoothly growing to large
 </div>
 ```
 
-#### Vorteile von interpolate-size
+#### Advantages of interpolate-size
 
-1. **Natürlichere Übergänge** - Flüssige Interpolation statt abrupter Änderungen
-2. **Einfachere Mediaquery-Integration** - Kombinierbar mit Container- und Viewport-Queries
-3. **Keine Sprünge** - Verhindert plötzliche Größenänderungen bei Breakpoints
-4. **Bessere UX** - Sanftere visuelle Änderungen für den Nutzer
-5. **Semantische Größenbezeichnungen** - Nutzung von aussagekräftigen Schlüsselwörtern statt Pixelwerten
+1. **More Natural Transitions** - Fluid interpolation instead of abrupt changes
+2. **Easier Mediaquery Integration** - Combinable with Container and Viewport Queries
+3. **No Jumps** - Prevents sudden size changes at breakpoints
+4. **Better UX** - Smoother visual changes for the user
+5. **Semantic Size Designations** - Use of descriptive keywords instead of pixel values
+
+## Accessibility Best Practices
+
+Casoon UI is designed with accessibility in mind. To ensure your projects are accessible to all users, follow these best practices:
+
+### ARIA Roles & Attributes
+- Use appropriate ARIA roles (e.g., `role="dialog"`, `role="alert"`, `role="button"`) to communicate the purpose of elements to assistive technologies.
+- Use `aria-label`, `aria-labelledby`, and `aria-describedby` to provide accessible names and descriptions.
+- Update ARIA states (e.g., `aria-expanded`, `aria-checked`, `aria-hidden`) dynamically when UI state changes.
+
+### Color Contrast
+- Ensure sufficient contrast between text and background. Use tools like [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/) to verify compliance with WCAG AA/AAA standards.
+- Avoid using color as the only means of conveying information (e.g., use icons or text in addition to color).
+
+### Focus Management
+- Always provide a visible focus indicator for interactive elements (buttons, links, form fields). Casoon UI includes animated focus ring utilities for this purpose.
+- Manage focus programmatically when opening dialogs, modals, or popovers (e.g., focus the first interactive element inside a modal).
+- Return focus to the triggering element when closing overlays or dialogs.
+
+### Keyboard Navigation
+- Ensure all interactive elements are reachable and usable via keyboard (Tab, Shift+Tab, Enter, Space, Arrow keys).
+- Use semantic HTML elements (`<button>`, `<a>`, `<input>`) whenever possible for built-in keyboard support.
+- For custom components, implement keyboard event handlers to mimic native behavior (e.g., closing a modal with Escape, navigating menus with Arrow keys).
+
+### Screen Reader Support
+- Use headings (`<h1>`–`<h6>`) to structure content logically.
+- Provide skip links for quick navigation (e.g., "Skip to main content").
+- Hide purely decorative elements from assistive tech with `aria-hidden="true"` or `role="presentation"`.
+
+### Motion & Reduced Motion
+- Respect user preferences for reduced motion by using `.motion-safe` and `.motion-reduce` utilities.
+- Avoid auto-playing animations or transitions that could cause discomfort.
+
+For more, see the [WAI-ARIA Authoring Practices](https://www.w3.org/WAI/ARIA/apg/) and [WCAG Guidelines](https://www.w3.org/WAI/WCAG21/quickref/).
+
+## Integration with Build Tools
+
+Casoon UI is framework-agnostic and can be integrated with all major build tools and frameworks. Below are examples for common setups:
+
+### Vite
+```js
+// vite.config.js
+import { defineConfig } from 'vite';
+import postcss from './postcss.config.js';
+
+export default defineConfig({
+  css: { postcss },
+});
+```
+```js
+// main.js or main.ts
+import '@casoon/ui-lib/core.css';
+```
+
+### Webpack
+```js
+// webpack.config.js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader', 'postcss-loader'],
+      },
+    ],
+  },
+};
+```
+```js
+// index.js
+import '@casoon/ui-lib/core.css';
+```
+
+### Astro
+```astro
+---
+import '@casoon/ui-lib/core.css';
+---
+<html>
+  <body>
+    <!-- Your content -->
+  </body>
+</html>
+```
+
+### Next.js
+```js
+// next.config.js
+module.exports = {
+  reactStrictMode: true,
+  // ...other config
+};
+```
+```js
+// pages/_app.js or pages/_app.tsx
+import '@casoon/ui-lib/core.css';
+
+export default function MyApp({ Component, pageProps }) {
+  return <Component {...pageProps} />;
+}
+```
+
+### General Tips
+- For best results, ensure your build tool supports PostCSS and modern CSS features (e.g., nesting, custom properties, @layer).
+- If you use LightningCSS or another CSS optimizer, check compatibility with Casoon UI's advanced features.
+- You can import only the CSS modules you need for optimal bundle size.
+- For SSR (Server-Side Rendering), make sure to include the CSS in the server-rendered HTML.

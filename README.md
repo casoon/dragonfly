@@ -1,6 +1,6 @@
 # @casoon/ui-lib
 
-A modular, lightweight CSS framework and design system for modern web projects. Optimized for Astro JS, LightningCSS, and Container Queries with a @layer-based architecture and comprehensive accessibility.
+A modular, lightweight CSS framework and design system for modern web projects. While it is especially optimized for use with Astro JS, it is fully framework-agnostic and can be used in any web project. The library is developed by an author who primarily uses Astro JS, but it is not limited to that ecosystem. It is also optimized for LightningCSS and Container Queries, featuring a @layer-based architecture and comprehensive accessibility.
 
 ## Changelog (Excerpt)
 
@@ -39,7 +39,7 @@ import '@casoon/ui-lib/core.css';
 - **Modern CSS technologies:** CSS Layers, Custom Properties, Container Queries, Logical Properties
 - **Design tokens:** Consistent, customizable design foundation
 - **Utility classes:** Extensive utilities for layout, typography, animation, effects
-- **Components:** Reusable UI components (see [Component Docs](components/README.md))
+- **Components:** Reusable UI components
 - **Accessibility:** Focus on accessibility, keyboard navigation, screen reader support
 - **Dark mode & RTL:** Full support for color modes and bidirectional layouts
 - **Animation system:** Optimized, accessible animations incl. stagger, dialog, focus, experimental composition
@@ -106,6 +106,10 @@ You can add your own components in the `components` layer:
 ```bash
 npm run test:lightningcss
 ```
+
+## Further Documentation
+
+For a comprehensive guide to all features, best practices, component usage, theming, utilities, and advanced techniques, please refer to the [Style Guide](STYLE-GUIDE.md).
 
 ## License
 MIT
