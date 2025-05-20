@@ -788,6 +788,102 @@ All utility classes can be used with Breakpoint prefixes:
 /* other responsive Utilities... */
 ```
 
+### Height & Width Utilities
+
+Casoon UI provides a comprehensive set of utility classes for controlling element height and width using viewport units, percentages, and fixed pixel values. These utilities are available in the `utilities` layer and can be combined with responsive and state classes.
+
+#### Height Utilities
+
+```css
+/* Height with viewport units */
+.h-100svh { height: 100svh; }
+.h-100lvh { height: 100lvh; }
+.h-100dvh { height: 100dvh; }
+.h-100vh  { height: 100vh; }
+
+/* Min-Height */
+.min-h-100svh { min-height: 100svh; }
+.min-h-100lvh { min-height: 100lvh; }
+.min-h-100dvh { min-height: 100dvh; }
+.min-h-100vh  { min-height: 100vh; }
+
+/* Max-Height */
+.max-h-100svh { max-height: 100svh; }
+.max-h-100lvh { max-height: 100lvh; }
+.max-h-100dvh { max-height: 100dvh; }
+.max-h-100vh  { max-height: 100vh; }
+
+/* Percentage heights */
+.h-25p { height: 25%; }
+.h-50p { height: 50%; }
+.h-75p { height: 75%; }
+.h-100p { height: 100%; }
+
+.min-h-25p { min-height: 25%; }
+.min-h-50p { min-height: 50%; }
+.min-h-75p { min-height: 75%; }
+.min-h-100p { min-height: 100%; }
+
+.max-h-25p { max-height: 25%; }
+.max-h-50p { max-height: 50%; }
+.max-h-75p { max-height: 75%; }
+.max-h-100p { max-height: 100%; }
+
+/* Fixed pixel heights */
+.h-100px { height: 100px; }
+.h-500px { height: 500px; }
+
+.min-h-100px { min-height: 100px; }
+.max-h-500px { max-height: 500px; }
+```
+
+#### Width Utilities
+
+```css
+/* Width with viewport units */
+.w-100svw { width: 100svw; }
+.w-100lvw { width: 100lvw; }
+.w-100dvw { width: 100dvw; }
+.w-100vw  { width: 100vw; }
+
+/* Min-Width */
+.min-w-100svw { min-width: 100svw; }
+.min-w-100lvw { min-width: 100lvw; }
+.min-w-100dvw { min-width: 100dvw; }
+.min-w-100vw  { min-width: 100vw; }
+
+/* Max-Width */
+.max-w-100svw { max-width: 100svw; }
+.max-w-100lvw { max-width: 100lvw; }
+.max-w-100dvw { max-width: 100dvw; }
+.max-w-100vw  { max-width: 100vw; }
+
+/* Percentage widths */
+.w-25p { width: 25%; }
+.w-50p { width: 50%; }
+.w-75p { width: 75%; }
+.w-100p { width: 100%; }
+
+.min-w-25p { min-width: 25%; }
+.min-w-50p { min-width: 50%; }
+.min-w-75p { min-width: 75%; }
+.min-w-100p { min-width: 100%; }
+
+.max-w-25p { max-width: 25%; }
+.max-w-50p { max-width: 50%; }
+.max-w-75p { max-width: 75%; }
+.max-w-100p { max-width: 100%; }
+
+/* Fixed pixel widths */
+.w-100px { width: 100px; }
+.w-500px { width: 500px; }
+
+.min-w-100px { min-width: 100px; }
+.max-w-500px { max-width: 500px; }
+```
+
+These utilities make it easy to build responsive layouts and control sizing precisely across all modern browsers.
+
 ## Usage in Projects
 
 ### Integration with Astro
