@@ -46,6 +46,42 @@ import '@casoon/ui-lib/core.css';
 - **Fluid interpolation:** `interpolate-size: allow-keywords` for smooth transitions and typography
 - **Container query system:** Precise, component-based responsiveness
 
+## CSS Layer System
+
+### 1. Structured Layers
+- Implementation of a clearly defined layer system to control CSS specificity
+- Distinct separation and documentation of layers like reset, tokens, custom-properties, utilities, animations, themes, and components
+- Centralized definitions: All layer definitions are managed in a central file (layers.css)
+
+### 2. Design Tokens & Custom Properties
+- Uniform design tokens: Definition of consistent design tokens for colors, spacing, typography, etc.
+- Use of CSS Custom Properties for easy customization and maintenance of the design
+
+### 3. Component Architecture
+- Modular components: Development of over 35 reusable UI components including buttons, cards, inputs, modals, etc.
+- Framework-agnostic: Components are independent of specific JavaScript frameworks and integrate easily into different projects
+- Responsive design: All components are fully responsive and function across various screen sizes
+
+### 4. Effects & Animations
+- Visual effects: Implementation of effects like neon, glassmorphism, shadows, and 3D transformations
+- Interactive states: Definition of states such as hover, focus, active, success, error, loading, etc.
+
+### 5. Theming & Customization
+- Customizable themes: Enable easy creation and integration of different themes by adjusting design tokens
+- Dark/Light Mode: Support for light and dark design variants
+
+### 6. Integration with Build Tools
+- Compatibility: Ensuring compatibility with modern build tools like Webpack, Vite, and Astro
+- Easy installation: Providing clear instructions for installing and integrating the library into projects
+
+### 7. Documentation & Examples
+- Comprehensive documentation: Providing detailed documentation with examples for each component and function
+- Example projects: Development of example projects to demonstrate the use of the library in real scenarios
+
+### 8. Testing & Quality Assurance
+- Automated tests: Implementation of tests to ensure the functionality and stability of components
+- Stylelint configuration: Use of Stylelint to maintain CSS coding standards
+
 ## Layer & File Structure
 
 ```
