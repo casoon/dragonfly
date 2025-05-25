@@ -28,7 +28,7 @@ module.exports = {
 
     // ✅ Eigene Properties und Funktionen erlauben
     'property-no-unknown': [true, {
-      ignoreProperties: ['scroll-timeline-view-offset'],
+      ignoreProperties: ['scroll-timeline-view-offset', 'composes', 'tabindex'],
     }],
     'function-no-unknown': [true, {
       ignoreFunctions: ['-var'],
@@ -67,5 +67,23 @@ module.exports = {
     'declaration-block-no-duplicate-custom-properties': null,
     'declaration-block-single-line-max-declarations': null,
     'custom-property-no-missing-var-function': null,
+    
+    // 🎭 Layer-Namenskonvention deaktivieren
+    'layer-name-pattern': null,
+    
+    // 🔄 At-rule no-unknown anpassen
+    'at-rule-no-unknown': [true, {
+      ignoreAtRules: ['define-mixin', 'mixin']
+    }],
+    
+    // 📑 Ungültige Import-Positionen ignorieren
+    'no-invalid-position-at-import-rule': null,
+    
+    // 📦 Container-Type-Werte erlauben
+    'declaration-property-value-no-unknown': [true, {
+      ignoreProperties: {
+        'container-type': ['style']
+      }
+    }]
   }
 };
