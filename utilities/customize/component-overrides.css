@@ -1,0 +1,130 @@
+/*
+ * Component Override Utilities
+ *
+ * Utilities zum Anpassen von Komponenten ohne direkte Änderung an den Komponenten selbst.
+ * Diese Datei enthält Utility-Klassen, die vorhandene Komponenten überschreiben können.
+ */
+
+@layer utilities.customize {
+  /* Button-Overrides */
+  .button-rounded {
+    border-radius: 9999px !important;
+  }
+  
+  .button-flat {
+    box-shadow: none !important;
+  }
+  
+  .button-elevated {
+    box-shadow: var(--shadow-lg) !important;
+  }
+  
+  .button-outline-thick {
+    border-width: 2px !important;
+  }
+  
+  /* Card-Overrides */
+  .card-borderless {
+    border: none !important;
+  }
+  
+  .card-elevated {
+    box-shadow: var(--shadow-lg) !important;
+  }
+  
+  .card-hover-lift {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .card-hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl) !important;
+  }
+  
+  /* Form-Element-Overrides */
+  .input-rounded {
+    border-radius: 9999px !important;
+    padding-left: 1.25em !important;
+    padding-right: 1.25em !important;
+  }
+  
+  .input-borderless {
+    border: none !important;
+    background-color: var(--color-gray-100) !important;
+  }
+  
+  .input-large {
+    font-size: 1.125rem !important;
+    padding-top: 0.75em !important;
+    padding-bottom: 0.75em !important;
+  }
+  
+  /* Text-Element-Overrides */
+  .heading-accent {
+    color: var(--color-primary-600) !important;
+  }
+  
+  .text-gradient {
+    background-image: linear-gradient(to right, var(--color-primary-500), var(--color-secondary-500));
+    background-clip: text;
+    color: transparent !important;
+  }
+  
+  /* Layout-Overrides */
+  .section-narrow {
+    max-width: 800px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  
+  .section-wide {
+    max-width: 1400px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  
+  .no-gap {
+    gap: 0 !important;
+  }
+  
+  .extra-gap {
+    gap: var(--space-8) !important;
+  }
+  
+  /* Interactive-Element-Overrides */
+  .interactive-scale {
+    transition: transform 0.15s ease;
+  }
+  
+  .interactive-scale:hover {
+    transform: scale(1.05);
+  }
+  
+  .interactive-shine {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .interactive-shine::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.3) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(30deg);
+    transition: transform 0.5s ease;
+    opacity: 0;
+  }
+  
+  .interactive-shine:hover::after {
+    opacity: 1;
+    transform: rotate(30deg) translate(100%, -100%);
+  }
+} 

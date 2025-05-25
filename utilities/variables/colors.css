@@ -1,0 +1,58 @@
+/*
+ * Color Variables
+ *
+ * Farbvariablen für die Utilities.
+ * Diese Variables ermöglichen eine konsistente Farbverwendung in den Utility-Klassen.
+ */
+
+@layer utilities.variables {
+  :root {
+    /* Primäre Farbpalette */
+    --util-color-primary-50: var(--color-primary-50);
+    --util-color-primary-100: var(--color-primary-100);
+    --util-color-primary-200: var(--color-primary-200);
+    --util-color-primary-300: var(--color-primary-300);
+    --util-color-primary-400: var(--color-primary-400);
+    --util-color-primary-500: var(--color-primary-500);
+    --util-color-primary-600: var(--color-primary-600);
+    --util-color-primary-700: var(--color-primary-700);
+    --util-color-primary-800: var(--color-primary-800);
+    --util-color-primary-900: var(--color-primary-900);
+    
+    /* Sekundäre Farbpalette */
+    --util-color-secondary-50: var(--color-secondary-50);
+    --util-color-secondary-100: var(--color-secondary-100);
+    --util-color-secondary-200: var(--color-secondary-200);
+    --util-color-secondary-300: var(--color-secondary-300);
+    --util-color-secondary-400: var(--color-secondary-400);
+    --util-color-secondary-500: var(--color-secondary-500);
+    --util-color-secondary-600: var(--color-secondary-600);
+    --util-color-secondary-700: var(--color-secondary-700);
+    --util-color-secondary-800: var(--color-secondary-800);
+    --util-color-secondary-900: var(--color-secondary-900);
+    
+    /* Grau-Farbpalette */
+    --util-color-gray-50: var(--color-gray-50);
+    --util-color-gray-100: var(--color-gray-100);
+    --util-color-gray-200: var(--color-gray-200);
+    --util-color-gray-300: var(--color-gray-300);
+    --util-color-gray-400: var(--color-gray-400);
+    --util-color-gray-500: var(--color-gray-500);
+    --util-color-gray-600: var(--color-gray-600);
+    --util-color-gray-700: var(--color-gray-700);
+    --util-color-gray-800: var(--color-gray-800);
+    --util-color-gray-900: var(--color-gray-900);
+    
+    /* Semantische Farben */
+    --util-color-success: var(--color-success);
+    --util-color-warning: var(--color-warning);
+    --util-color-error: var(--color-error);
+    --util-color-info: var(--color-info);
+    
+    /* Statusfarben */
+    --util-color-active: var(--color-active);
+    --util-color-focus: var(--color-focus);
+    --util-color-hover: var(--color-hover);
+    --util-color-disabled: var(--color-disabled);
+  }
+} 

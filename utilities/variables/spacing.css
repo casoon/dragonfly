@@ -1,0 +1,45 @@
+/*
+ * Spacing Variables
+ *
+ * Abstandsvariablen für die Utilities.
+ * Diese Variables ermöglichen eine konsistente Verwendung von Abständen in den Utility-Klassen.
+ */
+
+@layer utilities.variables {
+  :root {
+    /* Basis-Abstände */
+    --util-space-0: var(--space-0);
+    --util-space-px: var(--space-px);
+    --util-space-1: var(--space-1);
+    --util-space-2: var(--space-2);
+    --util-space-3: var(--space-3);
+    --util-space-4: var(--space-4);
+    --util-space-5: var(--space-5);
+    --util-space-6: var(--space-6);
+    --util-space-8: var(--space-8);
+    --util-space-10: var(--space-10);
+    --util-space-12: var(--space-12);
+    --util-space-16: var(--space-16);
+    --util-space-20: var(--space-20);
+    --util-space-24: var(--space-24);
+    --util-space-32: var(--space-32);
+    --util-space-40: var(--space-40);
+    --util-space-48: var(--space-48);
+    --util-space-56: var(--space-56);
+    --util-space-64: var(--space-64);
+    
+    /* Komponentenspezifische Abstände */
+    --util-card-padding: var(--space-4);
+    --util-button-padding-x: var(--space-4);
+    --util-button-padding-y: var(--space-2);
+    --util-input-padding: var(--space-3);
+    --util-modal-padding: var(--space-6);
+    
+    /* Gaps */
+    --util-gap-xs: var(--space-1);
+    --util-gap-sm: var(--space-2);
+    --util-gap-md: var(--space-4);
+    --util-gap-lg: var(--space-6);
+    --util-gap-xl: var(--space-8);
+  }
+} 

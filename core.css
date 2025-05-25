@@ -18,6 +18,10 @@
        layout,       /* Layout-Systeme und Grid (enthält layout-queries) */
        layout-queries, /* Sub-Layer von layout: Container-Queries für Layouts */
        utilities,    /* Hilfsstilklassen */
+       utilities.variables, /* Sub-Layer von utilities: Variablen für Utilities */
+       utilities.mixins, /* Sub-Layer von utilities: Mixins für Utilities */
+       utilities.helpers, /* Sub-Layer von utilities: Hilfsklassen für Utilities */
+       utilities.customize, /* Sub-Layer von utilities: Anpassungen für Utilities */
        components,   /* Komponentenstile (enthält form) */
        form,         /* Sub-Layer von components: Formular-bezogene Stile */
        animations,   /* Animationsdefinitionen (enthält animation-contexts) */
@@ -51,14 +55,16 @@
 /* Theme Basis */
 @import url("base/theme.css");
 
-/* Utilities und Accessibility */
-@import url("base/utilities.css");
+/* Accessibility */
 @import url("base/smooth-scroll.css");
 @import url("base/accessibility.css");
 
-/* CSS-Imports */
-@import url('typography.css');
-@import url('layout.css');
-@import url('icons.css');
+/* Utilities */
+@import url("utilities/index.css");
+
+/* Typography, Layout und Icons */
+@import url("typography.css");
+@import url("layout.css");
+@import url("icons.css");
 
 

@@ -1,0 +1,47 @@
+/*
+ * Typography Variables
+ *
+ * Typografie-Variablen für die Utilities.
+ * Diese Variables ermöglichen eine konsistente Verwendung von Typografie in den Utility-Klassen.
+ */
+
+@layer utilities.variables {
+  :root {
+    /* Schriftgrößen */
+    --util-font-size-xs: var(--font-size-xs);
+    --util-font-size-sm: var(--font-size-sm);
+    --util-font-size-base: var(--font-size-base);
+    --util-font-size-lg: var(--font-size-lg);
+    --util-font-size-xl: var(--font-size-xl);
+    --util-font-size-2xl: var(--font-size-2xl);
+    --util-font-size-3xl: var(--font-size-3xl);
+    --util-font-size-4xl: var(--font-size-4xl);
+    --util-font-size-5xl: var(--font-size-5xl);
+    
+    /* Schriftgewichte */
+    --util-font-weight-normal: var(--font-weight-normal);
+    --util-font-weight-medium: var(--font-weight-medium);
+    --util-font-weight-semibold: var(--font-weight-semibold);
+    --util-font-weight-bold: var(--font-weight-bold);
+    
+    /* Zeilenhöhen */
+    --util-line-height-none: var(--line-height-none);
+    --util-line-height-tight: var(--line-height-tight);
+    --util-line-height-snug: var(--line-height-snug);
+    --util-line-height-normal: var(--line-height-normal);
+    --util-line-height-relaxed: var(--line-height-relaxed);
+    --util-line-height-loose: var(--line-height-loose);
+    
+    /* Schriftfamilien */
+    --util-font-family-sans: var(--font-family-sans);
+    --util-font-family-serif: var(--font-family-serif);
+    --util-font-family-mono: var(--font-family-mono);
+    
+    /* Buchstabenabstände */
+    --util-letter-spacing-tight: var(--letter-spacing-tight, -0.025em);
+    --util-letter-spacing-normal: var(--letter-spacing-normal, 0);
+    --util-letter-spacing-wide: var(--letter-spacing-wide, 0.025em);
+    --util-letter-spacing-wider: var(--letter-spacing-wider, 0.05em);
+    --util-letter-spacing-widest: var(--letter-spacing-widest, 0.1em);
+  }
+} 

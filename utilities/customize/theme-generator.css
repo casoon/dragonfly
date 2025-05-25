@@ -1,0 +1,94 @@
+/*
+ * Theme Generator Utilities
+ *
+ * Utilities zum automatischen Generieren von Themes basierend auf Basisfarben.
+ * Diese Datei stellt die Grundlage für das Token-Generator-Tool bereit.
+ */
+
+@layer utilities.customize {
+  /* Theme Generator - mit einer Basisfarbe ein komplettes Farbschema generieren */
+  .theme-generator {
+    /* Primärfarbe übergeben, alle Abstufungen werden automatisch generiert */
+    --theme-primary-500: var(--theme-primary, #3b82f6);
+    --theme-primary-50: color-mix(in srgb, var(--theme-primary-500), white 90%);
+    --theme-primary-100: color-mix(in srgb, var(--theme-primary-500), white 80%);
+    --theme-primary-200: color-mix(in srgb, var(--theme-primary-500), white 60%);
+    --theme-primary-300: color-mix(in srgb, var(--theme-primary-500), white 40%);
+    --theme-primary-400: color-mix(in srgb, var(--theme-primary-500), white 20%);
+    --theme-primary-600: color-mix(in srgb, var(--theme-primary-500), black 10%);
+    --theme-primary-700: color-mix(in srgb, var(--theme-primary-500), black 20%);
+    --theme-primary-800: color-mix(in srgb, var(--theme-primary-500), black 30%);
+    --theme-primary-900: color-mix(in srgb, var(--theme-primary-500), black 40%);
+    
+    /* Sekundärfarbe (kann übergeben oder automatisch abgeleitet werden) */
+    --theme-secondary-500: var(--theme-secondary, color-mix(in hsl, var(--theme-primary-500), hsl(60 100% 50%) 50%));
+    --theme-secondary-50: color-mix(in srgb, var(--theme-secondary-500), white 90%);
+    --theme-secondary-100: color-mix(in srgb, var(--theme-secondary-500), white 80%);
+    --theme-secondary-200: color-mix(in srgb, var(--theme-secondary-500), white 60%);
+    --theme-secondary-300: color-mix(in srgb, var(--theme-secondary-500), white 40%);
+    --theme-secondary-400: color-mix(in srgb, var(--theme-secondary-500), white 20%);
+    --theme-secondary-600: color-mix(in srgb, var(--theme-secondary-500), black 10%);
+    --theme-secondary-700: color-mix(in srgb, var(--theme-secondary-500), black 20%);
+    --theme-secondary-800: color-mix(in srgb, var(--theme-secondary-500), black 30%);
+    --theme-secondary-900: color-mix(in srgb, var(--theme-secondary-500), black 40%);
+    
+    /* Ableitung semantischer Farben */
+    --theme-success: var(--theme-success-custom, #10b981);
+    --theme-warning: var(--theme-warning-custom, #f59e0b);
+    --theme-error: var(--theme-error-custom, #ef4444);
+    --theme-info: var(--theme-info-custom, #3b82f6);
+    
+    /* Zuweisung der generierten Farben zu den Design-System-Tokens */
+    --color-primary-50: var(--theme-primary-50);
+    --color-primary-100: var(--theme-primary-100);
+    --color-primary-200: var(--theme-primary-200);
+    --color-primary-300: var(--theme-primary-300);
+    --color-primary-400: var(--theme-primary-400);
+    --color-primary-500: var(--theme-primary-500);
+    --color-primary-600: var(--theme-primary-600);
+    --color-primary-700: var(--theme-primary-700);
+    --color-primary-800: var(--theme-primary-800);
+    --color-primary-900: var(--theme-primary-900);
+    
+    --color-secondary-50: var(--theme-secondary-50);
+    --color-secondary-100: var(--theme-secondary-100);
+    --color-secondary-200: var(--theme-secondary-200);
+    --color-secondary-300: var(--theme-secondary-300);
+    --color-secondary-400: var(--theme-secondary-400);
+    --color-secondary-500: var(--theme-secondary-500);
+    --color-secondary-600: var(--theme-secondary-600);
+    --color-secondary-700: var(--theme-secondary-700);
+    --color-secondary-800: var(--theme-secondary-800);
+    --color-secondary-900: var(--theme-secondary-900);
+    
+    --color-success: var(--theme-success);
+    --color-warning: var(--theme-warning);
+    --color-error: var(--theme-error);
+    --color-info: var(--theme-info);
+  }
+  
+  /* Verwendungsbeispiele für vordefinierte Themes */
+  .theme-blue {
+    --theme-primary: #3b82f6;
+    --theme-secondary: #8b5cf6;
+  }
+  
+  .theme-green {
+    --theme-primary: #10b981;
+    --theme-secondary: #6366f1;
+  }
+  
+  .theme-red {
+    --theme-primary: #ef4444;
+    --theme-secondary: #f97316;
+  }
+  
+  .theme-dark {
+    --theme-primary: #6366f1;
+    --theme-secondary: #ec4899;
+    --color-background: #121212;
+    --color-surface: #1e1e1e;
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #a0a0a0;
+  }
+} 

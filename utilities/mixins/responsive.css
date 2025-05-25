@@ -1,0 +1,89 @@
+/*
+ * Responsive Mixins
+ *
+ * Mixins für responsive Design-Anpassungen.
+ * Diese Mixins können in anderen CSS-Dateien verwendet werden.
+ */
+
+@layer utilities.mixins {
+  /* Container-Query-Mixins */
+  @define-mixin container-query-sm {
+    @container layout (max-width: 640px) {
+      @mixin-content;
+    }
+  }
+
+  @define-mixin container-query-md {
+    @container layout (min-width: 641px) and (max-width: 768px) {
+      @mixin-content;
+    }
+  }
+
+  @define-mixin container-query-lg {
+    @container layout (min-width: 769px) and (max-width: 1024px) {
+      @mixin-content;
+    }
+  }
+
+  @define-mixin container-query-xl {
+    @container layout (min-width: 1025px) and (max-width: 1280px) {
+      @mixin-content;
+    }
+  }
+
+  @define-mixin container-query-2xl {
+    @container layout (min-width: 1281px) {
+      @mixin-content;
+    }
+  }
+
+  /* Komponent-Query-Mixins */
+  @define-mixin component-query-sm {
+    @container component (max-width: 400px) {
+      @mixin-content;
+    }
+  }
+
+  @define-mixin component-query-md {
+    @container component (min-width: 401px) and (max-width: 600px) {
+      @mixin-content;
+    }
+  }
+
+  @define-mixin component-query-lg {
+    @container component (min-width: 601px) {
+      @mixin-content;
+    }
+  }
+
+  /* Viewport-Media-Query-Mixins */
+  @define-mixin viewport-sm {
+    @media (max-width: 640px) {
+      @mixin-content;
+    }
+  }
+
+  @define-mixin viewport-md {
+    @media (min-width: 641px) and (max-width: 768px) {
+      @mixin-content;
+    }
+  }
+
+  @define-mixin viewport-lg {
+    @media (min-width: 769px) and (max-width: 1024px) {
+      @mixin-content;
+    }
+  }
+
+  @define-mixin viewport-xl {
+    @media (min-width: 1025px) and (max-width: 1280px) {
+      @mixin-content;
+    }
+  }
+
+  @define-mixin viewport-2xl {
+    @media (min-width: 1281px) {
+      @mixin-content;
+    }
+  }
+} 
