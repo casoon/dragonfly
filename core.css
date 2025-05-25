@@ -15,8 +15,22 @@
        colors,       /* Farbdefinitionen und Schema (enthält color-mix) */
        color-mix,    /* Sub-Layer von colors: Farb-Mischungen und -Transformationen */
        typography,   /* Typografie-Stile */
-       layout,       /* Layout-Systeme und Grid (enthält layout-queries) */
-       layout-queries, /* Sub-Layer von layout: Container-Queries für Layouts */
+       typography.headings, /* Sub-Layer von typography: Überschriften-Stile */
+       typography.weights, /* Sub-Layer von typography: Schriftgewichte */
+       typography.webfonts, /* Sub-Layer von typography: Web-Fonts */
+       typography.baseline, /* Sub-Layer von typography: Baseline-Grid */
+       typography.base, /* Sub-Layer von typography: Basis-Typografie */
+       typography.text, /* Sub-Layer von typography: Text-Element-Stile */
+       typography.responsive, /* Sub-Layer von typography: Responsive Typografie */
+       typography.fluid, /* Sub-Layer von typography: Fluid Typografie */
+       layout,       /* Layout-Systeme und Grid */
+       layout.grid,  /* Sub-Layer von layout: Grid-System */
+       layout.flex,  /* Sub-Layer von layout: Flex-Layouts */
+       layout.containers, /* Sub-Layer von layout: Container-Layouts */
+       layout.spacing, /* Sub-Layer von layout: Abstandsregeln */
+       layout.responsive, /* Sub-Layer von layout: Responsive Layouts */
+       layout.queries, /* Sub-Layer von layout: Container-Queries für Layouts */
+       layout.utilities, /* Sub-Layer von layout: Layout-Utilities */
        utilities,    /* Hilfsstilklassen */
        utilities.variables, /* Sub-Layer von utilities: Variablen für Utilities */
        utilities.mixins, /* Sub-Layer von utilities: Mixins für Utilities */
@@ -29,6 +43,10 @@
        effects,      /* Visuelle Effekte (enthält smooth-scroll) */
        smooth-scroll, /* Sub-Layer von effects: Scrolling-Verhalten und -Effekte */
        icons,        /* Icon-Stile */
+       icons.basic,  /* Sub-Layer von icons: Basis-Icons */
+       icons.brands, /* Sub-Layer von icons: Marken-Icons */
+       icons.functional, /* Sub-Layer von icons: Funktionale Icons */
+       icons.illustrations, /* Sub-Layer von icons: Illustrative Icons */
        themes;       /* Theme-Varianten */
 
 
@@ -63,8 +81,8 @@
 @import url("utilities/index.css");
 
 /* Typography, Layout und Icons */
-@import url("typography.css");
-@import url("layout.css");
-@import url("icons.css");
+@import url("typography/index.css");
+@import url("layout/index.css");
+@import url("icons/index.css");
 
 

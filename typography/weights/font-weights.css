@@ -1,0 +1,112 @@
+/*
+ * Typography Weights
+ *
+ * Definitionen für Schriftgewichte und -varianten.
+ */
+
+@layer typography.weights {
+  /* Basis-Schriftgewichte */
+  :root {
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+  }
+  
+  /* Schriftgewicht-Klassen */
+  .font-normal {
+    font-weight: var(--font-weight-normal);
+  }
+  
+  .font-medium {
+    font-weight: var(--font-weight-medium);
+  }
+  
+  .font-semibold {
+    font-weight: var(--font-weight-semibold);
+  }
+  
+  .font-bold {
+    font-weight: var(--font-weight-bold);
+  }
+  
+  .font-thin {
+    font-weight: 100;
+  }
+  
+  .font-extralight {
+    font-weight: 200;
+  }
+  
+  .font-light {
+    font-weight: 300;
+  }
+  
+  .font-extrabold {
+    font-weight: 800;
+  }
+  
+  .font-black {
+    font-weight: 900;
+  }
+  
+  /* Schriftform-Varianten */
+  .font-italic {
+    font-style: italic;
+  }
+  
+  .font-not-italic {
+    font-style: normal;
+  }
+  
+  /* Schriftstreckung */
+  .font-condensed {
+    font-stretch: condensed;
+  }
+  
+  .font-expanded {
+    font-stretch: expanded;
+  }
+  
+  /* Texttransformation */
+  .uppercase {
+    text-transform: uppercase;
+  }
+  
+  .lowercase {
+    text-transform: lowercase;
+  }
+  
+  .capitalize {
+    text-transform: capitalize;
+  }
+  
+  .normal-case {
+    text-transform: none;
+  }
+  
+  /* Buchstabenabstand */
+  .tracking-tighter {
+    letter-spacing: -0.05em;
+  }
+  
+  .tracking-tight {
+    letter-spacing: -0.025em;
+  }
+  
+  .tracking-normal {
+    letter-spacing: 0em;
+  }
+  
+  .tracking-wide {
+    letter-spacing: 0.025em;
+  }
+  
+  .tracking-wider {
+    letter-spacing: 0.05em;
+  }
+  
+  .tracking-widest {
+    letter-spacing: 0.1em;
+  }
+} 

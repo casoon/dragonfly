@@ -1,0 +1,106 @@
+/*
+ * Typography Hierarchy - Headings
+ *
+ * Definitionen für Überschriften und Hierarchie.
+ */
+
+@layer typography.headings {
+  /* Basis-Überschriften */
+  h1, .h1 { 
+    font-size: var(--font-size-4xl); 
+    font-weight: var(--font-weight-bold); 
+    line-height: var(--line-height-tight); 
+    margin-bottom: var(--space-4); 
+    text-wrap: balance; 
+  }
+
+  h2, .h2 { 
+    font-size: var(--font-size-3xl); 
+    font-weight: var(--font-weight-bold); 
+    line-height: var(--line-height-tight); 
+    margin-bottom: var(--space-3); 
+    text-wrap: balance; 
+  }
+
+  h3, .h3 { 
+    font-size: var(--font-size-2xl); 
+    font-weight: var(--font-weight-semibold); 
+    line-height: var(--line-height-snug); 
+    margin-bottom: var(--space-3); 
+    text-wrap: balance; 
+  }
+
+  h4, .h4 { 
+    font-size: var(--font-size-xl); 
+    font-weight: var(--font-weight-semibold); 
+    line-height: var(--line-height-snug); 
+    margin-bottom: var(--space-2); 
+    text-wrap: balance; 
+  }
+
+  h5, .h5 { 
+    font-size: var(--font-size-lg); 
+    font-weight: var(--font-weight-medium); 
+    line-height: var(--line-height-normal); 
+    margin-bottom: var(--space-2); 
+    text-wrap: balance; 
+  }
+
+  h6, .h6 { 
+    font-size: var(--font-size-base); 
+    font-weight: var(--font-weight-medium); 
+    line-height: var(--line-height-normal); 
+    margin-bottom: var(--space-2); 
+    text-wrap: balance; 
+  }
+  
+  /* Spezialüberschriften */
+  .heading-display {
+    font-size: var(--font-size-5xl);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: -0.025em;
+    line-height: 1;
+    margin-bottom: var(--space-6);
+    text-wrap: balance;
+  }
+  
+  .heading-jumbo {
+    font-size: var(--font-size-6xl, 4rem);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: -0.025em;
+    line-height: 1;
+    margin-bottom: var(--space-8);
+    text-wrap: balance;
+  }
+  
+  .heading-section {
+    border-bottom: 2px solid var(--color-gray-200);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--space-6);
+    padding-bottom: var(--space-2);
+    text-wrap: balance;
+  }
+  
+  .heading-subtitle {
+    color: var(--color-gray-600);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-normal);
+    margin-bottom: var(--space-6);
+    margin-top: calc(var(--space-2) * -1);
+    text-wrap: balance;
+  }
+  
+  /* Anpassbare Überschriftenfarben */
+  .heading-primary {
+    color: var(--color-primary-700);
+  }
+  
+  .heading-secondary {
+    color: var(--color-secondary-700);
+  }
+  
+  .heading-muted {
+    color: var(--color-gray-600);
+  }
+} 
