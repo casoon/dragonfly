@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Browser-Kompatibilitätstests - Casoon UI</title>
+  
+  <!-- UI-Lib CSS einbinden -->
+  <link rel="stylesheet" href="../../core.css">
+  
+  <style>
+    body {
+      font-family: var(--font-family-sans);
+      color: var(--color-text-primary);
+      background-color: var(--color-background);
+      padding: 1rem;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    .section {
+      padding: 1.5rem;
+      border-radius: var(--border-radius-lg);
+      background-color: var(--color-surface);
+      box-shadow: var(--shadow-md);
+      margin-bottom: 2rem;
+    }
+    
+    .test-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    
+    .test-card {
+      padding: 1.5rem;
+      border-radius: var(--border-radius-md);
+      background-color: var(--color-surface);
+      border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    
+    .test-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .test-card h3 {
+      margin-top: 0;
+      color: var(--color-primary-500);
+    }
+    
+    .test-card-content {
+      flex-grow: 1;
+    }
+    
+    .test-card-footer {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: flex-end;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      border-radius: var(--border-radius-md);
+      background-color: var(--color-primary-500);
+      color: white;
+      text-decoration: none;
+      font-weight: var(--font-weight-medium);
+      transition: background-color 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .btn:hover {
+      background-color: var(--color-primary-600);
+    }
+    
+    .intro {
+      margin-bottom: 1.5rem;
+    }
+    
+    .info-panel {
+      background-color: var(--color-surface-hover);
+      padding: 1rem;
+      border-radius: var(--border-radius-md);
+      margin: 1rem 0;
+    }
+    
+    .browser-info {
+      font-size: 0.875rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    /* Responsives Layout */
+    @media (max-width: 768px) {
+      .test-list {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>Browser-Kompatibilitätstests</h1>
+      <p>Testen der Casoon UI-Bibliothek in verschiedenen Browsern und Umgebungen</p>
+    </header>
+    
+    <div class="info-panel">
+      <h2>Ihre Browser-Informationen</h2>
+      <div id="browserInfo" class="browser-info"></div>
+    </div>
+    
+    <section class="section intro">
+      <h2>Über diese Tests</h2>
+      <p>Diese Testseiten wurden entwickelt, um die Kompatibilität der Casoon UI-Bibliothek in verschiedenen Browsern und Umgebungen zu überprüfen. Die Tests konzentrieren sich auf Funktionen, die in Version 0.60 hinzugefügt wurden, insbesondere:</p>
+      
+      <ul>
+        <li>Neue Viewport-Units (sv, lv, dv)</li>
+        <li>Theme-System mit Dark/Light-Mode</li>
+        <li>Accessibility-Features</li>
+        <li>Breiten- und Höhen-Utility-Klassen</li>
+      </ul>
+      
+      <p>Jeder Test enthält detaillierte Anweisungen und ein automatisches Dokumentationssystem, das die Browser-Funktionen erfasst und in einer JSON-Datei speichert.</p>
+    </section>
+    
+    <section class="section">
+      <h2>Verfügbare Tests</h2>
+      
+      <div class="test-list">
+        <div class="test-card">
+          <div class="test-card-content">
+            <h3>Viewport Units Test</h3>
+            <p>Testet die Unterstützung für neue Viewport-Units (svw/svh, lvw/lvh, dvw/dvh) und ihre Fallbacks in älteren Browsern.</p>
+          </div>
+          <div class="test-card-footer">
+            <a href="viewport-units-test.html" class="btn">Test starten</a>
+          </div>
+        </div>
+        
+        <div class="test-card">
+          <div class="test-card-content">
+            <h3>Theme System Test</h3>
+            <p>Testet das Theme-System mit Light/Dark-Mode, Theme-Umschaltung, Farbschemata und Persistenz-Funktionalität.</p>
+          </div>
+          <div class="test-card-footer">
+            <a href="theme-system-test.html" class="btn">Test starten</a>
+          </div>
+        </div>
+        
+        <div class="test-card">
+          <div class="test-card-content">
+            <h3>Accessibility Test</h3>
+            <p>Testet die Accessibility-Features wie Tastaturnavigation, Screenreader-Unterstützung, Kontrast-Modi und reduzierte Bewegung.</p>
+          </div>
+          <div class="test-card-footer">
+            <a href="accessibility-test.html" class="btn">Test starten</a>
+          </div>
+        </div>
+        
+        <div class="test-card">
+          <div class="test-card-content">
+            <h3>Dimensions Test</h3>
+            <p>Testet die neuen Breiten- und Höhen-Utility-Klassen, einschließlich Viewport-Units, Prozent- und Pixel-basierte Größen.</p>
+          </div>
+          <div class="test-card-footer">
+            <a href="../examples/dimensions-demo.html" class="btn">Test starten</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="section">
+      <h2>Testergebnisse</h2>
+      <p>Bitte führen Sie alle Tests durch und dokumentieren Sie die Ergebnisse für verschiedene Browser und Geräte. Die gesammelten Daten werden verwendet, um die Kompatibilität zu verbessern und bekannte Probleme zu dokumentieren.</p>
+      
+      <p>Für jeden Test können Sie die detaillierten Ergebnisse als JSON-Datei herunterladen und an das Entwicklungsteam senden.</p>
+      
+      <div class="info-panel">
+        <h3>Dokumentierte Probleme</h3>
+        <p>Bekannte Kompatibilitätsprobleme werden in der <a href="compatibility-issues.md">compatibility-issues.md</a>-Datei dokumentiert.</p>
+      </div>
+    </section>
+  </div>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Browser-Informationen anzeigen
+      const browserInfo = document.getElementById('browserInfo');
+      const ua = navigator.userAgent;
+      let browserName, browserVersion, os, osVersion;
+      
+      // Browser und Version extrahieren
+      if (ua.includes('Firefox/')) {
+        browserName = 'Firefox';
+        browserVersion = ua.match(/Firefox\/([\d.]+)/)[1];
+      } else if (ua.includes('Chrome/') && !ua.includes('Edg/') && !ua.includes('OPR/')) {
+        browserName = 'Chrome';
+        browserVersion = ua.match(/Chrome\/([\d.]+)/)[1];
+      } else if (ua.includes('Safari/') && !ua.includes('Chrome/')) {
+        browserName = 'Safari';
+        const versionMatch = ua.match(/Version\/([\d.]+)/);
+        browserVersion = versionMatch ? versionMatch[1] : 'Unbekannt';
+      } else if (ua.includes('Edg/')) {
+        browserName = 'Edge';
+        browserVersion = ua.match(/Edg\/([\d.]+)/)[1];
+      } else if (ua.includes('OPR/') || ua.includes('Opera/')) {
+        browserName = 'Opera';
+        browserVersion = ua.match(/(?:OPR|Opera)\/([\d.]+)/)[1];
+      } else {
+        browserName = 'Unbekannt';
+        browserVersion = 'Unbekannt';
+      }
+      
+      // Betriebssystem extrahieren
+      if (ua.includes('Windows')) {
+        os = 'Windows';
+        const ntVersion = ua.match(/Windows NT ([\d.]+)/);
+        if (ntVersion) {
+          switch (ntVersion[1]) {
+            case '10.0': osVersion = '10'; break;
+            case '6.3': osVersion = '8.1'; break;
+            case '6.2': osVersion = '8'; break;
+            case '6.1': osVersion = '7'; break;
+            default: osVersion = ntVersion[1];
+          }
+        } else {
+          osVersion = 'Unbekannt';
+        }
+      } else if (ua.includes('Macintosh') || ua.includes('Mac OS X')) {
+        os = 'macOS';
+        const macVersion = ua.match(/Mac OS X ([\d_.]+)/);
+        if (macVersion) {
+          osVersion = macVersion[1].replace(/_/g, '.');
+        } else {
+          osVersion = 'Unbekannt';
+        }
+      } else if (ua.includes('Linux')) {
+        os = 'Linux';
+        osVersion = 'Unbekannt';
+      } else if (ua.includes('Android')) {
+        os = 'Android';
+        const androidVersion = ua.match(/Android ([\d.]+)/);
+        osVersion = androidVersion ? androidVersion[1] : 'Unbekannt';
+      } else if (ua.includes('iOS')) {
+        os = 'iOS';
+        const iosVersion = ua.match(/OS ([\d_]+)/);
+        osVersion = iosVersion ? iosVersion[1].replace(/_/g, '.') : 'Unbekannt';
+      } else {
+        os = 'Unbekannt';
+        osVersion = 'Unbekannt';
+      }
+      
+      browserInfo.innerHTML = `
+        <p><strong>Browser:</strong> ${browserName} ${browserVersion}</p>
+        <p><strong>Betriebssystem:</strong> ${os} ${osVersion}</p>
+        <p><strong>User Agent:</strong> ${ua}</p>
+        <p><strong>Viewport:</strong> ${window.innerWidth}×${window.innerHeight} Pixel</p>
+        <p><strong>Bildschirm:</strong> ${window.screen.width}×${window.screen.height} Pixel (${window.devicePixelRatio}× Pixeldichte)</p>
+      `;
+    });
+  </script>
+</body>
+</html> 

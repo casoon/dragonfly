@@ -1,19 +1,19 @@
 const fs = require('fs');
 const path = require('path');
 
-// Pfad zur bestehenden colors.css
+// Path to the existing colors.css
 const inputFile = path.resolve(__dirname, '../base/colors.css');
 const outputFile = path.resolve(__dirname, '../base/color-mix.css');
 
 const css = fs.readFileSync(inputFile, 'utf8');
 
-// Suche nach allen --color-*-500 Variablen
+// Search for all --color-*-500 variables
 const baseColorRegex = /--color-([a-z0-9-]+)-500:\s*([^\n;]+);/gi;
 
-let output = `/**\n * Auto-generiert mit generateColorMixes.js\n * base/colors.css\n */\n\n:root {\n`;
+let output = `/**\n * Auto-generated with generateColorMixes.js\n * base/colors.css\n */\n\n:root {\n`;
 
 for (const match of css.matchAll(baseColorRegex)) {
-  const name = match[1]; // z. B. "blue"
+  const name = match[1]; // e.g. "blue"
   const baseVar = `--color-${name}-500`;
 
   output += `  /* ${name} */\n`;
@@ -29,4 +29,4 @@ for (const match of css.matchAll(baseColorRegex)) {
 output += `}\n`;
 
 fs.writeFileSync(outputFile, output);
-console.log(`✅ Farbvarianten generiert in: ${outputFile}`);
+console.log(`✅ Color variants generated in: ${outputFile}`);

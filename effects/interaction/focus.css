@@ -1,0 +1,123 @@
+/**
+ * Focus Effects
+ * 
+ * This file contains various focus effects for modern UIs.
+ * The effects are optimized for performance and consider reduced motion.
+ */
+
+@layer components {
+    .focus-ring {
+        transition: box-shadow 0.2s ease;
+    }
+
+    .focus-ring:focus {
+        box-shadow: 0 0 0 3px var(--focus-ring-color, rgb(59 130 246 / 50%));
+        outline: none;
+    }
+
+    .focus-ring-sm {
+        transition: box-shadow 0.2s ease;
+    }
+
+    .focus-ring-sm:focus {
+        box-shadow: 0 0 0 2px var(--focus-ring-color, rgb(59 130 246 / 50%));
+        outline: none;
+    }
+
+    .focus-ring-lg {
+        transition: box-shadow 0.2s ease;
+    }
+
+    .focus-ring-lg:focus {
+        box-shadow: 0 0 0 4px var(--focus-ring-color, rgb(59 130 246 / 50%));
+        outline: none;
+    }
+
+    .focus-outline {
+        transition: outline 0.2s ease;
+    }
+
+    .focus-outline:focus {
+        outline: 2px solid var(--focus-outline-color, #3b82f6);
+        outline-offset: 2px;
+    }
+
+    .focus-outline-sm:focus {
+        outline-offset: 1px;
+        outline-width: 1px;
+    }
+
+    .focus-outline-lg:focus {
+        outline-offset: 3px;
+        outline-width: 3px;
+    }
+
+    .focus-bg {
+        transition: background-color 0.2s ease;
+    }
+
+    .focus-bg:focus {
+        background-color: var(--focus-bg-color, rgb(59 130 246 / 10%));
+    }
+
+    .focus-bg-sm:focus {
+        background-color: var(--focus-bg-color-sm, rgb(59 130 246 / 5%));
+    }
+
+    .focus-bg-lg:focus {
+        background-color: var(--focus-bg-color-lg, rgb(59 130 246 / 20%));
+    }
+
+    .focus-color-primary {
+        --focus-ring-color: var(--focus-primary, rgb(59 130 246 / 50%));
+        --focus-outline-color: var(--focus-primary, #3b82f6);
+        --focus-bg-color: var(--focus-primary-bg, rgb(59 130 246 / 10%));
+    }
+
+    .focus-color-secondary {
+        --focus-ring-color: var(--focus-secondary, rgb(107 114 128 / 50%));
+        --focus-outline-color: var(--focus-secondary, #6b7280);
+        --focus-bg-color: var(--focus-secondary-bg, rgb(107 114 128 / 10%));
+    }
+
+    .focus-color-success {
+        --focus-ring-color: var(--focus-success, rgb(16 185 129 / 50%));
+        --focus-outline-color: var(--focus-success, #10b981);
+        --focus-bg-color: var(--focus-success-bg, rgb(16 185 129 / 10%));
+    }
+
+    .focus-color-error {
+        --focus-ring-color: var(--focus-error, rgb(239 68 68 / 50%));
+        --focus-outline-color: var(--focus-error, #ef4444);
+        --focus-bg-color: var(--focus-error-bg, rgb(239 68 68 / 10%));
+    }
+
+    .focus-color-warning {
+        --focus-ring-color: var(--focus-warning, rgb(245 158 11 / 50%));
+        --focus-outline-color: var(--focus-warning, #f59e0b);
+        --focus-bg-color: var(--focus-warning-bg, rgb(245 158 11 / 10%));
+    }
+
+    .focus-color-info {
+        --focus-ring-color: var(--focus-info, rgb(6 182 212 / 50%));
+        --focus-outline-color: var(--focus-info, #06b6d4);
+        --focus-bg-color: var(--focus-info-bg, rgb(6 182 212 / 10%));
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    @layer components {
+        .focus-ring,
+        .focus-ring-sm,
+        .focus-ring-lg,
+        .focus-outline,
+        .focus-outline-sm,
+        .focus-outline-lg,
+        .focus-bg,
+        .focus-bg-sm,
+        .focus-bg-lg {
+            transition: none;
+        }
+    }
+} 

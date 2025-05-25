@@ -1,0 +1,313 @@
+/**
+ * Data Tables
+ * 
+ * Data tables display structured data in rows and columns with advanced features
+ * like sorting, filtering, pagination, and row selection. They're designed for
+ * complex data sets that require user interaction and data manipulation.
+ * 
+ * @layer: components
+ * 
+ * Accessibility:
+ * - Use proper table semantics (th, caption, scope attributes)
+ * - Include ARIA attributes for interactive features
+ * - Support keyboard navigation for sorting, selection, etc.
+ * - Provide clear visual focus indicators
+ */
+
+@layer components {
+  /* Data table container */
+  .data-table-container {
+    background-color: var(--color-surface-100);
+    border: 1px solid var(--color-border-200);
+    border-radius: var(--radius-md);
+    overflow-x: auto;
+    width: 100%;
+  }
+  
+  /* Data table */
+  .data-table {
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: var(--text-sm);
+    width: 100%;
+  }
+  
+  /* Table caption */
+  .data-table__caption {
+    background-color: var(--color-surface-50);
+    border-bottom: 1px solid var(--color-border-200);
+    color: var(--color-text-900);
+    font-weight: var(--font-semibold);
+    padding: var(--space-3) var(--space-4);
+    text-align: left;
+  }
+  
+  /* Table header */
+  .data-table__header {
+    background-color: var(--color-surface-50);
+    border-bottom: 2px solid var(--color-border-300);
+  }
+  
+  .data-table__header-cell {
+    color: var(--color-text-700);
+    font-weight: var(--font-semibold);
+    padding: var(--space-3) var(--space-4);
+    position: relative;
+    text-align: left;
+    white-space: nowrap;
+  }
+  
+  /* Sortable header cells */
+  .data-table__header-cell--sortable {
+    cursor: pointer;
+    padding-right: var(--space-8);
+    user-select: none;
+  }
+  
+  .data-table__header-cell--sortable:hover {
+    background-color: var(--color-surface-100);
+  }
+  
+  /* Sort indicators */
+  .data-table__sort-icon {
+    color: var(--color-text-400);
+    position: absolute;
+    right: var(--space-3);
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.2s, color 0.2s;
+  }
+  
+  .data-table__header-cell--sorted-asc .data-table__sort-icon {
+    color: var(--color-primary-600);
+    transform: translateY(-50%) rotate(180deg);
+  }
+  
+  .data-table__header-cell--sorted-desc .data-table__sort-icon {
+    color: var(--color-primary-600);
+  }
+  
+  /* Table body */
+  .data-table__body {
+    background-color: var(--color-surface-100);
+  }
+  
+  .data-table__row {
+    transition: background-color 0.2s;
+  }
+  
+  .data-table__row:hover {
+    background-color: var(--color-surface-200);
+  }
+  
+  .data-table__cell {
+    border-bottom: 1px solid var(--color-border-100);
+    padding: var(--space-3) var(--space-4);
+  }
+  
+  /* Row states */
+  .data-table__row--selected {
+    background-color: var(--color-primary-50);
+  }
+  
+  .data-table__row--selected:hover {
+    background-color: var(--color-primary-100);
+  }
+  
+  /* Cell variants */
+  .data-table__cell--numeric {
+    text-align: right;
+  }
+  
+  .data-table__cell--action {
+    padding: var(--space-2);
+    white-space: nowrap;
+    width: 1%;
+  }
+  
+  /* Empty state */
+  .data-table__empty {
+    color: var(--color-text-500);
+    padding: var(--space-8);
+    text-align: center;
+  }
+  
+  /* Data table controls */
+  .data-table__controls {
+    align-items: center;
+    background-color: var(--color-surface-50);
+    border-top: 1px solid var(--color-border-200);
+    display: flex;
+    justify-content: space-between;
+    padding: var(--space-3) var(--space-4);
+  }
+  
+  /* Search and filter */
+  .data-table__search {
+    margin-bottom: var(--space-4);
+    position: relative;
+  }
+  
+  .data-table__search-input {
+    border: 1px solid var(--color-border-200);
+    border-radius: var(--radius-md);
+    padding: var(--space-2) var(--space-3);
+    padding-left: var(--space-8);
+    width: 100%;
+  }
+  
+  .data-table__search-icon {
+    color: var(--color-text-400);
+    left: var(--space-3);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  /* Column filter button */
+  .data-table__filter-button {
+    background: none;
+    border: none;
+    color: var(--color-text-500);
+    cursor: pointer;
+    margin-left: var(--space-1);
+    padding: var(--space-1);
+  }
+  
+  .data-table__filter-button--active {
+    color: var(--color-primary-600);
+  }
+  
+  /* Column visibility menu */
+  .data-table__column-menu {
+    background-color: var(--color-surface-100);
+    border: 1px solid var(--color-border-200);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    min-width: 180px;
+    padding: var(--space-2);
+    position: absolute;
+    right: var(--space-3);
+    top: calc(100% + var(--space-2));
+    z-index: 10;
+  }
+  
+  .data-table__column-item {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    padding: var(--space-2);
+  }
+  
+  .data-table__column-checkbox {
+    margin-right: var(--space-2);
+  }
+  
+  /* Row selection */
+  .data-table__select-cell {
+    padding: var(--space-2) var(--space-4);
+    width: 1%;
+  }
+  
+  .data-table__select-all {
+    margin: 0;
+  }
+  
+  /* Pagination */
+  .data-table__pagination {
+    align-items: center;
+    display: flex;
+    gap: var(--space-2);
+  }
+  
+  .data-table__page-info {
+    color: var(--color-text-500);
+    font-size: var(--text-sm);
+    margin-right: var(--space-4);
+  }
+  
+  .data-table__page-button {
+    align-items: center;
+    background-color: var(--color-surface-100);
+    border: 1px solid var(--color-border-200);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    display: inline-flex;
+    height: 32px;
+    justify-content: center;
+    transition: background-color 0.2s, border-color 0.2s;
+    width: 32px;
+  }
+  
+  .data-table__page-button:hover {
+    background-color: var(--color-surface-200);
+    border-color: var(--color-border-300);
+  }
+  
+  .data-table__page-button:disabled {
+    cursor: not-allowed;
+    opacity: 50%;
+  }
+  
+  .data-table__page-button--active {
+    background-color: var(--color-primary-500);
+    border-color: var(--color-primary-500);
+    color: white;
+  }
+  
+  /* Rows per page selector */
+  .data-table__per-page {
+    align-items: center;
+    display: flex;
+    font-size: var(--text-sm);
+    gap: var(--space-2);
+    margin-right: var(--space-4);
+  }
+  
+  .data-table__per-page-select {
+    border: 1px solid var(--color-border-200);
+    border-radius: var(--radius-md);
+    padding: var(--space-1) var(--space-2);
+  }
+  
+  /* Responsive adjustments */
+  @media (width <= 768px) {
+    .data-table__controls {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+    
+    .data-table__pagination {
+      justify-content: space-between;
+      width: 100%;
+    }
+  }
+  
+  /* Collapsible table for mobile */
+  @media (width <= 640px) {
+    .data-table--responsive .data-table__header {
+      display: none;
+    }
+    
+    .data-table--responsive .data-table__row {
+      border-bottom: 1px solid var(--color-border-200);
+      display: block;
+      padding: var(--space-3);
+    }
+    
+    .data-table--responsive .data-table__cell {
+      border-bottom: none;
+      display: flex;
+      padding: var(--space-2) 0;
+      text-align: right;
+    }
+    
+    .data-table--responsive .data-table__cell::before {
+      content: attr(data-label);
+      font-weight: var(--font-semibold);
+      margin-right: auto;
+      padding-right: var(--space-4);
+    }
+  }
+} 

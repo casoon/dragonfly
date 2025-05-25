@@ -1,0 +1,25 @@
+/**
+ * Code-Element Styles
+ */
+
+@layer elements {
+  /* Code */
+  code {
+    background-color: var(--color-background-alt);
+    border-radius: 3px;
+    padding: 0.2em 0.4em;
+  }
+
+  pre {
+    background-color: var(--color-background-alt);
+    border-radius: 4px;
+    margin: 1rem 0;
+    overflow-x: auto;
+    padding: 1rem;
+  }
+
+  pre code {
+    background-color: transparent;
+    padding: 0;
+  }
+} 

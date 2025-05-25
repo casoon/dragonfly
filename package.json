@@ -1,12 +1,10 @@
 {
   "name": "@casoon/ui-lib",
-  "version": "0.5.5",
-  "description": "Modulares, leichtgewichtiges CSS-Framework und Design-System für moderne Webprojekte. Optimiert für Astro JS, LightningCSS und Container Queries mit @layer-basierter Architektur und umfassender Barrierefreiheit.",
+  "version": "0.6.0",
+  "description": "Modular, lightweight CSS framework and design system for modern web projects. Optimized for Astro JS, LightningCSS and Container Queries with @layer-based architecture and comprehensive accessibility.",
   "main": "core.css",
   "style": "core.css",
   "files": [
-    "docs/",
-    "layers/",
     "themes/",
     "icons/",
     "components/",
@@ -17,13 +15,14 @@
     "LICENSE",
     "README.md",
     "LAYER-SYSTEM.md",
-    "STYLE-GUIDE.md"
+    "STYLE-GUIDE.md",
+    "compatibility.md"
   ],
   "scripts": {
     "lint": "stylelint \"**/*.css\" --ignore-path .stylelintignore",
     "lint:fix": "stylelint \"**/*.css\" --fix --ignore-path .stylelintignore",
     "test": "npm run lint",
-    "prepublishOnly": "npm test",
+    "prepublishOnly": "npm run prepare:package",
     "icons:build": "node scripts/build-icons.js",
     "bump-version": "node scripts/bump-version.js",
     "test:lightningcss": "cd tests/css-processing && npm run test",
@@ -36,7 +35,11 @@
     "fix:docs": "node scripts/fix-doc-errors.js",
     "check:docs": "node scripts/check-missing-docs.js",
     "fix:missing-docs": "node scripts/fix-missing-docs.js",
-    "docs:all": "npm run analyze:css && npm run generate:docs && npm run update:docs-lastmod && npm run fix:docs && npm run fix:missing-docs && npm run check:docs"
+    "docs:all": "npm run analyze:css && npm run generate:docs && npm run update:docs-lastmod && npm run fix:docs && npm run fix:missing-docs && npm run check:docs",
+    "prepare:package": "node scripts/prepare-npm-package.js",
+    "prepare:package:minify": "node scripts/prepare-npm-package.js --minify",
+    "validate:package": "node scripts/prepare-npm-package.js --validate",
+    "build:release": "npm run lint && npm run test:lightningcss && npm run prepare:package:minify"
   },
   "keywords": [
     "css",
@@ -81,7 +84,10 @@
     "@iconify-json/ph": "1.2.2",
     "@iconify-json/ri": "1.2.5",
     "@iconify/json": "^2.2.328",
+    "axios": "^1.7.9",
+    "commander": "^14.0.0",
     "fs-extra": "11.3.0",
+    "lightningcss": "^1.22.0",
     "stylelint": "^16.18.0",
     "stylelint-config-recess-order": "^6.0.0",
     "stylelint-config-standard": "38.0.0",
@@ -91,5 +97,8 @@
   },
   "engines": {
     "node": ">=16.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

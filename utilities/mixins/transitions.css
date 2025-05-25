@@ -8,74 +8,74 @@
 @layer utilities.mixins {
   /* Transition-Mixins */
   @define-mixin transition-base {
+    transition-duration: var(--transition-normal, 300ms);
     transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
     transition-timing-function: var(--transition-timing-ease, ease);
-    transition-duration: var(--transition-normal, 300ms);
   }
 
   @define-mixin transition-fast {
+    transition-duration: var(--transition-fast, 150ms);
     transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
     transition-timing-function: var(--transition-timing-ease, ease);
-    transition-duration: var(--transition-fast, 150ms);
   }
 
   @define-mixin transition-slow {
+    transition-duration: var(--transition-slow, 500ms);
     transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
     transition-timing-function: var(--transition-timing-ease, ease);
-    transition-duration: var(--transition-slow, 500ms);
   }
 
   /* Spezifische Transition-Mixins */
   @define-mixin transition-transform {
+    transition-duration: var(--transition-normal, 300ms);
     transition-property: transform;
     transition-timing-function: var(--transition-timing-ease, ease);
-    transition-duration: var(--transition-normal, 300ms);
   }
 
   @define-mixin transition-opacity {
+    transition-duration: var(--transition-normal, 300ms);
     transition-property: opacity;
     transition-timing-function: var(--transition-timing-ease, ease);
-    transition-duration: var(--transition-normal, 300ms);
   }
 
   @define-mixin transition-colors {
+    transition-duration: var(--transition-normal, 300ms);
     transition-property: color, background-color, border-color, fill, stroke;
     transition-timing-function: var(--transition-timing-ease, ease);
-    transition-duration: var(--transition-normal, 300ms);
   }
 
   @define-mixin transition-shadow {
+    transition-duration: var(--transition-normal, 300ms);
     transition-property: box-shadow;
     transition-timing-function: var(--transition-timing-ease, ease);
-    transition-duration: var(--transition-normal, 300ms);
   }
 
   /* Animation-Mixins */
   @define-mixin animation-fadeIn {
-    animation-name: fadeIn;
     animation-duration: 300ms;
-    animation-timing-function: ease-out;
     animation-fill-mode: both;
+    animation-name: fadeIn;
+    animation-timing-function: ease-out;
   }
 
   @define-mixin animation-scaleIn {
-    animation-name: scaleIn;
     animation-duration: 300ms;
-    animation-timing-function: ease-out;
     animation-fill-mode: both;
+    animation-name: scaleIn;
+    animation-timing-function: ease-out;
   }
 
   @define-mixin animation-slideInUp {
-    animation-name: slideInUp;
     animation-duration: 300ms;
-    animation-timing-function: ease-out;
     animation-fill-mode: both;
+    animation-name: slideInUp;
+    animation-timing-function: ease-out;
   }
 
   @define-mixin animation-pulse {
-    animation-name: pulse;
     animation-duration: 2s;
-    animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
+    animation-name: pulse;
+    animation-timing-function: ease-in-out;
   }
 } 

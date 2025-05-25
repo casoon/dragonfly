@@ -1,0 +1,114 @@
+/**
+ * Breadcrumbs
+ * 
+ * Breadcrumbs show the hierarchical path to the current page, helping users 
+ * understand their location within the site structure and navigate back to 
+ * higher-level pages.
+ * 
+ * @layer: components
+ * 
+ * Accessibility:
+ * - Use nav element with aria-label="Breadcrumb"
+ * - Use ordered list (ol) for the breadcrumb items
+ * - Current page should have aria-current="page"
+ */
+
+@layer components {
+  /* Breadcrumbs container */
+  .breadcrumbs {
+    align-items: center;
+    color: var(--color-text-500);
+    display: flex;
+    font-size: var(--text-sm);
+    margin: var(--space-2) 0;
+    padding: var(--space-2);
+  }
+  
+  /* Breadcrumbs list */
+  .breadcrumbs__list {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Breadcrumb item */
+  .breadcrumbs__item {
+    align-items: center;
+    display: flex;
+  }
+  
+  /* Breadcrumb separator */
+  .breadcrumbs__separator {
+    align-items: center;
+    color: var(--color-text-300);
+    display: inline-flex;
+    margin: 0 var(--space-2);
+  }
+  
+  /* Default separator icon (can be customized) */
+  .breadcrumbs__separator::before {
+    content: "/";
+    font-size: 0.85em;
+  }
+  
+  /* Breadcrumb link */
+  .breadcrumbs__link {
+    color: var(--color-primary-500);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  
+  .breadcrumbs__link:hover {
+    color: var(--color-primary-700);
+    text-decoration: underline;
+  }
+  
+  /* Current page (last item) */
+  .breadcrumbs__current {
+    color: var(--color-text-900);
+    font-weight: var(--font-medium);
+  }
+  
+  /* Truncated breadcrumbs for narrow viewports */
+  .breadcrumbs--truncated .breadcrumbs__item {
+    display: none;
+  }
+  
+  .breadcrumbs--truncated .breadcrumbs__item:first-child,
+  .breadcrumbs--truncated .breadcrumbs__item:nth-last-child(2),
+  .breadcrumbs--truncated .breadcrumbs__item:last-child {
+    display: flex;
+  }
+  
+  /* Ellipsis for truncated items */
+  .breadcrumbs--truncated .breadcrumbs__item:nth-last-child(2)::before {
+    color: var(--color-text-300);
+    content: "...";
+    margin: 0 var(--space-2);
+  }
+  
+  /* Responsive adjustments */
+  @media (width <= 640px) {
+    .breadcrumbs {
+      font-size: var(--text-xs);
+    }
+    
+    /* Auto-truncate on mobile */
+    .breadcrumbs:not(.breadcrumbs--keep-all) .breadcrumbs__item:not(:first-child, :last-child) {
+      display: none;
+    }
+    
+    .breadcrumbs:not(.breadcrumbs--keep-all) .breadcrumbs__item:first-child + .breadcrumbs__item:not(:last-child) {
+      display: flex;
+    }
+    
+    .breadcrumbs:not(.breadcrumbs--keep-all) .breadcrumbs__item:first-child + .breadcrumbs__item::before {
+      color: var(--color-text-300);
+      content: "...";
+      margin: 0 var(--space-2);
+    }
+  }
+} 

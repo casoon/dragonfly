@@ -1,0 +1,197 @@
+/**
+ * Back to Top
+ * 
+ * A back-to-top button allows users to quickly navigate to the top of a page,
+ * especially useful for long-scrolling content. It typically appears after
+ * the user scrolls down a certain distance.
+ * 
+ * @layer: components
+ * 
+ * Accessibility:
+ * - Include descriptive text or aria-label
+ * - Ensure keyboard accessibility
+ * - Consider adding a focus state
+ * - Provide sufficient contrast for visibility
+ */
+
+@layer components {
+  /* Back to top button container */
+  .back-to-top {
+    bottom: var(--space-4);
+    opacity: 0%;
+    position: fixed;
+    right: var(--space-4);
+    transform: translateY(10px);
+    transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+    visibility: hidden;
+    z-index: var(--z-back-to-top, 50);
+  }
+  
+  /* Visible state (activated on scroll) */
+  .back-to-top--visible {
+    opacity: 100%;
+    transform: translateY(0);
+    visibility: visible;
+  }
+  
+  /* Button element */
+  .back-to-top__button {
+    align-items: center;
+    background-color: var(--color-primary-500);
+    border: none;
+    border-radius: var(--radius-full);
+    box-shadow: var(--shadow-md);
+    color: white;
+    cursor: pointer;
+    display: flex;
+    height: 48px;
+    justify-content: center;
+    transition: background-color 0.2s, transform 0.2s;
+    width: 48px;
+  }
+  
+  .back-to-top__button:hover {
+    background-color: var(--color-primary-600);
+    transform: translateY(-2px);
+  }
+  
+  .back-to-top__button:active {
+    transform: translateY(0);
+  }
+  
+  .back-to-top__button:focus {
+    box-shadow: 0 0 0 3px var(--color-primary-200), var(--shadow-md);
+    outline: none;
+  }
+  
+  /* Icon */
+  .back-to-top__icon {
+    height: 24px;
+    width: 24px;
+  }
+  
+  /* Text variant (with label) */
+  .back-to-top--with-text .back-to-top__button {
+    padding: 0 var(--space-4);
+    width: auto;
+  }
+  
+  .back-to-top__text {
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+    margin-left: var(--space-2);
+  }
+  
+  /* Button shape variants */
+  .back-to-top--square .back-to-top__button {
+    border-radius: var(--radius-md);
+  }
+  
+  /* Button color variants */
+  .back-to-top--secondary .back-to-top__button {
+    background-color: var(--color-secondary-500);
+  }
+  
+  .back-to-top--secondary .back-to-top__button:hover {
+    background-color: var(--color-secondary-600);
+  }
+  
+  .back-to-top--secondary .back-to-top__button:focus {
+    box-shadow: 0 0 0 3px var(--color-secondary-200), var(--shadow-md);
+  }
+  
+  .back-to-top--neutral .back-to-top__button {
+    background-color: var(--color-neutral-700);
+  }
+  
+  .back-to-top--neutral .back-to-top__button:hover {
+    background-color: var(--color-neutral-800);
+  }
+  
+  .back-to-top--neutral .back-to-top__button:focus {
+    box-shadow: 0 0 0 3px var(--color-neutral-300), var(--shadow-md);
+  }
+  
+  /* Positions */
+  .back-to-top--bottom-center {
+    right: 50%;
+    transform: translateX(50%) translateY(10px);
+  }
+  
+  .back-to-top--bottom-center.back-to-top--visible {
+    transform: translateX(50%) translateY(0);
+  }
+  
+  .back-to-top--bottom-left {
+    left: var(--space-4);
+    right: auto;
+  }
+  
+  /* Size variants */
+  .back-to-top--sm .back-to-top__button {
+    height: 40px;
+    width: 40px;
+  }
+  
+  .back-to-top--sm .back-to-top__icon {
+    height: 20px;
+    width: 20px;
+  }
+  
+  .back-to-top--lg .back-to-top__button {
+    height: 56px;
+    width: 56px;
+  }
+  
+  .back-to-top--lg .back-to-top__icon {
+    height: 28px;
+    width: 28px;
+  }
+  
+  /* Progress variant (circular progress indicator) */
+  .back-to-top--progress .back-to-top__button {
+    position: relative;
+  }
+  
+  .back-to-top__progress {
+    border-radius: var(--radius-full);
+    height: 100%;
+    left: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+  
+  .back-to-top__progress-circle {
+    fill: none;
+    stroke: var(--color-primary-300);
+    stroke-linecap: round;
+    stroke-width: 3;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    transition: stroke-dashoffset 0.2s;
+  }
+  
+  /* Responsive adjustments */
+  @media (width <= 640px) {
+    .back-to-top {
+      bottom: var(--space-3);
+      right: var(--space-3);
+    }
+    
+    .back-to-top__button {
+      height: 40px;
+      width: 40px;
+    }
+    
+    .back-to-top__icon {
+      height: 20px;
+      width: 20px;
+    }
+    
+    .back-to-top--bottom-left {
+      left: var(--space-3);
+    }
+  }
+} 

@@ -1,0 +1,119 @@
+/**
+ * Action Bar/Sheet
+ * 
+ * An action bar or sheet provides quick access to common actions or navigation options,
+ * typically displayed at the bottom of the screen (mobile) or as a popover menu.
+ * 
+ * @layer: components
+ * 
+ * Accessibility:
+ * - Ensure all interactive elements are keyboard accessible
+ * - Use appropriate ARIA roles (e.g., menu, menuitem)
+ * - Provide clear focus states
+ */
+
+@layer components {
+  /* Base action bar */
+  .action-bar {
+    align-items: center;
+    background-color: var(--color-surface-100);
+    box-shadow: var(--shadow-md);
+    display: flex;
+    justify-content: space-between;
+    padding: var(--space-4);
+    z-index: var(--z-action-bar, 40);
+  }
+  
+  /* Fixed position at bottom */
+  .action-bar--fixed {
+    border-top: 1px solid var(--color-border-200);
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+  }
+  
+  /* Action sheet (full-width expandable panel) */
+  .action-sheet {
+    background-color: var(--color-surface-100);
+    border-top-left-radius: var(--radius-lg);
+    border-top-right-radius: var(--radius-lg);
+    bottom: 0;
+    box-shadow: var(--shadow-lg);
+    left: 0;
+    position: fixed;
+    right: 0;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    z-index: var(--z-action-sheet, 50);
+  }
+  
+  /* Visible state */
+  .action-sheet--visible {
+    transform: translateY(0);
+  }
+  
+  /* Sheet header with drag indicator */
+  .action-sheet__header {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding: var(--space-2);
+  }
+  
+  /* Drag indicator */
+  .action-sheet__indicator {
+    background-color: var(--color-neutral-300);
+    border-radius: 2px;
+    height: 4px;
+    width: 36px;
+  }
+  
+  /* Sheet content */
+  .action-sheet__content {
+    max-height: 80vh;
+    -webkit-overflow-scrolling: touch;
+    overflow-y: auto;
+    padding: var(--space-4);
+  }
+  
+  /* Action items */
+  .action-item {
+    align-items: center;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    display: flex;
+    padding: var(--space-3);
+    transition: background-color 0.2s ease;
+  }
+  
+  .action-item:hover {
+    background-color: var(--color-surface-200);
+  }
+  
+  /* Action item with icon */
+  .action-item__icon {
+    color: var(--color-primary-500);
+    margin-right: var(--space-3);
+  }
+  
+  /* Action item label */
+  .action-item__label {
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+  }
+  
+  /* Responsive adjustments */
+  @media (width >= 768px) {
+    .action-sheet {
+      border-radius: var(--radius-lg);
+      left: 50%;
+      max-width: 480px;
+      transform: translateX(-50%) translateY(100%);
+    }
+    
+    .action-sheet--visible {
+      transform: translateX(-50%) translateY(0);
+    }
+  }
+} 

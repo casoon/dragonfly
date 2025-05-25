@@ -1,9 +1,29 @@
 /**
- * Utilities System
+ * Utilities
  * 
- * Hauptdatei für alle Utility-Klassen der UI-Bibliothek.
- * Importiert und organisiert alle Utility-Module.
+ * Diese Datei importiert alle Hilfsklassen und Utilities.
  */
+
+@layer utilities {
+  /* Import der Variablen für die Utilities */
+  @import url('./variables/shared.css');
+  @import url('./variables/spacing.css');
+  @import url('./variables/typography.css');
+  @import url('./variables/colors.css');
+  
+  /* Import der Mixins */
+  @import url('./mixins/responsive.css');
+  @import url('./mixins/typography.css');
+  
+  /* Import der Hilfsklassen */
+  @import url('./helpers/spacing.css');
+  @import url('./helpers/dimensions.css');
+  @import url('./helpers/text.css');
+  @import url('./helpers/display.css');
+  
+  /* Import der Anpassungen */
+  @import url('./customize/index.css');
+}
 
 /* Variablen und Tokens */
 @import url('./variables/colors.css') layer(utilities.variables);
@@ -19,6 +39,7 @@
 @import url('./helpers/spacing.css') layer(utilities.helpers);
 @import url('./helpers/display.css') layer(utilities.helpers);
 @import url('./helpers/text.css') layer(utilities.helpers);
+@import url('./helpers/dimensions.css') layer(utilities.helpers);
 
 /* Anpassungsmöglichkeiten */
 @import url('./customize/theme-generator.css') layer(utilities.customize);

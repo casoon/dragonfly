@@ -1,0 +1,104 @@
+/**
+ * Color Tokens
+ * 
+ * Farbvariablen für das gesamte UI-System
+ */
+
+@layer tokens {
+  :root {
+    /* Primary Colors */
+    --color-primary-50: #e6f0ff;
+    --color-primary-100: #cce0ff;
+    --color-primary-200: #99c2ff;
+    --color-primary-300: #66a3ff;
+    --color-primary-400: #3385ff;
+    --color-primary-500: #06f;
+    --color-primary-600: #0052cc;
+    --color-primary-700: #003d99;
+    --color-primary-800: #002966;
+    --color-primary-900: #001433;
+    
+    /* Secondary Colors */
+    --color-secondary-50: #eeeaff;
+    --color-secondary-100: #dcd6ff;
+    --color-secondary-200: #baadff;
+    --color-secondary-300: #9784ff;
+    --color-secondary-400: #755cff;
+    --color-secondary-500: #5333ff;
+    --color-secondary-600: #4229cc;
+    --color-secondary-700: #321f99;
+    --color-secondary-800: #211566;
+    --color-secondary-900: #110a33;
+    
+    /* Success Colors */
+    --color-success-50: #e6f9f1;
+    --color-success-100: #ccf3e3;
+    --color-success-200: #99e7c7;
+    --color-success-300: #66dbab;
+    --color-success-400: #33cf8f;
+    --color-success-500: #10b981;
+    --color-success-600: #0d9467;
+    --color-success-700: #0a6f4d;
+    --color-success-800: #064a34;
+    --color-success-900: #03251a;
+    
+    /* Warning Colors */
+    --color-warning-50: #fef4e6;
+    --color-warning-100: #fdeacc;
+    --color-warning-200: #fbd599;
+    --color-warning-300: #f9bf66;
+    --color-warning-400: #f7aa33;
+    --color-warning-500: #f59e0b;
+    --color-warning-600: #c47e09;
+    --color-warning-700: #935f06;
+    --color-warning-800: #623f04;
+    --color-warning-900: #312002;
+    
+    /* Error Colors */
+    --color-error-50: #fdeded;
+    --color-error-100: #fbdbdb;
+    --color-error-200: #f7b7b7;
+    --color-error-300: #f39393;
+    --color-error-400: #ef6f6f;
+    --color-error-500: #ef4444;
+    --color-error-600: #bf3636;
+    --color-error-700: #8f2929;
+    --color-error-800: #601b1b;
+    --color-error-900: #300e0e;
+    
+    /* Gray Colors */
+    --color-gray-hue: 262;
+    --color-gray-50-fallback: #f9f9fa;
+    --color-gray-100-fallback: #f3f3f5;
+    --color-gray-200-fallback: #e9eaef;
+    --color-gray-300-fallback: #d8dae3;
+    --color-gray-400-fallback: #b9bdc9;
+    --color-gray-500-fallback: #8f96a8;
+    --color-gray-600-fallback: #6c7285;
+    --color-gray-700-fallback: #4a4e5c;
+    --color-gray-800-fallback: #30333c;
+    --color-gray-900-fallback: #1d1f24;
+    --color-gray-50: var(--color-gray-50-fallback);
+    --color-gray-100: var(--color-gray-100-fallback);
+    --color-gray-200: var(--color-gray-200-fallback);
+    --color-gray-300: var(--color-gray-300-fallback);
+    --color-gray-400: var(--color-gray-400-fallback);
+    --color-gray-500: var(--color-gray-500-fallback);
+    --color-gray-600: var(--color-gray-600-fallback);
+    --color-gray-700: var(--color-gray-700-fallback);
+    --color-gray-800: var(--color-gray-800-fallback);
+    --color-gray-900: var(--color-gray-900-fallback);
+    
+    /* Neutral Colors */
+    --color-neutral-50: #f9fafb;
+    --color-neutral-100: #f3f4f6;
+    --color-neutral-200: #e5e7eb;
+    --color-neutral-300: #d1d5db;
+    --color-neutral-400: #9ca3af;
+    --color-neutral-500: #6b7280;
+    --color-neutral-600: #4b5563;
+    --color-neutral-700: #374151;
+    --color-neutral-800: #1f2937;
+    --color-neutral-900: #111827;
+  }
+} 

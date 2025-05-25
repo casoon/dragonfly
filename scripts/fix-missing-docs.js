@@ -1,23 +1,23 @@
 #!/usr/bin/env node
 
 /**
- * Erstellt fehlende Dokumentationsdateien im Wurzelverzeichnis
+ * Creates missing documentation files in the root directory
  * 
- * Dieses Script erzeugt spezifisch die Dokumentationsdateien für die Root-CSS-Dateien, 
- * die vom normalen Dokumentationsprozess nicht erfasst werden.
+ * This script specifically generates documentation files for the root CSS files
+ * that are not captured by the normal documentation process.
  */
 
 const fs = require('fs');
 const path = require('path');
 
-// Aktuelles Datum im Format TT.MM.JJJJ
+// Current date in format DD.MM.YYYY
 const today = new Date();
 const formattedDate = `${String(today.getDate()).padStart(2, '0')}.${String(today.getMonth() + 1).padStart(2, '0')}.${today.getFullYear()}`;
 
-// Verzeichnisse
+// Directories
 const docsBaseDir = 'docs';
 
-// Liste der zu erstellenden Dokumentationen
+// List of documentation files to create
 const docsToCreate = [
   {
     fileName: 'components.md',
@@ -46,11 +46,11 @@ const docsToCreate = [
   }
 ];
 
-// Erstelle jede fehlende Dokumentationsdatei
+// Create each missing documentation file
 docsToCreate.forEach(doc => {
   const filePath = path.join(docsBaseDir, doc.fileName);
   
-  // Erstelle Dokumentation basierend auf der Vorlage
+  // Create documentation based on the template
   const content = `# ${doc.title}
 > Last Modified: ${formattedDate}
 
@@ -91,13 +91,13 @@ The ${doc.title.toLowerCase()} system uses several advanced CSS techniques:
 - Ensures accessibility compliance
 `;
 
-  // Schreibe die Datei
+  // Write the file
   try {
     fs.writeFileSync(filePath, content);
-    console.log(`✅ Dokumentation erstellt: ${filePath}`);
+    console.log(`✅ Documentation created: ${filePath}`);
   } catch (error) {
-    console.error(`❌ Fehler beim Erstellen von ${filePath}:`, error);
+    console.error(`❌ Error creating ${filePath}:`, error);
   }
 });
 
-console.log('\n✨ Fehlende Dokumentationen wurden erstellt!'); 
+console.log('\n✨ Missing documentation has been created!'); 

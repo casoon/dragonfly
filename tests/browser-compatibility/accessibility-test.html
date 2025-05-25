@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accessibility Tests - Casoon UI</title>
+  
+  <!-- UI-Lib CSS einbinden -->
+  <link rel="stylesheet" href="../../core.css">
+  
+  <style>
+    body {
+      font-family: var(--font-family-sans);
+      color: var(--color-text-primary);
+      background-color: var(--color-background);
+      padding: 1rem;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+    
+    .test-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    .test-section {
+      padding: 1.5rem;
+      border-radius: var(--border-radius-lg);
+      background-color: var(--color-surface);
+      box-shadow: var(--shadow-md);
+      margin-bottom: 2rem;
+    }
+    
+    .info-panel {
+      background-color: var(--color-surface-hover);
+      padding: 1rem;
+      border-radius: var(--border-radius-md);
+      margin: 1rem 0;
+    }
+    
+    .test-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    
+    .test-card {
+      padding: 1rem;
+      border-radius: var(--border-radius-md);
+      background-color: var(--color-surface);
+      border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .control-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1rem 0;
+    }
+    
+    .sr-test {
+      margin: 1.5rem 0;
+      padding: 1rem;
+      border: 1px dashed var(--color-border);
+      border-radius: var(--border-radius-md);
+    }
+    
+    .test-form {
+      display: grid;
+      gap: 1rem;
+      max-width: 500px;
+      margin: 1rem 0;
+    }
+    
+    .form-group {
+      display: grid;
+      gap: 0.5rem;
+    }
+    
+    .focus-demo {
+      padding: 0.5rem;
+      border-radius: var(--border-radius-md);
+      background-color: var(--color-surface-hover);
+      margin: 1rem 0;
+    }
+    
+    /* Steuerelemente */
+    button {
+      padding: 0.5rem 1rem;
+      border-radius: var(--border-radius-md);
+      background-color: var(--color-primary-500);
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-weight: var(--font-weight-medium);
+      transition: background-color 0.2s;
+    }
+    
+    button:hover {
+      background-color: var(--color-primary-600);
+    }
+    
+    button.secondary {
+      background-color: var(--color-secondary-500);
+    }
+    
+    button.secondary:hover {
+      background-color: var(--color-secondary-600);
+    }
+    
+    input[type="text"],
+    input[type="email"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 0.5rem;
+      border: 1px solid var(--color-border);
+      border-radius: var(--border-radius-md);
+      background-color: var(--color-input-bg);
+      color: var(--color-text-primary);
+    }
+    
+    input[type="checkbox"],
+    input[type="radio"] {
+      margin-right: 0.5rem;
+    }
+    
+    .color-contrast-test {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    
+    .contrast-block {
+      padding: 1rem;
+      border-radius: var(--border-radius-md);
+    }
+    
+    .low-contrast {
+      background-color: #f0f0f0;
+      color: #bbbbbb;
+    }
+    
+    .high-contrast {
+      background-color: var(--color-background);
+      color: var(--color-text-primary);
+    }
+    
+    .contrast-toggle {
+      margin: 1rem 0;
+    }
+    
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--color-primary-500);
+      color: white;
+      padding: 8px;
+      z-index: 100;
+      transition: top 0.3s;
+    }
+    
+    .skip-link:focus {
+      top: 0;
+    }
+    
+    /* Responsives Layout */
+    @media (max-width: 768px) {
+      .test-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .color-contrast-test {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a>
+  
+  <div class="container">
+    <header class="test-header">
+      <h1>Accessibility Kompatibilitätstest</h1>
+      <p>Dieser Test überprüft die Kompatibilität der Accessibility-Features in Ihrem Browser.</p>
+    </header>
+    
+    <div class="info-panel">
+      <h2>Browserinformationen</h2>
+      <div id="browserInfo" class="browser-info"></div>
+      
+      <h3>Systemeinstellungen</h3>
+      <div id="accessibilityPreferences"></div>
+    </div>
+    
+    <main id="main-content">
+      <section class="test-section">
+        <h2>Tastaturnavigation-Tests</h2>
+        <p>Testen Sie die Tastaturnavigation und Fokus-Indikatoren mit der Tab-Taste.</p>
+        
+        <div class="focus-demo">
+          <p>Drücken Sie die Tab-Taste, um durch die fokussierbaren Elemente zu navigieren. Prüfen Sie, ob die Fokus-Indikatoren deutlich sichtbar sind.</p>
+          
+          <div class="control-group">
+            <button>Button 1</button>
+            <button>Button 2</button>
+            <button>Button 3</button>
+            <a href="#" role="button">Link als Button</a>
+          </div>
+          
+          <div class="test-form">
+            <div class="form-group">
+              <label for="test-name">Name</label>
+              <input type="text" id="test-name" name="test-name">
+            </div>
+            
+            <div class="form-group">
+              <label for="test-email">E-Mail</label>
+              <input type="email" id="test-email" name="test-email">
+            </div>
+            
+            <div class="form-group">
+              <label for="test-select">Auswahl</label>
+              <select id="test-select" name="test-select">
+                <option value="">Bitte wählen</option>
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+              </select>
+            </div>
+            
+            <fieldset>
+              <legend>Optionen</legend>
+              <div>
+                <input type="checkbox" id="option1" name="option1">
+                <label for="option1">Option 1</label>
+              </div>
+              <div>
+                <input type="checkbox" id="option2" name="option2">
+                <label for="option2">Option 2</label>
+              </div>
+            </fieldset>
+            
+            <fieldset>
+              <legend>Auswahl</legend>
+              <div>
+                <input type="radio" id="radio1" name="radiogroup" value="1">
+                <label for="radio1">Auswahl 1</label>
+              </div>
+              <div>
+                <input type="radio" id="radio2" name="radiogroup" value="2">
+                <label for="radio2">Auswahl 2</label>
+              </div>
+            </fieldset>
+            
+            <button type="button">Formular absenden</button>
+          </div>
+        </div>
+        
+        <div class="test-results">
+          <h3>Fokus-Test-Ergebnisse</h3>
+          <p>Letztes fokussiertes Element: <span id="lastFocusedElement">Keines</span></p>
+        </div>
+      </section>
+      
+      <section class="test-section">
+        <h2>Screenreader-Tests</h2>
+        <p>Testen Sie die Screenreader-Kompatibilität mit den folgenden Beispielen.</p>
+        
+        <div class="sr-test">
+          <h3>Versteckter Text für Screenreader</h3>
+          <p>Der folgende Text ist visuell versteckt, sollte aber von Screenreadern vorgelesen werden:</p>
+          
+          <div>
+            <span class="sr-only">Dieser Text ist nur für Screenreader sichtbar.</span>
+            <button aria-describedby="button-desc">Button mit Beschreibung</button>
+            <span id="button-desc" class="sr-only">Dieser Button führt eine wichtige Aktion aus.</span>
+          </div>
+        </div>
+        
+        <div class="sr-test">
+          <h3>ARIA-Labels und -Rollen</h3>
+          
+          <div>
+            <button aria-label="Schließen-Button">X</button>
+            <span>Der Button links hat ein aria-label "Schließen-Button"</span>
+          </div>
+          
+          <div style="margin-top: 1rem;">
+            <div role="alert" aria-live="assertive" style="padding: 0.5rem; background-color: var(--color-error-100); color: var(--color-error-700); border-radius: var(--border-radius-md);">
+              Dies ist eine wichtige Benachrichtigung (role="alert")
+            </div>
+          </div>
+          
+          <div style="margin-top: 1rem;">
+            <div role="status" aria-live="polite" style="padding: 0.5rem; background-color: var(--color-success-100); color: var(--color-success-700); border-radius: var(--border-radius-md);">
+              Dies ist eine Statusmeldung (role="status")
+            </div>
+          </div>
+        </div>
+        
+        <div class="sr-test">
+          <h3>Live-Regionen</h3>
+          <p>Click the button to update the live region:</p>
+          
+          <button id="updateLiveRegion">Aktualisieren</button>
+          
+          <div aria-live="polite" id="liveRegion" style="margin-top: 1rem; padding: 0.5rem; background-color: var(--color-surface-hover); border-radius: var(--border-radius-md);">
+            Dies ist eine Live-Region, die aktualisiert werden kann.
+          </div>
+        </div>
+      </section>
+      
+      <section class="test-section">
+        <h2>Kontrast-Tests</h2>
+        <p>Testen Sie die Kontrast-Modi und Farbkombinationen.</p>
+        
+        <div class="contrast-toggle">
+          <button id="toggleHighContrast">Hochkontrast-Modus umschalten</button>
+          <p id="contrastStatus">Aktueller Modus: Standard</p>
+        </div>
+        
+        <div class="color-contrast-test">
+          <div class="contrast-block low-contrast">
+            <h3>Niedriger Kontrast</h3>
+            <p>Dieser Text hat einen niedrigen Kontrast zum Hintergrund.</p>
+          </div>
+          
+          <div class="contrast-block high-contrast">
+            <h3>Hoher Kontrast</h3>
+            <p>Dieser Text hat einen hohen Kontrast zum Hintergrund.</p>
+          </div>
+        </div>
+        
+        <div class="info-panel">
+          <h3>Kontrast-Testanleitung</h3>
+          <ol>
+            <li>Überprüfen Sie die Lesbarkeit der Texte in beiden Kontrast-Modi</li>
+            <li>Aktivieren Sie den Hochkontrast-Modus und vergleichen Sie die Darstellung</li>
+            <li>Testen Sie auch mit dem Betriebssystem-Hochkontrast-Modus (falls verfügbar)</li>
+          </ol>
+        </div>
+      </section>
+      
+      <section class="test-section">
+        <h2>Reduced Motion Test</h2>
+        <p>Testen Sie die Unterstützung für reduzierte Bewegung.</p>
+        
+        <div class="control-group">
+          <button id="startAnimation">Animation starten</button>
+          <button id="toggleReducedMotion">Reduzierte Bewegung umschalten</button>
+        </div>
+        
+        <div id="animationDemo" style="margin-top: 1rem; height: 100px; position: relative;">
+          <div id="animatedElement" style="width: 50px; height: 50px; background-color: var(--color-primary-500); border-radius: 50%; position: absolute; left: 0; transition: left 0.5s;">
+          </div>
+        </div>
+        
+        <div class="info-panel">
+          <h3>Reduced Motion Testanleitung</h3>
+          <ol>
+            <li>Starten Sie die Animation und beobachten Sie die Bewegung</li>
+            <li>Aktivieren Sie "Reduzierte Bewegung" und starten Sie die Animation erneut</li>
+            <li>Vergleichen Sie den Unterschied in der Animation</li>
+            <li>Testen Sie auch mit der Betriebssystem-Einstellung "Reduzierte Bewegung" (falls verfügbar)</li>
+          </ol>
+          <p id="motionPreference">Ihre Systemeinstellung für reduzierte Bewegung: <span id="prefersReducedMotion">Wird geprüft...</span></p>
+        </div>
+      </section>
+      
+      <section class="test-section">
+        <h2>Anweisungen für Tests</h2>
+        <ol>
+          <li>Überprüfen Sie die Tastaturnavigation und Fokus-Indikatoren</li>
+          <li>Testen Sie mit einem Screenreader (z.B. VoiceOver, NVDA oder JAWS)</li>
+          <li>Prüfen Sie die Kontrast-Modi und deren Auswirkungen auf die Lesbarkeit</li>
+          <li>Testen Sie die Reduced Motion Funktionalität</li>
+          <li>Dokumentieren Sie etwaige Unterschiede zwischen verschiedenen Browsern</li>
+        </ol>
+      </section>
+    </main>
+  </div>
+  
+  <!-- Accessibility-Helper-Script einbinden -->
+  <script src="../../base/accessibility/a11y-helper.js"></script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Browser-Informationen anzeigen
+      const browserInfo = document.getElementById('browserInfo');
+      const userAgent = navigator.userAgent;
+      browserInfo.textContent = `User Agent: ${userAgent}`;
+      
+      // Accessibility-Präferenzen anzeigen
+      const accessibilityPreferences = document.getElementById('accessibilityPreferences');
+      const prefersReducedMotionSpan = document.getElementById('prefersReducedMotion');
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      
+      accessibilityPreferences.innerHTML = `
+        <p>Reduzierte Bewegung: ${prefersReducedMotion ? 'Aktiviert' : 'Deaktiviert'}</p>
+        <p>Hochkontrast-Modus: ${window.matchMedia('(forced-colors: active)').matches ? 'Aktiviert' : 'Nicht aktiviert/nicht erkannt'}</p>
+      `;
+      
+      prefersReducedMotionSpan.textContent = prefersReducedMotion ? 'Aktiviert' : 'Deaktiviert';
+      
+      // Fokus-Tracking
+      const lastFocusedElement = document.getElementById('lastFocusedElement');
+      
+      document.addEventListener('focusin', function(event) {
+        const element = event.target;
+        let elementInfo = element.tagName.toLowerCase();
+        
+        if (element.id) {
+          elementInfo += ` (ID: ${element.id})`;
+        } else if (element.className) {
+          elementInfo += ` (Klasse: ${element.className})`;
+        }
+        
+        lastFocusedElement.textContent = elementInfo;
+      });
+      
+      // Live-Region Update
+      const updateLiveRegion = document.getElementById('updateLiveRegion');
+      const liveRegion = document.getElementById('liveRegion');
+      let updateCount = 0;
+      
+      updateLiveRegion.addEventListener('click', function() {
+        updateCount++;
+        liveRegion.textContent = `Diese Live-Region wurde ${updateCount} mal aktualisiert. Letzte Aktualisierung: ${new Date().toLocaleTimeString()}`;
+      });
+      
+      // Hochkontrast-Modus umschalten
+      const toggleHighContrast = document.getElementById('toggleHighContrast');
+      const contrastStatus = document.getElementById('contrastStatus');
+      let highContrastActive = false;
+      
+      toggleHighContrast.addEventListener('click', function() {
+        highContrastActive = !highContrastActive;
+        
+        if (highContrastActive) {
+          document.documentElement.classList.add('high-contrast');
+          contrastStatus.textContent = 'Aktueller Modus: Hochkontrast';
+        } else {
+          document.documentElement.classList.remove('high-contrast');
+          contrastStatus.textContent = 'Aktueller Modus: Standard';
+        }
+      });
+      
+      // Reduzierte Bewegung umschalten
+      const toggleReducedMotion = document.getElementById('toggleReducedMotion');
+      const startAnimation = document.getElementById('startAnimation');
+      const animatedElement = document.getElementById('animatedElement');
+      let reducedMotionActive = prefersReducedMotion;
+      
+      toggleReducedMotion.addEventListener('click', function() {
+        reducedMotionActive = !reducedMotionActive;
+        
+        if (reducedMotionActive) {
+          document.documentElement.classList.add('motion-reduce');
+          document.documentElement.classList.remove('motion-safe');
+        } else {
+          document.documentElement.classList.remove('motion-reduce');
+          document.documentElement.classList.add('motion-safe');
+        }
+        
+        prefersReducedMotionSpan.textContent = reducedMotionActive ? 'Aktiviert (manuell)' : 'Deaktiviert (manuell)';
+      });
+      
+      startAnimation.addEventListener('click', function() {
+        animatedElement.style.left = '0';
+        
+        // Forced reflow
+        void animatedElement.offsetWidth;
+        
+        if (reducedMotionActive) {
+          // Bei reduzierter Bewegung sofort zur Endposition springen
+          animatedElement.style.transition = 'none';
+          animatedElement.style.left = 'calc(100% - 50px)';
+        } else {
+          // Normale Animation
+          animatedElement.style.transition = 'left 1.5s';
+          animatedElement.style.left = 'calc(100% - 50px)';
+        }
+      });
+      
+      // Initialisierung
+      if (prefersReducedMotion) {
+        document.documentElement.classList.add('motion-reduce');
+      } else {
+        document.documentElement.classList.add('motion-safe');
+      }
+    });
+  </script>
+  
+  <!-- Dokumentations-Skript einbinden -->
+  <script src="document-compatibility.js"></script>
+</body>
+</html> 

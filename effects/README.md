@@ -1,6 +1,6 @@
-# UI-Effekte Bibliothek
+# UI Effects Library
 
-Diese Bibliothek bietet eine umfangreiche Sammlung von modernen UI-Effekten für Webanwendungen. Alle Effekte sind performant optimiert und berücksichtigen Accessibility-Richtlinien.
+This library provides a comprehensive collection of modern UI effects for web applications. All effects are optimized for performance and adhere to accessibility guidelines.
 
 ## Installation
 
@@ -8,259 +8,309 @@ Diese Bibliothek bietet eine umfangreiche Sammlung von modernen UI-Effekten für
 npm install @casoon/ui-lib
 ```
 
-## Einbindung
+## Integration
 
 ```css
-/* Basis-Effekte */
-@import '@casoon/ui-lib/effects/animations.css';
-@import '@casoon/ui-lib/effects/filters.css';
-@import '@casoon/ui-lib/effects/interactions.css';
-@import '@casoon/ui-lib/effects/transforms.css';
-@import '@casoon/ui-lib/effects/neos.css';
+
+/* Import specific effect categories */
+@import '@casoon/ui-lib/effects/motion/index.css';
+@import '@casoon/ui-lib/effects/visual/index.css';
+@import '@casoon/ui-lib/effects/typography/index.css';
+@import '@casoon/ui-lib/effects/interaction/index.css';
+@import '@casoon/ui-lib/effects/layout-effects/index.css';
+@import '@casoon/ui-lib/effects/themes/index.css';
+@import '@casoon/ui-lib/effects/particles/index.css';
 ```
 
-## Verfügbare Effekte
+## Available Effects
 
-### 1. Animationen (`animations.css`)
+Our effects are organized into the following categories:
+
+### 1. Motion Effects (`motion/`)
 
 ```css
-/* Basis-Animationen */
+/* Basic animations */
 .animate-fade-in { ... }
 .animate-slide-up { ... }
 .animate-bounce { ... }
 .animate-pulse { ... }
 .animate-spin { ... }
 
-/* Scroll-Animationen */
+/* Scroll animations */
 .scroll-fade-in { ... }
 .scroll-slide-up { ... }
 .scroll-scale { ... }
 
-/* Interaktions-Animationen */
-.hover-bounce { ... }
-.hover-pulse { ... }
-.hover-spin { ... }
+/* Transition effects */
+.transition-smooth { ... }
+.transition-bounce { ... }
+.transition-elastic { ... }
 ```
 
-### 2. Filter (`filters.css`)
+### 2. Visual Effects (`visual/`)
 
 ```css
-/* Basis-Filter */
+/* Basic filters */
 .filter-blur { ... }
 .filter-brightness { ... }
 .filter-contrast { ... }
 .filter-grayscale { ... }
 .filter-hue-rotate { ... }
 
-/* Kombinierte Filter */
-.filter-vintage { ... }
-.filter-cool { ... }
-.filter-warm { ... }
-.filter-dramatic { ... }
+/* Shadows */
+.shadow-sm { ... }
+.shadow-md { ... }
+.shadow-lg { ... }
+
+/* Glass effects */
+.glass { ... }
+.glass-blur { ... }
+.glass-frost { ... }
 ```
 
-### 3. Interaktionen (`interactions.css`)
+### 3. Typography Effects (`typography/`)
 
 ```css
-/* Basis-Interaktionen */
+/* Text shadows */
+.text-shadow-sm { ... }
+.text-shadow-md { ... }
+.text-shadow-lg { ... }
+.text-shadow-glow { ... }
+.text-shadow-neon { ... }
+
+/* Text styles */
+.text-stroke-sm { ... }
+.text-stroke-md { ... }
+.text-stroke-lg { ... }
+.text-gradient { ... }
+.text-shine { ... }
+```
+
+### 4. Interaction Effects (`interaction/`)
+
+```css
+/* Basic interactions */
 .interactive { ... }
 .click-ripple { ... }
 .draggable { ... }
 .scroll-smooth { ... }
 
-/* Hover-Effekte */
+/* Hover effects */
 .hover-lift { ... }
 .hover-scale { ... }
 .hover-rotate { ... }
 
-/* Touch-Effekte */
+/* Touch effects */
 .touch-feedback { ... }
 .touch-ripple { ... }
 ```
 
-### 4. Neo-Effekte (`neos.css`)
+### 5. Layout Effects (`layout-effects/`)
 
 ```css
-/* Basis Neo-Effekte */
-.neo { ... }
-.neo-inset { ... }
+/* Transforms */
+.transform-rotate { ... }
+.transform-scale { ... }
+.transform-skew { ... }
 
-/* Größen-Varianten */
-.neo-sm { ... }
-.neo-lg { ... }
-
-/* Farb-Varianten */
-.neo-primary { ... }
-.neo-secondary { ... }
-.neo-success { ... }
+/* Clipping & Masking */
+.clip-circle { ... }
+.clip-hexagon { ... }
+.mask-fade { ... }
 ```
 
-## Effekt-Kombinationen
+### 6. Theme Effects (`themes/`)
 
-### 1. Animierte Neo-Effekte
+```css
+/* Neumorphism */
+.neo { ... }
+.neo-inset { ... }
+.neo-primary { ... }
+
+/* 3D Effects */
+.effect-3d { ... }
+.effect-3d-button { ... }
+.effect-3d-card { ... }
+
+/* Gradients */
+.gradient-primary { ... }
+.gradient-rainbow { ... }
+.gradient-sunset { ... }
+```
+
+### 7. Particle Effects (`particles/`)
+
+```css
+/* Particle backgrounds */
+.particles-dots { ... }
+.particles-bubbles { ... }
+.particles-stars { ... }
+```
+
+## Effect Combinations
+
+### 1. Animated Cards
 
 ```html
 <div class="neo neo-primary animate-pulse">
-  Pulsierender Neo-Effekt
+  Pulsating Neo Effect
 </div>
 
-<div class="neo neo-secondary hover-lift animate-fade-in">
-  Hover-Effekt mit Animation
+<div class="glass hover-lift animate-fade-in">
+  Hover Effect with Animation
 </div>
 ```
 
-### 2. Filter mit Animationen
+### 2. Filters with Animations
 
 ```html
 <div class="filter-vintage animate-fade-in">
-  Vintage-Effekt mit Einblendung
+  Vintage Effect with Fade-in
 </div>
 
 <div class="filter-cool hover-scale">
-  Kühler Filter mit Hover-Skalierung
+  Cool Filter with Hover Scaling
 </div>
 ```
 
-### 3. Interaktive Transformationen
+### 3. Interactive Transformations
 
 ```html
 <button class="interactive hover-lift active-scale">
-  Interaktiver Button
+  Interactive Button
 </button>
 
 <div class="draggable hover-rotate">
-  Ziehbares Element mit Rotation
+  Draggable Element with Rotation
 </div>
 ```
 
-### 4. Komplexe Kombinationen
+### 4. Typography with Effects
 
 ```html
-<!-- Neo-Effekt mit Filter und Animation -->
-<div class="neo neo-primary filter-cool animate-pulse">
-  Kombinierter Effekt
-</div>
+<h2 class="text-gradient animate-fade-in">
+  Gradient Text with Animation
+</h2>
 
-<!-- Interaktives Element mit mehreren Effekten -->
-<button class="interactive neo neo-secondary hover-lift active-scale filter-warm">
-  Multi-Effekt Button
-</button>
+<p class="text-shadow-neon hover-scale">
+  Neon Text with Hover Effect
+</p>
 ```
 
 ## Best Practices
 
 1. **Performance**
-   - Verwenden Sie `will-change` sparsam
-   - Kombinieren Sie Effekte mit Bedacht
-   - Nutzen Sie Hardware-Beschleunigung wo möglich
+   - Use `will-change` sparingly
+   - Combine effects judiciously
+   - Leverage hardware acceleration where possible
 
 2. **Accessibility**
-   - Alle Effekte berücksichtigen `prefers-reduced-motion`
-   - Fokus-Zustände sind immer sichtbar
-   - Touch-Targets sind ausreichend groß
+   - All effects respect `prefers-reduced-motion`
+   - Focus states are always visible
+   - Touch targets are adequately sized
 
 3. **Responsive Design**
-   - Effekte passen sich an Bildschirmgrößen an
-   - Mobile-optimierte Touch-Interaktionen
-   - Reduzierte Effekte auf kleinen Displays
+   - Effects adapt to screen sizes
+   - Mobile-optimized touch interactions
+   - Reduced effects on smaller displays
 
-## CSS-Variablen
+## CSS Variables
 
-Alle Effekte können über CSS-Variablen angepasst werden:
+All effects can be customized via CSS variables:
 
 ```css
 :root {
-  /* Neo-Effekte */
+  /* Neo effects */
   --neo-bg: #e0e5ec;
   --neo-shadow-dark: #a3b1c6;
   --neo-shadow-light: #ffffff;
 
-  /* Filter */
+  /* Filters */
   --filter-blur: 4px;
   --filter-brightness: 1.2;
   --filter-contrast: 1.2;
 
-  /* Animationen */
+  /* Animations */
   --animation-duration: 0.3s;
   --animation-timing: ease;
 }
 ```
 
-## Browser-Support
+## Browser Support
 
-- Chrome (neueste 2 Versionen)
-- Firefox (neueste 2 Versionen)
-- Safari (neueste 2 Versionen)
-- Edge (neueste 2 Versionen)
+- Chrome (latest 2 versions)
+- Firefox (latest 2 versions)
+- Safari (latest 2 versions)
+- Edge (latest 2 versions)
 
-## Performance-Tipps
+## Performance Tips
 
-1. **Optimierung**
-   - Verwenden Sie `transform` statt `top/left`
-   - Nutzen Sie `opacity` für Fade-Effekte
-   - Vermeiden Sie Layout-Thrashing
+1. **Optimization**
+   - Use `transform` instead of `top/left`
+   - Use `opacity` for fade effects
+   - Avoid layout thrashing
 
-2. **Reduzierte Bewegung**
-   - Alle Animationen respektieren `prefers-reduced-motion`
-   - Alternative Effekte für reduzierte Bewegung
-   - Keine automatischen Animationen
+2. **Reduced Motion**
+   - All animations respect `prefers-reduced-motion`
+   - Alternative effects for reduced motion
+   - No automatic animations
 
-3. **Mobile-Optimierung**
-   - Touch-optimierte Interaktionen
-   - Reduzierte Effekte auf mobilen Geräten
-   - Optimierte Performance für schwächere Geräte
+3. **Mobile Optimization**
+   - Touch-optimized interactions
+   - Reduced effects on mobile devices
+   - Optimized performance for less powerful devices
 
-## Beispiele
+## Examples
 
-### 1. Interaktive Karte
+### 1. Interactive Map
 
 ```html
 <div class="neo neo-primary hover-lift animate-fade-in">
-  <img class="filter-cool" src="map.jpg" alt="Karte">
+  <img class="filter-cool" src="map.jpg" alt="Map">
   <div class="interactive hover-scale">
-    Interaktiver Bereich
+    Interactive Area
   </div>
 </div>
 ```
 
-### 2. Animierter Button
+### 2. Animated Button
 
 ```html
 <button class="neo neo-secondary interactive hover-lift active-scale animate-pulse">
-  Klick mich
+  Click me
 </button>
 ```
 
-### 3. Bildergalerie
+### 3. Image Gallery
 
 ```html
 <div class="scroll-smooth">
   <div class="neo neo-primary filter-vintage hover-scale">
-    <img src="image1.jpg" alt="Bild 1">
+    <img src="image1.jpg" alt="Image 1">
   </div>
-  <div class="neo neo-secondary filter-cool hover-lift">
-    <img src="image2.jpg" alt="Bild 2">
+  <div class="glass filter-cool hover-lift text-shadow-glow">
+    <img src="image2.jpg" alt="Image 2">
   </div>
 </div>
 ```
 
-## Fehlerbehebung
+## Troubleshooting
 
-1. **Effekte funktionieren nicht**
-   - CSS-Dateien korrekt importiert?
-   - CSS-Variablen definiert?
-   - Browser-Support überprüfen
+1. **Effects not working**
+   - CSS files correctly imported?
+   - CSS variables defined?
+   - Check browser support
 
-2. **Performance-Probleme**
-   - Effekte reduzieren
-   - Hardware-Beschleunigung prüfen
-   - Mobile-Optimierung aktivieren
+2. **Performance issues**
+   - Reduce effects
+   - Check hardware acceleration
+   - Enable mobile optimization
 
-3. **Accessibility-Issues**
-   - Reduzierte Bewegung testen
-   - Fokus-Zustände prüfen
-   - Touch-Targets überprüfen
+3. **Accessibility issues**
+   - Test reduced motion
+   - Check focus states
+   - Verify touch targets
 
-## Lizenz
+## License
 
-MIT License - Siehe LICENSE.md für Details. 
+MIT License - See LICENSE.md for details. 

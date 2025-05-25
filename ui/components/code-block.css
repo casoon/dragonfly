@@ -1,0 +1,252 @@
+/**
+ * Code Block
+ * 
+ * Code blocks display programming code snippets with syntax highlighting,
+ * line numbers, and copy functionality. They help users understand and
+ * implement technical examples within documentation or tutorials.
+ * 
+ * @layer: components
+ * 
+ * Accessibility:
+ * - Use appropriate semantic elements (pre, code)
+ * - Ensure sufficient color contrast for syntax highlighting
+ * - Make copy functionality accessible via keyboard
+ * - Consider adding aria-label for language identification
+ */
+
+@layer components {
+  /* Code block container */
+  .code-block {
+    background-color: var(--color-code-bg, var(--color-neutral-900));
+    border-radius: var(--radius-md);
+    color: var(--color-code-text, var(--color-neutral-100));
+    font-family: var(--font-family-mono);
+    font-size: var(--text-sm);
+    margin: var(--space-4) 0;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  /* Code block header with language label and actions */
+  .code-block__header {
+    align-items: center;
+    background-color: var(--color-code-header-bg, var(--color-neutral-800));
+    border-bottom: 1px solid var(--color-code-border, var(--color-neutral-700));
+    color: var(--color-code-header-text, var(--color-neutral-300));
+    display: flex;
+    font-family: var(--font-family-sans);
+    font-size: var(--text-xs);
+    justify-content: space-between;
+    padding: var(--space-2) var(--space-4);
+  }
+  
+  /* Language label */
+  .code-block__language {
+    font-weight: var(--font-medium);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  
+  /* Header actions container */
+  .code-block__actions {
+    display: flex;
+    gap: var(--space-2);
+  }
+  
+  /* Action button (e.g., copy, expand) */
+  .code-block__action {
+    align-items: center;
+    background: transparent;
+    border: none;
+    border-radius: var(--radius-sm);
+    color: var(--color-code-action, var(--color-neutral-400));
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    padding: var(--space-1);
+    transition: color 0.2s, background-color 0.2s;
+  }
+  
+  .code-block__action:hover {
+    background-color: var(--color-code-action-bg-hover, rgb(255 255 255 / 10%));
+    color: var(--color-code-action-hover, var(--color-neutral-100));
+  }
+  
+  /* Copy success state */
+  .code-block__action--copied {
+    color: var(--color-success-500) !important;
+  }
+  
+  /* Code content area */
+  .code-block__content {
+    counter-reset: line;
+    overflow-x: auto;
+    padding: var(--space-4);
+    position: relative;
+  }
+  
+  /* Code with line numbers */
+  .code-block--numbered .code-block__content {
+    padding-left: 3.5rem;
+  }
+  
+  /* Code lines */
+  .code-block__line {
+    display: block;
+    line-height: 1.6;
+    position: relative;
+  }
+  
+  /* Line numbers */
+  .code-block--numbered .code-block__line::before {
+    color: var(--color-code-line-number, var(--color-neutral-500));
+    content: counter(line);
+    counter-increment: line;
+    left: -2.5rem;
+    position: absolute;
+    text-align: right;
+    user-select: none;
+    width: 1.5rem;
+  }
+  
+  /* Highlighted line */
+  .code-block__line--highlighted {
+    background-color: var(--color-code-highlight-bg, rgb(255 255 255 / 10%));
+    border-left: 2px solid var(--color-primary-500);
+    margin: 0 -1rem;
+    padding: 0 1rem;
+  }
+  
+  /* Line with error */
+  .code-block__line--error {
+    background-color: var(--color-code-error-bg, rgb(220 38 38 / 20%));
+    border-left: 2px solid var(--color-error-500);
+    margin: 0 -1rem;
+    padding: 0 1rem;
+  }
+  
+  /* Syntax highlighting - basic theme */
+  .code-block__keyword {
+    color: var(--color-code-keyword, #c792ea);
+  }
+  
+  .code-block__string {
+    color: var(--color-code-string, #c3e88d);
+  }
+  
+  .code-block__function {
+    color: var(--color-code-function, #82aaff);
+  }
+  
+  .code-block__number {
+    color: var(--color-code-number, #f78c6c);
+  }
+  
+  .code-block__comment {
+    color: var(--color-code-comment, #676e95);
+    font-style: italic;
+  }
+  
+  .code-block__operator {
+    color: var(--color-code-operator, #89ddff);
+  }
+  
+  .code-block__punctuation {
+    color: var(--color-code-punctuation, #89ddff);
+  }
+  
+  .code-block__tag {
+    color: var(--color-code-tag, #f07178);
+  }
+  
+  .code-block__attribute {
+    color: var(--color-code-attribute, #ffcb6b);
+  }
+  
+  /* Code block variations */
+  .code-block--inline {
+    border-radius: var(--radius-sm);
+    display: inline-block;
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.2em 0.4em;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+  
+  /* Expandable code block */
+  .code-block--expandable .code-block__content {
+    max-height: 300px;
+    overflow-y: auto;
+    transition: max-height 0.3s ease;
+  }
+  
+  .code-block--expanded .code-block__content {
+    max-height: 1000px;
+  }
+  
+  /* Fade effect for expandable code blocks */
+  .code-block--expandable::after {
+    background: linear-gradient(to bottom, transparent, var(--color-code-bg, var(--color-neutral-900)));
+    bottom: 0;
+    content: "";
+    height: 60px;
+    left: 0;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .code-block--expanded::after {
+    opacity: 0%;
+  }
+  
+  /* Expand toggle button */
+  .code-block__expand-toggle {
+    background: var(--color-code-expand-bg, var(--color-neutral-700));
+    border: none;
+    border-radius: var(--radius-full);
+    bottom: var(--space-2);
+    color: var(--color-code-expand-text, var(--color-neutral-200));
+    cursor: pointer;
+    font-size: var(--text-xs);
+    left: 50%;
+    padding: var(--space-1) var(--space-3);
+    position: absolute;
+    transform: translateX(-50%);
+    transition: background-color 0.2s;
+    z-index: 1;
+  }
+  
+  .code-block__expand-toggle:hover {
+    background-color: var(--color-code-expand-hover-bg, var(--color-neutral-600));
+  }
+  
+  /* Light theme variation */
+  .code-block--light {
+    background-color: var(--color-code-light-bg, var(--color-neutral-100));
+    color: var(--color-code-light-text, var(--color-neutral-900));
+  }
+  
+  .code-block--light .code-block__header {
+    background-color: var(--color-code-light-header-bg, var(--color-neutral-200));
+    border-color: var(--color-code-light-border, var(--color-neutral-300));
+    color: var(--color-code-light-header-text, var(--color-neutral-700));
+  }
+  
+  /* Responsive adjustments */
+  @media (width <= 640px) {
+    .code-block {
+      font-size: var(--text-xs);
+    }
+    
+    .code-block--numbered .code-block__content {
+      padding-left: 3rem;
+    }
+    
+    .code-block--numbered .code-block__line::before {
+      left: -2rem;
+    }
+  }
+} 

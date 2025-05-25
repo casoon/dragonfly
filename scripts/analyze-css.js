@@ -1,43 +1,43 @@
 #!/usr/bin/env node
 
 /**
- * CSS-Analysator für Dokumentation
+ * CSS Analyzer for Documentation
  * 
- * Dieses Script analysiert CSS-Dateien und extrahiert Informationen wie:
- * - CSS-Klassen und ihre Selektoren
- * - CSS-Variablen
- * - Media Queries
+ * This script analyzes CSS files and extracts information such as:
+ * - CSS classes and their selectors
+ * - CSS variables
+ * - Media queries
  * - Keyframes
  * 
- * Die Ergebnisse werden als JSON-Dateien im Verzeichnis "docs/analysis/" gespeichert
- * und können als Grundlage für die automatische Dokumentationsgenerierung dienen.
+ * The results are saved as JSON files in the "docs/analysis/" directory
+ * and can serve as a basis for automatic documentation generation.
  */
 
 const fs = require('fs');
 const path = require('path');
 const packageJson = require('../package.json');
 
-// Verzeichnis für Analyseausgabe erstellen
+// Create directory for analysis output
 const analysisDir = path.join('docs', 'analysis');
 if (!fs.existsSync(analysisDir)) {
   fs.mkdirSync(analysisDir, { recursive: true });
 }
 
-// CSS-Dateien aus package.json "files" extrahieren
+// Extract CSS files from package.json "files"
 const projectFiles = packageJson.files || [];
 const cssFiles = [];
 
-// CSS-Dateien filtern
+// Filter CSS files
 projectFiles.forEach(file => {
   if (file.endsWith('.css')) {
     cssFiles.push(file);
   } else if (!file.includes('.') && fs.existsSync(file)) {
-    // Verzeichnis durchsuchen
+    // Search directory
     findCssFilesInDir(file, cssFiles);
   }
 });
 
-// Funktion zum rekursiven Finden von CSS-Dateien
+// Function for recursively finding CSS files
 function findCssFilesInDir(dir, result) {
   try {
     const items = fs.readdirSync(dir);
@@ -53,18 +53,18 @@ function findCssFilesInDir(dir, result) {
       }
     }
   } catch (error) {
-    console.error(`Fehler beim Durchsuchen von ${dir}:`, error);
+    console.error(`Error searching directory ${dir}:`, error);
   }
 }
 
-// Analysiere jede CSS-Datei
+// Analyze each CSS file
 cssFiles.forEach(cssFile => {
-  console.log(`Analysiere ${cssFile}...`);
+  console.log(`Analyzing ${cssFile}...`);
   
   try {
     const content = fs.readFileSync(cssFile, 'utf8');
     
-    // Extrahiere Informationen aus der Datei
+    // Extract information from the file
     const analysis = {
       file: cssFile,
       classes: extractClasses(content),
@@ -73,7 +73,7 @@ cssFiles.forEach(cssFile => {
       mediaQueries: extractMediaQueries(content)
     };
     
-    // Speichere Analyseergebnisse
+    // Save analysis results
     const analysisFilename = path.join(
       analysisDir, 
       `${path.basename(cssFile, '.css')}.json`
@@ -84,13 +84,13 @@ cssFiles.forEach(cssFile => {
       JSON.stringify(analysis, null, 2)
     );
     
-    console.log(`✅ Analyse gespeichert: ${analysisFilename}`);
+    console.log(`✅ Analysis saved: ${analysisFilename}`);
   } catch (error) {
-    console.error(`❌ Fehler bei der Analyse von ${cssFile}:`, error);
+    console.error(`❌ Error analyzing ${cssFile}:`, error);
   }
 });
 
-// Extrahiert CSS-Klassen und ihre Selektoren
+// Extracts CSS classes and their selectors
 function extractClasses(cssContent) {
   const classes = [];
   const classRegex = /\.([a-zA-Z0-9_-]+)(?:\s*[,{:]|:[a-zA-Z]+)/g;
@@ -99,16 +99,16 @@ function extractClasses(cssContent) {
   while ((match = classRegex.exec(cssContent)) !== null) {
     const className = match[1];
     
-    // Ignoriere Matches innerhalb von Kommentaren
+    // Ignore matches within comments
     const upToMatch = cssContent.substring(0, match.index);
     const lastCommentStart = upToMatch.lastIndexOf('/*');
     const lastCommentEnd = upToMatch.lastIndexOf('*/');
     
     if (lastCommentStart > lastCommentEnd) {
-      continue; // Match ist innerhalb eines Kommentars
+      continue; // Match is inside a comment
     }
     
-    // Finde den Klassenselektor und den zugehörigen Block
+    // Find the class selector and its associated block
     const selectorStart = cssContent.substring(0, match.index).lastIndexOf('\n');
     const blockStart = cssContent.indexOf('{', match.index);
     const blockEnd = findMatchingBracket(cssContent, blockStart);
@@ -128,10 +128,10 @@ function extractClasses(cssContent) {
   return classes;
 }
 
-// Extrahiert CSS-Variablen
+// Extracts CSS variables
 function extractVariables(cssContent) {
   const variables = [];
-  // Regex für --variable: value;
+  // Regex for --variable: value;
   const varRegex = /--([a-zA-Z0-9_-]+)\s*:\s*([^;]+);/g;
   let match;
   
@@ -145,10 +145,10 @@ function extractVariables(cssContent) {
   return variables;
 }
 
-// Extrahiert @keyframes
+// Extracts @keyframes
 function extractKeyframes(cssContent) {
   const keyframes = [];
-  // Regex für @keyframes name { ... }
+  // Regex for @keyframes name { ... }
   const keyframeRegex = /@keyframes\s+([a-zA-Z0-9_-]+)\s*{([^}]*)}/g;
   let match;
   
@@ -162,10 +162,10 @@ function extractKeyframes(cssContent) {
   return keyframes;
 }
 
-// Extrahiert @media Queries
+// Extracts @media queries
 function extractMediaQueries(cssContent) {
   const mediaQueries = [];
-  // Regex für @media ... { ... }
+  // Regex for @media ... { ... }
   const mediaRegex = /@media\s+([^{]+)\s*{([^}]*)}/g;
   let match;
   
@@ -179,7 +179,7 @@ function extractMediaQueries(cssContent) {
   return mediaQueries;
 }
 
-// Hilfsfunktion zum Finden der schließenden Klammer
+// Helper function to find the closing bracket
 function findMatchingBracket(text, openBracketIndex) {
   let openBrackets = 1;
   let i = openBracketIndex + 1;
@@ -196,4 +196,4 @@ function findMatchingBracket(text, openBracketIndex) {
   return openBrackets === 0 ? i - 1 : -1;
 }
 
-console.log(`\n🎉 Analyse für ${cssFiles.length} CSS-Dateien abgeschlossen.`); 
+console.log(`\n🎉 Analysis completed for ${cssFiles.length} CSS files.`); 

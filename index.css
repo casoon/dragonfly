@@ -1,0 +1,106 @@
+/**
+ * Casoon UI Design System - Core CSS
+ * 
+ * Dieses Stylesheet definiert die Layer-Struktur und importiert
+ * alle benötigten CSS-Module.
+ */
+
+/* Definition der globalen Layer-Reihenfolge gemäß layers.css */
+@layer reset,        /* CSS-Reset und Normalisierung */
+       tokens,       /* Design-Tokens und Variablen */
+       themes,       /* Theme-Varianten */
+       themes.base,  /* Sub-Layer von themes: Basis-Theme-Definitionen */
+       themes.mode,  /* Sub-Layer von themes: Light/Dark-Theme-Definitionen */
+       themes.custom, /* Sub-Layer von themes: Benutzerdefinierte Themes */
+       base,         /* Grundlegende Elementstile (enthält logical-properties, accessibility, elements) */
+       logical-properties, /* Sub-Layer von base: Logische Eigenschaften für RTL/LTR Support */
+       accessibility, /* Sub-Layer von base: Barrierefreiheits-bezogene Stile */
+       elements,     /* Sub-Layer von base: Grundlegende HTML-Element-Stile */
+       colors,       /* Farbdefinitionen und Schema (enthält color-mix) */
+       color-mix,    /* Sub-Layer von colors: Farb-Mischungen und -Transformationen */
+       typography,   /* Typografie-Stile */
+       typography.headings, /* Sub-Layer von typography: Überschriften-Stile */
+       typography.weights, /* Sub-Layer von typography: Schriftgewichte */
+       typography.webfonts, /* Sub-Layer von typography: Web-Fonts */
+       typography.baseline, /* Sub-Layer von typography: Baseline-Grid */
+       typography.base, /* Sub-Layer von typography: Basis-Typografie */
+       typography.text, /* Sub-Layer von typography: Text-Element-Stile */
+       typography.responsive, /* Sub-Layer von typography: Responsive Typografie */
+       typography.fluid, /* Sub-Layer von typography: Fluid Typografie */
+       layout,       /* Layout-Systeme und Grid */
+       layout.grid,  /* Sub-Layer von layout: Grid-System */
+       layout.flex,  /* Sub-Layer von layout: Flex-Layouts */
+       layout.containers, /* Sub-Layer von layout: Container-Layouts */
+       layout.spacing, /* Sub-Layer von layout: Abstandsregeln */
+       layout.responsive, /* Sub-Layer von layout: Responsive Layouts */
+       layout.queries, /* Sub-Layer von layout: Container-Queries für Layouts */
+       layout.utilities, /* Sub-Layer von layout: Layout-Utilities */
+       utilities,    /* Hilfsstilklassen */
+       utilities.variables, /* Sub-Layer von utilities: Variablen für Utilities */
+       utilities.mixins, /* Sub-Layer von utilities: Mixins für Utilities */
+       utilities.helpers, /* Sub-Layer von utilities: Hilfsklassen für Utilities */
+       utilities.customize, /* Sub-Layer von utilities: Anpassungen für Utilities */
+       components,   /* Komponentenstile (enthält form) */
+       form,         /* Sub-Layer von components: Formular-bezogene Stile */
+       animations,   /* Animationsdefinitionen (enthält animation-contexts) */
+       animation-contexts, /* Sub-Layer von animations: Kontextbezogene Animationen */
+       effects,      /* Visuelle Effekte (enthält smooth-scroll) */
+       smooth-scroll; /* Sub-Layer von effects: Scrolling-Verhalten und -Effekte */
+
+
+/*
+* Import der Layer-Definitionen
+* Jede Datei definiert ihre Stile innerhalb ihres zugewiesenen Layers
+* Die Reihenfolge folgt der Layer-Hierarchie
+*/
+
+/* =================== RESET-LAYER =================== */
+@import url("core/reset.css"); /* layer(reset) */
+
+/* =================== TOKENS-LAYER =================== */
+@import url("tokens/index.css"); /* layer(tokens) */
+
+/* =================== THEMES-LAYER =================== */
+@import url("themes/index.css"); /* layer(themes) und Sub-Layer */
+
+/* =================== BASE-LAYER =================== */
+
+/* Base und Sub-Layer */
+@import url("core/logical-properties.css"); /* layer(logical-properties) */
+@import url("core/accessibility/index.css"); /* layer(accessibility) */
+@import url("core/elements.css"); /* layer(elements) */
+
+/* =================== COLORS-LAYER =================== */
+@import url("core/colors.css"); /* layer(colors) */
+@import url("core/color-mix.css"); /* layer(color-mix) */
+
+/* =================== SMOOTH-SCROLL-LAYER =================== */
+@import url("core/smooth-scroll.css"); /* layer(smooth-scroll) */
+
+/* =================== UTILITIES-LAYER =================== */
+@import url("utilities/index.css"); /* layer(utilities) und Sub-Layer */
+
+/* =================== TYPOGRAPHY-LAYER =================== */
+@import url("typography/index.css"); /* layer(typography) und Sub-Layer */
+
+/* =================== LAYOUT-LAYER =================== */
+@import url("layout/index.css"); /* layer(layout) und Sub-Layer */
+
+/* =================== ICONS-LAYER =================== */
+@import url("icons/index.css"); /* layer(components) - Icons-Komponenten */
+
+/* =================== UI-ELEMENTS-LAYER =================== */
+@import url("ui/elements.css"); /* Nur UI-Elemente, keine Components oder Patterns */
+
+/* =================== EFFECTS & UI COMPONENTS =================== */
+
+/* 
+ * Effects und UI-Components/Patterns werden nicht automatisch importiert.
+ * Diese müssen vom Verwender einzeln nach dem Laden der Haupt-CSS importiert werden, z.B.:
+ * 
+ * @import url("pfad/zur/ui-lib/effects/animation.css");
+ * @import url("pfad/zur/ui-lib/ui/components/button.css");
+ * @import url("pfad/zur/ui-lib/ui/patterns/card.css");
+ */
+
+

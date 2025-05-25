@@ -5,7 +5,7 @@ const wcag = require('wcag-contrast');
 const culori = require('culori');
 const cssFilePath = path.resolve(__dirname, '../base/colors.css');
 
-// Funktion, um alle CSS-Variablen aus der Datei zu extrahieren
+// Function to extract all CSS variables from the file
 function extractColorVariables(cssText, scope = ':root') {
   const blockRegex = new RegExp(`${scope}\s*{([^}]*)}`, 'g');
   const blockMatch = [...cssText.matchAll(blockRegex)].map(m => m[1]).join('\n');
@@ -18,7 +18,7 @@ function extractColorVariables(cssText, scope = ':root') {
   return variables;
 }
 
-// Funktion, um OKLCH in HEX umzuwandeln mit culori
+// Function to convert OKLCH to HEX using culori
 function oklchToHex(oklchValue) {
   try {
     const parsed = culori.parse(oklchValue);
@@ -30,12 +30,12 @@ function oklchToHex(oklchValue) {
   }
 }
 
-// Hilfsfunktion für die Analyse
+// Helper function for analysis
 function analyzeContrast(colorVars, label) {
   const textVars = Object.keys(colorVars).filter(key => /text/.test(key));
   const bgVars = Object.keys(colorVars).filter(key => /background/.test(key));
 
-  console.log(`\nKontraste im Kontext: ${label}\n`);
+  console.log(`\nContrast in context: ${label}\n`);
   textVars.forEach(textKey => {
     const fgHex = oklchToHex(colorVars[textKey]);
     if (!fgHex) return;
@@ -45,20 +45,20 @@ function analyzeContrast(colorVars, label) {
       const ratio = wcag.hex(fgHex, bgHex);
       const aa = wcag.isAccessible(ratio, 'AA') ? '✅' : '❌';
       const aaa = wcag.isAccessible(ratio, 'AAA') ? '✅' : '❌';
-      console.log(`${textKey} vs ${bgKey}: Kontrast ${ratio.toFixed(2)} → AA: ${aa}, AAA: ${aaa}`);
+      console.log(`${textKey} vs ${bgKey}: Contrast ${ratio.toFixed(2)} → AA: ${aa}, AAA: ${aaa}`);
     });
   });
 }
 
-// Hauptprogramm
+// Main program
 const cssContent = fs.readFileSync(cssFilePath, 'utf8');
 const lightVars = extractColorVariables(cssContent, ':root');
 const darkVars = extractColorVariables(cssContent, '.theme-dark');
 
-console.log('WCAG Kontrastanalyse (aus colors.css):');
+console.log('WCAG Contrast Analysis (from colors.css):');
 analyzeContrast(lightVars, 'Light Theme');
 if (Object.keys(darkVars).length > 0) {
   analyzeContrast(darkVars, 'Dark Theme');
 } else {
-  console.log('\n⚠️ Keine .theme-dark Definitionen in colors.css gefunden.');
+  console.log('\n⚠️ No .theme-dark definitions found in colors.css.');
 }

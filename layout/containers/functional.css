@@ -1,0 +1,162 @@
+/**
+ * Functional Containers
+ * 
+ * Containers for UI functionalities like toast, modal, and dropdown.
+ */
+
+@layer layout.containers.functional {
+    /* ================= TOAST/NOTIFICATION CONTAINERS ================= */
+    
+    /* Containers for toast notifications */
+    .container-toast {
+        bottom: var(--space-4);
+        max-width: 400px;
+        position: fixed;
+        right: var(--space-4);
+        width: calc(100% - var(--space-8));
+        z-index: var(--z-toast, 50);
+    }
+    
+    .container-toast-top {
+        max-width: 400px;
+        position: fixed;
+        right: var(--space-4);
+        top: var(--space-4);
+        width: calc(100% - var(--space-8));
+        z-index: var(--z-toast, 50);
+    }
+    
+    .container-toast-top-left {
+        left: var(--space-4);
+        max-width: 400px;
+        position: fixed;
+        top: var(--space-4);
+        width: calc(100% - var(--space-8));
+        z-index: var(--z-toast, 50);
+    }
+    
+    .container-toast-bottom-left {
+        bottom: var(--space-4);
+        left: var(--space-4);
+        max-width: 400px;
+        position: fixed;
+        width: calc(100% - var(--space-8));
+        z-index: var(--z-toast, 50);
+    }
+    
+    .container-toast-center {
+        left: 50%;
+        max-width: 400px;
+        position: fixed;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: calc(100% - var(--space-8));
+        z-index: var(--z-toast, 50);
+    }
+    
+    /* ================= MODAL CONTAINERS ================= */
+    
+    /* Containers for modal dialogs */
+    .container-modal-backdrop {
+        background-color: var(--color-backdrop, rgb(0 0 0 / 50%));
+        inset: 0;
+        position: fixed;
+        z-index: var(--z-modal-backdrop, 40);
+    }
+    
+    .container-modal {
+        background-color: var(--color-background, white);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-lg);
+        left: 50%;
+        max-height: 90%;
+        max-width: 90%;
+        overflow: auto;
+        position: fixed;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 600px;
+        z-index: var(--z-modal, 50);
+    }
+    
+    .container-modal-small {
+        width: 400px;
+    }
+    
+    .container-modal-large {
+        width: 800px;
+    }
+    
+    .container-modal-full {
+        height: 90%;
+        width: 90%;
+    }
+    
+    /* ================= DROPDOWN CONTAINERS ================= */
+    
+    /* Containers for dropdown menus */
+    .container-dropdown {
+        background-color: var(--color-background-elevated, white);
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-lg);
+        min-width: 200px;
+        overflow: hidden;
+        position: absolute;
+        z-index: var(--z-dropdown, 20);
+    }
+    
+    .container-dropdown-top {
+        bottom: 100%;
+        margin-bottom: var(--space-2);
+    }
+    
+    .container-dropdown-bottom {
+        margin-top: var(--space-2);
+        top: 100%;
+    }
+    
+    .container-dropdown-left {
+        margin-right: var(--space-2);
+        right: 100%;
+    }
+    
+    .container-dropdown-right {
+        left: 100%;
+        margin-left: var(--space-2);
+    }
+    
+    /* ================= TOOLTIP CONTAINERS ================= */
+    
+    /* Containers for tooltips */
+    .container-tooltip {
+        background-color: var(--color-tooltip-background, rgb(0 0 0 / 80%));
+        border-radius: var(--radius-sm);
+        box-shadow: var(--shadow-sm);
+        color: var(--color-tooltip-text, white);
+        font-size: var(--font-size-sm);
+        max-width: 300px;
+        padding: var(--space-2);
+        position: absolute;
+        z-index: var(--z-tooltip, 30);
+    }
+    
+    .container-tooltip-top {
+        bottom: 100%;
+        margin-bottom: var(--space-2);
+    }
+    
+    .container-tooltip-bottom {
+        margin-top: var(--space-2);
+        top: 100%;
+    }
+    
+    .container-tooltip-left {
+        margin-right: var(--space-2);
+        right: 100%;
+    }
+    
+    .container-tooltip-right {
+        left: 100%;
+        margin-left: var(--space-2);
+    }
+} 

@@ -1,0 +1,25 @@
+/**
+ * Medien-Element Styles
+ */
+
+@layer elements {
+  /* Bilder */
+  img {
+    display: block;
+    height: auto;
+    max-width: 100%;
+  }
+
+  /* Videos */
+  video {
+    display: block;
+    height: auto;
+    max-width: 100%;
+  }
+
+  /* Iframes */
+  iframe {
+    border: none;
+    max-width: 100%;
+  }
+} 

@@ -1,0 +1,142 @@
+/*
+ * Accessibility - Keyboard Navigation
+ *
+ * Styles und Utilities für verbesserte Keyboard-Navigation und Fokus-Management.
+ * Diese Datei enthält Definitionen für konsistente Fokus-Ringe und Keyboard-Navigation.
+ */
+
+@layer accessibility {
+  /*
+   * Globale Fokus-Stile
+   * 
+   * Diese Fokus-Stile werden auf alle fokussierbaren Elemente angewendet.
+   * Der Fokus-Ring ist nur sichtbar, wenn das Element per Tastatur fokussiert wird.
+   */
+  
+  /* Default-Fokus entfernen, um eigene Stile zu verwenden */
+  :focus {
+    outline: none;
+  }
+  
+  /* Fokus-Ring nur anzeigen, wenn per Tastatur navigiert wird */
+  :focus-visible {
+    outline: var(--focus-ring);
+    outline-offset: var(--focus-ring-offset);
+    position: relative;
+    z-index: 2;
+  }
+  
+  /* 
+   * Visuelles Feedback optimieren
+   * 
+   * Verbessert die Sichtbarkeit von fokussierten Elementen
+   * in verschiedenen Bereichen der Benutzeroberfläche.
+   */
+  
+  /* Angepasster Fokus-Ring für Formular-Elemente */
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible,
+  button:focus-visible,
+  [role="button"]:focus-visible {
+    border-color: var(--color-border-focus);
+    outline: var(--focus-ring);
+    outline-offset: var(--focus-ring-offset);
+  }
+  
+  /* Angepasster Fokus-Ring für Links */
+  a:focus-visible {
+    outline: var(--focus-ring);
+    outline-offset: var(--focus-ring-offset);
+    text-decoration: underline;
+  }
+  
+  /* Angepasster Fokus-Ring für interaktive Container */
+  [tabindex]:focus-visible,
+  [role="tab"]:focus-visible,
+  [role="menuitem"]:focus-visible,
+  [role="option"]:focus-visible {
+    outline: var(--focus-ring);
+    outline-offset: var(--focus-ring-offset);
+  }
+  
+  /* Utility-Klassen für fokussierbare Elemente */
+  .focus-ring-inset {
+    --focus-ring-offset: -2px;
+  }
+  
+  .focus-ring-large {
+    --focus-ring: 0 0 0 4px var(--color-focus-ring);
+  }
+  
+  /* 
+   * Skip-Links für Keyboard-Navigation 
+   *
+   * Links, die es Tastatur-Benutzern ermöglichen, direkt zum Hauptinhalt zu springen.
+   * Normalerweise versteckt, aber sichtbar, wenn sie fokussiert werden.
+   */
+  .skip-link {
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+  
+  .skip-link:focus-visible {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-md);
+    clip: auto;
+    color: var(--color-text-primary);
+    font-weight: var(--font-weight-semibold);
+    height: auto;
+    left: 8px;
+    padding: 12px 16px;
+    top: 8px;
+    white-space: normal;
+    width: auto;
+    z-index: var(--z-index-toast);
+  }
+  
+  /*
+   * Keyboard-Navigation-Helfer
+   * 
+   * Helfer-Klassen zur Verbesserung der Tastatur-Navigation.
+   */
+  
+  /* Für Elemente, die nur visuell angeklickt werden können, aber per Tastatur fokussierbar sein sollten */
+  .keyboard-focusable {
+    cursor: pointer;
+  }
+  
+  .keyboard-focusable:not([tabindex]) {
+    tabindex: "0";
+  }
+  
+  /* Für Elemente, die per Tastatur nicht fokussierbar sein sollten */
+  .keyboard-no-focus {
+    tabindex: "-1";
+  }
+  
+  /* 
+   * Tastatur-Modifikator-Erkennung
+   * 
+   * Diese Klasse wird automatisch vom Theme-Helper-Script zum <html>-Element hinzugefügt,
+   * wenn der Benutzer per Tastatur navigiert. Dies ermöglicht gezieltes Styling nur für
+   * Tastatur-Benutzer.
+   */
+  .keyboard-user [tabindex]:focus,
+  .keyboard-user a:focus,
+  .keyboard-user button:focus,
+  .keyboard-user input:focus,
+  .keyboard-user select:focus,
+  .keyboard-user textarea:focus {
+    outline: var(--focus-ring);
+    outline-offset: var(--focus-ring-offset);
+  }
+} 

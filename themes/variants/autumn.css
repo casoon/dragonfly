@@ -1,0 +1,45 @@
+/**
+ * Autumn Theme Variante
+ * 
+ * Diese Datei definiert das Autumn Theme als Erweiterung des theme-variants.css Mechanismus.
+ * Es überschreibt nur die notwendigen Farbwerte und erbt den Rest von .theme-variant.
+ */
+
+/* Erbt alle Einstellungen von .theme-variant */
+.theme-autumn {
+  /* Basisklasse für Theme-Varianten anwenden */
+  composes: theme-variant;
+  
+  /* Primäre Farbton-Variablen - Orange/Kupfer */
+  --theme-primary-h: 30; /* Orange */
+  --theme-primary-s: 90%;
+  --theme-primary-l: 45%;
+  
+  /* Sekundäre Farbton-Variablen - Warmes Braun */
+  --theme-secondary-h: 25;
+  --theme-secondary-s: 60%;
+  --theme-secondary-l: 35%;
+  
+  /* Akzent-Farbton-Variablen - Warmes Rot */
+  --theme-accent-h: 5;
+  --theme-accent-s: 80%;
+  --theme-accent-l: 50%;
+}
+
+/* Anpassungen für den Dark Mode */
+@media (prefers-color-scheme: dark) {
+  .theme-autumn {
+    /* Dunklere Kontraste für den Dark Mode */
+    --theme-primary-l: 40%;
+    --theme-secondary-l: 30%;
+    --theme-accent-l: 45%;
+  }
+}
+
+/* Expliziter Dark Mode */
+.theme-autumn.dark-mode {
+  /* Dunklere Kontraste für den Dark Mode */
+  --theme-primary-l: 40%;
+  --theme-secondary-l: 30%;
+  --theme-accent-l: 45%;
+} 

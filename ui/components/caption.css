@@ -1,0 +1,132 @@
+/**
+ * Caption
+ * 
+ * Captions provide additional contextual information for images, tables, figures,
+ * or other media content. They help users understand the content and provide 
+ * necessary explanations or attributions.
+ * 
+ * @layer: components
+ * 
+ * Accessibility:
+ * - Use appropriate HTML semantics (figcaption with figure)
+ * - Maintain sufficient text contrast
+ * - Don't rely on captions alone for conveying critical information
+ */
+
+@layer components {
+  /* Base caption style */
+  .caption {
+    color: var(--color-text-500);
+    font-size: var(--text-xs);
+    line-height: 1.5;
+    margin-top: var(--space-2);
+    max-width: 100%;
+  }
+  
+  /* Figure with caption */
+  .figure {
+    display: inline-block;
+    margin: 0;
+    max-width: 100%;
+  }
+  
+  .figure__image {
+    display: block;
+    height: auto;
+    max-width: 100%;
+  }
+  
+  .figure__caption {
+    padding: var(--space-2);
+    text-align: center;
+  }
+  
+  /* Caption alignments */
+  .caption--start {
+    text-align: left;
+  }
+  
+  .caption--center {
+    text-align: center;
+  }
+  
+  .caption--end {
+    text-align: right;
+  }
+  
+  /* Caption with attribution */
+  .caption__attribution {
+    color: var(--color-text-400);
+    display: inline-block;
+    font-style: italic;
+    margin-top: var(--space-1);
+  }
+  
+  /* Caption for tables */
+  .table-caption {
+    border-top: 1px solid var(--color-border-100);
+    caption-side: bottom;
+    padding: var(--space-2);
+  }
+  
+  /* Extended caption with title and description */
+  .caption--extended {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+  
+  .caption__title {
+    color: var(--color-text-900);
+    font-weight: var(--font-medium);
+  }
+  
+  .caption__description {
+    color: var(--color-text-500);
+  }
+  
+  /* Variants */
+  .caption--bordered {
+    border-top: 1px solid var(--color-border-200);
+    padding-top: var(--space-2);
+  }
+  
+  .caption--boxed {
+    background-color: var(--color-surface-50);
+    border-radius: var(--radius-sm);
+    padding: var(--space-2);
+  }
+  
+  /* Caption with interaction (e.g., for expandable captions) */
+  .caption--interactive {
+    cursor: pointer;
+    padding-right: var(--space-6);
+    position: relative;
+  }
+  
+  .caption--interactive::after {
+    border-color: var(--color-text-400) transparent transparent transparent;
+    border-style: solid;
+    border-width: 5px;
+    content: "";
+    position: absolute;
+    right: var(--space-2);
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.2s ease;
+  }
+  
+  .caption--interactive.caption--expanded::after {
+    transform: translateY(-50%) rotate(180deg);
+  }
+  
+  /* Expandable caption content */
+  .caption__expandable {
+    display: none;
+    margin-top: var(--space-2);
+  }
+  
+  .caption--expanded .caption__expandable {
+    display: block;
+  }
+} 

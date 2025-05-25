@@ -1,0 +1,92 @@
+/**
+ * Flex-Layout-System
+ * 
+ * Flexbox-basierte Layout-Komponenten und Utilities
+ */
+
+@layer layout.flex {
+    /* ================= FLEX-LAYOUT-SYSTEM ================= */
+
+    .layout-flex {
+        display: flex;
+        flex-direction: column;
+        gap: var(--grid-gutter);
+    }
+    
+    /* Typische Flex-Layouts */
+    .layout-flex-row {
+        display: flex;
+        flex-direction: row;
+        gap: var(--grid-gutter);
+    }
+    
+    .layout-flex-column {
+        display: flex;
+        flex-direction: column;
+        gap: var(--grid-gutter);
+    }
+    
+    /* Verteilte Layouts */
+    .layout-flex-between {
+        display: flex;
+        flex-direction: row;
+        gap: var(--grid-gutter);
+        justify-content: space-between;
+    }
+    
+    .layout-flex-center {
+        align-items: center;
+        display: flex;
+        gap: var(--grid-gutter);
+        justify-content: center;
+    }
+
+    /* ================= FLEX UTILITIES ================= */
+
+    /* Display-Typen */
+    .flex { display: flex; }
+
+    .inline-flex { display: inline-flex; }
+
+    /* Flex-Richtung und Umbruchverhalten */
+    .flex-row { flex-direction: row; }
+
+    .flex-col { flex-direction: column; }
+
+    .flex-wrap { flex-wrap: wrap; }
+
+    .flex-nowrap { flex-wrap: nowrap; }
+
+    /* Ausrichtung von Flex-Items */
+    .items-start { align-items: flex-start; }
+
+    .items-center { align-items: center; }
+
+    .items-end { align-items: flex-end; }
+
+    .justify-start { justify-content: flex-start; }
+
+    .justify-center { justify-content: center; }
+
+    .justify-end { justify-content: flex-end; }
+
+    .justify-between { justify-content: space-between; }
+
+    /* Flex-Eigenschaften */
+    .flex-1 { flex: 1 1 0%; }
+
+    .flex-auto { flex: 1 1 auto; }
+
+    .flex-none { flex: none; }
+
+    /* Flex-Basis für flexible Layouts */
+    .flex-basis-1-2 { flex-basis: 50%; }
+
+    .flex-basis-1-3 { flex-basis: 33.3333%; }
+
+    .flex-basis-2-3 { flex-basis: 66.6667%; }
+
+    .flex-basis-1-4 { flex-basis: 25%; }
+
+    .flex-basis-3-4 { flex-basis: 75%; }
+} 

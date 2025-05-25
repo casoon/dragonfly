@@ -1,36 +1,36 @@
 #!/usr/bin/env node
 
 /**
- * CSS-Dokumentationsgenerator
+ * CSS Documentation Generator
  * 
- * Dieses Script erstellt oder aktualisiert Markdown-Dokumentationsdateien für alle CSS-Dateien.
- * Es nutzt die Analyseergebnisse aus dem `analyze-css.js`-Script, wenn verfügbar.
+ * This script creates or updates Markdown documentation files for all CSS files.
+ * It uses the analysis results from the `analyze-css.js` script, if available.
  */
 
 const fs = require('fs');
 const path = require('path');
 const packageJson = require('../package.json');
 
-// Aktuelles Datum im Format TT.MM.JJJJ
+// Current date in format DD.MM.YYYY
 const today = new Date();
 const formattedDate = `${String(today.getDate()).padStart(2, '0')}.${String(today.getMonth() + 1).padStart(2, '0')}.${today.getFullYear()}`;
 
-// Verzeichnisse
+// Directories
 const docsBaseDir = 'docs';
 const analysisDir = path.join(docsBaseDir, 'analysis');
 
-// Dateien aus package.json "files" auslesen
+// Read files from package.json "files"
 const projectFiles = packageJson.files || [];
 
-// CSS-Dateien filtern
+// Filter CSS files
 const cssFiles = projectFiles
   .filter(file => file.endsWith('.css') || !file.includes('.'))
   .reduce((acc, file) => {
     if (file.endsWith('.css')) {
-      // Einzelne CSS-Datei
+      // Single CSS file
       acc.push(file);
     } else {
-      // Verzeichnis - alle CSS-Dateien rekursiv finden
+      // Directory - find all CSS files recursively
       try {
         const isDirectory = !file.includes('.');
         if (isDirectory && fs.existsSync(file)) {
@@ -38,13 +38,13 @@ const cssFiles = projectFiles
           acc.push(...dirFiles);
         }
       } catch (error) {
-        console.error(`Fehler beim Lesen des Verzeichnisses ${file}:`, error);
+        console.error(`Error reading directory ${file}:`, error);
       }
     }
     return acc;
   }, []);
 
-// Funktion zum rekursiven Finden von CSS-Dateien in einem Verzeichnis
+// Function to recursively find CSS files in a directory
 function findCssFilesInDir(dir) {
   const result = [];
   
@@ -63,18 +63,18 @@ function findCssFilesInDir(dir) {
       }
     }
   } catch (error) {
-    console.error(`Fehler beim Durchsuchen von ${dir}:`, error);
+    console.error(`Error searching directory ${dir}:`, error);
   }
   
   return result;
 }
 
-// Dokumentationsverzeichnis prüfen/erstellen
+// Check/create documentation directory
 if (!fs.existsSync(docsBaseDir)) {
   fs.mkdirSync(docsBaseDir, { recursive: true });
 }
 
-// Template für neue Dokumentationsdateien basierend auf der Analyse
+// Template for new documentation files based on analysis
 function createDocTemplate(cssFileName, analysis = null) {
   const baseName = path.basename(cssFileName, '.css');
   const title = baseName.charAt(0).toUpperCase() + baseName.slice(1).replace(/-/g, ' ');
@@ -90,9 +90,9 @@ This file provides styles for ${title.toLowerCase()} elements in modern UIs. It 
 
 `;
 
-  // Wenn Analysedaten vorhanden sind, füge Klassen hinzu
+  // If analysis data is available, add classes
   if (analysis && analysis.classes && analysis.classes.length > 0) {
-    // Gruppiere Klassen nach Namenskonventionen
+    // Group classes by naming conventions
     const classGroups = groupClasses(analysis.classes);
     
     for (const [groupName, classes] of Object.entries(classGroups)) {
@@ -106,14 +106,14 @@ This file provides styles for ${title.toLowerCase()} elements in modern UIs. It 
       });
     }
   } else {
-    template += `<!-- Dokumentiere hier die CSS-Klassen nach dem Schema in doc_tasks.md -->\n\n`;
+    template += `<!-- Document CSS classes here following the schema in doc_tasks.md -->\n\n`;
   }
 
   template += `## CSS Custom Properties (Variables)\n\n`;
   
-  // Wenn Analysedaten vorhanden sind, füge Variablen hinzu
+  // If analysis data is available, add variables
   if (analysis && analysis.variables && analysis.variables.length > 0) {
-    // Gruppiere Variablen nach Namenskonventionen
+    // Group variables by naming conventions
     const varGroups = groupVariables(analysis.variables);
     
     for (const [groupName, variables] of Object.entries(varGroups)) {
@@ -127,10 +127,10 @@ This file provides styles for ${title.toLowerCase()} elements in modern UIs. It 
       template += `\n`;
     }
   } else {
-    template += `<!-- Dokumentiere hier die CSS-Variablen nach dem Schema in doc_tasks.md -->\n\n`;
+    template += `<!-- Document CSS variables here following the schema in doc_tasks.md -->\n\n`;
   }
 
-  // Keyframe-Animationen
+  // Keyframe animations
   if (analysis && analysis.keyframes && analysis.keyframes.length > 0) {
     template += `## Keyframe Animations\n\n`;
     
@@ -140,7 +140,7 @@ This file provides styles for ${title.toLowerCase()} elements in modern UIs. It 
       template += `- Uses: ${extractPropertiesFromKeyframe(keyframe)}\n`;
       template += `- Animation steps:\n`;
       
-      // Versuche die Animationsschritte zu analysieren
+      // Try to analyze the animation steps
       const steps = extractKeyframeSteps(keyframe.content);
       steps.forEach((step, index) => {
         template += `  ${index + 1}. ${step}\n`;
@@ -154,7 +154,7 @@ This file provides styles for ${title.toLowerCase()} elements in modern UIs. It 
   if (analysis && analysis.mediaQueries && analysis.mediaQueries.length > 0) {
     template += `## Responsive / Media Behavior\n\n`;
     
-    // Finde alle media queries für reduced motion
+    // Find all media queries for reduced motion
     const reducedMotionQueries = analysis.mediaQueries.filter(
       q => q.query.includes('prefers-reduced-motion')
     );
@@ -164,7 +164,7 @@ This file provides styles for ${title.toLowerCase()} elements in modern UIs. It 
       template += `- Disables animations and transitions for users who prefer reduced motion\n`;
       template += `- Ensures accessibility compliance\n\n`;
     } else {
-      // Andere Media Queries
+      // Other Media Queries
       const uniqueQueries = [...new Set(analysis.mediaQueries.map(q => q.query))];
       
       uniqueQueries.forEach(query => {
@@ -182,9 +182,9 @@ This file provides styles for ${title.toLowerCase()} elements in modern UIs. It 
   return template;
 }
 
-// Hilfsfunktionen zur Erstellung von Dokumentationsinhalten
+// Helper functions for creating documentation content
 
-// Gruppiert Klassen nach Namenskonventionen
+// Groups classes by naming conventions
 function groupClasses(classes) {
   const groups = {
     'Base Classes': [],
@@ -210,13 +210,13 @@ function groupClasses(classes) {
     }
   });
   
-  // Entferne leere Gruppen
+  // Remove empty groups
   return Object.fromEntries(
     Object.entries(groups).filter(([_, array]) => array.length > 0)
   );
 }
 
-// Gruppiert Variablen nach Namenskonventionen
+// Groups variables by naming conventions
 function groupVariables(variables) {
   const groups = {
     'Color': [],
@@ -245,13 +245,13 @@ function groupVariables(variables) {
     }
   });
   
-  // Entferne leere Gruppen
+  // Remove empty groups
   return Object.fromEntries(
     Object.entries(groups).filter(([_, array]) => array.length > 0)
   );
 }
 
-// Generiert eine Beschreibung für eine CSS-Klasse
+// Generates a description for a CSS class
 function generateDescription(cssClass) {
   const name = cssClass.name;
   const properties = cssClass.properties;
@@ -281,11 +281,11 @@ function generateDescription(cssClass) {
   return `Styling for ${name.replace(/-/g, ' ')} elements`;
 }
 
-// Generiert die "Uses"-Info für eine CSS-Klasse
+// Generates the "Uses" info for a CSS class
 function generateUses(cssClass) {
   const properties = cssClass.properties;
   
-  // Extrahiere die wichtigsten CSS-Eigenschaften
+  // Extract the most important CSS properties
   const keyProps = [];
   
   if (properties.includes('display:')) {
@@ -329,7 +329,7 @@ function generateUses(cssClass) {
     : 'Basic CSS properties';
 }
 
-// Generiert die "Creates"-Info für eine CSS-Klasse
+// Generates the "Creates" info for a CSS class
 function generateCreates(cssClass) {
   const name = cssClass.name;
   const properties = cssClass.properties;
@@ -358,7 +358,7 @@ function generateCreates(cssClass) {
   return `Styled ${name.replace(/-/g, ' ')} appearance`;
 }
 
-// Generiert eine Beschreibung für eine CSS-Variable
+// Generates a description for a CSS variable
 function generateVariableDescription(variable) {
   const name = variable.name;
   const value = variable.value;
@@ -380,7 +380,7 @@ function generateVariableDescription(variable) {
   return `Configures the ${name.replace(/-/g, ' ')} setting`;
 }
 
-// Generiert eine Beschreibung für eine Keyframe-Animation
+// Generates a description for a keyframe animation
 function generateKeyframeDescription(keyframe) {
   const name = keyframe.name;
   
@@ -401,7 +401,7 @@ function generateKeyframeDescription(keyframe) {
   return `Animates elements with the ${name.replace(/-/g, ' ')} effect`;
 }
 
-// Extrahiert die wichtigsten Eigenschaften aus einer Keyframe-Definition
+// Extracts the most important properties from a keyframe definition
 function extractPropertiesFromKeyframe(keyframe) {
   const content = keyframe.content;
   
@@ -418,9 +418,9 @@ function extractPropertiesFromKeyframe(keyframe) {
     : 'CSS transition properties';
 }
 
-// Extrahiert Schritte aus einer Keyframe-Definition
+// Extracts steps from a keyframe definition
 function extractKeyframeSteps(content) {
-  // Suche nach definierten Schritten wie 0%, 50%, 100%
+  // Search for defined steps like 0%, 50%, 100%
   const stepMatches = content.match(/([0-9]+%|from|to)\s*{([^}]*)}/g) || [];
   
   if (stepMatches.length > 0) {
@@ -455,13 +455,13 @@ function extractKeyframeSteps(content) {
   ];
 }
 
-// Für jede CSS-Datei Dokumentation erstellen oder aktualisieren
+// Create or update documentation for each CSS file
 cssFiles.forEach(cssFile => {
   const baseName = path.basename(cssFile, '.css');
   const baseDir = path.dirname(cssFile);
   let docsDir = docsBaseDir;
   
-  // Bei verschachtelten Verzeichnissen entsprechende Unterordner erstellen
+  // For nested directories, create corresponding subdirectories
   if (baseDir !== '.' && baseDir !== '') {
     docsDir = path.join(docsBaseDir, baseDir);
     if (!fs.existsSync(docsDir)) {
@@ -471,7 +471,7 @@ cssFiles.forEach(cssFile => {
   
   const mdFilePath = path.join(docsDir, `${baseName}.md`);
   
-  // Prüfe, ob Analysedaten vorhanden sind
+  // Check if analysis data is available
   let analysis = null;
   const analysisFilePath = path.join(analysisDir, `${baseName}.json`);
   
@@ -479,26 +479,26 @@ cssFiles.forEach(cssFile => {
     try {
       analysis = JSON.parse(fs.readFileSync(analysisFilePath, 'utf8'));
     } catch (error) {
-      console.error(`Fehler beim Lesen der Analyse für ${cssFile}:`, error);
+      console.error(`Error reading analysis for ${cssFile}:`, error);
     }
   }
   
-  // Prüfen, ob Dokumentation bereits existiert
+  // Check if documentation already exists
   if (fs.existsSync(mdFilePath)) {
-    // Bestehende Datei aktualisieren (nur Last Modified Datum)
+    // Update existing file (only Last Modified date)
     let mdContent = fs.readFileSync(mdFilePath, 'utf8');
     
-    // Last Modified Datum aktualisieren
+    // Update Last Modified date
     mdContent = mdContent.replace(/^> Last Modified:.*$/m, `> Last Modified: ${formattedDate}`);
     
     fs.writeFileSync(mdFilePath, mdContent);
-    console.log(`✅ Dokumentation aktualisiert: ${mdFilePath}`);
+    console.log(`✅ Documentation updated: ${mdFilePath}`);
   } else {
-    // Neue Dokumentationsdatei erstellen
+    // Create new documentation file
     const template = createDocTemplate(cssFile, analysis);
     fs.writeFileSync(mdFilePath, template);
-    console.log(`📝 Neue Dokumentation erstellt: ${mdFilePath}`);
+    console.log(`📝 New documentation created: ${mdFilePath}`);
   }
 });
 
-console.log(`\n🎉 Dokumentation für ${cssFiles.length} CSS-Dateien abgeschlossen.`); 
+console.log(`\n🎉 Documentation completed for ${cssFiles.length} CSS files.`); 

@@ -1,58 +1,20 @@
 /*
  * Typography Web Fonts
  *
- * Definitionen für Web-Fonts und Schrifteinbindungen.
+ * This file provides base utility classes for web fonts.
+ * Each font has its own CSS file that can be imported individually.
  */
 
 @layer typography.webfonts {
-  /* Inter Font-Familie (Variable Font) */
-  @font-face {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 100 900;
-    font-display: swap;
-    src: url('/fonts/inter-var.woff2') format('woff2-variations');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-  }
-  
-  /* Playfair Display Font-Familie */
-  @font-face {
-    font-family: 'Playfair Display';
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url('/fonts/playfair-display-regular.woff2') format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-  }
-  
-  @font-face {
-    font-family: 'Playfair Display';
-    font-style: normal;
-    font-weight: 700;
-    font-display: swap;
-    src: url('/fonts/playfair-display-bold.woff2') format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-  }
-  
-  /* Roboto Mono Font-Familie */
-  @font-face {
-    font-family: 'Roboto Mono';
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url('/fonts/roboto-mono-regular.woff2') format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-  }
-  
-  /* Anwendung der Web-Fonts im Root */
+  /* Default font variables - You can use individual font files instead */
   :root {
-    /* Verwende bevorzugt die eingebundenen Fonts, mit System-Fonts als Fallback */
-    --font-family-sans: 'Inter', system-ui, -apple-system, blinkmacsystemfont, "segoe ui", roboto, "helvetica neue", arial, sans-serif;
-    --font-family-serif: 'Playfair Display', georgia, cambria, "times new roman", times, serif;
-    --font-family-mono: 'Roboto Mono', ui-monospace, sfmono-regular, menlo, monaco, consolas, "liberation mono", "courier new", monospace;
+    /* Prefer system fonts by default, fonts are loaded on demand from specific CSS files */
+    --font-family-sans: system-ui, -apple-system, blinkmacsystemfont, "segoe ui", roboto, "helvetica neue", arial, sans-serif;
+    --font-family-serif: georgia, cambria, "times new roman", times, serif;
+    --font-family-mono: ui-monospace, sfmono-regular, menlo, monaco, consolas, "liberation mono", "courier new", monospace;
   }
   
-  /* Font-Feature-Settings für fortgeschrittene Typografie */
+  /* Font-Feature-Settings for advanced typography */
   .font-features-normal {
     font-feature-settings: normal;
   }
@@ -69,7 +31,7 @@
     font-feature-settings: "salt" on;
   }
   
-  /* Spezifische Font-Familien-Helfer-Klassen */
+  /* Base font family helper classes */
   .font-sans {
     font-family: var(--font-family-sans);
   }
@@ -82,7 +44,7 @@
     font-family: var(--font-family-mono);
   }
   
-  /* Font-Varianten */
+  /* Font variants */
   .font-variant-small-caps {
     font-variant: small-caps;
   }
@@ -94,4 +56,48 @@
   .font-variant-numeric {
     font-variant-numeric: tabular-nums;
   }
-} 
+}
+
+/* 
+ * Available Web Fonts
+ *
+ * Import specific fonts on demand:
+ * 
+ * Sans-Serif Fonts:
+ * - @import "roboto.css";
+ * - @import "open-sans.css";
+ * - @import "lato.css";
+ * - @import "montserrat.css";
+ * - @import "oswald.css";
+ * - @import "raleway.css";
+ * - @import "poppins.css";
+ * - @import "source-sans-pro.css";
+ * - @import "roboto-condensed.css";
+ * - @import "noto-sans.css";
+ * - @import "ubuntu.css";
+ * - @import "pt-sans.css";
+ * - @import "nunito.css";
+ * - @import "inter.css";
+ * - @import "quicksand.css";
+ * - @import "mukta.css";
+ * - @import "work-sans.css";
+ * - @import "titillium-web.css";
+ * - @import "cabin.css";
+ * - @import "fira-sans.css";
+ * - @import "dm-sans.css";
+ * - @import "josefin-sans.css";
+ * - @import "arimo.css";
+ * - @import "dosis.css";
+ *
+ * Serif Fonts:
+ * - @import "merriweather.css";
+ * - @import "playfair-display.css";
+ *
+ * Monospace Fonts:
+ * - @import "inconsolata.css";
+ *
+ * Display Fonts:
+ * - @import "anton.css";
+ * - @import "bebas-neue.css";
+ * - @import "teko.css";
+ */ 

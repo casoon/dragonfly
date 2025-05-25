@@ -1,33 +1,56 @@
 # Version Control
 .git
 .gitignore
+.github/
 
 # Development
 .vscode/
 .idea/
 .DS_Store
 *.log
-logs/
+.logs/
 node_modules/
+.editorconfig
+.eslintrc*
+.prettierrc*
+.stylelintrc*
+stylelint.config.js
 
 # Testing
+tests/
 coverage/
+*.test.js
+*.spec.js
+jest.config.js
 
-# Documentation
-docs/
-*.md
-!README.md
-!LICENSE
-!CONTRIBUTING.md
+# Examples & Documentation
+examples/
+design-requirements.md
+todo*.md
+__tests__/
 
-# Build
-dist/
-build/
-*.min.css
-*.map
+# Development scripts
+scripts/
 
-# Misc
+# Build temporaries
+.cache/
+.tmp/
+.temp/
+dist-temp/
+
+# Environment
 .env
 .env.*
 .npmrc
-.yarnrc 
+.yarnrc
+
+# Allow minimized CSS files
+!*.min.css
+
+# Allow specific documentation files
+!README.md
+!LICENSE
+!LAYER-SYSTEM.md
+!STYLE-GUIDE.md
+!CONTRIBUTING.md
+!compatibility.md 

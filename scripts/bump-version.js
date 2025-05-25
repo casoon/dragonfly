@@ -3,12 +3,12 @@ const pkg = require('../package.json');
 
 const [major, minor, patch] = pkg.version.split('.').map(Number);
 
-// Patch-Version standardmäßig erhöhen, kann durch Argumente angepasst werden
+// Increase patch version by default, can be adjusted through arguments
 let newMajor = major;
 let newMinor = minor;
 let newPatch = patch + 1;
 
-// Verarbeite Kommandozeilenargumente
+// Process command line arguments
 const arg = process.argv[2];
 if (arg) {
   if (arg === 'major') {
@@ -25,8 +25,8 @@ const newVersion = `${newMajor}.${newMinor}.${newPatch}`;
 pkg.version = newVersion;
 
 fs.writeFileSync('./package.json', JSON.stringify(pkg, null, 2) + '\n');
-console.log(`Version aktualisiert auf ${newVersion}`);
+console.log(`Version updated to ${newVersion}`);
 
-// Hinweis: Die Dokumentationsdateien werden nicht automatisch aktualisiert
-// Um die "Last Modified"-Informationen zu aktualisieren, verwende:
+// Note: Documentation files are not automatically updated
+// To update the "Last Modified" information, use:
 // npm run update:docs-lastmod

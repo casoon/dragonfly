@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Theme System Test - Casoon UI</title>
+  
+  <!-- Theme-Initialisierungs-Script (vor CSS laden) -->
+  <script>
+    // Setze die initiale Theme-Variable basierend auf gespeichertem Theme
+    (function() {
+      try {
+        const savedTheme = JSON.parse(localStorage.getItem('casoon-ui-lib-theme')) || {};
+        document.documentElement.style.setProperty(
+          '--initial-theme', 
+          savedTheme.mode || 'auto'
+        );
+      } catch (e) {
+        document.documentElement.style.setProperty('--initial-theme', 'auto');
+      }
+    })();
+  </script>
+  
+  <!-- UI-Lib CSS einbinden -->
+  <link rel="stylesheet" href="../../core.css">
+  
+  <style>
+    body {
+      font-family: var(--font-family-sans);
+      color: var(--color-text-primary);
+      background-color: var(--color-background);
+      padding: 1rem;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+    
+    .test-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    .test-section {
+      padding: 1.5rem;
+      border-radius: var(--border-radius-lg);
+      background-color: var(--color-surface);
+      box-shadow: var(--shadow-md);
+      margin-bottom: 2rem;
+    }
+    
+    .info-panel {
+      background-color: var(--color-surface-hover);
+      padding: 1rem;
+      border-radius: var(--border-radius-md);
+      margin: 1rem 0;
+    }
+    
+    .browser-info {
+      font-size: 0.875rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .control-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1rem 0;
+    }
+    
+    button {
+      padding: 0.5rem 1rem;
+      border-radius: var(--border-radius-md);
+      background-color: var(--color-primary-500);
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-weight: var(--font-weight-medium);
+      transition: background-color 0.2s;
+    }
+    
+    button:hover {
+      background-color: var(--color-primary-600);
+    }
+    
+    button.secondary {
+      background-color: var(--color-secondary-500);
+    }
+    
+    button.secondary:hover {
+      background-color: var(--color-secondary-600);
+    }
+    
+    .color-swatch {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    
+    .color-swatch:hover {
+      transform: scale(1.1);
+    }
+    
+    .color-swatch.active {
+      border-color: var(--color-primary-500);
+      box-shadow: 0 0 0 2px var(--color-focus-ring);
+    }
+    
+    .demo-card {
+      padding: 1.5rem;
+      border-radius: var(--border-radius-md);
+      background-color: var(--color-surface);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--color-border);
+      margin-bottom: 1rem;
+    }
+    
+    .color-sample {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1rem 0;
+    }
+    
+    .color-block {
+      width: 5rem;
+      height: 5rem;
+      border-radius: var(--border-radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      color: white;
+      text-align: center;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    }
+    
+    .primary-50 { background-color: var(--color-primary-50); color: var(--color-primary-900); text-shadow: none; }
+    .primary-100 { background-color: var(--color-primary-100); color: var(--color-primary-900); text-shadow: none; }
+    .primary-200 { background-color: var(--color-primary-200); color: var(--color-primary-900); text-shadow: none; }
+    .primary-300 { background-color: var(--color-primary-300); color: var(--color-primary-900); text-shadow: none; }
+    .primary-400 { background-color: var(--color-primary-400); }
+    .primary-500 { background-color: var(--color-primary-500); }
+    .primary-600 { background-color: var(--color-primary-600); }
+    .primary-700 { background-color: var(--color-primary-700); }
+    .primary-800 { background-color: var(--color-primary-800); }
+    .primary-900 { background-color: var(--color-primary-900); }
+    
+    .persistence-info {
+      margin-top: 1rem;
+      padding: 1rem;
+      background-color: var(--color-surface-hover);
+      border-radius: var(--border-radius-md);
+      font-size: 0.875rem;
+    }
+    
+    .current-theme {
+      font-size: 0.875rem;
+      color: var(--color-text-secondary);
+      margin-top: 1rem;
+    }
+    
+    /* Responsives Layout */
+    @media (max-width: 768px) {
+      .control-group {
+        flex-direction: column;
+      }
+      
+      .color-sample {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="test-header">
+      <h1>Theme System Kompatibilitätstest</h1>
+      <p>Dieser Test überprüft die Kompatibilität des Theme-Systems in Ihrem Browser.</p>
+    </header>
+    
+    <div class="info-panel">
+      <h2>Browserinformationen</h2>
+      <div id="browserInfo" class="browser-info"></div>
+      
+      <h3>System-Preferences</h3>
+      <div id="systemPreferences" class="browser-info"></div>
+    </div>
+    
+    <section class="test-section">
+      <h2>Theme-Modus-Tests</h2>
+      <p>Testen Sie die verschiedenen Theme-Modi der UI-Bibliothek.</p>
+      
+      <div class="control-group">
+        <button id="mode-auto">Auto (System)</button>
+        <button id="mode-light">Light</button>
+        <button id="mode-dark">Dark</button>
+        <button id="mode-cycle">Wechseln</button>
+      </div>
+      
+      <div class="current-theme">
+        Aktueller Modus: <span id="current-mode">Auto</span>
+      </div>
+      
+      <div class="demo-card">
+        <h3>Beispiel-Inhalte im aktuellen Theme</h3>
+        <p>Dieser Text verwendet die Standardtextfarbe des aktuellen Themes.</p>
+        <div class="control-group">
+          <button>Primärer Button</button>
+          <button class="secondary">Sekundärer Button</button>
+        </div>
+      </div>
+    </section>
+    
+    <section class="test-section">
+      <h2>Theme-Farben-Tests</h2>
+      <p>Testen Sie die verschiedenen Farbschemen der UI-Bibliothek.</p>
+      
+      <div class="control-group">
+        <div class="color-swatch" id="color-default" style="background-color: hsl(210, 100%, 50%);" title="Standard"></div>
+        <div class="color-swatch" id="color-blue" style="background-color: hsl(210, 100%, 50%);" title="Blau"></div>
+        <div class="color-swatch" id="color-green" style="background-color: hsl(150, 80%, 40%);" title="Grün"></div>
+        <div class="color-swatch" id="color-purple" style="background-color: hsl(270, 70%, 55%);" title="Lila"></div>
+        <div class="color-swatch" id="color-orange" style="background-color: hsl(30, 100%, 50%);" title="Orange"></div>
+      </div>
+      
+      <div class="current-theme">
+        Aktuelle Farbe: <span id="current-color">Standard</span>
+      </div>
+      
+      <h3>Primärfarben-Palette</h3>
+      <div class="color-sample">
+        <div class="color-block primary-50">50</div>
+        <div class="color-block primary-100">100</div>
+        <div class="color-block primary-200">200</div>
+        <div class="color-block primary-300">300</div>
+        <div class="color-block primary-400">400</div>
+        <div class="color-block primary-500">500</div>
+        <div class="color-block primary-600">600</div>
+        <div class="color-block primary-700">700</div>
+        <div class="color-block primary-800">800</div>
+        <div class="color-block primary-900">900</div>
+      </div>
+    </section>
+    
+    <section class="test-section">
+      <h2>Persistenz-Test</h2>
+      <p>Testen Sie die Persistenz der Theme-Einstellungen zwischen Seitenladevorgängen.</p>
+      
+      <ol>
+        <li>Stellen Sie ein Theme-Modus und eine Farbe ein</li>
+        <li>Laden Sie die Seite neu</li>
+        <li>Überprüfen Sie, ob die Einstellungen beibehalten wurden</li>
+      </ol>
+      
+      <button id="reload-page">Seite neu laden</button>
+      
+      <div class="persistence-info">
+        <h4>LocalStorage Unterstützung</h4>
+        <div id="localStorageSupport">Wird geprüft...</div>
+        
+        <h4>Aktuelle Theme-Einstellungen im LocalStorage</h4>
+        <pre id="storedThemeInfo">Wird geladen...</pre>
+      </div>
+    </section>
+    
+    <section class="test-section">
+      <h2>Systemeinstellungs-Erkennung</h2>
+      <p>Testen Sie, ob die Bibliothek die Systemeinstellungen für das Farbschema erkennt.</p>
+      
+      <ol>
+        <li>Stellen Sie sicher, dass der Theme-Modus auf "Auto" gesetzt ist</li>
+        <li>Ändern Sie die Systemeinstellung (dunkel/hell) in Ihren Betriebssystemeinstellungen</li>
+        <li>Beobachten Sie, ob sich das Theme automatisch anpasst</li>
+      </ol>
+      
+      <div class="info-panel">
+        <h4>Hinweis zur prefers-color-scheme Unterstützung</h4>
+        <div id="prefersColorSchemeSupport">Wird geprüft...</div>
+      </div>
+    </section>
+    
+    <section class="test-section">
+      <h2>Anweisungen für Tests</h2>
+      <ol>
+        <li>Überprüfen Sie die korrekte Darstellung aller UI-Elemente in verschiedenen Theme-Modi</li>
+        <li>Testen Sie die Persistenz der Einstellungen (Neuladen der Seite)</li>
+        <li>Überprüfen Sie die automatische Erkennung des Systemfarbschemas</li>
+        <li>Testen Sie die Umschaltung zwischen verschiedenen Farbschemen</li>
+        <li>Dokumentieren Sie etwaige Unterschiede zwischen verschiedenen Browsern</li>
+      </ol>
+    </section>
+  </div>
+  
+  <!-- Theme-Helper-Script einbinden -->
+  <script src="../../themes/theme-helper.js"></script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Browser-Informationen anzeigen
+      const browserInfo = document.getElementById('browserInfo');
+      const userAgent = navigator.userAgent;
+      browserInfo.textContent = `User Agent: ${userAgent}`;
+      
+      // System-Preferences anzeigen
+      const systemPreferences = document.getElementById('systemPreferences');
+      const prefersColorScheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      systemPreferences.textContent = `System Farbschema: ${prefersColorScheme}`;
+      
+      // LocalStorage-Unterstützung prüfen
+      const localStorageSupport = document.getElementById('localStorageSupport');
+      try {
+        localStorage.setItem('test', 'test');
+        localStorage.removeItem('test');
+        localStorageSupport.textContent = 'LocalStorage wird unterstützt.';
+        localStorageSupport.style.color = 'var(--color-success)';
+      } catch (e) {
+        localStorageSupport.textContent = 'LocalStorage wird NICHT unterstützt. Theme-Persistenz funktioniert nicht.';
+        localStorageSupport.style.color = 'var(--color-error)';
+      }
+      
+      // Gespeicherte Theme-Einstellungen anzeigen
+      const storedThemeInfo = document.getElementById('storedThemeInfo');
+      try {
+        const storedTheme = localStorage.getItem('casoon-ui-lib-theme');
+        storedThemeInfo.textContent = storedTheme || 'Keine Theme-Einstellungen gespeichert.';
+      } catch (e) {
+        storedThemeInfo.textContent = 'Konnte nicht auf LocalStorage zugreifen.';
+      }
+      
+      // Prefers-color-scheme Unterstützung prüfen
+      const prefersColorSchemeSupport = document.getElementById('prefersColorSchemeSupport');
+      if (window.matchMedia('(prefers-color-scheme)').media !== 'not all') {
+        prefersColorSchemeSupport.textContent = 'Ihr Browser unterstützt prefers-color-scheme Media Queries.';
+        prefersColorSchemeSupport.style.color = 'var(--color-success)';
+      } else {
+        prefersColorSchemeSupport.textContent = 'Ihr Browser unterstützt KEINE prefers-color-scheme Media Queries. Die automatische Themenerkennung wird nicht funktionieren.';
+        prefersColorSchemeSupport.style.color = 'var(--color-error)';
+      }
+      
+      // Elemente
+      const modeButtons = {
+        auto: document.getElementById('mode-auto'),
+        light: document.getElementById('mode-light'),
+        dark: document.getElementById('mode-dark'),
+        cycle: document.getElementById('mode-cycle')
+      };
+      
+      const colorSwatches = {
+        default: document.getElementById('color-default'),
+        blue: document.getElementById('color-blue'),
+        green: document.getElementById('color-green'),
+        purple: document.getElementById('color-purple'),
+        orange: document.getElementById('color-orange')
+      };
+      
+      const currentModeSpan = document.getElementById('current-mode');
+      const currentColorSpan = document.getElementById('current-color');
+      const reloadButton = document.getElementById('reload-page');
+      
+      // Event-Listener für Theme-Modus-Buttons
+      modeButtons.auto.addEventListener('click', () => {
+        window.CasoonUITheme.setMode(window.CasoonUITheme.MODES.AUTO);
+        updateThemeInfo();
+      });
+      
+      modeButtons.light.addEventListener('click', () => {
+        window.CasoonUITheme.setMode(window.CasoonUITheme.MODES.LIGHT);
+        updateThemeInfo();
+      });
+      
+      modeButtons.dark.addEventListener('click', () => {
+        window.CasoonUITheme.setMode(window.CasoonUITheme.MODES.DARK);
+        updateThemeInfo();
+      });
+      
+      modeButtons.cycle.addEventListener('click', () => {
+        window.CasoonUITheme.cycleMode();
+        updateThemeInfo();
+      });
+      
+      // Event-Listener für Farbschema-Swatches
+      colorSwatches.default.addEventListener('click', () => {
+        window.CasoonUITheme.setColor(window.CasoonUITheme.COLORS.DEFAULT);
+        updateThemeInfo();
+      });
+      
+      colorSwatches.blue.addEventListener('click', () => {
+        window.CasoonUITheme.setColor(window.CasoonUITheme.COLORS.BLUE);
+        updateThemeInfo();
+      });
+      
+      colorSwatches.green.addEventListener('click', () => {
+        window.CasoonUITheme.setColor(window.CasoonUITheme.COLORS.GREEN);
+        updateThemeInfo();
+      });
+      
+      colorSwatches.purple.addEventListener('click', () => {
+        window.CasoonUITheme.setColor(window.CasoonUITheme.COLORS.PURPLE);
+        updateThemeInfo();
+      });
+      
+      colorSwatches.orange.addEventListener('click', () => {
+        window.CasoonUITheme.setColor(window.CasoonUITheme.COLORS.ORANGE);
+        updateThemeInfo();
+      });
+      
+      // Seite neu laden
+      reloadButton.addEventListener('click', () => {
+        window.location.reload();
+      });
+      
+      // Aktualisiere Anzeige der Theme-Informationen
+      function updateThemeInfo() {
+        const theme = window.CasoonUITheme.getTheme();
+        
+        // Aktualisiere Anzeige des aktuellen Modus
+        currentModeSpan.textContent = theme.mode.charAt(0).toUpperCase() + theme.mode.slice(1);
+        
+        // Aktualisiere Anzeige der aktuellen Farbe
+        const colorName = getColorName(theme.color);
+        currentColorSpan.textContent = colorName;
+        
+        // Aktualisiere aktive Klassen für Farbswatches
+        Object.values(colorSwatches).forEach(swatch => {
+          swatch.classList.remove('active');
+        });
+        
+        // Setze aktive Klasse für aktuellen Farbswatch
+        const colorKey = getColorKey(theme.color);
+        if (colorKey && colorSwatches[colorKey]) {
+          colorSwatches[colorKey].classList.add('active');
+        } else {
+          colorSwatches.default.classList.add('active');
+        }
+        
+        // Aktualisiere gespeicherte Theme-Einstellungen
+        try {
+          const storedTheme = localStorage.getItem('casoon-ui-lib-theme');
+          storedThemeInfo.textContent = storedTheme || 'Keine Theme-Einstellungen gespeichert.';
+        } catch (e) {
+          storedThemeInfo.textContent = 'Konnte nicht auf LocalStorage zugreifen.';
+        }
+      }
+      
+      // Hilfsfunktion: Farbschlüssel zu Farbnamen
+      function getColorName(colorValue) {
+        switch (colorValue) {
+          case '': return 'Standard';
+          case 'blue': return 'Blau';
+          case 'green': return 'Grün';
+          case 'purple': return 'Lila';
+          case 'orange': return 'Orange';
+          default: return colorValue;
+        }
+      }
+      
+      // Hilfsfunktion: Farbwert zu Farbschlüssel
+      function getColorKey(colorValue) {
+        switch (colorValue) {
+          case '': return 'default';
+          case 'blue': return 'blue';
+          case 'green': return 'green';
+          case 'purple': return 'purple';
+          case 'orange': return 'orange';
+          default: return null;
+        }
+      }
+      
+      // Initialisiere Theme-Anzeige
+      window.CasoonUITheme.initialize();
+      updateThemeInfo();
+      
+      // Event-Listener für Theme-Änderungen
+      document.addEventListener('casoon-ui-theme-change', (event) => {
+        console.log('Theme changed:', event.detail);
+        updateThemeInfo();
+      });
+      
+      // Beobachte Änderungen der Systemeinstellung
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
+        systemPreferences.textContent = `System Farbschema: ${event.matches ? 'dark' : 'light'}`;
+      });
+    });
+  </script>
+  
+  <!-- Dokumentations-Skript einbinden -->
+  <script src="document-compatibility.js"></script>
+</body>
+</html> 

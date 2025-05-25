@@ -1,20 +1,20 @@
 #!/usr/bin/env node
 
 /**
- * Korrigiert Fehler in der Dokumentationsgenerierung
+ * Fixes errors in documentation generation
  * 
- * Dieses Script behebt Probleme, die während der Dokumentationsgenerierung aufgetreten sind:
- * 1. Entfernt ungültige Dateien (*.md)
- * 2. Korrigiert das Datum von 2025 auf 2024
+ * This script resolves issues that occurred during documentation generation:
+ * 1. Removes invalid files (*.md)
+ * 2. Corrects dates from 2025 to 2024
  */
 
 const fs = require('fs');
 const path = require('path');
 
-// Verzeichnisse
+// Directories
 const docsBaseDir = 'docs';
 
-// Funktion zum rekursiven Durchsuchen von Verzeichnissen nach MD-Dateien
+// Function to recursively search directories for MD files
 function findMdFiles(dir) {
   const result = [];
   
@@ -33,46 +33,46 @@ function findMdFiles(dir) {
       }
     }
   } catch (error) {
-    console.error(`Fehler beim Durchsuchen von ${dir}:`, error);
+    console.error(`Error searching directory ${dir}:`, error);
   }
   
   return result;
 }
 
-// Alle MD-Dateien suchen
+// Find all MD files
 const mdFiles = findMdFiles(docsBaseDir);
-console.log(`🔍 ${mdFiles.length} Markdown-Dateien gefunden.`);
+console.log(`🔍 Found ${mdFiles.length} markdown files.`);
 
-// Problematische Dateien löschen
+// Identify problematic files
 const invalidFiles = mdFiles.filter(file => {
   const baseName = path.basename(file);
   return baseName === '*.md';
 });
 
-// Lösche ungültige Dateien
+// Delete invalid files
 invalidFiles.forEach(file => {
   try {
     fs.unlinkSync(file);
-    console.log(`🗑️ Gelöscht: ${file}`);
+    console.log(`🗑️ Deleted: ${file}`);
   } catch (error) {
-    console.error(`❌ Fehler beim Löschen von ${file}:`, error);
+    console.error(`❌ Error deleting ${file}:`, error);
   }
 });
 
-// Korrigiere falsche Datumsangaben (2025 -> 2024)
+// Correct incorrect date references (2025 -> 2024)
 mdFiles.filter(file => !invalidFiles.includes(file)).forEach(file => {
   try {
     let content = fs.readFileSync(file, 'utf8');
     
-    // Falsche 2025-Datumsangaben korrigieren
+    // Fix incorrect 2025 dates
     if (content.includes('.2025')) {
       content = content.replace(/(\d{2}\.\d{2}\.)2025/g, '$12024');
       fs.writeFileSync(file, content);
-      console.log(`📅 Datum korrigiert: ${file}`);
+      console.log(`📅 Date corrected: ${file}`);
     }
   } catch (error) {
-    console.error(`❌ Fehler beim Korrigieren des Datums in ${file}:`, error);
+    console.error(`❌ Error correcting date in ${file}:`, error);
   }
 });
 
-console.log('\n✨ Dokumentationsprobleme behoben!'); 
+console.log('\n✨ Documentation issues resolved!'); 

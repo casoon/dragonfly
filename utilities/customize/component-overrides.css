@@ -37,8 +37,8 @@
   }
   
   .card-hover-lift:hover {
-    transform: translateY(-5px);
     box-shadow: var(--shadow-xl) !important;
+    transform: translateY(-5px);
   }
   
   /* Form-Element-Overrides */
@@ -49,14 +49,14 @@
   }
   
   .input-borderless {
-    border: none !important;
     background-color: var(--color-gray-100) !important;
+    border: none !important;
   }
   
   .input-large {
     font-size: 1.125rem !important;
-    padding-top: 0.75em !important;
     padding-bottom: 0.75em !important;
+    padding-top: 0.75em !important;
   }
   
   /* Text-Element-Overrides */
@@ -65,22 +65,22 @@
   }
   
   .text-gradient {
-    background-image: linear-gradient(to right, var(--color-primary-500), var(--color-secondary-500));
     background-clip: text;
+    background-image: linear-gradient(to right, var(--color-primary-500), var(--color-secondary-500));
     color: transparent !important;
   }
   
   /* Layout-Overrides */
   .section-narrow {
-    max-width: 800px !important;
     margin-left: auto !important;
     margin-right: auto !important;
+    max-width: 800px !important;
   }
   
   .section-wide {
-    max-width: 1400px !important;
     margin-left: auto !important;
     margin-right: auto !important;
+    max-width: 1400px !important;
   }
   
   .no-gap {
@@ -101,30 +101,30 @@
   }
   
   .interactive-shine {
-    position: relative;
     overflow: hidden;
+    position: relative;
   }
   
   .interactive-shine::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
     background: linear-gradient(
       to right,
-      rgba(255, 255, 255, 0) 0%,
-      rgba(255, 255, 255, 0.3) 50%,
-      rgba(255, 255, 255, 0) 100%
+      rgb(255 255 255 / 0%) 0%,
+      rgb(255 255 255 / 30%) 50%,
+      rgb(255 255 255 / 0%) 100%
     );
+    content: '';
+    height: 200%;
+    left: -50%;
+    opacity: 0%;
+    position: absolute;
+    top: -50%;
     transform: rotate(30deg);
     transition: transform 0.5s ease;
-    opacity: 0;
+    width: 200%;
   }
   
   .interactive-shine:hover::after {
-    opacity: 1;
+    opacity: 100%;
     transform: rotate(30deg) translate(100%, -100%);
   }
 } 

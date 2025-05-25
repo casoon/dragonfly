@@ -1,0 +1,158 @@
+/*
+ * Accessibility - Screenreader Support
+ *
+ * Styles und Utilities für verbesserte Screenreader-Unterstützung.
+ * Diese Datei enthält Definitionen für versteckte Texte und ARIA-Unterstützung.
+ */
+
+@layer accessibility {
+  /*
+   * Screenreader-only Elemente
+   * 
+   * Diese Klassen machen Inhalte für Screenreader zugänglich,
+   * während sie visuell versteckt bleiben.
+   */
+  
+  /* 
+   * Versteckt Elemente nur visuell, aber hält sie für Screenreader zugänglich.
+   * Verwende diese Klasse für Elemente, die nur für Screenreader gedacht sind.
+   */
+  .sr-only {
+    border-width: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+  
+  /* 
+   * Macht ein sr-only-Element wieder sichtbar.
+   * Nützlich für Elemente, die nur unter bestimmten Bedingungen sichtbar sein sollen.
+   */
+  .not-sr-only {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    padding: 0;
+    position: static;
+    white-space: normal;
+    width: auto;
+  }
+  
+  /*
+   * Hilfsklassen für ARIA-Zustände
+   * 
+   * Visuelle Darstellung von ARIA-Zuständen für bessere Zugänglichkeit.
+   */
+  
+  /* Elemente mit aria-hidden="true" vollständig ausblenden */
+  [aria-hidden="true"] {
+    display: none !important;
+  }
+  
+  /* Elemente mit aria-disabled="true" als deaktiviert darstellen */
+  [aria-disabled="true"] {
+    cursor: not-allowed;
+    opacity: 50%;
+    pointer-events: none;
+  }
+  
+  /* Visuelle Darstellung für ausgewählte Elemente */
+  [aria-selected="true"] {
+    background-color: var(--color-primary-100);
+    border-color: var(--color-primary-500);
+  }
+  
+  /* Visuelle Darstellung für erweiterte Elemente */
+  [aria-expanded="true"] .icon-expand {
+    transform: rotate(180deg);
+  }
+  
+  /*
+   * Hilfsklassen für Screenreader-Text
+   * 
+   * Spezifische Klassen für häufig benötigte Screenreader-Texte.
+   */
+  
+  /* Für Text, der nur bei Hover/Fokus angezeigt werden soll */
+  .sr-only-focusable:not(:focus) {
+    border-width: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+  
+  /* Für Text, der nur auf kleinen Bildschirmen ausgeblendet werden soll */
+  @media (width <= 640px) {
+    .sr-only-mobile {
+      border-width: 0;
+      clip: rect(0, 0, 0, 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      white-space: nowrap;
+      width: 1px;
+    }
+  }
+  
+  /*
+   * Live-Region Support
+   * 
+   * Stile für ARIA-Live-Regionen, die dynamisch aktualisierte Inhalte enthalten.
+   */
+  
+  /* Basis-Stil für Live-Regionen */
+  [aria-live] {
+    position: relative;
+  }
+  
+  /* Live-Region mit visueller Markierung für Entwicklungszwecke */
+  .debug [aria-live] {
+    outline: 2px dashed var(--color-info);
+    outline-offset: 2px;
+  }
+  
+  /* Container für Benachrichtigungen, die für Screenreader bestimmt sind */
+  .sr-announcer {
+    border-width: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    pointer-events: none;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+  
+  /*
+   * Kontrasthilfen
+   * 
+   * Erhöht den Kontrast für Benutzer mit Sehbehinderungen.
+   */
+  
+  /* Erhöht den Kontrast von Text */
+  .high-contrast-text {
+    color: var(--color-text-primary) !important;
+    text-shadow: 0 0 1px rgb(0 0 0 / 50%);
+  }
+  
+  /* Anpassung der Hintergrundfarbe für besseren Kontrast */
+  .high-contrast-bg {
+    background-color: var(--color-surface) !important;
+    border: 1px solid var(--color-border);
+  }
+} 

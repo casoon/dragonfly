@@ -1,0 +1,150 @@
+/*
+ * Accessibility - Contrast
+ *
+ * Styles und Utilities für verbesserten Farbkontrast.
+ * Diese Datei enthält Definitionen für kontrastreiche Farben und Kontrastprüfung.
+ */
+
+@layer accessibility {
+  /*
+   * Kontrastreiche Farbvariablen
+   * 
+   * Diese Variablen bieten Farben mit hohem Kontrast für eine bessere Zugänglichkeit.
+   * Sie erfüllen mindestens die WCAG 2.1 AA-Anforderungen (Kontrastverhältnis ≥ 4.5:1).
+   */
+  :root {
+    /* Primäre Kontrastfarben */
+    --color-a11y-primary: #0052cc; /* Dunkleres Blau für besseren Kontrast auf weißem Hintergrund */
+    --color-a11y-primary-hover: #003d99; /* Noch dunkleres Blau für Hover-Zustände */
+    --color-a11y-primary-text: #fff; /* Weißer Text auf dunklerem Blau */
+    
+    /* Sekundäre Kontrastfarben */
+    --color-a11y-secondary: #5a5a5a; /* Dunkleres Grau für besseren Kontrast */
+    --color-a11y-secondary-hover: #444; /* Noch dunkleres Grau für Hover-Zustände */
+    --color-a11y-secondary-text: #fff; /* Weißer Text auf dunklerem Grau */
+    
+    /* Statusfarben mit hohem Kontrast */
+    --color-a11y-success: #008a00; /* Dunkleres Grün für besseren Kontrast */
+    --color-a11y-warning: #b36200; /* Dunkleres Orange für besseren Kontrast */
+    --color-a11y-error: #c90000; /* Dunkleres Rot für besseren Kontrast */
+    --color-a11y-info: #0052cc; /* Dunkleres Blau für besseren Kontrast */
+    
+    /* Text-Farben mit hohem Kontrast */
+    --color-a11y-text-primary: #1a1a1a; /* Fast schwarzer Text auf hellem Hintergrund */
+    --color-a11y-text-secondary: #5a5a5a; /* Dunkleres Grau für sekundären Text */
+    --color-a11y-text-tertiary: #6b6b6b; /* Dunkleres Grau für tertiären Text */
+    
+    /* Hintergrundfarben mit hohem Kontrast */
+    --color-a11y-background: #fff; /* Weißer Hintergrund */
+    --color-a11y-surface: #f2f2f2; /* Hellgraue Oberfläche */
+    
+    /* Randfarben mit hohem Kontrast */
+    --color-a11y-border: #5a5a5a; /* Dunklerer Rahmen für besseren Kontrast */
+  }
+  
+  /* 
+   * Kontrast-Modus 
+   * 
+   * Diese Klasse kann auf body oder :root angewendet werden,
+   * um einen Hochkontrast-Modus zu aktivieren.
+   */
+  .high-contrast-mode {
+    /* Überschreibe Standard-Farbvariablen mit Hochkontrast-Versionen */
+    --color-primary-500: var(--color-a11y-primary);
+    --color-primary-600: var(--color-a11y-primary-hover);
+    --color-primary-700: var(--color-a11y-primary-hover);
+    --color-secondary-500: var(--color-a11y-secondary);
+    --color-secondary-600: var(--color-a11y-secondary-hover);
+    --color-secondary-700: var(--color-a11y-secondary-hover);
+    --color-success: var(--color-a11y-success);
+    --color-warning: var(--color-a11y-warning);
+    --color-error: var(--color-a11y-error);
+    --color-info: var(--color-a11y-info);
+    --color-text-primary: var(--color-a11y-text-primary);
+    --color-text-secondary: var(--color-a11y-text-secondary);
+    --color-text-tertiary: var(--color-a11y-text-tertiary);
+    --color-background: var(--color-a11y-background);
+    --color-surface: var(--color-a11y-surface);
+    --color-border: var(--color-a11y-border);
+    
+    /* Erhöhter Kontrast durch verstärkte Schattierungen */
+    --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 30%);
+    --shadow-md: 0 4px 6px 0 rgb(0 0 0 / 30%);
+    --shadow-lg: 0 10px 15px 0 rgb(0 0 0 / 30%);
+    
+    /* Verstärkte Fokus-Indikatoren */
+    --focus-ring: 0 0 0 3px rgb(0 82 204 / 80%);
+    
+    /* Erhöhte Textlesbarkeit */
+    --line-height-normal: 1.6;
+    
+    /* Entfernung subtiler Transparenz-Effekte */
+    --color-overlay: rgb(0 0 0 / 80%);
+    --color-overlay-light: rgb(0 0 0 / 60%);
+  }
+  
+  /* 
+   * Kontrast-Klassen für einzelne Elemente
+   * 
+   * Diese Klassen können auf einzelne Elemente angewendet werden,
+   * um ihren Kontrast zu verbessern, ohne den gesamten Modus zu aktivieren.
+   */
+  
+  /* Verbesserte Textlesbarkeit */
+  .a11y-text {
+    color: var(--color-a11y-text-primary);
+    font-weight: 500;
+    line-height: 1.6;
+  }
+  
+  /* Kontrastreiche Buttons */
+  .a11y-button {
+    background-color: var(--color-a11y-primary);
+    border: 2px solid var(--color-a11y-primary);
+    color: var(--color-a11y-primary-text);
+    font-weight: 600;
+  }
+  
+  .a11y-button:hover,
+  .a11y-button:focus {
+    background-color: var(--color-a11y-primary-hover);
+    border-color: var(--color-a11y-primary-hover);
+  }
+  
+  /* Kontrastreiche Links */
+  .a11y-link {
+    color: var(--color-a11y-primary);
+    font-weight: 500;
+    text-decoration: underline;
+  }
+  
+  .a11y-link:hover,
+  .a11y-link:focus {
+    color: var(--color-a11y-primary-hover);
+    text-decoration: underline;
+  }
+  
+  /* Kontrastreiche Rahmen */
+  .a11y-border {
+    border: 2px solid var(--color-a11y-border);
+  }
+  
+  /* Kontrastreiche Formular-Elemente */
+  .a11y-input {
+    background-color: var(--color-a11y-background);
+    border: 2px solid var(--color-a11y-border);
+    color: var(--color-a11y-text-primary);
+  }
+  
+  .a11y-input:focus {
+    border-color: var(--color-a11y-primary);
+    outline: var(--focus-ring);
+  }
+  
+  /* Kontrastreiche Icons */
+  .a11y-icon {
+    color: var(--color-a11y-primary);
+    height: 1.5em;
+    width: 1.5em;
+  }
+} 

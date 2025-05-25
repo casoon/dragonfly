@@ -1,0 +1,144 @@
+/**
+ * Select Component
+ * 
+ * Dropdown selection menus for forms and user preferences.
+ * Select elements allow users to choose from a predefined list of options.
+ * 
+ * @layer components.select
+ * 
+ * Basic usage:
+ * <select class="select">
+ *   <option>Option 1</option>
+ *   <option>Option 2</option>
+ *   <option>Option 3</option>
+ * </select>
+ * 
+ * Size variants:
+ * <select class="select sm">Small</select>
+ * <select class="select">Medium (Default)</select>
+ * <select class="select lg">Large</select>
+ * 
+ * States:
+ * <select class="select" disabled>Disabled</select>
+ * <select class="select error">With error</select>
+ * <select class="select success">Successful</select>
+ * 
+ * With label (using form component):
+ * <div class="form-group">
+ *   <label class="form-label" for="country">Country</label>
+ *   <select class="select" id="country">
+ *     <option>Germany</option>
+ *     <option>Austria</option>
+ *     <option>Switzerland</option>
+ *   </select>
+ * </div>
+ * 
+ * Multiple selection:
+ * <select class="select" multiple>
+ *   <option>Option 1</option>
+ *   <option>Option 2</option>
+ *   <option>Option 3</option>
+ * </select>
+ * 
+ * With option groups:
+ * <select class="select">
+ *   <optgroup label="Group 1">
+ *     <option>Option 1.1</option>
+ *     <option>Option 1.2</option>
+ *   </optgroup>
+ *   <optgroup label="Group 2">
+ *     <option>Option 2.1</option>
+ *     <option>Option 2.2</option>
+ *   </optgroup>
+ * </select>
+ */
+
+@layer components {
+  .select {
+    appearance: none;
+    background-color: var(--color-white);
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 20 20' fill='none' stroke='%23666' stroke-width='2' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 8l4 4 4-4'/%3E%3C/svg%3E");
+    background-position: right var(--space-3) center;
+    background-repeat: no-repeat;
+    background-size: 1rem;
+    border: 1px solid var(--color-gray-300);
+    border-radius: var(--radius-md);
+    color: var(--color-gray-900);
+    cursor: pointer;
+    display: block;
+    font-size: var(--font-size-base);
+    padding: var(--space-2) var(--space-3);
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+    width: 100%;
+    
+    &:focus {
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-primary) 50%, transparent);
+      outline: none;
+    }
+    
+    &:disabled {
+      background-color: var(--color-gray-100);
+      color: var(--color-gray-500);
+      cursor: not-allowed;
+      opacity: 70%;
+    }
+    
+    /* Größenvarianten */
+    &.sm {
+      background-position: right var(--space-2) center;
+      background-size: 0.875rem;
+      font-size: var(--font-size-sm);
+      padding: var(--space-1) var(--space-2);
+    }
+    
+    &.lg {
+      background-position: right var(--space-4) center;
+      background-size: 1.25rem;
+      font-size: var(--font-size-lg);
+      padding: var(--space-3) var(--space-4);
+    }
+    
+    /* Zustandsvarianten */
+    &.error {
+      background-color: color-mix(in srgb, var(--color-error) 3%, var(--color-white));
+      border-color: var(--color-error);
+      
+      &:focus {
+        box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-error) 30%, transparent);
+      }
+    }
+    
+    &.success {
+      background-color: color-mix(in srgb, var(--color-success) 3%, var(--color-white));
+      border-color: var(--color-success);
+      
+      &:focus {
+        box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-success) 30%, transparent);
+      }
+    }
+    
+    /* Multiple-Auswahl */
+    &[multiple] {
+      background-image: none;
+      padding: var(--space-1);
+      
+      option {
+        border-radius: var(--radius-sm);
+        padding: var(--space-1) var(--space-2);
+        
+        &:checked {
+          background-color: color-mix(in srgb, var(--color-primary) 15%, transparent);
+        }
+      }
+    }
+    
+    /* Optgroups */
+    optgroup {
+      color: var(--color-gray-700);
+      font-weight: var(--font-weight-medium);
+    }
+  }
+}
+
+  

@@ -1,0 +1,282 @@
+/**
+ * Tags / Chips / Pills
+ * 
+ * Tags, chips, and pills are compact elements used to represent attributes, 
+ * categories, or options. They often support interactions like removal, 
+ * selection, or filtering. Common in form inputs, filters, and categorization.
+ * 
+ * @layer: components
+ * 
+ * Accessibility:
+ * - Include appropriate ARIA roles (e.g., option for selectable tags)
+ * - Ensure keyboard accessibility for interactive tags
+ * - Provide clear focus indicators
+ * - Associate tags with their purpose using aria-label when needed
+ */
+
+@layer components {
+  /* Base tag styles */
+  .tag {
+    align-items: center;
+    background-color: var(--color-neutral-100);
+    border-radius: var(--radius-full);
+    color: var(--color-neutral-800);
+    display: inline-flex;
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+    justify-content: center;
+    line-height: 1;
+    max-width: 100%;
+    padding: 0.375rem 0.75rem;
+    white-space: nowrap;
+  }
+  
+  /* Tag sizes */
+  .tag--xs {
+    font-size: var(--text-xs);
+    height: 1.5rem;
+    padding: 0.25rem 0.5rem;
+  }
+  
+  .tag--sm {
+    height: 1.75rem;
+    padding: 0.3125rem 0.625rem;
+  }
+  
+  .tag--md {
+    height: 2rem;
+    padding: 0.375rem 0.75rem;
+  }
+  
+  .tag--lg {
+    font-size: var(--text-base);
+    height: 2.5rem;
+    padding: 0.5rem 1rem;
+  }
+  
+  /* Tag shapes */
+  .tag--rounded {
+    border-radius: var(--radius-md);
+  }
+  
+  .tag--square {
+    border-radius: var(--radius-sm);
+  }
+  
+  /* Tag with icon */
+  .tag__icon {
+    display: inline-flex;
+    flex-shrink: 0;
+    height: 1em;
+    margin-right: 0.5em;
+    width: 1em;
+  }
+  
+  /* Tag with dismiss/close button */
+  .tag__close {
+    align-items: center;
+    background: transparent;
+    border: none;
+    border-radius: var(--radius-full);
+    color: currentColor;
+    cursor: pointer;
+    display: inline-flex;
+    flex-shrink: 0;
+    height: 1.25em;
+    justify-content: center;
+    margin-left: 0.5em;
+    margin-right: -0.25em;
+    opacity: 70%;
+    padding: 0;
+    transition: opacity 0.2s, background-color 0.2s;
+    width: 1.25em;
+  }
+  
+  .tag__close:hover {
+    background-color: rgb(0 0 0 / 10%);
+    opacity: 100%;
+  }
+  
+  /* Tag color variants */
+  .tag--primary {
+    background-color: var(--color-primary-100);
+    color: var(--color-primary-800);
+  }
+  
+  .tag--secondary {
+    background-color: var(--color-secondary-100);
+    color: var(--color-secondary-800);
+  }
+  
+  .tag--success {
+    background-color: var(--color-success-100);
+    color: var(--color-success-800);
+  }
+  
+  .tag--danger {
+    background-color: var(--color-error-100);
+    color: var(--color-error-800);
+  }
+  
+  .tag--warning {
+    background-color: var(--color-warning-100);
+    color: var(--color-warning-800);
+  }
+  
+  .tag--info {
+    background-color: var(--color-info-100);
+    color: var(--color-info-800);
+  }
+  
+  /* Solid color tags */
+  .tag--solid.tag--primary {
+    background-color: var(--color-primary-500);
+    color: white;
+  }
+  
+  .tag--solid.tag--secondary {
+    background-color: var(--color-secondary-500);
+    color: white;
+  }
+  
+  .tag--solid.tag--success {
+    background-color: var(--color-success-500);
+    color: white;
+  }
+  
+  .tag--solid.tag--danger {
+    background-color: var(--color-error-500);
+    color: white;
+  }
+  
+  .tag--solid.tag--warning {
+    background-color: var(--color-warning-500);
+    color: var(--color-warning-900);
+  }
+  
+  .tag--solid.tag--info {
+    background-color: var(--color-info-500);
+    color: white;
+  }
+  
+  /* Outlined tags */
+  .tag--outlined {
+    background-color: transparent;
+    border: 1px solid currentColor;
+    color: var(--color-neutral-600);
+  }
+  
+  .tag--outlined.tag--primary {
+    color: var(--color-primary-600);
+  }
+  
+  .tag--outlined.tag--secondary {
+    color: var(--color-secondary-600);
+  }
+  
+  .tag--outlined.tag--success {
+    color: var(--color-success-600);
+  }
+  
+  .tag--outlined.tag--danger {
+    color: var(--color-error-600);
+  }
+  
+  .tag--outlined.tag--warning {
+    color: var(--color-warning-600);
+  }
+  
+  .tag--outlined.tag--info {
+    color: var(--color-info-600);
+  }
+  
+  /* Interactive tags (chips) */
+  .tag--interactive {
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+    user-select: none;
+  }
+  
+  .tag--interactive:hover {
+    background-color: var(--color-neutral-200);
+  }
+  
+  .tag--interactive:focus {
+    box-shadow: 0 0 0 2px var(--color-primary-200);
+    outline: none;
+  }
+  
+  /* Selected state */
+  .tag--selected {
+    background-color: var(--color-primary-500);
+    color: white;
+  }
+  
+  .tag--selected:hover {
+    background-color: var(--color-primary-600);
+  }
+  
+  /* Disabled state */
+  .tag--disabled {
+    cursor: not-allowed;
+    opacity: 60%;
+  }
+  
+  .tag--disabled:hover {
+    background-color: inherit;
+  }
+  
+  /* Avatar tag */
+  .tag--avatar .tag__avatar {
+    border-radius: var(--radius-full);
+    height: 1.25em;
+    margin-right: 0.5em;
+    object-fit: cover;
+    width: 1.25em;
+  }
+  
+  /* Counter tag */
+  .tag__counter {
+    align-items: center;
+    background-color: rgb(0 0 0 / 10%);
+    border-radius: var(--radius-full);
+    display: inline-flex;
+    font-size: 0.85em;
+    font-weight: var(--font-bold);
+    height: 1.25em;
+    justify-content: center;
+    margin-left: 0.5em;
+    min-width: 1.25em;
+    padding: 0 0.25em;
+  }
+  
+  /* Tag container (for multiple tags) */
+  .tag-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  /* Responsive truncation for long tags */
+  .tag--truncate {
+    max-width: 160px;
+  }
+  
+  .tag--truncate .tag__label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  /* Responsive adjustments */
+  @media (width <= 640px) {
+    .tag--responsive {
+      font-size: var(--text-xs);
+      padding: 0.25rem 0.5rem;
+    }
+    
+    .tag--truncate {
+      max-width: 120px;
+    }
+  }
+} 

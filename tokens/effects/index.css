@@ -1,0 +1,52 @@
+/**
+ * Effects Tokens
+ * 
+ * Effekt-bezogene Variablen für das gesamte UI-System: Schatten, Radien, Transitionen
+ */
+
+@layer tokens {
+  :root {
+    /* Border Radius */
+    --radius-none: 0;
+    --radius-sm: 0.125rem;
+    --radius-md: 0.25rem;
+    --radius-lg: 0.5rem;
+    --radius-xl: 1rem;
+    --radius-2xl: 1.5rem;
+    --radius-3xl: 2rem;
+    --radius-full: 9999px;
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 5%);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -2px rgb(0 0 0 / 5%);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 10%), 0 10px 10px -5px rgb(0 0 0 / 4%);
+    --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 25%);
+    --shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 6%);
+    --shadow-none: none;
+    
+    /* Transitions */
+    --transition-duration-fast: 150ms;
+    --transition-duration-normal: 300ms;
+    --transition-duration-slow: 500ms;
+    --transition-timing-ease: cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-timing-bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    
+    /* Functional Colors for Effects */
+    --color-background: white;
+    --color-background-elevated: white;
+    --color-background-subtle: rgb(0 0 0 / 2%);
+    --color-background-muted: rgb(0 0 0 / 5%);
+    --color-border: #e2e8f0;
+    --color-focus: #4f46e5;
+    --color-focus-glow: rgb(79 70 229 / 30%);
+    --color-tooltip-background: rgb(0 0 0 / 80%);
+    --color-tooltip-text: white;
+    --color-backdrop: rgb(0 0 0 / 50%);
+    --color-status: #4f46e5;
+    
+    /* Gradient Colors */
+    --color-gradient-start: #4f46e5;
+    --color-gradient-end: #3b82f6;
+  }
+} 

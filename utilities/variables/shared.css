@@ -1,0 +1,81 @@
+/**
+ * Gemeinsam genutzte Utility-Variablen
+ * 
+ * Zentrale Referenz zu den Design-Tokens für die Utility-Klassen.
+ * Verweist direkt auf die Design-Tokens, aber mit utility-spezifischen Namen.
+ */
+
+@layer utilities.variables {
+  :root {
+    /* Direkter Verweis auf die Design-Tokens */
+    --util-space-0: var(--space-0);
+    --util-space-px: var(--space-px);
+    --util-space-0\.5: var(--space-0\.5);
+    --util-space-1: var(--space-1);
+    --util-space-1\.5: var(--space-1\.5);
+    --util-space-2: var(--space-2);
+    --util-space-2\.5: var(--space-2\.5);
+    --util-space-3: var(--space-3);
+    --util-space-3\.5: var(--space-3\.5);
+    --util-space-4: var(--space-4);
+    --util-space-5: var(--space-5);
+    --util-space-6: var(--space-6);
+    --util-space-8: var(--space-8);
+    --util-space-10: var(--space-10);
+    --util-space-12: var(--space-12);
+    --util-space-16: var(--space-16);
+    --util-space-20: var(--space-20);
+    --util-space-24: var(--space-24);
+    --util-space-32: var(--space-32);
+    --util-space-40: var(--space-40);
+    --util-space-48: var(--space-48);
+    --util-space-56: var(--space-56);
+    --util-space-64: var(--space-64);
+    
+    /* Komponenten-spezifische Abstände */
+    --util-card-padding: var(--space-card-padding);
+    --util-button-padding-x: var(--space-button-padding-x);
+    --util-button-padding-y: var(--space-button-padding-y);
+    --util-input-padding: var(--space-input-padding);
+    --util-modal-padding: var(--space-modal-padding);
+    
+    /* Gaps für Layout */
+    --util-gap-xs: var(--space-gap-xs);
+    --util-gap-sm: var(--space-gap-sm);
+    --util-gap-md: var(--space-gap-md);
+    --util-gap-lg: var(--space-gap-lg);
+    --util-gap-xl: var(--space-gap-xl);
+    
+    /* Typografie-Verweise */
+    --util-font-family-base: var(--font-family-base);
+    --util-font-family-mono: var(--font-family-mono);
+    --util-font-family-heading: var(--font-family-heading);
+    --util-font-size-xs: var(--font-size-xs);
+    --util-font-size-sm: var(--font-size-sm);
+    --util-font-size-base: var(--font-size-base);
+    --util-font-size-lg: var(--font-size-lg);
+    --util-font-size-xl: var(--font-size-xl);
+    --util-font-size-2xl: var(--font-size-2xl);
+    --util-font-size-3xl: var(--font-size-3xl);
+    --util-font-size-4xl: var(--font-size-4xl);
+    --util-font-weight-light: var(--font-weight-light);
+    --util-font-weight-normal: var(--font-weight-normal);
+    --util-font-weight-medium: var(--font-weight-medium);
+    --util-font-weight-semibold: var(--font-weight-semibold);
+    --util-font-weight-bold: var(--font-weight-bold);
+    
+    /* Radius-Verweise */
+    --util-radius-sm: var(--radius-sm);
+    --util-radius-md: var(--radius-md);
+    --util-radius-lg: var(--radius-lg);
+    --util-radius-xl: var(--radius-xl);
+    --util-radius-full: var(--radius-full);
+    
+    /* Shadow-Verweise */
+    --util-shadow-sm: var(--shadow-sm);
+    --util-shadow-md: var(--shadow-md);
+    --util-shadow-lg: var(--shadow-lg);
+    --util-shadow-xl: var(--shadow-xl);
+    --util-shadow-2xl: var(--shadow-2xl);
+  }
+} 

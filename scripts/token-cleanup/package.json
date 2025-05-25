@@ -1,0 +1,12 @@
+{
+  "name": "token-cleanup",
+  "version": "1.0.0",
+  "description": "Skript zur Bereinigung von Token-Duplikaten im UI-Lib-Projekt",
+  "main": "token-cleanup.js",
+  "scripts": {
+    "cleanup": "node token-cleanup.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "casoon",
+  "license": "MIT"
+} 

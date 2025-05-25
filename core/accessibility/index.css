@@ -1,0 +1,81 @@
+/*
+ * Accessibility System
+ *
+ * Hauptdatei für das Accessibility-System der UI-Bibliothek.
+ * Importiert und organisiert alle Accessibility-Module.
+ */
+
+/* 
+ * Accessibility-Modul-Struktur:
+ * 
+ * Diese Datei importiert alle Accessibility-bezogenen CSS-Module
+ * und stellt sicher, dass sie in der richtigen Reihenfolge geladen werden.
+ */
+
+/* Import der Accessibility-Module */
+@import url('./keyboard.css') layer(accessibility);
+@import url('./screenreader.css') layer(accessibility);
+@import url('./contrast.css') layer(accessibility);
+@import url('./aria.css') layer(accessibility);
+
+/* Reduzierte Bewegung (Reduced Motion) für Benutzer, die weniger Animation bevorzugen */
+@layer accessibility {
+  /* Wenn der Benutzer reduzierte Bewegung im System eingestellt hat */
+  @media (prefers-reduced-motion: reduce) {
+    :root {
+      /* Alle Animationen deaktivieren oder verlangsamen */
+      --transition-duration-fast: 0.01ms;
+      --transition-duration-normal: 0.01ms;
+      --transition-duration-slow: 0.01ms;
+    }
+    
+    /* Alle Animationen deaktivieren */
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      scroll-behavior: auto !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+  
+  /* Klasse für explizit reduzierte Bewegung */
+  .reduced-motion {
+    /* Alle Animationen deaktivieren oder verlangsamen */
+    --transition-duration-fast: 0.01ms;
+    --transition-duration-normal: 0.01ms;
+    --transition-duration-slow: 0.01ms;
+    
+    & *, & *::before, & *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      scroll-behavior: auto !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+  
+  /* Basis-Einstellungen für Fokussierbarkeit */
+  [tabindex="-1"] {
+    outline: none;
+  }
+  
+  /* Visuelle Hinweise für Interaktivität */
+  button, 
+  [role="button"], 
+  input, 
+  select, 
+  textarea, 
+  a {
+    cursor: pointer;
+  }
+  
+  [disabled], 
+  [aria-disabled="true"] {
+    cursor: not-allowed !important;
+  }
+  
+  /* Globale Einstellungen für Tap-Targets */
+  a, button, [role="button"], [type="button"], [type="submit"], [type="reset"] {
+    min-height: 44px; /* Mindesthöhe für Touch-Targets */
+    min-width: 44px;  /* Mindestbreite für Touch-Targets */
+  }
+} 

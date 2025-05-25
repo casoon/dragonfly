@@ -1,7 +1,7 @@
 const fs = require('fs-extra');
 const path = require('path');
 
-// Icons, die wir extrahieren möchten
+// Icons that we want to extract
 const iconSets = {
     'heroicons': {
         package: '@iconify-json/heroicons',
@@ -179,15 +179,15 @@ const iconSets = {
 };
 
 async function buildIcons() {
-    // Icons-Verzeichnis erstellen
+    // Create icons directory
     await fs.ensureDir('icons');
 
-    // Icons aus den Sets extrahieren
+    // Extract icons from the sets
     for (const [setName, setConfig] of Object.entries(iconSets)) {
         const setPath = path.join('icons', setName);
         await fs.ensureDir(setPath);
 
-        // Icon-Set laden
+        // Load icon set
         const iconSet = require(setConfig.package + '/icons.json');
         
         for (const iconName of setConfig.icons) {
@@ -199,14 +199,14 @@ async function buildIcons() {
         }
     }
 
-    // CSS für Icons generieren
+    // Generate CSS for icons
     const css = `/**
  * Icons
  * 
- * Diese Datei enthält die Icon-Styles des Systems.
- * Die Styles sind in @layer components organisiert.
+ * This file contains the icon styles for the system.
+ * The styles are organized in @layer components.
  * 
- * Verwendete Icon-Sets und deren Lizenzen:
+ * Icon sets used and their licenses:
  * - Heroicons (MIT) - https://heroicons.com
  * - Feather Icons (MIT) - https://feathericons.com
  * - Phosphor Icons (MIT) - https://phosphoricons.com
@@ -225,7 +225,7 @@ async function buildIcons() {
         vertical-align: middle;
     }
 
-    /* Größenvarianten */
+    /* Size variants */
     .icon-xs {
         width: 0.5em;
         height: 0.5em;
@@ -251,7 +251,7 @@ async function buildIcons() {
         height: 2em;
     }
 
-    /* Ausrichtung */
+    /* Alignment */
     .icon-baseline {
         vertical-align: baseline;
     }
@@ -285,56 +285,56 @@ async function buildIcons() {
 
     await fs.writeFile('core/icons.css', css);
 
-    // Lizenz-Dokumentation erstellen
-    const license = `# Icon Lizenzen
+    // Create license documentation
+    const license = `# Icon Licenses
 
-Dieses Projekt verwendet Icons aus verschiedenen Open-Source-Bibliotheken. Hier sind die Details zu den verwendeten Icon-Sets und deren Lizenzen:
+This project uses icons from various open-source libraries. Here are the details about the icon sets used and their licenses:
 
 ## Heroicons
-- Lizenz: MIT
+- License: MIT
 - Website: https://heroicons.com
 - Copyright: Copyright (c) 2020 Refactoring UI Inc.
 
 ## Feather Icons
-- Lizenz: MIT
+- License: MIT
 - Website: https://feathericons.com
 - Copyright: Copyright (c) 2013-2017 Cole Bemis
 
 ## Phosphor Icons
-- Lizenz: MIT
+- License: MIT
 - Website: https://phosphoricons.com
 - Copyright: Copyright (c) 2020 Phosphor Icons
 
 ## Remix Icons
-- Lizenz: MIT
+- License: MIT
 - Website: https://remixicon.com
 - Copyright: Copyright (c) 2020 Remix Design
 
 ## Bootstrap Icons
-- Lizenz: MIT
+- License: MIT
 - Website: https://icons.getbootstrap.com
 - Copyright: Copyright (c) 2019-2021 The Bootstrap Authors
 
-## Verwendung
-Die Icons werden als SVG-Dateien bereitgestellt und können mit den CSS-Klassen aus der \`icons.css\` verwendet werden:
+## Usage
+The icons are provided as SVG files and can be used with the CSS classes from \`icons.css\`:
 
 \`\`\`html
 <!-- Standard Icon -->
 <img src="icons/heroicons/user.svg" class="icon" alt="User">
 
-<!-- Größenvarianten -->
+<!-- Size variants -->
 <img src="icons/feather/mail.svg" class="icon icon-sm" alt="Mail">
 <img src="icons/phosphor/phone.svg" class="icon icon-lg" alt="Phone">
 
-<!-- Ausrichtung -->
+<!-- Alignment -->
 <img src="icons/remix/chat-1-line.svg" class="icon icon-middle" alt="Chat">
 
 <!-- Animation -->
 <img src="icons/bootstrap/arrow-clockwise.svg" class="icon icon-spin" alt="Loading">
 \`\`\`
 
-## MIT Lizenz
-Alle verwendeten Icon-Sets stehen unter der MIT-Lizenz, die eine freie Verwendung, Modifikation und Verteilung erlaubt, solange der Copyright-Hinweis und die Lizenzbestimmungen in allen Kopien oder wesentlichen Teilen der Software enthalten sind.`;
+## MIT License
+All icon sets used are under the MIT license, which allows free use, modification, and distribution, as long as the copyright notice and license terms are included in all copies or substantial portions of the software.`;
 
     await fs.writeFile('ICONS-LICENSE.md', license);
 }

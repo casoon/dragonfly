@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Viewport Units Test - Casoon UI</title>
+  
+  <!-- UI-Lib CSS einbinden -->
+  <link rel="stylesheet" href="../../core.css">
+  
+  <style>
+    body {
+      font-family: var(--font-family-sans);
+      color: var(--color-text-primary);
+      background-color: var(--color-background);
+      padding: 1rem;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+    
+    .test-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    .test-section {
+      padding: 1.5rem;
+      border-radius: var(--border-radius-lg);
+      background-color: var(--color-surface);
+      box-shadow: var(--shadow-md);
+      margin-bottom: 2rem;
+    }
+    
+    .test-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    
+    .test-item {
+      border: 1px solid var(--color-border);
+      border-radius: var(--border-radius-md);
+      padding: 0.5rem;
+      background-color: var(--color-primary-100);
+      color: var(--color-primary-900);
+      position: relative;
+    }
+    
+    .test-label {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: var(--color-primary-500);
+      color: white;
+      padding: 0.25rem 0.5rem;
+      font-size: 0.75rem;
+      border-top-left-radius: var(--border-radius-md);
+      border-bottom-right-radius: var(--border-radius-md);
+    }
+    
+    .info-panel {
+      background-color: var(--color-surface-hover);
+      padding: 1rem;
+      border-radius: var(--border-radius-md);
+      margin: 1rem 0;
+    }
+    
+    .browser-info {
+      font-size: 0.875rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .support-indicator {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin-right: 0.5rem;
+    }
+    
+    .support-yes {
+      background-color: var(--color-success);
+    }
+    
+    .support-partial {
+      background-color: var(--color-warning);
+    }
+    
+    .support-no {
+      background-color: var(--color-error);
+    }
+    
+    .fallback-info {
+      border-left: 3px solid var(--color-warning);
+      padding-left: 1rem;
+      margin: 1rem 0;
+      font-size: 0.875rem;
+      color: var(--color-text-secondary);
+    }
+    
+    #screenDimensions {
+      text-align: center;
+      font-size: 0.875rem;
+      margin-bottom: 1rem;
+      color: var(--color-text-secondary);
+    }
+
+    /* Spezifische Testkonfigurationen */
+    .test-item.vw {
+      width: 50vw;
+      height: 100px;
+    }
+    
+    .test-item.vh {
+      width: 100px;
+      height: 50vh;
+    }
+    
+    .test-item.svw {
+      width: 50svw;
+      height: 100px;
+    }
+    
+    .test-item.svh {
+      width: 100px;
+      height: 50svh;
+    }
+    
+    .test-item.lvw {
+      width: 50lvw;
+      height: 100px;
+    }
+    
+    .test-item.lvh {
+      width: 100px;
+      height: 50lvh;
+    }
+    
+    .test-item.dvw {
+      width: 50dvw;
+      height: 100px;
+    }
+    
+    .test-item.dvh {
+      width: 100px;
+      height: 50dvh;
+    }
+    
+    /* Fallbacks für nicht unterstützte Units */
+    @supports not (width: 50svw) {
+      .test-item.svw {
+        width: 50vw;
+      }
+      .svw-fallback-info {
+        display: block;
+      }
+    }
+    
+    @supports (width: 50svw) {
+      .svw-fallback-info {
+        display: none;
+      }
+    }
+    
+    @supports not (height: 50svh) {
+      .test-item.svh {
+        height: 50vh;
+      }
+      .svh-fallback-info {
+        display: block;
+      }
+    }
+    
+    @supports (height: 50svh) {
+      .svh-fallback-info {
+        display: none;
+      }
+    }
+    
+    @supports not (width: 50lvw) {
+      .test-item.lvw {
+        width: 50vw;
+      }
+      .lvw-fallback-info {
+        display: block;
+      }
+    }
+    
+    @supports (width: 50lvw) {
+      .lvw-fallback-info {
+        display: none;
+      }
+    }
+    
+    @supports not (height: 50lvh) {
+      .test-item.lvh {
+        height: 50vh;
+      }
+      .lvh-fallback-info {
+        display: block;
+      }
+    }
+    
+    @supports (height: 50lvh) {
+      .lvh-fallback-info {
+        display: none;
+      }
+    }
+    
+    @supports not (width: 50dvw) {
+      .test-item.dvw {
+        width: 50vw;
+      }
+      .dvw-fallback-info {
+        display: block;
+      }
+    }
+    
+    @supports (width: 50dvw) {
+      .dvw-fallback-info {
+        display: none;
+      }
+    }
+    
+    @supports not (height: 50dvh) {
+      .test-item.dvh {
+        height: 50vh;
+      }
+      .dvh-fallback-info {
+        display: block;
+      }
+    }
+    
+    @supports (height: 50dvh) {
+      .dvh-fallback-info {
+        display: none;
+      }
+    }
+    
+    /* Responsives Layout */
+    @media (max-width: 768px) {
+      .test-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="test-header">
+      <h1>Viewport Units Kompatibilitätstest</h1>
+      <p>Dieser Test überprüft die Kompatibilität verschiedener Viewport Units in Ihrem Browser.</p>
+      <div id="screenDimensions"></div>
+    </header>
+    
+    <div class="info-panel">
+      <h2>Browserinformationen</h2>
+      <div id="browserInfo" class="browser-info"></div>
+      
+      <h3>Viewport Units Unterstützung</h3>
+      <p>
+        <span class="support-indicator" id="vwvhSupport"></span> 
+        <strong>vw/vh:</strong> Klassische Viewport Units (Prozent des Viewports)
+      </p>
+      <p>
+        <span class="support-indicator" id="svSupport"></span> 
+        <strong>svw/svh:</strong> Small Viewport Units (kleinster visueller Viewport, auch bei UI-Elementen)
+      </p>
+      <p>
+        <span class="support-indicator" id="lvSupport"></span> 
+        <strong>lvw/lvh:</strong> Large Viewport Units (größter visueller Viewport, ohne UI-Elemente)
+      </p>
+      <p>
+        <span class="support-indicator" id="dvSupport"></span> 
+        <strong>dvw/dvh:</strong> Dynamic Viewport Units (dynamische Anpassung, berücksichtigt UI-Elemente)
+      </p>
+    </div>
+    
+    <section class="test-section">
+      <h2>Breiten-Tests (50% der Viewportbreite)</h2>
+      
+      <div class="fallback-info svw-fallback-info">
+        <strong>Hinweis:</strong> Ihr Browser unterstützt keine svw-Units. Es wird auf vw zurückgegriffen.
+      </div>
+      
+      <div class="fallback-info lvw-fallback-info">
+        <strong>Hinweis:</strong> Ihr Browser unterstützt keine lvw-Units. Es wird auf vw zurückgegriffen.
+      </div>
+      
+      <div class="fallback-info dvw-fallback-info">
+        <strong>Hinweis:</strong> Ihr Browser unterstützt keine dvw-Units. Es wird auf vw zurückgegriffen.
+      </div>
+      
+      <div class="test-grid">
+        <div class="test-item vw">
+          <div class="test-label">50vw</div>
+          <p>Standardbreite: 50% der Viewportbreite</p>
+        </div>
+        
+        <div class="test-item svw">
+          <div class="test-label">50svw</div>
+          <p>Small Viewport Width: 50% des kleinen Viewports</p>
+        </div>
+        
+        <div class="test-item lvw">
+          <div class="test-label">50lvw</div>
+          <p>Large Viewport Width: 50% des großen Viewports</p>
+        </div>
+        
+        <div class="test-item dvw">
+          <div class="test-label">50dvw</div>
+          <p>Dynamic Viewport Width: 50% des dynamischen Viewports</p>
+        </div>
+      </div>
+    </section>
+    
+    <section class="test-section">
+      <h2>Höhen-Tests (50% der Viewporthöhe)</h2>
+      
+      <div class="fallback-info svh-fallback-info">
+        <strong>Hinweis:</strong> Ihr Browser unterstützt keine svh-Units. Es wird auf vh zurückgegriffen.
+      </div>
+      
+      <div class="fallback-info lvh-fallback-info">
+        <strong>Hinweis:</strong> Ihr Browser unterstützt keine lvh-Units. Es wird auf vh zurückgegriffen.
+      </div>
+      
+      <div class="fallback-info dvh-fallback-info">
+        <strong>Hinweis:</strong> Ihr Browser unterstützt keine dvh-Units. Es wird auf vh zurückgegriffen.
+      </div>
+      
+      <div class="test-grid">
+        <div class="test-item vh">
+          <div class="test-label">50vh</div>
+          <p>Standardhöhe: 50% der Viewporthöhe</p>
+        </div>
+        
+        <div class="test-item svh">
+          <div class="test-label">50svh</div>
+          <p>Small Viewport Height: 50% des kleinen Viewports</p>
+        </div>
+        
+        <div class="test-item lvh">
+          <div class="test-label">50lvh</div>
+          <p>Large Viewport Height: 50% des großen Viewports</p>
+        </div>
+        
+        <div class="test-item dvh">
+          <div class="test-label">50dvh</div>
+          <p>Dynamic Viewport Height: 50% des dynamischen Viewports</p>
+        </div>
+      </div>
+    </section>
+    
+    <section class="test-section">
+      <h2>Anweisungen für Tests</h2>
+      <ol>
+        <li>Überprüfen Sie, ob alle Viewport-Units korrekt angezeigt werden</li>
+        <li>Testen Sie auf verschiedenen Geräten (Desktop, Tablet, Mobilgerät)</li>
+        <li>Ändern Sie die Fenstergröße, um dynamische Anpassungen zu überprüfen</li>
+        <li>Bei Mobilgeräten: Überprüfen Sie, ob sich die Werte ändern, wenn die Browser-UI ein-/ausgeblendet wird</li>
+        <li>Dokumentieren Sie Unterschiede zwischen den verschiedenen Viewport-Units</li>
+      </ol>
+      
+      <p><strong>Hinweis:</strong> Die neuen Viewport-Units (svw/svh, lvw/lvh, dvw/dvh) sind besonders wichtig für mobile Browser, wo die UI-Elemente wie Adressleiste und untere Steuerungsleiste den sichtbaren Bereich verändern können.</p>
+    </section>
+  </div>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Browser-Informationen anzeigen
+      const browserInfo = document.getElementById('browserInfo');
+      const userAgent = navigator.userAgent;
+      browserInfo.textContent = `User Agent: ${userAgent}`;
+      
+      // Bildschirmdimensionen anzeigen
+      const dimensionsInfo = document.getElementById('screenDimensions');
+      
+      function updateDimensions() {
+        dimensionsInfo.textContent = `Viewport: ${window.innerWidth}px × ${window.innerHeight}px | Bildschirm: ${window.screen.width}px × ${window.screen.height}px`;
+      }
+      
+      window.addEventListener('resize', updateDimensions);
+      updateDimensions();
+      
+      // Unterstützung prüfen und anzeigen
+      function checkSupport(property, value) {
+        const el = document.createElement('div');
+        el.style[property] = value;
+        return el.style[property] === value;
+      }
+      
+      // Klassische vw/vh
+      const vwvhSupport = checkSupport('width', '1vw') && checkSupport('height', '1vh');
+      document.getElementById('vwvhSupport').className = `support-indicator ${vwvhSupport ? 'support-yes' : 'support-no'}`;
+      
+      // Small Viewport Units
+      const svSupport = checkSupport('width', '1svw') && checkSupport('height', '1svh');
+      document.getElementById('svSupport').className = `support-indicator ${svSupport ? 'support-yes' : 'support-no'}`;
+      
+      // Large Viewport Units
+      const lvSupport = checkSupport('width', '1lvw') && checkSupport('height', '1lvh');
+      document.getElementById('lvSupport').className = `support-indicator ${lvSupport ? 'support-yes' : 'support-no'}`;
+      
+      // Dynamic Viewport Units
+      const dvSupport = checkSupport('width', '1dvw') && checkSupport('height', '1dvh');
+      document.getElementById('dvSupport').className = `support-indicator ${dvSupport ? 'support-yes' : 'support-no'}`;
+    });
+  </script>
+  
+  <!-- Dokumentations-Skript einbinden -->
+  <script src="document-compatibility.js"></script>
+</body>
+</html> 

@@ -3,13 +3,13 @@
 'use strict';
 
 /**
- * Dieses Skript aktualisiert die Information über das letzte Änderungsdatum
- * in allen Dokumentationsdateien. Das Datum kann manuell als Argument übergeben werden
- * oder wird automatisch als heutiges Datum gesetzt.
+ * This script updates the information about the last modification date
+ * in all documentation files. The date can be passed manually as an argument
+ * or will be automatically set to today's date.
  * 
- * Verwendung:
- * - node scripts/update-doc-versions.js                 # Verwendet das aktuelle Datum
- * - node scripts/update-doc-versions.js "DD.MM.YYYY"    # Verwendet das angegebene Datum
+ * Usage:
+ * - node scripts/update-doc-versions.js                 # Uses the current date
+ * - node scripts/update-doc-versions.js "DD.MM.YYYY"    # Uses the specified date
  */
 
 const fs = require('fs');
@@ -21,21 +21,21 @@ const writeFile = promisify(fs.writeFile);
 const readdir = promisify(fs.readdir);
 const stat = promisify(fs.stat);
 
-// Dateizuordnungen zwischen Dokumentation und CSS-Dateien
+// File mappings between documentation and CSS files
 const docToCssMap = {
   'docs/effects/animations.md': 'effects/animations.css',
   'docs/effects/overlays.md': 'effects/overlays.css',
   'docs/effects/neumorphism.md': 'effects/neumorphism.css',
   'docs/effects/transitions.md': 'effects/transitions.css'
-  // Weitere Zuordnungen können hier hinzugefügt werden
+  // More mappings can be added here
 };
 
-// Ermittle das zu verwendende Datum (aus Kommandozeile oder aktuelles Datum)
+// Determine the date to use (from command line or current date)
 function getDateToUse() {
-  // Prüfe, ob ein Datum als Argument übergeben wurde
+  // Check if a date was passed as an argument
   const dateArg = process.argv[2];
   if (dateArg) {
-    // Versuche, das übergebene Datum zu parsen
+    // Try to parse the passed date
     const datePattern = /^(\d{2})\.(\d{2})\.(\d{4})$/;
     const match = dateArg.match(datePattern);
     
@@ -48,23 +48,23 @@ function getDateToUse() {
       }
     }
     
-    console.warn(`Ungültiges Datumsformat: ${dateArg}, verwende aktuelles Datum stattdessen.`);
+    console.warn(`Invalid date format: ${dateArg}, using current date instead.`);
   }
   
-  // Kein gültiges Argument übergeben, verwende aktuelles Datum
+  // No valid argument passed, use current date
   return new Date();
 }
 
-// Formatiere das Datum benutzerfreundlich
+// Format the date in a user-friendly way
 function formatDate(date) {
-  return date.toLocaleDateString('de-DE', {
+  return date.toLocaleDateString('en-US', {
     year: 'numeric',
     month: '2-digit',
     day: '2-digit'
   });
 }
 
-// Finde alle Markdown-Dateien im docs-Verzeichnis
+// Find all markdown files in the docs directory
 async function findMarkdownFiles(dir) {
   const files = [];
   
@@ -87,34 +87,34 @@ async function findMarkdownFiles(dir) {
   return files;
 }
 
-// Aktualisiere die "Last Modified"-Information in einer Markdown-Datei
+// Update the "Last Modified" information in a markdown file
 async function updateLastModifiedInFile(file, date) {
   try {
     const content = await readFile(file, 'utf8');
     const lines = content.split('\n');
     
-    // Prüfe, ob die Datei mit einer Markdown-Überschrift beginnt
+    // Check if the file starts with a markdown heading
     if (lines.length > 0 && lines[0].startsWith('# ')) {
       let updated = false;
       const formattedDate = formatDate(date);
       
-      // Prüfe, ob bereits eine "Last Modified"-Information existiert
+      // Check if a "Last Modified" information already exists
       const lastModifiedIndex = lines.findIndex(line => line.startsWith('> Last Modified:'));
       
       if (lastModifiedIndex !== -1) {
-        // Aktualisiere bestehende Datumsinformation
+        // Update existing date information
         lines[lastModifiedIndex] = `> Last Modified: ${formattedDate}`;
         updated = true;
       } else {
-        // Prüfe, ob eine Versionszeile existiert, die ersetzt werden soll
+        // Check if a version line exists that should be replaced
         const versionIndex = lines.findIndex(line => line.startsWith('> Version:'));
         
         if (versionIndex !== -1) {
-          // Ersetze Versionszeile durch Datumsinformation
+          // Replace version line with date information
           lines[versionIndex] = `> Last Modified: ${formattedDate}`;
           updated = true;
         } else {
-          // Füge neue Datumsinformation nach der Überschrift hinzu
+          // Add new date information after the heading
           lines.splice(1, 0, `> Last Modified: ${formattedDate}`, '');
           updated = true;
         }
@@ -122,31 +122,31 @@ async function updateLastModifiedInFile(file, date) {
       
       if (updated) {
         await writeFile(file, lines.join('\n'), 'utf8');
-        console.log(`✅ Aktualisiert: ${path.relative(process.cwd(), file)} (${formattedDate})`);
+        console.log(`✅ Updated: ${path.relative(process.cwd(), file)} (${formattedDate})`);
         return true;
       }
     }
     
     return false;
   } catch (error) {
-    console.error(`Fehler beim Aktualisieren von ${file}:`, error);
+    console.error(`Error updating ${file}:`, error);
     return false;
   }
 }
 
-// Hauptfunktion
+// Main function
 async function main() {
   try {
-    // Ermittle das zu verwendende Datum
+    // Determine the date to use
     const dateToUse = getDateToUse();
     const formattedDate = formatDate(dateToUse);
     
-    console.log(`🔄 Aktualisiere "Last Modified"-Informationen auf ${formattedDate}...`);
+    console.log(`🔄 Updating "Last Modified" information to ${formattedDate}...`);
     
     const docsDir = path.join(process.cwd(), 'docs');
     const markdownFiles = await findMarkdownFiles(docsDir);
     
-    console.log(`🔍 ${markdownFiles.length} Markdown-Dateien gefunden.`);
+    console.log(`🔍 Found ${markdownFiles.length} markdown files.`);
     
     let updatedCount = 0;
     
@@ -155,9 +155,9 @@ async function main() {
       if (wasUpdated) updatedCount++;
     }
     
-    console.log(`\n✨ Fertig! ${updatedCount} von ${markdownFiles.length} Dateien aktualisiert.`);
+    console.log(`\n✨ Done! Updated ${updatedCount} of ${markdownFiles.length} files.`);
   } catch (error) {
-    console.error('Ein unerwarteter Fehler ist aufgetreten:', error);
+    console.error('An unexpected error occurred:', error);
     process.exit(1);
   }
 }

@@ -1,0 +1,24 @@
+/**
+ * UI Components System
+ * 
+ * This file imports all UI components in the correct order.
+ * Components are organized by type in subdirectories.
+ */
+
+/* UI Elements */
+@import url('./elements.css');
+
+
+
+/* Layout Components */
+@import url('./layout/header.css');
+@import url('./layout/footer.css');
+@import url('./layout/sidebar.css');
+@import url('./layout/content.css');
+
+/* UI Patterns */
+@import url('./patterns/blog.css');
+@import url('./patterns/tags.css');
+@import url('./patterns/code.css');
+@import url('./patterns/widget.css');
+@import url('./patterns/skeleton.css');

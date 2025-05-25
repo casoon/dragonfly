@@ -1,0 +1,210 @@
+/**
+ * Calendar Picker
+ * 
+ * A calendar picker component allows users to select dates and date ranges
+ * through a visual calendar interface, commonly used in forms for selecting
+ * appointments, booking dates, or filtering by date.
+ * 
+ * @layer: components
+ * 
+ * Accessibility:
+ * - Include proper ARIA roles (grid, gridcell, etc.)
+ * - Support keyboard navigation between days
+ * - Announce selected dates to screen readers
+ * - Use appropriate text contrast for dates
+ */
+
+@layer components {
+  /* Calendar container */
+  .calendar {
+    background-color: var(--color-surface-100);
+    border: 1px solid var(--color-border-200);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    display: inline-block;
+    font-size: var(--text-sm);
+    width: 300px;
+  }
+  
+  /* Calendar header */
+  .calendar__header {
+    align-items: center;
+    border-bottom: 1px solid var(--color-border-100);
+    display: flex;
+    justify-content: space-between;
+    padding: var(--space-3);
+  }
+  
+  /* Month and year display */
+  .calendar__title {
+    flex: 1;
+    font-weight: var(--font-semibold);
+    text-align: center;
+  }
+  
+  /* Navigation buttons */
+  .calendar__nav-button {
+    align-items: center;
+    background: transparent;
+    border: none;
+    border-radius: var(--radius-full);
+    color: var(--color-text-500);
+    cursor: pointer;
+    display: flex;
+    height: 28px;
+    justify-content: center;
+    transition: background-color 0.2s, color 0.2s;
+    width: 28px;
+  }
+  
+  .calendar__nav-button:hover {
+    background-color: var(--color-surface-200);
+    color: var(--color-text-900);
+  }
+  
+  .calendar__nav-button:focus {
+    outline: 2px solid var(--color-primary-200);
+    outline-offset: 1px;
+  }
+  
+  /* Days of week header */
+  .calendar__weekdays {
+    border-bottom: 1px solid var(--color-border-100);
+    color: var(--color-text-400);
+    display: grid;
+    font-size: var(--text-xs);
+    font-weight: var(--font-medium);
+    grid-template-columns: repeat(7, 1fr);
+    padding: var(--space-2) 0;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  
+  .calendar__weekday {
+    padding: var(--space-1);
+  }
+  
+  /* Calendar grid */
+  .calendar__grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    padding: var(--space-2);
+  }
+  
+  /* Calendar day */
+  .calendar__day {
+    align-items: center;
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    display: flex;
+    height: 36px;
+    justify-content: center;
+    margin: 2px;
+    position: relative;
+    transition: background-color 0.2s, color 0.2s;
+    width: 36px;
+  }
+  
+  /* Different day states */
+  .calendar__day--today {
+    border: 1px solid var(--color-primary-300);
+    font-weight: var(--font-bold);
+  }
+  
+  .calendar__day--selected {
+    background-color: var(--color-primary-500);
+    color: white;
+  }
+  
+  .calendar__day--in-range {
+    background-color: var(--color-primary-100);
+    border-radius: 0;
+  }
+  
+  .calendar__day--range-start {
+    background-color: var(--color-primary-500);
+    border-radius: var(--radius-full) 0 0 var(--radius-full);
+    color: white;
+  }
+  
+  .calendar__day--range-end {
+    background-color: var(--color-primary-500);
+    border-radius: 0 var(--radius-full) var(--radius-full) 0;
+    color: white;
+  }
+  
+  .calendar__day--disabled {
+    color: var(--color-text-200);
+    cursor: not-allowed;
+  }
+  
+  .calendar__day--outside {
+    color: var(--color-text-300);
+  }
+  
+  .calendar__day:not(.calendar__day--disabled, .calendar__day--selected):hover {
+    background-color: var(--color-surface-200);
+  }
+  
+  /* Footer with actions */
+  .calendar__footer {
+    border-top: 1px solid var(--color-border-100);
+    display: flex;
+    justify-content: space-between;
+    padding: var(--space-3);
+  }
+  
+  /* Month selector */
+  .calendar__month-selector {
+    display: grid;
+    gap: var(--space-2);
+    grid-template-columns: repeat(3, 1fr);
+    padding: var(--space-3);
+  }
+  
+  .calendar__month {
+    align-items: center;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    padding: var(--space-2);
+  }
+  
+  .calendar__month:hover {
+    background-color: var(--color-surface-200);
+  }
+  
+  .calendar__month--selected {
+    background-color: var(--color-primary-500);
+    color: white;
+  }
+  
+  /* Year selector */
+  .calendar__year-selector {
+    display: grid;
+    gap: var(--space-2);
+    grid-template-columns: repeat(4, 1fr);
+    height: 240px;
+    overflow-y: auto;
+    padding: var(--space-3);
+  }
+  
+  .calendar__year {
+    align-items: center;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    padding: var(--space-2);
+  }
+  
+  .calendar__year:hover {
+    background-color: var(--color-surface-200);
+  }
+  
+  .calendar__year--selected {
+    background-color: var(--color-primary-500);
+    color: white;
+  }
+} 

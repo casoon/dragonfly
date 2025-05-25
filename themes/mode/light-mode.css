@@ -1,0 +1,120 @@
+/*
+ * Light Mode Theme
+ * 
+ * Definitionen für das Light-Mode-Theme.
+ * Kann über die Klasse .theme-light oder via @media (prefers-color-scheme: light) aktiviert werden.
+ */
+
+@layer themes.mode {
+  /* 
+   * Light-Mode-Variablen
+   * Diese Variablen werden in der :root gesetzt und von den anderen CSS-Dateien verwendet.
+   */
+  :root,
+  .theme-light {
+    /* Primärfarben-Palette */
+    --color-primary-50: hsl(210deg 100% 98%);
+    --color-primary-100: hsl(210deg 100% 95%);
+    --color-primary-200: hsl(210deg 100% 90%);
+    --color-primary-300: hsl(210deg 100% 80%);
+    --color-primary-400: hsl(210deg 100% 65%);
+    --color-primary-500: hsl(210deg 100% 50%);
+    --color-primary-600: hsl(210deg 100% 45%);
+    --color-primary-700: hsl(210deg 100% 40%);
+    --color-primary-800: hsl(210deg 100% 35%);
+    --color-primary-900: hsl(210deg 100% 30%);
+    
+    /* Sekundärfarben-Palette */
+    --color-secondary-50: hsl(250deg 100% 98%);
+    --color-secondary-100: hsl(250deg 100% 95%);
+    --color-secondary-200: hsl(250deg 100% 90%);
+    --color-secondary-300: hsl(250deg 100% 80%);
+    --color-secondary-400: hsl(250deg 100% 65%);
+    --color-secondary-500: hsl(250deg 100% 60%);
+    --color-secondary-600: hsl(250deg 100% 55%);
+    --color-secondary-700: hsl(250deg 100% 45%);
+    --color-secondary-800: hsl(250deg 100% 35%);
+    --color-secondary-900: hsl(250deg 100% 30%);
+    
+    /* Grau-Palette */
+    --color-gray-50: hsl(210deg 20% 98%);
+    --color-gray-100: hsl(210deg 15% 95%);
+    --color-gray-200: hsl(210deg 15% 90%);
+    --color-gray-300: hsl(210deg 10% 80%);
+    --color-gray-400: hsl(210deg 10% 65%);
+    --color-gray-500: hsl(210deg 10% 50%);
+    --color-gray-600: hsl(210deg 10% 35%);
+    --color-gray-700: hsl(210deg 10% 25%);
+    --color-gray-800: hsl(210deg 15% 15%);
+    --color-gray-900: hsl(210deg 20% 10%);
+    
+    /* Erfolg-Palette */
+    --color-success-light: hsl(160deg 80% 45%);
+    --color-success: hsl(160deg 100% 35%);
+    --color-success-dark: hsl(160deg 100% 25%);
+    
+    /* Warnung-Palette */
+    --color-warning-light: hsl(45deg 100% 55%);
+    --color-warning: hsl(45deg 100% 45%);
+    --color-warning-dark: hsl(45deg 100% 35%);
+    
+    /* Fehler-Palette */
+    --color-error-light: hsl(0deg 100% 60%);
+    --color-error: hsl(0deg 100% 50%);
+    --color-error-dark: hsl(0deg 100% 40%);
+    
+    /* Info-Palette */
+    --color-info-light: hsl(210deg 100% 60%);
+    --color-info: hsl(210deg 100% 50%);
+    --color-info-dark: hsl(210deg 100% 40%);
+    
+    /* Basis-Farben für Light-Mode */
+    --color-background-light: #fff;
+    --color-surface-light: #f9fafb;
+    --color-surface-hover-light: #f3f4f6;
+    --color-surface-active-light: #e5e7eb;
+    
+    /* Text-Farben für Light-Mode */
+    --color-text-primary-light: #111827;
+    --color-text-secondary-light: #4b5563;
+    --color-text-tertiary-light: #9ca3af;
+    --color-text-disabled-light: #d1d5db;
+    
+    /* Rand-Farben für Light-Mode */
+    --color-border-light: #e5e7eb;
+    --color-border-hover-light: #d1d5db;
+    --color-border-focus-light: #3b82f6;
+    
+    /* Schatten-Farben für Light-Mode */
+    --color-shadow-light: rgb(0 0 0 / 10%);
+    --color-shadow-dark-light: rgb(0 0 0 / 25%);
+    
+    /* Overlay-Farben für Light-Mode */
+    --color-overlay-light: rgb(0 0 0 / 50%);
+    --color-overlay-light-light: rgb(0 0 0 / 20%);
+    
+    /* Status-Farben für Light-Mode */
+    --color-focus-ring-light: rgb(59 130 246 / 50%);
+    
+    /* 
+     * Aktive Farbvariablen setzen 
+     * (diese werden von den anderen CSS-Dateien verwendet)
+     */
+    --color-background: var(--color-background-light);
+    --color-surface: var(--color-surface-light);
+    --color-surface-hover: var(--color-surface-hover-light);
+    --color-surface-active: var(--color-surface-active-light);
+    --color-text-primary: var(--color-text-primary-light);
+    --color-text-secondary: var(--color-text-secondary-light);
+    --color-text-tertiary: var(--color-text-tertiary-light);
+    --color-text-disabled: var(--color-text-disabled-light);
+    --color-border: var(--color-border-light);
+    --color-border-hover: var(--color-border-hover-light);
+    --color-border-focus: var(--color-border-focus-light);
+    --color-shadow: var(--color-shadow-light);
+    --color-shadow-dark: var(--color-shadow-dark-light);
+    --color-overlay: var(--color-overlay-light);
+    --color-overlay-light: var(--color-overlay-light-light);
+    --color-focus-ring: var(--color-focus-ring-light);
+  }
+} 

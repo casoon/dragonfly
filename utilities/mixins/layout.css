@@ -9,20 +9,20 @@
   /* Grid-Mixins */
   @define-mixin grid-columns $columns {
     display: grid;
-    grid-template-columns: repeat($columns, 1fr);
     gap: var(--grid-gutter);
+    grid-template-columns: repeat($columns, 1fr);
   }
 
   @define-mixin grid-auto-fit $minWidth {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax($minWidth, 1fr));
     gap: var(--grid-gutter);
+    grid-template-columns: repeat(auto-fit, minmax($minWidth, 1fr));
   }
 
   @define-mixin grid-auto-fill $minWidth {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax($minWidth, 1fr));
     gap: var(--grid-gutter);
+    grid-template-columns: repeat(auto-fill, minmax($minWidth, 1fr));
   }
 
   /* Flex-Mixins */
@@ -37,83 +37,82 @@
   }
 
   @define-mixin flex-center {
-    display: flex;
     align-items: center;
+    display: flex;
     justify-content: center;
   }
 
   @define-mixin flex-between {
-    display: flex;
     align-items: center;
+    display: flex;
     justify-content: space-between;
   }
 
   @define-mixin flex-around {
-    display: flex;
     align-items: center;
+    display: flex;
     justify-content: space-around;
   }
 
   @define-mixin flex-end {
-    display: flex;
     align-items: center;
+    display: flex;
     justify-content: flex-end;
   }
 
   /* Positionierungs-Mixins */
   @define-mixin absolute-center {
+    left: 50%;
     position: absolute;
     top: 50%;
-    left: 50%;
     transform: translate(-50%, -50%);
   }
 
   @define-mixin absolute-cover {
+    inset: 0;
     position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
   }
 
   @define-mixin fixed-cover {
+    inset: 0;
     position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
   }
 
   /* Container-Mixins */
   @define-mixin container {
-    width: 100%;
-    max-width: var(--container-lg);
     margin-inline: auto;
+    max-width: var(--container-lg);
     padding-inline: var(--container-padding-md);
+    width: 100%;
   }
 
   @define-mixin container-sm {
     @mixin container;
+
     max-width: var(--container-sm);
   }
 
   @define-mixin container-md {
     @mixin container;
+
     max-width: var(--container-md);
   }
 
   @define-mixin container-lg {
     @mixin container;
+
     max-width: var(--container-lg);
   }
 
   @define-mixin container-xl {
     @mixin container;
+
     max-width: var(--container-xl);
   }
 
   @define-mixin container-2xl {
     @mixin container;
+
     max-width: var(--container-2xl);
   }
 } 

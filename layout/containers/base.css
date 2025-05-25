@@ -1,0 +1,65 @@
+/**
+ * Container Base Components
+ * 
+ * These components control the width and space for content.
+ * They are based on the sizes defined in tokens.css.
+ */
+
+@layer layout.containers.base {
+    /* ================= CONTAINER ================= */
+    
+    .container {
+        margin-inline: auto;
+        max-width: var(--container-lg);
+        padding-inline: var(--container-padding-md);
+        width: 100%;
+    }
+
+    .container-sm { max-width: var(--container-sm); }
+
+    .container-md { max-width: var(--container-md); }
+
+    .container-lg { max-width: var(--container-lg); }
+
+    .container-xl { max-width: var(--container-xl); }
+
+    .container-2xl { max-width: var(--container-2xl); }
+
+    .container-padding-sm { padding-inline: var(--container-padding-sm); }
+
+    .container-padding-md { padding-inline: var(--container-padding-md); }
+
+    .container-padding-lg { padding-inline: var(--container-padding-lg); }
+
+    /* ================= CONTAINER QUERIES ================= */
+
+    /* Container query definitions that serve as anchors for responsive adjustments */
+    .container-query {
+        container-name: layout;
+        container-type: inline-size;
+    }
+
+    .component-query {
+        container-name: component;
+        container-type: inline-size;
+    }
+
+    /* ================= WRAPPERS / BOXES ================= */
+
+    /* Components for visual grouping and content containment */
+    .container-box {
+        background: var(--color-background-elevated, white);
+        border-radius: var(--radius-md);
+        padding: var(--space-4);
+    }
+
+    .container-constrain {
+        margin-inline: auto;
+        max-width: var(--container-md);
+    }
+
+    .container-wrapper {
+        max-width: 100%;
+        overflow: hidden;
+    }
+} 

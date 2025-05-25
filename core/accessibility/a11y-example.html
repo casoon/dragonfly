@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accessibility Demo - Casoon UI</title>
+  
+  <!-- Frühe Initialisierung des Accessibility-Status (vor CSS laden) -->
+  <script>
+    // Prüfe gespeicherte Accessibility-Einstellungen
+    (function() {
+      try {
+        const highContrast = localStorage.getItem('casoon-ui-lib-high-contrast') === 'true';
+        const reducedMotion = localStorage.getItem('casoon-ui-lib-reduced-motion') === 'true';
+        
+        // Anwenden der Klassen
+        if (highContrast) {
+          document.documentElement.classList.add('high-contrast-mode');
+        }
+        
+        if (reducedMotion) {
+          document.documentElement.classList.add('reduced-motion');
+        }
+      } catch (e) {
+        console.warn('Konnte Accessibility-Einstellungen nicht laden', e);
+      }
+    })();
+  </script>
+  
+  <!-- UI-Lib CSS einbinden -->
+  <link rel="stylesheet" href="../../core.css">
+  
+  <!-- Zusätzliches CSS für die Demo -->
+  <style>
+    body {
+      font-family: var(--font-family-sans);
+      color: var(--color-text-primary);
+      background-color: var(--color-background);
+      padding: 2rem;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    .demo-section {
+      padding: 2rem;
+      border-radius: var(--border-radius-lg);
+      background-color: var(--color-surface);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    
+    .btn {
+      padding: 0.5rem 1rem;
+      border-radius: var(--border-radius-md);
+      background-color: var(--color-primary-500);
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-weight: var(--font-weight-medium);
+      transition: background-color 0.2s;
+      min-height: 44px;
+    }
+    
+    .btn:hover {
+      background-color: var(--color-primary-600);
+    }
+    
+    .btn.secondary {
+      background-color: var(--color-secondary-500);
+    }
+    
+    .animation-demo {
+      width: 100px;
+      height: 100px;
+      background-color: var(--color-primary-500);
+      margin: 2rem auto;
+      border-radius: var(--border-radius-md);
+      animation: pulse 2s infinite ease-in-out;
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+    
+    .tab-container {
+      margin-top: 2rem;
+    }
+    
+    .tabs {
+      display: flex;
+      border-bottom: 1px solid var(--color-border);
+    }
+    
+    .tab {
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+    }
+    
+    .tab[aria-selected="true"] {
+      border-bottom-color: var(--color-primary-500);
+      color: var(--color-primary-600);
+    }
+    
+    .tabpanel {
+      padding: 1rem;
+      border: 1px solid var(--color-border);
+      border-top: none;
+      display: none;
+    }
+    
+    .tabpanel[aria-hidden="false"] {
+      display: block;
+    }
+    
+    .form-group {
+      margin-bottom: 1rem;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    
+    input, select {
+      width: 100%;
+      padding: 0.5rem;
+      border: 1px solid var(--color-border);
+      border-radius: var(--border-radius-sm);
+    }
+    
+    .status {
+      padding: 1rem;
+      margin-top: 1rem;
+      border-radius: var(--border-radius-md);
+      border-left: 4px solid var(--color-info);
+      background-color: var(--color-surface-hover);
+    }
+    
+    .alert {
+      padding: 1rem;
+      margin-top: 1rem;
+      border-radius: var(--border-radius-md);
+      border-left: 4px solid var(--color-error);
+      background-color: var(--color-surface-hover);
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- Skip-Link für Tastatur-Navigation -->
+  <a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a>
+  
+  <div class="container">
+    <header class="header">
+      <h1>Accessibility-Demo</h1>
+      <p>Dieses Beispiel demonstriert die Accessibility-Funktionen der Casoon UI-Bibliothek.</p>
+    </header>
+    
+    <main id="main-content">
+      <section class="demo-section">
+        <h2>Accessibility-Einstellungen</h2>
+        <p>Passe die Accessibility-Einstellungen an deine Bedürfnisse an:</p>
+        
+        <div class="controls">
+          <button id="toggle-contrast" class="btn">Hochkontrast-Modus umschalten</button>
+          <button id="toggle-motion" class="btn">Reduzierte Bewegung umschalten</button>
+        </div>
+        
+        <div aria-live="polite" role="status" class="status">
+          Aktuelle Einstellungen: <span id="current-settings">Standard</span>
+        </div>
+      </section>
+      
+      <section class="demo-section">
+        <h2>Animations-Demo</h2>
+        <p>Diese Animation wird deaktiviert, wenn reduzierte Bewegung aktiviert ist:</p>
+        
+        <div class="animation-demo"></div>
+        
+        <p class="reduced-motion-notice" style="text-align: center; display: none;">
+          Animation wurde aufgrund der Einstellung "Reduzierte Bewegung" deaktiviert.
+        </p>
+      </section>
+      
+      <section class="demo-section">
+        <h2>Keyboard-Navigation</h2>
+        <p>Teste die Tastatur-Navigation durch die folgenden interaktiven Elemente:</p>
+        
+        <div class="tab-container" role="tablist" aria-label="Demo-Tabs">
+          <div class="tabs">
+            <button id="tab1" class="tab" role="tab" aria-selected="true" aria-controls="panel1">Tab 1</button>
+            <button id="tab2" class="tab" role="tab" aria-selected="false" aria-controls="panel2">Tab 2</button>
+            <button id="tab3" class="tab" role="tab" aria-selected="false" aria-controls="panel3">Tab 3</button>
+          </div>
+          
+          <div id="panel1" class="tabpanel" role="tabpanel" aria-labelledby="tab1" aria-hidden="false">
+            <h3>Tab-Inhalt 1</h3>
+            <p>Dies ist der Inhalt des ersten Tabs. Benutze die Pfeiltasten, um zwischen den Tabs zu navigieren.</p>
+            <button class="btn">Aktionsbutton</button>
+          </div>
+          
+          <div id="panel2" class="tabpanel" role="tabpanel" aria-labelledby="tab2" aria-hidden="true">
+            <h3>Tab-Inhalt 2</h3>
+            <p>Dies ist der Inhalt des zweiten Tabs. Er enthält ein Formular:</p>
+            
+            <form>
+              <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" aria-describedby="name-help">
+                <div id="name-help" class="sr-only">Gib deinen vollständigen Namen ein</div>
+              </div>
+              
+              <div class="form-group">
+                <label for="email">E-Mail:</label>
+                <input type="email" id="email" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="topic">Thema:</label>
+                <select id="topic">
+                  <option value="">Bitte wählen...</option>
+                  <option value="accessibility">Barrierefreiheit</option>
+                  <option value="design">Design</option>
+                  <option value="development">Entwicklung</option>
+                </select>
+              </div>
+              
+              <button type="button" class="btn" id="submit-form">Absenden</button>
+            </form>
+          </div>
+          
+          <div id="panel3" class="tabpanel" role="tabpanel" aria-labelledby="tab3" aria-hidden="true">
+            <h3>Tab-Inhalt 3</h3>
+            <p>Dies ist der Inhalt des dritten Tabs.</p>
+            <div class="controls">
+              <button class="btn">Button 1</button>
+              <button class="btn secondary">Button 2</button>
+              <button class="btn">Button 3</button>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <section class="demo-section">
+        <h2>Screenreader-Support</h2>
+        <p>Diese Sektion demonstriert Features für Screenreader:</p>
+        
+        <div class="controls">
+          <button id="show-alert" class="btn">Benachrichtigung anzeigen</button>
+        </div>
+        
+        <div role="alert" class="alert" id="demo-alert">
+          Dies ist eine wichtige Benachrichtigung für Screenreader!
+        </div>
+        
+        <p>
+          <span class="sr-only">Diese Information ist nur für Screenreader gedacht.</span>
+          Hier ist ein <a href="#" aria-label="Link mit zusätzlicher Beschreibung für Screenreader">Link</a> mit einem benutzerdefinierten aria-label.
+        </p>
+      </section>
+    </main>
+  </div>
+  
+  <!-- Accessibility-Helper-Script einbinden -->
+  <script src="a11y-helper.js"></script>
+  
+  <!-- Demo-Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Elemente
+      const toggleContrastBtn = document.getElementById('toggle-contrast');
+      const toggleMotionBtn = document.getElementById('toggle-motion');
+      const currentSettings = document.getElementById('current-settings');
+      const tabs = document.querySelectorAll('[role="tab"]');
+      const tabpanels = document.querySelectorAll('[role="tabpanel"]');
+      const showAlertBtn = document.getElementById('show-alert');
+      const demoAlert = document.getElementById('demo-alert');
+      const submitFormBtn = document.getElementById('submit-form');
+      const reducedMotionNotice = document.querySelector('.reduced-motion-notice');
+      
+      // Event-Listener für Kontrast-Toggle
+      toggleContrastBtn.addEventListener('click', () => {
+        window.CasoonUIAccessibility.toggleHighContrast();
+        updateSettingsDisplay();
+      });
+      
+      // Event-Listener für Bewegungs-Toggle
+      toggleMotionBtn.addEventListener('click', () => {
+        window.CasoonUIAccessibility.toggleReducedMotion();
+        updateSettingsDisplay();
+      });
+      
+      // Event-Listener für Tabs
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          // Deaktiviere alle Tabs
+          tabs.forEach(t => {
+            t.setAttribute('aria-selected', 'false');
+          });
+          
+          // Verstecke alle Panels
+          tabpanels.forEach(panel => {
+            panel.setAttribute('aria-hidden', 'true');
+          });
+          
+          // Aktiviere ausgewählten Tab
+          tab.setAttribute('aria-selected', 'true');
+          
+          // Zeige zugehöriges Panel
+          const panelId = tab.getAttribute('aria-controls');
+          const panel = document.getElementById(panelId);
+          panel.setAttribute('aria-hidden', 'false');
+        });
+        
+        // Keyboard-Navigation für Tabs
+        tab.addEventListener('keydown', (event) => {
+          let nextTab;
+          
+          if (event.key === 'ArrowRight') {
+            nextTab = tab.nextElementSibling || tabs[0];
+            event.preventDefault();
+          } else if (event.key === 'ArrowLeft') {
+            nextTab = tab.previousElementSibling || tabs[tabs.length - 1];
+            event.preventDefault();
+          }
+          
+          if (nextTab) {
+            nextTab.click();
+            nextTab.focus();
+          }
+        });
+      });
+      
+      // Event-Listener für Alert-Demo
+      showAlertBtn.addEventListener('click', () => {
+        demoAlert.style.display = 'block';
+        
+        // Verstecke die Benachrichtigung nach 5 Sekunden
+        setTimeout(() => {
+          demoAlert.style.display = 'none';
+        }, 5000);
+      });
+      
+      // Event-Listener für Formular-Demo
+      submitFormBtn.addEventListener('click', () => {
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        
+        if (!nameInput.value || !emailInput.value) {
+          alert('Bitte fülle alle Pflichtfelder aus.');
+        } else {
+          // Status-Nachricht anzeigen
+          const status = document.querySelector('[role="status"]');
+          status.textContent = `Formular für ${nameInput.value} wurde erfolgreich abgesendet.`;
+          
+          // Formular zurücksetzen
+          nameInput.value = '';
+          emailInput.value = '';
+        }
+      });
+      
+      // Aktualisierung der Einstellungsanzeige
+      function updateSettingsDisplay() {
+        const isHighContrast = document.documentElement.classList.contains('high-contrast-mode');
+        const isReducedMotion = document.documentElement.classList.contains('reduced-motion');
+        
+        let settingsText = [];
+        
+        if (isHighContrast) {
+          settingsText.push('Hochkontrast aktiviert');
+        }
+        
+        if (isReducedMotion) {
+          settingsText.push('Reduzierte Bewegung aktiviert');
+          reducedMotionNotice.style.display = 'block';
+        } else {
+          reducedMotionNotice.style.display = 'none';
+        }
+        
+        if (settingsText.length === 0) {
+          currentSettings.textContent = 'Standard';
+        } else {
+          currentSettings.textContent = settingsText.join(', ');
+        }
+      }
+      
+      // Initialisierung
+      updateSettingsDisplay();
+    });
+  </script>
+</body>
+</html> 

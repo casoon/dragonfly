@@ -1,0 +1,29 @@
+/**
+ * Listen-Element Styles
+ */
+
+@layer elements {
+  /* Listen */
+  ul, ol {
+    margin: 1rem 0;
+    padding-left: 2rem;
+  }
+
+  li {
+    margin: 0.5rem 0;
+  }
+
+  /* Beschreibungslisten */
+  dl {
+    margin: 1rem 0;
+  }
+
+  dt {
+    margin-top: 1rem;
+  }
+
+  dd {
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+  }
+} 

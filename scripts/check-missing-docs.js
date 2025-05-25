@@ -1,20 +1,20 @@
 #!/usr/bin/env node
 
 /**
- * Prüft auf fehlende Dokumentationsdateien
+ * Checks for missing documentation files
  * 
- * Dieses Script identifiziert CSS-Dateien, die keine entsprechende MD-Dokumentationsdatei haben,
- * und gibt eine Liste der fehlenden Dokumentationen aus.
+ * This script identifies CSS files that don't have a corresponding MD documentation file,
+ * and outputs a list of the missing documentation.
  */
 
 const fs = require('fs');
 const path = require('path');
 const packageJson = require('../package.json');
 
-// Verzeichnisse
+// Directories
 const docsBaseDir = 'docs';
 
-// Funktion zum rekursiven Finden von CSS-Dateien
+// Function for recursively finding CSS files
 function findCssFiles(dir) {
   const result = [];
   
@@ -40,21 +40,21 @@ function findCssFiles(dir) {
           result.push(itemPath);
         }
       } catch (error) {
-        console.error(`Fehler beim Prüfen von ${itemPath}:`, error);
+        console.error(`Error checking ${itemPath}:`, error);
       }
     }
   } catch (error) {
-    console.error(`Fehler beim Durchsuchen von ${dir}:`, error);
+    console.error(`Error searching directory ${dir}:`, error);
   }
   
   return result;
 }
 
-// Alle CSS-Dateien aus "package.json > files" ermitteln
+// Determine all CSS files from "package.json > files"
 let cssFilesFromPackageJson = [];
 const filesFromPackageJson = packageJson.files || [];
 
-// CSS-Dateien aus package.json filtern (ignoriere Wildcards)
+// Filter CSS files from package.json (ignore wildcards)
 filesFromPackageJson.forEach(file => {
   if (file.endsWith('.css') && !file.includes('*')) {
     cssFilesFromPackageJson.push(file);
@@ -64,7 +64,7 @@ filesFromPackageJson.forEach(file => {
   }
 });
 
-// Root-CSS-Dateien finden (ignoriere Wildcards)
+// Find root CSS files (ignore wildcards)
 const rootCssFiles = findCssFiles('.')
   .filter(file => !file.includes('/'))
   .filter(file => 
@@ -75,10 +75,10 @@ const rootCssFiles = findCssFiles('.')
     )
   );
 
-// Alle CSS-Dateien kombinieren
+// Combine all CSS files
 const allCssFiles = [...cssFilesFromPackageJson, ...rootCssFiles];
 
-// Alle MD-Dateien finden
+// Find all MD files
 function findMdFiles(dir) {
   const result = [];
   
@@ -101,7 +101,7 @@ function findMdFiles(dir) {
       }
     }
   } catch (error) {
-    console.error(`Fehler beim Durchsuchen von ${dir}:`, error);
+    console.error(`Error searching directory ${dir}:`, error);
   }
   
   return result;
@@ -109,7 +109,7 @@ function findMdFiles(dir) {
 
 const mdFiles = findMdFiles(docsBaseDir);
 
-// Dokumentationspaare abgleichen
+// Match documentation pairs
 const cssFilesWithoutDocs = [];
 
 allCssFiles.forEach(cssFile => {
@@ -118,15 +118,15 @@ allCssFiles.forEach(cssFile => {
   let expectedDocPath = '';
   
   if (dirName === '.') {
-    // Root-CSS-Datei
+    // Root CSS file
     expectedDocPath = path.join(docsBaseDir, baseName + '.md');
   } else {
-    // CSS-Datei in Unterordner
+    // CSS file in subdirectory
     const relativeDirName = dirName === '.' ? '' : dirName;
     expectedDocPath = path.join(docsBaseDir, relativeDirName, baseName + '.md');
   }
   
-  // Prüfen, ob die erwartete Dokumentationsdatei existiert
+  // Check if the expected documentation file exists
   if (!mdFiles.includes(expectedDocPath) && !mdFiles.some(md => md.endsWith(`/${baseName}.md`))) {
     cssFilesWithoutDocs.push({
       cssFile,
@@ -135,19 +135,19 @@ allCssFiles.forEach(cssFile => {
   }
 });
 
-// Ergebnisse ausgeben
-console.log(`\n📊 Dokumentations-Statistik:`);
-console.log(`- CSS-Dateien insgesamt: ${allCssFiles.length}`);
-console.log(`- MD-Dateien insgesamt: ${mdFiles.length}`);
-console.log(`- CSS-Dateien ohne Dokumentation: ${cssFilesWithoutDocs.length}`);
+// Output results
+console.log(`\n📊 Documentation Statistics:`);
+console.log(`- Total CSS files: ${allCssFiles.length}`);
+console.log(`- Total MD files: ${mdFiles.length}`);
+console.log(`- CSS files without documentation: ${cssFilesWithoutDocs.length}`);
 
 if (cssFilesWithoutDocs.length > 0) {
-  console.log('\n❌ Folgende CSS-Dateien haben keine Dokumentation:');
+  console.log('\n❌ The following CSS files have no documentation:');
   cssFilesWithoutDocs.forEach(({ cssFile, expectedDocPath }) => {
     console.log(`   ${cssFile} -> ${expectedDocPath}`);
   });
-  console.log(`\n🛠️  Führe 'npm run docs:all' aus, um alle fehlenden Dokumentationen zu erstellen.`);
+  console.log(`\n🛠️  Run 'npm run docs:all' to create all missing documentation.`);
 } else {
-  console.log('\n✅ Alle CSS-Dateien sind dokumentiert!');
-  console.log(`\n🎉 Glückwunsch! Alle CSS-Dateien sind vollständig dokumentiert.`);
+  console.log('\n✅ All CSS files are documented!');
+  console.log(`\n🎉 Congratulations! All CSS files are fully documented.`);
 } 

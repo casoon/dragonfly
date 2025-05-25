@@ -1,0 +1,119 @@
+/**
+ * Asymmetric Containers
+ * 
+ * Split containers and containers with defined aspect ratios.
+ */
+
+@layer layout.containers.asymmetric {
+    /* ================= SPLIT CONTAINERS ================= */
+    
+    /* Containers for two-column layouts with different ratios */
+    .container-split {
+        display: grid;
+        gap: var(--grid-gutter);
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .container-split-1-2 {
+        display: grid;
+        gap: var(--grid-gutter);
+        grid-template-columns: 1fr 2fr;
+    }
+    
+    .container-split-2-1 {
+        display: grid;
+        gap: var(--grid-gutter);
+        grid-template-columns: 2fr 1fr;
+    }
+    
+    .container-split-1-3 {
+        display: grid;
+        gap: var(--grid-gutter);
+        grid-template-columns: 1fr 3fr;
+    }
+    
+    .container-split-3-1 {
+        display: grid;
+        gap: var(--grid-gutter);
+        grid-template-columns: 3fr 1fr;
+    }
+    
+    /* Split containers with vertical alignment */
+    .container-split-vertical {
+        display: grid;
+        gap: var(--grid-gutter);
+        grid-template-rows: 1fr 1fr;
+    }
+    
+    .container-split-vertical-1-2 {
+        display: grid;
+        gap: var(--grid-gutter);
+        grid-template-rows: 1fr 2fr;
+    }
+    
+    .container-split-vertical-2-1 {
+        display: grid;
+        gap: var(--grid-gutter);
+        grid-template-rows: 2fr 1fr;
+    }
+    
+    /* ================= ASPECT RATIO CONTAINERS ================= */
+    
+    /* Containers with fixed aspect ratio */
+    .container-aspect-1-1 {
+        aspect-ratio: 1 / 1;
+        width: 100%;
+    }
+    
+    .container-aspect-4-3 {
+        aspect-ratio: 4 / 3;
+        width: 100%;
+    }
+    
+    .container-aspect-16-9 {
+        aspect-ratio: 16 / 9;
+        width: 100%;
+    }
+    
+    .container-aspect-21-9 {
+        aspect-ratio: 21 / 9;
+        width: 100%;
+    }
+    
+    .container-aspect-3-4 {
+        aspect-ratio: 3 / 4;
+        width: 100%;
+    }
+    
+    .container-aspect-9-16 {
+        aspect-ratio: 9 / 16;
+        width: 100%;
+    }
+    
+    /* Containers with aspect ratio and content cropping */
+    .container-aspect-cover {
+        position: relative;
+    }
+    
+    .container-aspect-cover > * {
+        height: 100%;
+        left: 0;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+    
+    .container-aspect-contain {
+        position: relative;
+    }
+    
+    .container-aspect-contain > * {
+        height: 100%;
+        left: 0;
+        object-fit: contain;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+} 

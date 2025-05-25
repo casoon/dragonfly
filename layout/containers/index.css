@@ -1,0 +1,18 @@
+/**
+ * Container System
+ * 
+ * Main file for the container system of the UI library.
+ * Imports and organizes all container modules.
+ */
+
+/* Import of container modules */
+@import url('./base.css') layer(layout.containers.base);
+@import url('./position.css') layer(layout.containers.position);
+@import url('./responsive-containers.css') layer(layout.containers.responsive);
+@import url('./special.css') layer(layout.containers.special);
+@import url('./asymmetric.css') layer(layout.containers.asymmetric);
+@import url('./visual.css') layer(layout.containers.visual);
+@import url('./functional.css') layer(layout.containers.functional);
+@import url('./performance.css') layer(layout.containers.performance);
+@import url('./a11y.css') layer(layout.containers.a11y);
+@import url('./advanced-queries.css') layer(layout.containers.queries); 

@@ -22,10 +22,10 @@
   /* Icon-Basis-Stile */
   .icon {
     display: inline-block;
-    height: var(--icon-size-md);
-    width: var(--icon-size-md);
-    vertical-align: middle;
     flex-shrink: 0;
+    height: var(--icon-size-md);
+    vertical-align: middle;
+    width: var(--icon-size-md);
   }
   
   /* Icon-Größen */

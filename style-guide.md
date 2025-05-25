@@ -213,7 +213,7 @@ A typical component in Casoon UI follows this structure:
 ```html
 <button class="button button--primary button--small">
   <span class="button__icon">→</span>
-  Klick mich
+  Click me
 </button>
 ```
 
@@ -221,7 +221,7 @@ A typical component in Casoon UI follows this structure:
 ```html
 <button class="button primary small">
   <span class="icon">→</span>
-  Klick mich
+  Click me
 </button>
 ```
 
@@ -895,7 +895,7 @@ import styles from 'casoon-ui-lib/components/button.css';
 ---
 
 <button class={styles.button}>
-  Klick mich
+  Click me
 </button>
 ```
 

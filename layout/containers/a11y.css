@@ -1,0 +1,151 @@
+/**
+ * Accessibility-Optimized Containers
+ * 
+ * Containers with enhanced support for accessibility, focus management,
+ * and screen reader optimizations.
+ */
+
+@layer layout.containers.a11y {
+    /* ================= FOCUSABLE CONTAINERS ================= */
+    
+    /* Containers with improved focus management */
+    .container-focusable {
+        outline: none;
+    }
+    
+    .container-focusable:focus-visible {
+        outline: 2px solid var(--color-focus, #4f46e5);
+        outline-offset: 2px;
+    }
+    
+    .container-focus-ring {
+        position: relative;
+    }
+    
+    .container-focus-ring:focus-visible::after {
+        border: 2px solid var(--color-focus, #4f46e5);
+        border-radius: calc(var(--radius-md) + 4px);
+        box-shadow: 0 0 0 2px var(--color-focus-glow, rgb(79 70 229 / 30%));
+        content: "";
+        inset: -4px;
+        pointer-events: none;
+        position: absolute;
+    }
+    
+    /* For high contrast */
+    @media (prefers-contrast: more) {
+        .container-focusable:focus-visible {
+            outline: 3px solid currentColor;
+            outline-offset: 3px;
+        }
+    }
+    
+    /* ================= SCREEN READER SUPPORT ================= */
+    
+    /* Containers with improved screen reader support */
+    .container-with-label {
+        position: relative;
+    }
+    
+    .container-sr-label {
+        border-width: 0;
+        clip: rect(0, 0, 0, 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        white-space: nowrap;
+        width: 1px;
+    }
+    
+    .container-sr-only {
+        border-width: 0;
+        clip: rect(0, 0, 0, 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        white-space: nowrap;
+        width: 1px;
+    }
+    
+    .container-not-sr-only {
+        clip: auto;
+        height: auto;
+        margin: 0;
+        overflow: visible;
+        padding: 0;
+        position: static;
+        white-space: normal;
+        width: auto;
+    }
+    
+    /* ================= ARIA SUPPORT ================= */
+    
+    /* Containers with ARIA role for improved semantics */
+    .container-region {
+        display: block;
+    }
+    
+    .container-region[role="region"] {
+        margin-block: var(--space-4);
+    }
+    
+    .container-live-region {
+        position: relative;
+    }
+    
+    .container-live-region[aria-live="polite"] {
+        min-height: 20px;
+    }
+    
+    .container-live-region[aria-live="assertive"] {
+        border-left: 3px solid var(--color-status, #4f46e5);
+        min-height: 20px;
+        padding-left: var(--space-2);
+    }
+    
+    /* ================= KEYBOARD NAVIGATION ================= */
+    
+    /* Containers with improved keyboard navigation */
+    .container-keyboard-focus {
+        position: relative;
+    }
+    
+    .container-keyboard-focus:focus {
+        outline: none;
+    }
+    
+    .container-keyboard-focus:focus-visible {
+        outline: 2px solid var(--color-focus, #4f46e5);
+        outline-offset: 2px;
+    }
+    
+    /* Skip-link containers */
+    .container-skip-link {
+        background: var(--color-background, white);
+        color: var(--color-text, black);
+        left: 0;
+        padding: var(--space-2);
+        position: absolute;
+        top: -40px;
+        transition: top 0.2s ease;
+        z-index: 100;
+    }
+    
+    .container-skip-link:focus {
+        top: 0;
+    }
+    
+    /* ================= REDUCED MOTION ================= */
+    
+    /* Containers respecting reduced motion preference */
+    @media (prefers-reduced-motion: reduce) {
+        .container-motion-safe {
+            animation: none !important;
+            transition: none !important;
+        }
+    }
+} 

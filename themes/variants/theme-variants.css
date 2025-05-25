@@ -1,0 +1,130 @@
+/*
+ * Theme-Varianten
+ * 
+ * Diese Datei definiert den Mechanismus für verschiedene Farbvarianten (Themes),
+ * die über CSS-Klassen angewendet werden können.
+ */
+
+@layer themes.variants {
+  /*
+   * Basis-Framework für Theme-Varianten
+   * 
+   * Alle Theme-Varianten folgen diesem Muster und überschreiben
+   * die --theme-*-Variablen, welche dann die Farbpalette generieren.
+   */
+  .theme-variant {
+    /* Primäre Farbton-Variablen */
+    --theme-primary-h: 210; /* Standard: Blau */
+    --theme-primary-s: 100%;
+    --theme-primary-l: 50%;
+    
+    /* Sekundäre Farbton-Variablen */
+    --theme-secondary-h: 250; /* Standard: Lila */
+    --theme-secondary-s: 100%;
+    --theme-secondary-l: 50%;
+    
+    /* Akzent-Farbton-Variablen */
+    --theme-accent-h: 340; /* Standard: Pink */
+    --theme-accent-s: 100%;
+    --theme-accent-l: 50%;
+    
+    /* Automatische Farbpalette-Generierung für Primärfarbe */
+    --color-primary-50: hsl(var(--theme-primary-h) var(--theme-primary-s) calc(var(--theme-primary-l) + 45%));
+    --color-primary-100: hsl(var(--theme-primary-h) var(--theme-primary-s) calc(var(--theme-primary-l) + 40%));
+    --color-primary-200: hsl(var(--theme-primary-h) var(--theme-primary-s) calc(var(--theme-primary-l) + 30%));
+    --color-primary-300: hsl(var(--theme-primary-h) var(--theme-primary-s) calc(var(--theme-primary-l) + 20%));
+    --color-primary-400: hsl(var(--theme-primary-h) var(--theme-primary-s) calc(var(--theme-primary-l) + 10%));
+    --color-primary-500: hsl(var(--theme-primary-h) var(--theme-primary-s) var(--theme-primary-l));
+    --color-primary-600: hsl(var(--theme-primary-h) var(--theme-primary-s) calc(var(--theme-primary-l) - 10%));
+    --color-primary-700: hsl(var(--theme-primary-h) var(--theme-primary-s) calc(var(--theme-primary-l) - 20%));
+    --color-primary-800: hsl(var(--theme-primary-h) var(--theme-primary-s) calc(var(--theme-primary-l) - 30%));
+    --color-primary-900: hsl(var(--theme-primary-h) var(--theme-primary-s) calc(var(--theme-primary-l) - 40%));
+    
+    /* Automatische Farbpalette-Generierung für Sekundärfarbe */
+    --color-secondary-50: hsl(var(--theme-secondary-h) var(--theme-secondary-s) calc(var(--theme-secondary-l) + 45%));
+    --color-secondary-100: hsl(var(--theme-secondary-h) var(--theme-secondary-s) calc(var(--theme-secondary-l) + 40%));
+    --color-secondary-200: hsl(var(--theme-secondary-h) var(--theme-secondary-s) calc(var(--theme-secondary-l) + 30%));
+    --color-secondary-300: hsl(var(--theme-secondary-h) var(--theme-secondary-s) calc(var(--theme-secondary-l) + 20%));
+    --color-secondary-400: hsl(var(--theme-secondary-h) var(--theme-secondary-s) calc(var(--theme-secondary-l) + 10%));
+    --color-secondary-500: hsl(var(--theme-secondary-h) var(--theme-secondary-s) var(--theme-secondary-l));
+    --color-secondary-600: hsl(var(--theme-secondary-h) var(--theme-secondary-s) calc(var(--theme-secondary-l) - 10%));
+    --color-secondary-700: hsl(var(--theme-secondary-h) var(--theme-secondary-s) calc(var(--theme-secondary-l) - 20%));
+    --color-secondary-800: hsl(var(--theme-secondary-h) var(--theme-secondary-s) calc(var(--theme-secondary-l) - 30%));
+    --color-secondary-900: hsl(var(--theme-secondary-h) var(--theme-secondary-s) calc(var(--theme-secondary-l) - 40%));
+    
+    /* Automatische Farbpalette-Generierung für Akzentfarbe */
+    --color-accent-50: hsl(var(--theme-accent-h) var(--theme-accent-s) calc(var(--theme-accent-l) + 45%));
+    --color-accent-100: hsl(var(--theme-accent-h) var(--theme-accent-s) calc(var(--theme-accent-l) + 40%));
+    --color-accent-200: hsl(var(--theme-accent-h) var(--theme-accent-s) calc(var(--theme-accent-l) + 30%));
+    --color-accent-300: hsl(var(--theme-accent-h) var(--theme-accent-s) calc(var(--theme-accent-l) + 20%));
+    --color-accent-400: hsl(var(--theme-accent-h) var(--theme-accent-s) calc(var(--theme-accent-l) + 10%));
+    --color-accent-500: hsl(var(--theme-accent-h) var(--theme-accent-s) var(--theme-accent-l));
+    --color-accent-600: hsl(var(--theme-accent-h) var(--theme-accent-s) calc(var(--theme-accent-l) - 10%));
+    --color-accent-700: hsl(var(--theme-accent-h) var(--theme-accent-s) calc(var(--theme-accent-l) - 20%));
+    --color-accent-800: hsl(var(--theme-accent-h) var(--theme-accent-s) calc(var(--theme-accent-l) - 30%));
+    --color-accent-900: hsl(var(--theme-accent-h) var(--theme-accent-s) calc(var(--theme-accent-l) - 40%));
+    
+    /* Vereinfachte Alias-Farben für häufige Anwendungsfälle */
+    --color-primary: var(--color-primary-600);
+    --color-primary-hover: var(--color-primary-700);
+    --color-primary-active: var(--color-primary-800);
+    --color-primary-light: var(--color-primary-100);
+    --color-primary-dark: var(--color-primary-900);
+    --color-secondary: var(--color-secondary-600);
+    --color-secondary-hover: var(--color-secondary-700);
+    --color-secondary-active: var(--color-secondary-800);
+    --color-secondary-light: var(--color-secondary-100);
+    --color-secondary-dark: var(--color-secondary-900);
+    --color-accent: var(--color-accent-500);
+    --color-accent-hover: var(--color-accent-600);
+    --color-accent-active: var(--color-accent-700);
+    --color-accent-light: var(--color-accent-100);
+    --color-accent-dark: var(--color-accent-900);
+  }
+  
+  /* 
+   * Vordefinierte Theme-Varianten
+   * Diese erben alle Eigenschaften von .theme-variant und
+   * setzen nur die spezifischen Farbwerte
+   */
+  
+  /* Blau-Theme (Standard) */
+  .theme-blue {
+    --theme-primary-h: 210; /* Blau */
+    --theme-primary-s: 100%;
+    --theme-primary-l: 50%;
+  }
+  
+  /* Grün-Theme */
+  .theme-green {
+    --theme-primary-h: 150; /* Grün */
+    --theme-primary-s: 60%;
+    --theme-primary-l: 45%;
+  }
+  
+  /* Lila-Theme */
+  .theme-purple {
+    --theme-primary-h: 270; /* Lila */
+    --theme-primary-s: 70%;
+    --theme-primary-l: 55%;
+  }
+  
+  /* Orange-Theme */
+  .theme-orange {
+    --theme-primary-h: 30; /* Orange */
+    --theme-primary-s: 100%;
+    --theme-primary-l: 50%;
+  }
+  
+  /* Rot-Theme */
+  .theme-red {
+    --theme-primary-h: 0; /* Rot */
+    --theme-primary-s: 90%;
+    --theme-primary-l: 45%;
+  }
+  
+  /* 
+   * Hinweis: Weitere Theme-Varianten (autumn, winter, etc.) sollten 
+   * in separate Dateien ausgelagert werden und können bei Bedarf importiert werden.
+   */
+} 

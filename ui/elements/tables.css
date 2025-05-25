@@ -1,0 +1,22 @@
+/**
+ * Tabellen-Element Styles
+ */
+
+@layer elements {
+  /* Tabellen */
+  table {
+    border-collapse: collapse;
+    margin: 1rem 0;
+    width: 100%;
+  }
+
+  th, td {
+    border: 1px solid var(--color-border);
+    padding: 0.75rem;
+    text-align: left;
+  }
+
+  th {
+    background-color: var(--color-background-alt);
+  }
+} 

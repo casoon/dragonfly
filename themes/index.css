@@ -1,0 +1,349 @@
+/*
+ * Theme System
+ * 
+ * Hauptdatei für das Theme-System der UI-Bibliothek.
+ * Importiert und organisiert alle Theme-Module.
+ */
+
+/* 
+ * Theme-Layer-Struktur:
+ * 
+ * 1. themes.base: Grundlegende Theme-Definitionen (Basis-Variablen, Strukturen)
+ * 2. themes.mode: Light/Dark-Mode-Themes (Helligkeits-basierte Anpassungen)
+ * 3. themes.variants: Farbvarianten-Themes (spezifische Farbschemata)
+ */
+
+/* Import der Theme-Module */
+@import url('./base/theme-base.css') layer(themes.base);
+@import url('./mode/light-mode.css') layer(themes.mode);
+@import url('./mode/dark-mode.css') layer(themes.mode);
+@import url('./variants/theme-variants.css') layer(themes.variants);
+
+/* 
+ * Hinweis: Die einzelnen Theme-Varianten (autumn.css, winter.css, etc.) werden
+ * nicht automatisch importiert. Diese sollten vom Anwender nach Bedarf
+ * eingebunden werden:
+ *
+ * @import url('pfad/zur/ui-lib/themes/variants/autumn.css');
+ */
+
+/* Theme-Switching-Mechanismus */
+@layer themes {
+  /* 
+   * Globale Theme-Mechanismen
+   * 
+   * Diese Theme-Klassen können auf dem :root oder body-Element verwendet werden, 
+   * um das Theme global zu wechseln.
+   */
+  
+  /* Grundlegende Farbvariablen für das Theming-System */
+  :root {
+    /* Color Scheme für automatischen Dark Mode */
+    color-scheme: light dark;
+    
+    /* =================== BASIS-FARBEN =================== */
+    --color-primary-50: var(--color-blue-50);
+    --color-primary-100: var(--color-blue-100);
+    --color-primary-200: var(--color-blue-200);
+    --color-primary-300: var(--color-blue-300);
+    --color-primary-400: var(--color-blue-400);
+    --color-primary-500: var(--color-blue-500);
+    --color-primary-600: var(--color-blue-600);
+    --color-primary-700: var(--color-blue-700);
+    --color-primary-800: var(--color-blue-800);
+    --color-primary-900: var(--color-blue-900);
+    --color-secondary-50: var(--color-gray-50);
+    --color-secondary-100: var(--color-gray-100);
+    --color-secondary-200: var(--color-gray-200);
+    --color-secondary-300: var(--color-gray-300);
+    --color-secondary-400: var(--color-gray-400);
+    --color-secondary-500: var(--color-gray-500);
+    --color-secondary-600: var(--color-gray-600);
+    --color-secondary-700: var(--color-gray-700);
+    --color-secondary-800: var(--color-gray-800);
+    --color-secondary-900: var(--color-gray-900);
+    --color-accent-50: var(--color-orange-50);
+    --color-accent-100: var(--color-orange-100);
+    --color-accent-200: var(--color-orange-200);
+    --color-accent-300: var(--color-orange-300);
+    --color-accent-400: var(--color-orange-400);
+    --color-accent-500: var(--color-orange-500);
+    --color-accent-600: var(--color-orange-600);
+    --color-accent-700: var(--color-orange-700);
+    --color-accent-800: var(--color-orange-800);
+    --color-accent-900: var(--color-orange-900);
+
+    /* Vereinfachte Alias-Farben für häufige Anwendungsfälle */
+    --color-primary: var(--color-primary-600);
+    --color-primary-hover: var(--color-primary-700);
+    --color-primary-active: var(--color-primary-800);
+    --color-primary-light: var(--color-primary-100);
+    --color-primary-dark: var(--color-primary-900);
+    --color-secondary: var(--color-secondary-600);
+    --color-secondary-hover: var(--color-secondary-700);
+    --color-secondary-active: var(--color-secondary-800);
+    --color-secondary-light: var(--color-secondary-100);
+    --color-secondary-dark: var(--color-secondary-900);
+    --color-accent: var(--color-accent-500);
+    --color-accent-hover: var(--color-accent-600);
+    --color-accent-active: var(--color-accent-700);
+    --color-accent-light: var(--color-accent-100);
+    --color-accent-dark: var(--color-accent-900);
+
+    /* =================== STATUS-FARBEN =================== */
+    --color-success-50: var(--color-green-50);
+    --color-success-100: var(--color-green-100);
+    --color-success-200: var(--color-green-200);
+    --color-success-300: var(--color-green-300);
+    --color-success-400: var(--color-green-400);
+    --color-success-500: var(--color-green-500);
+    --color-success-600: var(--color-green-600);
+    --color-success-700: var(--color-green-700);
+    --color-success-800: var(--color-green-800);
+    --color-success-900: var(--color-green-900);
+    --color-warning-50: var(--color-yellow-50);
+    --color-warning-100: var(--color-yellow-100);
+    --color-warning-200: var(--color-yellow-200);
+    --color-warning-300: var(--color-yellow-300);
+    --color-warning-400: var(--color-yellow-400);
+    --color-warning-500: var(--color-yellow-500);
+    --color-warning-600: var(--color-yellow-600);
+    --color-warning-700: var(--color-yellow-700);
+    --color-warning-800: var(--color-yellow-800);
+    --color-warning-900: var(--color-yellow-900);
+    --color-error-50: var(--color-red-50);
+    --color-error-100: var(--color-red-100);
+    --color-error-200: var(--color-red-200);
+    --color-error-300: var(--color-red-300);
+    --color-error-400: var(--color-red-400);
+    --color-error-500: var(--color-red-500);
+    --color-error-600: var(--color-red-600);
+    --color-error-700: var(--color-red-700);
+    --color-error-800: var(--color-red-800);
+    --color-error-900: var(--color-red-900);
+    --color-info-50: var(--color-blue-50);
+    --color-info-100: var(--color-blue-100);
+    --color-info-200: var(--color-blue-200);
+    --color-info-300: var(--color-blue-300);
+    --color-info-400: var(--color-blue-400);
+    --color-info-500: var(--color-blue-500);
+    --color-info-600: var(--color-blue-600);
+    --color-info-700: var(--color-blue-700);
+    --color-info-800: var(--color-blue-800);
+    --color-info-900: var(--color-blue-900);
+
+    /* Vereinfachte Alias-Farben für häufige Anwendungsfälle */
+    --color-success: var(--color-success-600);
+    --color-success-hover: var(--color-success-700);
+    --color-success-active: var(--color-success-800);
+    --color-success-light: var(--color-success-100);
+    --color-success-dark: var(--color-success-900);
+    --color-warning: var(--color-warning-500);
+    --color-warning-hover: var(--color-warning-600);
+    --color-warning-active: var(--color-warning-700);
+    --color-warning-light: var(--color-warning-100);
+    --color-warning-dark: var(--color-warning-900);
+    --color-error: var(--color-error-600);
+    --color-error-hover: var(--color-error-700);
+    --color-error-active: var(--color-error-800);
+    --color-error-light: var(--color-error-100);
+    --color-error-dark: var(--color-error-900);
+    --color-info: var(--color-info-600);
+    --color-info-hover: var(--color-info-700);
+    --color-info-active: var(--color-info-800);
+    --color-info-light: var(--color-info-100);
+    --color-info-dark: var(--color-info-900);
+
+    /* =================== UI-FARBEN =================== */
+    --color-text: light-dark(var(--color-gray-900), var(--color-gray-100));
+    --color-text-muted: light-dark(var(--color-gray-600), var(--color-gray-400));
+    --color-text-light: light-dark(var(--color-gray-400), var(--color-gray-600));
+    --color-text-inverted: light-dark(white, var(--color-gray-900));
+    --color-background: light-dark(var(--color-gray-50), var(--color-gray-900));
+    --color-background-alt: light-dark(var(--color-gray-100), var(--color-gray-800));
+    --color-background-elevated: light-dark(white, var(--color-gray-800));
+    --color-background-inverted: light-dark(var(--color-gray-900), var(--color-gray-50));
+
+    /* =================== BORDER & SHADOW =================== */
+    --color-border: light-dark(var(--color-gray-200), var(--color-gray-700));
+    --color-border-hover: light-dark(var(--color-gray-300), var(--color-gray-600));
+    --color-border-focus: light-dark(var(--color-primary-500), var(--color-primary-400));
+    --color-border-error: light-dark(var(--color-error-500), var(--color-error-400));
+    --shadow-color-light: rgb(0 0 0 / 5%);
+    --shadow-color-medium: rgb(0 0 0 / 10%);
+    --shadow-color-dark: rgb(0 0 0 / 15%);
+    --shadow-color-darker: rgb(0 0 0 / 20%);
+    --color-shadow-sm: light-dark(var(--shadow-color-light), rgb(0 0 0 / 20%));
+    --color-shadow-md: light-dark(var(--shadow-color-medium), rgb(0 0 0 / 30%));
+    --color-shadow-lg: light-dark(var(--shadow-color-dark), rgb(0 0 0 / 40%));
+    --color-shadow-xl: light-dark(var(--shadow-color-darker), rgb(0 0 0 / 50%));
+
+    /* =================== FOCUS & OUTLINE =================== */
+    --color-focus-ring: light-dark(var(--color-primary-500), var(--color-primary-400));
+    --color-focus-ring-offset: light-dark(white, var(--color-gray-900));
+    --color-outline: light-dark(var(--color-primary-500), var(--color-primary-400));
+    
+    /* 
+     * Die initiale Theme-Variable wird im <head> gesetzt, bevor das CSS geladen wird:
+     * <script>
+     *   document.documentElement.style.setProperty(
+     *     '--initial-theme', 
+     *     localStorage.getItem('theme') || 'auto'
+     *   );
+     * </script>
+     */
+    --theme-preference: var(--initial-theme, 'auto');
+  }
+  
+  /* 
+   * Klasse für die automatische Erkennung des Systemmodus.
+   * Nutzt prefers-color-scheme für automatischen Wechsel zwischen Light/Dark.
+   */
+  .theme-auto {
+    color-scheme: light dark;
+  }
+  
+  /* Klasse für explizites Light-Theme */
+  .theme-light {
+    color-scheme: light;
+  }
+  
+  /* Klasse für explizites Dark-Theme */
+  .theme-dark {
+    color-scheme: dark;
+  }
+  
+  /* Die Verwendung von light-dark() macht die alten Media Queries größtenteils überflüssig,
+     aber wir behalten Teile für Rückwärtskompatibilität bei */
+  
+  /* 
+   * Erkennung des System-Themas und Setzen der entsprechenden CSS-Variablen 
+   * für automatischen Wechsel zwischen Light/Dark.
+   */
+  @media (prefers-color-scheme: dark) {
+    .theme-auto {
+      /* Importiere alle Variablen aus dem Dark-Mode-Theme */
+      --color-background: var(--color-gray-900);
+      --color-surface: var(--color-gray-800);
+      --color-text-primary: var(--color-gray-100);
+      --color-text-secondary: var(--color-gray-400);
+    }
+    
+    /* Fallback für Browser ohne light-dark() Unterstützung */
+    :root {
+      --color-text: var(--color-gray-100);
+      --color-text-muted: var(--color-gray-400);
+      --color-text-light: var(--color-gray-600);
+      --color-text-inverted: var(--color-gray-900);
+      --color-background: var(--color-gray-900);
+      --color-background-alt: var(--color-gray-800);
+      --color-background-elevated: var(--color-gray-800);
+      --color-background-inverted: var(--color-gray-50);
+      --color-border: var(--color-gray-700);
+      --color-border-hover: var(--color-gray-600);
+      --color-border-focus: var(--color-primary-400);
+      --color-border-error: var(--color-error-400);
+      --color-shadow-sm: rgb(0 0 0 / 20%);
+      --color-shadow-md: rgb(0 0 0 / 30%);
+      --color-shadow-lg: rgb(0 0 0 / 40%);
+      --color-shadow-xl: rgb(0 0 0 / 50%);
+      --color-focus-ring: var(--color-primary-400);
+      --color-focus-ring-offset: var(--color-gray-900);
+      --color-outline: var(--color-primary-400);
+    }
+  }
+  
+  /* Anwendung des benutzerdefinierten Themes basierend auf der --theme-preference */
+  :root[style*="--theme-preference:light"],
+  :root[style*="--theme-preference:'light'"],
+  :root[style*='--theme-preference:"light"'] {
+    color-scheme: light;
+  }
+  
+  :root[style*="--theme-preference:dark"],
+  :root[style*="--theme-preference:'dark'"],
+  :root[style*='--theme-preference:"dark"'] {
+    color-scheme: dark;
+    
+    /* Dark-Theme-Variablen anwenden */
+    --color-text: var(--color-gray-100);
+    --color-text-muted: var(--color-gray-400);
+    --color-text-light: var(--color-gray-600);
+    --color-text-inverted: var(--color-gray-900);
+    --color-background: var(--color-gray-900);
+    --color-background-alt: var(--color-gray-800);
+    --color-background-elevated: var(--color-gray-800);
+    --color-background-inverted: var(--color-gray-50);
+    --color-border: var(--color-gray-700);
+    --color-border-hover: var(--color-gray-600);
+    --color-border-focus: var(--color-primary-400);
+    --color-border-error: var(--color-error-400);
+    --color-shadow-sm: rgb(0 0 0 / 20%);
+    --color-shadow-md: rgb(0 0 0 / 30%);
+    --color-shadow-lg: rgb(0 0 0 / 40%);
+    --color-shadow-xl: rgb(0 0 0 / 50%);
+    --color-focus-ring: var(--color-primary-400);
+    --color-focus-ring-offset: var(--color-gray-900);
+    --color-outline: var(--color-primary-400);
+  }
+  
+  /* Manueller Dark Mode für explizite Umschaltung */
+  .dark-mode {
+    /* Diese Variablen werden in Zukunft light-dark() überschreiben */
+    --color-text: var(--color-gray-100);
+    --color-text-muted: var(--color-gray-400);
+    --color-text-light: var(--color-gray-600);
+    --color-text-inverted: var(--color-gray-900);
+    --color-background: var(--color-gray-900);
+    --color-background-alt: var(--color-gray-800);
+    --color-background-elevated: var(--color-gray-800);
+    --color-background-inverted: var(--color-gray-50);
+    --color-border: var(--color-gray-700);
+    --color-border-hover: var(--color-gray-600);
+    --color-border-focus: var(--color-primary-400);
+    --color-border-error: var(--color-error-400);
+    --color-shadow-sm: rgb(0 0 0 / 20%);
+    --color-shadow-md: rgb(0 0 0 / 30%);
+    --color-shadow-lg: rgb(0 0 0 / 40%);
+    --color-shadow-xl: rgb(0 0 0 / 50%);
+    --color-focus-ring: var(--color-primary-400);
+    --color-focus-ring-offset: var(--color-gray-900);
+    --color-outline: var(--color-primary-400);
+  }
+  
+  /* 
+   * Unterstützung für farbliche Themes
+   * Diese können zusätzlich zu Light/Dark-Mode angewendet werden
+   */
+  .theme-blue {
+    --theme-hue: 210; /* Blau */
+    --theme-primary-h: var(--theme-hue);
+    --theme-primary-s: 100%;
+    --theme-primary-l: 50%;
+    --color-primary-500: hsl(var(--theme-primary-h) var(--theme-primary-s) var(--theme-primary-l));
+  }
+  
+  .theme-green {
+    --theme-hue: 150; /* Grün */
+    --theme-primary-h: var(--theme-hue);
+    --theme-primary-s: 60%;
+    --theme-primary-l: 45%;
+    --color-primary-500: hsl(var(--theme-primary-h) var(--theme-primary-s) var(--theme-primary-l));
+  }
+  
+  .theme-purple {
+    --theme-hue: 270; /* Lila */
+    --theme-primary-h: var(--theme-hue);
+    --theme-primary-s: 70%;
+    --theme-primary-l: 55%;
+    --color-primary-500: hsl(var(--theme-primary-h) var(--theme-primary-s) var(--theme-primary-l));
+  }
+  
+  .theme-orange {
+    --theme-hue: 30; /* Orange */
+    --theme-primary-h: var(--theme-hue);
+    --theme-primary-s: 100%;
+    --theme-primary-l: 50%;
+    --color-primary-500: hsl(var(--theme-primary-h) var(--theme-primary-s) var(--theme-primary-l));
+  }
+} 
