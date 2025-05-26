@@ -22,13 +22,13 @@ pnpm add @casoon/ui-lib
 
 ## Usage
 
-### Standard Usage (Modular Approach mit Lightning CSS)
+### Standard Usage (Modular Approach with Lightning CSS)
 
-Diese Variante ist ideal für Entwickler, die Lightning CSS verwenden und:
-- Maximale Kontrolle über die CSS-Layer benötigen
-- Selektiv nur bestimmte Komponenten einbinden möchten
-- Eine eigene Optimierung durchführen wollen
-- Mit dem Layer-System gezielt arbeiten möchten
+This option is ideal for developers using Lightning CSS who need:
+- Maximum control over CSS layers
+- Selective component imports
+- Custom optimization process
+- Direct work with the layer system
 
 **Basic:**
 ```html
@@ -45,10 +45,10 @@ import '@casoon/ui-lib/index.css';
 
 ### Bundled CSS Alternative
 
-Diese Variante bietet eine bereits gebündelte und optimierte Version für:
-- Einfache Integration ohne Konfiguration von Lightning CSS
-- Schnelle Verwendung über CDN (unpkg.com)
-- Projekte, bei denen Ladezeit wichtiger ist als Flexibilität
+This option provides a pre-bundled and optimized version for:
+- Simple integration without Lightning CSS configuration
+- Quick usage via CDN (unpkg.com)
+- Projects where loading time is more important than flexibility
 
 **Direct HTML:**
 ```html
@@ -70,13 +70,13 @@ import '@casoon/ui-lib/dist/index.min.css';
 <link rel="stylesheet" href="https://unpkg.com/@casoon/ui-lib/dist/index.min.css">
 ```
 
-**Hinweis zur unpkg.com-Version:**
-Die minifizierte Version enthält die Basis-Funktionalität, aber möglicherweise nicht alle Effekte und Komponenten. Für spezifische Komponenten oder Effekte können diese gezielt nachgeladen werden:
+**Note about the unpkg.com version:**
+The minified version contains basic functionality but may not include all effects and components. For specific components or effects, these can be loaded selectively:
 
 ```html
-<!-- Basis-CSS -->
+<!-- Base CSS -->
 <link rel="stylesheet" href="https://unpkg.com/@casoon/ui-lib/dist/index.min.css">
-<!-- Zusätzliche Komponenten nach Bedarf -->
+<!-- Additional components as needed -->
 <link rel="stylesheet" href="https://unpkg.com/@casoon/ui-lib/effects/visual/shadows.css">
 <link rel="stylesheet" href="https://unpkg.com/@casoon/ui-lib/ui/components/card.css">
 ```
@@ -134,7 +134,11 @@ Die minifizierte Version enthält die Basis-Funktionalität, aber möglicherweis
 
 ```
 @casoon/ui-lib/
-├── core.css              # Main file with layer imports
+├── index.css             # Main file with layer imports
+├── dist/                 # Contains bundled versions
+│   ├── index.min.css     # Minified bundle with all imports resolved
+│   ├── index.min.css.map # Source map for debugging
+│   └── index.bundled.css # Non-minified bundle for development
 ├── base/                 # Base styles and reset
 │   ├── base.css          # Base imports
 │   ├── reset.css         # CSS reset

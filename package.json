@@ -2,8 +2,8 @@
   "name": "@casoon/ui-lib",
   "version": "0.6.6",
   "description": "Modular, lightweight CSS framework and design system for modern web projects. Optimized for Astro JS, LightningCSS and Container Queries with @layer-based architecture and comprehensive accessibility.",
-  "main": "core.css",
-  "style": "core.css",
+  "main": "index.css",
+  "style": "index.css",
   "files": [
     "layout/",
     "tokens/",
