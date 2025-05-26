@@ -1,46 +1,45 @@
 /**
- * Utilities
+ * Utilities System
  * 
- * Diese Datei importiert alle Hilfsklassen und Utilities.
+ * Hauptdatei für alle Hilfsklassen und Utilities der UI-Bibliothek.
+ * Organisiert die Importe nach ihrer Funktion und Layer-Zugehörigkeit.
  */
 
-@layer utilities {
-  /* Import der Variablen für die Utilities */
-  @import url('./variables/shared.css');
-  @import url('./variables/spacing.css');
-  @import url('./variables/typography.css');
-  @import url('./variables/colors.css');
-  
-  /* Import der Mixins */
-  @import url('./mixins/responsive.css');
-  @import url('./mixins/typography.css');
-  
-  /* Import der Hilfsklassen */
-  @import url('./helpers/spacing.css');
-  @import url('./helpers/dimensions.css');
-  @import url('./helpers/text.css');
-  @import url('./helpers/display.css');
-  
-  /* Import der Anpassungen */
-  @import url('./customize/index.css');
-}
+/**
+ * Modulare Imports mit expliziter Layer-Angabe
+ * Konsistentes Pattern für alle externen Importe
+ */
 
-/* Variablen und Tokens */
+/* Variablen und Tokens für Utilities */
 @import url('./variables/colors.css') layer(utilities.variables);
 @import url('./variables/spacing.css') layer(utilities.variables);
 @import url('./variables/typography.css') layer(utilities.variables);
+@import url('./variables/shared.css') layer(utilities.variables);
 
-/* Mixins für wiederverwendbare Styles */
+/* Mixins für wiederverwendbare Stile */
 @import url('./mixins/responsive.css') layer(utilities.mixins);
 @import url('./mixins/transitions.css') layer(utilities.mixins);
 @import url('./mixins/layout.css') layer(utilities.mixins);
+@import url('./mixins/typography.css') layer(utilities.mixins);
 
-/* Helfer-Klassen */
+/* Hilfsklassen für häufige Styling-Aufgaben */
 @import url('./helpers/spacing.css') layer(utilities.helpers);
 @import url('./helpers/display.css') layer(utilities.helpers);
 @import url('./helpers/text.css') layer(utilities.helpers);
 @import url('./helpers/dimensions.css') layer(utilities.helpers);
 
-/* Anpassungsmöglichkeiten */
+/* Anpassungsmöglichkeiten und Theming */
 @import url('./customize/theme-generator.css') layer(utilities.customize);
-@import url('./customize/component-overrides.css') layer(utilities.customize); 
+@import url('./customize/component-overrides.css') layer(utilities.customize);
+@import url('./customize/index.css') layer(utilities.customize);
+
+/**
+ * Globale Utility-Definitionen
+ * Für Stile, die direkt im Haupt-Utilities-Layer definiert werden sollen
+ */
+@layer utilities {
+  /* 
+   * Globale Utility-Klassen, die keinem Sublayer zugeordnet sind 
+   * Hier können bei Bedarf weitere direkte Definitionen erfolgen
+   */
+} 
