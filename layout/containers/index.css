@@ -1,17 +1,30 @@
 /**
  * Container System
  * 
- * Main file for the container system of the UI library.
- * Imports and organizes all container modules.
+ * Hauptdatei für das Container-System der UI-Bibliothek.
+ * Organisiert die Container-Module nach ihrer Funktionalität.
  */
 
-/* Import of container modules */
+/* 
+ * Basis Container-Module 
+ * Grundlegende Container-Definitionen und Positionierung
+ */
 @import url('./base.css') layer(layout.containers.base);
 @import url('./position.css') layer(layout.containers.position);
 @import url('./responsive-containers.css') layer(layout.containers.responsive);
+
+/* 
+ * Spezielle Container-Typen
+ * Container mit bestimmten Layout-Eigenschaften
+ */
 @import url('./special.css') layer(layout.containers.special);
 @import url('./asymmetric.css') layer(layout.containers.asymmetric);
 @import url('./visual.css') layer(layout.containers.visual);
+
+/* 
+ * Funktionale Container 
+ * Container mit spezifischen Verhaltensweisen und Merkmalen
+ */
 @import url('./functional.css') layer(layout.containers.functional);
 @import url('./performance.css') layer(layout.containers.performance);
 @import url('./a11y.css') layer(layout.containers.a11y);

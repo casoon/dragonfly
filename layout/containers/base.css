@@ -1,13 +1,17 @@
 /**
  * Container Base Components
  * 
- * These components control the width and space for content.
- * They are based on the sizes defined in tokens.css.
+ * Grundlegende Container-Komponenten für das Layout-System.
+ * Diese Komponenten definieren die Breite und den Raum für Inhalte.
  */
 
 @layer layout.containers.base {
-    /* ================= CONTAINER ================= */
+    /* ================= STANDARD CONTAINER ================= */
     
+    /**
+     * Hauptcontainer-Klassen
+     * Definieren die grundlegenden Container-Größen und -Abstände
+     */
     .container {
         margin-inline: auto;
         max-width: var(--container-lg);
@@ -15,25 +19,24 @@
         width: 100%;
     }
 
+    /* Container-Größenvarianten */
     .container-sm { max-width: var(--container-sm); }
-
     .container-md { max-width: var(--container-md); }
-
     .container-lg { max-width: var(--container-lg); }
-
     .container-xl { max-width: var(--container-xl); }
-
     .container-2xl { max-width: var(--container-2xl); }
 
+    /* Container-Padding-Varianten */
     .container-padding-sm { padding-inline: var(--container-padding-sm); }
-
     .container-padding-md { padding-inline: var(--container-padding-md); }
-
     .container-padding-lg { padding-inline: var(--container-padding-lg); }
 
     /* ================= CONTAINER QUERIES ================= */
 
-    /* Container query definitions that serve as anchors for responsive adjustments */
+    /**
+     * Container-Query-Anker
+     * Definieren Anker für responsive Anpassungen basierend auf Container-Größen
+     */
     .container-query {
         container-name: layout;
         container-type: inline-size;
@@ -44,9 +47,12 @@
         container-type: inline-size;
     }
 
-    /* ================= WRAPPERS / BOXES ================= */
+    /* ================= CONTENT WRAPPERS ================= */
 
-    /* Components for visual grouping and content containment */
+    /**
+     * Hilfscontainer für visuelles Gruppieren und Inhaltsbegrenzung
+     * Bieten verschiedene Arten von Container-Layouts für unterschiedliche Zwecke
+     */
     .container-box {
         background: var(--color-background-elevated, white);
         border-radius: var(--radius-md);

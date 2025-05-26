@@ -2,12 +2,24 @@
  * Layout System
  * 
  * Hauptdatei für das Layout-System der UI-Bibliothek.
- * Importiert und organisiert alle Layout-Module.
+ * Organisiert alle Layout-bezogenen Komponenten in einer konsistenten Layer-Struktur.
  */
 
-/* Basis-Layout-Definitionen */
+/* 
+ * Import der Layout-Module mit expliziter Layer-Zuordnung
+ * Die Layer-Hierarchie ist im Haupt-index.css definiert
+ */
+@import url('./grid-system.css') layer(layout.grid);
+@import url('./flex-layouts.css') layer(layout.flex);
+@import url('./containers/index.css') layer(layout.containers);
+@import url('./spacing.css') layer(layout.spacing);
+@import url('./responsive.css') layer(layout.responsive);
+
+/* 
+ * Basis-Layout-Definitionen
+ * Enthält grundlegende Variablen und Konfigurationen für das Layout-System
+ */
 @layer layout {
-  /* Grundlegende Einstellungen für das Raster-System */
   :root {
     /* Raster-Konfiguration */
     --grid-columns: 12;
@@ -24,28 +36,19 @@
   }
 }
 
-/* Import der Layout-Module */
-@import url('./grid-system.css') layer(layout.grid);
-@import url('./flex-layouts.css') layer(layout.flex);
-@import url('./containers/index.css') layer(layout.containers);
-@import url('./spacing.css') layer(layout.spacing);
-@import url('./responsive.css') layer(layout.responsive);
-
-/* Layout-Utilities */
+/* 
+ * Layout-Utilities 
+ * Häufig benötigte Hilfsklassen für Layout-Anpassungen
+ */
 @layer layout.utilities {
   /* Dimension-Utilities */
   .w-full { width: 100%; }
-
   .h-full { height: 100%; }
-
   .min-h-screen { min-height: 100vh; }
-
   .min-h-dvh { min-height: 100dvh; }
-
   .max-w-full { max-width: 100%; }
 
   /* Positionierung */
   .mx-auto { margin-inline: auto; }
-
   .my-auto { margin-block: auto; }
 } 

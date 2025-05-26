@@ -5,8 +5,18 @@
  * Importiert und organisiert alle Typografie-Module.
  */
 
+/* 
+ * Import der Typografie-Module mit expliziten Layer-Definitionen
+ * Verwendung des gleichen Patterns für alle Importe für Konsistenz
+ */
+@import url('./hierarchy/headings.css') layer(typography.headings);
+@import url('./weights/font-weights.css') layer(typography.weights);
+@import url('./web-fonts/web-fonts.css') layer(typography.webfonts);
+@import url('./baseline/baseline-grid.css') layer(typography.baseline);
+
+/* Basis-Typografie-Definitionen */
 @layer typography {
-  /* Grundlegende Definitionen */
+  /* Grundlegende Schriftfamilien-Definitionen */
   :root {
     --font-family-sans: system-ui, -apple-system, blinkmacsystemfont, "segoe ui", roboto, "helvetica neue", arial, sans-serif;
     --font-family-serif: georgia, cambria, "times new roman", times, serif;
@@ -14,13 +24,7 @@
   }
 }
 
-/* Import der Typografie-Module */
-@import url('./hierarchy/headings.css') layer(typography.headings);
-@import url('./weights/font-weights.css') layer(typography.weights);
-@import url('./web-fonts/web-fonts.css') layer(typography.webfonts);
-@import url('./baseline/baseline-grid.css') layer(typography.baseline);
-
-/* Basis-Typografie */
+/* Basis-Typografie-Stile für Standardelemente */
 @layer typography.base {
   body {
     color: var(--color-gray-900);
@@ -57,11 +61,16 @@
   }
 }
 
-/* Text-Elemente */
+/* Erweiterte Text-Element-Stile */
 @layer typography.text {
   em, i, .italic { font-style: italic; }
 
-  figcaption, .caption { color: var(--color-gray-600); font-size: var(--font-size-sm); font-style: italic; margin-top: var(--space-2); }
+  figcaption, .caption { 
+    color: var(--color-gray-600); 
+    font-size: var(--font-size-sm); 
+    font-style: italic; 
+    margin-top: var(--space-2); 
+  }
 
   blockquote, .blockquote {
     border-left: 4px solid var(--color-gray-200);
@@ -104,7 +113,7 @@
   }
 }
 
-/* Responsive Typografie */
+/* Container-Query basierte responsive Typografie */
 @layer typography.responsive {
   @container root (max-width: 640px) {
     body {
@@ -113,45 +122,26 @@
     }
     
     h1 { font-size: 1.875rem; }
-
     h2 { font-size: 1.5rem; }
-
     h3 { font-size: 1.25rem; }
-
     h4 { font-size: 1.125rem; }
-
     h5 { font-size: 1.1rem; }
-
     h6 { font-size: 1rem; }
   }
 }
 
-/* Fluid Typografie */
+/* Fluid-Typografie mit clamp() für responsive Größenanpassungen */
 @layer typography.fluid {
   .fluid-heading {
     font-weight: var(--font-weight-bold);
     line-height: var(--line-height-tight);
     text-wrap: balance;
     
-    &.xxl {
-      font-size: clamp(2rem, 5vw + 1rem, 3.5rem);
-    }
-    
-    &.xl {
-      font-size: clamp(1.75rem, 4vw + 1rem, 3rem);
-    }
-    
-    &.lg {
-      font-size: clamp(1.5rem, 3vw + 1rem, 2.5rem);
-    }
-    
-    &.md {
-      font-size: clamp(1.25rem, 2vw + 1rem, 2rem);
-    }
-    
-    &.sm {
-      font-size: clamp(1.1rem, 1vw + 1rem, 1.5rem);
-    }
+    &.xxl { font-size: clamp(2rem, 5vw + 1rem, 3.5rem); }
+    &.xl { font-size: clamp(1.75rem, 4vw + 1rem, 3rem); }
+    &.lg { font-size: clamp(1.5rem, 3vw + 1rem, 2.5rem); }
+    &.md { font-size: clamp(1.25rem, 2vw + 1rem, 2rem); }
+    &.sm { font-size: clamp(1.1rem, 1vw + 1rem, 1.5rem); }
   }
   
   .adaptive-text {
