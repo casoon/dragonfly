@@ -205,28 +205,24 @@ async function minifyCssFiles() {
  */
 function findCssFiles() {
   const cssFiles = [];
-  const ignoredDirs = ['node_modules', '.git', 'dist', 'build', 'tests'];
+  // Nur CSS-Dateien im dist-Verzeichnis minifizieren
+  const targetDir = path.join(path.resolve('.'), 'dist');
   
-  function scanDir(dir) {
-    if (ignoredDirs.some(ignored => dir.includes(ignored))) {
-      return;
-    }
-    
-    const files = fs.readdirSync(dir);
+  if (fs.existsSync(targetDir)) {
+    const files = fs.readdirSync(targetDir);
     
     for (const file of files) {
-      const filePath = path.join(dir, file);
+      const filePath = path.join(targetDir, file);
       const stat = fs.statSync(filePath);
       
-      if (stat.isDirectory()) {
-        scanDir(filePath);
-      } else if (file.endsWith('.css') && !file.endsWith('.min.css')) {
+      if (!stat.isDirectory() && file.endsWith('.css') && !file.endsWith('.min.css')) {
         cssFiles.push(filePath);
       }
     }
+  } else {
+    console.log(`  ${colors.yellow}⚠${colors.reset} Das dist-Verzeichnis existiert nicht. Keine Dateien zum Minifizieren gefunden.`);
   }
   
-  scanDir('.');
   return cssFiles;
 }
 

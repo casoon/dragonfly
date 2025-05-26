@@ -23,6 +23,9 @@ if (!fs.existsSync(distDir)) {
   fs.mkdirSync(distDir, { recursive: true });
 }
 
+// Speichern der Bundle-Größen für späteren Vergleich
+let nonMinifiedSize = 0;
+
 async function generateBundle(minify = true) {
   try {
     console.log(`🔄 Generiere CSS-Bundle ${minify ? '(minifiziert)' : '(nicht minifiziert)'}...`);
@@ -37,7 +40,26 @@ async function generateBundle(minify = true) {
         nesting: true,
         customMedia: true
       },
-      errorRecovery: true
+      errorRecovery: true,
+      // Targets für bessere Kompatibilität
+      targets: {
+        chrome: 95,
+        firefox: 95,
+        safari: 15
+      },
+      // Verbesserte Minifizierungsoptionen für besser parsbare Ausgabe
+      minifyOptions: minify ? {
+        targets: { 
+          chrome: 95, 
+          firefox: 95,
+          safari: 15 
+        },
+        lineBreaks: {
+          // Zeilenumbrüche bei Schachtelungstiefe >3 für bessere Parsbarkeit  
+          depth: 3 
+        },
+        comments: 'none'
+      } : undefined
     });
     
     // Ausgabe in die Zieldatei schreiben
@@ -49,13 +71,33 @@ async function generateBundle(minify = true) {
       console.log(`✅ Sourcemap erstellt: ${outputMapFile}`);
     }
     
-    const inputSize = fs.statSync(inputFile).size;
     const outputSize = fs.statSync(targetFile).size;
-    const reductionPercent = ((1 - outputSize / inputSize) * 100).toFixed(2);
     
-    console.log(`✅ Bundle erfolgreich erstellt: ${targetFile}`);
-    console.log(`   Original-Größe: ${formatBytes(inputSize)}`);
-    console.log(`   Bundle-Größe: ${formatBytes(outputSize)} (${reductionPercent}% Reduktion)`);
+    // Speichere die Größe des nicht-minifizierten Bundles für den Vergleich
+    if (!minify) {
+      nonMinifiedSize = outputSize;
+      console.log(`✅ Bundle erfolgreich erstellt: ${targetFile}`);
+      console.log(`   Bundle-Größe: ${formatBytes(outputSize)}`);
+    } else {
+      // Berechne die Reduktion zwischen nicht-minifiziertem und minifiziertem Bundle
+      const reductionPercent = ((1 - outputSize / nonMinifiedSize) * 100).toFixed(2);
+      console.log(`✅ Bundle erfolgreich erstellt: ${targetFile}`);
+      console.log(`   Bundle-Größe: ${formatBytes(outputSize)} (${reductionPercent}% Reduktion gegenüber nicht-minifiziertem Bundle)`);
+      
+      // Validiere, dass das minifizierte Bundle erfolgreich geparsed werden kann
+      try {
+        // Test-Parse der erzeugten Datei
+        const testParse = require('lightningcss').transform({
+          filename: targetFile,
+          code: result.code,
+          minify: false
+        });
+        console.log(`✅ Das minifizierte Bundle wurde erfolgreich validiert`);
+      } catch (parseError) {
+        console.warn(`⚠️ Warnung: Das minifizierte Bundle könnte Parsing-Probleme verursachen:`);
+        console.warn(parseError.message);
+      }
+    }
     
     return true;
   } catch (error) {

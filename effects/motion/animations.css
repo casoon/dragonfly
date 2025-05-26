@@ -761,26 +761,31 @@
             animation: fade-in var(--dialog-duration) var(--ease-out);
             animation-fill-mode: both;
             background-color: rgb(0 0 0 / var(--dialog-backdrop-opacity));
+            will-change: opacity;
         }
 
         /* Direkte Anwendung auf <dialog>-Element */
         dialog.animated {
             animation: dialog-enter var(--dialog-duration) var(--ease-out);
             animation-fill-mode: both;
+            will-change: transform, opacity;
         }
 
         dialog.animated::backdrop {
             animation: fade-in var(--dialog-duration) var(--ease-out);
             animation-fill-mode: both;
             background-color: rgb(0 0 0 / var(--dialog-backdrop-opacity));
+            will-change: opacity;
         }
 
         dialog.animated[closing] {
             animation: dialog-exit var(--dialog-duration) var(--ease-in-out);
+            will-change: transform, opacity;
         }
 
         dialog.animated[closing]::backdrop {
             animation: fade-out var(--dialog-duration) var(--ease-in-out);
+            will-change: opacity;
         }
     }
 

@@ -5,13 +5,39 @@
  * Kann über die Klasse .theme-light oder via @media (prefers-color-scheme: light) aktiviert werden.
  */
 
-@layer themes.mode {
+/* Gemeinsame Light Mode Variablen für Wiederverwendung */
+:root {
+  --light-mode-text: var(--color-gray-900);
+  --light-mode-text-muted: var(--color-gray-600);
+  --light-mode-text-light: var(--color-gray-400);
+  --light-mode-text-inverted: var(--color-gray-100);
+  --light-mode-background: var(--color-gray-50);
+  --light-mode-background-alt: var(--color-gray-100);
+  --light-mode-background-elevated: #fff;
+  --light-mode-background-inverted: var(--color-gray-900);
+  --light-mode-border: var(--color-gray-200);
+  --light-mode-border-hover: var(--color-gray-300);
+  --light-mode-border-focus: var(--color-primary-500);
+  --light-mode-border-error: var(--color-error-500);
+  --light-mode-shadow-sm: rgb(0 0 0 / 5%);
+  --light-mode-shadow-md: rgb(0 0 0 / 10%);
+  --light-mode-shadow-lg: rgb(0 0 0 / 15%);
+  --light-mode-shadow-xl: rgb(0 0 0 / 20%);
+  --light-mode-focus-ring: var(--color-primary-500);
+  --light-mode-focus-ring-offset: #fff;
+  --light-mode-outline: var(--color-primary-500);
+}
+
+@layer themes-mode {
   /* 
    * Light-Mode-Variablen
    * Diese Variablen werden in der :root gesetzt und von den anderen CSS-Dateien verwendet.
    */
   :root,
   .theme-light {
+    /* Aktiviere explizit Light Color Scheme */
+    color-scheme: light;
+    
     /* Primärfarben-Palette */
     --color-primary-50: hsl(210deg 100% 98%);
     --color-primary-100: hsl(210deg 100% 95%);
@@ -48,73 +74,43 @@
     --color-gray-800: hsl(210deg 15% 15%);
     --color-gray-900: hsl(210deg 20% 10%);
     
-    /* Erfolg-Palette */
+    /* Status-Paletten */
     --color-success-light: hsl(160deg 80% 45%);
     --color-success: hsl(160deg 100% 35%);
     --color-success-dark: hsl(160deg 100% 25%);
-    
-    /* Warnung-Palette */
     --color-warning-light: hsl(45deg 100% 55%);
     --color-warning: hsl(45deg 100% 45%);
     --color-warning-dark: hsl(45deg 100% 35%);
-    
-    /* Fehler-Palette */
     --color-error-light: hsl(0deg 100% 60%);
     --color-error: hsl(0deg 100% 50%);
     --color-error-dark: hsl(0deg 100% 40%);
-    
-    /* Info-Palette */
     --color-info-light: hsl(210deg 100% 60%);
     --color-info: hsl(210deg 100% 50%);
     --color-info-dark: hsl(210deg 100% 40%);
     
-    /* Basis-Farben für Light-Mode */
-    --color-background-light: #fff;
-    --color-surface-light: #f9fafb;
-    --color-surface-hover-light: #f3f4f6;
-    --color-surface-active-light: #e5e7eb;
+    /* =================== UI-FARBEN =================== */
+    --color-text: var(--light-mode-text);
+    --color-text-muted: var(--light-mode-text-muted);
+    --color-text-light: var(--light-mode-text-light);
+    --color-text-inverted: var(--light-mode-text-inverted);
+    --color-background: var(--light-mode-background);
+    --color-background-alt: var(--light-mode-background-alt);
+    --color-background-elevated: var(--light-mode-background-elevated);
+    --color-background-inverted: var(--light-mode-background-inverted);
     
-    /* Text-Farben für Light-Mode */
-    --color-text-primary-light: #111827;
-    --color-text-secondary-light: #4b5563;
-    --color-text-tertiary-light: #9ca3af;
-    --color-text-disabled-light: #d1d5db;
+    /* =================== BORDER & SHADOW =================== */
+    --color-border: var(--light-mode-border);
+    --color-border-hover: var(--light-mode-border-hover);
+    --color-border-focus: var(--light-mode-border-focus);
+    --color-border-error: var(--light-mode-border-error);
+    --color-shadow-sm: var(--light-mode-shadow-sm);
+    --color-shadow-md: var(--light-mode-shadow-md);
+    --color-shadow-lg: var(--light-mode-shadow-lg);
+    --color-shadow-xl: var(--light-mode-shadow-xl);
     
-    /* Rand-Farben für Light-Mode */
-    --color-border-light: #e5e7eb;
-    --color-border-hover-light: #d1d5db;
-    --color-border-focus-light: #3b82f6;
-    
-    /* Schatten-Farben für Light-Mode */
-    --color-shadow-light: rgb(0 0 0 / 10%);
-    --color-shadow-dark-light: rgb(0 0 0 / 25%);
-    
-    /* Overlay-Farben für Light-Mode */
-    --color-overlay-light: rgb(0 0 0 / 50%);
-    --color-overlay-light-light: rgb(0 0 0 / 20%);
-    
-    /* Status-Farben für Light-Mode */
-    --color-focus-ring-light: rgb(59 130 246 / 50%);
-    
-    /* 
-     * Aktive Farbvariablen setzen 
-     * (diese werden von den anderen CSS-Dateien verwendet)
-     */
-    --color-background: var(--color-background-light);
-    --color-surface: var(--color-surface-light);
-    --color-surface-hover: var(--color-surface-hover-light);
-    --color-surface-active: var(--color-surface-active-light);
-    --color-text-primary: var(--color-text-primary-light);
-    --color-text-secondary: var(--color-text-secondary-light);
-    --color-text-tertiary: var(--color-text-tertiary-light);
-    --color-text-disabled: var(--color-text-disabled-light);
-    --color-border: var(--color-border-light);
-    --color-border-hover: var(--color-border-hover-light);
-    --color-border-focus: var(--color-border-focus-light);
-    --color-shadow: var(--color-shadow-light);
-    --color-shadow-dark: var(--color-shadow-dark-light);
-    --color-overlay: var(--color-overlay-light);
-    --color-overlay-light: var(--color-overlay-light-light);
-    --color-focus-ring: var(--color-focus-ring-light);
+    /* =================== FOCUS & OUTLINE =================== */
+    --color-focus-ring: var(--light-mode-focus-ring);
+    --color-focus-ring-offset: var(--light-mode-focus-ring-offset);
+    --color-outline: var(--light-mode-outline);
   }
 } 

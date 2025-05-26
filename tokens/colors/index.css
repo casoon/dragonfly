@@ -1,12 +1,13 @@
 /**
  * Color Tokens
  * 
- * Farbvariablen für das gesamte UI-System
+ * Farbvariablen für das gesamte UI-System.
+ * Diese Definitionen bilden die Grundlage für alle Theme-Variationen.
  */
 
 @layer tokens {
   :root {
-    /* Primary Colors */
+    /* Primary Colors - Blau-Palette */
     --color-primary-50: #e6f0ff;
     --color-primary-100: #cce0ff;
     --color-primary-200: #99c2ff;
@@ -18,7 +19,7 @@
     --color-primary-800: #002966;
     --color-primary-900: #001433;
     
-    /* Secondary Colors */
+    /* Secondary Colors - Violett-Palette */
     --color-secondary-50: #eeeaff;
     --color-secondary-100: #dcd6ff;
     --color-secondary-200: #baadff;
@@ -30,7 +31,7 @@
     --color-secondary-800: #211566;
     --color-secondary-900: #110a33;
     
-    /* Success Colors */
+    /* Success Colors - Grün-Palette */
     --color-success-50: #e6f9f1;
     --color-success-100: #ccf3e3;
     --color-success-200: #99e7c7;
@@ -42,7 +43,7 @@
     --color-success-800: #064a34;
     --color-success-900: #03251a;
     
-    /* Warning Colors */
+    /* Warning Colors - Orange-Palette */
     --color-warning-50: #fef4e6;
     --color-warning-100: #fdeacc;
     --color-warning-200: #fbd599;
@@ -54,7 +55,7 @@
     --color-warning-800: #623f04;
     --color-warning-900: #312002;
     
-    /* Error Colors */
+    /* Error Colors - Rot-Palette */
     --color-error-50: #fdeded;
     --color-error-100: #fbdbdb;
     --color-error-200: #f7b7b7;
@@ -66,7 +67,7 @@
     --color-error-800: #601b1b;
     --color-error-900: #300e0e;
     
-    /* Gray Colors */
+    /* Gray Colors - Neutrale Grau-Palette mit Blau-Unterton */
     --color-gray-hue: 262;
     --color-gray-50-fallback: #f9f9fa;
     --color-gray-100-fallback: #f3f3f5;
@@ -76,8 +77,12 @@
     --color-gray-500-fallback: #8f96a8;
     --color-gray-600-fallback: #6c7285;
     --color-gray-700-fallback: #4a4e5c;
+    --color-gray-780-fallback: #282b36; /* Dunklerer Wert für besseren Kontrast bei elevated Elementen */
     --color-gray-800-fallback: #30333c;
+    --color-gray-850-fallback: #262830; /* Zwischenwert zwischen 800 und 900 */
     --color-gray-900-fallback: #1d1f24;
+    
+    /* Verwenden der Fallback-Werte als aktuelle Werte */
     --color-gray-50: var(--color-gray-50-fallback);
     --color-gray-100: var(--color-gray-100-fallback);
     --color-gray-200: var(--color-gray-200-fallback);
@@ -86,10 +91,12 @@
     --color-gray-500: var(--color-gray-500-fallback);
     --color-gray-600: var(--color-gray-600-fallback);
     --color-gray-700: var(--color-gray-700-fallback);
+    --color-gray-780: var(--color-gray-780-fallback); /* Neu: für besseren Kontrast bei elevated Elementen */
     --color-gray-800: var(--color-gray-800-fallback);
+    --color-gray-850: var(--color-gray-850-fallback); /* Für Zwischenwerte und Abstufungen */
     --color-gray-900: var(--color-gray-900-fallback);
     
-    /* Neutral Colors */
+    /* Neutral Colors - Reine Grau-Palette ohne Farbton */
     --color-neutral-50: #f9fafb;
     --color-neutral-100: #f3f4f6;
     --color-neutral-200: #e5e7eb;

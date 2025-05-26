@@ -3,162 +3,190 @@
  * 
  * Diese Datei definiert das Dark Mode Theme.
  * Die Farben orientieren sich an den Variablen aus colors.css.
- * Das Theme wird nur aktiviert, wenn die Klasse "theme-dark-mode" auf einem Element angewendet wird.
+ * Das Theme wird über die Klasse "theme-dark-mode" aktiviert.
  * 
- * Diese Version verwendet die moderne light-dark() Syntax für automatischen Dark Mode.
+ * Unterstützt sowohl modernen light-dark() Syntax als auch Fallbacks für ältere Browser.
  */
 
-.theme-dark-mode {
-    /* Aktiviere automatisches Color Scheme */
-    color-scheme: light dark;
-    
-    /* =================== BASIS-FARBEN =================== */
+/* Gemeinsame Dark Mode Variablen für Wiederverwendung */
+:root {
+  --dark-mode-text: var(--color-gray-100);
+  --dark-mode-text-muted: var(--color-gray-400);
+  --dark-mode-text-light: var(--color-gray-600);
+  --dark-mode-text-inverted: var(--color-gray-900);
+  --dark-mode-background: var(--color-gray-900);
+  --dark-mode-background-alt: var(--color-gray-800);
 
-    /* Primary Colors */
-    --color-primary-50: var(--color-slate-50);
-    --color-primary-100: var(--color-slate-100);
-    --color-primary-200: var(--color-slate-200);
-    --color-primary-300: var(--color-slate-300);
-    --color-primary-400: var(--color-slate-400);
-    --color-primary-500: var(--color-slate-500);
-    --color-primary-600: var(--color-slate-600);
-    --color-primary-700: var(--color-slate-700);
-    --color-primary-800: var(--color-slate-800);
-    --color-primary-900: var(--color-slate-900);
-    --color-primary: var(--color-primary-600);
-    --color-primary-hover: var(--color-primary-700);
-    --color-primary-active: var(--color-primary-800);
-    --color-primary-light: var(--color-primary-100);
-    --color-primary-dark: var(--color-primary-900);
-
-    /* Secondary Colors */
-    --color-secondary-50: var(--color-zinc-50);
-    --color-secondary-100: var(--color-zinc-100);
-    --color-secondary-200: var(--color-zinc-200);
-    --color-secondary-300: var(--color-zinc-300);
-    --color-secondary-400: var(--color-zinc-400);
-    --color-secondary-500: var(--color-zinc-500);
-    --color-secondary-600: var(--color-zinc-600);
-    --color-secondary-700: var(--color-zinc-700);
-    --color-secondary-800: var(--color-zinc-800);
-    --color-secondary-900: var(--color-zinc-900);
-    --color-secondary: var(--color-secondary-600);
-    --color-secondary-hover: var(--color-secondary-700);
-    --color-secondary-active: var(--color-secondary-800);
-    --color-secondary-light: var(--color-secondary-100);
-    --color-secondary-dark: var(--color-secondary-900);
-
-    /* Accent Colors */
-    --color-accent-50: var(--color-neutral-50);
-    --color-accent-100: var(--color-neutral-100);
-    --color-accent-200: var(--color-neutral-200);
-    --color-accent-300: var(--color-neutral-300);
-    --color-accent-400: var(--color-neutral-400);
-    --color-accent-500: var(--color-neutral-500);
-    --color-accent-600: var(--color-neutral-600);
-    --color-accent-700: var(--color-neutral-700);
-    --color-accent-800: var(--color-neutral-800);
-    --color-accent-900: var(--color-neutral-900);
-    --color-accent: var(--color-accent-500);
-    --color-accent-hover: var(--color-accent-600);
-    --color-accent-active: var(--color-accent-700);
-    --color-accent-light: var(--color-accent-100);
-    --color-accent-dark: var(--color-accent-900);
-
-    /* =================== STATUS-FARBEN =================== */
-    --color-success: var(--color-emerald-500);
-    --color-success-hover: var(--color-emerald-600);
-    --color-success-active: var(--color-emerald-700);
-    --color-success-light: var(--color-emerald-100);
-    --color-success-dark: var(--color-emerald-900);
-    --color-error: var(--color-red-500);
-    --color-error-hover: var(--color-red-600);
-    --color-error-active: var(--color-red-700);
-    --color-error-light: var(--color-red-100);
-    --color-error-dark: var(--color-red-900);
-    --color-warning: var(--color-amber-500);
-    --color-warning-hover: var(--color-amber-600);
-    --color-warning-active: var(--color-amber-700);
-    --color-warning-light: var(--color-amber-100);
-    --color-warning-dark: var(--color-amber-900);
-    --color-info: var(--color-sky-500);
-    --color-info-hover: var(--color-sky-600);
-    --color-info-active: var(--color-sky-700);
-    --color-info-light: var(--color-sky-100);
-    --color-info-dark: var(--color-sky-900);
-
-    /* =================== UI-FARBEN =================== */
-    --color-text: light-dark(var(--color-gray-900), var(--color-gray-100));
-    --color-text-muted: light-dark(var(--color-gray-600), var(--color-gray-400));
-    --color-text-light: light-dark(var(--color-gray-400), var(--color-gray-600));
-    --color-text-inverted: light-dark(var(--color-gray-100), var(--color-gray-900));
-    --color-background: light-dark(var(--color-gray-50), var(--color-gray-900));
-    --color-background-alt: light-dark(var(--color-gray-100), var(--color-gray-800));
-    --color-background-elevated: light-dark(var(--color-white), var(--color-gray-800));
-    --color-background-inverted: light-dark(var(--color-gray-900), var(--color-gray-50));
-
-    /* =================== BORDER & SHADOW =================== */
-    --color-border: light-dark(var(--color-gray-200), var(--color-gray-700));
-    --color-border-hover: light-dark(var(--color-gray-300), var(--color-gray-600));
-    --color-border-focus: light-dark(var(--color-primary-500), var(--color-primary-400));
-    --color-border-error: light-dark(var(--color-error-500), var(--color-error-400));
-    --color-shadow-sm: light-dark(rgb(0 0 0 / 5%), rgb(0 0 0 / 20%));
-    --color-shadow-md: light-dark(rgb(0 0 0 / 10%), rgb(0 0 0 / 30%));
-    --color-shadow-lg: light-dark(rgb(0 0 0 / 15%), rgb(0 0 0 / 40%));
-    --color-shadow-xl: light-dark(rgb(0 0 0 / 20%), rgb(0 0 0 / 50%));
-
-    /* =================== FOCUS & OUTLINE =================== */
-    --color-focus-ring: light-dark(var(--color-primary-500), var(--color-primary-400));
-    --color-focus-ring-offset: light-dark(var(--color-white), var(--color-gray-900));
-    --color-outline: light-dark(var(--color-primary-500), var(--color-primary-400));
+  /* Dunklerer Wert für besseren Kontrast bei elevated Elementen */
+  --dark-mode-background-elevated: var(--color-gray-780);
+  --dark-mode-background-inverted: var(--color-gray-50);
+  --dark-mode-border: var(--color-gray-700);
+  --dark-mode-border-hover: var(--color-gray-600);
+  --dark-mode-border-focus: var(--color-primary-400);
+  --dark-mode-border-error: var(--color-error-400);
+  --dark-mode-shadow-sm: rgb(0 0 0 / 20%);
+  --dark-mode-shadow-md: rgb(0 0 0 / 30%);
+  --dark-mode-shadow-lg: rgb(0 0 0 / 40%);
+  --dark-mode-shadow-xl: rgb(0 0 0 / 50%);
+  --dark-mode-focus-ring: var(--color-primary-400);
+  --dark-mode-focus-ring-offset: var(--color-gray-900);
+  --dark-mode-outline: var(--color-primary-400);
 }
 
-/* Für ältere Browser ohne light-dark() Unterstützung */
+/* Dark Mode im Theme-Präferenz-System */
 @media (prefers-color-scheme: dark) {
-    .theme-dark-mode {
-        --color-text: var(--color-gray-100);
-        --color-text-muted: var(--color-gray-400);
-        --color-text-light: var(--color-gray-600);
-        --color-text-inverted: var(--color-gray-900);
-        --color-background: var(--color-gray-900);
-        --color-background-alt: var(--color-gray-800);
-        --color-background-elevated: var(--color-gray-800);
-        --color-background-inverted: var(--color-gray-50);
-        --color-border: var(--color-gray-700);
-        --color-border-hover: var(--color-gray-600);
-        --color-border-focus: var(--color-primary-400);
-        --color-border-error: var(--color-error-400);
-        --color-shadow-sm: rgb(0 0 0 / 20%);
-        --color-shadow-md: rgb(0 0 0 / 30%);
-        --color-shadow-lg: rgb(0 0 0 / 40%);
-        --color-shadow-xl: rgb(0 0 0 / 50%);
-        --color-focus-ring: var(--color-primary-400);
-        --color-focus-ring-offset: var(--color-gray-900);
-        --color-outline: var(--color-primary-400);
-    }
+  :root[style*="--theme-preference:\"auto\""] {
+    /* Auto-Modus verwendet die Systempräferenz */
+    color-scheme: dark;
+    
+    /* Überschreibe Light Mode Variablen mit Dark Mode Äquivalenten */
+    --color-text: var(--dark-mode-text);
+    --color-text-muted: var(--dark-mode-text-muted);
+    --color-text-light: var(--dark-mode-text-light);
+    --color-text-inverted: var(--dark-mode-text-inverted);
+    --color-background: var(--dark-mode-background);
+    --color-background-alt: var(--dark-mode-background-alt);
+    --color-background-elevated: var(--dark-mode-background-elevated);
+    --color-background-inverted: var(--dark-mode-background-inverted);
+    --color-border: var(--dark-mode-border);
+    --color-border-hover: var(--dark-mode-border-hover);
+    --color-border-focus: var(--dark-mode-border-focus);
+    --color-border-error: var(--dark-mode-border-error);
+    --color-shadow-sm: var(--dark-mode-shadow-sm);
+    --color-shadow-md: var(--dark-mode-shadow-md);
+    --color-shadow-lg: var(--dark-mode-shadow-lg);
+    --color-shadow-xl: var(--dark-mode-shadow-xl);
+    --color-focus-ring: var(--dark-mode-focus-ring);
+    --color-focus-ring-offset: var(--dark-mode-focus-ring-offset);
+    --color-outline: var(--dark-mode-outline);
+  }
 }
 
-/* Manueller Dark Mode */
+/* Explizites Dark Mode über CSS-Variablen */
+:root[style*="--theme-preference:\"dark\""] {
+  color-scheme: dark;
+  
+  /* Überschreibe Light Mode Variablen mit Dark Mode Äquivalenten */
+  --color-text: var(--dark-mode-text);
+  --color-text-muted: var(--dark-mode-text-muted);
+  --color-text-light: var(--dark-mode-text-light);
+  --color-text-inverted: var(--dark-mode-text-inverted);
+  --color-background: var(--dark-mode-background);
+  --color-background-alt: var(--dark-mode-background-alt);
+  --color-background-elevated: var(--dark-mode-background-elevated);
+  --color-background-inverted: var(--dark-mode-background-inverted);
+  --color-border: var(--dark-mode-border);
+  --color-border-hover: var(--dark-mode-border-hover);
+  --color-border-focus: var(--dark-mode-border-focus);
+  --color-border-error: var(--dark-mode-border-error);
+  --color-shadow-sm: var(--dark-mode-shadow-sm);
+  --color-shadow-md: var(--dark-mode-shadow-md);
+  --color-shadow-lg: var(--dark-mode-shadow-lg);
+  --color-shadow-xl: var(--dark-mode-shadow-xl);
+  --color-focus-ring: var(--dark-mode-focus-ring);
+  --color-focus-ring-offset: var(--dark-mode-focus-ring-offset);
+  --color-outline: var(--dark-mode-outline);
+}
+
+/* Dark Mode über HTML Attribute */
+html[data-theme="dark"] {
+  color-scheme: dark;
+  
+  /* Überschreibe Light Mode Variablen mit Dark Mode Äquivalenten */
+  --color-text: var(--dark-mode-text);
+  --color-text-muted: var(--dark-mode-text-muted);
+  --color-text-light: var(--dark-mode-text-light);
+  --color-text-inverted: var(--dark-mode-text-inverted);
+  --color-background: var(--dark-mode-background);
+  --color-background-alt: var(--dark-mode-background-alt);
+  --color-background-elevated: var(--dark-mode-background-elevated);
+  --color-background-inverted: var(--dark-mode-background-inverted);
+  --color-border: var(--dark-mode-border);
+  --color-border-hover: var(--dark-mode-border-hover);
+  --color-border-focus: var(--dark-mode-border-focus);
+  --color-border-error: var(--dark-mode-border-error);
+  --color-shadow-sm: var(--dark-mode-shadow-sm);
+  --color-shadow-md: var(--dark-mode-shadow-md);
+  --color-shadow-lg: var(--dark-mode-shadow-lg);
+  --color-shadow-xl: var(--dark-mode-shadow-xl);
+  --color-focus-ring: var(--dark-mode-focus-ring);
+  --color-focus-ring-offset: var(--dark-mode-focus-ring-offset);
+  --color-outline: var(--dark-mode-outline);
+}
+
+/* Light Mode Theme-Klassen-Implementierung für konsistente Schnittstelle */
+.theme-light-mode {
+  color-scheme: light;
+  
+  /* Grundlegende Light Mode Variablen */
+  --color-text: var(--color-gray-900);
+  --color-text-muted: var(--color-gray-600);
+  --color-text-light: var(--color-gray-400);
+  --color-text-inverted: var(--color-gray-100);
+  --color-background: white;
+  --color-background-alt: var(--color-gray-50);
+  --color-background-elevated: white;
+  --color-background-inverted: var(--color-gray-900);
+  --color-border: var(--color-gray-200);
+  --color-border-hover: var(--color-gray-300);
+  --color-border-focus: var(--color-primary-500);
+  --color-border-error: var(--color-error-500);
+  --color-shadow-sm: rgb(0 0 0 / 5%);
+  --color-shadow-md: rgb(0 0 0 / 10%);
+  --color-shadow-lg: rgb(0 0 0 / 15%);
+  --color-shadow-xl: rgb(0 0 0 / 20%);
+  --color-focus-ring: var(--color-primary-500);
+  --color-focus-ring-offset: white;
+  --color-outline: var(--color-primary-500);
+}
+
+/* Dark Mode Theme-Klassen-Implementierung */
+.theme-dark-mode {
+  color-scheme: dark;
+  
+  /* Verwendung der gemeinsamen Dark Mode Variablen */
+  --color-text: var(--dark-mode-text);
+  --color-text-muted: var(--dark-mode-text-muted);
+  --color-text-light: var(--dark-mode-text-light);
+  --color-text-inverted: var(--dark-mode-text-inverted);
+  --color-background: var(--dark-mode-background);
+  --color-background-alt: var(--dark-mode-background-alt);
+  --color-background-elevated: var(--dark-mode-background-elevated);
+  --color-background-inverted: var(--dark-mode-background-inverted);
+  --color-border: var(--dark-mode-border);
+  --color-border-hover: var(--dark-mode-border-hover);
+  --color-border-focus: var(--dark-mode-border-focus);
+  --color-border-error: var(--dark-mode-border-error);
+  --color-shadow-sm: var(--dark-mode-shadow-sm);
+  --color-shadow-md: var(--dark-mode-shadow-md);
+  --color-shadow-lg: var(--dark-mode-shadow-lg);
+  --color-shadow-xl: var(--dark-mode-shadow-xl);
+  --color-focus-ring: var(--dark-mode-focus-ring);
+  --color-focus-ring-offset: var(--dark-mode-focus-ring-offset);
+  --color-outline: var(--dark-mode-outline);
+}
+
 .theme-dark-mode.dark-mode {
-    --color-text: var(--color-gray-100);
-    --color-text-muted: var(--color-gray-400);
-    --color-text-light: var(--color-gray-600);
-    --color-text-inverted: var(--color-gray-900);
-    --color-background: var(--color-gray-900);
-    --color-background-alt: var(--color-gray-800);
-    --color-background-elevated: var(--color-gray-800);
-    --color-background-inverted: var(--color-gray-50);
-    --color-border: var(--color-gray-700);
-    --color-border-hover: var(--color-gray-600);
-    --color-border-focus: var(--color-primary-400);
-    --color-border-error: var(--color-error-400);
-    --color-shadow-sm: rgb(0 0 0 / 20%);
-    --color-shadow-md: rgb(0 0 0 / 30%);
-    --color-shadow-lg: rgb(0 0 0 / 40%);
-    --color-shadow-xl: rgb(0 0 0 / 50%);
-    --color-focus-ring: var(--color-primary-400);
-    --color-focus-ring-offset: var(--color-gray-900);
-    --color-outline: var(--color-primary-400);
+  /* Verwendung der gemeinsamen Dark Mode Variablen */
+  --color-text: var(--dark-mode-text);
+  --color-text-muted: var(--dark-mode-text-muted);
+  --color-text-light: var(--dark-mode-text-light);
+  --color-text-inverted: var(--dark-mode-text-inverted);
+  --color-background: var(--dark-mode-background);
+  --color-background-alt: var(--dark-mode-background-alt);
+  --color-background-elevated: var(--dark-mode-background-elevated);
+  --color-background-inverted: var(--dark-mode-background-inverted);
+  --color-border: var(--dark-mode-border);
+  --color-border-hover: var(--dark-mode-border-hover);
+  --color-border-focus: var(--dark-mode-border-focus);
+  --color-border-error: var(--dark-mode-border-error);
+  --color-shadow-sm: var(--dark-mode-shadow-sm);
+  --color-shadow-md: var(--dark-mode-shadow-md);
+  --color-shadow-lg: var(--dark-mode-shadow-lg);
+  --color-shadow-xl: var(--dark-mode-shadow-xl);
+  --color-focus-ring: var(--dark-mode-focus-ring);
+  --color-focus-ring-offset: var(--dark-mode-focus-ring-offset);
+  --color-outline: var(--dark-mode-outline);
 }
 
 @layer utilities {
@@ -185,9 +213,18 @@
     color: var(--color-text-primary);
   }
   
-  /* Inverse Farben für Light/Dark Kontrast innerhalb von Containern */
-  .light-theme .inverse-colors,
-  .dark-theme .inverse-colors {
+  /* Inverse Farben für Hell/Dunkel-Kontrast */
+  .inverse-colors {
+    filter: invert(1) hue-rotate(180deg);
+  }
+  
+  /* Spezifische inverse Farben für Light Mode */
+  .light-theme .inverse-colors--light {
+    filter: invert(1) hue-rotate(180deg);
+  }
+  
+  /* Spezifische inverse Farben für Dark Mode */
+  .dark-theme .inverse-colors--dark {
     filter: invert(1) hue-rotate(180deg);
   }
 } 

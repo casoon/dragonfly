@@ -22,39 +22,39 @@
  * <button class="button">Standard Button</button>
  * 
  * Variants:
- * <button class="button-primary">Primary</button>
- * <button class="button-secondary">Secondary</button>
- * <button class="button-tertiary">Tertiary</button>
- * <button class="button-success">Success</button>
- * <button class="button-warning">Warning</button>
- * <button class="button-danger">Danger</button>
- * <button class="button-info">Info</button>
- * <button class="button-link">Link Style</button>
+ * <button class="button button--primary">Primary</button>
+ * <button class="button button--secondary">Secondary</button>
+ * <button class="button button--tertiary">Tertiary</button>
+ * <button class="button button--success">Success</button>
+ * <button class="button button--warning">Warning</button>
+ * <button class="button button--danger">Danger</button>
+ * <button class="button button--info">Info</button>
+ * <button class="button button--link">Link Style</button>
  * 
  * Sizes:
- * <button class="button-primary button--xs">Extra Small</button>
- * <button class="button-primary button--sm">Small</button>
- * <button class="button-primary button--md">Medium (Default)</button>
- * <button class="button-primary button--lg">Large</button>
- * <button class="button-primary button--xl">Extra Large</button>
+ * <button class="button button--primary button--xs">Extra Small</button>
+ * <button class="button button--primary button--sm">Small</button>
+ * <button class="button button--primary button--md">Medium (Default)</button>
+ * <button class="button button--primary button--lg">Large</button>
+ * <button class="button button--primary button--xl">Extra Large</button>
  * 
  * States:
- * <button class="button-primary" disabled>Disabled</button>
- * <button class="button-primary button--loading">Loading...</button>
+ * <button class="button button--primary" disabled>Disabled</button>
+ * <button class="button button--primary button--loading">Loading...</button>
  * 
  * With Icon:
- * <button class="button-primary button--with-icon">
- *   <span class="icon"><!-- Icon here --></span>
+ * <button class="button button--primary button--with-icon">
+ *   <span class="button__icon"><!-- Icon here --></span>
  *   <span>Button with Icon</span>
  * </button>
  * 
  * Icon Only:
- * <button class="button-primary button--icon-only">
- *   <span class="icon"><!-- Icon here --></span>
+ * <button class="button button--primary button--icon-only">
+ *   <span class="button__icon"><!-- Icon here --></span>
  * </button>
  * 
  * Fluid scaling button (uses interpolate-size):
- * <button class="button-primary button--fluid">Adaptive Button</button>
+ * <button class="button button--primary button--fluid">Adaptive Button</button>
  */
 
 /* Animations - defined outside @layer */
@@ -85,86 +85,78 @@
   }
 
   /* Variants */
-  .button-primary { /* Direct fallback for older browsers */
+  .button--primary { /* Direct fallback for older browsers */
     background-color: var(--color-primary, #06c);
     color: white;
-    composes: button;
   }
   
-  .button-primary:hover { /* Direct fallback for older browsers */
+  .button--primary:hover { /* Direct fallback for older browsers */
     background-color: var(--color-primary-hover, #05a);
   }
 
-  .button-secondary {
+  .button--secondary {
     background-color: var(--color-secondary);
     color: white;
-    composes: button;
   }
   
-  .button-secondary:hover {
+  .button--secondary:hover {
     background-color: var(--color-secondary-hover);
   }
 
-  .button-tertiary {
+  .button--tertiary {
     background-color: transparent;
     border: 1px solid var(--color-border);
     color: var(--color-text);
-    composes: button;
   }
   
-  .button-tertiary:hover {
+  .button--tertiary:hover {
     background-color: var(--color-background-alt);
   }
 
-  .button-success {
+  .button--success {
     background-color: var(--color-success);
     color: white;
-    composes: button;
   }
   
-  .button-success:hover {
+  .button--success:hover {
     background-color: var(--color-success-hover);
   }
 
-  .button-warning {
+  .button--warning {
     background-color: var(--color-warning);
     color: var(--color-text);
-    composes: button;
   }
   
-  .button-warning:hover {
+  .button--warning:hover {
     background-color: var(--color-warning-hover);
   }
 
-  .button-danger {
+  .button--danger {
     background-color: var(--color-error);
     color: white;
-    composes: button;
   }
   
-  .button-danger:hover {
+  .button--danger:hover {
     background-color: var(--color-error-hover);
   }
 
-  .button-info {
+  .button--info {
     background-color: var(--color-info);
     color: white;
-    composes: button;
   }
   
-  .button-info:hover {
+  .button--info:hover {
     background-color: var(--color-info-hover);
   }
   
-  .button-link {
+  .button--link {
     background-color: transparent;
     color: var(--color-primary);
-    composes: button;
     padding: 0;
     text-decoration: underline;
   }
   
-  .button-link:hover {
+  .button--link:hover {
     color: var(--color-primary-hover);
     text-decoration: none;
   }
@@ -239,15 +231,7 @@
 
   /* Disabled state */
   button:disabled,
-  .button:disabled,
-  .button-primary:disabled,
-  .button-secondary:disabled,
-  .button-tertiary:disabled,
-  .button-success:disabled,
-  .button-warning:disabled,
-  .button-danger:disabled,
-  .button-info:disabled,
-  .button-link:disabled {
+  .button:disabled {
     cursor: not-allowed;
     opacity: 50%;
     pointer-events: none;
@@ -265,7 +249,7 @@
     gap: var(--space-2);
   }
   
-  .button--with-icon .icon {
+  .button__icon {
     align-items: center;
     display: inline-flex;
     height: 1em;
@@ -279,7 +263,7 @@
     padding: var(--space-2);
   }
   
-  .button--icon-only .icon {
+  .button--icon-only .button__icon {
     align-items: center;
     display: inline-flex;
     height: 1.25em;

@@ -5,7 +5,7 @@
  * Enthält die Basis-Struktur für alle Theme-Variablen.
  */
 
-@layer themes.base {
+@layer themes-base {
   :root {
     /* Color Scheme für automatischen Dark Mode */
     color-scheme: light dark;
@@ -149,6 +149,8 @@
     --color-border-hover: light-dark(var(--color-gray-300), var(--color-gray-600));
     --color-border-focus: light-dark(var(--color-primary-500), var(--color-primary-400));
     --color-border-error: light-dark(var(--color-error-500), var(--color-error-400));
+    
+    /* Schatten mit konsistenten rgba Werten */
     --shadow-color-light: rgb(0 0 0 / 5%);
     --shadow-color-medium: rgb(0 0 0 / 10%);
     --shadow-color-dark: rgb(0 0 0 / 15%);
@@ -248,10 +250,7 @@
     
     /* 
      * Z-Index-Skala
-     * Standardisierte Z-Index-Werte für konsistentes Layering
      */
-    --z-index-behind: -1;
-    --z-index-default: 0;
     --z-index-dropdown: 1000;
     --z-index-sticky: 1100;
     --z-index-fixed: 1200;
@@ -259,23 +258,21 @@
     --z-index-modal: 1400;
     --z-index-popover: 1500;
     --z-index-tooltip: 1600;
-    --z-index-toast: 1700;
   }
   
   /* 
-   * Klasse für die automatische Erkennung des Systemmodus.
-   * Nutzt prefers-color-scheme für automatischen Wechsel zwischen Light/Dark.
+   * Theme-Switcher-Klassen 
+   * Diese Klassen werden für die manuelle Theme-Umschaltung verwendet.
    */
+  
   .theme-auto {
     color-scheme: light dark;
   }
   
-  /* Klasse für explizites Light-Theme */
   .theme-light {
     color-scheme: light;
   }
   
-  /* Klasse für explizites Dark-Theme */
   .theme-dark {
     color-scheme: dark;
   }

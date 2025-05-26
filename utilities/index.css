@@ -20,6 +20,7 @@
 @import url('./mixins/responsive.css') layer(utilities.mixins);
 @import url('./mixins/transitions.css') layer(utilities.mixins);
 @import url('./mixins/layout.css') layer(utilities.mixins);
+
 /* Hinweis: typography.css existiert nicht im mixins-Verzeichnis */
 
 /* Hilfsklassen für häufige Styling-Aufgaben */

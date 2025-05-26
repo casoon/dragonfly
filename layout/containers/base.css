@@ -21,14 +21,20 @@
 
     /* Container-Größenvarianten */
     .container-sm { max-width: var(--container-sm); }
+
     .container-md { max-width: var(--container-md); }
+
     .container-lg { max-width: var(--container-lg); }
+
     .container-xl { max-width: var(--container-xl); }
+
     .container-2xl { max-width: var(--container-2xl); }
 
     /* Container-Padding-Varianten */
     .container-padding-sm { padding-inline: var(--container-padding-sm); }
+
     .container-padding-md { padding-inline: var(--container-padding-md); }
+
     .container-padding-lg { padding-inline: var(--container-padding-lg); }
 
     /* ================= CONTAINER QUERIES ================= */

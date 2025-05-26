@@ -11,36 +11,36 @@
  */
 @layer reset,        /* CSS-Reset und Normalisierung */
        tokens,       /* Design-Tokens und Variablen */
-       themes,       /* Theme-System (enthält themes.base, themes.mode, themes.custom) */
-       themes.base,  /* Basis-Theme-Definitionen */
-       themes.mode,  /* Light/Dark-Theme-Definitionen */
-       themes.custom, /* Benutzerdefinierte Themes */
+       themes,       /* Theme-System */
+       themes-base,  /* Basis-Theme-Definitionen */
+       themes-mode,  /* Light/Dark-Theme-Definitionen */
+       themes-custom, /* Benutzerdefinierte Themes */
        base,         /* Grundlegende Elementstile */
        logical-properties, /* Logische Eigenschaften für RTL/LTR Support */
        accessibility, /* Barrierefreiheits-bezogene Stile */
        colors,       /* Farbdefinitionen und Schema */
        color-mix,    /* Farb-Mischungen und -Transformationen */
-       typography,   /* Typografie-System (enthält typography.*) */
-       typography.headings, /* Überschriften-Stile */
-       typography.weights, /* Schriftgewichte */
-       typography.webfonts, /* Web-Fonts */
-       typography.baseline, /* Baseline-Grid */
-       typography.base, /* Basis-Typografie */
-       typography.text, /* Text-Element-Stile */
-       typography.responsive, /* Responsive Typografie */
-       typography.fluid, /* Fluid Typografie */
-       layout,       /* Layout-System (enthält layout.*) */
-       layout.grid,  /* Grid-System */
-       layout.flex,  /* Flex-Layouts */
-       layout.containers, /* Container-System */
-       layout.spacing, /* Abstandsregeln */
-       layout.responsive, /* Responsive Layouts */
-       layout.utilities, /* Layout-Utilities */
-       utilities,    /* Hilfsstilklassen (enthält utilities.*) */
-       utilities.variables, /* Variablen für Utilities */
-       utilities.mixins, /* Mixins für Utilities */
-       utilities.helpers, /* Hilfsklassen */
-       utilities.customize, /* Anpassungen */
+       typography,   /* Typografie-System */
+       typography-headings, /* Überschriften-Stile */
+       typography-weights, /* Schriftgewichte */
+       typography-webfonts, /* Web-Fonts */
+       typography-baseline, /* Baseline-Grid */
+       typography-base, /* Basis-Typografie */
+       typography-text, /* Text-Element-Stile */
+       typography-responsive, /* Responsive Typografie */
+       typography-fluid, /* Fluid Typografie */
+       layout,       /* Layout-System */
+       layout-grid,  /* Grid-System */
+       layout-flex,  /* Flex-Layouts */
+       layout-containers, /* Container-System */
+       layout-spacing, /* Abstandsregeln */
+       layout-responsive, /* Responsive Layouts */
+       layout-utilities, /* Layout-Utilities */
+       utilities,    /* Hilfsstilklassen */
+       utilities-variables, /* Variablen für Utilities */
+       utilities-mixins, /* Mixins für Utilities */
+       utilities-helpers, /* Hilfsklassen */
+       utilities-customize, /* Anpassungen */
        components,   /* Komponentenstile */
        form,         /* Formular-bezogene Stile */
        animations,   /* Animationsdefinitionen */
@@ -51,14 +51,14 @@
 
 
 /*
-* Import der Layer-Definitionen
-* Importreihenfolge entspricht der Layer-Hierarchie
-*/
+ * Import der Layer-Definitionen
+ * Importreihenfolge entspricht der Layer-Hierarchie
+ */
 
 /* =================== GRUNDLEGENDE LAYER =================== */
 @import url("core/reset.css"); /* layer(reset) */
 @import url("tokens/index.css"); /* layer(tokens) */
-@import url("themes/index.css"); /* layer(themes) und Sub-Layer */
+@import url("themes/index.css"); /* layer(themes) und vereinfachte Theme-Layer */
 
 /* =================== BASISSTILE & PROPERTIES =================== */
 @import url("core/logical-properties.css"); /* layer(logical-properties) */
@@ -68,9 +68,9 @@
 @import url("core/smooth-scroll.css"); /* layer(smooth-scroll) */
 
 /* =================== UTILITY & STYLING LAYER =================== */
-@import url("utilities/index.css"); /* layer(utilities) und Sub-Layer */
-@import url("typography/index.css"); /* layer(typography) und Sub-Layer */
-@import url("layout/index.css"); /* layer(layout) und Sub-Layer */
+@import url("utilities/index.css"); /* layer(utilities) und utilities-* Layer */
+@import url("typography/index.css"); /* layer(typography) und typography-* Layer */
+@import url("layout/index.css"); /* layer(layout) und layout-* Layer */
 
 /* =================== KOMPONENTEN & ICONS =================== */
 @import url("icons/index.css"); /* layer(icons) */

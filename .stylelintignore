@@ -33,4 +33,7 @@ tests/
 
 # Ignoriere Builds
 dist/
-build/ 
+build/
+
+# Ignoriere alle minifizierten CSS-Dateien (automatisch generiert)
+**/*.min.css 

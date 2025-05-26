@@ -26,8 +26,6 @@
 
     /* Set core body defaults */
     body {
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
         line-height: 1.5;
         min-height: 100vh;
         scroll-behavior: smooth;
@@ -303,16 +301,6 @@
         display: inline;
     }
 
-    /* Remove default canvas styles */
-    canvas {
-        display: inline-block;
-    }
-
-    /* Remove default template styles */
-    template {
-        display: none;
-    }
-
     /* Remove default details styles */
     details {
         display: block;
@@ -321,66 +309,6 @@
     /* Remove default summary styles */
     summary {
         display: list-item;
-    }
-
-    /* Remove default dialog styles */
-    dialog {
-        display: block;
-    }
-
-    /* Remove default menu styles */
-    menu {
-        display: block;
-    }
-
-    /* Remove default menuitem styles */
-    menuitem {
-        display: none;
-    }
-
-    /* Remove default keygen styles */
-    keygen {
-        display: none;
-    }
-
-    /* Remove default source styles */
-    source {
-        display: none;
-    }
-
-    /* Remove default track styles */
-    track {
-        display: none;
-    }
-
-    /* Remove default wbr styles */
-    wbr {
-        display: none;
-    }
-
-    /* Remove default embed styles */
-    embed {
-        display: none;
-    }
-
-    /* Remove default object styles */
-    object {
-        display: inline-block;
-    }
-
-    /* Remove default param styles */
-    param {
-        display: none;
-    }
-
-    /* Remove default video styles */
-    video {
-        display: inline-block;
-    }
-
-    /* Remove default audio styles */
-    audio {
-        display: inline-block;
     }
 
     /* Remove default iframe styles */
@@ -393,59 +321,18 @@
         display: inline;
     }
 
-    /* Remove default area styles */
-    area {
-        display: none;
-    }
-
-    /* Remove default script styles */
-    script {
-        display: none;
-    }
-
     /* Remove default noscript styles */
     noscript {
         display: block;
     }
 
-    /* Remove default style styles */
-    style {
+    /* Remove default style, link, meta, title, base, head styles */
+    style, link, meta, title, base, head {
         display: none;
     }
 
-    /* Remove default link styles */
-    link {
-        display: none;
-    }
-
-    /* Remove default meta styles */
-    meta {
-        display: none;
-    }
-
-    /* Remove default title styles */
-    title {
-        display: none;
-    }
-
-    /* Remove default base styles */
-    base {
-        display: none;
-    }
-
-    /* Remove default head styles */
-    head {
-        display: none;
-    }
-
-    /* Remove default html styles */
-    html {
+    /* Remove default html, body styles */
+    html, body {
         display: block;
     }
-
-    /* Remove default body styles */
-    body {
-        display: block;
-    }
-
 }

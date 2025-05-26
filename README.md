@@ -123,12 +123,14 @@ The minified version contains basic functionality but may not include all effect
 - Easy installation: Providing clear instructions for installing and integrating the library into projects
 
 ### 7. Documentation & Examples
-- Comprehensive documentation: Providing detailed documentation with examples for each component and function
-- Example projects: Development of example projects to demonstrate the use of the library in real scenarios
+- Comprehensive documentation: Detailed documentation with examples for each component and function is available at https://casoon.github.io/ui-docs/
+- Interactive examples: The documentation site includes interactive examples demonstrating how to use various library features in real scenarios
 
 ### 8. Testing & Quality Assurance
-- Automated tests: Implementation of tests to ensure the functionality and stability of components
-- Stylelint configuration: Use of Stylelint to maintain CSS coding standards
+- Lightning CSS testing: Comprehensive testing with Lightning CSS parser to ensure compatibility and proper CSS processing
+- Automated linting: Implementation of Stylelint with custom rules to maintain CSS coding standards and best practices
+- Accessibility validation: Automated tests for WCAG compliance and accessibility features
+- Browser compatibility testing: Testing across major browsers to ensure consistent rendering and functionality
 
 ## Layer & File Structure
 
@@ -138,16 +140,28 @@ The minified version contains basic functionality but may not include all effect
 ├── dist/                 # Contains bundled versions
 │   ├── index.min.css     # Minified bundle with all imports resolved
 │   ├── index.min.css.map # Source map for debugging
-│   └── index.bundled.css # Non-minified bundle for development
-├── base/                 # Base styles and reset
-│   ├── base.css          # Base imports
+│   ├── index.bundled.css # Non-minified bundle for development
+│   ├── components.min.css # Minified bundle of UI components
+│   ├── effects.min.css    # Minified bundle of effects
+│   ├── icons.min.css      # Minified bundle of icons
+│   └── themes.min.css     # Minified bundle of themes
+├── core/                 # Core styles and reset
 │   ├── reset.css         # CSS reset
-│   ├── tokens.css        # Design tokens
-│   ├── layers.css        # Layer definitions
-│   └── custom-properties.css # CSS variables
+│   ├── colors.css        # Base colors
+│   ├── color-mix.css     # Color mixing utilities
+│   ├── logical-properties.css # Logical properties
+│   ├── smooth-scroll.css # Smooth scrolling
+│   └── accessibility/    # Accessibility helpers
+│       ├── aria.css      # ARIA utilities
+│       ├── contrast.css  # Color contrast
+│       ├── keyboard.css  # Keyboard navigation
+│       └── screenreader.css # Screen reader utilities
 ├── layout/               # Layout system
-│   ├── layout.css        # Layout components
-│   ├── layout.queries.css # Container queries
+│   ├── index.css         # Layout imports
+│   ├── responsive.css    # Responsive breakpoints
+│   ├── spacing.css       # Spacing utilities
+│   ├── flex-layouts.css  # Flexbox utilities
+│   ├── grid-system.css   # Grid utilities
 │   └── containers/       # Container system
 │       ├── index.css     # Container imports
 │       ├── base.css      # Basic container components
@@ -158,61 +172,57 @@ The minified version contains basic functionality but may not include all effect
 │       ├── visual.css    # Visual styling containers
 │       ├── functional.css # Functional UI containers
 │       ├── performance.css # Performance-optimized containers
-│       ├── a11y.css      # Accessibility-optimized containers
-│       └── advanced-queries.css # Advanced container query patterns
+│       └── a11y.css      # Accessibility-optimized containers
+├── tokens/               # Design tokens
+│   ├── index.css         # Token imports
+│   ├── colors/           # Color tokens
+│   ├── spacing/          # Spacing tokens
+│   ├── typography/       # Typography tokens
+│   └── effects/          # Effect tokens
 ├── typography/           # Typography system
-│   └── typography.css    # Typography styles
-├── utility/              # Utility classes
-│   ├── utilities.css     # Main utilities
-│   ├── colors.css        # Color utilities
-│   ├── spacing.css       # Spacing utilities
-│   └── accessibility.css # A11y utilities
-├── animation/            # Animation system
-│   └── animations.css    # Animation definitions
-├── effect/               # Effects system
-│   └── effects.css       # Main effects file
-├── theme/                # Theming system
-│   └── themes.css        # Theme definitions
-├── icon/                 # Icon system
-│   └── icons.css         # Icon definitions
-├── ui/                   # UI components (organized by type)
-│   ├── ui.css            # Main UI components file
-│   ├── elements/         # Basic UI elements (atoms)
-│   │   ├── button.css    # Button element
-│   │   ├── input.css     # Input element
-│   │   └── ...           # Other elements
-│   ├── components/       # Complex UI components (molecules/organisms)
-│   │   ├── card.css      # Card component
-│   │   ├── modal.css     # Modal component
-│   │   └── ...           # Other components
-│   ├── layout/           # Layout-specific components
-│   │   ├── header.css    # Header component
-│   │   ├── footer.css    # Footer component
-│   │   └── ...           # Other layout components
+│   ├── index.css         # Typography imports
+│   ├── typography.css    # Typography styles
+│   ├── hierarchy/        # Heading hierarchy
+│   ├── baseline/         # Baseline grid
+│   ├── weights/          # Font weights
+│   └── web-fonts/        # Web font definitions
+├── utilities/            # Utility classes
+│   ├── index.css         # Utility imports
+│   ├── helpers/          # Helper utilities
+│   ├── mixins/           # CSS mixins
+│   ├── variables/        # CSS variables
+│   └── customize/        # Customization utilities
+├── themes/               # Theming system
+│   ├── index.css         # Theme imports
+│   ├── base/             # Base theme
+│   ├── mode/             # Light/dark modes
+│   └── variants/         # Theme variants
+├── icons/                # Icon system
+│   ├── index.css         # Icon imports
+│   ├── base.css          # Icon base styles
+│   └── [icon-sets]/      # Various icon sets
+├── fonts/                # Web fonts
+│   ├── README.md         # Font documentation
+│   └── [font-files].woff2 # Optimized WOFF2 font files
+├── ui/                   # UI components
+│   ├── index.css         # UI imports
+│   ├── elements.css      # Elements collection
+│   ├── components.css    # Components collection
+│   ├── elements/         # Basic UI elements
+│   ├── components/       # Complex UI components
+│   ├── layout/           # Layout components
 │   └── patterns/         # UI patterns
-│       ├── blog.css      # Blog pattern
-│       └── ...           # Other patterns
-├── effects/              # Effects & interactions (organized by type)
-│   ├── motion/           # Motion-based effects
-│   │   ├── animations.css # Animation effects
-│   │   └── ...           # Other motion effects
-│   ├── visual/           # Visual enhancements & styling
-│   │   ├── shadows.css   # Shadow effects
-│   │   └── ...           # Other visual effects
-│   ├── interaction/      # State-based or user-interactive effects
-│   │   ├── hover.css     # Hover effects
-│   │   └── ...           # Other interaction effects
-│   ├── layout-effects/   # Masking, layering, and geometric manipulation
-│   │   ├── clip-path.css # Clipping effects
-│   │   └── ...           # Other layout effects
-│   ├── themes/           # Design techniques and style paradigms
-│   │   ├── neumorphism.css # Neumorphism style
-│   │   └── ...           # Other theme effects
-│   └── particles/        # Particle-based visual effects
-│       └── particles.css # Particle effects
-└── base/                 # Base layer files
-    └── accessibility/    # Accessibility helpers
-        └── a11y-helper.js # A11y JavaScript helpers
+├── effects/              # Effects & interactions
+│   ├── interaction/      # Interaction effects
+│   ├── layout-effects/   # Layout effects
+│   ├── motion/           # Motion effects
+│   ├── particles/        # Particle effects
+│   ├── themes/           # Theme effects
+│   ├── typography/       # Typography effects
+│   └── visual/           # Visual effects
+└── js/                   # JavaScript helpers
+    ├── theme-switcher.js # Theme switching logic
+    └── viewTransitions.js # View transition helpers
 ```
 
 **Layer hierarchy (excerpt):**
@@ -220,6 +230,65 @@ The minified version contains basic functionality but may not include all effect
 @layer reset, tokens, custom-properties, core, logical-properties, colors, color-mix, layout, layout-queries, typography, utilities, smooth-scroll, accessibility, icons, components, animations, effects, themes;
 ```
 See the [Layer System Documentation](LAYER-SYSTEM.md) for more details.
+
+## Web Fonts
+
+The library includes a collection of optimized Google Fonts in WOFF2 format for better performance and privacy. Using self-hosted fonts eliminates external requests to Google's servers and reduces load times.
+
+### Included Fonts
+
+The `/fonts` directory contains the following Google Fonts:
+
+- **Anton** - Bold display font for large headlines
+- **Arimo** - Sans-serif font with good readability
+- **Bebas Neue** - Condensed uppercase font
+- **Cabin** - Humanist sans-serif with a touch of warmth
+- **DM Sans** - Low-contrast geometric sans-serif
+- **Dosis** - Rounded sans-serif with even stroke weights
+- **Fira Sans** - Versatile, legible sans-serif
+- **Inconsolata** - Monospace font for code
+- **Inter** - Modern typeface designed for computer screens
+- **Josefin Sans** - Elegant geometric sans-serif
+- **Lato** - Balanced sans-serif with classical proportions
+- **Merriweather** - Serif designed for screen readability
+- **Montserrat** - Urban typeface inspired by old posters
+- **Mukta** - Multi-script font with support for Devanagari
+- **Noto Sans** - Part of Google's font family with broad language support
+- **Nunito** - Well-balanced sans-serif with rounded terminals
+- **Open Sans** - Neutral and friendly sans-serif
+- **Oswald** - Condensed alternative to standards like Impact
+- **Playfair Display** - Serif with high-contrast strokes
+- **Poppins** - Geometric sans-serif with uniform stroke width
+- **PT Sans** - Universal font for wide language support
+- **Quicksand** - Display sans-serif with rounded terminals
+- **Raleway** - Elegant sans-serif with a single thin weight
+- **Roboto** - Default Android font with natural reading rhythm
+- **Roboto Condensed** - Space-efficient version of Roboto
+- **Source Sans Pro** - Adobe's first open-source font
+- **Teko** - Modernist, condensed typeface
+- **Titillium Web** - Sans-serif designed by students
+- **Ubuntu** - The Ubuntu operating system font
+- **Work Sans** - Optimized for on-screen text usage
+
+### Usage Mechanism
+
+To use these fonts in your project, simply import the desired font CSS file:
+
+```css
+/* Import a specific font */
+@import url('/path/to/@casoon/ui-lib/typography/web-fonts/inter.css');
+
+/* Or use the variable font version for Inter */
+@import url('/path/to/@casoon/ui-lib/typography/web-fonts/inter-var.css');
+```
+
+Each font CSS file:
+1. Defines `@font-face` rules with optimized settings
+2. Uses `font-display: swap` for better performance
+3. Provides both regular and bold weights
+4. Sets up the appropriate font-family name
+
+The fonts are preloaded with the appropriate unicode ranges to minimize the file size while supporting a wide range of characters.
 
 ## Container Query Example
 
