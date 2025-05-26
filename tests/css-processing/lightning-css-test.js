@@ -8,11 +8,16 @@ const rootDir = path.resolve(__dirname, '../..');
 // Verzeichnisse, die CSS-Dateien enthalten könnten
 const cssDirectories = [
   rootDir,              // Root directory
-  path.join(rootDir, 'layers'),
+  path.join(rootDir, 'layout'),
+  path.join(rootDir, 'tokens'),
+  path.join(rootDir, 'typography'),
+  path.join(rootDir, 'utilities'),
   path.join(rootDir, 'themes'),
-  path.join(rootDir, 'components'),
-  path.join(rootDir, 'modules'),
-  path.join(rootDir, 'icons')
+  path.join(rootDir, 'icons'),
+  path.join(rootDir, 'ui'),
+  path.join(rootDir, 'effects'),
+  path.join(rootDir, 'core'),
+  path.join(rootDir, 'dist')
 ];
 
 // Ausgabeverzeichnis für verarbeitete Dateien
