@@ -20,7 +20,7 @@
 @import url('./mixins/responsive.css') layer(utilities.mixins);
 @import url('./mixins/transitions.css') layer(utilities.mixins);
 @import url('./mixins/layout.css') layer(utilities.mixins);
-@import url('./mixins/typography.css') layer(utilities.mixins);
+/* Hinweis: typography.css existiert nicht im mixins-Verzeichnis */
 
 /* Hilfsklassen für häufige Styling-Aufgaben */
 @import url('./helpers/spacing.css') layer(utilities.helpers);
@@ -31,7 +31,6 @@
 /* Anpassungsmöglichkeiten und Theming */
 @import url('./customize/theme-generator.css') layer(utilities.customize);
 @import url('./customize/component-overrides.css') layer(utilities.customize);
-@import url('./customize/index.css') layer(utilities.customize);
 
 /**
  * Globale Utility-Definitionen
