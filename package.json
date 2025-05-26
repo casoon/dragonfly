@@ -1,6 +1,6 @@
 {
   "name": "@casoon/ui-lib",
-  "version": "0.6.1",
+  "version": "0.6.6",
   "description": "Modular, lightweight CSS framework and design system for modern web projects. Optimized for Astro JS, LightningCSS and Container Queries with @layer-based architecture and comprehensive accessibility.",
   "main": "core.css",
   "style": "core.css",
@@ -16,6 +16,7 @@
     "core/",
     "fonts/",
     "js/",
+    "dist/",
     "*.css",
     "LICENSE",
     "README.md",
@@ -27,24 +28,33 @@
     "lint": "stylelint \"**/*.css\" --ignore-path .stylelintignore",
     "lint:fix": "stylelint \"**/*.css\" --fix --ignore-path .stylelintignore",
     "test": "npm run lint",
-    "prepublishOnly": "npm run prepare:package",
-    "icons:build": "node scripts/build-icons.js",
-    "bump-version": "node scripts/bump-version.js",
+    "test:all": "npm run test && npm run test:lightningcss",
     "test:lightningcss": "cd tests/css-processing && npm run test",
-    "prerelease": "npm run test:lightningcss && npm run lint",
-    "generate:mixes": "node scripts/generateColorMixes.js",
-    "check:contrast": "node scripts/checkContrast.js",
-    "update:docs-lastmod": "node scripts/update-doc-versions.js",
-    "generate:docs": "node scripts/generate-docs.js",
-    "analyze:css": "node scripts/analyze-css.js",
-    "fix:docs": "node scripts/fix-doc-errors.js",
-    "check:docs": "node scripts/check-missing-docs.js",
-    "fix:missing-docs": "node scripts/fix-missing-docs.js",
-    "docs:all": "npm run analyze:css && npm run generate:docs && npm run update:docs-lastmod && npm run fix:docs && npm run fix:missing-docs && npm run check:docs",
+    
     "prepare:package": "node scripts/prepare-npm-package.js",
     "prepare:package:minify": "node scripts/prepare-npm-package.js --minify",
     "validate:package": "node scripts/prepare-npm-package.js --validate",
-    "build:release": "npm run lint && npm run test:lightningcss && npm run prepare:package:minify"
+    
+    "bundle:css": "node scripts/bundle-css.js",
+    "prepublishOnly": "npm run test:all && npm run prepare:package:minify && npm run bundle:css",
+    
+    "build": "npm run test:all && npm run prepare:package",
+    "build:minify": "npm run test:all && npm run prepare:package:minify",
+    "build:bundle": "npm run test:all && npm run bundle:css",
+    "build:release": "npm run test:all && npm run prepare:package:minify && npm run bundle:css",
+    
+    "icons:build": "node scripts/build-icons.js",
+    "bump-version": "node scripts/bump-version.js",
+    
+    "docs:generate": "node scripts/generate-docs.js",
+    "docs:analyze": "node scripts/analyze-css.js",
+    "docs:fix": "node scripts/fix-doc-errors.js && node scripts/fix-missing-docs.js",
+    "docs:check": "node scripts/check-missing-docs.js",
+    "docs:update-versions": "node scripts/update-doc-versions.js",
+    "docs:all": "npm run docs:analyze && npm run docs:generate && npm run docs:update-versions && npm run docs:fix && npm run docs:check",
+    
+    "utils:mixes": "node scripts/generateColorMixes.js",
+    "utils:contrast": "node scripts/checkContrast.js"
   },
   "keywords": [
     "css",

@@ -22,17 +22,63 @@ pnpm add @casoon/ui-lib
 
 ## Usage
 
+### Standard Usage (Modular Approach mit Lightning CSS)
+
+Diese Variante ist ideal für Entwickler, die Lightning CSS verwenden und:
+- Maximale Kontrolle über die CSS-Layer benötigen
+- Selektiv nur bestimmte Komponenten einbinden möchten
+- Eine eigene Optimierung durchführen wollen
+- Mit dem Layer-System gezielt arbeiten möchten
+
 **Basic:**
 ```html
-<link rel="stylesheet" href="path/to/@casoon/ui-lib/core.css">
+<link rel="stylesheet" href="path/to/@casoon/ui-lib/index.css">
 ```
 **With Bundler:**
 ```js
-import '@casoon/ui-lib/core.css';
+import '@casoon/ui-lib/index.css';
 ```
 **With Astro:**
 ```astro
-import '@casoon/ui-lib/core.css';
+import '@casoon/ui-lib/index.css';
+```
+
+### Bundled CSS Alternative
+
+Diese Variante bietet eine bereits gebündelte und optimierte Version für:
+- Einfache Integration ohne Konfiguration von Lightning CSS
+- Schnelle Verwendung über CDN (unpkg.com)
+- Projekte, bei denen Ladezeit wichtiger ist als Flexibilität
+
+**Direct HTML:**
+```html
+<link rel="stylesheet" href="path/to/@casoon/ui-lib/dist/index.min.css">
+```
+
+**With Bundler:**
+```js
+import '@casoon/ui-lib/dist/index.min.css';
+```
+
+**With Astro:**
+```astro
+import '@casoon/ui-lib/dist/index.min.css';
+```
+
+**Via unpkg.com CDN:**
+```html
+<link rel="stylesheet" href="https://unpkg.com/@casoon/ui-lib/dist/index.min.css">
+```
+
+**Hinweis zur unpkg.com-Version:**
+Die minifizierte Version enthält die Basis-Funktionalität, aber möglicherweise nicht alle Effekte und Komponenten. Für spezifische Komponenten oder Effekte können diese gezielt nachgeladen werden:
+
+```html
+<!-- Basis-CSS -->
+<link rel="stylesheet" href="https://unpkg.com/@casoon/ui-lib/dist/index.min.css">
+<!-- Zusätzliche Komponenten nach Bedarf -->
+<link rel="stylesheet" href="https://unpkg.com/@casoon/ui-lib/effects/visual/shadows.css">
+<link rel="stylesheet" href="https://unpkg.com/@casoon/ui-lib/ui/components/card.css">
 ```
 
 ## Features & Architecture
