@@ -99,7 +99,7 @@
             container-type: style;
         }
         
-        @container style(--theme = 'dark') {
+        @container style(--theme: 'dark') {
             .theme\:inverted-colors {
                 background-color: black;
                 color: white;
@@ -110,7 +110,7 @@
             }
         }
         
-        @container style(--theme = 'light') {
+        @container style(--theme: 'light') {
             .theme\:normal-colors {
                 background-color: white;
                 color: black;
@@ -121,7 +121,7 @@
             }
         }
         
-        @container style(--density = 'compact') {
+        @container style(--density: 'compact') {
             .density\:small-spacing {
                 gap: var(--space-2);
                 padding: var(--space-2);
@@ -132,7 +132,7 @@
             }
         }
         
-        @container style(--density = 'comfortable') {
+        @container style(--density: 'comfortable') {
             .density\:large-spacing {
                 gap: var(--space-4);
                 padding: var(--space-4);
