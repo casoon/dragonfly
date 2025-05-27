@@ -1,0 +1,101 @@
+/**
+ * Astro Fonts Helper
+ * 
+ * This file provides CSS variables for all font families without loading the actual fonts.
+ * It's designed to be used in Astro projects where the fonts need to be loaded separately
+ * with correct paths to node_modules or copied font files.
+ * 
+ * Usage:
+ * 1. Import this file in your Astro project
+ * 2. Copy the font files from node_modules/@casoon/ui-lib/fonts/ to your public/fonts directory
+ * 3. Define your own @font-face rules with correct paths
+ * 
+ * See the README.md in this directory for more information.
+ */
+
+@layer typography.webfonts {
+  :root {
+    /* Font family variables - use these in your project */
+    --font-family-anton: 'Anton', Impact, sans-serif;
+    --font-family-arimo: 'Arimo', system-ui, sans-serif;
+    --font-family-bebas-neue: 'Bebas Neue', sans-serif;
+    --font-family-cabin: 'Cabin', system-ui, sans-serif;
+    --font-family-dm-sans: 'DM Sans', system-ui, sans-serif;
+    --font-family-dosis: 'Dosis', system-ui, sans-serif;
+    --font-family-fira-sans: 'Fira Sans', system-ui, sans-serif;
+    --font-family-inconsolata: 'Inconsolata', monospace;
+    --font-family-inter: 'Inter', system-ui, sans-serif;
+    --font-family-josefin-sans: 'Josefin Sans', system-ui, sans-serif;
+    --font-family-lato: 'Lato', system-ui, sans-serif;
+    --font-family-merriweather: 'Merriweather', serif;
+    --font-family-montserrat: 'Montserrat', system-ui, sans-serif;
+    --font-family-mukta: 'Mukta', system-ui, sans-serif;
+    --font-family-noto-sans: 'Noto Sans', system-ui, sans-serif;
+    --font-family-nunito: 'Nunito', system-ui, sans-serif;
+    --font-family-open-sans: 'Open Sans', system-ui, sans-serif;
+    --font-family-oswald: 'Oswald', system-ui, sans-serif;
+    --font-family-playfair-display: 'Playfair Display', serif;
+    --font-family-poppins: 'Poppins', system-ui, sans-serif;
+    --font-family-pt-sans: 'PT Sans', system-ui, sans-serif;
+    --font-family-quicksand: 'Quicksand', system-ui, sans-serif;
+    --font-family-raleway: 'Raleway', system-ui, sans-serif;
+    --font-family-roboto: 'Roboto', system-ui, sans-serif;
+    --font-family-roboto-condensed: 'Roboto Condensed', system-ui, sans-serif;
+    --font-family-source-sans-pro: 'Source Sans Pro', system-ui, sans-serif;
+    --font-family-teko: 'Teko', system-ui, sans-serif;
+    --font-family-titillium-web: 'Titillium Web', system-ui, sans-serif;
+    --font-family-ubuntu: 'Ubuntu', system-ui, sans-serif;
+    --font-family-work-sans: 'Work Sans', system-ui, sans-serif;
+  }
+  
+  /* Utility classes for font families */
+  .font-anton { font-family: var(--font-family-anton); }
+  .font-arimo { font-family: var(--font-family-arimo); }
+  .font-bebas-neue { font-family: var(--font-family-bebas-neue); }
+  .font-cabin { font-family: var(--font-family-cabin); }
+  .font-dm-sans { font-family: var(--font-family-dm-sans); }
+  .font-dosis { font-family: var(--font-family-dosis); }
+  .font-fira-sans { font-family: var(--font-family-fira-sans); }
+  .font-inconsolata { font-family: var(--font-family-inconsolata); }
+  .font-inter { font-family: var(--font-family-inter); }
+  .font-josefin-sans { font-family: var(--font-family-josefin-sans); }
+  .font-lato { font-family: var(--font-family-lato); }
+  .font-merriweather { font-family: var(--font-family-merriweather); }
+  .font-montserrat { font-family: var(--font-family-montserrat); }
+  .font-mukta { font-family: var(--font-family-mukta); }
+  .font-noto-sans { font-family: var(--font-family-noto-sans); }
+  .font-nunito { font-family: var(--font-family-nunito); }
+  .font-open-sans { font-family: var(--font-family-open-sans); }
+  .font-oswald { font-family: var(--font-family-oswald); }
+  .font-playfair-display { font-family: var(--font-family-playfair-display); }
+  .font-poppins { font-family: var(--font-family-poppins); }
+  .font-pt-sans { font-family: var(--font-family-pt-sans); }
+  .font-quicksand { font-family: var(--font-family-quicksand); }
+  .font-raleway { font-family: var(--font-family-raleway); }
+  .font-roboto { font-family: var(--font-family-roboto); }
+  .font-roboto-condensed { font-family: var(--font-family-roboto-condensed); }
+  .font-source-sans-pro { font-family: var(--font-family-source-sans-pro); }
+  .font-teko { font-family: var(--font-family-teko); }
+  .font-titillium-web { font-family: var(--font-family-titillium-web); }
+  .font-ubuntu { font-family: var(--font-family-ubuntu); }
+  .font-work-sans { font-family: var(--font-family-work-sans); }
+  
+  /* Example of how to define your own @font-face rules in your project:
+  
+  @font-face {
+    font-display: swap;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 400;
+    src: url('/fonts/inter-regular.woff2') format('woff2');
+  }
+  
+  @font-face {
+    font-display: swap;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 700;
+    src: url('/fonts/inter-bold.woff2') format('woff2');
+  }
+  */
+} 

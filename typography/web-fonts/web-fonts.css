@@ -100,4 +100,12 @@
  * - @import "anton.css";
  * - @import "bebas-neue.css";
  * - @import "teko.css";
+ * 
+ * For Astro Projects:
+ * When using this library in Astro (or other npm-based projects), font paths
+ * need special handling. Use our helper file instead:
+ * - @import "astro-fonts-helper.css";
+ * 
+ * See README.md in this directory for detailed instructions on font integration
+ * with Astro projects.
  */ 
