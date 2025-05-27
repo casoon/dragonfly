@@ -1,8 +1,8 @@
-# Google Fonts Lizenz
+# Google Fonts License
 
-## Über die eingebundenen Schriftarten
+## About the Included Fonts
 
-Diese Bibliothek enthält die folgenden Google Fonts:
+This library contains the following Google Fonts:
 
 - Roboto
 - Open Sans
@@ -35,35 +35,35 @@ Diese Bibliothek enthält die folgenden Google Fonts:
 - Josefin Sans
 - Teko
 
-## Lizenzinformation
+## License Information
 
-Die meisten Google Fonts werden unter der [SIL Open Font License (OFL)](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL) veröffentlicht, einige sind jedoch unter der [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0) lizenziert.
+Most Google Fonts are published under the [SIL Open Font License (OFL)](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL), while some are licensed under the [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0).
 
 ### SIL Open Font License (OFL)
 
-Die OFL ist eine freie, quelloffene Lizenz, die speziell für Schriftarten entwickelt wurde und folgende Rechte einräumt:
-- Freie Nutzung: Die Schriftarten können frei verwendet, studiert, verändert und weitergegeben werden.
-- Kommerzielle Nutzung: Die Schriftarten können in kommerziellen Projekten eingesetzt werden.
-- Einbettung: Die Schriftarten können in Dokumente eingebettet werden.
-- Modifikation: Die Schriftarten können modifiziert werden, wenn die abgeleiteten Werke ebenfalls unter der OFL lizenziert werden.
+The OFL is a free, open-source license specifically designed for fonts that grants the following rights:
+- Free usage: The fonts can be freely used, studied, modified, and shared.
+- Commercial use: The fonts can be used in commercial projects.
+- Embedding: The fonts can be embedded in documents.
+- Modification: The fonts can be modified if the derivative works are also licensed under the OFL.
 
 ### Apache License, Version 2.0
 
-Die Apache License ist eine permissive Freie-Software-Lizenz, die ähnliche Rechte gewährt:
-- Freie Nutzung und Verteilung
-- Kommerzielle Nutzung
-- Modifikation
-- Patent-Grant
+The Apache License is a permissive free software license that grants similar rights:
+- Free use and distribution
+- Commercial use
+- Modification
+- Patent grant
 
-## Spezifische Lizenzinformationen
+## Specific License Information
 
-Für die spezifische Lizenz jeder einzelnen Schriftart, besuchen Sie bitte die Google Fonts-Website:
+For the specific license of each individual font, please visit the Google Fonts website:
 https://fonts.google.com/
 
-## Verwendung in diesem Projekt
+## Use in This Project
 
-Die in diesem Projekt enthaltenen Schriftarten wurden für die Webanwendung optimiert und in WOFF2-Format konvertiert. Die ursprünglichen Lizenzbedingungen gelten weiterhin für diese optimierten Versionen.
+The fonts included in this project have been optimized for web application use and converted to WOFF2 format. The original license terms continue to apply to these optimized versions.
 
-## Rechtshinweis
+## Legal Notice
 
-Diese Zusammenfassung dient nur zu Informationszwecken und ersetzt nicht die vollständigen Lizenztexte. Für die genauen Bedingungen konsultieren Sie bitte die vollständigen Lizenztexte der jeweiligen Schriftarten. 
+This summary is for informational purposes only and does not replace the complete license texts. For the exact terms, please consult the full license texts of the respective fonts. 

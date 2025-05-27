@@ -1,16 +1,16 @@
-# Test-Verzeichnis für @casoon/ui-lib
+# Test Directory for @casoon/ui-lib
 
-Dieses Verzeichnis enthält Tests für verschiedene Aspekte der UI-Bibliothek.
+This directory contains tests for various aspects of the UI library.
 
-## Struktur
+## Structure
 
-- `css-processing/`: Tests für CSS-Verarbeitung und -Optimierung
-  - `lightning-css-test.js`: Testet die Kompatibilität mit Lightning CSS
-  - `comprehensive-test.js`: Umfassende Tests für alle CSS-Dateien
-  - `output/`: Ausgabeverzeichnis für verarbeitete CSS-Dateien
+- `css-processing/`: Tests for CSS processing and optimization
+  - `lightning-css-test.js`: Tests compatibility with Lightning CSS
+  - `comprehensive-test.js`: Comprehensive tests for all CSS files
+  - `output/`: Output directory for processed CSS files
 
-## CSS-Verarbeitungstests
+## CSS Processing Tests
 
-In diesem Unterverzeichnis befinden sich Tests für die Verarbeitung der CSS-Dateien mit verschiedenen Build-Tools wie Lightning CSS. Diese Tests stellen sicher, dass alle CSS-Funktionen korrekt verarbeitet werden und keine Kompatibilitätsprobleme auftreten.
+This subdirectory contains tests for processing the CSS files with various build tools like Lightning CSS. These tests ensure that all CSS features are processed correctly and no compatibility issues occur.
 
-Siehe `css-processing/README.md` für weitere Informationen zur Durchführung dieser Tests. 
+See `css-processing/README.md` for more information on how to run these tests. 

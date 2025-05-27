@@ -1,66 +1,66 @@
-# CSS-Verarbeitungstests für @casoon/ui-lib
+# CSS Processing Tests for @casoon/ui-lib
 
-Diese Tests prüfen, ob die CSS-Dateien der UI-Bibliothek korrekt mit Lightning CSS verarbeitet werden können.
+These tests check whether the CSS files of the UI library can be correctly processed with Lightning CSS.
 
-## Einrichtung
+## Setup
 
-1. Installieren Sie die Abhängigkeiten:
+1. Install the dependencies:
    ```
    npm run setup
    ```
 
-## Tests durchführen
+## Running Tests
 
-Um alle CSS-Dateien der Bibliothek mit Lightning CSS zu testen:
+To test all CSS files of the library with Lightning CSS:
 
 ```
 npm run test
 ```
 
-Dieser Test:
-- Findet alle CSS-Dateien im Projekt (Root-Verzeichnis, layers/, themes/, components/, modules/, icons/)
-- Verarbeitet jede Datei mit Lightning CSS
-- Speichert die Ausgabe in einer entsprechenden Datei im `output/`-Verzeichnis
-- Erstellt einen Bericht über erfolgreiche und fehlgeschlagene Verarbeitungen
+This test:
+- Finds all CSS files in the project (root directory, layers/, themes/, components/, modules/, icons/)
+- Processes each file with Lightning CSS
+- Saves the output in a corresponding file in the `output/` directory
+- Creates a report on successful and failed processing
 
-## Visuelle Tests im Browser
+## Visual Tests in the Browser
 
-Um die Ausgabe visuell zu überprüfen:
+To visually check the output:
 
 ```
 npm run test-browser
 ```
 
-Dieser Befehl startet einen lokalen Webserver. Sie können dann die verarbeiteten CSS-Dateien im Browser überprüfen.
+This command starts a local web server. You can then check the processed CSS files in the browser.
 
-## Was getestet wird
+## What is Tested
 
-1. **CSS-Syntax**: Überprüft, ob der CSS-Code syntaktisch korrekt ist und von Lightning CSS verarbeitet werden kann
-2. **Moderne CSS-Features**: Testet die Kompatibilität von modernen CSS-Features wie:
+1. **CSS Syntax**: Checks if the CSS code is syntactically correct and can be processed by Lightning CSS
+2. **Modern CSS Features**: Tests the compatibility of modern CSS features such as:
    - Container Queries
    - CSS Nesting
    - CSS Layers (@layer)
-   - Logische Eigenschaften
+   - Logical Properties
    - Custom Properties
-   - @property Definitionen
+   - @property Definitions
 
-3. **Minifizierung**: Die Dateien werden mit aktivierter Minifizierung getestet
+3. **Minification**: The files are tested with minification enabled
 
-## Fehlerbehebung
+## Troubleshooting
 
-Wenn Tests fehlschlagen:
+If tests fail:
 
-1. Überprüfen Sie die Fehlermeldungen in der Konsolenausgabe
-2. Korrigieren Sie Syntaxprobleme in den entsprechenden CSS-Dateien
-3. Stellen Sie sicher, dass alle verwendeten Features mit Lightning CSS kompatibel sind
+1. Check the error messages in the console output
+2. Fix syntax problems in the corresponding CSS files
+3. Make sure all features used are compatible with Lightning CSS
 
-## Integration in den Entwicklungsprozess
+## Integration into the Development Process
 
-Diese Tests sollten vor jeder neuen Veröffentlichung durchgeführt werden:
+These tests should be performed before each new release:
 
 ```bash
-# In der Haupt-package.json
+# In the main package.json
 npm run prerelease
 ```
 
-Dieser Befehl führt sowohl die Lightning CSS Tests als auch den Linter aus, um sicherzustellen, dass alle CSS-Dateien korrekt sind. 
+This command runs both the Lightning CSS tests and the linter to ensure that all CSS files are correct. 

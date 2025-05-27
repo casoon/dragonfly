@@ -1,47 +1,47 @@
 # Design Tokens
 
-Dieses Verzeichnis enthält alle Design-Tokens des UI-Systems, thematisch organisiert in separate Dateien.
+This directory contains all design tokens of the UI system, thematically organized into separate files.
 
-## Struktur
+## Structure
 
-Die Tokens sind in folgende Kategorien unterteilt:
+The tokens are divided into the following categories:
 
-- **colors/**: Farbvariablen (Primärfarben, Sekundärfarben, Grautöne, etc.)
-- **spacing/**: Abstände und Größen (Margins, Paddings, Größeneinheiten)
-- **typography/**: Schriftvariablen (Schriftarten, Größen, Stärken, Zeilenhöhen)
-- **layout/**: Layout-bezogene Variablen (Breakpoints, Container-Größen, Z-Index)
-- **effects/**: Effekt-bezogene Variablen (Schatten, Radien, Transitionen)
+- **colors/**: Color variables (primary colors, secondary colors, grayscales, etc.)
+- **spacing/**: Spacing and sizes (margins, paddings, size units)
+- **typography/**: Typography variables (fonts, sizes, weights, line heights)
+- **layout/**: Layout-related variables (breakpoints, container sizes, z-index)
+- **effects/**: Effect-related variables (shadows, radii, transitions)
 
-Jede Kategorie hat eine eigene `index.css`-Datei, die in der Haupt-`index.css` im Wurzelverzeichnis importiert wird.
+Each category has its own `index.css` file, which is imported in the main `index.css` in the root directory.
 
-## Verwendung
+## Usage
 
-Um alle Tokens zu verwenden, importiere einfach die Haupt-`index.css`:
+To use all tokens, simply import the main `index.css`:
 
 ```css
 @import 'path/to/tokens/index.css';
 ```
 
-Du kannst auch einzelne Kategorien importieren:
+You can also import individual categories:
 
 ```css
 @import 'path/to/tokens/colors/index.css';
 @import 'path/to/tokens/typography/index.css';
 ```
 
-## Tokennamen
+## Token Names
 
-Die Tokens folgen einem einheitlichen Namensschema:
+The tokens follow a consistent naming scheme:
 
-- Farben: `--color-{name}-{shade}` (z.B. `--color-primary-500`)
-- Abstände: `--space-{size}` (z.B. `--space-4`)
-- Schriftgrößen: `--font-size-{size}` (z.B. `--font-size-lg`)
-- Breakpoints: `--breakpoint-{size}` (z.B. `--breakpoint-md`)
+- Colors: `--color-{name}-{shade}` (e.g., `--color-primary-500`)
+- Spacing: `--space-{size}` (e.g., `--space-4`)
+- Font sizes: `--font-size-{size}` (e.g., `--font-size-lg`)
+- Breakpoints: `--breakpoint-{size}` (e.g., `--breakpoint-md`)
 
-## Hinweise zur Wartung
+## Maintenance Notes
 
-1. Halte die Token-Namen konsistent
-2. Organisiere neue Tokens in der passenden Kategorie
-3. Verwende `@layer tokens` für alle Token-Definitionen
-4. Ergänze jede Datei mit einem Kommentar-Header zur Beschreibung
-5. Bewahre Abwärtskompatibilität bei der Aktualisierung von Tokens 
+1. Keep token names consistent
+2. Organize new tokens in the appropriate category
+3. Use `@layer tokens` for all token definitions
+4. Add a comment header to each file for description
+5. Maintain backward compatibility when updating tokens 

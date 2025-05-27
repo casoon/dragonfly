@@ -131,4 +131,4 @@ Each compatibility issue should be documented with the following information:
 
 ---
 
-_Diese Datei wird kontinuierlich aktualisiert, wenn neue Kompatibilitätsprobleme entdeckt werden._ 
+_This file is continuously updated as new compatibility issues are discovered._ 

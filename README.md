@@ -446,13 +446,13 @@ Additional tests for container queries and related layout features are available
 
 The library comes with comprehensive documentation to help you get started:
 
-- **[DOCUMENTATION.md](DOCUMENTATION.md)** - Umfassende Dokumentation mit Architektur, Zielen und Kompatibilitätsinformationen
-- **[STYLE-GUIDE.md](STYLE-GUIDE.md)** - Detaillierter Styleguide für die Verwendung der Bibliothek
-- **[LAYER-SYSTEM.md](LAYER-SYSTEM.md)** - Erklärung des CSS-Layer-Systems
-- **[CONTRIBUTING.md](CONTRIBUTING.md)** - Richtlinien für Beiträge zum Projekt
-- **[PUBLISHING.md](PUBLISHING.md)** - Informationen zum Veröffentlichungsprozess
-- **[GOOGLE-FONTS-LICENSE.md](GOOGLE-FONTS-LICENSE.md)** - Lizenzinformationen für die verwendeten Google Fonts
-- **[ICONS-LICENSE.md](ICONS-LICENSE.md)** - Lizenzinformationen für die verwendeten Icons
+- **[DOCUMENTATION.md](DOCUMENTATION.md)** - Comprehensive documentation with architecture, goals and compatibility information
+- **[STYLE-GUIDE.md](STYLE-GUIDE.md)** - Detailed style guide for using the library
+- **[LAYER-SYSTEM.md](LAYER-SYSTEM.md)** - Explanation of the CSS layer system
+- **[CONTRIBUTING.md](CONTRIBUTING.md)** - Guidelines for contributing to the project
+- **[PUBLISHING.md](PUBLISHING.md)** - Information about the publishing process
+- **[GOOGLE-FONTS-LICENSE.md](GOOGLE-FONTS-LICENSE.md)** - License information for the Google Fonts used
+- **[ICONS-LICENSE.md](ICONS-LICENSE.md)** - License information for the icons used
 
 ## License
 MIT

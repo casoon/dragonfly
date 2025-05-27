@@ -1,112 +1,112 @@
-# @casoon/ui-lib - Dokumentation
+# @casoon/ui-lib - Documentation
 
-Diese Dokumentation bietet einen umfassenden Überblick über die @casoon/ui-lib, ihre Anforderungen, Architektur und Kompatibilität.
+This documentation provides a comprehensive overview of @casoon/ui-lib, its requirements, architecture, and compatibility.
 
-## Inhaltsverzeichnis
-1. [Ziele und Anforderungen](#ziele-und-anforderungen)
-2. [Architektur](#architektur)
-3. [Kompatibilität](#kompatibilität)
-4. [Browser-Kompatibilitätstests](#browser-kompatibilitätstests)
-5. [Schriftarten](#schriftarten)
-6. [Benutzerdefinierte Komponenten](#benutzerdefinierte-komponenten)
-7. [Weiterführende Dokumentation](#weiterführende-dokumentation)
+## Table of Contents
+1. [Goals and Requirements](#goals-and-requirements)
+2. [Architecture](#architecture)
+3. [Compatibility](#compatibility)
+4. [Browser Compatibility Tests](#browser-compatibility-tests)
+5. [Fonts](#fonts)
+6. [Custom Components](#custom-components)
+7. [Further Documentation](#further-documentation)
 
-## Ziele und Anforderungen
+## Goals and Requirements
 
-### 1. Design-System – Eine konsistente, skalierbare Grundlage
+### 1. Design System – A Consistent, Scalable Foundation
 
-**Ziel:** Aufbau eines modularen, konsistenten Design-Systems, das in verschiedenen Projekten wiederverwendet werden kann.
+**Goal:** Build a modular, consistent design system that can be reused across different projects.
 
-**Anforderungen:**
-- Systematische Benennung und strukturelle Organisation für alle Tokens und Komponenten
-- Eine Token-basierte Design-Grundlage, die CSS-Custom-Properties nutzt
-- Theming-Unterstützung und Erweiterbarkeit durch eine Layer-basierte Architektur (z.B. Tokens, Utilities, Komponenten)
+**Requirements:**
+- Systematic naming and structural organization for all tokens and components
+- A token-based design foundation that uses CSS Custom Properties
+- Theming support and extensibility through a layer-based architecture (e.g., tokens, utilities, components)
 
-### 2. Design-Prinzipien – Klare visuelle und funktionale Regeln
+### 2. Design Principles – Clear Visual and Functional Rules
 
-**Ziel:** Sicherstellen, dass alle UI-Komponenten gemeinsame Prinzipien befolgen, um Kohärenz in Aussehen und Verhalten zu gewährleisten.
+**Goal:** Ensure that all UI components follow shared principles to maintain coherence in appearance and behavior.
 
-**Anforderungen:**
-- Einheitliche Regeln für Layout, Abstände, Typografie und Größen
-- Komponenten sollten verständlich und nutzbar sein, auch ohne auf externe Design-Tools angewiesen zu sein
-- Klare Trennung von Präsentation und Logik in Struktur und Styling
+**Requirements:**
+- Uniform rules for layout, spacing, typography, and sizing
+- Components should be understandable and usable even without relying on external design tools
+- Clear separation of presentation and logic in structure and styling
 
-### 3. Funktionale Muster – Wiederverwendbare, adaptive Komponenten-Blueprints
+### 3. Functional Patterns – Reusable, Adaptive Component Blueprints
 
-**Ziel:** Bereitstellung abstrakter Muster für häufige Interaktionen und funktionale Verhaltensweisen.
+**Goal:** Provide abstract patterns for common interactions and functional behaviors.
 
-**Anforderungen:**
-- Modulare Komponentenmuster wie Dialog, Accordion, Dropdown, mit minimalem JavaScript-Einsatz
-- Komponenten sollten leicht konfigurierbar und an verschiedene Anwendungsfälle anpassbar sein
-- Barrierefreiheit (a11y) muss als erstklassiges Anliegen betrachtet werden
+**Requirements:**
+- Modular component patterns like Dialog, Accordion, Dropdown, designed with minimal JavaScript
+- Components should be easily configurable and adaptable to various use cases
+- Accessibility (a11y) must be considered a first-class concern
 
-### 4. Wahrnehmungsmuster – Intuitive Rückmeldung und visuelle Kommunikation
+### 4. Perceptual Patterns – Intuitive Feedback and Visual Communication
 
-**Ziel:** Implementierung von Wahrnehmungshinweisen, die das Verständnis und Feedback des Benutzers verbessern.
+**Goal:** Implement perceptual cues that improve user understanding and feedback.
 
-**Anforderungen:**
-- Definition und Unterstützung für Komponentenzustände wie hover, focus, disabled, error, loading, success
-- Utility-Klassen oder Animationen zur Unterstützung interaktiver Übergänge und Effekte
-- Alle Komponenten sollten über verschiedene Bildschirmgrößen und Geräte hinweg angemessen reagieren (responsives Design)
+**Requirements:**
+- Definition and support for component states like hover, focus, disabled, error, loading, success
+- Utility classes or animations to support interactive transitions and effects
+- All components should respond properly across screen sizes and devices (responsive design)
 
-### 5. Gemeinsame Sprache – Einheitliche Namens- und API-Konvention
+### 5. Shared Language – Unified Naming and API Convention
 
-**Ziel:** Förderung einer gemeinsamen Sprache zwischen Design und Entwicklung.
+**Goal:** Promote a common language between design and development.
 
-**Anforderungen:**
-- Token-Namen, Komponenten und Utilities sollten einer einheitlichen und dokumentierten Namenskonvention folgen
-- Klare CSS-Klassen-API (z.B. btn-primary, gap-md, card-lg), die intuitiv und vorhersehbar ist
-- Terminologie und Struktur sollten ein systematisiertes mentales Modell widerspiegeln, das im gesamten Projekt geteilt wird
+**Requirements:**
+- Token names, components, and utilities should follow a consistent and documented naming convention
+- Clear CSS class API (e.g., btn-primary, gap-md, card-lg) that is intuitive and predictable
+- Terminology and structure should reflect a systemized mental model shared across the project
 
-## Architektur
+## Architecture
 
-Die Bibliothek verwendet eine klar definierte CSS-Layer-Architektur, um Spezifizitätskonflikte zu vermeiden und die Wartbarkeit zu verbessern.
+The library uses a clearly defined CSS layer architecture to avoid specificity conflicts and improve maintainability.
 
-### Layer-Hierarchie
+### Layer Hierarchy
 
 ```css
 @layer reset, tokens, custom-properties, core, logical-properties, colors, color-mix, layout, layout-queries, typography, utilities, smooth-scroll, accessibility, icons, components, animations, effects, themes;
 ```
 
-### Layer-Struktur
-1. **reset**: Grundlegende CSS-Resets für einheitliche Browser-Darstellung
-2. **tokens**: Design-Tokens für Farben, Abstände, Typografie usw.
-3. **custom-properties**: CSS-Variablen-Definitionen
-4. **core**: Kernstile für grundlegende Elemente
-5. **layout**: Layoutsystem mit Flexbox und Grid
-6. **typography**: Typografiesystem
-7. **utilities**: Utility-Klassen
-8. **components**: UI-Komponenten
-9. **animations**: Animationssystem
-10. **effects**: Visuelle Effekte
-11. **themes**: Theming-System
+### Layer Structure
+1. **reset**: Basic CSS resets for uniform browser rendering
+2. **tokens**: Design tokens for colors, spacing, typography, etc.
+3. **custom-properties**: CSS variable definitions
+4. **core**: Core styles for basic elements
+5. **layout**: Layout system with Flexbox and Grid
+6. **typography**: Typography system
+7. **utilities**: Utility classes
+8. **components**: UI components
+9. **animations**: Animation system
+10. **effects**: Visual effects
+11. **themes**: Theming system
 
-Eine detaillierte Beschreibung der Layer-Struktur finden Sie in [LAYER-SYSTEM.md](LAYER-SYSTEM.md).
+A detailed description of the layer structure can be found in [LAYER-SYSTEM.md](LAYER-SYSTEM.md).
 
-## Kompatibilität
+## Compatibility
 
-Die Bibliothek verwendet progressive Enhancement und Fallback-Strategien, um eine breite Browser-Kompatibilität zu gewährleisten:
+The library uses progressive enhancement and fallback strategies to ensure broad browser compatibility:
 
-- **Moderne Browser**: Volle Unterstützung für Chrome/Edge 90+, Firefox 90+, Safari 15+
-- **Ältere Browser**: Kernfunktionalität funktioniert in älteren Browsern durch Fallbacks
-- **Feature-Erkennung**: Verwendet `@supports`-Regeln statt Browser-Erkennung
-- **CSS-Variablen**: Fallbacks für Browser ohne CSS Custom Properties
-- **Container Queries**: Media-Query-Fallbacks für ältere Browser
-- **Farbfunktionen**: RGB/HSL-Fallbacks für Browser ohne OKLCH-Unterstützung
-- **Interpolate-size**: Graceful Degradation für Browser ohne Fluid-Sizing
+- **Modern Browsers**: Full support for Chrome/Edge 90+, Firefox 90+, Safari 15+
+- **Older Browsers**: Core functionality works in older browsers through fallbacks
+- **Feature Detection**: Uses `@supports` rules instead of browser detection
+- **CSS Variables**: Fallbacks for browsers without CSS Custom Properties
+- **Container Queries**: Media Query fallbacks for older browsers
+- **Color Functions**: RGB/HSL fallbacks for browsers without OKLCH support
+- **Interpolate-size**: Graceful degradation for browsers without fluid sizing
 
-### Bekannte Kompatibilitätsprobleme
+### Known Compatibility Issues
 
 #### Viewport Units (svh, svw)
 
-**Betroffene Browser:**
+**Affected Browsers:**
 - Safari < 15.4
 - Chrome < 108
 - Firefox < 101
 
-**Problem:** Small Viewport Units werden nicht unterstützt.
+**Issue:** Small Viewport Units are not supported.
 
-**Lösung:** Die Bibliothek implementiert einen Fallback mit regulären Viewport Units (vh, vw) und CSS-Feature-Erkennung:
+**Solution:** The library implements a fallback using regular viewport units (vh, vw) with CSS feature detection:
 
 ```css
 @supports not (height: 1svh) {
@@ -124,86 +124,86 @@ Die Bibliothek verwendet progressive Enhancement und Fallback-Strategien, um ein
 
 #### Container Queries
 
-**Betroffene Browser:**
+**Affected Browsers:**
 - Safari < 16
 - Chrome < 105
 - Firefox < 110
 
-**Problem:** Container Queries werden nicht unterstützt.
+**Issue:** Container Queries are not supported.
 
-**Lösung:** Die Bibliothek verwendet Media Queries als Fallbacks und stellt eine `no-container-queries`-Klasse für gezieltes Styling bereit.
+**Solution:** The library uses Media Queries as fallbacks and provides a `no-container-queries` class for targeted styling.
 
-## Browser-Kompatibilitätstests
+## Browser Compatibility Tests
 
-Die Bibliothek enthält eine Browser-Kompatibilitäts-Testsuite, die Folgendes abdeckt:
+The library includes a browser compatibility test suite that covers:
 
 - Viewport Units (vw, vh, svw, svh, lvw, lvh, dvw, dvh)
-- Theme-System mit Dark/Light Mode
-- Barrierefreiheit-Features (Fokusringe, Skip-Links, Screenreader-Kompatibilität)
-- CSS-Feature-Support-Erkennung (Container Queries, Layers, Custom Properties)
-- Media-Query-Support (prefers-color-scheme, prefers-reduced-motion)
+- Theme System with Dark/Light Mode
+- Accessibility Features (focus rings, skip links, screen reader compatibility)
+- CSS Feature Support Detection (container queries, layers, custom properties)
+- Media Query Support (prefers-color-scheme, prefers-reduced-motion)
 
-Die Tests sind auf Kompatibilität mit folgenden Browsern ausgerichtet:
-- Moderne Browser (Chrome, Firefox, Safari, Edge - neueste Versionen)
-- Ältere Browser (Chrome, Firefox, Safari, Edge - Version 90+)
+The tests are designed for compatibility with the following browsers:
+- Modern browsers (Chrome, Firefox, Safari, Edge - latest versions)
+- Older browsers (Chrome, Firefox, Safari, Edge - version 90+)
 
-Um die Tests auszuführen:
+To run the tests:
 ```bash
-# Starten eines lokalen Servers
+# Start a local server
 npx serve
 
-# Zugriff auf die Testsuite
+# Access the test suite
 # http://localhost:3000/tests/browser-compatibility/
 ```
 
-Die Testdateien umfassen:
-- `viewport-units-test.html` - Tests für die Implementierung von Viewport-Einheiten
-- `theme-system-test.html` - Tests für Theme-Umschaltung und -Persistenz
-- `accessibility-test.html` - Tests für Barrierefreiheit-Features
+The test files include:
+- `viewport-units-test.html` - Tests for viewport unit implementation
+- `theme-system-test.html` - Tests for theme switching and persistence
+- `accessibility-test.html` - Tests for accessibility features
 
-Die Testsuite liefert Browser-Informationen und dokumentiert Kompatibilitätsprobleme in `compatibility-issues.md`, um Entwicklern zu helfen, browserspezifische Herausforderungen bei der Verwendung der Bibliothek zu identifizieren und zu beheben.
+The test suite provides browser information and documents compatibility issues in `compatibility-issues.md`, helping developers identify and address browser-specific challenges when using the library.
 
-## Schriftarten
+## Fonts
 
-Die Bibliothek enthält eine Sammlung optimierter Google Fonts im WOFF2-Format für bessere Performance und Datenschutz. Die Verwendung selbst-gehosteter Schriften eliminiert externe Anfragen an Googles Server und reduziert Ladezeiten.
+The library includes a collection of optimized Google Fonts in WOFF2 format for better performance and privacy. Using self-hosted fonts eliminates external requests to Google's servers and reduces load times.
 
-### Verzeichnisstruktur
+### Directory Structure
 
-Die Schriften sind in einer verbesserten Struktur organisiert:
+The fonts are organized in an improved structure:
 
 ```
 /fonts/
-├── fonts.css                 # Haupt-CSS-Datei mit allen Variablen und Utility-Klassen
-├── README.md                 # Dokumentation
+├── fonts.css                 # Main CSS file with all variables and utility classes
+├── README.md                 # Documentation
 │
-├── roboto/                   # Jede Schriftart hat ihr eigenes Verzeichnis
-│   ├── 400.css              # CSS für reguläres Gewicht
-│   ├── 700.css              # CSS für fettes Gewicht
-│   ├── index.css            # Importiert alle Gewichte
-│   ├── roboto-regular.woff2 # WOFF2-Datei für reguläres Gewicht
-│   └── roboto-bold.woff2    # WOFF2-Datei für fettes Gewicht
+├── roboto/                   # Each font has its own directory
+│   ├── 400.css              # CSS for regular weight
+│   ├── 700.css              # CSS for bold weight
+│   ├── index.css            # Imports all weights
+│   ├── roboto-regular.woff2 # WOFF2 file for regular weight
+│   └── roboto-bold.woff2    # WOFF2 file for bold weight
 ```
 
-### Verwendung der Schriftarten
+### Using the Fonts
 
-Sie können die Schriftarten auf verschiedene Weise einbinden:
+You can include the fonts in different ways:
 
 ```css
-/* Nur die CSS-Variablen und Utility-Klassen, ohne die Schriftarten selbst */
+/* Only the CSS variables and utility classes, without the fonts themselves */
 @import '@casoon/ui-lib/fonts/fonts.css';
 
-/* Eine bestimmte Schriftart mit allen Gewichten */
+/* A specific font with all weights */
 @import '@casoon/ui-lib/fonts/roboto/index.css';
 
-/* Nur ein bestimmtes Gewicht einer Schriftart */
+/* Only a specific weight of a font */
 @import '@casoon/ui-lib/fonts/roboto/400.css';
 ```
 
-Für Astro-Projekte können Sie einfach die CSS-Dateien importieren. Vite (von Astro verwendet) oder Webpack wird die CSS automatisch analysieren und die Schriftartendateien in Ihren Projekt-Build einbeziehen, ohne dass Plugins oder manuelles Kopieren erforderlich sind.
+For Astro projects, you can simply import the CSS files as shown above. Vite (used by Astro) or Webpack will automatically analyze the CSS and include the font files in your project's build without requiring any plugins or manual copying.
 
-## Benutzerdefinierte Komponenten
+## Custom Components
 
-Sie können eigene Komponenten im `components`-Layer hinzufügen:
+You can add your own components in the `components` layer:
 ```css
 @layer components {
   .my-component {
@@ -214,8 +214,8 @@ Sie können eigene Komponenten im `components`-Layer hinzufügen:
 }
 ```
 
-## Weiterführende Dokumentation
+## Further Documentation
 
-Für einen umfassenden Leitfaden zu allen Funktionen, Best Practices, Komponenten-Nutzung, Theming, Utilities und fortgeschrittenen Techniken, beziehen Sie sich bitte auf den [Style Guide](STYLE-GUIDE.md).
+For a comprehensive guide to all features, best practices, component usage, theming, utilities, and advanced techniques, please refer to the [Style Guide](STYLE-GUIDE.md).
 
-Für eine detaillierte Erklärung der CSS-Layer-Architektur, siehe den [Layer System Guide](LAYER-SYSTEM.md). 
+For a detailed explanation of the CSS layer architecture, see the [Layer System Guide](LAYER-SYSTEM.md). 
