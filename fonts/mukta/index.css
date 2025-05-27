@@ -1,0 +1,14 @@
+/**
+ * Mukta Font - Alle Gewichte
+ * 
+ * Diese Datei importiert alle verfügbaren Gewichte der Mukta-Schriftart.
+ */
+
+@import url('./400.css');
+@import url('./700.css');
+
+/* 
+ * Hinweis: Die Font-Variablen und Utility-Klassen werden in jeder
+ * einzelnen CSS-Datei definiert. Es ist nicht notwendig, sie hier
+ * erneut zu definieren.
+ */

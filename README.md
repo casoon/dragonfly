@@ -2,13 +2,21 @@
 
 A modular, lightweight CSS framework and design system for modern web projects. While it is especially optimized for use with Astro JS, it is fully framework-agnostic and can be used in any web project. The library is developed by an author who primarily uses Astro JS, but it is not limited to that ecosystem. It is also optimized for LightningCSS and Container Queries, featuring a @layer-based architecture and comprehensive accessibility.
 
-## Changelog (Excerpt)
+## Features
 
-- **0.60**: Comprehensive theme system with dark/light mode support, improved accessibility components for screen readers and keyboard users, enhanced color contrast system, and new utility classes for width and height
-- **0.5.0**: Optimized animation system (new naming scheme, less redundancy), `.motion-safe`/`.motion-reduce` for `prefers-reduced-motion`, experimental `animation-composition`, dialog and focus animations, staggered animations, full dark mode and RTL support, modern CSS validation, new form layouts
-- **0.4.10**: Revised form system, consistent form nomenclature, more robust light/dark mode support, improved accessibility
-- **0.3.x**: Optimized layer structure, extended flex/grid utilities, container query integration, consistent logical properties, stricter lint rules
-- **2.0**: Fluid interpolation with `interpolate-size: allow-keywords`, comprehensive fluid typography, adaptive components
+- **Comprehensive theme system** with dark/light mode support
+- **Improved accessibility components** for screen readers and keyboard users
+- **Enhanced color contrast system**
+- **New utility classes** for width and height
+- **Optimized animation system** with new naming scheme and reduced redundancy
+- **Responsive design** with `.motion-safe`/`.motion-reduce` for `prefers-reduced-motion`
+- **Modern effects** including dialog and focus animations, staggered animations
+- **Full support** for dark mode and RTL layouts
+- **Validation** with modern CSS
+- **Improved forms** with revised form system and consistent nomenclature
+- **Optimized layer structure** with extended flex/grid utilities
+- **Container query integration** with consistent logical properties
+- **Fluid typography** using fluid interpolation
 
 ## Installation
 
@@ -184,8 +192,7 @@ The minified version contains basic functionality but may not include all effect
 │   ├── typography.css    # Typography styles
 │   ├── hierarchy/        # Heading hierarchy
 │   ├── baseline/         # Baseline grid
-│   ├── weights/          # Font weights
-│   └── web-fonts/        # Web font definitions
+│   └── weights/          # Font weights
 ├── utilities/            # Utility classes
 │   ├── index.css         # Utility imports
 │   ├── helpers/          # Helper utilities
@@ -202,8 +209,13 @@ The minified version contains basic functionality but may not include all effect
 │   ├── base.css          # Icon base styles
 │   └── [icon-sets]/      # Various icon sets
 ├── fonts/                # Web fonts
-│   ├── README.md         # Font documentation
-│   └── [font-files].woff2 # Optimized WOFF2 font files
+│   ├── fonts.css         # Main CSS file with all variables and utility classes
+│   ├── README.md         # Documentation
+│   └── [font-name]/      # Directory for each font
+│       ├── 400.css       # CSS for regular weight
+│       ├── 700.css       # CSS for bold weight
+│       ├── index.css     # Imports all weights
+│       └── *.woff2       # WOFF2 files
 ├── ui/                   # UI components
 │   ├── index.css         # UI imports
 │   ├── elements.css      # Elements collection
@@ -235,9 +247,43 @@ See the [Layer System Documentation](LAYER-SYSTEM.md) for more details.
 
 The library includes a collection of optimized Google Fonts in WOFF2 format for better performance and privacy. Using self-hosted fonts eliminates external requests to Google's servers and reduces load times.
 
+### Directory Structure
+
+The fonts are organized in an improved structure:
+
+```
+/fonts/
+├── fonts.css                 # Main CSS file with all variables and utility classes
+├── README.md                 # Documentation
+│
+├── roboto/                   # Each font has its own directory
+│   ├── 400.css              # CSS for regular weight
+│   ├── 700.css              # CSS for bold weight
+│   ├── index.css            # Imports all weights
+│   ├── roboto-regular.woff2 # WOFF2 file for regular weight
+│   └── roboto-bold.woff2    # WOFF2 file for bold weight
+```
+
+### Using the Fonts
+
+You can include the fonts in different ways:
+
+```css
+/* Only the CSS variables and utility classes, without the fonts themselves */
+@import '@casoon/ui-lib/fonts/fonts.css';
+
+/* A specific font with all weights */
+@import '@casoon/ui-lib/fonts/roboto/index.css';
+
+/* Only a specific weight of a font */
+@import '@casoon/ui-lib/fonts/roboto/400.css';
+```
+
+For Astro projects, you can simply import the CSS files as shown above. Vite (used by Astro) or Webpack will automatically analyze the CSS and include the font files in your project's build without requiring any plugins or manual copying. For more information, see the [Fonts README](fonts/README.md).
+
 ### Included Fonts
 
-The `/fonts` directory contains the following Google Fonts:
+The library includes the following Google Fonts:
 
 - **Anton** - Bold display font for large headlines
 - **Arimo** - Sans-serif font with good readability
@@ -269,26 +315,6 @@ The `/fonts` directory contains the following Google Fonts:
 - **Titillium Web** - Sans-serif designed by students
 - **Ubuntu** - The Ubuntu operating system font
 - **Work Sans** - Optimized for on-screen text usage
-
-### Usage Mechanism
-
-To use these fonts in your project, simply import the desired font CSS file:
-
-```css
-/* Import a specific font */
-@import url('/path/to/@casoon/ui-lib/typography/web-fonts/inter.css');
-
-/* Or use the variable font version for Inter */
-@import url('/path/to/@casoon/ui-lib/typography/web-fonts/inter-var.css');
-```
-
-Each font CSS file:
-1. Defines `@font-face` rules with optimized settings
-2. Uses `font-display: swap` for better performance
-3. Provides both regular and bold weights
-4. Sets up the appropriate font-family name
-
-The fonts are preloaded with the appropriate unicode ranges to minimize the file size while supporting a wide range of characters.
 
 ## Container Query Example
 
@@ -375,7 +401,7 @@ The library employs progressive enhancement and fallback strategies to ensure wi
 - **Color Functions**: RGB/HSL fallbacks for browsers without OKLCH support
 - **interpolate-size**: Graceful degradation for browsers without fluid sizing
 
-For detailed compatibility information, browser support charts, and implemented fallback strategies, see [Browser Compatibility](compatibility.md).
+For detailed compatibility information, browser support charts, and implemented fallback strategies, see the [Documentation](DOCUMENTATION.md).
 
 ## Testing
 
@@ -385,12 +411,17 @@ npm run test:lightningcss
 ```
 
 ### Browser Compatibility Tests
-The library includes a comprehensive browser compatibility testing suite that covers:
+The library includes a browser compatibility testing suite that covers:
 
 - Viewport Units (vw, vh, svw, svh, lvw, lvh, dvw, dvh)
 - Theme System with Dark/Light Mode
-- Accessibility Features
-- Dimension Utilities
+- Accessibility Features (focus rings, skip links, screen reader compatibility)
+- CSS Feature Support Detection (container queries, layers, custom properties)
+- Media Query Support (prefers-color-scheme, prefers-reduced-motion)
+
+The tests are designed to ensure compatibility across:
+- Modern browsers (Chrome, Firefox, Safari, Edge - latest versions)
+- Older browsers (Chrome, Firefox, Safari, Edge - version 90+)
 
 To run the tests:
 ```bash
@@ -401,19 +432,30 @@ npx serve
 # http://localhost:3000/tests/browser-compatibility/
 ```
 
-The test suite provides automated feature detection and documentation tools to help identify and address compatibility issues across different browsers and devices.
+The test files include:
+- `viewport-units-test.html` - Tests for viewport unit implementation
+- `theme-system-test.html` - Tests for theme switching and persistence
+- `accessibility-test.html` - Tests for accessibility features
 
-## Further Documentation
+The test suite provides browser information and documents compatibility issues in `compatibility-issues.md`, helping developers identify and address browser-specific challenges when using the library.
 
-For a comprehensive guide to all features, best practices, component usage, theming, utilities, and advanced techniques, please refer to the [Style Guide](STYLE-GUIDE.md).
+### Container Compatibility Tests
+Additional tests for container queries and related layout features are available in the `tests/container-compatibility` directory.
 
-For a detailed explanation of the CSS layer architecture, see the [Layer System Guide](LAYER-SYSTEM.md).
+## Documentation
+
+The library comes with comprehensive documentation to help you get started:
+
+- **[DOCUMENTATION.md](DOCUMENTATION.md)** - Umfassende Dokumentation mit Architektur, Zielen und Kompatibilitätsinformationen
+- **[STYLE-GUIDE.md](STYLE-GUIDE.md)** - Detaillierter Styleguide für die Verwendung der Bibliothek
+- **[LAYER-SYSTEM.md](LAYER-SYSTEM.md)** - Erklärung des CSS-Layer-Systems
+- **[CONTRIBUTING.md](CONTRIBUTING.md)** - Richtlinien für Beiträge zum Projekt
+- **[PUBLISHING.md](PUBLISHING.md)** - Informationen zum Veröffentlichungsprozess
+- **[GOOGLE-FONTS-LICENSE.md](GOOGLE-FONTS-LICENSE.md)** - Lizenzinformationen für die verwendeten Google Fonts
+- **[ICONS-LICENSE.md](ICONS-LICENSE.md)** - Lizenzinformationen für die verwendeten Icons
 
 ## License
 MIT
 
 ## Contributing
 Contributions welcome! See [Contribution Guidelines](CONTRIBUTING.md).
-
-## Status
-🟡 **Beta**: Stable core functionality, ongoing improvements, API largely stable, suitable for production use in controlled environments.

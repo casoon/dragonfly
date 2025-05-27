@@ -2,144 +2,109 @@
 
 This directory contains optimized WOFF2 versions of popular Google Fonts for better performance and privacy. Using self-hosted fonts eliminates external requests to Google's servers and reduces load times.
 
-## Using Fonts in Astro Projects
+## New Directory Structure
 
-When using this library in an Astro project (or any other project that uses npm), there are several ways to incorporate the fonts:
+The fonts are now organized in a new structure:
 
-### Option 1: Copy Fonts to Your Public Directory (Recommended)
-
-The simplest approach is to copy the required font files to your project's public directory:
-
-```bash
-# From your project root
-mkdir -p public/fonts
-cp node_modules/@casoon/ui-lib/fonts/*.woff2 public/fonts/
+```
+/fonts/
+└── roboto/             # Each font has its own directory
+    ├── 400.css         # CSS for regular weight
+    ├── 700.css         # CSS for bold weight
+    ├── index.css       # Imports all weights
+    ├── roboto-regular.woff2  # WOFF2 file for regular weight
+    └── roboto-bold.woff2     # WOFF2 file for bold weight
 ```
 
-Then, create a custom CSS file to load the fonts with the correct paths:
+## Usage in Projects
+
+### Option 1: Import a Single Weight
+
+If you only need a specific weight of a font:
 
 ```css
-/* src/styles/fonts.css */
-@font-face {
-  font-display: swap;
-  font-family: Inter;
-  font-style: normal;
-  font-weight: 400;
-  src: url('/fonts/inter-regular.woff2') format('woff2');
-}
+/* Import only Regular (400) */
+@import '@casoon/ui-lib/fonts/roboto/400.css';
 
-@font-face {
-  font-display: swap;
-  font-family: Inter;
-  font-style: normal;
-  font-weight: 700;
-  src: url('/fonts/inter-bold.woff2') format('woff2');
-}
+/* Or import only Bold (700) */
+@import '@casoon/ui-lib/fonts/roboto/700.css';
 ```
 
-Import this file in your Astro layout:
+### Option 2: Import All Weights of a Font
 
-```astro
----
-import '../styles/fonts.css';
----
+To import all available weights of a font:
+
+```css
+@import '@casoon/ui-lib/fonts/roboto/index.css';
 ```
 
-### Option 2: Use Astro's Integration for Static Assets
+### CSS Variables and Utility Classes
 
-For Astro projects, you can use the built-in support for importing static assets:
+Each font file defines CSS variables and utility classes for using the font:
+
+```css
+/* CSS Variable */
+--font-family-roboto: 'Roboto', system-ui, -apple-system, sans-serif;
+
+/* Utility Class */
+.font-roboto { font-family: var(--font-family-roboto); }
+```
+
+## Usage in Astro Projects
+
+When using this library in an Astro project (or any project using Vite or Webpack), you can simply import the CSS files as shown above. The build system will automatically analyze the CSS and include the referenced font files in your project's build.
+
+```css
+/* In your Astro component or global CSS */
+@import '@casoon/ui-lib/fonts/roboto/index.css';
+```
+
+This works out of the box with no additional plugins or manual copying required. Vite (used by Astro) or Webpack will handle the fonts automatically and optimize them for your production build.
+
+### Alternative: Direct Asset Imports (Optional)
+
+For more direct control, you can also use Astro's asset imports:
 
 ```astro
 ---
 // Import font files directly
-import interRegular from '@casoon/ui-lib/fonts/inter-regular.woff2';
-import interBold from '@casoon/ui-lib/fonts/inter-bold.woff2';
+import robotoRegular from '@casoon/ui-lib/fonts/roboto/roboto-regular.woff2';
+import robotoBold from '@casoon/ui-lib/fonts/roboto/roboto-bold.woff2';
 ---
 
-<style define:vars={{ interRegular, interBold }}>
+<style define:vars={{ robotoRegular, robotoBold }}>
   @font-face {
     font-display: swap;
-    font-family: Inter;
+    font-family: Roboto;
     font-style: normal;
     font-weight: 400;
-    src: url(var(--interRegular)) format('woff2');
-  }
-  
-  @font-face {
-    font-display: swap;
-    font-family: Inter;
-    font-style: normal;
-    font-weight: 700;
-    src: url(var(--interBold)) format('woff2');
+    src: url(var(--robotoRegular)) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
   }
 </style>
-```
-
-### Option 3: Vite Plugin for Font Loading (Advanced)
-
-For more complex setups, you can use Vite plugins like `vite-plugin-fonts` to handle font loading:
-
-```js
-// astro.config.mjs
-import { defineConfig } from 'astro/config';
-import fonts from 'vite-plugin-fonts';
-
-export default defineConfig({
-  vite: {
-    plugins: [
-      fonts({
-        custom: {
-          families: [
-            {
-              name: 'Inter',
-              local: 'Inter',
-              src: './node_modules/@casoon/ui-lib/fonts/inter-*.woff2',
-            },
-            // Add other fonts as needed
-          ],
-        },
-      }),
-    ],
-  },
-});
-```
-
-## Automated Font Loading During Build
-
-To automate the font copying process during your build, you can add a script to your package.json:
-
-```json
-{
-  "scripts": {
-    "prebuild": "mkdir -p public/fonts && cp node_modules/@casoon/ui-lib/fonts/*.woff2 public/fonts/",
-    "build": "astro build"
-  }
-}
 ```
 
 ## Available Fonts
 
 The library includes the following Google Fonts:
 
-- Anton
+### Sans-Serif
+- Anton (regular only)
 - Arimo
-- Bebas Neue
+- Bebas Neue (regular only)
 - Cabin
 - DM Sans
 - Dosis
 - Fira Sans
-- Inconsolata
-- Inter (including variable font version)
+- Inter
 - Josefin Sans
 - Lato
-- Merriweather
 - Montserrat
 - Mukta
 - Noto Sans
 - Nunito
 - Open Sans
 - Oswald
-- Playfair Display
 - Poppins
 - PT Sans
 - Quicksand
@@ -152,107 +117,18 @@ The library includes the following Google Fonts:
 - Ubuntu
 - Work Sans
 
-Each font is available in both regular (400) and bold (700) weights.
-
-## CSS Variables for Font Families
-
-Each font provides a CSS variable that you can use in your styles:
-
-```css
-.my-element {
-  font-family: var(--font-family-inter);
-}
-```
-
-Available variables:
-- `--font-family-anton`
-- `--font-family-arimo`
-- `--font-family-bebas-neue`
-- etc.
-
-## Verwendung
-
-Jede Schriftart wird als separate CSS-Datei im Verzeichnis `/typography/web-fonts/` bereitgestellt. Um eine Schriftart zu verwenden, importieren Sie einfach die entsprechende CSS-Datei:
-
-```css
-@import "typography/web-fonts/roboto.css";
-```
-
-Die WOFF2-Dateien werden dann nur geladen, wenn die Schriftart tatsächlich über den entsprechenden Import eingebunden wird.
-
-## Verfügbare Schriftarten
-
-### Sans-Serif
-- Roboto (`roboto.css`)
-- Open Sans (`open-sans.css`)
-- Lato (`lato.css`)
-- Montserrat (`montserrat.css`)
-- Oswald (`oswald.css`)
-- Raleway (`raleway.css`)
-- Poppins (`poppins.css`)
-- Source Sans Pro (`source-sans-pro.css`)
-- Roboto Condensed (`roboto-condensed.css`)
-- Noto Sans (`noto-sans.css`)
-- Ubuntu (`ubuntu.css`)
-- PT Sans (`pt-sans.css`)
-- Nunito (`nunito.css`)
-- Inter (`inter.css`)
-- Quicksand (`quicksand.css`)
-- Mukta (`mukta.css`)
-- Work Sans (`work-sans.css`)
-- Titillium Web (`titillium-web.css`)
-- Cabin (`cabin.css`)
-- Fira Sans (`fira-sans.css`)
-- DM Sans (`dm-sans.css`)
-- Josefin Sans (`josefin-sans.css`)
-- Arimo (`arimo.css`)
-- Dosis (`dosis.css`)
-
 ### Serif
-- Merriweather (`merriweather.css`)
-- Playfair Display (`playfair-display.css`)
+- Merriweather
+- Playfair Display
 
 ### Monospace
-- Inconsolata (`inconsolata.css`)
-
-### Display
-- Anton (`anton.css`)
-- Bebas Neue (`bebas-neue.css`)
-- Teko (`teko.css`)
+- Inconsolata
 
 ### Variable Fonts
-- Inter Variable (`inter-var.css`) - unterstützt Gewichte von 100-900
+- Inter Variable (supports weights from 100-900)
 
-## CSS-Variablen und Utility-Klassen
+Each font is available in Regular (400) and Bold (700) weights, with the exception of Anton and Bebas Neue, which are only available as Regular variants.
 
-Jede Font-Datei definiert CSS-Variablen und Utility-Klassen für die Verwendung der Schriftart:
+## License
 
-```css
-/* CSS-Variable */
---font-family-roboto: 'Roboto', system-ui, -apple-system, sans-serif;
-
-/* Utility-Klasse */
-.font-roboto { font-family: var(--font-family-roboto); }
-```
-
-## Herunterladen der Schriftarten
-
-Die Schriftarten können mit dem Skript `scripts/download-google-fonts.js` heruntergeladen werden:
-
-```bash
-# Abhängigkeiten installieren
-npm install axios fs-extra
-
-# Skript ausführen
-node scripts/download-google-fonts.js
-```
-
-Das Skript lädt die WOFF2-Dateien herunter und generiert automatisch die entsprechenden CSS-Dateien.
-
-## Hinweise zur Optimierung
-
-Die WOFF2-Dateien wurden für optimale Webperformance komprimiert und enthalten nur die notwendigen Unicode-Bereiche für lateinische Schriften.
-
-## Lizenz
-
-Beachten Sie die entsprechenden Lizenzhinweise in der Datei [GOOGLE-FONTS-LICENSE.md](../GOOGLE-FONTS-LICENSE.md) im Hauptverzeichnis des Projekts. 
+Please see the license information in [GOOGLE-FONTS-LICENSE.md](../GOOGLE-FONTS-LICENSE.md) in the project's root directory. 

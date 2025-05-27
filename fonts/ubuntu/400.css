@@ -1,0 +1,28 @@
+/**
+ * Ubuntu Font - Regular (400)
+ * 
+ * Diese Datei enthält die font-face-Definition für Ubuntu Regular.
+ * Die Schriftart ist für optimale Webperformance im WOFF2-Format optimiert.
+ */
+
+@layer typography.webfonts {
+  /* Ubuntu Regular */
+  @font-face {
+    font-display: swap;
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: 400;
+    src: url('./ubuntu-regular.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  
+  /* Font-Variablen */
+  :root {
+    --font-family-ubuntu: 'Ubuntu', system-ui, -apple-system, sans-serif;
+  }
+  
+  /* Font-Utility-Klasse */
+  .font-ubuntu {
+    font-family: var(--font-family-ubuntu);
+  }
+}

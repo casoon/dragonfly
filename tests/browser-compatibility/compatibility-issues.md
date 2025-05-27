@@ -1,61 +1,133 @@
-# Browser-Kompatibilitätsprobleme in @casoon/ui-lib
+# Browser Compatibility Issues
 
-Dieses Dokument enthält bekannte Browser-Kompatibilitätsprobleme und deren Lösungen für die UI-Bibliothek.
+This document tracks known compatibility issues with the @casoon/ui-lib library across different browsers and versions.
 
-## Dokumentationsformat
+## Viewport Units
 
-Jedes Kompatibilitätsproblem wird nach folgendem Schema dokumentiert:
+### Small Viewport Units (svh, svw)
 
-```
-### Problem-ID: [YYYY-MM-DD-NN]
+**Affected Browsers:**
+- Safari < 15.4
+- Chrome < 108
+- Firefox < 101
 
-**Betroffene Feature:** [Feature-Name]
-**Betroffene Browser:** [Browser-Liste mit Versionen]
-**Entdeckt in Version:** [UI-Lib Version]
-**Status:** [Offen/Gelöst]
+**Issue:** Small viewport units are not supported.
 
-**Beschreibung:**
-Detaillierte Beschreibung des Problems
-
-**Auswirkungen:**
-Wie sich das Problem auf die Nutzung der UI-Bibliothek auswirkt
-
-**Workaround/Lösung:**
-Implementierte Fallback-Lösung oder Workaround für Benutzer
-
-**Screenshots/Beispiele:**
-[Link zu Screenshots oder Beispielcode]
-
-**Hinweise für Entwickler:**
-Zusätzliche Informationen für Entwickler, die die Bibliothek nutzen
-```
-
-## Bekannte Probleme
-
-### 2023-09-15-01
-
-**Betroffene Feature:** Neue Viewport-Units (sv, lv, dv)
-**Betroffene Browser:** Safari < 15.4, Chrome < 108, Firefox < 101
-**Entdeckt in Version:** 0.60
-**Status:** Gelöst
-
-**Beschreibung:**
-Die in Version 0.60 implementierten neuen Viewport-Units (svw/svh, lvw/lvh, dvw/dvh) werden in älteren Browsern nicht unterstützt.
-
-**Auswirkungen:**
-Layouts, die diese Units verwenden, könnten in älteren Browsern nicht wie erwartet dargestellt werden.
-
-**Workaround/Lösung:**
-Die Bibliothek implementiert automatische Fallbacks zu den klassischen vw/vh-Units mittels @supports-Abfragen:
+**Solution:** The library implements a fallback using regular viewport units (vh, vw) with CSS feature detection:
 
 ```css
-@supports not (width: 50svw) {
-  .w-50sv { width: 50vw; }
+@supports not (height: 1svh) {
+  .use-svh {
+    height: 100vh; /* Fallback */
+  }
+}
+
+@supports (height: 1svh) {
+  .use-svh {
+    height: 100svh;
+  }
 }
 ```
 
-**Hinweise für Entwickler:**
-Beim Einsatz der neuen Viewport-Units sollte berücksichtigt werden, dass Benutzer mit älteren Browsern ein leicht abweichendes Layout sehen könnten. Die Fallback-Lösung sorgt für grundlegende Funktionalität, kann aber nicht das exakte Verhalten der neuen Units nachbilden, insbesondere auf mobilen Geräten mit dynamischen UI-Elementen.
+**Recommendation:** When using these units, always test in older browsers and consider providing explicit fallbacks.
+
+### Dynamic Viewport Units (dvh, dvw)
+
+**Affected Browsers:**
+- Safari < 15.4
+- Chrome < 108
+- Firefox < 101
+
+**Issue:** Dynamic viewport units are not supported.
+
+**Solution:** Similar fallback as for small viewport units.
+
+## Container Queries
+
+**Affected Browsers:**
+- Safari < 16
+- Chrome < 105
+- Firefox < 110
+
+**Issue:** Container queries are not supported.
+
+**Solution:** The library uses media queries as fallbacks where appropriate, and provides a `no-container-queries` class for targeted styling.
+
+**Recommendation:** For critical layouts, consider using feature detection and providing alternative media query-based layouts.
+
+## CSS Layers
+
+**Affected Browsers:**
+- Safari < 15.4
+- Chrome < 99
+- Firefox < 97
+
+**Issue:** CSS Layers (`@layer`) are not supported.
+
+**Solution:** The library is structured so that even without layer support, styles cascade in a reasonable manner. Critical functionality works but with potentially different specificity behavior.
+
+**Recommendation:** Be aware that styling overrides may behave differently in browsers without layer support.
+
+## Documentation Format
+
+Each compatibility issue should be documented with the following information:
+
+1. **Affected Browsers:** List of browsers and versions affected
+2. **Issue:** Brief description of the compatibility problem
+3. **Solution:** How the library handles this issue
+4. **Recommendation:** Guidance for library users
+5. **Examples:** (optional) Code examples showing the issue and solution
+
+## Theme System
+
+**Affected Browsers:**
+- IE11 and older (not supported)
+- Older mobile browsers
+
+**Issue:** Some older browsers don't fully support CSS custom properties used for theming.
+
+**Solution:** The library includes basic color fallbacks for critical UI elements.
+
+**Recommendation:** If supporting very old browsers is necessary, consider using the bundled version which includes compiled fallback colors.
+
+## CSS Grid
+
+**Affected Browsers:**
+- IE11 (partial support only)
+- Safari < 10.1
+
+**Issue:** Limited or missing support for CSS Grid features.
+
+**Solution:** For critical grid layouts, the library provides flexbox fallbacks where appropriate.
+
+**Recommendation:** Test grid layouts in older browsers and consider providing flexbox alternatives for critical UI components.
+
+## Known Issues
+
+### Reduced Motion Media Query
+
+**Affected Browsers:**
+- Safari < 10.1
+- IE11 and older
+
+**Issue:** The `prefers-reduced-motion` media query is not supported.
+
+**Solution:** Animations still work, but the reduced motion preference isn't detected automatically.
+
+**Recommendation:** Provide manual controls for disabling animations if supporting these browsers is required.
+
+### Focus-Visible Selector
+
+**Affected Browsers:**
+- Safari < 15.4
+- Firefox < 85
+- Chrome < 86
+
+**Issue:** The `:focus-visible` pseudo-class is not supported.
+
+**Solution:** The library uses a fallback approach using both `:focus` and `:focus-visible` selectors to ensure focus styles are always visible when needed.
+
+**Recommendation:** Test keyboard navigation in older browsers and ensure focus states are sufficiently visible.
 
 ---
 

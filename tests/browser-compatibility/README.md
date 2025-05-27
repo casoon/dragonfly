@@ -1,97 +1,97 @@
-# Browser-Kompatibilitätstests für @casoon/ui-lib
+# Browser Compatibility Tests for @casoon/ui-lib
 
-Dieses Verzeichnis enthält Tests und Dokumentation zur Browser-Kompatibilität der UI-Bibliothek.
+This directory contains tests and documentation for browser compatibility of the UI library.
 
-## Zweck
+## Purpose
 
-Browser-Kompatibilitätstests sind entscheidend, um sicherzustellen, dass die UI-Bibliothek wie erwartet in verschiedenen Browsern funktioniert. Besonders wichtig ist dies für die neueren CSS-Funktionen und die in Version 0.60 hinzugefügten Features.
+Browser compatibility tests are crucial to ensure that the UI library functions as expected across different browsers. This is especially important for newer CSS features and features added in version 0.60.
 
-## Getestete Browser
+## Tested Browsers
 
-Die Bibliothek wird in folgenden Browsern getestet:
+The library is tested in the following browsers:
 
-- **Moderne Browser**:
-  - Chrome (neueste Version)
-  - Firefox (neueste Version)
-  - Safari (neueste Version)
-  - Edge (neueste Version)
+- **Modern Browsers**:
+  - Chrome (latest version)
+  - Firefox (latest version)
+  - Safari (latest version)
+  - Edge (latest version)
 
-- **Ältere Browser**:
-  - Chrome (Version 90+)
-  - Firefox (Version 90+)
-  - Safari (Version 15+)
-  - Edge (Version 90+)
+- **Older Browsers**:
+  - Chrome (version 90+)
+  - Firefox (version 90+)
+  - Safari (version 15+)
+  - Edge (version 90+)
 
-## Fokus der Tests (v0.61)
+## Test Focus (v0.61)
 
-Für die Version 0.61 liegt der Fokus auf folgenden Aspekten:
+For version 0.61, the focus is on the following aspects:
 
-1. **Neue Viewport-Units**: Testen der Kompatibilität von sv, lv und dv Units
-   - Fallback-Verhalten in Browsern ohne Unterstützung
-   - Korrekte Größenanpassung in verschiedenen Szenarien
+1. **New Viewport Units**: Testing compatibility of sv, lv, and dv units
+   - Fallback behavior in browsers without support
+   - Correct sizing in various scenarios
 
-2. **Theme-System**:
-   - Korrekte Umschaltung zwischen Light und Dark Mode
-   - Persistenz der Theme-Einstellungen
-   - Systemeinstellungs-Erkennung (prefers-color-scheme)
-   - Benutzerdefinierte Themes
+2. **Theme System**:
+   - Correct switching between Light and Dark Mode
+   - Persistence of theme settings
+   - System preference detection (prefers-color-scheme)
+   - Custom themes
 
-3. **Accessibility-Features**:
-   - Korrekte Darstellung von Fokus-Ringen
-   - Funktionalität von Skip-Links
-   - Screenreader-Kompatibilität
-   - Reduced Motion und High Contrast Modi
+3. **Accessibility Features**:
+   - Correct display of focus rings
+   - Functionality of skip links
+   - Screen reader compatibility
+   - Reduced Motion and High Contrast modes
 
-4. **Dimensions-Utilities**:
-   - Korrekte Anwendung von Breiten- und Höhen-Klassen
-   - Aspect-Ratio-Unterstützung
-   - Min/Max-Werte
+4. **Dimension Utilities**:
+   - Correct application of width and height classes
+   - Aspect-Ratio support
+   - Min/Max values
 
-## Testmethodik
+## Test Methodology
 
-1. **Visuelle Tests**:
-   - Manuelle Überprüfung in jedem Browser
-   - Screenshots für Dokumentation und Vergleich
-   - Responsive-Tests (verschiedene Bildschirmgrößen)
+1. **Visual Tests**:
+   - Manual verification in each browser
+   - Screenshots for documentation and comparison
+   - Responsive tests (different screen sizes)
 
-2. **Funktionale Tests**:
-   - Interaktive Elemente (Theme-Switcher, Accessibility-Features)
-   - JavaScript-Integration
+2. **Functional Tests**:
+   - Interactive elements (theme switcher, accessibility features)
+   - JavaScript integration
 
-3. **Automatisierte Tests**:
-   - BrowserStack-Tests für verschiedene Umgebungen
-   - Lighthouse-Tests für Performance und Accessibility
+3. **Automated Tests**:
+   - BrowserStack tests for different environments
+   - Lighthouse tests for performance and accessibility
 
-## Testdokumente
+## Test Documents
 
-- `viewport-units-test.html`: Test für neue Viewport-Units
-- `theme-system-test.html`: Test für das Theme-System
-- `accessibility-test.html`: Test für Accessibility-Features
-- `dimensions-test.html`: Test für Dimensions-Utilities
+- `viewport-units-test.html`: Test for new viewport units
+- `theme-system-test.html`: Test for the theme system
+- `accessibility-test.html`: Test for accessibility features
+- `dimensions-test.html`: Test for dimension utilities
 
-## Dokumentation von Kompatibilitätsproblemen
+## Documentation of Compatibility Issues
 
-Entdeckte Kompatibilitätsprobleme werden in der Datei `compatibility-issues.md` dokumentiert mit folgenden Informationen:
+Discovered compatibility issues are documented in the `compatibility-issues.md` file with the following information:
 
-- Betroffene Browser und Versionen
-- Beschreibung des Problems
-- Implementierte Fallback-Lösung
-- Screenshots/Beispiele
-- Empfehlungen für Benutzer der Bibliothek
+- Affected browsers and versions
+- Description of the problem
+- Implemented fallback solution
+- Screenshots/examples
+- Recommendations for library users
 
-## Durchführung der Tests
+## Running the Tests
 
-1. Starten eines lokalen Servers im Root-Verzeichnis:
+1. Start a local server in the root directory:
    ```bash
    npx serve
    ```
 
-2. Öffnen der Testdateien in den zu testenden Browsern:
+2. Open the test files in the browsers to be tested:
    ```
    http://localhost:3000/tests/browser-compatibility/viewport-units-test.html
    ```
 
-3. Dokumentation der Ergebnisse:
+3. Document the results:
    ```bash
    npm run document-compatibility
    ``` 

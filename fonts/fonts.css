@@ -1,0 +1,154 @@
+/**
+ * @casoon/ui-lib Schriftarten
+ * 
+ * Diese Datei enthält Referenzen zu allen verfügbaren Schriftarten.
+ * Importieren Sie diese Datei, um alle Schriftvariablen und Utility-Klassen zu verwenden,
+ * ohne die Schriftarten selbst zu laden.
+ */
+
+@layer typography.fonts {
+  :root {
+    /* Basis-Schriftfamilien */
+    --font-family-sans: system-ui, -apple-system, blinkmacsystemfont, "segoe ui", roboto, "helvetica neue", arial, sans-serif;
+    --font-family-serif: georgia, cambria, "times new roman", times, serif;
+    --font-family-mono: ui-monospace, sfmono-regular, menlo, monaco, consolas, "liberation mono", "courier new", monospace;
+    
+    /* Sans-Serif Schriftarten */
+    --font-family-anton: 'Anton', Impact, sans-serif;
+    --font-family-arimo: 'Arimo', system-ui, sans-serif;
+    --font-family-bebas-neue: 'Bebas Neue', sans-serif;
+    --font-family-cabin: 'Cabin', system-ui, sans-serif;
+    --font-family-dm-sans: 'DM Sans', system-ui, sans-serif;
+    --font-family-dosis: 'Dosis', system-ui, sans-serif;
+    --font-family-fira-sans: 'Fira Sans', system-ui, sans-serif;
+    --font-family-inter: 'Inter', system-ui, sans-serif;
+    --font-family-josefin-sans: 'Josefin Sans', system-ui, sans-serif;
+    --font-family-lato: 'Lato', system-ui, sans-serif;
+    --font-family-montserrat: 'Montserrat', system-ui, sans-serif;
+    --font-family-mukta: 'Mukta', system-ui, sans-serif;
+    --font-family-noto-sans: 'Noto Sans', system-ui, sans-serif;
+    --font-family-nunito: 'Nunito', system-ui, sans-serif;
+    --font-family-open-sans: 'Open Sans', system-ui, sans-serif;
+    --font-family-oswald: 'Oswald', system-ui, sans-serif;
+    --font-family-poppins: 'Poppins', system-ui, sans-serif;
+    --font-family-pt-sans: 'PT Sans', system-ui, sans-serif;
+    --font-family-quicksand: 'Quicksand', system-ui, sans-serif;
+    --font-family-raleway: 'Raleway', system-ui, sans-serif;
+    --font-family-roboto: 'Roboto', system-ui, sans-serif;
+    --font-family-roboto-condensed: 'Roboto Condensed', system-ui, sans-serif;
+    --font-family-source-sans-pro: 'Source Sans Pro', system-ui, sans-serif;
+    --font-family-teko: 'Teko', system-ui, sans-serif;
+    --font-family-titillium-web: 'Titillium Web', system-ui, sans-serif;
+    --font-family-ubuntu: 'Ubuntu', system-ui, sans-serif;
+    --font-family-work-sans: 'Work Sans', system-ui, sans-serif;
+    
+    /* Serif Schriftarten */
+    --font-family-merriweather: 'Merriweather', serif;
+    --font-family-playfair-display: 'Playfair Display', serif;
+    
+    /* Monospace Schriftarten */
+    --font-family-inconsolata: 'Inconsolata', monospace;
+    
+    /* Variable Schriftarten */
+    --font-family-inter-var: 'Inter Variable', system-ui, sans-serif;
+  }
+  
+  /* Basis-Schriftarten Utility-Klassen */
+  .font-sans { font-family: var(--font-family-sans); }
+
+  .font-serif { font-family: var(--font-family-serif); }
+
+  .font-mono { font-family: var(--font-family-mono); }
+  
+  /* Sans-Serif Utility-Klassen */
+  .font-anton { font-family: var(--font-family-anton); }
+
+  .font-arimo { font-family: var(--font-family-arimo); }
+
+  .font-bebas-neue { font-family: var(--font-family-bebas-neue); }
+
+  .font-cabin { font-family: var(--font-family-cabin); }
+
+  .font-dm-sans { font-family: var(--font-family-dm-sans); }
+
+  .font-dosis { font-family: var(--font-family-dosis); }
+
+  .font-fira-sans { font-family: var(--font-family-fira-sans); }
+
+  .font-inter { font-family: var(--font-family-inter); }
+
+  .font-josefin-sans { font-family: var(--font-family-josefin-sans); }
+
+  .font-lato { font-family: var(--font-family-lato); }
+
+  .font-montserrat { font-family: var(--font-family-montserrat); }
+
+  .font-mukta { font-family: var(--font-family-mukta); }
+
+  .font-noto-sans { font-family: var(--font-family-noto-sans); }
+
+  .font-nunito { font-family: var(--font-family-nunito); }
+
+  .font-open-sans { font-family: var(--font-family-open-sans); }
+
+  .font-oswald { font-family: var(--font-family-oswald); }
+
+  .font-poppins { font-family: var(--font-family-poppins); }
+
+  .font-pt-sans { font-family: var(--font-family-pt-sans); }
+
+  .font-quicksand { font-family: var(--font-family-quicksand); }
+
+  .font-raleway { font-family: var(--font-family-raleway); }
+
+  .font-roboto { font-family: var(--font-family-roboto); }
+
+  .font-roboto-condensed { font-family: var(--font-family-roboto-condensed); }
+
+  .font-source-sans-pro { font-family: var(--font-family-source-sans-pro); }
+
+  .font-teko { font-family: var(--font-family-teko); }
+
+  .font-titillium-web { font-family: var(--font-family-titillium-web); }
+
+  .font-ubuntu { font-family: var(--font-family-ubuntu); }
+
+  .font-work-sans { font-family: var(--font-family-work-sans); }
+  
+  /* Serif Utility-Klassen */
+  .font-merriweather { font-family: var(--font-family-merriweather); }
+
+  .font-playfair-display { font-family: var(--font-family-playfair-display); }
+  
+  /* Monospace Utility-Klassen */
+  .font-inconsolata { font-family: var(--font-family-inconsolata); }
+  
+  /* Variable Fonts Utility-Klassen */
+  .font-inter-var { font-family: var(--font-family-inter-var); }
+  
+  /* Font-Feature-Settings für erweiterte Typografie */
+  .font-features-normal { font-feature-settings: normal; }
+
+  .font-features-nums { font-feature-settings: "tnum" on, "lnum" on; }
+
+  .font-features-fractions { font-feature-settings: "frac" on; }
+
+  .font-features-stylistic { font-feature-settings: "salt" on; }
+  
+  /* Font-Varianten */
+  .font-variant-small-caps { font-variant: small-caps; }
+
+  .font-variant-ligatures { font-variant-ligatures: common-ligatures; }
+
+  .font-variant-numeric { font-variant-numeric: tabular-nums; }
+}
+
+/*
+ * Um eine einzelne Schriftart zu laden, importieren Sie die entsprechende CSS-Datei:
+ * 
+ * @import '@casoon/ui-lib/fonts/roboto/index.css';
+ * 
+ * Oder für ein bestimmtes Gewicht:
+ * 
+ * @import '@casoon/ui-lib/fonts/roboto/400.css';
+ */ 

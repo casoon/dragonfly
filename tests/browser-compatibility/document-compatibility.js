@@ -1,19 +1,19 @@
 /**
- * Browser-Kompatibilitätstests - Dokumentationsskript
+ * Browser Compatibility Tests - Documentation Script
  * 
- * Dieses Skript sammelt Browser-Informationen und Feature-Unterstützung
- * und dokumentiert sie in einer JSON-Datei für die weitere Analyse.
+ * This script collects browser information and feature support
+ * and documents them in a JSON file for further analysis.
  */
 
 (function() {
   'use strict';
   
-  // Browserinformationen abrufen
+  // Get browser information
   function getBrowserInfo() {
     const ua = navigator.userAgent;
     let browserName, browserVersion, os, osVersion;
     
-    // Browser und Version extrahieren
+    // Extract browser and version
     if (ua.includes('Firefox/')) {
       browserName = 'Firefox';
       browserVersion = ua.match(/Firefox\/([\d.]+)/)[1];
@@ -23,7 +23,7 @@
     } else if (ua.includes('Safari/') && !ua.includes('Chrome/')) {
       browserName = 'Safari';
       const versionMatch = ua.match(/Version\/([\d.]+)/);
-      browserVersion = versionMatch ? versionMatch[1] : 'Unbekannt';
+      browserVersion = versionMatch ? versionMatch[1] : 'Unknown';
     } else if (ua.includes('Edg/')) {
       browserName = 'Edge';
       browserVersion = ua.match(/Edg\/([\d.]+)/)[1];
@@ -31,11 +31,11 @@
       browserName = 'Opera';
       browserVersion = ua.match(/(?:OPR|Opera)\/([\d.]+)/)[1];
     } else {
-      browserName = 'Unbekannt';
-      browserVersion = 'Unbekannt';
+      browserName = 'Unknown';
+      browserVersion = 'Unknown';
     }
     
-    // Betriebssystem extrahieren
+    // Extract operating system
     if (ua.includes('Windows')) {
       os = 'Windows';
       const ntVersion = ua.match(/Windows NT ([\d.]+)/);
@@ -48,7 +48,7 @@
           default: osVersion = ntVersion[1];
         }
       } else {
-        osVersion = 'Unbekannt';
+        osVersion = 'Unknown';
       }
     } else if (ua.includes('Macintosh') || ua.includes('Mac OS X')) {
       os = 'macOS';
@@ -56,22 +56,22 @@
       if (macVersion) {
         osVersion = macVersion[1].replace(/_/g, '.');
       } else {
-        osVersion = 'Unbekannt';
+        osVersion = 'Unknown';
       }
     } else if (ua.includes('Linux')) {
       os = 'Linux';
-      osVersion = 'Unbekannt';
+      osVersion = 'Unknown';
     } else if (ua.includes('Android')) {
       os = 'Android';
       const androidVersion = ua.match(/Android ([\d.]+)/);
-      osVersion = androidVersion ? androidVersion[1] : 'Unbekannt';
+      osVersion = androidVersion ? androidVersion[1] : 'Unknown';
     } else if (ua.includes('iOS')) {
       os = 'iOS';
       const iosVersion = ua.match(/OS ([\d_]+)/);
-      osVersion = iosVersion ? iosVersion[1].replace(/_/g, '.') : 'Unbekannt';
+      osVersion = iosVersion ? iosVersion[1].replace(/_/g, '.') : 'Unknown';
     } else {
-      os = 'Unbekannt';
-      osVersion = 'Unbekannt';
+      os = 'Unknown';
+      osVersion = 'Unknown';
     }
     
     return {
@@ -91,11 +91,11 @@
     };
   }
   
-  // Testen der Feature-Unterstützung
+  // Test feature support
   function checkFeatureSupport() {
     const features = {};
     
-    // CSS-Features
+    // CSS features
     features.css = {
       // Viewport Units
       viewportUnits: {
@@ -127,7 +127,7 @@
       }
     };
     
-    // JavaScript-Features
+    // JavaScript features
     features.js = {
       localStorage: checkLocalStorage(),
       sessionStorage: checkSessionStorage(),
@@ -137,7 +137,7 @@
       mutationObserver: typeof MutationObserver !== 'undefined'
     };
     
-    // Accessibility-Features
+    // Accessibility features
     features.accessibility = {
       ariaSupport: document.createElement('div').hasAttribute('role') !== undefined,
       focusVisible: checkCSSSupport(':focus-visible', 'outline-color: red'),

@@ -1,0 +1,13 @@
+/**
+ * Anton Font - Alle Gewichte
+ * 
+ * Diese Datei importiert alle verfügbaren Gewichte der Anton-Schriftart.
+ */
+
+@import url('./400.css');
+
+/* 
+ * Hinweis: Die Font-Variablen und Utility-Klassen werden in jeder
+ * einzelnen CSS-Datei definiert. Es ist nicht notwendig, sie hier
+ * erneut zu definieren.
+ */

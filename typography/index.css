@@ -11,7 +11,8 @@
  */
 @import url('./hierarchy/headings.css') layer(typography.headings);
 @import url('./weights/font-weights.css') layer(typography.weights);
-@import url('./web-fonts/web-fonts.css') layer(typography.webfonts);
+
+/* Import für web-fonts/web-fonts.css entfernt, da diese in /fonts verschoben wurden */
 @import url('./baseline/baseline-grid.css') layer(typography.baseline);
 
 /* Basis-Typografie-Definitionen */

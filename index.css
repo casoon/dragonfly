@@ -23,7 +23,6 @@
        typography,   /* Typografie-System */
        typography-headings, /* Überschriften-Stile */
        typography-weights, /* Schriftgewichte */
-       typography-webfonts, /* Web-Fonts */
        typography-baseline, /* Baseline-Grid */
        typography-base, /* Basis-Typografie */
        typography-text, /* Text-Element-Stile */
@@ -71,6 +70,9 @@
 @import url("utilities/index.css"); /* layer(utilities) und utilities-* Layer */
 @import url("typography/index.css"); /* layer(typography) und typography-* Layer */
 @import url("layout/index.css"); /* layer(layout) und layout-* Layer */
+
+/* Schriftarten aus dem neuen Pfad importieren */
+@import url("fonts/fonts.css"); /* Basis-Schriften-Definitionen */
 
 /* =================== KOMPONENTEN & ICONS =================== */
 @import url("icons/index.css"); /* layer(icons) */
