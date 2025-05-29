@@ -10,7 +10,7 @@
     // Setze die initiale Theme-Variable basierend auf gespeichertem Theme
     (function() {
       try {
-        const savedTheme = JSON.parse(localStorage.getItem('casoon-ui-lib-theme')) || {};
+        const savedTheme = JSON.parse(localStorage.getItem('casoon-dragonfly-theme')) || {};
         document.documentElement.style.setProperty(
           '--initial-theme', 
           savedTheme.mode || 'auto'

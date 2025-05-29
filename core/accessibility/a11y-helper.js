@@ -10,8 +10,8 @@
   const KEYBOARD_USER_CLASS = 'keyboard-user';
   const HIGH_CONTRAST_CLASS = 'high-contrast-mode';
   const REDUCED_MOTION_CLASS = 'reduced-motion';
-  const STORAGE_KEY_CONTRAST = 'casoon-ui-lib-high-contrast';
-  const STORAGE_KEY_MOTION = 'casoon-ui-lib-reduced-motion';
+  const STORAGE_KEY_CONTRAST = 'casoon-dragonfly-high-contrast';
+  const STORAGE_KEY_MOTION = 'casoon-dragonfly-reduced-motion';
   
   /**
    * Erkennt, ob der Benutzer per Tastatur navigiert und fügt eine Klasse hinzu.
@@ -136,7 +136,7 @@
     }
     
     // Event auslösen
-    document.dispatchEvent(new CustomEvent('casoon-ui-contrast-change', { 
+    document.dispatchEvent(new CustomEvent('casoon-dragonfly-contrast-change', { 
       detail: { highContrast: enable } 
     }));
   }
@@ -165,7 +165,7 @@
     }
     
     // Event auslösen
-    document.dispatchEvent(new CustomEvent('casoon-ui-motion-change', { 
+    document.dispatchEvent(new CustomEvent('casoon-dragonfly-motion-change', { 
       detail: { reducedMotion: enable } 
     }));
   }

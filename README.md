@@ -1,4 +1,4 @@
-# @casoon/ui-lib
+# @casoon/dragonfly
 
 A modular, lightweight CSS framework and design system for modern web projects. While it is especially optimized for use with Astro JS, it is fully framework-agnostic and can be used in any web project. The library is developed by an author who primarily uses Astro JS, but it is not limited to that ecosystem. It is also optimized for LightningCSS and Container Queries, featuring a @layer-based architecture and comprehensive accessibility.
 
@@ -21,11 +21,11 @@ A modular, lightweight CSS framework and design system for modern web projects. 
 ## Installation
 
 ```bash
-npm install @casoon/ui-lib
+npm install @casoon/dragonfly
 # or
-yarn add @casoon/ui-lib
+yarn add @casoon/dragonfly
 # or
-pnpm add @casoon/ui-lib
+pnpm add @casoon/dragonfly
 ```
 
 ## Usage
@@ -40,15 +40,15 @@ This option is ideal for developers using Lightning CSS who need:
 
 **Basic:**
 ```html
-<link rel="stylesheet" href="path/to/@casoon/ui-lib/index.css">
+<link rel="stylesheet" href="path/to/@casoon/dragonfly/index.css">
 ```
 **With Bundler:**
 ```js
-import '@casoon/ui-lib/index.css';
+import '@casoon/dragonfly/index.css';
 ```
 **With Astro:**
 ```astro
-import '@casoon/ui-lib/index.css';
+import '@casoon/dragonfly/index.css';
 ```
 
 ### Bundled CSS Alternative
@@ -60,22 +60,22 @@ This option provides a pre-bundled and optimized version for:
 
 **Direct HTML:**
 ```html
-<link rel="stylesheet" href="path/to/@casoon/ui-lib/dist/index.min.css">
+<link rel="stylesheet" href="path/to/@casoon/dragonfly/dist/index.min.css">
 ```
 
 **With Bundler:**
 ```js
-import '@casoon/ui-lib/dist/index.min.css';
+import '@casoon/dragonfly/dist/index.min.css';
 ```
 
 **With Astro:**
 ```astro
-import '@casoon/ui-lib/dist/index.min.css';
+import '@casoon/dragonfly/dist/index.min.css';
 ```
 
 **Via unpkg.com CDN:**
 ```html
-<link rel="stylesheet" href="https://unpkg.com/@casoon/ui-lib/dist/index.min.css">
+<link rel="stylesheet" href="https://unpkg.com/@casoon/dragonfly/dist/index.min.css">
 ```
 
 **Note about the unpkg.com version:**
@@ -83,10 +83,10 @@ The minified version contains basic functionality but may not include all effect
 
 ```html
 <!-- Base CSS -->
-<link rel="stylesheet" href="https://unpkg.com/@casoon/ui-lib/dist/index.min.css">
+<link rel="stylesheet" href="https://unpkg.com/@casoon/dragonfly/dist/index.min.css">
 <!-- Additional components as needed -->
-<link rel="stylesheet" href="https://unpkg.com/@casoon/ui-lib/effects/visual/shadows.css">
-<link rel="stylesheet" href="https://unpkg.com/@casoon/ui-lib/ui/components/card.css">
+<link rel="stylesheet" href="https://unpkg.com/@casoon/dragonfly/effects/visual/shadows.css">
+<link rel="stylesheet" href="https://unpkg.com/@casoon/dragonfly/ui/components/card.css">
 ```
 
 ## Features & Architecture
@@ -143,7 +143,7 @@ The minified version contains basic functionality but may not include all effect
 ## Layer & File Structure
 
 ```
-@casoon/ui-lib/
+@casoon/dragonfly/
 ├── index.css             # Main file with layer imports
 ├── dist/                 # Contains bundled versions
 │   ├── index.min.css     # Minified bundle with all imports resolved
@@ -270,13 +270,13 @@ You can include the fonts in different ways:
 
 ```css
 /* Only the CSS variables and utility classes, without the fonts themselves */
-@import '@casoon/ui-lib/fonts/fonts.css';
+@import '@casoon/dragonfly/fonts/fonts.css';
 
 /* A specific font with all weights */
-@import '@casoon/ui-lib/fonts/roboto/index.css';
+@import '@casoon/dragonfly/fonts/roboto/index.css';
 
 /* Only a specific weight of a font */
-@import '@casoon/ui-lib/fonts/roboto/400.css';
+@import '@casoon/dragonfly/fonts/roboto/400.css';
 ```
 
 For Astro projects, you can simply import the CSS files as shown above. Vite (used by Astro) or Webpack will automatically analyze the CSS and include the font files in your project's build without requiring any plugins or manual copying. For more information, see the [Fonts README](fonts/README.md).

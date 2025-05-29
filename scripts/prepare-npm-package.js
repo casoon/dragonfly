@@ -39,7 +39,7 @@ const colors = {
  * Main function for package preparation
  */
 async function preparePackage() {
-  console.log(`${colors.cyan}🚀 Preparing npm package for @casoon/ui-lib v${pkg.version}${colors.reset}\n`);
+  console.log(`${colors.cyan}🚀 Preparing npm package for @casoon/dragonfly v${pkg.version}${colors.reset}\n`);
   
   // 1. Check if all required files are present
   console.log(`${colors.blue}📋 Checking files in package...${colors.reset}`);

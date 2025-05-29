@@ -7,7 +7,7 @@
 
 (function() {
   // Theme-Speicherort im localStorage
-  const THEME_STORAGE_KEY = 'casoon-ui-lib-theme';
+  const THEME_STORAGE_KEY = 'casoon-dragonfly-theme';
   
   // Verfügbare Theme-Modi
   const THEME_MODES = {
@@ -172,7 +172,7 @@
    * @param {string} color - Die Theme-Farbe.
    */
   function dispatchThemeChangeEvent(mode, color) {
-    const event = new CustomEvent('casoon-ui-theme-change', {
+    const event = new CustomEvent('casoon-dragonfly-theme-change', {
       detail: {
         mode,
         color,

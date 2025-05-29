@@ -1,5 +1,5 @@
 /**
- * @casoon/ui-lib Schriftarten
+ * @casoon/dragonfly Schriftarten
  * 
  * Diese Datei enthält Referenzen zu allen verfügbaren Schriftarten.
  * Importieren Sie diese Datei, um alle Schriftvariablen und Utility-Klassen zu verwenden,
@@ -146,9 +146,9 @@
 /*
  * Um eine einzelne Schriftart zu laden, importieren Sie die entsprechende CSS-Datei:
  * 
- * @import '@casoon/ui-lib/fonts/roboto/index.css';
+ * @import '@casoon/dragonfly/fonts/roboto/index.css';
  * 
  * Oder für ein bestimmtes Gewicht:
  * 
- * @import '@casoon/ui-lib/fonts/roboto/400.css';
+ * @import '@casoon/dragonfly/fonts/roboto/400.css';
  */ 
