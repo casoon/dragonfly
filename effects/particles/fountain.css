@@ -1,0 +1,180 @@
+/**
+ * Fountain Partikel-Effekt
+ * 
+ * Partikel, die wie ein Springbrunnen nach oben schießen und dann herabfallen.
+ * Dieser Effekt ist performant optimiert und berücksichtigt reduzierte Bewegung.
+ */
+
+@keyframes fountain-shoot {
+    0% {
+        opacity: 0%;
+        transform: translateY(0) scale(1);
+    }
+
+    20% {
+        opacity: 100%;
+        transform: translateY(-70px) scale(1);
+    }
+
+    40% {
+        transform: translateY(-90px) scale(0.9);
+    }
+
+    70% {
+        opacity: 80%;
+        transform: translateY(-40px) scale(0.8);
+    }
+
+    100% {
+        opacity: 0%;
+        transform: translateY(0) scale(0.7);
+    }
+}
+
+@keyframes fountain-shoot-alt {
+    0% {
+        opacity: 0%;
+        transform: translateY(0) translateX(0) scale(1);
+    }
+
+    20% {
+        opacity: 100%;
+        transform: translateY(-60px) translateX(15px) scale(1);
+    }
+
+    40% {
+        transform: translateY(-80px) translateX(20px) scale(0.9);
+    }
+
+    70% {
+        opacity: 80%;
+        transform: translateY(-30px) translateX(10px) scale(0.8);
+    }
+
+    100% {
+        opacity: 0%;
+        transform: translateY(0) translateX(0) scale(0.7);
+    }
+}
+
+@layer components {
+    .fountain {
+        overflow: hidden;
+        position: relative;
+    }
+
+    .fountain::before,
+    .fountain::after {
+        animation: fountain-shoot 2.5s ease-out infinite;
+        background: var(--fountain-color, rgb(180 220 255 / 80%));
+        border-radius: 50%;
+        bottom: 0;
+        content: '';
+        height: 6px;
+        position: absolute;
+        width: 6px;
+    }
+
+    .fountain::before {
+        left: calc(50% - 5px);
+    }
+
+    .fountain::after {
+        animation-delay: 0.5s;
+        animation-name: fountain-shoot-alt;
+        left: calc(50% + 5px);
+    }
+
+    /* Varianten */
+    .fountain-sm::before,
+    .fountain-sm::after {
+        height: 4px;
+        width: 4px;
+    }
+
+    .fountain-lg::before,
+    .fountain-lg::after {
+        height: 8px;
+        width: 8px;
+    }
+
+    .fountain-slow::before,
+    .fountain-slow::after {
+        animation-duration: 4s;
+    }
+
+    .fountain-fast::before,
+    .fountain-fast::after {
+        animation-duration: 1.5s;
+    }
+
+    /* Mehrere Partikel */
+    .fountain-many {
+        position: relative;
+    }
+
+    .fountain-many::before,
+    .fountain-many::after {
+        animation: fountain-shoot 2.5s ease-out infinite;
+        background: var(--fountain-color, rgb(180 220 255 / 80%));
+        border-radius: 50%;
+        bottom: 0;
+        content: '';
+        height: 6px;
+        position: absolute;
+        width: 6px;
+    }
+
+    .fountain-many::before {
+        animation-delay: 1s;
+        left: calc(50% - 15px);
+    }
+
+    .fountain-many::after {
+        animation-delay: 1.5s;
+        animation-name: fountain-shoot-alt;
+        left: calc(50% + 15px);
+    }
+
+    /* Farbvarianten */
+    .fountain-blue {
+        --fountain-color: rgb(100 180 255 / 80%);
+    }
+
+    .fountain-cyan {
+        --fountain-color: rgb(100 240 255 / 80%);
+    }
+
+    .fountain-white {
+        --fountain-color: rgb(240 240 255 / 80%);
+    }
+
+    .fountain-rainbow::before {
+        --fountain-color: rgb(255 100 100 / 80%);
+    }
+
+    .fountain-rainbow::after {
+        --fountain-color: rgb(100 255 100 / 80%);
+    }
+
+    .fountain-rainbow.fountain-many::before {
+        --fountain-color: rgb(255 255 100 / 80%);
+    }
+
+    .fountain-rainbow.fountain-many::after {
+        --fountain-color: rgb(100 100 255 / 80%);
+    }
+}
+
+/* Reduzierte Bewegung */
+@media (prefers-reduced-motion: reduce) {
+    @layer components {
+        .fountain::before,
+        .fountain::after,
+        .fountain-many::before,
+        .fountain-many::after {
+            animation: none;
+            opacity: 0%;
+        }
+    }
+} 

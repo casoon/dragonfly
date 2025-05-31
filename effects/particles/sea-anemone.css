@@ -1,0 +1,207 @@
+/**
+ * Sea Anemone Partikel-Effekt
+ * 
+ * Bewegungen, die an Seeanemonen erinnern – für organische, fließende Effekte.
+ * Dieser Effekt ist performant optimiert und berücksichtigt reduzierte Bewegung.
+ */
+
+@keyframes sea-anemone-tentacle {
+    0%, 100% {
+        height: 50px;
+        transform: rotate(-5deg);
+    }
+
+    25% {
+        height: 60px;
+        transform: rotate(3deg);
+    }
+
+    50% {
+        height: 55px;
+        transform: rotate(5deg);
+    }
+
+    75% {
+        height: 45px;
+        transform: rotate(-3deg);
+    }
+}
+
+@keyframes sea-anemone-tentacle-alt {
+    0%, 100% {
+        height: 40px;
+        transform: rotate(5deg);
+    }
+
+    25% {
+        height: 35px;
+        transform: rotate(-3deg);
+    }
+
+    50% {
+        height: 45px;
+        transform: rotate(-5deg);
+    }
+
+    75% {
+        height: 50px;
+        transform: rotate(3deg);
+    }
+}
+
+@layer components {
+    .sea-anemone {
+        display: flex;
+        justify-content: center;
+        min-height: 70px;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+    }
+
+    .sea-anemone::before,
+    .sea-anemone::after,
+    .sea-anemone .tentacle {
+        animation: sea-anemone-tentacle 8s ease-in-out infinite;
+        background: linear-gradient(to bottom, var(--anemone-color, rgb(50 150 230 / 70%)), transparent);
+        border-radius: 50px;
+        bottom: 0;
+        content: '';
+        position: absolute;
+        width: 4px;
+    }
+
+    .sea-anemone::before {
+        left: calc(50% - 15px);
+    }
+
+    .sea-anemone::after {
+        animation: sea-anemone-tentacle-alt 8s ease-in-out infinite;
+        animation-delay: 0.3s;
+        left: calc(50% - 5px);
+    }
+
+    .sea-anemone .tentacle {
+        animation-delay: 0.6s;
+        left: calc(50% + 5px);
+    }
+
+    .sea-anemone .tentacle-alt {
+        animation: sea-anemone-tentacle-alt 8s ease-in-out infinite;
+        animation-delay: 0.9s;
+        background: linear-gradient(to bottom, var(--anemone-color, rgb(50 150 230 / 70%)), transparent);
+        border-radius: 50px;
+        bottom: 0;
+        content: '';
+        left: calc(50% + 15px);
+        position: absolute;
+        width: 4px;
+    }
+
+    /* Varianten */
+    .sea-anemone-sm::before,
+    .sea-anemone-sm::after,
+    .sea-anemone-sm .tentacle,
+    .sea-anemone-sm .tentacle-alt {
+        width: 3px;
+    }
+
+    .sea-anemone-lg::before,
+    .sea-anemone-lg::after,
+    .sea-anemone-lg .tentacle,
+    .sea-anemone-lg .tentacle-alt {
+        width: 6px;
+    }
+
+    .sea-anemone-slow::before,
+    .sea-anemone-slow::after,
+    .sea-anemone-slow .tentacle,
+    .sea-anemone-slow .tentacle-alt {
+        animation-duration: 12s;
+    }
+
+    .sea-anemone-fast::before,
+    .sea-anemone-fast::after,
+    .sea-anemone-fast .tentacle,
+    .sea-anemone-fast .tentacle-alt {
+        animation-duration: 5s;
+    }
+
+    /* Viele Tentakel */
+    .sea-anemone-many::before {
+        left: calc(50% - 25px);
+    }
+
+    .sea-anemone-many::after {
+        left: calc(50% - 15px);
+    }
+
+    .sea-anemone-many .tentacle {
+        left: calc(50% - 5px);
+    }
+
+    .sea-anemone-many .tentacle-alt {
+        left: calc(50% + 5px);
+    }
+
+    .sea-anemone-many .tentacle-extra {
+        animation: sea-anemone-tentacle 8s ease-in-out infinite;
+        animation-delay: 1.2s;
+        background: linear-gradient(to bottom, var(--anemone-color, rgb(50 150 230 / 70%)), transparent);
+        border-radius: 50px;
+        bottom: 0;
+        content: '';
+        left: calc(50% + 15px);
+        position: absolute;
+        width: 4px;
+    }
+
+    .sea-anemone-many .tentacle-extra-alt {
+        animation: sea-anemone-tentacle-alt 8s ease-in-out infinite;
+        animation-delay: 1.5s;
+        background: linear-gradient(to bottom, var(--anemone-color, rgb(50 150 230 / 70%)), transparent);
+        border-radius: 50px;
+        bottom: 0;
+        content: '';
+        left: calc(50% + 25px);
+        position: absolute;
+        width: 4px;
+    }
+
+    /* Farbvarianten */
+    .sea-anemone-blue {
+        --anemone-color: rgb(50 150 230 / 70%);
+    }
+
+    .sea-anemone-teal {
+        --anemone-color: rgb(50 220 200 / 70%);
+    }
+
+    .sea-anemone-purple {
+        --anemone-color: rgb(180 120 230 / 70%);
+    }
+
+    .sea-anemone-pink {
+        --anemone-color: rgb(230 120 180 / 70%);
+    }
+
+    .sea-anemone-green {
+        --anemone-color: rgb(120 200 120 / 70%);
+    }
+}
+
+/* Reduzierte Bewegung */
+@media (prefers-reduced-motion: reduce) {
+    @layer components {
+        .sea-anemone::before,
+        .sea-anemone::after,
+        .sea-anemone .tentacle,
+        .sea-anemone .tentacle-alt,
+        .sea-anemone-many .tentacle-extra,
+        .sea-anemone-many .tentacle-extra-alt {
+            animation: none;
+            height: 40px;
+            transform: rotate(0deg);
+        }
+    }
+} 

@@ -1,0 +1,127 @@
+/**
+ * Bubbles Partikel-Effekt
+ * 
+ * Blasenartige Partikel, die aufsteigen – ideal für Wasser- oder Seifenblasen-Effekte.
+ * Dieser Effekt ist performant optimiert und berücksichtigt reduzierte Bewegung.
+ */
+
+@keyframes bubbles-rise {
+    0% {
+        opacity: 0%;
+        transform: translate(0, 100%);
+    }
+
+    20% {
+        opacity: 80%;
+    }
+
+    80% {
+        opacity: 60%;
+    }
+
+    100% {
+        opacity: 0%;
+        transform: translate(var(--bubbles-drift, 30px), -100%);
+    }
+}
+
+@layer components {
+    .bubbles {
+        overflow: hidden;
+        position: relative;
+    }
+
+    .bubbles::before,
+    .bubbles::after {
+        animation: bubbles-rise 6s infinite;
+        background: var(--bubbles-color, rgb(255 255 255 / 40%));
+        border-radius: 50%;
+        content: '';
+        height: 20px;
+        position: absolute;
+        width: 20px;
+        bottom: -20px;
+    }
+
+    .bubbles::before {
+        left: 20%;
+    }
+
+    .bubbles::after {
+        animation-delay: 2s;
+        left: 60%;
+    }
+
+    .bubbles-sm::before,
+    .bubbles-sm::after {
+        height: 12px;
+        width: 12px;
+    }
+
+    .bubbles-lg::before,
+    .bubbles-lg::after {
+        height: 30px;
+        width: 30px;
+    }
+
+    .bubbles-slow::before,
+    .bubbles-slow::after {
+        animation-duration: 10s;
+    }
+
+    .bubbles-fast::before,
+    .bubbles-fast::after {
+        animation-duration: 4s;
+    }
+
+    .bubbles-many::before {
+        animation-delay: 1s;
+        left: 30%;
+    }
+
+    .bubbles-many::after {
+        animation-delay: 3s;
+        left: 70%;
+    }
+
+    .bubbles-color-primary::before,
+    .bubbles-color-primary::after {
+        background: var(--bubbles-primary, rgb(59 130 246 / 40%));
+    }
+
+    .bubbles-color-secondary::before,
+    .bubbles-color-secondary::after {
+        background: var(--bubbles-secondary, rgb(107 114 128 / 40%));
+    }
+
+    .bubbles-color-success::before,
+    .bubbles-color-success::after {
+        background: var(--bubbles-success, rgb(16 185 129 / 40%));
+    }
+
+    .bubbles-color-error::before,
+    .bubbles-color-error::after {
+        background: var(--bubbles-error, rgb(239 68 68 / 40%));
+    }
+
+    .bubbles-color-warning::before,
+    .bubbles-color-warning::after {
+        background: var(--bubbles-warning, rgb(245 158 11 / 40%));
+    }
+
+    .bubbles-color-info::before,
+    .bubbles-color-info::after {
+        background: var(--bubbles-info, rgb(6 182 212 / 40%));
+    }
+}
+
+/* Reduzierte Bewegung */
+@media (prefers-reduced-motion: reduce) {
+    @layer components {
+        .bubbles::before,
+        .bubbles::after {
+            animation: none;
+            opacity: 0%;
+        }
+    }
+} 

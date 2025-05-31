@@ -1,0 +1,223 @@
+/**
+ * Stars Partikel-Effekt
+ * 
+ * Funkelnde Sterne, die langsam über den Bildschirm ziehen – für einen Nachthimmel-Effekt.
+ * Dieser Effekt ist performant optimiert und berücksichtigt reduzierte Bewegung.
+ */
+
+@keyframes stars-twinkle {
+    0%, 100% {
+        opacity: 30%;
+        transform: scale(0.8);
+    }
+
+    50% {
+        opacity: 100%;
+        transform: scale(1);
+    }
+}
+
+@keyframes stars-drift {
+    0% {
+        transform: translateX(0) translateY(0);
+    }
+
+    25% {
+        transform: translateX(3px) translateY(1px);
+    }
+
+    50% {
+        transform: translateX(5px) translateY(0);
+    }
+
+    75% {
+        transform: translateX(3px) translateY(-1px);
+    }
+
+    100% {
+        transform: translateX(0) translateY(0);
+    }
+}
+
+@layer components {
+    .stars {
+        overflow: hidden;
+        position: relative;
+    }
+
+    .stars::before,
+    .stars::after,
+    .stars .star {
+        animation: 
+            stars-twinkle 4s ease-in-out infinite,
+            stars-drift 20s linear infinite;
+        background: var(--stars-color, rgb(255 255 200));
+        border-radius: 50%;
+        box-shadow: 0 0 4px 1px var(--stars-glow, rgba(255, 255, 200, 0.7));
+        content: '';
+        height: 3px;
+        position: absolute;
+        width: 3px;
+    }
+
+    .stars::before {
+        right: 20%;
+        top: 30%;
+    }
+
+    .stars::after {
+        animation-delay: 1s, 5s;
+        right: 50%;
+        top: 60%;
+    }
+
+    .stars .star {
+        animation-delay: 2s, 10s;
+        right: 80%;
+        top: 20%;
+    }
+
+    .stars .star-alt {
+        animation: 
+            stars-twinkle 4s ease-in-out infinite,
+            stars-drift 20s linear infinite;
+        animation-delay: 3s, 15s;
+        background: var(--stars-color, rgb(255 255 200));
+        border-radius: 50%;
+        box-shadow: 0 0 4px 1px var(--stars-glow, rgba(255, 255, 200, 0.7));
+        height: 3px;
+        position: absolute;
+        right: 30%;
+        top: 70%;
+        width: 3px;
+    }
+
+    /* Dichte Sterne */
+    .stars-dense {
+        position: relative;
+    }
+
+    .stars-dense::before,
+    .stars-dense::after,
+    .stars-dense .star,
+    .stars-dense .star-alt,
+    .stars-dense .star-extra,
+    .stars-dense .star-extra-alt {
+        animation: 
+            stars-twinkle 4s ease-in-out infinite,
+            stars-drift 20s linear infinite;
+        background: var(--stars-color, rgb(255 255 200));
+        border-radius: 50%;
+        box-shadow: 0 0 4px 1px var(--stars-glow, rgba(255, 255, 200, 0.7));
+        content: '';
+        height: 3px;
+        position: absolute;
+        width: 3px;
+    }
+
+    .stars-dense .star-extra {
+        animation-delay: 1.5s, 8s;
+        right: 10%;
+        top: 40%;
+    }
+
+    .stars-dense .star-extra-alt {
+        animation-delay: 2.5s, 12s;
+        right: 70%;
+        top: 50%;
+    }
+
+    /* Größenvarianten */
+    .stars-sm::before,
+    .stars-sm::after,
+    .stars-sm .star,
+    .stars-sm .star-alt,
+    .stars-sm .star-extra,
+    .stars-sm .star-extra-alt {
+        box-shadow: 0 0 2px 0.5px var(--stars-glow, rgba(255, 255, 200, 0.7));
+        height: 2px;
+        width: 2px;
+    }
+
+    .stars-lg::before,
+    .stars-lg::after,
+    .stars-lg .star,
+    .stars-lg .star-alt,
+    .stars-lg .star-extra,
+    .stars-lg .star-extra-alt {
+        box-shadow: 0 0 6px 2px var(--stars-glow, rgba(255, 255, 200, 0.7));
+        height: 4px;
+        width: 4px;
+    }
+
+    /* Animationsvarianten */
+    .stars-slow::before,
+    .stars-slow::after,
+    .stars-slow .star,
+    .stars-slow .star-alt,
+    .stars-slow .star-extra,
+    .stars-slow .star-extra-alt {
+        animation-duration: 6s, 30s;
+    }
+
+    .stars-fast::before,
+    .stars-fast::after,
+    .stars-fast .star,
+    .stars-fast .star-alt,
+    .stars-fast .star-extra,
+    .stars-fast .star-extra-alt {
+        animation-duration: 2s, 15s;
+    }
+
+    /* Farbvarianten */
+    .stars-white {
+        --stars-color: rgb(255 255 255);
+        --stars-glow: rgba(255, 255, 255, 0.7);
+    }
+
+    .stars-blue {
+        --stars-color: rgb(200 220 255);
+        --stars-glow: rgba(200, 220, 255, 0.7);
+    }
+
+    .stars-gold {
+        --stars-color: rgb(255 215 0);
+        --stars-glow: rgba(255, 215, 0, 0.7);
+    }
+
+    .stars-multi .star {
+        --stars-color: rgb(255 150 150);
+        --stars-glow: rgba(255, 150, 150, 0.7);
+    }
+
+    .stars-multi .star-alt {
+        --stars-color: rgb(150 255 150);
+        --stars-glow: rgba(150, 255, 150, 0.7);
+    }
+
+    .stars-multi .star-extra {
+        --stars-color: rgb(150 150 255);
+        --stars-glow: rgba(150, 150, 255, 0.7);
+    }
+
+    .stars-multi .star-extra-alt {
+        --stars-color: rgb(255 255 150);
+        --stars-glow: rgba(255, 255, 150, 0.7);
+    }
+}
+
+/* Reduzierte Bewegung */
+@media (prefers-reduced-motion: reduce) {
+    @layer components {
+        .stars::before,
+        .stars::after,
+        .stars .star,
+        .stars .star-alt,
+        .stars-dense .star-extra,
+        .stars-dense .star-extra-alt {
+            animation: none;
+            opacity: 70%;
+            transform: scale(1);
+        }
+    }
+} 

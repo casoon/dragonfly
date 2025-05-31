@@ -1,0 +1,170 @@
+/**
+ * Firefly Partikel-Effekt
+ * 
+ * Leuchtende Punkte mit sanften Bewegungen – simulieren Glühwürmchen.
+ * Dieser Effekt ist performant optimiert und berücksichtigt reduzierte Bewegung.
+ */
+
+@keyframes firefly-float {
+    0% {
+        opacity: 0%;
+        transform: translate(0, 0);
+    }
+
+    20% {
+        opacity: 80%;
+    }
+
+    40% {
+        opacity: 30%;
+        transform: translate(30px, -20px);
+    }
+
+    60% {
+        opacity: 100%;
+        transform: translate(60px, 0px);
+    }
+
+    80% {
+        opacity: 40%;
+        transform: translate(30px, 20px);
+    }
+
+    100% {
+        opacity: 0%;
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes firefly-glow {
+    0%, 100% {
+        box-shadow: 0 0 8px 2px var(--firefly-glow-color, rgba(255, 255, 180, 0.7));
+    }
+
+    50% {
+        box-shadow: 0 0 12px 4px var(--firefly-glow-color, rgba(255, 255, 180, 0.9));
+    }
+}
+
+@layer components {
+    .firefly {
+        overflow: hidden;
+        position: relative;
+    }
+
+    .firefly::before,
+    .firefly::after {
+        animation: 
+            firefly-float 8s infinite ease-in-out,
+            firefly-glow 2s infinite ease-in-out;
+        background: var(--firefly-color, rgb(255 255 180));
+        border-radius: 50%;
+        content: '';
+        height: 4px;
+        position: absolute;
+        width: 4px;
+    }
+
+    .firefly::before {
+        bottom: 20%;
+        left: 10%;
+    }
+
+    .firefly::after {
+        animation-delay: 2s, 0.5s;
+        bottom: 40%;
+        left: 60%;
+    }
+
+    /* Zusätzliche Fireflies */
+    .firefly-many {
+        position: relative;
+    }
+
+    .firefly-many::before,
+    .firefly-many::after {
+        animation: 
+            firefly-float 8s infinite ease-in-out,
+            firefly-glow 2s infinite ease-in-out;
+        background: var(--firefly-color, rgb(255 255 180));
+        border-radius: 50%;
+        content: '';
+        height: 4px;
+        position: absolute;
+        width: 4px;
+    }
+
+    .firefly-many::before {
+        animation-delay: 3s, 1s;
+        bottom: 30%;
+        left: 30%;
+    }
+
+    .firefly-many::after {
+        animation-delay: 5s, 1.5s;
+        bottom: 70%;
+        left: 40%;
+    }
+
+    /* Größenvarianten */
+    .firefly-sm::before,
+    .firefly-sm::after {
+        height: 2px;
+        width: 2px;
+    }
+
+    .firefly-lg::before,
+    .firefly-lg::after {
+        height: 6px;
+        width: 6px;
+    }
+
+    /* Geschwindigkeitsvarianten */
+    .firefly-slow::before,
+    .firefly-slow::after {
+        animation-duration: 12s, 3s;
+    }
+
+    .firefly-fast::before,
+    .firefly-fast::after {
+        animation-duration: 5s, 1s;
+    }
+
+    /* Farbvarianten */
+    .firefly-green::before,
+    .firefly-green::after {
+        --firefly-color: rgb(180 255 180);
+        --firefly-glow-color: rgba(180, 255, 180, 0.7);
+    }
+
+    .firefly-blue::before,
+    .firefly-blue::after {
+        --firefly-color: rgb(180 180 255);
+        --firefly-glow-color: rgba(180, 180, 255, 0.7);
+    }
+
+    .firefly-purple::before,
+    .firefly-purple::after {
+        --firefly-color: rgb(220 180 255);
+        --firefly-glow-color: rgba(220, 180, 255, 0.7);
+    }
+
+    .firefly-red::before,
+    .firefly-red::after {
+        --firefly-color: rgb(255 180 180);
+        --firefly-glow-color: rgba(255, 180, 180, 0.7);
+    }
+}
+
+/* Reduzierte Bewegung */
+@media (prefers-reduced-motion: reduce) {
+    @layer components {
+        .firefly::before,
+        .firefly::after,
+        .firefly-many::before,
+        .firefly-many::after {
+            animation: none;
+            opacity: 0%;
+        }
+    }
+} 

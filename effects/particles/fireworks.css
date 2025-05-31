@@ -1,0 +1,171 @@
+/**
+ * Fireworks Partikel-Effekt
+ * 
+ * Partikel, die wie Feuerwerkskörper explodieren – für festliche Anlässe.
+ * Dieser Effekt ist performant optimiert und berücksichtigt reduzierte Bewegung.
+ */
+
+@keyframes firework-rise {
+    0% {
+        opacity: 0%;
+        transform: translateY(100%);
+    }
+
+    50% {
+        opacity: 100%;
+    }
+
+    75%, 100% {
+        opacity: 0%;
+        transform: translateY(0%);
+    }
+}
+
+@keyframes firework-explode {
+    0% {
+        box-shadow:
+            0 0 0 0 var(--firework-color-1, rgb(255 50 50 / 90%)),
+            0 0 0 0 var(--firework-color-2, rgb(50 255 50 / 90%)),
+            0 0 0 0 var(--firework-color-3, rgb(50 50 255 / 90%));
+        opacity: 100%;
+        transform: scale(0.01);
+    }
+
+    30% {
+        box-shadow:
+            -50px -50px 0 0 var(--firework-color-1, rgb(255 50 50 / 0%)),
+            50px -40px 0 0 var(--firework-color-2, rgb(50 255 50 / 0%)),
+            0px 60px 0 0 var(--firework-color-3, rgb(50 50 255 / 0%));
+        opacity: 100%;
+        transform: scale(0.7);
+    }
+
+    70% {
+        box-shadow:
+            -100px -100px 0 0 var(--firework-color-1, rgb(255 50 50 / 0%)),
+            100px -80px 0 0 var(--firework-color-2, rgb(50 255 50 / 0%)),
+            0px 120px 0 0 var(--firework-color-3, rgb(50 50 255 / 0%));
+        opacity: 30%;
+    }
+
+    100% {
+        box-shadow:
+            -120px -120px 0 0 var(--firework-color-1, rgb(255 50 50 / 0%)),
+            120px -100px 0 0 var(--firework-color-2, rgb(50 255 50 / 0%)),
+            0px 140px 0 0 var(--firework-color-3, rgb(50 50 255 / 0%));
+        opacity: 0%;
+        transform: scale(1);
+    }
+}
+
+@layer components {
+    .fireworks {
+        overflow: hidden;
+        position: relative;
+    }
+
+    .fireworks::before,
+    .fireworks::after {
+        background: var(--firework-base-color, rgb(255 220 180));
+        border-radius: 50%;
+        content: '';
+        height: 4px;
+        position: absolute;
+        width: 4px;
+    }
+
+    .fireworks::before {
+        animation: 
+            firework-rise 2.5s ease-out forwards,
+            firework-explode 0.5s ease-out 1.2s forwards;
+        bottom: 0;
+        left: 40%;
+    }
+
+    .fireworks::after {
+        animation: 
+            firework-rise 2.5s ease-out 1s forwards,
+            firework-explode 0.5s ease-out 2.2s forwards;
+        bottom: 0;
+        left: 60%;
+    }
+
+    /* Varianten */
+    .fireworks-sm::before,
+    .fireworks-sm::after {
+        height: 2px;
+        width: 2px;
+        --firework-size-multiplier: 0.7;
+    }
+
+    .fireworks-lg::before,
+    .fireworks-lg::after {
+        height: 6px;
+        width: 6px;
+        --firework-size-multiplier: 1.5;
+    }
+
+    .fireworks-slow::before {
+        animation: 
+            firework-rise 4s ease-out forwards,
+            firework-explode 1s ease-out 2s forwards;
+    }
+
+    .fireworks-slow::after {
+        animation: 
+            firework-rise 4s ease-out 1.5s forwards,
+            firework-explode 1s ease-out 3.5s forwards;
+    }
+
+    .fireworks-fast::before {
+        animation: 
+            firework-rise 1.5s ease-out forwards,
+            firework-explode 0.3s ease-out 0.7s forwards;
+    }
+
+    .fireworks-fast::after {
+        animation: 
+            firework-rise 1.5s ease-out 0.5s forwards,
+            firework-explode 0.3s ease-out 1.2s forwards;
+    }
+
+    /* Farbvarianten */
+    .fireworks-red {
+        --firework-base-color: rgb(255 150 150);
+        --firework-color-1: rgb(255 50 50 / 90%);
+        --firework-color-2: rgb(255 100 50 / 90%);
+        --firework-color-3: rgb(255 50 100 / 90%);
+    }
+
+    .fireworks-blue {
+        --firework-base-color: rgb(150 150 255);
+        --firework-color-1: rgb(50 50 255 / 90%);
+        --firework-color-2: rgb(50 100 255 / 90%);
+        --firework-color-3: rgb(100 50 255 / 90%);
+    }
+
+    .fireworks-green {
+        --firework-base-color: rgb(150 255 150);
+        --firework-color-1: rgb(50 255 50 / 90%);
+        --firework-color-2: rgb(100 255 50 / 90%);
+        --firework-color-3: rgb(50 255 100 / 90%);
+    }
+
+    .fireworks-gold {
+        --firework-base-color: rgb(255 230 150);
+        --firework-color-1: rgb(255 215 0 / 90%);
+        --firework-color-2: rgb(255 200 50 / 90%);
+        --firework-color-3: rgb(255 180 0 / 90%);
+    }
+}
+
+/* Reduzierte Bewegung */
+@media (prefers-reduced-motion: reduce) {
+    @layer components {
+        .fireworks::before,
+        .fireworks::after {
+            animation: none;
+            opacity: 0%;
+        }
+    }
+} 

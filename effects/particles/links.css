@@ -1,0 +1,181 @@
+/**
+ * Links Partikel-Effekt
+ * 
+ * Partikel, die durch Linien miteinander verbunden sind – erzeugt ein Netz- oder Molekül-Design.
+ * Dieser Effekt ist performant optimiert und berücksichtigt reduzierte Bewegung.
+ */
+
+@keyframes links-node-1 {
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+
+    25% {
+        transform: translate(20px, -10px);
+    }
+
+    50% {
+        transform: translate(40px, 0);
+    }
+
+    75% {
+        transform: translate(20px, 10px);
+    }
+}
+
+@keyframes links-node-2 {
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+
+    25% {
+        transform: translate(-10px, 20px);
+    }
+
+    50% {
+        transform: translate(0, 40px);
+    }
+
+    75% {
+        transform: translate(10px, 20px);
+    }
+}
+
+@keyframes links-node-3 {
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+
+    25% {
+        transform: translate(-20px, -10px);
+    }
+
+    50% {
+        transform: translate(-40px, 0);
+    }
+
+    75% {
+        transform: translate(-20px, 10px);
+    }
+}
+
+@layer components {
+    .links {
+        position: relative;
+        min-height: 100px;
+        min-width: 100px;
+    }
+
+    .links::before,
+    .links::after,
+    .links .node {
+        background: var(--links-node-color, rgb(80 120 255));
+        border-radius: 50%;
+        content: '';
+        height: 8px;
+        position: absolute;
+        width: 8px;
+    }
+
+    .links::before {
+        animation: links-node-1 8s infinite ease-in-out;
+        left: 30%;
+        top: 30%;
+    }
+
+    .links::after {
+        animation: links-node-2 8s infinite ease-in-out;
+        left: 50%;
+        top: 50%;
+    }
+
+    .links .node {
+        animation: links-node-3 8s infinite ease-in-out;
+        left: 70%;
+        top: 30%;
+    }
+
+    /* Verbindungslinien zwischen den Knoten */
+    .links {
+        background:
+            linear-gradient(
+                to bottom right,
+                transparent calc(50% - 1px),
+                var(--links-line-color, rgb(80 120 255 / 60%)) calc(50%),
+                transparent calc(50% + 1px)
+            ),
+            linear-gradient(
+                to bottom left,
+                transparent calc(50% - 1px),
+                var(--links-line-color, rgb(80 120 255 / 60%)) calc(50%),
+                transparent calc(50% + 1px)
+            );
+        background-size: 100% 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    /* Varianten */
+    .links-sm::before,
+    .links-sm::after,
+    .links-sm .node {
+        height: 4px;
+        width: 4px;
+    }
+
+    .links-lg::before,
+    .links-lg::after,
+    .links-lg .node {
+        height: 12px;
+        width: 12px;
+    }
+
+    .links-slow::before,
+    .links-slow::after,
+    .links-slow .node {
+        animation-duration: 12s;
+    }
+
+    .links-fast::before,
+    .links-fast::after,
+    .links-fast .node {
+        animation-duration: 5s;
+    }
+
+    /* Farb-Varianten */
+    .links-blue {
+        --links-node-color: rgb(30 144 255);
+        --links-line-color: rgb(30 144 255 / 60%);
+    }
+
+    .links-green {
+        --links-node-color: rgb(46 204 113);
+        --links-line-color: rgb(46 204 113 / 60%);
+    }
+
+    .links-purple {
+        --links-node-color: rgb(155 89 182);
+        --links-line-color: rgb(155 89 182 / 60%);
+    }
+
+    .links-teal {
+        --links-node-color: rgb(26 188 156);
+        --links-line-color: rgb(26 188 156 / 60%);
+    }
+
+    .links-orange {
+        --links-node-color: rgb(230 126 34);
+        --links-line-color: rgb(230 126 34 / 60%);
+    }
+}
+
+/* Reduzierte Bewegung */
+@media (prefers-reduced-motion: reduce) {
+    @layer components {
+        .links::before,
+        .links::after,
+        .links .node {
+            animation: none;
+        }
+    }
+} 
