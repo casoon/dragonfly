@@ -54,7 +54,7 @@
   }
   
   /* Sheet header with drag indicator */
-  .action-sheet__header {
+  & .header {
     align-items: center;
     display: flex;
     justify-content: center;
@@ -62,7 +62,7 @@
   }
   
   /* Drag indicator */
-  .action-sheet__indicator {
+  & .indicator {
     background-color: var(--color-neutral-300);
     border-radius: 2px;
     height: 4px;
@@ -70,7 +70,7 @@
   }
   
   /* Sheet content */
-  .action-sheet__content {
+  & .content {
     max-height: 80vh;
     -webkit-overflow-scrolling: touch;
     overflow-y: auto;
@@ -92,13 +92,13 @@
   }
   
   /* Action item with icon */
-  .action-item__icon {
+  & .icon {
     color: var(--color-primary-500);
     margin-right: var(--space-3);
   }
   
   /* Action item label */
-  .action-item__label {
+  & .label {
     font-size: var(--text-sm);
     font-weight: var(--font-medium);
   }

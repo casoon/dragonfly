@@ -123,7 +123,7 @@
   }
   
   /* Icon im Chip */
-  .chip__icon {
+  & .icon {
     display: inline-flex;
     font-size: 1em;
     height: 1em;
@@ -131,7 +131,7 @@
   }
   
   /* Remove-Button */
-  .chip__remove {
+  & .remove {
     align-items: center;
     background: transparent;
     border: none;
@@ -148,13 +148,13 @@
     width: 11.2em;
   }
   
-  .chip__remove:hover {
+  & .remove:hover {
     background-color: rgb(0 0 0 / 10%);
     opacity: 100%;
   }
   
   /* Avatar im Chip */
-  .chip__avatar {
+  & .avatar {
     border-radius: 50%;
     height: 10.5em;
     margin-left: -0.25rem;
@@ -193,7 +193,7 @@
     opacity: 50%;
   }
   
-  .chip--disabled .chip__remove {
+  .chip--disabled & .remove {
     cursor: not-allowed;
   }
   

@@ -30,13 +30,13 @@
     max-width: 100%;
   }
   
-  .figure__image {
+  & .image {
     display: block;
     height: auto;
     max-width: 100%;
   }
   
-  .figure__caption {
+  & .caption {
     padding: var(--space-2);
     text-align: center;
   }
@@ -55,7 +55,7 @@
   }
   
   /* Caption with attribution */
-  .caption__attribution {
+  & .attribution {
     color: var(--color-text-400);
     display: inline-block;
     font-style: italic;
@@ -76,12 +76,12 @@
     gap: var(--space-1);
   }
   
-  .caption__title {
+  & .title {
     color: var(--color-text-900);
     font-weight: var(--font-medium);
   }
   
-  .caption__description {
+  & .description {
     color: var(--color-text-500);
   }
   
@@ -121,12 +121,12 @@
   }
   
   /* Expandable caption content */
-  .caption__expandable {
+  & .expandable {
     display: none;
     margin-top: var(--space-2);
   }
   
-  .caption--expanded .caption__expandable {
+  .caption--expanded & .expandable {
     display: block;
   }
 } 

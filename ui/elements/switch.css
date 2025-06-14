@@ -30,7 +30,7 @@
   }
   
   /* Verstecktes Checkbox-Input */
-  .switch__input {
+  & .input {
     height: 0;
     opacity: 0%;
     position: absolute;
@@ -38,7 +38,7 @@
   }
   
   /* Switch-Track (Hintergrund) */
-  .switch__track {
+  & .track {
     background-color: var(--color-neutral-300);
     border-radius: var(--radius-full);
     display: inline-block;
@@ -49,7 +49,7 @@
   }
   
   /* Switch-Thumb (beweglicher Knopf) */
-  .switch__thumb {
+  & .thumb {
     background-color: white;
     border-radius: 50%;
     box-shadow: 0 1px 2px rgb(0 0 0 / 10%);
@@ -62,38 +62,38 @@
   }
   
   /* Label */
-  .switch__label {
+  & .label {
     color: var(--color-text-700);
     font-size: var(--text-sm);
   }
   
   /* Checked-Zustand */
-  .switch__input:checked + .switch__track {
+  & .input:checked + & .track {
     background-color: var(--color-primary-500);
   }
   
-  .switch__input:checked + .switch__track .switch__thumb {
+  & .input:checked + & .track & .thumb {
     transform: translateX(calc(var(--switch-width) - var(--switch-height)));
   }
   
   /* Fokus-Zustand */
-  .switch__input:focus-visible + .switch__track {
+  & .input:focus-visible + & .track {
     outline: 2px solid var(--color-primary-500);
     outline-offset: 2px;
   }
   
   /* Disabled-Zustand */
-  .switch__input:disabled + .switch__track {
+  & .input:disabled + & .track {
     background-color: var(--color-neutral-200);
     cursor: not-allowed;
     opacity: 70%;
   }
   
-  .switch__input:disabled + .switch__track .switch__thumb {
+  & .input:disabled + & .track & .thumb {
     background-color: var(--color-neutral-400);
   }
   
-  .switch__input:disabled ~ .switch__label {
+  & .input:disabled ~ & .label {
     color: var(--color-text-400);
     cursor: not-allowed;
   }
@@ -104,7 +104,7 @@
     --switch-height: 1rem;
   }
   
-  .switch--sm .switch__label {
+  .switch--sm & .label {
     font-size: var(--text-xs);
   }
   
@@ -118,28 +118,28 @@
     --switch-height: 1.75rem;
   }
   
-  .switch--lg .switch__label {
+  .switch--lg & .label {
     font-size: var(--text-base);
   }
   
   /* Farbvarianten */
-  .switch--primary .switch__input:checked + .switch__track {
+  .switch--primary & .input:checked + & .track {
     background-color: var(--color-primary-500);
   }
   
-  .switch--secondary .switch__input:checked + .switch__track {
+  .switch--secondary & .input:checked + & .track {
     background-color: var(--color-secondary-500);
   }
   
-  .switch--success .switch__input:checked + .switch__track {
+  .switch--success & .input:checked + & .track {
     background-color: var(--color-success-500);
   }
   
-  .switch--warning .switch__input:checked + .switch__track {
+  .switch--warning & .input:checked + & .track {
     background-color: var(--color-warning-500);
   }
   
-  .switch--danger .switch__input:checked + .switch__track {
+  .switch--danger & .input:checked + & .track {
     background-color: var(--color-error-500);
   }
 }

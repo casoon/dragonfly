@@ -84,7 +84,7 @@
   }
   
   /* Badge with icon */
-  .badge__icon {
+  & .icon {
     height: 0.875em;
     margin-right: 0.25em;
     width: 0.875em;
@@ -94,7 +94,7 @@
     padding: 0.25rem;
   }
   
-  .badge--icon-only .badge__icon {
+  .badge--icon-only & .icon {
     margin-right: 0;
   }
   

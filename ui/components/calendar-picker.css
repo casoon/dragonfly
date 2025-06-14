@@ -27,7 +27,7 @@
   }
   
   /* Calendar header */
-  .calendar__header {
+  & .header {
     align-items: center;
     border-bottom: 1px solid var(--color-border-100);
     display: flex;
@@ -36,14 +36,14 @@
   }
   
   /* Month and year display */
-  .calendar__title {
+  & .title {
     flex: 1;
     font-weight: var(--font-semibold);
     text-align: center;
   }
   
   /* Navigation buttons */
-  .calendar__nav-button {
+  & .nav-button {
     align-items: center;
     background: transparent;
     border: none;
@@ -57,18 +57,18 @@
     width: 28px;
   }
   
-  .calendar__nav-button:hover {
+  & .nav-button:hover {
     background-color: var(--color-surface-200);
     color: var(--color-text-900);
   }
   
-  .calendar__nav-button:focus {
+  & .nav-button:focus {
     outline: 2px solid var(--color-primary-200);
     outline-offset: 1px;
   }
   
   /* Days of week header */
-  .calendar__weekdays {
+  & .weekdays {
     border-bottom: 1px solid var(--color-border-100);
     color: var(--color-text-400);
     display: grid;
@@ -80,19 +80,19 @@
     text-transform: uppercase;
   }
   
-  .calendar__weekday {
+  & .weekday {
     padding: var(--space-1);
   }
   
   /* Calendar grid */
-  .calendar__grid {
+  & .grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     padding: var(--space-2);
   }
   
   /* Calendar day */
-  .calendar__day {
+  & .day {
     align-items: center;
     border-radius: var(--radius-full);
     cursor: pointer;
@@ -106,48 +106,48 @@
   }
   
   /* Different day states */
-  .calendar__day--today {
+  & .day--today {
     border: 1px solid var(--color-primary-300);
     font-weight: var(--font-bold);
   }
   
-  .calendar__day--selected {
+  & .day--selected {
     background-color: var(--color-primary-500);
     color: white;
   }
   
-  .calendar__day--in-range {
+  & .day--in-range {
     background-color: var(--color-primary-100);
     border-radius: 0;
   }
   
-  .calendar__day--range-start {
+  & .day--range-start {
     background-color: var(--color-primary-500);
     border-radius: var(--radius-full) 0 0 var(--radius-full);
     color: white;
   }
   
-  .calendar__day--range-end {
+  & .day--range-end {
     background-color: var(--color-primary-500);
     border-radius: 0 var(--radius-full) var(--radius-full) 0;
     color: white;
   }
   
-  .calendar__day--disabled {
+  & .day--disabled {
     color: var(--color-text-200);
     cursor: not-allowed;
   }
   
-  .calendar__day--outside {
+  & .day--outside {
     color: var(--color-text-300);
   }
   
-  .calendar__day:not(.calendar__day--disabled, .calendar__day--selected):hover {
+  & .day:not(& .day--disabled, & .day--selected):hover {
     background-color: var(--color-surface-200);
   }
   
   /* Footer with actions */
-  .calendar__footer {
+  & .footer {
     border-top: 1px solid var(--color-border-100);
     display: flex;
     justify-content: space-between;
@@ -155,14 +155,14 @@
   }
   
   /* Month selector */
-  .calendar__month-selector {
+  & .month-selector {
     display: grid;
     gap: var(--space-2);
     grid-template-columns: repeat(3, 1fr);
     padding: var(--space-3);
   }
   
-  .calendar__month {
+  & .month {
     align-items: center;
     border-radius: var(--radius-md);
     cursor: pointer;
@@ -171,17 +171,17 @@
     padding: var(--space-2);
   }
   
-  .calendar__month:hover {
+  & .month:hover {
     background-color: var(--color-surface-200);
   }
   
-  .calendar__month--selected {
+  & .month--selected {
     background-color: var(--color-primary-500);
     color: white;
   }
   
   /* Year selector */
-  .calendar__year-selector {
+  & .year-selector {
     display: grid;
     gap: var(--space-2);
     grid-template-columns: repeat(4, 1fr);
@@ -190,7 +190,7 @@
     padding: var(--space-3);
   }
   
-  .calendar__year {
+  & .year {
     align-items: center;
     border-radius: var(--radius-md);
     cursor: pointer;
@@ -199,11 +199,11 @@
     padding: var(--space-2);
   }
   
-  .calendar__year:hover {
+  & .year:hover {
     background-color: var(--color-surface-200);
   }
   
-  .calendar__year--selected {
+  & .year--selected {
     background-color: var(--color-primary-500);
     color: white;
   }

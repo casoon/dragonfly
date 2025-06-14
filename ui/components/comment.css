@@ -23,13 +23,13 @@
   }
   
   /* Nested comments */
-  .comment__replies {
+  & .replies {
     margin-left: var(--space-10);
     margin-top: var(--space-4);
   }
   
   /* Comment avatar */
-  .comment__avatar {
+  & .avatar {
     border-radius: var(--radius-full);
     flex-shrink: 0;
     height: 40px;
@@ -39,32 +39,32 @@
   }
   
   /* Comment content area */
-  .comment__content {
+  & .content {
     flex: 1;
     min-width: 0; /* Prevent flex item from overflowing */
   }
   
   /* Comment header with author info */
-  .comment__header {
+  & .header {
     align-items: baseline;
     display: flex;
     flex-wrap: wrap;
     margin-bottom: var(--space-2);
   }
   
-  .comment__author {
+  & .author {
     color: var(--color-text-900);
     font-weight: var(--font-semibold);
     margin-right: var(--space-2);
   }
   
-  .comment__meta {
+  & .meta {
     color: var(--color-text-500);
     font-size: var(--text-xs);
   }
   
   /* Author badge for special users */
-  .comment__badge {
+  & .badge {
     border-radius: var(--radius-full);
     display: inline-block;
     font-size: var(--text-xs);
@@ -75,18 +75,18 @@
     text-transform: uppercase;
   }
   
-  .comment__badge--author {
+  & .badge--author {
     background-color: var(--color-primary-100);
     color: var(--color-primary-700);
   }
   
-  .comment__badge--moderator {
+  & .badge--moderator {
     background-color: var(--color-success-100);
     color: var(--color-success-700);
   }
   
   /* Comment body */
-  .comment__body {
+  & .body {
     line-height: 1.5;
     margin-bottom: var(--space-3);
     overflow-wrap: break-word;
@@ -94,21 +94,21 @@
   }
   
   /* Comment attachment (image, link preview, etc.) */
-  .comment__attachment {
+  & .attachment {
     border: 1px solid var(--color-border-200);
     border-radius: var(--radius-md);
     margin: var(--space-3) 0;
     overflow: hidden;
   }
   
-  .comment__image {
+  & .image {
     display: block;
     height: auto;
     max-width: 100%;
   }
   
   /* Comment footer with actions */
-  .comment__footer {
+  & .footer {
     align-items: center;
     display: flex;
     gap: var(--space-4);
@@ -116,7 +116,7 @@
   }
   
   /* Comment action button */
-  .comment__action {
+  & .action {
     align-items: center;
     background: none;
     border: none;
@@ -129,17 +129,17 @@
     transition: color 0.2s, background-color 0.2s;
   }
   
-  .comment__action:hover {
+  & .action:hover {
     background-color: var(--color-surface-100);
     color: var(--color-text-700);
   }
   
-  .comment__action-icon {
+  & .action-icon {
     margin-right: var(--space-1);
   }
   
   /* Comment action states */
-  .comment__action--active {
+  & .action--active {
     color: var(--color-primary-600);
     font-weight: var(--font-medium);
   }
@@ -152,7 +152,7 @@
     overflow: hidden;
   }
   
-  .comment-editor__content {
+  & .content {
     border: none;
     color: var(--color-text-900);
     font-family: inherit;
@@ -163,11 +163,11 @@
     width: 100%;
   }
   
-  .comment-editor__content:focus {
+  & .content:focus {
     outline: none;
   }
   
-  .comment-editor__footer {
+  & .footer {
     align-items: center;
     background-color: var(--color-surface-100);
     border-top: 1px solid var(--color-border-100);
@@ -176,7 +176,7 @@
     padding: var(--space-2) var(--space-3);
   }
   
-  .comment-editor__actions {
+  & .actions {
     display: flex;
     gap: var(--space-2);
   }
@@ -197,18 +197,18 @@
     opacity: 70%;
   }
   
-  .comment--deleted .comment__body {
+  .comment--deleted & .body {
     color: var(--color-text-400);
     font-style: italic;
   }
   
   /* Responsive adjustments */
   @media (width <= 640px) {
-    .comment__replies {
+    & .replies {
       margin-left: var(--space-6);
     }
     
-    .comment__avatar {
+    & .avatar {
       height: 32px;
       width: 32px;
     }

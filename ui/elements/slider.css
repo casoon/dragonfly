@@ -156,7 +156,7 @@
   }
   
   /* Labels für den Wertebereich */
-  .slider__labels {
+  & .labels {
     color: var(--color-text-500);
     display: flex;
     font-size: var(--text-xs);
@@ -165,7 +165,7 @@
   }
   
   /* Anzeige des aktuellen Wertes */
-  .slider__value {
+  & .value {
     align-self: flex-end;
     color: var(--color-text-700);
     font-size: var(--text-sm);
@@ -198,7 +198,7 @@
     pointer-events: auto;
   }
   
-  .slider-range__track {
+  & .track {
     background-color: var(--color-neutral-200);
     border-radius: var(--radius-full);
     height: 0.25rem;
@@ -209,7 +209,7 @@
     z-index: 0;
   }
   
-  .slider-range__fill {
+  & .fill {
     background-color: var(--color-primary-500);
     border-radius: var(--radius-full);
     height: 0.25rem;

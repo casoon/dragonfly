@@ -20,13 +20,13 @@
  * 
  * Basic usage:
  * <div class="avatar">
- *   <img class="avatar__image" src="user.jpg" alt="User Name">
+ *   <img class="image" src="user.jpg" alt="User Name">
  * </div>
  * 
  * With status:
  * <div class="avatar">
- *   <img class="avatar__image" src="user.jpg" alt="User Name">
- *   <span class="avatar__status avatar__status--online" aria-label="Online status"></span>
+ *   <img class="image" src="user.jpg" alt="User Name">
+ *   <span class="status status--online" aria-label="Online status"></span>
  * </div>
  * 
  * With initials:
@@ -110,14 +110,14 @@
   }
   
   /* Avatar Image */
-  .avatar__image {
+  & .image {
     height: 100%;
     object-fit: cover;
     width: 100%;
   }
   
   /* Status Indicator */
-  .avatar__status {
+  & .status {
     background-color: var(--color-neutral-400);
     border: 2px solid var(--color-surface-100);
     border-radius: var(--radius-full);
@@ -132,19 +132,19 @@
     width: 25%;
   }
   
-  .avatar__status--online {
+  & .status--online {
     background-color: var(--color-success-500);
   }
   
-  .avatar__status--busy {
+  & .status--busy {
     background-color: var(--color-error-500);
   }
   
-  .avatar__status--away {
+  & .status--away {
     background-color: var(--color-warning-500);
   }
   
-  .avatar__status--offline {
+  & .status--offline {
     background-color: var(--color-neutral-400);
   }
   

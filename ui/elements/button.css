@@ -44,13 +44,13 @@
  * 
  * With Icon:
  * <button class="button button--primary button--with-icon">
- *   <span class="button__icon"><!-- Icon here --></span>
+ *   <span class="icon"><!-- Icon here --></span>
  *   <span>Button with Icon</span>
  * </button>
  * 
  * Icon Only:
  * <button class="button button--primary button--icon-only">
- *   <span class="button__icon"><!-- Icon here --></span>
+ *   <span class="icon"><!-- Icon here --></span>
  * </button>
  * 
  * Fluid scaling button (uses interpolate-size):
@@ -249,7 +249,7 @@
     gap: var(--space-2);
   }
   
-  .button__icon {
+  & .icon {
     align-items: center;
     display: inline-flex;
     height: 1em;
@@ -263,7 +263,7 @@
     padding: var(--space-2);
   }
   
-  .button--icon-only .button__icon {
+  .button--icon-only & .icon {
     align-items: center;
     display: inline-flex;
     height: 1.25em;

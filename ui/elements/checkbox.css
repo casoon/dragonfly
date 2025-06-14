@@ -31,7 +31,7 @@
   }
   
   /* Native Checkbox (visuell versteckt aber zugänglich) */
-  .checkbox__input {
+  & .input {
     appearance: none;
     background-color: white;
     border: 1px solid var(--color-neutral-400);
@@ -44,12 +44,12 @@
   }
   
   /* Checkbox-Icon (Häkchen) */
-  .checkbox__input:checked {
+  & .input:checked {
     background-color: var(--color-primary-500);
     border-color: var(--color-primary-500);
   }
   
-  .checkbox__input:checked::after {
+  & .input:checked::after {
     border: solid white;
     border-width: 0 2px 2px 0;
     content: "";
@@ -62,65 +62,65 @@
   }
   
   /* Label-Text */
-  .checkbox__label {
+  & .label {
     color: var(--color-text-700);
     font-size: var(--text-sm);
   }
   
   /* Fokus-Zustand */
-  .checkbox__input:focus-visible {
+  & .input:focus-visible {
     outline: 2px solid var(--color-primary-300);
     outline-offset: 2px;
   }
   
   /* Hover-Zustand */
-  .checkbox__input:hover:not(:disabled) {
+  & .input:hover:not(:disabled) {
     border-color: var(--color-primary-500);
   }
   
   /* Deaktivierter Zustand */
-  .checkbox__input:disabled {
+  & .input:disabled {
     background-color: var(--color-neutral-100);
     border-color: var(--color-neutral-300);
     cursor: not-allowed;
     opacity: 50%;
   }
   
-  .checkbox__input:disabled ~ .checkbox__label {
+  & .input:disabled ~ & .label {
     color: var(--color-text-400);
     cursor: not-allowed;
   }
   
   /* Checkbox-Größen */
-  .checkbox--sm .checkbox__input {
+  .checkbox--sm & .input {
     height: 0.875rem;
     width: 0.875rem;
   }
   
-  .checkbox--sm .checkbox__input:checked::after {
+  .checkbox--sm & .input:checked::after {
     height: 5px;
     left: 3px;
     top: 1px;
     width: 2px;
   }
   
-  .checkbox--sm .checkbox__label {
+  .checkbox--sm & .label {
     font-size: var(--text-xs);
   }
   
-  .checkbox--lg .checkbox__input {
+  .checkbox--lg & .input {
     height: 1.25rem;
     width: 1.25rem;
   }
   
-  .checkbox--lg .checkbox__input:checked::after {
+  .checkbox--lg & .input:checked::after {
     height: 8px;
     left: 5px;
     top: 2px;
     width: 4px;
   }
   
-  .checkbox--lg .checkbox__label {
+  .checkbox--lg & .label {
     font-size: var(--text-base);
   }
   

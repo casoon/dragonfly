@@ -64,7 +64,7 @@
   }
   
   /* Tag with icon */
-  .tag__icon {
+  & .icon {
     display: inline-flex;
     flex-shrink: 0;
     height: 1em;
@@ -73,7 +73,7 @@
   }
   
   /* Tag with dismiss/close button */
-  .tag__close {
+  & .close {
     align-items: center;
     background: transparent;
     border: none;
@@ -92,7 +92,7 @@
     width: 1.25em;
   }
   
-  .tag__close:hover {
+  & .close:hover {
     background-color: rgb(0 0 0 / 10%);
     opacity: 100%;
   }
@@ -227,7 +227,7 @@
   }
   
   /* Avatar tag */
-  .tag--avatar .tag__avatar {
+  .tag--avatar & .avatar {
     border-radius: var(--radius-full);
     height: 1.25em;
     margin-right: 00.5em;
@@ -236,7 +236,7 @@
   }
   
   /* Counter tag */
-  .tag__counter {
+  & .counter {
     align-items: center;
     background-color: rgb(0 0 0 / 10%);
     border-radius: var(--radius-full);
@@ -262,7 +262,7 @@
     max-width: 160px;
   }
   
-  .tag--truncate .tag__label {
+  .tag--truncate & .label {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;

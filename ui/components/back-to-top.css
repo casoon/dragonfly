@@ -35,7 +35,7 @@
   }
   
   /* Button element */
-  .back-to-top__button {
+  & .button {
     align-items: center;
     background-color: var(--color-primary-500);
     border: none;
@@ -50,65 +50,65 @@
     width: 48px;
   }
   
-  .back-to-top__button:hover {
+  & .button:hover {
     background-color: var(--color-primary-600);
     transform: translateY(-2px);
   }
   
-  .back-to-top__button:active {
+  & .button:active {
     transform: translateY(0);
   }
   
-  .back-to-top__button:focus {
+  & .button:focus {
     box-shadow: 0 0 0 3px var(--color-primary-200), var(--shadow-md);
     outline: none;
   }
   
   /* Icon */
-  .back-to-top__icon {
+  & .icon {
     height: 24px;
     width: 24px;
   }
   
   /* Text variant (with label) */
-  .back-to-top--with-text .back-to-top__button {
+  .back-to-top--with-text & .button {
     padding: 0 var(--space-4);
     width: auto;
   }
   
-  .back-to-top__text {
+  & .text {
     font-size: var(--text-sm);
     font-weight: var(--font-medium);
     margin-left: var(--space-2);
   }
   
   /* Button shape variants */
-  .back-to-top--square .back-to-top__button {
+  .back-to-top--square & .button {
     border-radius: var(--radius-md);
   }
   
   /* Button color variants */
-  .back-to-top--secondary .back-to-top__button {
+  .back-to-top--secondary & .button {
     background-color: var(--color-secondary-500);
   }
   
-  .back-to-top--secondary .back-to-top__button:hover {
+  .back-to-top--secondary & .button:hover {
     background-color: var(--color-secondary-600);
   }
   
-  .back-to-top--secondary .back-to-top__button:focus {
+  .back-to-top--secondary & .button:focus {
     box-shadow: 0 0 0 3px var(--color-secondary-200), var(--shadow-md);
   }
   
-  .back-to-top--neutral .back-to-top__button {
+  .back-to-top--neutral & .button {
     background-color: var(--color-neutral-700);
   }
   
-  .back-to-top--neutral .back-to-top__button:hover {
+  .back-to-top--neutral & .button:hover {
     background-color: var(--color-neutral-800);
   }
   
-  .back-to-top--neutral .back-to-top__button:focus {
+  .back-to-top--neutral & .button:focus {
     box-shadow: 0 0 0 3px var(--color-neutral-300), var(--shadow-md);
   }
   
@@ -128,32 +128,32 @@
   }
   
   /* Size variants */
-  .back-to-top--sm .back-to-top__button {
+  .back-to-top--sm & .button {
     height: 40px;
     width: 40px;
   }
   
-  .back-to-top--sm .back-to-top__icon {
+  .back-to-top--sm & .icon {
     height: 20px;
     width: 20px;
   }
   
-  .back-to-top--lg .back-to-top__button {
+  .back-to-top--lg & .button {
     height: 56px;
     width: 56px;
   }
   
-  .back-to-top--lg .back-to-top__icon {
+  .back-to-top--lg & .icon {
     height: 28px;
     width: 28px;
   }
   
   /* Progress variant (circular progress indicator) */
-  .back-to-top--progress .back-to-top__button {
+  .back-to-top--progress & .button {
     position: relative;
   }
   
-  .back-to-top__progress {
+  & .progress {
     border-radius: var(--radius-full);
     height: 100%;
     left: 0;
@@ -163,7 +163,7 @@
     width: 100%;
   }
   
-  .back-to-top__progress-circle {
+  & .progress-circle {
     fill: none;
     stroke: var(--color-primary-300);
     stroke-linecap: round;
@@ -180,12 +180,12 @@
       right: var(--space-3);
     }
     
-    .back-to-top__button {
+    & .button {
       height: 40px;
       width: 40px;
     }
     
-    .back-to-top__icon {
+    & .icon {
       height: 20px;
       width: 20px;
     }
