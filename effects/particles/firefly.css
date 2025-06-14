@@ -22,7 +22,7 @@
 
     60% {
         opacity: 100%;
-        transform: translate(60px, 0px);
+        transform: translate(60px, 0);
     }
 
     80% {
@@ -38,11 +38,11 @@
 
 @keyframes firefly-glow {
     0%, 100% {
-        box-shadow: 0 0 8px 2px var(--firefly-glow-color, rgba(255, 255, 180, 0.7));
+        box-shadow: 0 0 8px 2px var(--firefly-glow-color, rgb(255 255 180 / 70%));
     }
 
     50% {
-        box-shadow: 0 0 12px 4px var(--firefly-glow-color, rgba(255, 255, 180, 0.9));
+        box-shadow: 0 0 12px 4px var(--firefly-glow-color, rgb(255 255 180 / 90%));
     }
 }
 
@@ -134,25 +134,25 @@
     .firefly-green::before,
     .firefly-green::after {
         --firefly-color: rgb(180 255 180);
-        --firefly-glow-color: rgba(180, 255, 180, 0.7);
+        --firefly-glow-color: rgb(180 255 180 / 70%);
     }
 
     .firefly-blue::before,
     .firefly-blue::after {
         --firefly-color: rgb(180 180 255);
-        --firefly-glow-color: rgba(180, 180, 255, 0.7);
+        --firefly-glow-color: rgb(180 180 255 / 70%);
     }
 
     .firefly-purple::before,
     .firefly-purple::after {
         --firefly-color: rgb(220 180 255);
-        --firefly-glow-color: rgba(220, 180, 255, 0.7);
+        --firefly-glow-color: rgb(220 180 255 / 70%);
     }
 
     .firefly-red::before,
     .firefly-red::after {
         --firefly-color: rgb(255 180 180);
-        --firefly-glow-color: rgba(255, 180, 180, 0.7);
+        --firefly-glow-color: rgb(255 180 180 / 70%);
     }
 }
 

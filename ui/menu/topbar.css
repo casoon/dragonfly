@@ -1,0 +1,707 @@
+/**
+ * Topbar/Utility Bar Components
+ * 
+ * Flexible topbar system with multiple layout types and utility classes.
+ * Uses CSS Nesting and Container Queries for modern responsive design.
+ * 
+ * @layer: components
+ * 
+ * Topbar Types:
+ * - .topbar-simple: Basic single-row topbar
+ * - .topbar-split: Left/right split layout
+ * - .topbar-center: Centered content
+ * - .topbar-announcement: Announcement bar style
+ * - .topbar-utility: Utility bar with actions
+ * 
+ * Utility Classes:
+ * - .sticky: Sticky positioning
+ * - .dismissible: Can be dismissed
+ * - .compact: Reduced height
+ * - .theme-dark, .theme-primary: Color themes
+ * 
+ * Container Queries:
+ * - Responsive content stacking
+ * - Mobile optimization
+ * - Automatic layout adjustments
+ */
+
+@import url('./header-tokens.css');
+
+@layer components {
+  /* Topbar tokens */
+  :root {
+    /* Topbar spacing */
+    --topbar-padding: var(--space-2) var(--space-4);
+    --topbar-padding-compact: var(--space-1) var(--space-3);
+    --topbar-gap: var(--space-4);
+    --topbar-gap-compact: var(--space-2);
+    
+    /* Topbar colors */
+    --topbar-bg: var(--color-neutral-100);
+    --topbar-text: var(--color-neutral-700);
+    --topbar-link: var(--color-primary-600);
+    --topbar-link-hover: var(--color-primary-700);
+    --topbar-border: var(--color-neutral-200);
+    
+    /* Topbar typography */
+    --topbar-font-size: var(--text-sm);
+    --topbar-font-weight: var(--font-medium);
+    --topbar-line-height: 1px.4;
+    
+    /* Topbar layout */
+    --topbar-height: auto;
+    --topbar-min-height: 40px;
+    --topbar-z-index: 1001;
+    
+    /* Topbar responsive breakpoints */
+    --topbar-mobile-breakpoint: 768px;
+  }
+  
+  /* Base topbar container */
+  .topbar {
+    background-color: var(--topbar-bg);
+    border-bottom: 1px solid var(--topbar-border);
+    color: var(--topbar-text);
+    container-type: inline-size;
+    font-size: var(--topbar-font-size);
+    font-weight: var(--topbar-font-weight);
+    line-height: var(--topbar-line-height);
+    min-height: var(--topbar-min-height);
+    padding: var(--topbar-padding);
+    position: relative;
+    width: 100%;
+    z-index: var(--topbar-z-index);
+    
+    /* Topbar content wrapper */
+    & .topbar-content {
+      align-items: center;
+      display: flex;
+      gap: var(--topbar-gap);
+      margin: 0 auto;
+      max-width: var(--container-7xl);
+      width: 100%;
+    }
+    
+    /* Topbar text */
+    & .topbar-text {
+      flex: 1;
+      
+      & p {
+        margin: 0;
+      }
+    }
+    
+    /* Topbar links */
+    & a {
+      color: var(--topbar-link);
+      text-decoration: none;
+      transition: color 01.2s ease;
+      
+      &:hover,
+      &:focus {
+        color: var(--topbar-link-hover);
+        text-decoration: underline;
+      }
+      
+      &:focus {
+        outline: 2px solid var(--topbar-link);
+        outline-offset: 2px;
+      }
+    }
+    
+    /* Topbar actions */
+    & .topbar-actions {
+      align-items: center;
+      display: flex;
+      flex-shrink: 0;
+      gap: var(--space-3);
+      
+      & button, & a {
+        align-items: center;
+        background: none;
+        border: 1px solid var(--topbar-border);
+        border-radius: var(--radius-md);
+        cursor: pointer;
+        display: flex;
+        font-size: var(--topbar-font-size);
+        gap: var(--space-1);
+        padding: var(--space-1) var(--space-2);
+        text-decoration: none;
+        transition: all 01.2s ease;
+        
+        &:hover,
+        &:focus {
+          background-color: var(--color-neutral-200);
+          border-color: var(--color-neutral-300);
+        }
+        
+        &:focus {
+          outline: 2px solid var(--topbar-link);
+          outline-offset: 2px;
+        }
+      }
+    }
+    
+    /* Language selector */
+    & .language-selector {
+      position: relative;
+      
+      & .dropdown {
+        background-color: var(--color-white);
+        border: 1px solid var(--topbar-border);
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-lg);
+        min-width: 120px;
+        opacity: 0%;
+        padding: var(--space-2);
+        pointer-events: none;
+        position: absolute;
+        right: 0;
+        top: 100%;
+        transform: translateY(-8px);
+        transition: all 01.2s ease;
+        z-index: 1000;
+        
+        & ul {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          
+          & li {
+            & a {
+              border-radius: var(--radius-sm);
+              display: block;
+              padding: var(--space-1) var(--space-2);
+              width: 100%;
+              
+              &:hover {
+                background-color: var(--color-neutral-100);
+              }
+            }
+          }
+        }
+      }
+      
+      &:hover .dropdown,
+      &:focus-within .dropdown {
+        opacity: 100%;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Status indicators */
+    & .status-indicator {
+      align-items: center;
+      display: flex;
+      gap: var(--space-2);
+      
+      & .status-dot {
+        border-radius: 50%;
+        height: 8px;
+        width: 8px;
+        
+        &.online {
+          background-color: var(--color-success-500);
+        }
+        
+        &.offline {
+          background-color: var(--color-error-500);
+        }
+        
+        &.away {
+          background-color: var(--color-warning-500);
+        }
+      }
+    }
+    
+    /* User profile */
+    & .user-profile {
+      align-items: center;
+      display: flex;
+      gap: var(--space-2);
+      
+      & .avatar {
+        border-radius: 50%;
+        height: 4px;
+        width: 4px;
+      }
+      
+      & .user-name {
+        font-weight: var(--font-medium);
+        
+        @container (width <= 768px) {
+          display: none;
+        }
+      }
+    }
+    
+    /* Dismiss button */
+    & .dismiss-btn {
+      background: none;
+      border: none;
+      color: var(--topbar-text);
+      cursor: pointer;
+      font-size: var(--text-lg);
+      padding: var(--space-1);
+      
+      &:hover,
+      &:focus {
+        color: var(--topbar-link-hover);
+      }
+      
+      &:focus {
+        outline: 2px solid var(--topbar-link);
+        outline-offset: 2px;
+      }
+    }
+    
+    /* Utility modifiers */
+    &.sticky {
+      position: sticky;
+      top: 0;
+    }
+    
+    &.compact {
+      min-height: 3px;
+      padding: var(--topbar-padding-compact);
+      
+      & .topbar-content {
+        gap: var(--topbar-gap-compact);
+      }
+    }
+    
+    &.dismissible {
+      & .topbar-content {
+        padding-right: var(--space-8);
+      }
+      
+      & .dismiss-btn {
+        position: absolute;
+        right: var(--space-2);
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+    
+    /* Container query responsive behavior */
+    @container (width <= 768px) {
+      font-size: var(--text-xs);
+      padding: var(--space-1) var(--space-3);
+      
+      & .topbar-content {
+        gap: var(--space-2);
+      }
+      
+      & .topbar-actions {
+        gap: var(--space-2);
+        
+        & button, & a {
+          padding: var(--space-1);
+        }
+      }
+    }
+    
+    @container (width <= 480px) {
+      & .topbar-text {
+        font-size: var(--text-xs);
+      }
+      
+      & .topbar-actions {
+        & button span,
+        & a span {
+          display: none;
+        }
+      }
+    }
+     }
+   
+   /* Topbar Type: Simple */
+   .topbar-simple {
+    --topbar-bg: var(--color-surface-100);
+    --topbar-color: var(--color-text-600);
+    --topbar-link-color: var(--color-text-700);
+    --topbar-link-color-hover: var(--color-primary-600);
+    --topbar-border-color: var(--color-border-200);
+    --topbar-font-size: var(--text-xs);
+    --topbar-line-height: 1px.4;
+    --topbar-padding: var(--space-2) var(--space-4);
+    --topbar-gap: var(--space-4);
+    --topbar-item-gap: var(--space-3);
+    --topbar-height: auto;
+    --topbar-z-index: 1000;
+    
+    background-color: var(--topbar-bg);
+    border-bottom: 1px solid var(--topbar-border-color);
+    color: var(--topbar-color);
+    font-size: var(--topbar-font-size);
+    line-height: var(--topbar-line-height);
+    padding: var(--topbar-padding);
+    position: relative;
+    width: 100%;
+    z-index: var(--topbar-z-index);
+  }
+  
+  .topbar-content {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: var(--header-max-width);
+  }
+  
+  .topbar nav {
+    align-items: center;
+    display: flex;
+  }
+  
+  .topbar ul {
+    align-items: center;
+    display: flex;
+    gap: var(--topbar-item-gap);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .topbar li {
+    align-items: center;
+    display: flex;
+  }
+  
+  .topbar a {
+    border-radius: var(--radius-sm);
+    color: var(--topbar-link-color);
+    padding: var(--space-1) var(--space-2);
+    text-decoration: none;
+    transition: var(--header-transition);
+  }
+  
+  .topbar a:hover {
+    background-color: var(--color-surface-200);
+    color: var(--topbar-link-color-hover);
+  }
+  
+  .topbar button {
+    background: none;
+    border: none;
+    border-radius: var(--radius-sm);
+    color: var(--topbar-link-color);
+    cursor: pointer;
+    font-size: inherit;
+    padding: var(--space-1) var(--space-2);
+    transition: var(--header-transition);
+  }
+  
+  .topbar button:hover {
+    background-color: var(--color-surface-200);
+    color: var(--topbar-link-color-hover);
+  }
+  
+  /* Layout: Simple (single row) */
+  .topbar-simple .topbar-content {
+    justify-content: center;
+  }
+  
+  /* Layout: Split (left/right) */
+  .topbar-split .topbar-content {
+    justify-content: space-between;
+  }
+  
+  .topbar-left,
+  .topbar-right {
+    align-items: center;
+    display: flex;
+    gap: var(--topbar-gap);
+  }
+  
+  /* Layout: Center */
+  .topbar-center .topbar-content {
+    justify-content: center;
+  }
+  
+  /* Layout: Announcement bar */
+  .topbar-announcement {
+    --topbar-padding: var(--space-3) var(--space-4);
+
+    text-align: center;
+  }
+  
+  .topbar-announcement .topbar-content {
+    justify-content: center;
+    position: relative;
+  }
+  
+  .topbar-announcement-text {
+    font-weight: var(--font-medium);
+  }
+  
+  .topbar-announcement-action {
+    margin-left: var(--space-3);
+  }
+  
+  /* Size variants */
+  .topbar--small {
+    --topbar-font-size: var(--text-xs);
+    --topbar-padding: var(--space-1) var(--space-4);
+    --topbar-gap: var(--space-3);
+    --topbar-item-gap: var(--space-2);
+  }
+  
+  .topbar--large {
+    --topbar-font-size: var(--text-sm);
+    --topbar-padding: var(--space-3) var(--space-4);
+    --topbar-gap: var(--space-6);
+    --topbar-item-gap: var(--space-4);
+  }
+  
+  /* Color theme utilities */
+  .topbar--dark {
+    --topbar-bg: var(--color-surface-900);
+    --topbar-color: var(--color-text-300);
+    --topbar-link-color: var(--color-text-200);
+    --topbar-link-color-hover: var(--color-primary-400);
+    --topbar-border-color: var(--color-border-700);
+  }
+  
+  .topbar--dark a:hover,
+  .topbar--dark button:hover {
+    background-color: var(--color-surface-800);
+  }
+  
+  .topbar--light {
+    --topbar-bg: var(--color-surface-50);
+    --topbar-color: var(--color-text-700);
+    --topbar-border-color: var(--color-border-100);
+  }
+  
+  .topbar--primary {
+    --topbar-bg: var(--color-primary-600);
+    --topbar-color: var(--color-primary-100);
+    --topbar-link-color: var(--color-primary-50);
+    --topbar-link-color-hover: white;
+    --topbar-border-color: var(--color-primary-700);
+  }
+  
+  .topbar--primary a:hover,
+  .topbar--primary button:hover {
+    background-color: var(--color-primary-700);
+  }
+  
+  /* Spacing utilities */
+  .topbar--compact {
+    --topbar-padding: var(--space-1) var(--space-4);
+    --topbar-gap: var(--space-2);
+    --topbar-item-gap: var(--space-2);
+  }
+  
+  /* Position utilities */
+  .topbar--sticky {
+    position: sticky;
+    top: 0;
+    z-index: calc(var(--topbar-z-index) + 10);
+  }
+  
+  .topbar--fixed {
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: calc(var(--topbar-z-index) + 10);
+  }
+  
+  /* Dismissible functionality */
+  .topbar--dismissible {
+    position: relative;
+  }
+  
+  .topbar-dismiss {
+    background: none;
+    border: none;
+    color: var(--topbar-link-color);
+    cursor: pointer;
+    font-size: 1.2em;
+    line-height: 1px;
+    padding: var(--space-1);
+    position: absolute;
+    right: var(--space-4);
+    top: 50%;
+    transform: translateY(-50%);
+    transition: var(--header-transition);
+  }
+  
+  .topbar-dismiss:hover {
+    color: var(--topbar-link-color-hover);
+  }
+  
+  .topbar--dismissed {
+    display: none;
+  }
+  
+  /* Language selector */
+  .topbar-language {
+    position: relative;
+  }
+  
+  .topbar-language-toggle {
+    align-items: center;
+    display: flex;
+    gap: var(--space-1);
+  }
+  
+  .topbar-language-toggle::after {
+    content: "▼";
+    font-size: 0.75em;
+    transition: var(--header-transition);
+  }
+  
+  .topbar-language.is-open .topbar-language-toggle::after {
+    transform: rotate(180deg);
+  }
+  
+  .topbar-language-menu {
+    background-color: var(--color-surface-50);
+    border: 1px solid var(--topbar-border-color);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    display: none;
+    min-width: 120px;
+    padding: var(--space-2);
+    position: absolute;
+    right: 0;
+    top: 100%;
+    z-index: calc(var(--topbar-z-index) + 1);
+  }
+  
+  .topbar-language.is-open .topbar-language-menu {
+    display: block;
+  }
+  
+  .topbar-language-menu ul {
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+  
+  .topbar-language-menu a {
+    display: block;
+    padding: var(--space-2);
+    width: 100%;
+  }
+  
+  /* Status indicators */
+  .topbar-status {
+    align-items: center;
+    display: flex;
+    gap: var(--space-2);
+  }
+  
+  .topbar-status-indicator {
+    border-radius: 50%;
+    display: inline-block;
+    height: 8px;
+    width: 8px;
+  }
+  
+  .topbar-status-indicator--online {
+    background-color: var(--color-success-500);
+  }
+  
+  .topbar-status-indicator--offline {
+    background-color: var(--color-error-500);
+  }
+  
+  .topbar-status-indicator--warning {
+    background-color: var(--color-warning-500);
+  }
+  
+  /* User menu */
+  .topbar-user {
+    align-items: center;
+    display: flex;
+    gap: var(--space-2);
+  }
+  
+  .topbar-user-avatar {
+    border-radius: 50%;
+    height: 4px;
+    width: 4px;
+  }
+  
+  .topbar-user-name {
+    font-weight: var(--font-medium);
+  }
+  
+  /* Responsive behavior */
+  @container (width <= 768px) {
+    .topbar-content {
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+    
+    .topbar-split .topbar-content {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    
+    .topbar ul {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    .topbar-announcement .topbar-dismiss {
+      margin-left: var(--space-2);
+      position: static;
+      transform: none;
+    }
+    
+    /* Hide less important items on mobile */
+    .topbar-mobile-hidden {
+      display: none;
+    }
+  }
+  
+  /* Fallback media queries */
+  @media (width <= 768px) {
+    .topbar-content {
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+    
+    .topbar-split .topbar-content {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    
+    .topbar ul {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    .topbar-announcement .topbar-dismiss {
+      margin-left: var(--space-2);
+      position: static;
+      transform: none;
+    }
+    
+    .topbar-mobile-hidden {
+      display: none;
+    }
+  }
+  
+  /* Print styles */
+  @media print {
+    .topbar {
+      display: none;
+    }
+  }
+  
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .topbar a,
+    .topbar button,
+    .topbar-language-toggle::after,
+    .topbar-dismiss {
+      transition: none;
+    }
+  }
+} 

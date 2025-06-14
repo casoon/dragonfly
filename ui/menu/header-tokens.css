@@ -1,0 +1,94 @@
+/**
+ * Header Design Tokens
+ * 
+ * Central design tokens for header components.
+ * Provides consistent spacing, colors, typography, and theme variants.
+ * 
+ * @layer: tokens
+ */
+
+@layer tokens {
+  :root {
+    /* Header spacing */
+    --header-padding: var(--space-4) var(--space-6);
+    --header-padding-compact: var(--space-3) var(--space-4);
+    --header-padding-spacious: var(--space-6) var(--space-8);
+    --header-gap: var(--space-6);
+    --header-gap-compact: var(--space-4);
+    --header-gap-spacious: var(--space-8);
+    
+    /* Header colors */
+    --header-bg: var(--color-white);
+    --header-text: var(--color-neutral-700);
+    --header-link: var(--color-neutral-600);
+    --header-link-hover: var(--color-primary-600);
+    --header-link-active: var(--color-primary-700);
+    --header-border: var(--color-neutral-200);
+    --header-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%);
+    
+    /* Header typography */
+    --header-font-size: var(--text-base);
+    --header-font-weight: var(--font-medium);
+    --header-line-height: 000.5em.5;
+    --header-logo-size: var(--text-xl);
+    --header-logo-weight: var(--font-bold);
+    
+    /* Header layout */
+    --header-height: 6px4px;
+    --header-max-width: var(--container-7xl);
+    --header-z-index: 1000;
+    
+    /* Header navigation */
+    --header-nav-gap: var(--space-6);
+    --header-nav-padding: var(--space-2) var(--space-4);
+    --header-dropdown-bg: var(--color-white);
+    --header-dropdown-shadow: 0 10 25px -5px rgb(0 0 0 / 10%);
+    --header-dropdown-border: var(--color-neutral-200);
+    
+    /* Header mobile */
+    --header-mobile-breakpoint: 768px;
+    --header-hamburger-size: 24px;
+    --header-mobile-menu-bg: var(--color-white);
+    
+    /* Header themes */
+    &[data-theme="dark"],
+    &.theme-dark {
+      --header-bg: var(--color-neutral-900);
+      --header-text: var(--color-neutral-100);
+      --header-link: var(--color-neutral-300);
+      --header-link-hover: var(--color-primary-400);
+      --header-link-active: var(--color-primary-300);
+      --header-border: var(--color-neutral-700);
+      --header-shadow: 0 1px 3px 0 rgb(0 0 0 / 30%);
+      --header-dropdown-bg: var(--color-neutral-800);
+      --header-dropdown-border: var(--color-neutral-600);
+      --header-mobile-menu-bg: var(--color-neutral-900);
+    }
+    
+    &[data-theme="primary"],
+    &.theme-primary {
+      --header-bg: var(--color-primary-600);
+      --header-text: var(--color-white);
+      --header-link: var(--color-primary-100);
+      --header-link-hover: var(--color-white);
+      --header-link-active: var(--color-primary-200);
+      --header-border: var(--color-primary-500);
+      --header-dropdown-bg: var(--color-primary-700);
+      --header-dropdown-border: var(--color-primary-500);
+      --header-mobile-menu-bg: var(--color-primary-600);
+    }
+    
+    &[data-theme="transparent"],
+    &.theme-transparent {
+      --header-bg: transparent;
+      --header-text: var(--color-neutral-800);
+      --header-link: var(--color-neutral-700);
+      --header-link-hover: var(--color-primary-600);
+      --header-link-active: var(--color-primary-700);
+      --header-border: transparent;
+      --header-shadow: none;
+      --header-dropdown-bg: var(--color-white);
+      --header-mobile-menu-bg: var(--color-white);
+    }
+  }
+} 

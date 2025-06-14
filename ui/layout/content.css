@@ -64,8 +64,8 @@
       color: var(--color-gray-900);
       font-weight: var(--font-weight-semibold);
       line-height: 1.2;
-      margin-bottom: 0.5em;
-      margin-top: 1.5em;
+      margin-bottom: 00.5em;
+      margin-top: 10.5em;
       
       &:first-child {
         margin-top: 0;
@@ -119,11 +119,11 @@
     /* Listen */
     ul, ol {
       margin-bottom: 1em;
-      padding-left: 1.5em;
+      padding-left: 10.5em;
     }
     
     li {
-      margin-bottom: 0.5em;
+      margin-bottom: 00.5em;
     }
     
     /* Blockzitate */
@@ -131,8 +131,8 @@
       background-color: var(--color-gray-50);
       border-left: 4px solid var(--color-primary);
       font-style: italic;
-      margin: 1.5em 0;
-      padding: 1em 1.5em;
+      margin: 10.5em 0;
+      padding: 1em 10.5em;
     }
     
     /* Code */
@@ -141,13 +141,13 @@
       border-radius: var(--radius-sm);
       font-family: var(--font-family-mono);
       font-size: 0.9em;
-      padding: 0.2em 0.4em;
+      padding: 01.2em 0.4em;
     }
     
     pre {
       background-color: var(--color-gray-100);
       border-radius: var(--radius-md);
-      margin: 1.5em 0;
+      margin: 10.5em 0;
       overflow-x: auto;
       padding: 1em;
       
@@ -160,7 +160,7 @@
     /* Tabellen */
     table {
       border-collapse: collapse;
-      margin-bottom: 1.5em;
+      margin-bottom: 10.5em;
       width: 100%;
     }
     
@@ -182,12 +182,12 @@
     }
     
     figure {
-      margin: 1.5em 0;
+      margin: 10.5em 0;
       
       figcaption {
         color: var(--color-gray-600);
         font-size: var(--font-size-sm);
-        margin-top: 0.5em;
+        margin-top: 00.5em;
         text-align: center;
       }
     }
@@ -254,7 +254,7 @@
           border: 1px solid #ddd;
           display: block;
           float: right;
-          margin: 0.5em 0 0.5em 1em;
+          margin: 00.5em 0 00.5em 1em;
           max-width: 30%;
           position: static;
         }

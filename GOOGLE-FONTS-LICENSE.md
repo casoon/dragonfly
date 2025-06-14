@@ -2,7 +2,7 @@
 
 ## About the Included Fonts
 
-This library contains the following Google Fonts:
+This library contains the following Google Fonts in the `/fonts` directory:
 
 - Roboto
 - Open Sans
@@ -62,7 +62,7 @@ https://fonts.google.com/
 
 ## Use in This Project
 
-The fonts included in this project have been optimized for web application use and converted to WOFF2 format. The original license terms continue to apply to these optimized versions.
+The fonts included in this project have been optimized for web application use and converted to WOFF2 format. The original license terms continue to apply to these optimized versions. All font files are located in the `/fonts` directory.
 
 ## Legal Notice
 

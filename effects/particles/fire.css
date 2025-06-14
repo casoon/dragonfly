@@ -88,16 +88,16 @@
     /* Feuer-Varianten */
     .fire-sm::before,
     .fire-sm::after {
+        filter: blur(2px);
         height: 20px;
         width: 12px;
-        filter: blur(2px);
     }
 
     .fire-lg::before,
     .fire-lg::after {
+        filter: blur(6px);
         height: 50px;
         width: 30px;
-        filter: blur(6px);
     }
 
     .fire-slow::before,

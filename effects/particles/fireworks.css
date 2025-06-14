@@ -35,7 +35,7 @@
         box-shadow:
             -50px -50px 0 0 var(--firework-color-1, rgb(255 50 50 / 0%)),
             50px -40px 0 0 var(--firework-color-2, rgb(50 255 50 / 0%)),
-            0px 60px 0 0 var(--firework-color-3, rgb(50 50 255 / 0%));
+            0 60px 0 0 var(--firework-color-3, rgb(50 50 255 / 0%));
         opacity: 100%;
         transform: scale(0.7);
     }
@@ -44,7 +44,7 @@
         box-shadow:
             -100px -100px 0 0 var(--firework-color-1, rgb(255 50 50 / 0%)),
             100px -80px 0 0 var(--firework-color-2, rgb(50 255 50 / 0%)),
-            0px 120px 0 0 var(--firework-color-3, rgb(50 50 255 / 0%));
+            0 120px 0 0 var(--firework-color-3, rgb(50 50 255 / 0%));
         opacity: 30%;
     }
 
@@ -52,7 +52,7 @@
         box-shadow:
             -120px -120px 0 0 var(--firework-color-1, rgb(255 50 50 / 0%)),
             120px -100px 0 0 var(--firework-color-2, rgb(50 255 50 / 0%)),
-            0px 140px 0 0 var(--firework-color-3, rgb(50 50 255 / 0%));
+            0 140px 0 0 var(--firework-color-3, rgb(50 50 255 / 0%));
         opacity: 0%;
         transform: scale(1);
     }
@@ -95,6 +95,7 @@
     .fireworks-sm::after {
         height: 2px;
         width: 2px;
+
         --firework-size-multiplier: 0.7;
     }
 
@@ -102,6 +103,7 @@
     .fireworks-lg::after {
         height: 6px;
         width: 6px;
+
         --firework-size-multiplier: 1.5;
     }
 

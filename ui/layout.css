@@ -1,0 +1,418 @@
+/**
+ * Page Layouts / Shell
+ * 
+ * Complete page layout system combining header, main, sidebar, and footer.
+ * Provides flexible 1-, 2-, or 3-column layouts using CSS Grid.
+ * 
+ * @layer: layout
+ * 
+ * Layout Classes:
+ * - .layout: Base layout container
+ * - .layout-single: Single column (main only)
+ * - .layout-sidebar-left: Sidebar on left, main on right
+ * - .layout-sidebar-right: Main on left, sidebar on right
+ * - .layout-sidebar-both: Sidebars on both sides, main in center
+ * - .layout-stacked: Vertical stacking on mobile
+ * 
+ * Utility Classes:
+ * - .full-height: Full viewport height
+ * - .sticky-header: Sticky header behavior
+ * - .sticky-sidebar: Sticky sidebar behavior
+ * - .compact: Reduced gaps
+ * - .spacious: Increased gaps
+ * 
+ * Responsive:
+ * - Container query based approach
+ * - Automatic sidebar collapse on small containers
+ * - Flexible grid areas
+ * 
+ * Accessibility:
+ * - Proper landmark roles
+ * - Skip navigation support
+ * - Focus management
+ */
+
+@layer layout {
+  /* Layout tokens */
+  :root {
+    /* Layout dimensions */
+    --layout-max-width: 1400px;
+    --layout-sidebar-width: 280px;
+    --layout-sidebar-width-narrow: 240;
+    --layout-sidebar-width-wide: 320;
+    --layout-gap: var(--space-6);
+    --layout-gap-compact: var(--space-4);
+    --layout-gap-spacious: var(--space-8);
+    
+    /* Layout heights */
+    --layout-header-height: auto;
+    --layout-footer-height: auto;
+    --layout-min-height: 100vh;
+    
+    /* Layout z-index */
+    --layout-header-z: 100;
+    --layout-sidebar-z: 90;
+    --layout-main-z: 1;
+    --layout-footer-z: 10;
+    
+    /* Layout breakpoints for container queries */
+    --layout-mobile-breakpoint: 768px;
+    --layout-tablet-breakpoint: 1024px;
+    --layout-desktop-breakpoint: 1200;
+  }
+  
+  /* Base layout container */
+  .layout {
+    container-type: inline-size;
+    display: grid;
+    gap: var(--layout-gap);
+    margin: 0 auto;
+    max-width: var(--layout-max-width);
+    min-height: var(--layout-min-height);
+    width: 100%;
+    
+    /* Grid area assignments */
+    & header,
+    & .layout-header {
+      grid-area: header;
+      z-index: var(--layout-header-z);
+    }
+    
+    & main,
+    & .layout-main {
+      container-type: inline-size;
+      grid-area: main;
+      min-width: 0; /* Prevent overflow */
+      overflow-wrap: break-word;
+      z-index: var(--layout-main-z);
+    }
+    
+    & aside,
+    & .layout-sidebar {
+      container-type: inline-size;
+      grid-area: sidebar;
+      z-index: var(--layout-sidebar-z);
+    }
+    
+    & .layout-sidebar-left {
+      grid-area: sidebar-left;
+    }
+    
+    & .layout-sidebar-right {
+      grid-area: sidebar-right;
+    }
+    
+    & footer,
+    & .layout-footer {
+      grid-area: footer;
+      z-index: var(--layout-footer-z);
+    }
+    
+    /* Skip navigation */
+    & .skip-nav {
+      background-color: var(--color-primary-600);
+      color: white;
+      left: 50%;
+      padding: var(--space-2) var(--space-4);
+      position: absolute;
+      top: -100%;
+      transform: translateX(-50%);
+      transition: top 0.3s ease;
+      z-index: 9999;
+      
+      &:focus {
+        top: var(--space-4);
+      }
+    }
+    
+    /* Utility modifiers */
+    &.full-height {
+      min-height: 100vh;
+    }
+    
+    &.compact {
+      gap: var(--layout-gap-compact);
+    }
+    
+    &.spacious {
+      gap: var(--layout-gap-spacious);
+    }
+    
+    &.no-gap {
+      gap: 0;
+    }
+    
+    /* Sticky positioning */
+    &.sticky-header {
+      & header,
+      & .layout-header {
+        position: sticky;
+        top: 0;
+      }
+    }
+    
+    &.sticky-sidebar {
+      & aside,
+      & .layout-sidebar,
+      & .layout-sidebar-left,
+      & .layout-sidebar-right {
+        height: fit-content;
+        max-height: calc(100vh - var(--layout-gap) * 2);
+        overflow-y: auto;
+        position: sticky;
+        top: var(--layout-gap);
+      }
+    }
+    
+    /* Sidebar width variants */
+    &.sidebar-narrow {
+      --layout-sidebar-width: var(--layout-sidebar-width-narrow);
+    }
+    
+    &.sidebar-wide {
+      --layout-sidebar-width: var(--layout-sidebar-width-wide);
+    }
+    
+    /* Layout debugging (development only) */
+    &.debug {
+      outline: 2px dashed red;
+      
+      & > * {
+        outline: 1px dashed blue;
+      }
+      
+      &::before {
+        background: red;
+        color: white;
+        content: "Layout Debug Mode";
+        font-size: var(--text-xs);
+        left: 0;
+        padding: var(--space-1) var(--space-2);
+        position: absolute;
+        top: 0;
+        z-index: 9999;
+      }
+    }
+  }
+  
+  /* Layout: Single column (main only) */
+  .layout-single {
+    grid-template: 
+      "header" auto "main" 1fr "footer" auto / 1fr;
+  }
+  
+  /* Layout: Sidebar left */
+  .layout-sidebar-left {
+    grid-template: 
+      "header header" auto "sidebar main" 1fr "footer footer" auto / var(--layout-sidebar-width) 1fr;
+    
+    /* Container query for responsive behavior */
+    @container (width <= 1024px) {
+      grid-template: 
+        "header" auto "main" 1fr "sidebar" auto "footer" auto / 1fr;
+    }
+  }
+  
+  /* Layout: Sidebar right */
+  .layout-sidebar-right {
+    grid-template: 
+      "header header" auto "main sidebar" 1fr "footer footer" auto / 1fr var(--layout-sidebar-width);
+    
+    /* Container query for responsive behavior */
+    @container (width <= 1024px) {
+      grid-template: 
+        "header" auto "main" 1fr "sidebar" auto "footer" auto / 1fr;
+    }
+  }
+  
+  /* Layout: Both sidebars */
+  .layout-sidebar-both {
+    grid-template: 
+      "header header header" auto "sidebar-left main sidebar-right" 1fr "footer footer footer" auto / var(--layout-sidebar-width) 1fr var(--layout-sidebar-width);
+    
+    /* Container query for responsive behavior */
+    @container (width <= 1200px) {
+      grid-template: 
+        "header" auto "main" 1fr "sidebar-left" auto "sidebar-right" auto "footer" auto / 1fr;
+    }
+  }
+  
+  /* Layout: Stacked (mobile-first) */
+  .layout-stacked {
+    grid-template: 
+      "header" auto "main" 1fr "sidebar" auto "footer" auto / 1fr;
+  }
+  
+  /* Container queries for responsive adjustments */
+  @container (width <= 1024px) {
+    .layout {
+      &.sticky-sidebar {
+        & aside,
+        & .layout-sidebar,
+        & .layout-sidebar-left,
+        & .layout-sidebar-right {
+          height: auto;
+          max-height: none;
+          overflow-y: visible;
+          position: static;
+        }
+      }
+    }
+  }
+  
+  @container (width <= 768px) {
+    .layout {
+      gap: var(--layout-gap-compact);
+      margin: 0;
+      max-width: none;
+      padding: 0 var(--space-4);
+      
+      &.compact {
+        gap: var(--space-2);
+        padding: 0 var(--space-3);
+      }
+      
+      &.spacious {
+        gap: var(--layout-gap);
+        padding: 0 var(--space-6);
+      }
+    }
+  }
+  
+  /* Container queries for content responsiveness */
+  @container (width <= 600px) {
+    .layout {
+      & main,
+      & .layout-main {
+        font-size: var(--text-sm);
+      }
+    }
+  }
+  
+  /* Focus management */
+  .layout {
+    & main:focus,
+    & .layout-main:focus {
+      outline: 2px solid var(--color-primary-500);
+      outline-offset: 2px;
+    }
+  }
+  
+  /* Fallback media queries for browsers without container query support */
+  @supports not (container-type: inline-size) {
+    @media (width <= 1024px) {
+      .layout-sidebar-left,
+      .layout-sidebar-right {
+        grid-template: 
+          "header" auto "main" 1fr "sidebar" auto "footer" auto / 1fr;
+      }
+      
+      .layout-sidebar-both {
+        grid-template: 
+          "header" auto "main" 1fr "sidebar-left" auto "sidebar-right" auto "footer" auto / 1fr;
+      }
+      
+      .layout.sticky-sidebar {
+        & aside,
+        & .layout-sidebar,
+        & .layout-sidebar-left,
+        & .layout-sidebar-right {
+          height: auto;
+          max-height: none;
+          overflow-y: visible;
+          position: static;
+        }
+      }
+    }
+    
+    @media (width <= 768px) {
+      .layout {
+        gap: var(--layout-gap-compact);
+        margin: 0;
+        max-width: none;
+        padding: 0 var(--space-4);
+        
+        &.compact {
+          gap: var(--space-2);
+          padding: 0 var(--space-3);
+        }
+        
+        &.spacious {
+          gap: var(--layout-gap);
+          padding: 0 var(--space-6);
+        }
+      }
+    }
+  }
+  
+  /* Print styles */
+  @media print {
+    .layout {
+      display: block !important;
+      gap: 0;
+      max-width: none;
+      min-height: auto;
+      
+      & header,
+      & .layout-header {
+        display: block;
+        position: static;
+      }
+      
+      & main,
+      & .layout-main {
+        display: block;
+        width: 100%;
+      }
+      
+      & aside,
+      & .layout-sidebar,
+      & .layout-sidebar-left,
+      & .layout-sidebar-right {
+        display: none;
+      }
+      
+      & footer,
+      & .layout-footer {
+        display: block;
+        margin-top: var(--space-4);
+      }
+      
+      & .skip-nav {
+        display: none;
+      }
+    }
+  }
+  
+  /* High contrast mode */
+  @media (prefers-contrast: more) {
+    .layout {
+      border: 1px solid;
+      
+      & header,
+      & main,
+      & aside,
+      & footer {
+        border: 1px solid;
+      }
+    }
+  }
+  
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .layout {
+      & .skip-nav {
+        transition: none;
+      }
+      
+      &.sticky-sidebar {
+        & aside,
+        & .layout-sidebar,
+        & .layout-sidebar-left,
+        & .layout-sidebar-right {
+          scroll-behavior: auto;
+        }
+      }
+    }
+  }
+} 

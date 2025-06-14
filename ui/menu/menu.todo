@@ -1,0 +1,596 @@
+# Header Menu Examples - Implementation Guide
+
+## Overview
+This document provides instructions for creating HTML examples for the simplified header menu CSS components. The new system uses utility classes and direct element selectors with minimal BEM notation.
+
+## Simplified Structure
+
+### Core Files:
+- `header-tokens.css` - Shared design tokens
+- `header.css` - All horizontal header layouts with dropdowns and megamenus
+- `sidebar.css` - Vertical sidebar navigation
+- `off-canvas.css` - Off-canvas sliding menus
+- `breadcrumbs.css` - Hierarchical navigation breadcrumbs
+- `topbar.css` - Utility bar above header (language, login, status)
+- `mobile-nav.css` - Advanced mobile navigation overlay/flyout
+- `menu.js` - JavaScript functionality for all menu types
+
+### Basic HTML Structure:
+```html
+<header class="header header-standard">
+  <div class="header-logo">
+    <img src="logo.svg" alt="Company Logo">
+  </div>
+  <nav class="header-nav" aria-label="Main navigation">
+    <ul>
+      <li><a href="#" class="active">Home</a></li>
+      <li class="has-dropdown">
+        <a href="#">Products</a>
+        <div class="dropdown">
+          <ul>
+            <li><a href="#">Category 1</a></li>
+            <li><a href="#">Category 2</a></li>
+            <li class="has-dropdown">
+              <a href="#">More</a>
+              <div class="dropdown">
+                <ul>
+                  <li><a href="#">Subcategory 1</a></li>
+                  <li><a href="#">Subcategory 2</a></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li class="has-megamenu">
+        <a href="#">Solutions</a>
+        <div class="dropdown">
+          <div class="megamenu-section">
+            <h3 class="megamenu-title">For Business</h3>
+            <ul>
+              <li><a href="#">Enterprise</a></li>
+              <li><a href="#">Small Business</a></li>
+            </ul>
+          </div>
+          <div class="megamenu-section">
+            <h3 class="megamenu-title">For Developers</h3>
+            <ul>
+              <li><a href="#">API</a></li>
+              <li><a href="#">Documentation</a></li>
+            </ul>
+          </div>
+        </div>
+      </li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="header-actions">
+    <button class="header-toggle" aria-expanded="false">
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </button>
+  </div>
+  <div class="header-mobile">
+    <ul>
+      <li><a href="#" class="active">Home</a></li>
+      <li class="has-submenu">
+        <a href="#">Products</a>
+        <ul class="submenu">
+          <li><a href="#">Category 1</a></li>
+          <li><a href="#">Category 2</a></li>
+          <li class="has-submenu">
+            <a href="#">More</a>
+            <ul class="submenu">
+              <li><a href="#">Subcategory 1</a></li>
+              <li><a href="#">Subcategory 2</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </div>
+</header>
+```
+
+## Layout Types & Required Examples
+
+### 1. Header Standard
+**Classes:** `.header .header-standard`
+**Structure:** Logo left, nav right
+```html
+<header class="header header-standard">
+  <div class="header-logo">...</div>
+  <nav class="header-nav">...</nav>
+  <div class="header-actions">...</div>
+</header>
+```
+
+### 2. Header Center
+**Classes:** `.header .header-center`
+**Structure:** Logo left, nav center, actions right
+```html
+<header class="header header-center">
+  <div class="header-logo">...</div>
+  <nav class="header-nav">...</nav>
+  <div class="header-actions">...</div>
+</header>
+```
+
+### 3. Header Split
+**Classes:** `.header .header-split`
+**Structure:** Nav left, logo center, nav right
+```html
+<header class="header header-split">
+  <nav class="header-nav">...</nav>
+  <div class="header-logo">...</div>
+  <nav class="header-nav">...</nav>
+</header>
+```
+
+### 4. Header Stacked
+**Classes:** `.header .header-stacked` or `.header .header-stacked .inline`
+**Structure:** Logo above nav (centered) or inline
+```html
+<header class="header header-stacked">
+  <div class="header-logo">...</div>
+  <nav class="header-nav">...</nav>
+</header>
+```
+
+### 5. Header Left
+**Classes:** `.header .header-left`
+**Structure:** Logo and nav left-aligned
+```html
+<header class="header header-left">
+  <div class="header-content">
+    <div class="header-logo">...</div>
+    <nav class="header-nav">...</nav>
+  </div>
+  <div class="header-actions">...</div>
+</header>
+```
+
+### 6. Header Bottom Bar
+**Classes:** `.header .header-bottom-bar`
+**Structure:** Two-tier layout
+```html
+<header class="header header-bottom-bar">
+  <div class="header-top">
+    <div class="header-logo">...</div>
+    <div class="header-actions">...</div>
+  </div>
+  <div class="header-bottom">
+    <nav class="header-nav">...</nav>
+  </div>
+</header>
+```
+
+### 7. Sidebar Navigation
+**Classes:** `.sidebar`
+**Structure:** Vertical sidebar
+```html
+<aside class="sidebar">
+  <div class="header-logo">...</div>
+  <nav class="header-nav">
+    <ul>
+      <li><a href="#" class="active">Dashboard</a></li>
+      <li><a href="#">Users</a></li>
+      <li><a href="#">Settings</a></li>
+    </ul>
+  </nav>
+</aside>
+<button class="sidebar-toggle">☰</button>
+<div class="sidebar-overlay"></div>
+```
+
+### 8. Off-Canvas Menu
+**Classes:** `.off-canvas` with direction modifiers
+**Structure:** Sliding menu from any direction
+```html
+<nav class="off-canvas left">
+  <div class="off-canvas-header">
+    <h2 class="off-canvas-title">Menu</h2>
+    <button class="off-canvas-close">×</button>
+  </div>
+  <div class="off-canvas-content">
+    <nav class="header-nav">
+      <ul>
+        <li class="has-submenu">
+          <a href="#">Products</a>
+          <ul class="submenu">
+            <li><a href="#">Category 1</a></li>
+            <li><a href="#">Category 2</a></li>
+          </ul>
+        </li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</nav>
+<button class="off-canvas-toggle">☰</button>
+<div class="off-canvas-overlay"></div>
+```
+
+### 9. Breadcrumbs Navigation
+**Classes:** `.breadcrumbs` with style modifiers
+**Structure:** Hierarchical page navigation
+```html
+<nav class="breadcrumbs breadcrumbs-slash" aria-label="Breadcrumb">
+  <ol>
+    <li><a href="/" class="breadcrumbs-home">Home</a></li>
+    <li><a href="/products">Products</a></li>
+    <li><a href="/products/software">Software</a></li>
+    <li><span aria-current="page">Development Tools</span></li>
+  </ol>
+</nav>
+
+<!-- Pills style -->
+<nav class="breadcrumbs breadcrumbs-pills breadcrumbs--center" aria-label="Breadcrumb">
+  <ol>
+    <li><a href="/">🏠 Home</a></li>
+    <li><a href="/docs">Documentation</a></li>
+    <li><span aria-current="page">API Reference</span></li>
+  </ol>
+</nav>
+
+<!-- Arrows style -->
+<nav class="breadcrumbs breadcrumbs-arrows breadcrumbs--large" aria-label="Breadcrumb">
+  <ol>
+    <li><a href="/">Dashboard</a></li>
+    <li><a href="/users">Users</a></li>
+    <li><a href="/users/profile">Profile</a></li>
+    <li><span aria-current="page">Settings</span></li>
+  </ol>
+</nav>
+```
+
+### 10. Topbar / Utility Bar
+**Classes:** `.topbar` with layout modifiers
+**Structure:** Utility navigation above header
+```html
+<!-- Split layout with language selector -->
+<div class="topbar topbar-split topbar--small">
+  <div class="topbar-content">
+    <div class="topbar-left">
+      <div class="topbar-status">
+        <span class="topbar-status-indicator topbar-status-indicator--online"></span>
+        <span>System Online</span>
+      </div>
+    </div>
+    <div class="topbar-right">
+      <nav>
+        <ul>
+          <li class="topbar-language">
+            <button class="topbar-language-toggle">🌐 DE</button>
+            <div class="topbar-language-menu">
+              <ul>
+                <li><a href="?lang=de">Deutsch</a></li>
+                <li><a href="?lang=en">English</a></li>
+                <li><a href="?lang=fr">Français</a></li>
+              </ul>
+            </div>
+          </li>
+          <li><a href="/login">Login</a></li>
+          <li class="topbar-user">
+            <img src="avatar.jpg" alt="User" class="topbar-user-avatar">
+            <span class="topbar-user-name">Max Mustermann</span>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+<!-- Announcement bar -->
+<div class="topbar topbar-announcement topbar--primary topbar--dismissible">
+  <div class="topbar-content">
+    <div class="topbar-announcement-text">
+      🎉 Neue Features verfügbar! 
+      <a href="/updates" class="topbar-announcement-action">Mehr erfahren</a>
+    </div>
+    <button class="topbar-dismiss" aria-label="Schließen">×</button>
+  </div>
+</div>
+```
+
+### 11. Mobile Navigation Overlay
+**Classes:** `.mobile-nav` with layout modifiers
+**Structure:** Advanced mobile navigation
+```html
+<!-- Slide-in mobile navigation -->
+<nav class="mobile-nav mobile-nav--left" id="mobile-nav">
+  <div class="mobile-nav-header">
+    <h2 class="mobile-nav-title">Navigation</h2>
+    <button class="mobile-nav-close">×</button>
+  </div>
+  <div class="mobile-nav-content">
+    <!-- User section -->
+    <div class="mobile-nav-section">
+      <div class="mobile-nav-user">
+        <img src="avatar.jpg" alt="User" class="mobile-nav-user-avatar">
+        <div class="mobile-nav-user-info">
+          <h4>Max Mustermann</h4>
+          <p>max@example.com</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Search section -->
+    <div class="mobile-nav-section">
+      <div class="mobile-nav-search">
+        <input type="search" placeholder="Suchen...">
+      </div>
+    </div>
+    
+    <!-- Main navigation -->
+    <div class="mobile-nav-section">
+      <h3 class="mobile-nav-section-title">Hauptmenü</h3>
+      <nav>
+        <ul>
+          <li><a href="/" class="is-active">🏠 Home</a></li>
+          <li class="has-submenu">
+            <a href="/products">📦 Products</a>
+            <ul class="submenu">
+              <li><a href="/products/software">Software</a></li>
+              <li><a href="/products/hardware">Hardware</a></li>
+              <li class="has-submenu">
+                <a href="/products/services">Services</a>
+                <ul class="submenu">
+                  <li><a href="/products/services/consulting">Consulting</a></li>
+                  <li><a href="/products/services/support">Support</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="/about">ℹ️ About</a></li>
+          <li><a href="/contact">📞 Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    
+    <!-- Actions -->
+    <div class="mobile-nav-section">
+      <div class="mobile-nav-actions">
+        <a href="/login" class="mobile-nav-button">Login</a>
+        <a href="/signup" class="mobile-nav-button mobile-nav-button--secondary">Sign Up</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Modal style mobile navigation -->
+<nav class="mobile-nav mobile-nav-modal mobile-nav--compact" id="mobile-nav-modal">
+  <div class="mobile-nav-header">
+    <h2 class="mobile-nav-title">Quick Menu</h2>
+    <button class="mobile-nav-close">×</button>
+  </div>
+  <div class="mobile-nav-content">
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/products">Products</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</nav>
+
+<!-- Backdrop for mobile navigation -->
+<div class="mobile-nav-backdrop" id="mobile-nav-backdrop"></div>
+          <ul class="submenu">
+            <li><a href="#">Category 1</a></li>
+            <li><a href="#">Category 2</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</nav>
+<button class="off-canvas-trigger" data-target="#menu">
+  <div class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</button>
+<div class="off-canvas-overlay"></div>
+```
+
+**Direction modifiers:**
+- `.left` - Slide from left (default)
+- `.right` - Slide from right  
+- `.top` - Slide from top
+- `.bottom` - Slide from bottom
+
+**Size modifiers:**
+- `.narrow` - 280px width
+- `.wide` - 400px width
+- `.full-height` - Full viewport height
+
+**Modifier Classes (apply to any layout):**
+- `.sticky` - Sticky positioning
+- `.transparent` - Transparent background
+- `.compact` - Reduced height
+- `.large` - Increased height
+
+## Key Features by Layout
+
+### Header Standard
+- Logo left, navigation right
+- Most common pattern
+- Clean separation of branding and navigation
+- **NEW:** Dropdown and megamenu support
+
+### Header Center  
+- Logo left, navigation centered, actions right
+- Balanced visual weight
+- Good for prominent navigation
+- **NEW:** Dropdown and megamenu support
+
+### Header Split
+- Navigation split on both sides of centered logo
+- Symmetrical design
+- Logo as focal point
+- **NEW:** Dropdown support on both sides
+
+### Header Stacked
+- Logo above navigation (both centered)
+- Vertical layout option
+- Can switch to inline with `.inline` modifier
+- **NEW:** Dropdown and megamenu support
+
+### Header Left
+- Logo and navigation both left-aligned
+- Maximizes right space for actions
+- Compact, efficient layout
+- **NEW:** Dropdown support
+
+### Header Bottom Bar
+- Two-tier layout
+- Top: logo + actions, Bottom: navigation
+- Maximum navigation space
+- **NEW:** Megamenu support in bottom bar
+
+### Sidebar
+- Vertical navigation layout
+- Fixed positioning
+- Collapsible on mobile with overlay
+- **NEW:** Nested navigation support
+
+### Off-Canvas
+- Sliding menu from any direction (left, right, top, bottom)
+- Overlay backdrop
+- **NEW:** Full nested navigation support
+- **NEW:** Animated hamburger icon
+- **NEW:** Multiple size options
+
+## Implementation Requirements
+
+### HTML Structure
+- Use semantic HTML5 elements (`<header>`, `<nav>`, `<ul>`, `<li>`)
+- Include proper ARIA labels and attributes
+- Implement mobile toggle functionality
+- Add proper focus management
+
+### JavaScript Functionality
+Simplified JavaScript for mobile menu functionality:
+
+```javascript
+// Header mobile menu toggle
+const headerToggle = document.querySelector('.header-toggle');
+const headerMobile = document.querySelector('.header-mobile');
+const header = document.querySelector('.header');
+
+if (headerToggle && headerMobile) {
+  headerToggle.addEventListener('click', () => {
+    const isExpanded = headerToggle.getAttribute('aria-expanded') === 'true';
+    headerToggle.setAttribute('aria-expanded', !isExpanded);
+    headerMobile.classList.toggle('visible');
+  });
+
+  // Close menu on outside click
+  document.addEventListener('click', (e) => {
+    if (!header.contains(e.target)) {
+      headerMobile.classList.remove('visible');
+      headerToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+}
+
+// Sidebar toggle
+const sidebarToggle = document.querySelector('.sidebar-toggle');
+const sidebar = document.querySelector('.sidebar');
+const sidebarOverlay = document.querySelector('.sidebar-overlay');
+
+if (sidebarToggle && sidebar) {
+  sidebarToggle.addEventListener('click', () => {
+    sidebar.classList.toggle('visible');
+    sidebarOverlay?.classList.toggle('visible');
+  });
+
+  // Close sidebar on overlay click
+  sidebarOverlay?.addEventListener('click', () => {
+    sidebar.classList.remove('visible');
+    sidebarOverlay.classList.remove('visible');
+  });
+}
+
+// Keyboard navigation (Escape key)
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    headerMobile?.classList.remove('visible');
+    headerToggle?.setAttribute('aria-expanded', 'false');
+    sidebar?.classList.remove('visible');
+    sidebarOverlay?.classList.remove('visible');
+  }
+});
+```
+
+### Responsive Testing
+- Test at breakpoints: 320px, 768px, 1024px, 1440px
+- Verify container query support with fallback media queries
+- Test mobile menu functionality
+- Verify touch interactions
+
+### Content Variations
+Create examples with:
+- Short navigation (3-4 items)
+- Long navigation (8-10 items)
+- Navigation with icons
+- Different logo sizes and types
+- Various action button combinations
+
+### Accessibility Testing
+- Screen reader compatibility
+- Keyboard navigation
+- Focus indicators
+- Color contrast compliance
+- ARIA attributes validation
+
+## File Organization
+```
+examples/
+├── header-standard/
+│   ├── index.html (basic example)
+│   ├── variants.html (all variants)
+│   ├── with-actions.html
+│   └── mobile-demo.html
+├── header-center-menu/
+│   └── [similar structure]
+└── [other layouts]/
+```
+
+## Styling Notes
+- Import the main CSS library
+- Include header tokens
+- Add demo-specific styles in separate files
+- Use CSS custom properties for easy theming
+- Demonstrate dark/light theme variants
+
+## Browser Support
+- Modern browsers with CSS Grid and Flexbox
+- Container query support (with media query fallbacks)
+- CSS custom properties support
+- Modern JavaScript (ES6+)
+
+## Performance Considerations
+- Optimize images and SVGs
+- Minimize JavaScript for mobile menu
+- Use efficient CSS selectors
+- Consider lazy loading for complex examples
+
+---
+
+**Next Steps:**
+1. Create basic HTML structure for each layout
+2. Implement JavaScript functionality
+3. Add responsive testing
+4. Create variant demonstrations
+5. Test accessibility compliance
+6. Document usage patterns and best practices 

@@ -1,0 +1,525 @@
+# Layout System Documentation
+
+## Overview
+Complete page layout system using CSS Grid Areas with modern CSS features:
+- **CSS Nesting**: Native CSS nesting for better organization
+- **Container Queries**: Responsive design based on container size
+- **CSS Grid Areas**: Flexible layout system
+- **CSS Custom Properties**: Configurable design tokens
+
+## Files Structure
+
+### Current Files (After Migration)
+```
+ui/
+├── layout.css          # Complete page layouts (CSS Grid Areas + Container Queries)
+├── main.css           # Main content wrapper (moved from content.css)
+└── layout.todo        # This documentation
+```
+
+### Removed Files (Old System)
+```
+ui/layout/
+├── header.css         # ❌ Removed (249 lines, subgrid-based)
+├── footer.css         # ❌ Removed (314 lines, subgrid-based) 
+├── sidebar.css        # ❌ Removed (229 lines, grid-column based)
+└── content.css        # ❌ Moved to ui/main.css (enhanced)
+```
+
+## Modern CSS Features Used
+
+### 1. CSS Nesting
+```css
+.layout {
+  container-type: inline-size;
+  
+  /* Nested selectors */
+  & header,
+  & .layout-header {
+    grid-area: header;
+    z-index: var(--layout-header-z);
+  }
+  
+  /* Nested modifiers */
+  &.sticky-header {
+    & header,
+    & .layout-header {
+      position: sticky;
+      top: 0;
+    }
+  }
+  
+  /* Nested pseudo-classes */
+  & .skip-nav {
+    &:focus {
+      top: var(--space-4);
+    }
+  }
+}
+```
+
+### 2. Container Queries (Primary)
+```css
+.layout-sidebar-left {
+  /* Desktop layout */
+  grid-template-areas: 
+    "header header"
+    "sidebar main"
+    "footer footer";
+  
+  /* Container-based responsive */
+  @container (max-width: 1024px) {
+    grid-template-areas: 
+      "header"
+      "main"
+      "sidebar"
+      "footer";
+  }
+}
+```
+
+### 3. Media Query Fallbacks
+```css
+/* Fallback for browsers without container query support */
+@supports not (container-type: inline-size) {
+  @media (max-width: 1024px) {
+    .layout-sidebar-left {
+      /* Same responsive behavior */
+    }
+  }
+}
+```
+
+## Layout Types
+
+### 1. Single Column
+```html
+<div class="layout layout-single">
+  <header>Header</header>
+  <main>Main Content</main>
+  <footer>Footer</footer>
+</div>
+```
+
+### 2. Sidebar Left
+```html
+<div class="layout layout-sidebar-left">
+  <header>Header</header>
+  <aside>Sidebar</aside>
+  <main>Main Content</main>
+  <footer>Footer</footer>
+</div>
+```
+
+### 3. Sidebar Right
+```html
+<div class="layout layout-sidebar-right">
+  <header>Header</header>
+  <main>Main Content</main>
+  <aside>Sidebar</aside>
+  <footer>Footer</footer>
+</div>
+```
+
+### 4. Both Sidebars
+```html
+<div class="layout layout-sidebar-both">
+  <header>Header</header>
+  <aside class="layout-sidebar-left">Left Sidebar</aside>
+  <main>Main Content</main>
+  <aside class="layout-sidebar-right">Right Sidebar</aside>
+  <footer>Footer</footer>
+</div>
+```
+
+### 5. Stacked (Mobile-First)
+```html
+<div class="layout layout-stacked">
+  <header>Header</header>
+  <main>Main Content</main>
+  <aside>Sidebar</aside>
+  <footer>Footer</footer>
+</div>
+```
+
+## Utility Classes
+
+### Layout Modifiers
+```html
+<!-- Height and spacing -->
+<div class="layout layout-single full-height">...</div>
+<div class="layout layout-sidebar-left compact">...</div>
+<div class="layout layout-sidebar-right spacious">...</div>
+<div class="layout layout-sidebar-both no-gap">...</div>
+
+<!-- Sticky behavior -->
+<div class="layout layout-sidebar-left sticky-header">...</div>
+<div class="layout layout-sidebar-right sticky-sidebar">...</div>
+<div class="layout layout-sidebar-both sticky-header sticky-sidebar">...</div>
+
+<!-- Sidebar width variants -->
+<div class="layout layout-sidebar-left sidebar-narrow">...</div>
+<div class="layout layout-sidebar-right sidebar-wide">...</div>
+
+<!-- Development debugging -->
+<div class="layout layout-single debug">...</div>
+```
+
+## Container Query Breakpoints
+
+### Responsive Behavior
+```css
+/* Container queries (primary) */
+@container (max-width: 1200px) { /* Both sidebars → stacked */ }
+@container (max-width: 1024px) { /* Single sidebar → stacked */ }
+@container (max-width: 768px)  { /* Mobile adjustments */ }
+@container (max-width: 600px)  { /* Small mobile */ }
+
+/* Media query fallbacks */
+@supports not (container-type: inline-size) {
+  @media (max-width: 1024px) { /* Fallback behavior */ }
+  @media (max-width: 768px)  { /* Fallback mobile */ }
+}
+```
+
+### Automatic Layout Changes
+- **1200px+**: All layouts work as designed
+- **1024px**: Sidebars stack below main content
+- **768px**: Reduced gaps, mobile padding
+- **600px**: Smaller font sizes
+
+## CSS Custom Properties
+
+### Layout Tokens
+```css
+:root {
+  /* Dimensions */
+  --layout-max-width: 1400px;
+  --layout-sidebar-width: 280px;
+  --layout-sidebar-width-narrow: 240px;
+  --layout-sidebar-width-wide: 320px;
+  
+  /* Spacing */
+  --layout-gap: var(--space-6);
+  --layout-gap-compact: var(--space-4);
+  --layout-gap-spacious: var(--space-8);
+  
+  /* Z-index */
+  --layout-header-z: 100;
+  --layout-sidebar-z: 90;
+  --layout-main-z: 1;
+  --layout-footer-z: 10;
+  
+  /* Container query breakpoints */
+  --layout-mobile-breakpoint: 768px;
+  --layout-tablet-breakpoint: 1024px;
+  --layout-desktop-breakpoint: 1200px;
+}
+```
+
+### Customization Examples
+```css
+/* Custom sidebar width */
+.my-layout {
+  --layout-sidebar-width: 350px;
+}
+
+/* Custom gaps */
+.tight-layout {
+  --layout-gap: var(--space-2);
+}
+
+/* Custom breakpoints */
+.early-mobile {
+  --layout-mobile-breakpoint: 900px;
+}
+```
+
+## Accessibility Features
+
+### Skip Navigation
+```html
+<div class="layout">
+  <a href="#main" class="skip-nav">Skip to main content</a>
+  <header>...</header>
+  <main id="main" tabindex="-1">...</main>
+</div>
+```
+
+### Focus Management
+- Skip navigation with keyboard support
+- Focus outlines on main content
+- Proper landmark roles (header, main, aside, footer)
+
+### Screen Reader Support
+```html
+<div class="layout layout-sidebar-left" role="document">
+  <header role="banner">...</header>
+  <aside role="complementary" aria-label="Sidebar navigation">...</aside>
+  <main role="main" aria-label="Main content">...</main>
+  <footer role="contentinfo">...</footer>
+</div>
+```
+
+## Browser Support
+
+### Container Queries
+- **Chrome**: 105+ ✅
+- **Firefox**: 110+ ✅  
+- **Safari**: 16+ ✅
+- **Edge**: 105+ ✅
+
+### CSS Nesting
+- **Chrome**: 112+ ✅
+- **Firefox**: 117+ ✅
+- **Safari**: 16.5+ ✅
+- **Edge**: 112+ ✅
+
+### Fallback Strategy
+```css
+/* Automatic fallback for older browsers */
+@supports not (container-type: inline-size) {
+  /* Media query fallbacks provided */
+}
+
+@supports not (selector(&)) {
+  /* Non-nested CSS fallbacks if needed */
+}
+```
+
+## Performance Considerations
+
+### Container Queries vs Media Queries
+- **Container Queries**: Better for component-based design
+- **Media Queries**: Fallback for older browsers
+- **Performance**: Container queries are slightly more performant
+
+### CSS Nesting Benefits
+- **Smaller CSS**: Reduced repetition
+- **Better Organization**: Logical grouping
+- **Maintainability**: Easier to update
+
+### Optimization Tips
+```css
+/* Use container-type: inline-size for better performance */
+.layout {
+  container-type: inline-size; /* Only width queries */
+}
+
+/* Avoid deep nesting (max 3-4 levels) */
+.layout {
+  & .component {
+    & .element {
+      /* Good depth */
+    }
+  }
+}
+```
+
+## Migration Guide
+
+### From Old BEM System
+```css
+/* Old BEM notation */
+.layout--sticky-header { }
+.layout--sidebar-narrow { }
+
+/* New nested classes */
+.layout.sticky-header { }
+.layout.sidebar-narrow { }
+```
+
+### From Media Queries to Container Queries
+```css
+/* Old media query approach */
+@media (max-width: 1024px) {
+  .layout-sidebar-left {
+    /* responsive styles */
+  }
+}
+
+/* New container query approach */
+.layout-sidebar-left {
+  @container (max-width: 1024px) {
+    /* responsive styles */
+  }
+}
+```
+
+### HTML Changes Required
+```html
+<!-- Add container-type to layout -->
+<div class="layout layout-sidebar-left">
+  <!-- Container queries work automatically -->
+</div>
+```
+
+## Development Tools
+
+### CSS Debugging
+```css
+/* Enable debug mode */
+.layout.debug {
+  outline: 2px dashed red;
+  
+  & > * {
+    outline: 1px dashed blue;
+  }
+  
+  &::before {
+    content: "Layout Debug Mode";
+    /* Debug indicator */
+  }
+}
+```
+
+### Browser DevTools
+- **Chrome DevTools**: Container query inspection
+- **Firefox DevTools**: CSS nesting support
+- **Safari DevTools**: Container query debugging
+
+### Testing Container Queries
+```javascript
+// Test container query support
+if (CSS.supports('container-type', 'inline-size')) {
+  console.log('Container queries supported');
+} else {
+  console.log('Using media query fallbacks');
+}
+```
+
+## Examples
+
+### Complete Page Layout
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="ui/layout.css">
+  <link rel="stylesheet" href="ui/main.css">
+</head>
+<body>
+  <div class="layout layout-sidebar-left sticky-header sticky-sidebar">
+    <a href="#main" class="skip-nav">Skip to main content</a>
+    
+    <header role="banner">
+      <nav>Navigation</nav>
+    </header>
+    
+    <aside role="complementary" aria-label="Sidebar">
+      <nav>Sidebar Navigation</nav>
+    </aside>
+    
+    <main id="main" role="main" tabindex="-1" class="main">
+      <h1>Page Title</h1>
+      <p>Main content goes here...</p>
+    </main>
+    
+    <footer role="contentinfo">
+      <p>&copy; 2024 Company</p>
+    </footer>
+  </div>
+</body>
+</html>
+```
+
+### Responsive Dashboard
+```html
+<div class="layout layout-sidebar-both sticky-header compact">
+  <header>
+    <h1>Dashboard</h1>
+  </header>
+  
+  <aside class="layout-sidebar-left">
+    <!-- Navigation sidebar -->
+  </aside>
+  
+  <main class="main">
+    <!-- Dashboard content -->
+  </main>
+  
+  <aside class="layout-sidebar-right">
+    <!-- Widget sidebar -->
+  </aside>
+  
+  <footer>
+    <!-- Status bar -->
+  </footer>
+</div>
+```
+
+## Future Enhancements
+
+### Planned Features
+- [ ] CSS Subgrid support when widely available
+- [ ] View Transitions API integration
+- [ ] CSS Anchor Positioning for advanced layouts
+- [ ] Container Style Queries when supported
+
+### Experimental Features
+```css
+/* Future: CSS Subgrid */
+.layout {
+  display: grid;
+  grid-template-columns: subgrid;
+}
+
+/* Future: Container Style Queries */
+@container style(--theme: dark) {
+  .layout {
+    /* Dark theme adjustments */
+  }
+}
+```
+
+## Troubleshooting
+
+### Common Issues
+
+#### Container Queries Not Working
+```css
+/* Ensure container-type is set */
+.layout {
+  container-type: inline-size; /* Required! */
+}
+```
+
+#### CSS Nesting Not Supported
+```css
+/* Check browser support */
+@supports selector(&) {
+  /* Nesting supported */
+} @supports not selector(&) {
+  /* Provide non-nested fallback */
+}
+```
+
+#### Layout Breaking on Mobile
+```css
+/* Check container query breakpoints */
+@container (max-width: 768px) {
+  .layout {
+    /* Mobile adjustments */
+  }
+}
+```
+
+### Debug Checklist
+1. ✅ Container-type set on .layout
+2. ✅ Grid areas properly defined
+3. ✅ Container query breakpoints correct
+4. ✅ Fallback media queries present
+5. ✅ CSS nesting syntax valid
+
+## Summary
+
+The new layout system provides:
+- **Modern CSS**: Nesting and Container Queries
+- **Flexible Layouts**: 5 different layout types
+- **Responsive Design**: Container-based responsiveness
+- **Accessibility**: Full ARIA and keyboard support
+- **Performance**: Optimized CSS architecture
+- **Browser Support**: Fallbacks for older browsers
+- **Developer Experience**: Better debugging and maintenance
+
+This represents a complete modernization from the old BEM-based system to a cutting-edge CSS architecture. 

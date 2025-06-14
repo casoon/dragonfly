@@ -1122,7 +1122,7 @@
     gap: 1em;
     
     .form-group {
-      gap: 0.5em;
+      gap: 00.5em;
     }
     
     .form-label {
@@ -1138,7 +1138,7 @@
     
     .form-actions {
       gap: 0.75em;
-      margin-top: 0.5em;
+      margin-top: 00.5em;
     }
     
     /* Größenvarianten mit CSS-Schlüsselwörtern */

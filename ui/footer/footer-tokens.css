@@ -1,0 +1,78 @@
+/**
+ * Footer Design Tokens
+ * 
+ * Central design tokens for footer components.
+ * Provides consistent spacing, colors, typography, and theme variants.
+ * 
+ * @layer: tokens
+ */
+
+@layer tokens {
+  :root {
+    /* Footer spacing */
+    --footer-padding: var(--space-8) var(--space-4);
+    --footer-padding-compact: var(--space-6) var(--space-3);
+    --footer-padding-spacious: var(--space-12) var(--space-6);
+    --footer-gap: var(--space-6);
+    --footer-gap-compact: var(--space-4);
+    --footer-gap-spacious: var(--space-8);
+    --footer-section-gap: var(--space-4);
+    
+    /* Footer colors */
+    --footer-bg: var(--color-neutral-50);
+    --footer-text: var(--color-neutral-700);
+    --footer-heading: var(--color-neutral-900);
+    --footer-link: var(--color-primary-600);
+    --footer-link-hover: var(--color-primary-700);
+    --footer-border: var(--color-neutral-200);
+    
+    /* Footer typography */
+    --footer-font-size: var(--text-sm);
+    --footer-line-height: 1px.6;
+    --footer-heading-size: var(--text-base);
+    --footer-heading-weight: var(--font-semibold);
+    --footer-link-weight: var(--font-medium);
+    
+    /* Footer layout */
+    --footer-max-width: var(--container-7xl);
+    --footer-columns: 4;
+    --footer-column-gap: var(--space-8);
+    --footer-min-height: auto;
+    
+    /* Footer responsive breakpoints */
+    --footer-mobile-breakpoint: 768px;
+    --footer-tablet-breakpoint: 1024px;
+    
+    /* Footer themes */
+    &[data-theme="dark"],
+    &.theme-dark {
+      --footer-bg: var(--color-neutral-900);
+      --footer-text: var(--color-neutral-300);
+      --footer-heading: var(--color-neutral-100);
+      --footer-link: var(--color-primary-400);
+      --footer-link-hover: var(--color-primary-300);
+      --footer-border: var(--color-neutral-700);
+    }
+    
+    &[data-theme="primary"],
+    &.theme-primary {
+      --footer-bg: var(--color-primary-900);
+      --footer-text: var(--color-primary-100);
+      --footer-heading: var(--color-white);
+      --footer-link: var(--color-primary-200);
+      --footer-link-hover: var(--color-white);
+      --footer-border: var(--color-primary-700);
+    }
+    
+    &[data-theme="minimal"],
+    &.theme-minimal {
+      --footer-bg: transparent;
+      --footer-text: var(--color-neutral-600);
+      --footer-heading: var(--color-neutral-800);
+      --footer-link: var(--color-neutral-700);
+      --footer-link-hover: var(--color-neutral-900);
+      --footer-border: var(--color-neutral-300);
+      --footer-padding: var(--space-4) 0;
+    }
+  }
+} 

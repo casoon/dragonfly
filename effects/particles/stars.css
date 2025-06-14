@@ -53,7 +53,7 @@
             stars-drift 20s linear infinite;
         background: var(--stars-color, rgb(255 255 200));
         border-radius: 50%;
-        box-shadow: 0 0 4px 1px var(--stars-glow, rgba(255, 255, 200, 0.7));
+        box-shadow: 0 0 4px 1px var(--stars-glow, rgb(255 255 200 / 70%));
         content: '';
         height: 3px;
         position: absolute;
@@ -84,7 +84,7 @@
         animation-delay: 3s, 15s;
         background: var(--stars-color, rgb(255 255 200));
         border-radius: 50%;
-        box-shadow: 0 0 4px 1px var(--stars-glow, rgba(255, 255, 200, 0.7));
+        box-shadow: 0 0 4px 1px var(--stars-glow, rgb(255 255 200 / 70%));
         height: 3px;
         position: absolute;
         right: 30%;
@@ -108,7 +108,7 @@
             stars-drift 20s linear infinite;
         background: var(--stars-color, rgb(255 255 200));
         border-radius: 50%;
-        box-shadow: 0 0 4px 1px var(--stars-glow, rgba(255, 255, 200, 0.7));
+        box-shadow: 0 0 4px 1px var(--stars-glow, rgb(255 255 200 / 70%));
         content: '';
         height: 3px;
         position: absolute;
@@ -134,7 +134,7 @@
     .stars-sm .star-alt,
     .stars-sm .star-extra,
     .stars-sm .star-extra-alt {
-        box-shadow: 0 0 2px 0.5px var(--stars-glow, rgba(255, 255, 200, 0.7));
+        box-shadow: 0 0 2px 0.5px var(--stars-glow, rgb(255 255 200 / 70%));
         height: 2px;
         width: 2px;
     }
@@ -145,7 +145,7 @@
     .stars-lg .star-alt,
     .stars-lg .star-extra,
     .stars-lg .star-extra-alt {
-        box-shadow: 0 0 6px 2px var(--stars-glow, rgba(255, 255, 200, 0.7));
+        box-shadow: 0 0 6px 2px var(--stars-glow, rgb(255 255 200 / 70%));
         height: 4px;
         width: 4px;
     }
@@ -172,37 +172,37 @@
     /* Farbvarianten */
     .stars-white {
         --stars-color: rgb(255 255 255);
-        --stars-glow: rgba(255, 255, 255, 0.7);
+        --stars-glow: rgb(255 255 255 / 70%);
     }
 
     .stars-blue {
         --stars-color: rgb(200 220 255);
-        --stars-glow: rgba(200, 220, 255, 0.7);
+        --stars-glow: rgb(200 220 255 / 70%);
     }
 
     .stars-gold {
         --stars-color: rgb(255 215 0);
-        --stars-glow: rgba(255, 215, 0, 0.7);
+        --stars-glow: rgb(255 215 0 / 70%);
     }
 
     .stars-multi .star {
         --stars-color: rgb(255 150 150);
-        --stars-glow: rgba(255, 150, 150, 0.7);
+        --stars-glow: rgb(255 150 150 / 70%);
     }
 
     .stars-multi .star-alt {
         --stars-color: rgb(150 255 150);
-        --stars-glow: rgba(150, 255, 150, 0.7);
+        --stars-glow: rgb(150 255 150 / 70%);
     }
 
     .stars-multi .star-extra {
         --stars-color: rgb(150 150 255);
-        --stars-glow: rgba(150, 150, 255, 0.7);
+        --stars-glow: rgb(150 150 255 / 70%);
     }
 
     .stars-multi .star-extra-alt {
         --stars-color: rgb(255 255 150);
-        --stars-glow: rgba(255, 255, 150, 0.7);
+        --stars-glow: rgb(255 255 150 / 70%);
     }
 }
 

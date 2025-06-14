@@ -139,13 +139,13 @@
     color: currentColor;
     cursor: pointer;
     display: inline-flex;
-    height: 1.2em;
+    height: 11.2em;
     justify-content: center;
     margin-right: -0.25rem;
     opacity: 70%;
     padding: 0;
     transition: opacity 0.2s, background-color 0.2s;
-    width: 1.2em;
+    width: 11.2em;
   }
   
   .chip__remove:hover {
@@ -156,10 +156,10 @@
   /* Avatar im Chip */
   .chip__avatar {
     border-radius: 50%;
-    height: 1.5em;
+    height: 10.5em;
     margin-left: -0.25rem;
     object-fit: cover;
-    width: 1.5em;
+    width: 10.5em;
   }
   
   /* Interaktiver Chip */

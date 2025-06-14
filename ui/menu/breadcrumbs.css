@@ -1,0 +1,539 @@
+/**
+ * Breadcrumb Navigation Components
+ * 
+ * Flexible breadcrumb system with multiple layout types and utility classes.
+ * Uses CSS Nesting and Container Queries for modern responsive design.
+ * 
+ * @layer: components
+ * 
+ * Breadcrumb Types:
+ * - .breadcrumbs: Base breadcrumb navigation
+ * - .breadcrumbs-simple: Basic breadcrumb with separators
+ * - .breadcrumbs-pills: Pill-style breadcrumbs
+ * - .breadcrumbs-arrows: Arrow-style separators
+ * - .breadcrumbs-slash: Slash separators
+ * 
+ * Utility Classes:
+ * - .compact: Reduced spacing
+ * - .large: Increased spacing
+ * - .center: Center alignment
+ * - .theme-dark: Dark theme
+ * - .truncated: Manual truncation
+ * - .keep-all: Prevent auto-truncation on mobile
+ * 
+ * BEM Classes (for compatibility):
+ * - .list: Breadcrumb list
+ * - .item: Breadcrumb item
+ * - .link: Breadcrumb link
+ * - .current: Current page
+ * - .separator: Separator element
+ * 
+ * Container Queries:
+ * - Responsive text sizing
+ * - Mobile truncation
+ * - Automatic layout adjustments
+ * 
+ * Accessibility:
+ * - Use nav element with aria-label="Breadcrumb"
+ * - Use ordered list (ol) for the breadcrumb items
+ * - Current page should have aria-current="page"
+ */
+
+@import url('./header-tokens.css');
+
+@layer components {
+  /* Breadcrumb tokens */
+  :root {
+    /* Breadcrumb spacing */
+    --breadcrumb-padding: var(--space-3) 0;
+    --breadcrumb-gap: var(--space-2);
+    --breadcrumb-item-padding: var(--space-1) var(--space-2);
+    
+    /* Breadcrumb colors */
+    --breadcrumb-color: var(--color-neutral-600);
+    --breadcrumb-link-color: var(--color-primary-600);
+    --breadcrumb-link-hover: var(--color-primary-700);
+    --breadcrumb-current-color: var(--color-neutral-900);
+    --breadcrumb-separator-color: var(--color-neutral-400);
+    
+    /* Breadcrumb typography */
+    --breadcrumb-font-size: var(--text-sm);
+    --breadcrumb-font-weight: var(--font-medium);
+    --breadcrumb-line-height: 1.5;
+    
+    /* Breadcrumb responsive breakpoints */
+    --breadcrumb-mobile-breakpoint: 768px;
+  }
+  
+  /* Base breadcrumb container */
+  .breadcrumbs {
+    align-items: center;
+    color: var(--breadcrumb-color);
+    container-type: inline-size;
+    display: flex;
+    font-size: var(--breadcrumb-font-size);
+    font-weight: var(--breadcrumb-font-weight);
+    line-height: var(--breadcrumb-line-height);
+    margin: var(--space-2) 0;
+    padding: var(--breadcrumb-padding);
+    
+    /* Breadcrumb list (both ol/ul and BEM class) */
+    & ol, & ul, & .list {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--breadcrumb-gap);
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      
+      & li, & .item {
+        align-items: center;
+        display: flex;
+        gap: var(--breadcrumb-gap);
+        position: relative;
+        
+        &:not(:last-child)::after {
+          color: var(--breadcrumb-separator-color);
+          content: "/";
+          font-size: 0.875em;
+        }
+        
+        &:last-child {
+          color: var(--breadcrumb-current-color);
+          font-weight: var(--font-semibold);
+        }
+      }
+    }
+    
+    /* BEM separator element */
+    & .separator {
+      align-items: center;
+      color: var(--breadcrumb-separator-color);
+      display: inline-flex;
+      margin: 0 var(--breadcrumb-gap);
+      
+      &::before {
+        content: "/";
+        font-size: 0.85em;
+      }
+    }
+    
+    /* Breadcrumb links */
+    & a, & .link {
+      color: var(--breadcrumb-link-color);
+      padding: var(--breadcrumb-item-padding);
+      text-decoration: none;
+      transition: color 0.2s ease;
+      
+      &:hover,
+      &:focus {
+        color: var(--breadcrumb-link-hover);
+        text-decoration: underline;
+      }
+      
+      &:focus {
+        outline: 2px solid var(--breadcrumb-link-color);
+        outline-offset: 2px;
+      }
+      
+      &[aria-current="page"] {
+        color: var(--breadcrumb-current-color);
+        cursor: default;
+        font-weight: var(--font-semibold);
+        pointer-events: none;
+      }
+    }
+    
+    /* BEM current page element */
+    & .current {
+      color: var(--breadcrumb-current-color);
+      font-weight: var(--font-semibold);
+    }
+    
+    /* Home icon support */
+    & .home-icon {
+      align-items: center;
+      display: flex;
+      
+      & svg, & img {
+        height: 1em;
+        width: 1em;
+      }
+    }
+    
+    /* Manual truncation */
+    &.truncated {
+      & ol li, & ul li, & .item {
+        display: none;
+        
+        &:first-child,
+        &:nth-last-child(2),
+        &:last-child {
+          display: flex;
+        }
+      }
+      
+      & ol li:nth-last-child(2)::before,
+      & ul li:nth-last-child(2)::before,
+      & .item:nth-last-child(2)::before {
+        color: var(--breadcrumb-separator-color);
+        content: "...";
+        margin: 0 var(--breadcrumb-gap);
+      }
+    }
+    
+    /* Utility modifiers */
+    &.compact {
+      padding: var(--space-2) 0;
+      
+      & ol, & ul, & .list {
+        gap: var(--space-1);
+      }
+      
+      & a, & .link {
+        padding: var(--space-1);
+      }
+    }
+    
+    &.large {
+      font-size: var(--text-base);
+      padding: var(--space-4) 0;
+      
+      & ol, & ul, & .list {
+        gap: var(--space-3);
+      }
+      
+      & a, & .link {
+        padding: var(--space-2) var(--space-3);
+      }
+    }
+    
+    &.center {
+      justify-content: center;
+      text-align: center;
+      
+      & ol, & ul, & .list {
+        justify-content: center;
+      }
+    }
+    
+    /* Container query responsive adjustments */
+    @container (width <= 768px) {
+      font-size: var(--text-xs);
+      
+      & ol, & ul, & .list {
+        gap: var(--space-1);
+        
+        & li, & .item {
+          gap: var(--space-1);
+          
+          &:not(:last-child)::after {
+            font-size: 0.75em;
+          }
+        }
+      }
+      
+      & a, & .link {
+        padding: var(--space-1);
+      }
+      
+      /* Auto-truncate on mobile (unless keep-all is set) */
+      &:not(.keep-all) {
+        & ol li:not(:first-child, :last-child),
+        & ul li:not(:first-child, :last-child),
+        & .item:not(:first-child, :last-child) {
+          display: none;
+        }
+        
+        & ol li:first-child + li:not(:last-child),
+        & ul li:first-child + li:not(:last-child),
+        & .item:first-child + .item:not(:last-child) {
+          display: flex;
+        }
+        
+        & ol li:first-child + li::before,
+        & ul li:first-child + li::before,
+        & .item:first-child + .item::before {
+          color: var(--breadcrumb-separator-color);
+          content: "...";
+          margin: 0 var(--breadcrumb-gap);
+        }
+      }
+    }
+    
+    @container (width <= 480px) {
+      &:not(.keep-all) {
+        & ol, & ul, & .list {
+          & li:not(:first-child, :last-child),
+          & .item:not(:first-child, :last-child) {
+            display: none;
+          }
+          
+          & li:nth-last-child(2)::before,
+          & .item:nth-last-child(2)::before {
+            content: "...";
+            margin-right: var(--space-1);
+          }
+        }
+      }
+    }
+  }
+  
+  /* Breadcrumb Type: Simple (alias for base) */
+  .breadcrumbs-simple {
+    /* Inherits all styles from base .breadcrumbs */
+
+  }
+
+    /* Inherits all styles from base .breadcrumbs */
+  
+  /* Breadcrumb Type: Pills */
+  .breadcrumbs-pills {
+    & a, & .link {
+      background-color: var(--color-neutral-100);
+      border-radius: var(--radius-full);
+      
+      &:hover,
+      &:focus {
+        background-color: var(--color-neutral-200);
+      }
+      
+      &[aria-current="page"] {
+        background-color: var(--color-primary-100);
+      }
+    }
+    
+    & ol li:not(:last-child)::after,
+    & ul li:not(:last-child)::after,
+    & .separator::before {
+      display: none;
+    }
+  }
+  
+  /* Breadcrumb Type: Arrows */
+  .breadcrumbs-arrows {
+    & ol, & ul, & .list {
+      gap: 0;
+      
+      & li, & .item {
+        background-color: var(--color-neutral-100);
+        gap: 0;
+        position: relative;
+        
+        &:not(:first-child) {
+          margin-left: -8px;
+          padding-left: 6px;
+          
+          &::before {
+            border-bottom: 20px solid transparent;
+            border-left: 8px solid var(--color-neutral-100);
+            border-top: 20px solid transparent;
+            content: "";
+            height: 0;
+            left: 0;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            z-index: 1;
+          }
+        }
+        
+        &:not(:last-child)::after {
+          border-bottom: 20px solid transparent;
+          border-left: 8px solid var(--color-neutral-100);
+          border-top: 20px solid transparent;
+          content: "";
+          height: 0;
+          position: absolute;
+          right: -8px;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 0;
+          z-index: 2;
+        }
+        
+        &:last-child {
+          background-color: var(--color-primary-100);
+          
+          &::before {
+            border-left-color: var(--color-primary-100);
+          }
+        }
+      }
+    }
+    
+    & a, & .link {
+      padding: var(--space-2) var(--space-4);
+    }
+  }
+  
+  /* Breadcrumb Type: Slash */
+  .breadcrumbs-slash {
+    & ol li:not(:last-child)::after,
+    & ul li:not(:last-child)::after,
+    & .separator::before {
+      content: "/";
+      font-size: 1em;
+      font-weight: normal;
+    }
+  }
+  
+  /* Theme variants */
+  .breadcrumbs {
+    &.theme-dark {
+      --breadcrumb-color: var(--color-neutral-300);
+      --breadcrumb-link-color: var(--color-primary-400);
+      --breadcrumb-link-hover: var(--color-primary-300);
+      --breadcrumb-current-color: var(--color-neutral-100);
+      --breadcrumb-separator-color: var(--color-neutral-500);
+      
+      &.breadcrumbs-pills a,
+      &.breadcrumbs-pills .link {
+        background-color: var(--color-neutral-800);
+        
+        &:hover,
+        &:focus {
+          background-color: var(--color-neutral-700);
+        }
+        
+        &[aria-current="page"] {
+          background-color: var(--color-primary-900);
+        }
+      }
+      
+      &.breadcrumbs-arrows {
+        & ol li,
+        & ul li,
+        & .item {
+          background-color: var(--color-neutral-800);
+          
+          &:not(:first-child)::before {
+            border-left-color: var(--color-neutral-800);
+          }
+          
+          &:not(:last-child)::after {
+            border-left-color: var(--color-neutral-800);
+          }
+          
+          &:last-child {
+            background-color: var(--color-primary-900);
+            
+            &::before {
+              border-left-color: var(--color-primary-900);
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  /* Fallback media queries for browsers without container query support */
+  @supports not (container-type: inline-size) {
+    @media (width <= 768px) {
+      .breadcrumbs {
+        font-size: var(--text-xs);
+        
+        & ol, & ul, & .list {
+          gap: var(--space-1);
+          
+          & li, & .item {
+            gap: var(--space-1);
+            
+            &:not(:last-child)::after {
+              font-size: 0.75em;
+            }
+          }
+        }
+        
+        & a, & .link {
+          padding: var(--space-1);
+        }
+        
+        /* Auto-truncate on mobile (unless keep-all is set) */
+        &:not(.keep-all) {
+          & ol li:not(:first-child, :last-child),
+          & ul li:not(:first-child, :last-child),
+          & .item:not(:first-child, :last-child) {
+            display: none;
+          }
+          
+          & ol li:first-child + li:not(:last-child),
+          & ul li:first-child + li:not(:last-child),
+          & .item:first-child + .item:not(:last-child) {
+            display: flex;
+          }
+          
+          & ol li:first-child + li::before,
+          & ul li:first-child + li::before,
+          & .item:first-child + .item::before {
+            color: var(--breadcrumb-separator-color);
+            content: "...";
+            margin: 0 var(--breadcrumb-gap);
+          }
+        }
+      }
+    }
+    
+    @media (width <= 480px) {
+      .breadcrumbs:not(.keep-all) {
+        & ol, & ul, & .list {
+          & li:not(:first-child, :last-child),
+          & .item:not(:first-child, :last-child) {
+            display: none;
+          }
+          
+          & li:nth-last-child(2)::before,
+          & .item:nth-last-child(2)::before {
+            content: "...";
+            margin-right: var(--space-1);
+          }
+        }
+      }
+    }
+  }
+  
+  /* Print styles */
+  @media print {
+    .breadcrumbs {
+      color: black;
+      
+      & a, & .link {
+        color: black;
+        text-decoration: underline;
+      }
+      
+      & ol li:not(:last-child)::after,
+      & ul li:not(:last-child)::after,
+      & .separator::before {
+        color: black;
+      }
+    }
+  }
+  
+  /* High contrast mode */
+  @media (prefers-contrast: more) {
+    .breadcrumbs {
+      & a, & .link {
+        border: 1px solid transparent;
+      }
+      
+      &.breadcrumbs-pills a,
+      &.breadcrumbs-pills .link,
+      &.breadcrumbs-arrows li,
+      &.breadcrumbs-arrows .item {
+        border: 2px solid;
+      }
+    }
+  }
+  
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .breadcrumbs {
+      & a, & .link {
+        transition: none;
+      }
+    }
+  }
+} 

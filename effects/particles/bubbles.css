@@ -36,11 +36,11 @@
         animation: bubbles-rise 6s infinite;
         background: var(--bubbles-color, rgb(255 255 255 / 40%));
         border-radius: 50%;
+        bottom: -20px;
         content: '';
         height: 20px;
         position: absolute;
         width: 20px;
-        bottom: -20px;
     }
 
     .bubbles::before {

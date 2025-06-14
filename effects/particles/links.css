@@ -61,9 +61,9 @@
 
 @layer components {
     .links {
-        position: relative;
         min-height: 100px;
         min-width: 100px;
+        position: relative;
     }
 
     .links::before,
@@ -110,9 +110,9 @@
                 var(--links-line-color, rgb(80 120 255 / 60%)) calc(50%),
                 transparent calc(50% + 1px)
             );
-        background-size: 100% 100%;
         background-position: center;
         background-repeat: no-repeat;
+        background-size: 100% 100%;
     }
 
     /* Varianten */
