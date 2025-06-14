@@ -1,68 +1,32 @@
 /*
  * Sidebar Module
  *
- * Layoutregeln für die Sidebar-Navigation oder Kontextinhalte. Nutzt Grid-Spaltenlogik und Container Queries.
+ * Layout rules for sidebar navigation or contextual content. Uses grid column logic and Container Queries.
  */
 
 /**
- * Sidebar-Komponente
+ * Sidebar Component
  * 
- * Seitenleisten-Navigation und -Inhalte für Layouts mit Nebenspalten.
- * Sidebars dienen als zusätzlicher Navigationsbereich oder zur Darstellung von Kontextinformationen.
+ * Sidebar navigation and content for layouts with side columns.
+ * Sidebars serve as additional navigation areas or for displaying contextual information.
  * 
  * @layer components.sidebar
  * 
- * Grundlegende Verwendung:
+ * Basic Usage:
  * <aside class="sidebar">
  *   <nav class="nav">
- *     <ul class="menu">
- *       <li class="item">
- *         <a href="#" class="link">Menüpunkt 1</a>
- *       </li>
- *       <li class="item active">
- *         <a href="#" class="link">Menüpunkt 2</a>
- *       </li>
- *       <li class="item">
- *         <a href="#" class="link">Menüpunkt 3</a>
- *       </li>
+ *     <ul class="links">
+ *       <li><a href="#" class="link">Dashboard</a></li>
+ *       <li><a href="#" class="link">Settings</a></li>
+ *       <li><a href="#" class="link">Profile</a></li>
  *     </ul>
  *   </nav>
  * </aside>
  * 
- * Mit Überschrift:
- * <aside class="sidebar">
- *   <div class="header">
- *     <h3 class="title">Kategorien</h3>
- *   </div>
- *   <nav class="nav">...</nav>
- * </aside>
- * 
- * Verschachteltes Menü:
- * <ul class="menu">
- *   <li class="item">
- *     <a href="#" class="link">Hauptmenü</a>
- *     <ul class="submenu">
- *       <li class="item">
- *         <a href="#" class="link">Untermenü 1</a>
- *       </li>
- *       <li class="item">
- *         <a href="#" class="link">Untermenü 2</a>
- *       </li>
- *     </ul>
- *   </li>
- * </ul>
- * 
- * Varianten:
- * <aside class="sidebar left">Links positioniert (Standard)</aside>
- * <aside class="sidebar right">Rechts positioniert</aside>
- * <aside class="sidebar light">Heller Hintergrund</aside>
- * <aside class="sidebar dark">Dunkler Hintergrund</aside>
- * 
- * Responsives Verhalten:
- * <aside class="sidebar collapsible">
- *   <button class="toggle">Menü</button>
- *   <div class="content">...</div>
- * </aside>
+ * Variants:
+ * <aside class="sidebar left">...</aside>
+ * <aside class="sidebar right">...</aside>
+ * <aside class="sidebar collapsed">...</aside>
  */
 
 @layer components {
@@ -88,10 +52,38 @@
     
     /* Navigation */
     .nav {
-      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      
+      .links {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-1);
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      
+      .link {
+        color: var(--color-gray-700);
+        display: block;
+        padding: var(--space-2);
+        text-decoration: none;
+        transition: color var(--transition-fast);
+        
+        &:hover {
+          color: var(--color-primary);
+        }
+        
+        &.active {
+          color: var(--color-primary);
+          font-weight: var(--font-weight-semibold);
+        }
+      }
     }
     
-    /* Menüliste */
+    /* Menu list */
     .menu {
       display: flex;
       flex-direction: column;
@@ -101,7 +93,7 @@
       padding: 0;
     }
     
-    /* Menüelemente */
+    /* Menu items */
     .item {
       width: 100%;
       
@@ -114,7 +106,7 @@
       }
     }
     
-    /* Menülinks */
+    /* Menu links */
     .link {
       border-radius: var(--radius-md);
       color: var(--color-gray-700);
@@ -129,7 +121,7 @@
       }
     }
     
-    /* Untermenü */
+    /* Submenu */
     .submenu {
       display: flex;
       flex-direction: column;
@@ -144,31 +136,26 @@
       }
     }
     
-    /* Toggle-Button für Collapse */
+    /* Toggle button for collapse */
     .toggle {
-      background-color: var(--color-gray-200);
+      background: none;
       border: none;
-      border-radius: var(--radius-md);
       cursor: pointer;
       display: none;
-      font-weight: var(--font-weight-medium);
-      padding: var(--space-2) var(--space-3);
-      text-align: left;
-      width: 100%;
       
-      &:hover {
-        background-color: var(--color-gray-300);
+      @media (width <= 768px) {
+        display: block;
       }
     }
     
-    /* Inhalt (für Collapse) */
+    /* Content (for collapse) */
     .content {
       width: 100%;
     }
     
-    /* Varianten */
+    /* Variants */
     &.left {
-      /* Standard (wie oben definiert) */
+      grid-column: 1 / span 3;
     }
     
     &.right {
@@ -218,7 +205,7 @@
       }
     }
     
-    /* Responsive Anpassungen */
+    /* Responsive adjustments */
     @container layout (max-width: 768px) {
       grid-column: span 12;
       order: 2;
