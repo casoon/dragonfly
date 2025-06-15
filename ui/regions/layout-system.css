@@ -1,8 +1,9 @@
 /**
- * Page Layouts / Shell
+ * Layout System for Page Regions
  * 
- * Complete page layout system combining header, main, sidebar, and footer.
+ * Complete page layout system that orchestrates header, main, sidebar, and footer regions.
  * Provides flexible 1-, 2-, or 3-column layouts using CSS Grid.
+ * This system works in conjunction with the individual region components.
  * 
  * @layer: layout
  * 
@@ -30,6 +31,13 @@
  * - Proper landmark roles
  * - Skip navigation support
  * - Focus management
+ * 
+ * Usage with Region Components:
+ * This layout system should be used together with:
+ * - header.css (header region styles)
+ * - footer.css (footer region styles)
+ * - content.css (main content region styles)
+ * - sidebar.css (sidebar region styles)
  */
 
 @layer layout {
