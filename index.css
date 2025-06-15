@@ -76,8 +76,7 @@
 
 /* =================== KOMPONENTEN & ICONS =================== */
 @import url("icons/index.css"); /* layer(icons) */
-@import url("ui/elements.css"); /* layer(components) - Basiselemente */
-@import url("ui/index.css"); 
+@import url("ui/index.css"); /* UI-System mit Regionen, Komponenten und Formularen */
 
 /* =================== EFFECTS & UI COMPONENTS =================== */
 

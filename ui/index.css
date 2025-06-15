@@ -6,15 +6,15 @@
  */
 
 /* UI Elements */
-@import url('./elements.css');
+@import url('./forms.css');
 
-
-
-/* Layout Components */
-@import url('./layout/header.css');
-@import url('./layout/footer.css');
-@import url('./layout/sidebar.css');
-@import url('./layout/content.css');
+/* Page Regions */
+@import url('./regions/layout-system.css');
+@import url('./regions/main-content.css');
+@import url('./regions/header.css');
+@import url('./regions/footer.css');
+@import url('./regions/sidebar.css');
+@import url('./regions/content.css');
 
 /* UI Patterns */
 @import url('./patterns/blog.css');
