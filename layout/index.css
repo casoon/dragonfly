@@ -14,6 +14,7 @@
 @import url('./containers/index.css') layer(layout.containers);
 @import url('./spacing.css') layer(layout.spacing);
 @import url('./responsive.css') layer(layout.responsive);
+@import url('./page-layout.css') layer(layout);
 
 /* 
  * Basis-Layout-Definitionen

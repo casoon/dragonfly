@@ -9,7 +9,6 @@
 @import url('./forms.css');
 
 /* Page Regions */
-@import url('./regions/layout-system.css');
 @import url('./regions/main-content.css');
 @import url('./regions/header.css');
 @import url('./regions/footer.css');
