@@ -22,7 +22,7 @@
  * - Keyboard navigation support
  */
 
-@import url('./header-tokens.css');
+/* Note: header-tokens.css was removed - tokens are now defined inline */
 
 @layer components {
   /* Off-canvas tokens */

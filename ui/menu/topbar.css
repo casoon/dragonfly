@@ -25,7 +25,7 @@
  * - Automatic layout adjustments
  */
 
-@import url('./header-tokens.css');
+/* Note: header-tokens.css was removed - tokens are now defined inline */
 
 @layer components {
   /* Topbar tokens */

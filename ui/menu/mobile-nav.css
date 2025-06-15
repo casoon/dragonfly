@@ -24,7 +24,7 @@
  * - Device-specific optimizations
  */
 
-@import url('./header-tokens.css');
+/* Note: header-tokens.css was removed - tokens are now defined inline */
 
 @layer components {
   /* Mobile navigation tokens */

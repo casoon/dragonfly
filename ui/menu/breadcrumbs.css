@@ -39,7 +39,7 @@
  * - Current page should have aria-current="page"
  */
 
-@import url('./header-tokens.css');
+/* Note: header-tokens.css was removed - tokens are now defined inline */
 
 @layer components {
   /* Breadcrumb tokens */
