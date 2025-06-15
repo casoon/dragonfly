@@ -1,45 +1,46 @@
 # @casoon/dragonfly
 
-Ein modulares, leichtgewichtiges CSS-Framework und Design-System für moderne Web-Projekte. Während es speziell für Astro JS optimiert ist, ist es vollständig framework-agnostisch und kann in jedem Web-Projekt verwendet werden. Die Bibliothek wird von einem Autor entwickelt, der hauptsächlich Astro JS verwendet, ist aber nicht auf dieses Ökosystem beschränkt. Sie ist auch für LightningCSS und Container Queries optimiert und bietet eine @layer-basierte Architektur mit umfassender Barrierefreiheit.
+A modular, lightweight CSS framework and design system for modern web projects. While it is especially optimized for use with Astro JS, it is fully framework-agnostic and can be used in any web project. The library is developed by an author who primarily uses Astro JS, but it is not limited to that ecosystem. It is also optimized for LightningCSS and Container Queries, featuring a @layer-based architecture and comprehensive accessibility.
 
-## ✨ Neue Features & Verbesserungen (v0.7.4)
+## ✨ New Features & Improvements (v0.7.5)
 
-- **🏗️ CSS-Modernisierung abgeschlossen**: Vollständige Migration von BEM-Notation zu modernem CSS Nesting für alle Komponenten
-- **✅ 100% lint-freie Codebasis**: Alle 257+ CSS-Dateien passieren Lightning CSS Tests ohne Fehler  
-- **🧪 Erweiterte Testing-Suite**: Umfassende Browser-Kompatibilitätstests und automatisierte CSS-Validierung
-- **📦 Optimierte Bundle-Größe**: Reduzierte CSS-Redundanz durch moderne Syntax
-- **🎯 Verbesserte Entwicklererfahrung**: Konsistente Code-Struktur und bessere Wartbarkeit
-- **🔧 Modernisierte Architektur**: Verwendung von CSS Nesting anstelle von BEM-Notation für bessere Lesbarkeit
+- **🏗️ CSS Modernization Completed**: Complete migration from BEM notation to modern CSS Nesting for all components
+- **✅ 100% Lint-free Codebase**: All 234+ CSS files pass Lightning CSS tests without errors
+- **🧪 Enhanced Testing Suite**: Comprehensive browser compatibility tests and automated CSS validation
+- **📦 Optimized Bundle Size**: Reduced CSS redundancy through modern syntax
+- **🎯 Improved Developer Experience**: Consistent code structure and better maintainability
+- **🔧 Modernized Architecture**: Use of CSS Nesting instead of BEM notation for better readability
+- **🎨 Enhanced Link Buttons**: 15+ new styling variants with extensive customization options
 
 ## Features
 
 ### 🚀 Core Features
-- **Umfassendes Theme-System** mit Dark/Light-Modus-Unterstützung
-- **Verbesserte Barrierefreiheits-Komponenten** für Screenreader und Tastatur-Benutzer
-- **Erweiterte Farbkontrast-System**
-- **Neue Utility-Klassen** für Breite und Höhe
-- **Optimiertes Animations-System** mit neuem Benennungsschema und reduzierter Redundanz
-- **Responsive Design** mit `.motion-safe`/`.motion-reduce` für `prefers-reduced-motion`
-- **Moderne Effekte** einschließlich Dialog- und Fokus-Animationen, gestaffelte Animationen
-- **Vollständige Unterstützung** für Dark Mode und RTL-Layouts
-- **Validierung** mit modernem CSS
-- **Verbesserte Formulare** mit überarbeitetem Formular-System und konsistenter Nomenklatur
-- **Optimierte Layer-Struktur** mit erweiterten Flex/Grid-Utilities
-- **Container Query Integration** mit konsistenten logischen Eigenschaften
-- **Fluid Typography** mit Fluid-Interpolation
-- **CSS Nesting**: Moderne CSS-Syntax anstelle von BEM-Notation für bessere Lesbarkeit und Wartbarkeit
+- **Comprehensive Theme System** with dark/light mode support
+- **Enhanced Accessibility Components** for screen readers and keyboard users
+- **Advanced Color Contrast System**
+- **New Utility Classes** for width and height
+- **Optimized Animation System** with new naming scheme and reduced redundancy
+- **Responsive Design** with `.motion-safe`/`.motion-reduce` for `prefers-reduced-motion`
+- **Modern Effects** including dialog and focus animations, staggered animations
+- **Full Support** for dark mode and RTL layouts
+- **Validation** with modern CSS
+- **Improved Forms** with revised form system and consistent nomenclature
+- **Optimized Layer Structure** with extended flex/grid utilities
+- **Container Query Integration** with consistent logical properties
+- **Fluid Typography** using fluid interpolation
+- **CSS Nesting**: Modern CSS syntax instead of BEM notation for better readability and maintainability
 
 ## Installation
 
 ```bash
 npm install @casoon/dragonfly
-# oder
+# or
 yarn add @casoon/dragonfly
-# oder
+# or
 pnpm add @casoon/dragonfly
 ```
 
-> **🆕 v0.7.4**: Vollständig modernisierte CSS-Codebasis mit 100% lint-freier Qualitätsgarantie und CSS Nesting anstelle von BEM-Notation.
+> **🆕 v0.7.5**: Completely modernized CSS codebase with 100% lint-free quality guarantee and CSS Nesting instead of BEM notation.
 
 ## Usage
 
@@ -596,7 +597,7 @@ For detailed compatibility information, browser support charts, and implemented 
 
 ## Testing
 
-### 🧪 Enhanced Testing Features (v0.7.4)
+### 🧪 Enhanced Testing Features (v0.7.5)
 - **✅ 100% Lint-free Codebase**: All 234+ CSS files pass Lightning CSS tests without errors
 - **🔧 Advanced CSS Validation**: Systematic verification against modern CSS standards
 - **📊 Improved Test Coverage**: Comprehensive coverage of all components and utilities
