@@ -1,10 +1,12 @@
 /**
- * Main Content Wrapper
+ * Main Content Region
  * 
  * Central content layout with consistent spacing, max-width, and responsive behavior.
+ * Part of the page regions system - defines the main content area styling.
  * Uses CSS Nesting and Container Queries for modern responsive design.
  * 
  * @layer: components
+ * @location: ui/regions/main-content.css
  * 
  * Main Classes:
  * - .main: Base main content wrapper
@@ -22,6 +24,11 @@
  * - Responsive typography
  * - Mobile-first approach
  * - Automatic layout adjustments
+ * 
+ * Integration:
+ * - Works with layout-system.css for grid positioning
+ * - Complements header.css, footer.css, sidebar.css
+ * - Provides content styling within the main grid area
  */
 
 @layer components {
