@@ -2,7 +2,69 @@
  * Content Module
  *
  * Layout rules for main content areas. Provides consistent text presentation and typography.
+ * Includes base element styles merged from base-elements.css.
  */
+
+/**
+ * Base Element Styles
+ * 
+ * Basic styles for native HTML elements. These styles are minimal and serve as a foundation
+ * for more specific component styles.
+ */
+
+@layer elements {
+  /* =================== TEXT ELEMENTS =================== */
+
+  /* Links */
+  a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  a:hover {
+    color: var(--color-primary-hover);
+    text-decoration: underline;
+  }
+
+  a:focus {
+    outline: 2px solid var(--color-focus-ring);
+    outline-offset: 2px;
+  }
+
+  /* Headings */
+  h1, h2, h3, h4, h5, h6 {
+    margin: 1.5rem 0 1rem;
+  }
+
+  /* Paragraphs */
+  p {
+    margin: 1rem 0;
+  }
+
+  /* =================== FOCUS STATES =================== */
+
+  /* Focus styles for all interactive elements */
+  :focus-visible {
+    outline: 2px solid var(--color-focus-ring);
+    outline-offset: 2px;
+  }
+
+  /* =================== ACCESSIBILITY =================== */
+
+  /* Screen Reader Only */
+  .sr-only {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+}
 
 /**
  * Content Component
