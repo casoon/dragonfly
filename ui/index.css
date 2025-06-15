@@ -13,7 +13,7 @@
 @import url('./regions/header.css');
 @import url('./regions/footer.css');
 @import url('./regions/sidebar.css');
-@import url('./regions/content.css');
+@import url('./content.css');
 
 /* UI Patterns */
 @import url('./patterns/blog.css');

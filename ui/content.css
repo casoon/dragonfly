@@ -1,0 +1,907 @@
+/*
+ * Content Module
+ *
+ * Layout rules for main content areas. Provides consistent text presentation and typography.
+ * Includes base element styles merged from base-elements.css.
+ * Also includes Link Button components that work parallel to Form Buttons.
+ */
+
+/**
+ * Base Element Styles
+ * 
+ * Basic styles for native HTML elements. These styles are minimal and serve as a foundation
+ * for more specific component styles.
+ */
+
+@layer elements {
+  /* =================== TEXT ELEMENTS =================== */
+
+  /* Links */
+  a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  a:hover {
+    color: var(--color-primary-hover);
+    text-decoration: underline;
+  }
+
+  a:focus {
+    outline: 2px solid var(--color-focus-ring);
+    outline-offset: 2px;
+  }
+
+  /* Headings */
+  h1, h2, h3, h4, h5, h6 {
+    margin: 1.5rem 0 1rem;
+  }
+
+  /* Paragraphs */
+  p {
+    margin: 1rem 0;
+  }
+
+  /* =================== FOCUS STATES =================== */
+
+  /* Focus styles for all interactive elements */
+  :focus-visible {
+    outline: 2px solid var(--color-focus-ring);
+    outline-offset: 2px;
+  }
+
+  /* =================== ACCESSIBILITY =================== */
+
+  /* Screen Reader Only */
+  .sr-only {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+}
+
+/**
+ * Link Button Component
+ * 
+ * Button-styled links for content areas. These work parallel to form buttons
+ * but are specifically designed for links in content contexts.
+ * 
+ * @layer components.link-button
+ * 
+ * Basic Usage:
+ * <a href="/page" class="link-button">Navigate</a>
+ * <a href="/page" class="link-button primary">Primary Action</a>
+ * <a href="/page" class="link-button secondary small">Small Secondary</a>
+ * 
+ * Features:
+ * - All button variants (primary, secondary, tertiary, etc.)
+ * - All button sizes (xs, sm, md, lg, xl)
+ * - Icon support
+ * - Focus and hover states
+ * - Accessibility optimized
+ */
+
+@layer components {
+  .link-button {
+    align-items: center;
+    border: none;
+    border-radius: var(--radius-md, 0.5rem);
+    color: var(--color-text);
+    cursor: pointer;
+    display: inline-flex;
+    font-size: var(--font-size-sm, 0.875rem);
+    font-weight: var(--font-weight-medium, 500);
+    justify-content: center;
+    line-height: 1.25;
+    padding-block: var(--space-2, 0.5rem);
+    padding-inline: var(--space-4, 1rem);
+    position: relative;
+    text-decoration: none;
+    transition: all var(--transition-duration-fast, 150ms) var(--transition-timing-ease, cubic-bezier(0.4, 0, 0.2, 1));
+    
+    /* Variants */
+    &.primary {
+      background-color: var(--color-primary, #06c);
+      color: white;
+      
+      &:hover {
+        background-color: var(--color-primary-hover, #05a);
+        text-decoration: none;
+      }
+    }
+    
+    &.secondary {
+      background-color: var(--color-secondary);
+      color: white;
+      
+      &:hover {
+        background-color: var(--color-secondary-hover);
+        text-decoration: none;
+      }
+    }
+    
+    &.tertiary {
+      background-color: transparent;
+      border: 1px solid var(--color-border);
+      color: var(--color-text);
+      
+      &:hover {
+        background-color: var(--color-background-alt);
+        text-decoration: none;
+      }
+    }
+    
+    &.success {
+      background-color: var(--color-success);
+      color: white;
+      
+      &:hover {
+        background-color: var(--color-success-hover);
+        text-decoration: none;
+      }
+    }
+    
+    &.warning {
+      background-color: var(--color-warning);
+      color: var(--color-text);
+      
+      &:hover {
+        background-color: var(--color-warning-hover);
+        text-decoration: none;
+      }
+    }
+    
+    &.danger {
+      background-color: var(--color-error);
+      color: white;
+      
+      &:hover {
+        background-color: var(--color-error-hover);
+        text-decoration: none;
+      }
+    }
+    
+    &.info {
+      background-color: var(--color-info);
+      color: white;
+      
+      &:hover {
+        background-color: var(--color-info-hover);
+        text-decoration: none;
+      }
+    }
+    
+    &.link {
+      background-color: transparent;
+      color: var(--color-primary);
+      padding: 0;
+      
+      &:hover {
+        color: var(--color-primary-hover);
+        text-decoration: underline;
+      }
+    }
+    
+    /* Sizes */
+    &.xs {
+      font-size: var(--font-size-xs);
+      padding-block: var(--space-1);
+      padding-inline: var(--space-2);
+    }
+    
+    &.sm {
+      font-size: var(--font-size-sm);
+      padding-block: var(--space-1);
+      padding-inline: var(--space-3);
+    }
+    
+    &.md {
+      font-size: var(--font-size-base);
+      padding-block: var(--space-2);
+      padding-inline: var(--space-4);
+    }
+    
+    &.lg {
+      font-size: var(--font-size-lg);
+      padding-block: var(--space-3);
+      padding-inline: var(--space-6);
+    }
+    
+    &.xl {
+      font-size: var(--font-size-xl);
+      padding-block: var(--space-4);
+      padding-inline: var(--space-8);
+    }
+    
+    /* Icon support */
+    &.with-icon {
+      gap: var(--space-2);
+      
+      .icon {
+        flex-shrink: 0;
+        height: 1em;
+        width: 1em;
+      }
+    }
+    
+    &.icon-only {
+      aspect-ratio: 1;
+      padding: var(--space-2);
+      
+      .icon {
+        height: 1.25em;
+        width: 1.25em;
+      }
+    }
+    
+    /* States */
+    &:focus {
+      outline: 2px solid var(--color-focus-ring);
+      outline-offset: 2px;
+    }
+    
+    &.disabled {
+      cursor: not-allowed;
+      opacity: 50%;
+      pointer-events: none;
+    }
+    
+    /* Loading state */
+    &.loading {
+      color: transparent;
+      pointer-events: none;
+      
+      &::after {
+        animation: spin 1s linear infinite;
+        border: 2px solid transparent;
+        border-radius: 50%;
+        border-top-color: currentColor;
+        content: "";
+        height: 1em;
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 1em;
+      }
+    }
+    
+    /* =================== STYLING VARIANTS =================== */
+    
+    /* Outline variants */
+    &.outline {
+      background-color: transparent;
+      border: 2px solid currentColor;
+      
+      &.primary {
+        border-color: var(--color-primary);
+        color: var(--color-primary);
+        
+        &:hover {
+          background-color: var(--color-primary);
+          color: white;
+        }
+      }
+      
+      &.secondary {
+        border-color: var(--color-secondary);
+        color: var(--color-secondary);
+        
+        &:hover {
+          background-color: var(--color-secondary);
+          color: white;
+        }
+      }
+      
+      &.success {
+        border-color: var(--color-success);
+        color: var(--color-success);
+        
+        &:hover {
+          background-color: var(--color-success);
+          color: white;
+        }
+      }
+      
+      &.warning {
+        border-color: var(--color-warning);
+        color: var(--color-warning);
+        
+        &:hover {
+          background-color: var(--color-warning);
+          color: white;
+        }
+      }
+      
+      &.danger {
+        border-color: var(--color-error);
+        color: var(--color-error);
+        
+        &:hover {
+          background-color: var(--color-error);
+          color: white;
+        }
+      }
+      
+      &.info {
+        border-color: var(--color-info);
+        color: var(--color-info);
+        
+        &:hover {
+          background-color: var(--color-info);
+          color: white;
+        }
+      }
+    }
+    
+    /* Ghost variants */
+    &.ghost {
+      background-color: transparent;
+      border: none;
+      
+      &.primary {
+        color: var(--color-primary);
+        
+        &:hover {
+          background-color: color-mix(in srgb, var(--color-primary) 10%, transparent);
+        }
+      }
+      
+      &.secondary {
+        color: var(--color-secondary);
+        
+        &:hover {
+          background-color: color-mix(in srgb, var(--color-secondary) 10%, transparent);
+        }
+      }
+      
+      &.success {
+        color: var(--color-success);
+        
+        &:hover {
+          background-color: color-mix(in srgb, var(--color-success) 10%, transparent);
+        }
+      }
+      
+      &.warning {
+        color: var(--color-warning);
+        
+        &:hover {
+          background-color: color-mix(in srgb, var(--color-warning) 10%, transparent);
+        }
+      }
+      
+      &.danger {
+        color: var(--color-error);
+        
+        &:hover {
+          background-color: color-mix(in srgb, var(--color-error) 10%, transparent);
+        }
+      }
+      
+      &.info {
+        color: var(--color-info);
+        
+        &:hover {
+          background-color: color-mix(in srgb, var(--color-info) 10%, transparent);
+        }
+      }
+    }
+    
+    /* Gradient variants */
+    &.gradient {
+      background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark, var(--color-primary)));
+      color: white;
+      
+      &:hover {
+        background: linear-gradient(135deg, var(--color-primary-hover), var(--color-primary));
+        transform: translateY(-1px);
+      }
+      
+      &.secondary {
+        background: linear-gradient(135deg, var(--color-secondary), var(--color-secondary-dark, var(--color-secondary)));
+        
+        &:hover {
+          background: linear-gradient(135deg, var(--color-secondary-hover), var(--color-secondary));
+        }
+      }
+      
+      &.success {
+        background: linear-gradient(135deg, var(--color-success), var(--color-success-dark, var(--color-success)));
+        
+        &:hover {
+          background: linear-gradient(135deg, var(--color-success-hover), var(--color-success));
+        }
+      }
+      
+      &.rainbow {
+        background: linear-gradient(135deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffeaa7);
+        
+        &:hover {
+          background: linear-gradient(135deg, #ee5a52, #45b7d1, #3498db, #81c784, #fdd835);
+        }
+      }
+    }
+    
+    /* Full width variant */
+    &.full-width {
+      width: 100%;
+    }
+    
+    /* Border radius variants */
+    &.rounded-none {
+      border-radius: 0;
+    }
+    
+    &.rounded-sm {
+      border-radius: var(--radius-sm, 0.25rem);
+    }
+    
+    &.rounded-lg {
+      border-radius: var(--radius-lg, 1rem);
+    }
+    
+    &.rounded-xl {
+      border-radius: var(--radius-xl, 1.5rem);
+    }
+    
+    &.rounded-full {
+      border-radius: 9999px;
+    }
+    
+    /* Shadow variants */
+    &.shadow {
+      box-shadow: 0 1px 3px rgb(0 0 0 / 12%), 0 1px 2px rgb(0 0 0 / 24%);
+      
+      &:hover {
+        box-shadow: 0 3px 6px rgb(0 0 0 / 16%), 0 3px 6px rgb(0 0 0 / 23%);
+        transform: translateY(-1px);
+      }
+    }
+    
+    &.shadow-lg {
+      box-shadow: 0 4px 6px rgb(0 0 0 / 10%), 0 2px 4px rgb(0 0 0 / 6%);
+      
+      &:hover {
+        box-shadow: 0 10px 15px rgb(0 0 0 / 10%), 0 4px 6px rgb(0 0 0 / 5%);
+        transform: translateY(-2px);
+      }
+    }
+    
+    &.shadow-inner {
+      box-shadow: inset 0 2px 4px rgb(0 0 0 / 6%);
+    }
+    
+    /* Border variants */
+    &.border-thick {
+      border-color: currentColor;
+      border-style: solid;
+      border-width: 3px;
+    }
+    
+    &.border-dashed {
+      background-color: transparent;
+      border: 2px dashed currentColor;
+    }
+    
+    &.border-dotted {
+      background-color: transparent;
+      border: 2px dotted currentColor;
+    }
+    
+    /* Animated variants */
+    &.animated {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+    
+    &.bounce {
+      &:hover {
+        animation: bounce 0.6s ease-in-out;
+      }
+    }
+    
+    &.pulse {
+      &:hover {
+        animation: pulse 1s ease-in-out infinite;
+      }
+    }
+    
+    /* Glow effects */
+    &.glow {
+      &.primary {
+        box-shadow: 0 0 20px color-mix(in srgb, var(--color-primary) 30%, transparent);
+        
+        &:hover {
+          box-shadow: 0 0 30px color-mix(in srgb, var(--color-primary) 50%, transparent);
+        }
+      }
+      
+      &.success {
+        box-shadow: 0 0 20px color-mix(in srgb, var(--color-success) 30%, transparent);
+        
+        &:hover {
+          box-shadow: 0 0 30px color-mix(in srgb, var(--color-success) 50%, transparent);
+        }
+      }
+      
+      &.danger {
+        box-shadow: 0 0 20px color-mix(in srgb, var(--color-error) 30%, transparent);
+        
+        &:hover {
+          box-shadow: 0 0 30px color-mix(in srgb, var(--color-error) 50%, transparent);
+        }
+      }
+    }
+    
+    /* Neumorphism variant */
+    &.neumorphism {
+      background: var(--color-background, #f0f0f0);
+      border: none;
+      box-shadow: 
+        8px 8px 16px color-mix(in srgb, var(--color-background, #f0f0f0) 70%, #000),
+        -8px -8px 16px color-mix(in srgb, var(--color-background, #f0f0f0) 70%, #fff);
+      color: var(--color-text);
+      
+      &:hover {
+        box-shadow: 
+          4px 4px 8px color-mix(in srgb, var(--color-background, #f0f0f0) 70%, #000),
+          -4px -4px 8px color-mix(in srgb, var(--color-background, #f0f0f0) 70%, #fff);
+      }
+      
+      &:active {
+        box-shadow: 
+          inset 4px 4px 8px color-mix(in srgb, var(--color-background, #f0f0f0) 70%, #000),
+          inset -4px -4px 8px color-mix(in srgb, var(--color-background, #f0f0f0) 70%, #fff);
+      }
+    }
+    
+    /* Glass effect */
+    &.glass {
+      backdrop-filter: blur(10px);
+      background: rgb(255 255 255 / 10%);
+      border: 1px solid rgb(255 255 255 / 20%);
+      color: var(--color-text);
+      
+      &:hover {
+        backdrop-filter: blur(15px);
+        background: rgb(255 255 255 / 20%);
+      }
+    }
+    
+    /* Minimal variant */
+    &.minimal {
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      color: var(--color-text);
+      padding: var(--space-1) 0;
+      
+      &:hover {
+        background: color-mix(in srgb, var(--color-text) 5%, transparent);
+      }
+    }
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* Additional keyframes for animations */
+@keyframes bounce {
+  0%, 20%, 53%, 80%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  40%, 43% {
+    transform: translate3d(0, -8px, 0);
+  }
+
+  70% {
+    transform: translate3d(0, -4px, 0);
+  }
+
+  90% {
+    transform: translate3d(0, -2px, 0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/**
+ * Content Component
+ * 
+ * The Content component provides consistent text presentation for extensive content areas.
+ * It includes typography, spacing, and layout rules for readable content.
+ * 
+ * @layer components.content
+ * 
+ * Basic Usage:
+ * <main class="content">
+ *   <h1>Main Heading</h1>
+ *   <p>Content paragraph with proper spacing and typography.</p>
+ *   <h2>Subheading</h2>
+ *   <p>More content with consistent styling.</p>
+ * </main>
+ * 
+ * Features:
+ * - Headings (h1-h6)
+ * - Paragraphs with optimal line height
+ * - Lists with proper spacing
+ * - Links with hover states
+ * - Responsive typography
+ * - Print optimization
+ */
+
+@layer components {
+  .content {
+    color: var(--color-gray-900);
+    display: grid;
+    font-size: var(--font-size-base);
+    gap: var(--space-4);
+    grid-column: span 9;
+    grid-template-columns: subgrid;
+    line-height: 1.6;
+    
+    /* Headings */
+    h1, h2, h3, h4, h5, h6 {
+      color: var(--color-gray-900);
+      font-weight: var(--font-weight-bold);
+      line-height: 1.2;
+      margin-bottom: var(--space-4);
+      margin-top: 0;
+    }
+    
+    h1 {
+      font-size: var(--font-size-4xl);
+    }
+    
+    h2 {
+      font-size: var(--font-size-3xl);
+    }
+    
+    h3 {
+      font-size: var(--font-size-2xl);
+    }
+    
+    h4 {
+      font-size: var(--font-size-xl);
+    }
+    
+    h5 {
+      font-size: var(--font-size-lg);
+    }
+    
+    h6 {
+      font-size: var(--font-size-base);
+    }
+    
+    /* Paragraphs */
+    p {
+      line-height: 1.6;
+      margin-bottom: var(--space-4);
+      margin-top: 0;
+    }
+    
+    /* Lists */
+    ul, ol {
+      margin-bottom: var(--space-4);
+      margin-top: 0;
+      padding-left: var(--space-6);
+      
+      li {
+        margin-bottom: var(--space-2);
+      }
+    }
+    
+    /* Links */
+    a {
+      color: var(--color-primary);
+      text-decoration: underline;
+      transition: color var(--transition-fast);
+      
+      &:hover {
+        color: var(--color-primary-dark);
+      }
+    }
+    
+    /* Blockquotes */
+    blockquote {
+      border-left: 4px solid var(--color-primary);
+      font-style: italic;
+      margin: var(--space-6) 0;
+      padding-left: var(--space-4);
+    }
+    
+    /* Code */
+    code {
+      background-color: var(--color-gray-100);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-mono);
+      font-size: 0.875em;
+      padding: var(--space-1) var(--space-2);
+    }
+    
+    pre {
+      background-color: var(--color-gray-100);
+      border-radius: var(--radius-md);
+      overflow-x: auto;
+      padding: var(--space-4);
+      
+      code {
+        background: none;
+        padding: 0;
+      }
+    }
+    
+    /* Tables */
+    table {
+      border-collapse: collapse;
+      margin-bottom: var(--space-4);
+      width: 100%;
+      
+      th, td {
+        border: 1px solid var(--color-gray-300);
+        padding: var(--space-2) var(--space-3);
+        text-align: left;
+      }
+      
+      th {
+        background-color: var(--color-gray-50);
+        font-weight: var(--font-weight-semibold);
+      }
+    }
+    
+    /* Images */
+    img {
+      height: auto;
+      max-width: 100%;
+    }
+    
+    /* Horizontal rules */
+    hr {
+      border: none;
+      border-top: 1px solid var(--color-gray-300);
+      margin: var(--space-8) 0;
+    }
+    
+    /* Variants */
+    &.prose-sm {
+      font-size: var(--font-size-sm);
+      
+      h1 { 
+        font-size: var(--font-size-2xl); 
+      }
+      
+      h2 { 
+        font-size: var(--font-size-xl); 
+      }
+      
+      h3 { 
+        font-size: var(--font-size-lg); 
+      }
+      
+      h4 { 
+        font-size: var(--font-size-base); 
+      }
+      
+      h5 { 
+        font-size: var(--font-size-sm); 
+      }
+      
+      h6 { 
+        font-size: var(--font-size-xs); 
+      }
+    }
+    
+    /* Margin notes */
+    .note {
+      align-self: start;
+      background-color: var(--color-gray-50);
+      border-radius: var(--radius-md);
+      color: var(--color-gray-600);
+      font-size: var(--font-size-sm);
+      grid-column: 10 / span 3;
+      padding: 1em;
+      position: sticky;
+      top: 1rem;
+    }
+    
+    /* Variants */
+    &.large {
+      font-size: var(--font-size-lg);
+    }
+    
+    &.small {
+      font-size: var(--font-size-sm);
+    }
+    
+    &.tight {
+      line-height: 1.4;
+    }
+    
+    &.relaxed {
+      line-height: 1.8;
+    }
+    
+    &.with-sidebar {
+      position: relative;
+    }
+    
+    &.print-friendly {
+      @media print {
+        color: black;
+        font-size: 12pt;
+        line-height: 1.5;
+        
+        a {
+          color: black;
+          text-decoration: none;
+          
+          &::after {
+            content: " (" attr(href) ")";
+            font-size: 90%;
+          }
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+          page-break-after: avoid;
+        }
+        
+        img {
+          max-height: 3in;
+        }
+        
+        .note {
+          border: 1px solid #ddd;
+          display: block;
+          float: right;
+          margin: 0 0.5em 0 1em;
+          max-width: 30%;
+          position: static;
+        }
+      }
+    }
+    
+    /* Responsive adjustments */
+    @container layout (max-width: 768px) {
+      grid-column: span 12;
+      order: 1;
+      
+      .note {
+        grid-column: span 12;
+        margin: 1em 0;
+        position: static;
+      }
+    }
+  }
+}
