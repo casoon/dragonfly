@@ -1,20 +1,34 @@
-/*
- * Layout System
+/**
+ * Layout System Index
  * 
- * Hauptdatei für das Layout-System der UI-Bibliothek.
- * Organisiert alle Layout-bezogenen Komponenten in einer konsistenten Layer-Struktur.
+ * Konsolidiertes Layout-System mit optimierter Struktur:
+ * 
+ * CORE LAYOUT SYSTEMS:
+ * - Grid System: Utility-basiertes 12-Spalten-Grid (.grid, .grid-cols-*, .col-span-*)
+ * - Flex System: Flexbox-Utilities (.flex, .flex-row, .items-center, etc.)
+ * - Container System: Container-Größen und -Eigenschaften (.container, .container-md, etc.)
+ * 
+ * RESPONSIVE & UTILITIES:
+ * - Responsive: Container Queries + Media Query Fallbacks (.sm:block, .md:hidden, etc.)
+ * - Responsive Utilities: Responsive Grid/Flex-Utilities (.sm:grid-cols-2, .md:flex-row, etc.)
+ * - Spacing: Gap-, Margin-, Padding-Utilities (.gap-4, .mx-auto, .p-6, etc.)
+ * 
+ * HINWEIS: 
+ * - Page-Layouts sind in core/logical-properties.css verfügbar (.layout)
+ * - Sidebar-Komponenten sind in ui/regions/sidebar.css und ui/menu/sidebar.css verfügbar
  */
 
-/* 
- * Import der Layout-Module mit expliziter Layer-Zuordnung
- * Die Layer-Hierarchie ist im Haupt-index.css definiert
- */
+/* ================= CORE LAYOUT SYSTEMS ================= */
 @import url('./grid-system.css') layer(layout.grid);
 @import url('./flex-layouts.css') layer(layout.flex);
-@import url('./containers/index.css') layer(layout.containers);
-@import url('./spacing.css') layer(layout.spacing);
+@import url('./containers.css') layer(layout.containers);
+
+/* ================= RESPONSIVE & UTILITIES ================= */
 @import url('./responsive.css') layer(layout.responsive);
-@import url('./page-layout.css') layer(layout);
+@import url('./responsive-utilities.css') layer(layout.responsive-utilities);
+@import url('./spacing.css') layer(layout.spacing);
+
+/* ================= LAYOUT FOUNDATION ================= */
 
 /* 
  * Basis-Layout-Definitionen
@@ -22,7 +36,7 @@
  */
 @layer layout {
   :root {
-    /* Raster-Konfiguration */
+    /* Raster-Konfiguration für grid-system.css */
     --grid-columns: 12;
     --grid-gutter: var(--space-4);
     --grid-gutter-sm: var(--space-2);
@@ -30,12 +44,14 @@
     --grid-gutter-lg: var(--space-6);
     --grid-gutter-xl: var(--space-8);
     
-    /* Container-Abstände */
+    /* Container-Abstände für containers.css */
     --container-padding-sm: var(--space-2);
     --container-padding-md: var(--space-4);
     --container-padding-lg: var(--space-6);
   }
 }
+
+/* ================= LAYOUT UTILITIES ================= */
 
 /* 
  * Layout-Utilities 
@@ -57,4 +73,22 @@
   .mx-auto { margin-inline: auto; }
 
   .my-auto { margin-block: auto; }
+
+  /* Display */
+  .block { display: block; }
+
+  .inline { display: inline; }
+
+  .inline-block { display: inline-block; }
+
+  .hidden { display: none; }
+
+  /* Overflow */
+  .overflow-hidden { overflow: hidden; }
+
+  .overflow-auto { overflow: auto; }
+
+  .overflow-x-auto { overflow-x: auto; }
+
+  .overflow-y-auto { overflow-y: auto; }
 } 

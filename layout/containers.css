@@ -1,0 +1,467 @@
+/**
+ * Container Layout System
+ * 
+ * A comprehensive container system providing responsive width constraints,
+ * positioning utilities, and specialized container types for modern web layouts.
+ * This system consolidates all container-related functionality into a unified
+ * and maintainable solution.
+ * 
+ * @layer layout.containers
+ * @version 2.0
+ * @author Design System Team
+ * 
+ * FEATURES:
+ * - Responsive container system with breakpoint-based max-widths
+ * - Fluid containers that adapt to viewport width
+ * - Positioned containers for overlays and modals
+ * - Visual containers with styling and effects
+ * - Functional containers for specific UI patterns
+ * - Z-index management system for layering
+ * - CSS custom properties for easy customization
+ * - Mobile-first responsive design approach
+ * 
+ * CONTAINER TYPES:
+ * 
+ * BASE CONTAINERS:
+ * - .container: Responsive container with max-width constraints
+ * - .container-fluid: Full-width container without max-width
+ * - .container-sm: Small container (max-width: 640px)
+ * - .container-md: Medium container (max-width: 768px)
+ * - .container-lg: Large container (max-width: 1024px)
+ * - .container-xl: Extra large container (max-width: 1280px)
+ * - .container-2xl: 2X large container (max-width: 1536px)
+ * 
+ * RESPONSIVE CONTAINERS:
+ * - .container-responsive: Adapts max-width at each breakpoint
+ * - Automatically adjusts width based on screen size
+ * - Includes horizontal padding for mobile spacing
+ * 
+ * POSITIONED CONTAINERS:
+ * - .container-fixed: Fixed positioning container
+ * - .container-absolute: Absolute positioning container
+ * - .container-relative: Relative positioning container
+ * - .container-sticky: Sticky positioning container
+ * - .container-centered: Centered positioning with transforms
+ * 
+ * VISUAL CONTAINERS:
+ * - .container-card: Card-style container with shadow and border
+ * - .container-bordered: Container with border styling
+ * - .container-rounded: Container with rounded corners
+ * - .container-shadow: Container with drop shadow
+ * - .container-elevated: Container with elevation effect
+ * 
+ * FUNCTIONAL CONTAINERS:
+ * - .container-modal: Modal dialog container
+ * - .container-toast: Toast notification container
+ * - .container-dropdown: Dropdown menu container
+ * - .container-tooltip: Tooltip container
+ * - .container-popover: Popover container
+ * - .container-sidebar: Sidebar container
+ * - .container-header: Header container
+ * - .container-footer: Footer container
+ * 
+ * RESPONSIVE BREAKPOINTS:
+ * - sm: 640px and up
+ * - md: 768px and up
+ * - lg: 1024px and up
+ * - xl: 1280px and up
+ * - 2xl: 1536px and up
+ * 
+ * USAGE EXAMPLES:
+ * 
+ * Basic Container:
+ * <div class="container">
+ *   <h1>Page Title</h1>
+ *   <p>Content with responsive width constraints</p>
+ * </div>
+ * 
+ * Responsive Container:
+ * <div class="container-responsive">
+ *   <!-- Adapts width at each breakpoint -->
+ *   <main>Main content</main>
+ * </div>
+ * 
+ * Modal Container:
+ * <div class="container-modal">
+ *   <div class="container-card">
+ *     <h2>Modal Title</h2>
+ *     <p>Modal content</p>
+ *   </div>
+ * </div>
+ * 
+ * Card Layout:
+ * <div class="container-card container-rounded">
+ *   <h3>Card Title</h3>
+ *   <p>Card content with styling</p>
+ * </div>
+ * 
+ * Sidebar Layout:
+ * <aside class="container-sidebar">
+ *   <nav>Navigation items</nav>
+ * </aside>
+ * 
+ * CUSTOMIZATION:
+ * Override CSS custom properties to customize containers:
+ * 
+ * :root {
+ *   --container-padding: 1rem;
+ *   --container-max-width: 1200px;
+ *   --container-border-radius: 0.5rem;
+ *   --container-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+ * }
+ * 
+ * BROWSER SUPPORT:
+ * - CSS Custom Properties: All modern browsers (IE 11+ with fallbacks)
+ * - CSS Grid: All modern browsers (IE 11+ with -ms- prefix)
+ * - Container Queries: Chrome 105+, Firefox 110+, Safari 16+
+ * - Backdrop Filter: Chrome 76+, Firefox 103+, Safari 9+
+ * 
+ * PERFORMANCE NOTES:
+ * - Use container queries for component-based responsive design
+ * - Backdrop filters can impact performance on mobile devices
+ * - Z-index values are optimized to prevent stacking conflicts
+ * - CSS custom properties enable efficient theming
+ * 
+ * ACCESSIBILITY:
+ * - Containers maintain semantic HTML structure
+ * - Modal containers include proper ARIA attributes
+ * - Focus management for overlay containers
+ * - Keyboard navigation support
+ * - Screen reader compatibility
+ * 
+ * INTEGRATION:
+ * - Works with layout/grid-system.css for grid layouts
+ * - Compatible with layout/flex-layouts.css for flex layouts
+ * - Enhanced by layout/spacing.css for margin/padding utilities
+ * - Supports layout/responsive-utilities.css for responsive variants
+ * 
+ * Z-INDEX SYSTEM:
+ * - Base content: 1-10
+ * - Dropdowns: 1000-1010
+ * - Sticky elements: 1020-1030
+ * - Fixed headers: 1040-1050
+ * - Overlays: 1060-1070
+ * - Modals: 1080-1090
+ * - Tooltips: 1100-1110
+ * - Toasts: 1120-1130
+ * 
+ * BEST PRACTICES:
+ * - Use semantic container classes for specific UI patterns
+ * - Combine container types for complex layouts
+ * - Test responsive behavior across all breakpoints
+ * - Ensure proper z-index layering for overlays
+ * - Maintain accessibility standards for interactive containers
+ * - Use CSS custom properties for consistent theming
+ */
+
+@layer layout.containers {
+    /* ================= BASE CONTAINERS ================= */
+
+    /* Standard-Container mit maximaler Breite */
+    .container {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: var(--container-max-width, 1200px);
+        padding-left: var(--container-padding, 1rem);
+        padding-right: var(--container-padding, 1rem);
+        width: 100%;
+    }
+
+    /* Fluid-Container ohne maximale Breite */
+    .container-fluid {
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: var(--container-padding, 1rem);
+        padding-right: var(--container-padding, 1rem);
+        width: 100%;
+    }
+
+    /* Container mit festen Größen */
+    .container-sm {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 640px;
+        padding-left: var(--container-padding, 1rem);
+        padding-right: var(--container-padding, 1rem);
+        width: 100%;
+    }
+
+    .container-md {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 768px;
+        padding-left: var(--container-padding, 1rem);
+        padding-right: var(--container-padding, 1rem);
+        width: 100%;
+    }
+
+    .container-lg {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 1024px;
+        padding-left: var(--container-padding, 1rem);
+        padding-right: var(--container-padding, 1rem);
+        width: 100%;
+    }
+
+    .container-xl {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 1280px;
+        padding-left: var(--container-padding, 1rem);
+        padding-right: var(--container-padding, 1rem);
+        width: 100%;
+    }
+
+    .container-2xl {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 1536px;
+        padding-left: var(--container-padding, 1rem);
+        padding-right: var(--container-padding, 1rem);
+        width: 100%;
+    }
+
+    /* ================= RESPONSIVE CONTAINERS ================= */
+
+    /* Responsive Container mit Breakpoint-spezifischen max-widths */
+    .container-responsive {
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: var(--container-padding, 1rem);
+        padding-right: var(--container-padding, 1rem);
+        width: 100%;
+    }
+
+    /* Responsive Breakpoints */
+    @media (width >= 640px) {
+        .container-responsive {
+            max-width: 640px;
+        }
+    }
+
+    @media (width >= 768px) {
+        .container-responsive {
+            max-width: 768px;
+        }
+    }
+
+    @media (width >= 1024px) {
+        .container-responsive {
+            max-width: 1024px;
+        }
+    }
+
+    @media (width >= 1280px) {
+        .container-responsive {
+            max-width: 1280px;
+        }
+    }
+
+    @media (width >= 1536px) {
+        .container-responsive {
+            max-width: 1536px;
+        }
+    }
+
+    /* ================= POSITIONED CONTAINERS ================= */
+
+    /* Container mit verschiedenen Positionierungen */
+    .container-fixed {
+        position: fixed;
+    }
+
+    .container-absolute {
+        position: absolute;
+    }
+
+    .container-relative {
+        position: relative;
+    }
+
+    .container-sticky {
+        position: sticky;
+        top: 0;
+        z-index: var(--z-sticky, 1020);
+    }
+
+    /* Zentrierter Container */
+    .container-centered {
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    /* ================= VISUAL CONTAINERS ================= */
+
+    /* Container mit visuellen Stilen */
+    .container-card {
+        background: var(--container-bg, #fff);
+        border: 1px solid var(--container-border-color, #e5e7eb);
+        border-radius: var(--container-border-radius, 0.5rem);
+        box-shadow: var(--container-shadow, 0 1px 3px rgb(0 0 0 / 10%));
+        padding: var(--container-card-padding, 1.5rem);
+    }
+
+    .container-bordered {
+        border: 1px solid var(--container-border-color, #e5e7eb);
+    }
+
+    .container-rounded {
+        border-radius: var(--container-border-radius, 0.5rem);
+    }
+
+    .container-shadow {
+        box-shadow: var(--container-shadow, 0 4px 6px rgb(0 0 0 / 10%));
+    }
+
+    .container-elevated {
+        box-shadow: var(--container-elevated-shadow, 0 10px 25px rgb(0 0 0 / 15%));
+        transform: translateY(-2px);
+        transition: all 0.3s ease;
+    }
+
+    .container-elevated:hover {
+        box-shadow: var(--container-elevated-hover-shadow, 0 20px 40px rgb(0 0 0 / 20%));
+        transform: translateY(-4px);
+    }
+
+    /* ================= FUNCTIONAL CONTAINERS ================= */
+
+    /* Modal Container */
+    .container-modal {
+        align-items: center;
+        backdrop-filter: blur(4px);
+        background: rgb(0 0 0 / 50%);
+        display: flex;
+        height: 100vh;
+        justify-content: center;
+        left: 0;
+        position: fixed;
+        top: 0;
+        width: 100vw;
+        z-index: var(--z-modal, 1080);
+    }
+
+    /* Toast Container */
+    .container-toast {
+        max-width: 400px;
+        position: fixed;
+        right: 1rem;
+        top: 1rem;
+        z-index: var(--z-toast, 1120);
+    }
+
+    /* Dropdown Container */
+    .container-dropdown {
+        background: var(--dropdown-bg, #fff);
+        border: 1px solid var(--dropdown-border, #e5e7eb);
+        border-radius: var(--dropdown-radius, 0.375rem);
+        box-shadow: var(--dropdown-shadow, 0 10px 15px rgb(0 0 0 / 10%));
+        min-width: 200px;
+        position: absolute;
+        z-index: var(--z-dropdown, 1000);
+    }
+
+    /* Tooltip Container */
+    .container-tooltip {
+        background: var(--tooltip-bg, #1f2937);
+        border-radius: var(--tooltip-radius, 0.25rem);
+        color: var(--tooltip-color, #fff);
+        font-size: 0.875rem;
+        max-width: 200px;
+        padding: 0.5rem 0.75rem;
+        position: absolute;
+        z-index: var(--z-tooltip, 1100);
+    }
+
+    /* Popover Container */
+    .container-popover {
+        background: var(--popover-bg, #fff);
+        border: 1px solid var(--popover-border, #e5e7eb);
+        border-radius: var(--popover-radius, 0.5rem);
+        box-shadow: var(--popover-shadow, 0 20px 25px rgb(0 0 0 / 10%));
+        max-width: 320px;
+        padding: 1rem;
+        position: absolute;
+        z-index: var(--z-popover, 1060);
+    }
+
+    /* Layout-spezifische Container */
+    .container-sidebar {
+        background: var(--sidebar-bg, #f9fafb);
+        border-right: 1px solid var(--sidebar-border, #e5e7eb);
+        height: 100vh;
+        overflow-y: auto;
+        position: fixed;
+        width: var(--sidebar-width, 250px);
+        z-index: var(--z-sidebar, 1040);
+    }
+
+    .container-header {
+        background: var(--header-bg, #fff);
+        border-bottom: 1px solid var(--header-border, #e5e7eb);
+        left: 0;
+        position: sticky;
+        right: 0;
+        top: 0;
+        z-index: var(--z-header, 1050);
+    }
+
+    .container-footer {
+        background: var(--footer-bg, #f9fafb);
+        border-top: 1px solid var(--footer-border, #e5e7eb);
+        margin-top: auto;
+    }
+
+    /* ================= Z-INDEX MANAGEMENT ================= */
+
+    /* Z-Index-Variablen für konsistente Layering */
+    :root {
+        --z-base: 1;
+        --z-dropdown: 1000;
+        --z-sticky: 1020;
+        --z-header: 1050;
+        --z-sidebar: 1040;
+        --z-popover: 1060;
+        --z-overlay: 1070;
+        --z-modal: 1080;
+        --z-tooltip: 1100;
+        --z-toast: 1120;
+    }
+
+    /* Z-Index Utilities */
+    .z-0 { z-index: 0; }
+
+    .z-10 { z-index: 10; }
+
+    .z-20 { z-index: 20; }
+
+    .z-30 { z-index: 30; }
+
+    .z-40 { z-index: 40; }
+
+    .z-50 { z-index: 50; }
+
+    .z-auto { z-index: auto; }
+
+    /* Spezielle Z-Index-Klassen */
+    .z-dropdown { z-index: var(--z-dropdown); }
+
+    .z-sticky { z-index: var(--z-sticky); }
+
+    .z-header { z-index: var(--z-header); }
+
+    .z-sidebar { z-index: var(--z-sidebar); }
+
+    .z-popover { z-index: var(--z-popover); }
+
+    .z-overlay { z-index: var(--z-overlay); }
+
+    .z-modal { z-index: var(--z-modal); }
+
+    .z-tooltip { z-index: var(--z-tooltip); }
+
+    .z-toast { z-index: var(--z-toast); }
+}

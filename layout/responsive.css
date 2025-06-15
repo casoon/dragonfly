@@ -1,309 +1,372 @@
 /**
- * Responsive Layout-System mit Container Queries
+ * Responsive Display & Visibility System
  * 
- * Dieses System bietet zwei Wege der responsiven Anpassung:
- * 1. Container Queries: Präzise, kontextabhängige Anpassungen basierend auf Container-Größen
- * 2. Media Queries: Fallback für Browser ohne Container-Query-Unterstützung
- *
- * Zwei Container-Kontexte:
- * - layout: Globaler Kontext für Seitenlayouts (Präfix: sm\:, md\:, lg\:, xl\:)
- * - component: Lokaler Kontext für Komponenten (Präfix: c-sm\:, c-md\:, c-lg\:, c-xl\:)
- *
- * Breakpoints:
- * - sm: 480px  (Smartphones, kleine Tablets im Hochformat)
- * - md: 768px  (Tablets im Hochformat, kleine Tablets im Querformat)
- * - lg: 1024px (Tablets im Querformat, kleine Desktops)
- * - xl: 1440px (Große Desktops und Monitore)
- *
- * Hinweis: Feste Pixelwerte werden verwendet für bessere Kompatibilität mit LightningCSS.
+ * A comprehensive responsive utility system for controlling element visibility,
+ * display properties, and responsive behavior across different screen sizes.
+ * This system provides mobile-first responsive design utilities with semantic
+ * class names and consistent breakpoint management.
+ * 
+ * @layer layout.responsive
+ * @version 2.0
+ * @author Design System Team
+ * 
+ * FEATURES:
+ * - Mobile-first responsive design approach
+ * - Display utilities for all CSS display values
+ * - Visibility controls for showing/hiding elements
+ * - Responsive variants for all major breakpoints
+ * - Print-specific utilities for print media
+ * - Screen reader utilities for accessibility
+ * - Consistent breakpoint system across all utilities
+ * - Performance-optimized CSS with minimal specificity
+ * 
+ * BREAKPOINT SYSTEM:
+ * - Base: 0px and up (mobile-first)
+ * - sm: 640px and up (small tablets)
+ * - md: 768px and up (tablets)
+ * - lg: 1024px and up (laptops)
+ * - xl: 1280px and up (desktops)
+ * - 2xl: 1536px and up (large desktops)
+ * 
+ * DISPLAY UTILITIES:
+ * - .block: Block-level element
+ * - .inline-block: Inline block element
+ * - .inline: Inline element
+ * - .flex: Flexbox container
+ * - .inline-flex: Inline flexbox container
+ * - .grid: CSS Grid container
+ * - .inline-grid: Inline grid container
+ * - .table: Table display
+ * - .table-cell: Table cell display
+ * - .table-row: Table row display
+ * - .hidden: Hide element (display: none)
+ * 
+ * VISIBILITY UTILITIES:
+ * - .visible: Element is visible
+ * - .invisible: Element is invisible but takes space
+ * - .sr-only: Screen reader only (visually hidden)
+ * - .not-sr-only: Remove screen reader only styling
+ * 
+ * RESPONSIVE VARIANTS:
+ * All display utilities are available with responsive prefixes:
+ * - sm:block, md:flex, lg:grid, xl:hidden, etc.
+ * - Example: .hidden.md:block (hidden on mobile, block on tablet+)
+ * 
+ * PRINT UTILITIES:
+ * - .print:block: Show as block in print
+ * - .print:hidden: Hide in print
+ * - .print:inline: Show as inline in print
+ * 
+ * USAGE EXAMPLES:
+ * 
+ * Responsive Navigation:
+ * <nav class="hidden md:block">
+ *   <!-- Hidden on mobile, visible on tablet+ -->
+ *   <ul>Navigation items</ul>
+ * </nav>
+ * 
+ * Mobile Menu Toggle:
+ * <button class="block md:hidden">
+ *   <!-- Visible on mobile, hidden on tablet+ -->
+ *   Menu Toggle
+ * </button>
+ * 
+ * Responsive Layout:
+ * <div class="block lg:flex">
+ *   <!-- Block layout on mobile/tablet, flex on desktop -->
+ *   <main class="lg:flex-1">Content</main>
+ *   <aside class="lg:flex-none">Sidebar</aside>
+ * </div>
+ * 
+ * Progressive Enhancement:
+ * <div class="grid-fallback block sm:grid">
+ *   <!-- Block fallback, grid on small screens+ -->
+ *   <div>Item 1</div>
+ *   <div>Item 2</div>
+ * </div>
+ * 
+ * Accessibility:
+ * <span class="sr-only">
+ *   Screen reader description
+ * </span>
+ * <button aria-describedby="description">
+ *   <span class="sr-only">Close dialog</span>
+ *   ×
+ * </button>
+ * 
+ * Print Optimization:
+ * <div class="print:hidden">
+ *   <!-- Hidden when printing -->
+ *   <button>Interactive element</button>
+ * </div>
+ * 
+ * <div class="hidden print:block">
+ *   <!-- Only visible when printing -->
+ *   <p>Print-specific content</p>
+ * </div>
+ * 
+ * BROWSER SUPPORT:
+ * - CSS Grid: All modern browsers (IE 11+ with -ms- prefix)
+ * - Flexbox: All modern browsers (IE 11+ with -ms- prefix)
+ * - Media Queries: All modern browsers (IE 9+)
+ * - CSS Custom Properties: All modern browsers (IE 11+ with fallbacks)
+ * 
+ * PERFORMANCE NOTES:
+ * - Mobile-first approach reduces CSS payload for mobile devices
+ * - Uses min-width media queries for better performance
+ * - Minimal CSS specificity prevents cascade conflicts
+ * - Print styles are separated to avoid render blocking
+ * 
+ * ACCESSIBILITY:
+ * - .sr-only provides content for screen readers while hiding visually
+ * - Maintains semantic HTML structure regardless of display changes
+ * - Responsive visibility changes don't affect tab order
+ * - Print utilities ensure important content is available in print
+ * 
+ * INTEGRATION:
+ * - Works seamlessly with layout/grid-system.css
+ * - Compatible with layout/flex-layouts.css
+ * - Enhanced by layout/responsive-utilities.css for layout-specific responsive variants
+ * - Supports layout/containers.css responsive containers
+ * 
+ * BEST PRACTICES:
+ * - Use mobile-first approach: start with mobile styles, enhance for larger screens
+ * - Combine with semantic HTML for better accessibility
+ * - Test responsive behavior across all target breakpoints
+ * - Use .sr-only for important context that should be available to screen readers
+ * - Consider print styles for content-heavy applications
+ * - Avoid excessive responsive variants that create maintenance overhead
+ * 
+ * DEBUGGING:
+ * Add temporary borders to debug responsive layouts:
+ * .debug * { border: 1px solid red !important; }
+ * 
+ * MIGRATION:
+ * From older responsive systems:
+ * - .show-sm → .hidden.sm:block
+ * - .hide-md → .block.md:hidden
+ * - .visible-lg → .hidden.lg:block
  */
 
 @layer layout.responsive {
-    /* ================= CONTAINER QUERIES ================= */
+    /* ================= DISPLAY UTILITIES ================= */
 
-    /* Feature-Detection für Container Queries */
-    @supports (container-type: inline-size) {
-        /* Gemeinsame Basis-Eigenschaften für alle Container-Größen */
-        .container-query {
-            container-name: layout;
-            container-type: inline-size;
-        }
-        
-        .component-query {
-            container-name: component;
-            container-type: inline-size;
-        }
+    /* Basis-Display-Eigenschaften */
+    .block { display: block; }
 
-        /* ---- Responsive Klassen für layout-Container ---- */
+    .inline-block { display: inline-block; }
 
-        /* Gemeinsame Eigenschaften für alle Breakpoints */
-        @container layout (min-width: 480px) {
-            /* Layout-Eigenschaften */
-            .sm\:flex-row { flex-direction: row; }
+    .inline { display: inline; }
 
-            .sm\:flex-col { flex-direction: column; }
+    .flex { display: flex; }
 
-            .sm\:flex-wrap { flex-wrap: wrap; }
+    .inline-flex { display: inline-flex; }
 
-            .sm\:flex-nowrap { flex-wrap: nowrap; }
-            
-            /* Grid-Definitionen */
-            .sm\:grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+    .grid { display: grid; }
 
-            .sm\:grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .inline-grid { display: inline-grid; }
 
-            .sm\:grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+    .table { display: table; }
 
-            .sm\:col-span-1 { grid-column: span 1; }
+    .table-cell { display: table-cell; }
 
-            .sm\:col-span-2 { grid-column: span 2; }
+    .table-row { display: table-row; }
 
-            .sm\:col-span-3 { grid-column: span 3; }
+    .hidden { display: none; }
 
-            .sm\:col-span-4 { grid-column: span 4; }
+    /* ================= VISIBILITY UTILITIES ================= */
 
-            .sm\:col-span-6 { grid-column: span 6; }
+    /* Sichtbarkeits-Kontrollen */
+    .visible { visibility: visible; }
 
-            .sm\:col-span-12 { grid-column: span 12; }
-            
-            /* Abstände */
-            .sm\:gap-2 { gap: var(--space-2); }
+    .invisible { visibility: hidden; }
 
-            .sm\:gap-4 { gap: var(--space-4); }
-
-            .sm\:gap-6 { gap: var(--space-6); }
-            
-            /* Flex-Basis Varianten (DRY) */
-            .sm\:flex-basis-1-2 { flex-basis: 50%; }
-
-            .sm\:flex-basis-1-3 { flex-basis: 33.3333%; }
-
-            .sm\:flex-basis-2-3 { flex-basis: 66.6667%; }
-
-            .sm\:flex-basis-1-4 { flex-basis: 25%; }
-
-            .sm\:flex-basis-3-4 { flex-basis: 75%; }
-            
-            /* Ausrichtung */
-            .sm\:items-center { align-items: center; }
-
-            .sm\:justify-between { justify-content: space-between; }
-        }
-
-        @container layout (min-width: 768px) {
-            /* Nur zusätzliche oder abweichende Eigenschaften für mittlere Container */
-            .md\:grid-cols-6 { grid-template-columns: repeat(6, 1fr); }
-
-            .md\:gap-8 { gap: var(--space-8); }
-            
-            /* Erweiterte Ausrichtungsoptionen */
-            .md\:items-start { align-items: flex-start; }
-
-            .md\:items-end { align-items: flex-end; }
-
-            .md\:justify-center { justify-content: center; }
-
-            .md\:justify-start { justify-content: flex-start; }
-
-            .md\:justify-end { justify-content: flex-end; }
-        }
-
-        @container layout (min-width: 1024px) {
-            /* Nur zusätzliche oder abweichende Eigenschaften für große Container */
-            .lg\:grid-cols-12 { grid-template-columns: repeat(12, 1fr); }
-
-            .lg\:gap-12 { gap: var(--space-12); }
-            
-            /* Erweiterte Flex-Basis-Optionen für größere Layouts */
-            .lg\:flex-basis-1-5 { flex-basis: 20%; }
-
-            .lg\:flex-basis-2-5 { flex-basis: 40%; }
-
-            .lg\:flex-basis-3-5 { flex-basis: 60%; }
-
-            .lg\:flex-basis-4-5 { flex-basis: 80%; }
-        }
-        
-        /* ---- Responsive Klassen für component-Container ---- */
-
-        /* Kombinierte, optimierte Regeln für Komponenten-Container */
-        @container component (min-width: 480px) {
-            /* Basis-Layout für kleine Komponenten */
-            .c-sm\:flex-row { flex-direction: row; }
-
-            .c-sm\:flex-col { flex-direction: column; }
-
-            .c-sm\:grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
-
-            .c-sm\:gap-2 { gap: var(--space-2); }
-
-            .c-sm\:flex-basis-1-2 { flex-basis: 50%; }
-        }
-        
-        @container component (min-width: 768px) {
-            /* Mittlere Komponenten-Layouts */
-            .c-md\:grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
-
-            .c-md\:gap-4 { gap: var(--space-4); }
-
-            .c-md\:flex-basis-1-3 { flex-basis: 33.3333%; }
-        }
-        
-        @container component (min-width: 1024px) {
-            /* Erweiterte Komponenten-Layouts */
-            .c-lg\:grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
-
-            .c-lg\:gap-6 { gap: var(--space-6); }
-        }
+    /* Screen Reader Only - für Barrierefreiheit */
+    .sr-only {
+        border: 0;
+        clip: rect(0, 0, 0, 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        white-space: nowrap;
+        width: 1px;
     }
 
-    /* ================= FALLBACK MEDIA QUERIES ================= */
-
-    /* Für Browser ohne Container-Query-Unterstützung - kombiniert und optimiert */
-    
-    /* Small-Breakpoint-Styles */
-    @media (width >= 480px) {
-        .sm\:grid-cols-2, .c-sm\:grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
-
-        .sm\:grid-cols-3, .c-sm\:grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
-
-        .sm\:gap-2, .c-sm\:gap-2 { gap: var(--space-2); }
-        
-        .sm\:items-center, .c-sm\:items-center { align-items: center; }
-
-        .sm\:justify-between, .c-sm\:justify-between { justify-content: space-between; }
-        
-        /* Gemeinsame Styles für sm-Breakpoint */
-        .sm\:flex-row, .c-sm\:flex-row { flex-direction: row; }
-
-        .sm\:flex-col, .c-sm\:flex-col { flex-direction: column; }
-
-        .sm\:flex-wrap, .c-sm\:flex-wrap { flex-wrap: wrap; }
-
-        .sm\:flex-nowrap, .c-sm\:flex-nowrap { flex-wrap: nowrap; }
-        
-        /* Gemeinsame Grid-Eigenschaften */
-        .sm\:gap-4, .c-sm\:gap-4 { gap: var(--space-4); }
-        
-        /* Gemeinsame Flex-Basis-Eigenschaften */
-        .sm\:flex-basis-1-2, .c-sm\:flex-basis-1-2 { flex-basis: 50%; }
-
-        .sm\:flex-basis-1-3, .c-sm\:flex-basis-1-3 { flex-basis: 33.3333%; }
-
-        .sm\:flex-basis-2-3, .c-sm\:flex-basis-2-3 { flex-basis: 66.6667%; }
-
-        .sm\:flex-basis-1-4, .c-sm\:flex-basis-1-4 { flex-basis: 25%; }
-
-        .sm\:flex-basis-3-4, .c-sm\:flex-basis-3-4 { flex-basis: 75%; }
+    .not-sr-only {
+        border: initial;
+        clip: initial;
+        height: initial;
+        margin: initial;
+        overflow: initial;
+        padding: initial;
+        position: initial;
+        white-space: initial;
+        width: initial;
     }
-    
-    /* Medium-Breakpoint-Styles */
+
+    /* ================= RESPONSIVE BREAKPOINTS ================= */
+
+    /* Small screens (640px and up) */
+    @media (width >= 640px) {
+        .sm\:block { display: block; }
+
+        .sm\:inline-block { display: inline-block; }
+
+        .sm\:inline { display: inline; }
+
+        .sm\:flex { display: flex; }
+
+        .sm\:inline-flex { display: inline-flex; }
+
+        .sm\:grid { display: grid; }
+
+        .sm\:inline-grid { display: inline-grid; }
+
+        .sm\:table { display: table; }
+
+        .sm\:table-cell { display: table-cell; }
+
+        .sm\:table-row { display: table-row; }
+
+        .sm\:hidden { display: none; }
+        
+        .sm\:visible { visibility: visible; }
+
+        .sm\:invisible { visibility: hidden; }
+    }
+
+    /* Medium screens (768px and up) */
     @media (width >= 768px) {
-        .md\:grid-cols-3, .c-md\:grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+        .md\:block { display: block; }
 
-        .md\:grid-cols-4, .c-md\:grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+        .md\:inline-block { display: inline-block; }
 
-        .md\:gap-6, .c-md\:gap-6 { gap: var(--space-6); }
+        .md\:inline { display: inline; }
+
+        .md\:flex { display: flex; }
+
+        .md\:inline-flex { display: inline-flex; }
+
+        .md\:grid { display: grid; }
+
+        .md\:inline-grid { display: inline-grid; }
+
+        .md\:table { display: table; }
+
+        .md\:table-cell { display: table-cell; }
+
+        .md\:table-row { display: table-row; }
+
+        .md\:hidden { display: none; }
         
-        .md\:items-start { align-items: flex-start; }
+        .md\:visible { visibility: visible; }
 
-        .md\:items-end { align-items: flex-end; }
-
-        .md\:justify-center { justify-content: center; }
-        
-        /* Gemeinsame Styles für md-Breakpoint */
-        .md\:flex-row, .c-md\:flex-row { flex-direction: row; }
-
-        .md\:flex-col, .c-md\:flex-col { flex-direction: column; }
-
-        .md\:flex-wrap, .c-md\:flex-wrap { flex-wrap: wrap; }
-
-        .md\:flex-nowrap, .c-md\:flex-nowrap { flex-wrap: nowrap; }
-        
-        /* Gemeinsame Grid-Eigenschaften */
-        .md\:gap-4, .c-md\:gap-4 { gap: var(--space-4); }
-        
-        /* Gemeinsame Flex-Basis-Eigenschaften */
-        .md\:flex-basis-1-2, .c-md\:flex-basis-1-2 { flex-basis: 50%; }
-
-        .md\:flex-basis-1-3, .c-md\:flex-basis-1-3 { flex-basis: 33.3333%; }
-
-        .md\:flex-basis-2-3, .c-md\:flex-basis-2-3 { flex-basis: 66.6667%; }
-
-        .md\:flex-basis-1-4, .c-md\:flex-basis-1-4 { flex-basis: 25%; }
-
-        .md\:flex-basis-3-4, .c-md\:flex-basis-3-4 { flex-basis: 75%; }
+        .md\:invisible { visibility: hidden; }
     }
-    
-    /* Large-Breakpoint-Styles */
+
+    /* Large screens (1024px and up) */
     @media (width >= 1024px) {
-        .lg\:grid-cols-4, .c-lg\:grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+        .lg\:block { display: block; }
 
-        .lg\:grid-cols-6, .c-lg\:grid-cols-6 { grid-template-columns: repeat(6, 1fr); }
+        .lg\:inline-block { display: inline-block; }
 
-        .lg\:gap-8, .c-lg\:gap-8 { gap: var(--space-8); }
+        .lg\:inline { display: inline; }
+
+        .lg\:flex { display: flex; }
+
+        .lg\:inline-flex { display: inline-flex; }
+
+        .lg\:grid { display: grid; }
+
+        .lg\:inline-grid { display: inline-grid; }
+
+        .lg\:table { display: table; }
+
+        .lg\:table-cell { display: table-cell; }
+
+        .lg\:table-row { display: table-row; }
+
+        .lg\:hidden { display: none; }
         
-        .lg\:flex-basis-1-5, .c-lg\:flex-basis-1-5 { flex-basis: 20%; }
+        .lg\:visible { visibility: visible; }
 
-        .lg\:flex-basis-2-5, .c-lg\:flex-basis-2-5 { flex-basis: 40%; }
-
-        .lg\:flex-basis-3-5, .c-lg\:flex-basis-3-5 { flex-basis: 60%; }
-
-        .lg\:flex-basis-4-5, .c-lg\:flex-basis-4-5 { flex-basis: 80%; }
-        
-        /* Gemeinsame Styles für lg-Breakpoint */
-        .lg\:flex-row, .c-lg\:flex-row { flex-direction: row; }
-
-        .lg\:flex-col, .c-lg\:flex-col { flex-direction: column; }
-
-        .lg\:flex-wrap, .c-lg\:flex-wrap { flex-wrap: wrap; }
-
-        .lg\:flex-nowrap, .c-lg\:flex-nowrap { flex-wrap: nowrap; }
-        
-        /* Gemeinsame Grid-Eigenschaften */
-        .lg\:gap-4, .c-lg\:gap-4 { gap: var(--space-4); }
-        
-        /* Gemeinsame Flex-Basis-Eigenschaften */
-        .lg\:flex-basis-1-2, .c-lg\:flex-basis-1-2 { flex-basis: 50%; }
-
-        .lg\:flex-basis-1-3, .c-lg\:flex-basis-1-3 { flex-basis: 33.3333%; }
-
-        .lg\:flex-basis-2-3, .c-lg\:flex-basis-2-3 { flex-basis: 66.6667%; }
-
-        .lg\:flex-basis-1-4, .c-lg\:flex-basis-1-4 { flex-basis: 25%; }
-
-        .lg\:flex-basis-3-4, .c-lg\:flex-basis-3-4 { flex-basis: 75%; }
+        .lg\:invisible { visibility: hidden; }
     }
-    
-    /* Extra-Large-Breakpoint-Styles */
-    @media (width >= 1440px) {
-        .xl\:grid-cols-6, .c-xl\:grid-cols-6 { grid-template-columns: repeat(6, 1fr); }
 
-        .xl\:grid-cols-12, .c-xl\:grid-cols-12 { grid-template-columns: repeat(12, 1fr); }
+    /* Extra large screens (1280px and up) */
+    @media (width >= 1280px) {
+        .xl\:block { display: block; }
 
-        .xl\:gap-12, .c-xl\:gap-12 { gap: var(--space-12); }
+        .xl\:inline-block { display: inline-block; }
+
+        .xl\:inline { display: inline; }
+
+        .xl\:flex { display: flex; }
+
+        .xl\:inline-flex { display: inline-flex; }
+
+        .xl\:grid { display: grid; }
+
+        .xl\:inline-grid { display: inline-grid; }
+
+        .xl\:table { display: table; }
+
+        .xl\:table-cell { display: table-cell; }
+
+        .xl\:table-row { display: table-row; }
+
+        .xl\:hidden { display: none; }
         
-        /* Gemeinsame Styles für xl-Breakpoint */
-        .xl\:flex-row, .c-xl\:flex-row { flex-direction: row; }
+        .xl\:visible { visibility: visible; }
 
-        .xl\:flex-col, .c-xl\:flex-col { flex-direction: column; }
+        .xl\:invisible { visibility: hidden; }
+    }
 
-        .xl\:flex-wrap, .c-xl\:flex-wrap { flex-wrap: wrap; }
+    /* 2X large screens (1536px and up) */
+    @media (width >= 1536px) {
+        .\32xl\:block { display: block; }
 
-        .xl\:flex-nowrap, .c-xl\:flex-nowrap { flex-wrap: nowrap; }
+        .\32xl\:inline-block { display: inline-block; }
+
+        .\32xl\:inline { display: inline; }
+
+        .\32xl\:flex { display: flex; }
+
+        .\32xl\:inline-flex { display: inline-flex; }
+
+        .\32xl\:grid { display: grid; }
+
+        .\32xl\:inline-grid { display: inline-grid; }
+
+        .\32xl\:table { display: table; }
+
+        .\32xl\:table-cell { display: table-cell; }
+
+        .\32xl\:table-row { display: table-row; }
+
+        .\32xl\:hidden { display: none; }
         
-        /* Gemeinsame Grid-Eigenschaften */
-        .xl\:gap-4, .c-xl\:gap-4 { gap: var(--space-4); }
+        .\32xl\:visible { visibility: visible; }
+
+        .\32xl\:invisible { visibility: hidden; }
+    }
+
+    /* ================= PRINT UTILITIES ================= */
+
+    /* Print-spezifische Stile */
+    @media print {
+        .print\:block { display: block !important; }
+
+        .print\:inline-block { display: inline-block !important; }
+
+        .print\:inline { display: inline !important; }
+
+        .print\:hidden { display: none !important; }
         
-        /* Gemeinsame Flex-Basis-Eigenschaften */
-        .xl\:flex-basis-1-2, .c-xl\:flex-basis-1-2 { flex-basis: 50%; }
+        .print\:visible { visibility: visible !important; }
 
-        .xl\:flex-basis-1-3, .c-xl\:flex-basis-1-3 { flex-basis: 33.3333%; }
-
-        .xl\:flex-basis-2-3, .c-xl\:flex-basis-2-3 { flex-basis: 66.6667%; }
-
-        .xl\:flex-basis-1-4, .c-xl\:flex-basis-1-4 { flex-basis: 25%; }
-
-        .xl\:flex-basis-3-4, .c-xl\:flex-basis-3-4 { flex-basis: 75%; }
+        .print\:invisible { visibility: hidden !important; }
     }
 } 

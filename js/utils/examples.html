@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dragonfly JavaScript Utilities - Beispiele</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            line-height: 1.6;
+        }
+        
+        .example-section {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            border: 1px solid #e1e5e9;
+            border-radius: 8px;
+            background: #f8f9fa;
+        }
+        
+        .example-section h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        
+        .demo-area {
+            margin: 1rem 0;
+            padding: 1rem;
+            background: white;
+            border-radius: 4px;
+            border: 1px solid #dee2e6;
+        }
+        
+        .btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 0.25rem;
+        }
+        
+        .btn:hover {
+            background: #0056b3;
+        }
+        
+        .btn--success {
+            background: #28a745;
+        }
+        
+        .btn--success:hover {
+            background: #1e7e34;
+        }
+        
+        .input {
+            padding: 0.5rem;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            margin: 0.25rem;
+            width: 200px;
+        }
+        
+        .input--error {
+            border-color: #dc3545;
+            background-color: #f8d7da;
+        }
+        
+        .output {
+            margin: 1rem 0;
+            padding: 1rem;
+            background: #e9ecef;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+        }
+        
+        .toast {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #28a745;
+            color: white;
+            padding: 1rem;
+            border-radius: 4px;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .toast.show {
+            transform: translateX(0);
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+        
+        code {
+            background: #f1f3f4;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>🚀 Dragonfly JavaScript Utilities - Live-Beispiele</h1>
+    <p>Interaktive Demonstrationen der wichtigsten Utility-Funktionen.</p>
+
+    <div class="grid">
+        <!-- Debounce Example -->
+        <div class="example-section">
+            <h3>⚡ Debounce Function</h3>
+            <p>Verhindert Over-Triggering bei häufigen Events.</p>
+            <div class="demo-area">
+                <input type="text" id="debounce-input" class="input" placeholder="Tippe hier...">
+                <div class="output" id="debounce-output">Warte auf Eingabe...</div>
+            </div>
+            <p><code>debounce(func, 300)</code> - Wartet 300ms nach der letzten Eingabe</p>
+        </div>
+
+        <!-- Format Date Example -->
+        <div class="example-section">
+            <h3>📅 Date Formatting</h3>
+            <p>Konvertiert Datumsstrings zu lesbaren Formaten.</p>
+            <div class="demo-area">
+                <input type="date" id="date-input" class="input" value="2024-04-22">
+                <button class="btn" onclick="formatDateExample()">Format Date</button>
+                <div class="output" id="date-output">Wähle ein Datum...</div>
+            </div>
+        </div>
+
+        <!-- ClassNames Example -->
+        <div class="example-section">
+            <h3>🎨 ClassNames Utility</h3>
+            <p>Bedingte CSS-Klassen elegant handhaben.</p>
+            <div class="demo-area">
+                <label>
+                    <input type="checkbox" id="is-active"> Aktiv
+                </label>
+                <label>
+                    <input type="checkbox" id="is-disabled"> Deaktiviert
+                </label>
+                <button class="btn" id="classnames-btn" onclick="updateClassNames()">Button</button>
+                <div class="output" id="classnames-output">Klassen: btn</div>
+            </div>
+        </div>
+
+        <!-- Copy to Clipboard Example -->
+        <div class="example-section">
+            <h3>📋 Copy to Clipboard</h3>
+            <p>Text in die Zwischenablage kopieren.</p>
+            <div class="demo-area">
+                <input type="text" id="copy-input" class="input" value="Hello, Dragonfly!">
+                <button class="btn" onclick="copyToClipboardExample()">Kopieren</button>
+                <div class="output" id="copy-output">Bereit zum Kopieren...</div>
+            </div>
+        </div>
+
+        <!-- String Helpers Example -->
+        <div class="example-section">
+            <h3>🔤 String Helpers</h3>
+            <p>String-Manipulation und -Formatierung.</p>
+            <div class="demo-area">
+                <input type="text" id="string-input" class="input" placeholder="hello world" value="hello world">
+                <button class="btn" onclick="stringHelpersExample()">Transform</button>
+                <div class="output" id="string-output">Gib Text ein...</div>
+            </div>
+        </div>
+
+        <!-- Array Helpers Example -->
+        <div class="example-section">
+            <h3>📊 Array Helpers</h3>
+            <p>Array-Manipulation und -Deduplizierung.</p>
+            <div class="demo-area">
+                <input type="text" id="array-input" class="input" placeholder="1,2,2,3,1,4" value="1,2,2,3,1,4">
+                <button class="btn" onclick="arrayHelpersExample()">Remove Duplicates</button>
+                <div class="output" id="array-output">Gib Zahlen ein (kommagetrennt)...</div>
+            </div>
+        </div>
+
+        <!-- Download File Example -->
+        <div class="example-section">
+            <h3>💾 Download File</h3>
+            <p>Dateien programmatisch herunterladen.</p>
+            <div class="demo-area">
+                <textarea id="download-content" class="input" style="width: 100%; height: 80px;" placeholder="Inhalt für Download...">Hello from Dragonfly Utilities!
+This is a test file.
+Created at: ${new Date().toISOString()}</textarea>
+                <button class="btn" onclick="downloadFileExample()">Als TXT herunterladen</button>
+                <button class="btn" onclick="downloadJsonExample()">Als JSON herunterladen</button>
+            </div>
+        </div>
+
+        <!-- Object Helpers Example -->
+        <div class="example-section">
+            <h3>🔧 Object Helpers</h3>
+            <p>Objekt-Manipulation und -Validierung.</p>
+            <div class="demo-area">
+                <button class="btn" onclick="objectHelpersExample()">Test isEmpty</button>
+                <div class="output" id="object-output">Klicke um Objekte zu testen...</div>
+            </div>
+        </div>
+
+        <!-- Async Helpers Example -->
+        <div class="example-section">
+            <h3>⏱️ Async Helpers</h3>
+            <p>Sleep und andere asynchrone Utilities.</p>
+            <div class="demo-area">
+                <button class="btn" onclick="sleepExample()">Sleep 2 Sekunden</button>
+                <button class="btn" onclick="retryExample()">Retry Demo</button>
+                <div class="output" id="async-output">Bereit für async Operationen...</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+
+    <script type="module">
+        // Import utilities
+        import { 
+            debounce, 
+            formatDate, 
+            formatRelativeDate,
+            classNames, 
+            copyToClipboard, 
+            capitalize, 
+            titleCase,
+            camelCase,
+            uniqueArray,
+            downloadTextAsFile,
+            isEmpty,
+            sleep,
+            retry
+        } from './index.js';
+
+        // Make functions globally available for onclick handlers
+        window.utils = {
+            debounce, 
+            formatDate, 
+            formatRelativeDate,
+            classNames, 
+            copyToClipboard, 
+            capitalize, 
+            titleCase,
+            camelCase,
+            uniqueArray,
+            downloadTextAsFile,
+            isEmpty,
+            sleep,
+            retry
+        };
+
+        // Toast notification helper
+        window.showToast = function(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.className = `toast show ${type}`;
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        };
+
+        // Debounce example setup
+        const debounceInput = document.getElementById('debounce-input');
+        const debounceOutput = document.getElementById('debounce-output');
+        
+        const debouncedSearch = debounce((value) => {
+            debounceOutput.textContent = `Suche nach: "${value}" (${new Date().toLocaleTimeString()})`;
+        }, 300);
+
+        debounceInput.addEventListener('input', (e) => {
+            debouncedSearch(e.target.value);
+        });
+
+        // Format Date Example
+        window.formatDateExample = function() {
+            const dateInput = document.getElementById('date-input');
+            const dateOutput = document.getElementById('date-output');
+            const date = dateInput.value;
+            
+            if (date) {
+                const formatted = {
+                    short: formatDate(date),
+                    medium: formatDate(date, { format: 'medium' }),
+                    long: formatDate(date, { format: 'long' }),
+                    german: formatDate(date, { locale: 'de-DE' }),
+                    relative: formatRelativeDate(date)
+                };
+                
+                dateOutput.textContent = Object.entries(formatted)
+                    .map(([key, value]) => `${key}: ${value}`)
+                    .join('\n');
+            }
+        };
+
+        // ClassNames Example
+        window.updateClassNames = function() {
+            const isActive = document.getElementById('is-active').checked;
+            const isDisabled = document.getElementById('is-disabled').checked;
+            const button = document.getElementById('classnames-btn');
+            const output = document.getElementById('classnames-output');
+            
+            const classes = classNames('btn', {
+                'btn--success': isActive,
+                'btn--disabled': isDisabled
+            });
+            
+            button.className = classes;
+            output.textContent = `Klassen: ${classes}`;
+        };
+
+        // Copy to Clipboard Example
+        window.copyToClipboardExample = async function() {
+            const input = document.getElementById('copy-input');
+            const output = document.getElementById('copy-output');
+            
+            const success = await copyToClipboard(input.value);
+            
+            if (success) {
+                output.textContent = `✅ Kopiert: "${input.value}"`;
+                showToast('Text in Zwischenablage kopiert!');
+            } else {
+                output.textContent = '❌ Kopieren fehlgeschlagen';
+                showToast('Kopieren fehlgeschlagen', 'error');
+            }
+        };
+
+        // String Helpers Example
+        window.stringHelpersExample = function() {
+            const input = document.getElementById('string-input');
+            const output = document.getElementById('string-output');
+            const text = input.value;
+            
+            if (text) {
+                const results = {
+                    original: text,
+                    capitalize: capitalize(text),
+                    titleCase: titleCase(text),
+                    camelCase: camelCase(text)
+                };
+                
+                output.textContent = Object.entries(results)
+                    .map(([key, value]) => `${key}: ${value}`)
+                    .join('\n');
+            }
+        };
+
+        // Array Helpers Example
+        window.arrayHelpersExample = function() {
+            const input = document.getElementById('array-input');
+            const output = document.getElementById('array-output');
+            const arrayStr = input.value;
+            
+            if (arrayStr) {
+                try {
+                    const array = arrayStr.split(',').map(s => s.trim());
+                    const unique = uniqueArray(array);
+                    
+                    output.textContent = `Original: [${array.join(', ')}]\nUnique: [${unique.join(', ')}]`;
+                } catch (error) {
+                    output.textContent = `Fehler: ${error.message}`;
+                }
+            }
+        };
+
+        // Download File Example
+        window.downloadFileExample = function() {
+            const content = document.getElementById('download-content').value;
+            const success = downloadTextAsFile(content, 'dragonfly-test.txt');
+            
+            if (success) {
+                showToast('Datei-Download gestartet!');
+            } else {
+                showToast('Download fehlgeschlagen', 'error');
+            }
+        };
+
+        window.downloadJsonExample = function() {
+            const content = document.getElementById('download-content').value;
+            const jsonData = {
+                content: content,
+                timestamp: new Date().toISOString(),
+                source: 'Dragonfly Utilities Demo'
+            };
+            
+            const success = downloadTextAsFile(
+                JSON.stringify(jsonData, null, 2), 
+                'dragonfly-data.json', 
+                'application/json'
+            );
+            
+            if (success) {
+                showToast('JSON-Download gestartet!');
+            } else {
+                showToast('Download fehlgeschlagen', 'error');
+            }
+        };
+
+        // Object Helpers Example
+        window.objectHelpersExample = function() {
+            const output = document.getElementById('object-output');
+            
+            const tests = [
+                { obj: {}, desc: 'Leeres Objekt {}' },
+                { obj: { name: 'John' }, desc: 'Objekt mit Daten { name: "John" }' },
+                { obj: [], desc: 'Leeres Array []' },
+                { obj: null, desc: 'null' },
+                { obj: undefined, desc: 'undefined' }
+            ];
+            
+            const results = tests.map(test => 
+                `${test.desc}: isEmpty = ${isEmpty(test.obj)}`
+            );
+            
+            output.textContent = results.join('\n');
+        };
+
+        // Async Helpers Example
+        window.sleepExample = async function() {
+            const output = document.getElementById('async-output');
+            
+            output.textContent = 'Sleeping für 2 Sekunden...';
+            await sleep(2000);
+            output.textContent = `Aufgewacht! (${new Date().toLocaleTimeString()})`;
+            showToast('Sleep beendet!');
+        };
+
+        window.retryExample = async function() {
+            const output = document.getElementById('async-output');
+            
+            output.textContent = 'Teste Retry-Mechanismus...';
+            
+            let attempt = 0;
+            const flakyFunction = async () => {
+                attempt++;
+                if (attempt < 3) {
+                    throw new Error(`Versuch ${attempt} fehlgeschlagen`);
+                }
+                return `Erfolgreich nach ${attempt} Versuchen!`;
+            };
+            
+            try {
+                const result = await retry(flakyFunction, { 
+                    maxAttempts: 3, 
+                    baseDelay: 500 
+                });
+                output.textContent = result;
+                showToast('Retry erfolgreich!');
+            } catch (error) {
+                output.textContent = `Retry fehlgeschlagen: ${error.message}`;
+                showToast('Retry fehlgeschlagen', 'error');
+            }
+        };
+
+        // Initialize examples
+        formatDateExample();
+        updateClassNames();
+    </script>
+</body>
+</html> 

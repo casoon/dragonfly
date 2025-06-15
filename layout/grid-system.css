@@ -1,7 +1,100 @@
 /**
- * Grid-Layout-System
+ * Grid Layout System
  * 
- * Ein 12-Spalten-Grid-System mit verschiedenen Abstufungen und Hilfsklassen
+ * A comprehensive 12-column grid system with utility classes for modern web layouts.
+ * This system provides flexible grid layouts using CSS Grid with semantic class names
+ * and responsive capabilities.
+ * 
+ * @layer layout.grid
+ * @version 2.0
+ * @author Design System Team
+ * 
+ * FEATURES:
+ * - 12-column grid system with flexible column spans
+ * - Auto-fit and auto-fill grid layouts for responsive cards
+ * - Subgrid support for nested layouts
+ * - Semantic utility classes (.grid, .grid-cols-*, .col-span-*)
+ * - CSS Grid native implementation (no flexbox fallbacks)
+ * - Works with spacing.css for gap utilities
+ * - Compatible with responsive-utilities.css for breakpoint variants
+ * 
+ * GRID CLASSES:
+ * - .grid: Base grid container
+ * - .grid-cols-{1-12}: Define number of columns
+ * - .col-span-{1-12}: Span multiple columns
+ * - .col-span-full: Span all available columns
+ * - .row-span-{1-6}: Span multiple rows
+ * - .grid-auto-fit: Auto-fit responsive layout
+ * - .grid-auto-fill: Auto-fill responsive layout
+ * 
+ * LAYOUT VARIANTS:
+ * - .layout-grid: Semantic grid with default gutter
+ * - .layout-grid-{2,3,4,6}: Predefined column layouts
+ * - .layout-grid-auto-fit: Responsive card layouts
+ * 
+ * SUBGRID SUPPORT:
+ * - .grid-subgrid: Inherit parent grid columns
+ * - .row-subgrid: Inherit parent grid rows
+ * 
+ * USAGE EXAMPLES:
+ * 
+ * Basic Grid:
+ * <div class="grid grid-cols-3 gap-4">
+ *   <div>Item 1</div>
+ *   <div>Item 2</div>
+ *   <div>Item 3</div>
+ * </div>
+ * 
+ * Responsive Card Layout:
+ * <div class="grid-auto-fit gap-6">
+ *   <div class="card">Card 1</div>
+ *   <div class="card">Card 2</div>
+ *   <div class="card">Card 3</div>
+ * </div>
+ * 
+ * Complex Layout:
+ * <div class="grid grid-cols-12 gap-4">
+ *   <div class="col-span-8">Main content</div>
+ *   <div class="col-span-4">Sidebar</div>
+ *   <div class="col-span-full">Footer</div>
+ * </div>
+ * 
+ * Subgrid Example:
+ * <div class="grid grid-cols-4 gap-4">
+ *   <div class="col-span-2 grid-subgrid gap-2">
+ *     <div>Nested 1</div>
+ *     <div>Nested 2</div>
+ *   </div>
+ * </div>
+ * 
+ * RESPONSIVE USAGE:
+ * Use with responsive-utilities.css for breakpoint-specific layouts:
+ * <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+ *   <!-- Responsive grid that adapts to screen size -->
+ * </div>
+ * 
+ * BROWSER SUPPORT:
+ * - CSS Grid: All modern browsers (IE 11+ with -ms- prefix)
+ * - Subgrid: Firefox 71+, Safari 16+, Chrome 117+
+ * - Container Queries: Chrome 105+, Firefox 110+, Safari 16+
+ * 
+ * PERFORMANCE NOTES:
+ * - CSS Grid is highly optimized for layout performance
+ * - Subgrid reduces layout recalculations
+ * - Auto-fit/auto-fill are efficient for responsive designs
+ * - Use gap properties instead of margins for better performance
+ * 
+ * ACCESSIBILITY:
+ * - Grid layouts maintain document flow for screen readers
+ * - Use semantic HTML elements within grid containers
+ * - Ensure logical tab order is preserved
+ * - Test with keyboard navigation
+ * 
+ * INTEGRATION:
+ * - Works seamlessly with layout/containers.css for container sizing
+ * - Combines with layout/spacing.css for gap utilities
+ * - Enhanced by layout/responsive-utilities.css for responsive variants
+ * - Compatible with layout/flex-layouts.css for hybrid layouts
  */
 
 @layer layout.grid {
@@ -94,29 +187,6 @@
     .col-span-12 { grid-column: span 12; }
     
     .col-span-full { grid-column: 1 / -1; }
-
-    /* Grid-Abstände */
-    .gap-0 { gap: var(--space-0); }
-
-    .gap-1 { gap: var(--space-1); }
-
-    .gap-2 { gap: var(--space-2); }
-
-    .gap-3 { gap: var(--space-3); }
-
-    .gap-4 { gap: var(--space-4); }
-
-    .gap-5 { gap: var(--space-5); }
-
-    .gap-6 { gap: var(--space-6); }
-
-    .gap-8 { gap: var(--space-8); }
-
-    .gap-10 { gap: var(--space-10); }
-
-    .gap-12 { gap: var(--space-12); }
-
-    .gap-16 { gap: var(--space-16); }
 
     /* Grid-Zeilen */
     .grid-rows-1 { grid-template-rows: repeat(1, 1fr); }

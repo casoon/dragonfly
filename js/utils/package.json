@@ -1,0 +1,75 @@
+{
+  "name": "@dragonfly/js-utilities",
+  "version": "1.0.0",
+  "description": "A comprehensive collection of JavaScript utility functions for modern web development",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./debounce": "./debounce.js",
+    "./formatDate": "./formatDate.js",
+    "./classNames": "./classNames.js",
+    "./jsonHelpers": "./jsonHelpers.js",
+    "./objectHelpers": "./objectHelpers.js",
+    "./arrayHelpers": "./arrayHelpers.js",
+    "./stringHelpers": "./stringHelpers.js",
+    "./asyncHelpers": "./asyncHelpers.js",
+    "./clipboard": "./clipboard.js",
+    "./domHelpers": "./domHelpers.js"
+  },
+  "scripts": {
+    "test": "node tests.js",
+    "test:browser": "open examples.html",
+    "lint": "eslint *.js",
+    "docs": "echo 'See README.md for documentation'"
+  },
+  "keywords": [
+    "utilities",
+    "helpers",
+    "javascript",
+    "es6",
+    "modules",
+    "debounce",
+    "format",
+    "classnames",
+    "json",
+    "array",
+    "string",
+    "async",
+    "clipboard",
+    "dom",
+    "dragonfly"
+  ],
+  "author": "Dragonfly UI Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dragonfly/ui.git",
+    "directory": "js/utils"
+  },
+  "bugs": {
+    "url": "https://github.com/dragonfly/ui/issues"
+  },
+  "homepage": "https://github.com/dragonfly/ui#readme",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "files": [
+    "*.js",
+    "README.md",
+    "examples.html"
+  ],
+  "devDependencies": {
+    "eslint": "^8.0.0"
+  },
+  "peerDependencies": {},
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/dragonfly"
+  }
+} 
