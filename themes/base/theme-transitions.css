@@ -1,0 +1,122 @@
+/**
+ * Theme Transition Utilities
+ * 
+ * Theme-specific transition adjustments and utility classes.
+ * The @property definitions are in tokens/transitions.css.
+ * 
+ * @layer themes.transitions
+ */
+
+@layer themes.transitions {
+  /* Theme Transition Values - Light Mode */
+  :root {
+    --transition-bg: var(--color-background);
+    --transition-fg: var(--color-text);
+    --transition-border: var(--color-border);
+    --transition-surface: var(--color-surface);
+    --transition-accent: var(--color-primary);
+    --transition-shadow-opacity: 0.1;
+  }
+  
+  /* Theme Transition Values - Dark Mode */
+  [data-theme="dark"] {
+    --transition-bg: var(--color-background);
+    --transition-fg: var(--color-text);
+    --transition-border: var(--color-border);
+    --transition-surface: var(--color-surface);
+    --transition-accent: var(--color-primary);
+    --transition-shadow-opacity: 0.3;
+  }
+  
+  /* Auto Theme - System Preference */
+  @media (prefers-color-scheme: dark) {
+    [data-theme="auto"] {
+      --transition-shadow-opacity: 0.3;
+    }
+  }
+  
+  /* Base Transition Utility Classes */
+  .theme-transition {
+    background-color: var(--transition-bg);
+    border-color: var(--transition-border);
+    color: var(--transition-fg);
+    transition: var(--transition-colors);
+  }
+  
+  .theme-transition-fast {
+    background-color: var(--transition-bg);
+    border-color: var(--transition-border);
+    color: var(--transition-fg);
+    transition: 
+      background-color var(--transition-fast) var(--transition-ease-out),
+      color var(--transition-fast) var(--transition-ease-out),
+      border-color var(--transition-fast) var(--transition-ease-out);
+  }
+  
+  .theme-transition-slow {
+    background-color: var(--transition-bg);
+    border-color: var(--transition-border);
+    color: var(--transition-fg);
+    transition: 
+      background-color var(--transition-slow) var(--transition-ease-in-out),
+      color var(--transition-slow) var(--transition-ease-in-out),
+      border-color var(--transition-slow) var(--transition-ease-in-out);
+  }
+  
+  /* Component-Specific Transition Classes */
+  .card-transition {
+    background-color: var(--transition-surface);
+    border-color: var(--transition-border);
+    box-shadow: 
+      0 1px 3px 0 rgb(0 0 0 / var(--transition-shadow-opacity)),
+      0 1px 2px -1px rgb(0 0 0 / var(--transition-shadow-opacity));
+    transition: var(--transition-colors), var(--transition-shadow);
+  }
+  
+  .button-transition {
+    background-color: var(--transition-accent);
+    border-color: var(--transition-accent);
+    color: var(--transition-fg);
+    transition: var(--transition-colors), var(--transition-transform);
+  }
+  
+  .input-transition {
+    background-color: var(--transition-surface);
+    border-color: var(--transition-border);
+    transition: var(--transition-colors), var(--transition-shadow);
+  }
+  
+  .input-transition:focus {
+    border-color: var(--transition-accent);
+    box-shadow: 0 0 0 2px rgb(from var(--transition-accent) r g b / 20%);
+  }
+  
+  /* Theme Switch Animation */
+  .theme-switching {
+    animation: theme-switch var(--transition-normal) var(--transition-ease-out);
+  }
+  
+  @keyframes theme-switch {
+    0% { opacity: 100%; }
+
+    50% { opacity: 95%; }
+
+    100% { opacity: 100%; }
+  }
+  
+  /* Disable Transitions for Reduced Motion */
+  @media (prefers-reduced-motion: reduce) {
+    .theme-transition,
+    .theme-transition-fast,
+    .theme-transition-slow,
+    .card-transition,
+    .button-transition,
+    .input-transition {
+      transition: none;
+    }
+    
+    .theme-switching {
+      animation: none;
+    }
+  }
+} 

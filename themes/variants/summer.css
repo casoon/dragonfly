@@ -1,0 +1,44 @@
+/**
+ * Summer Theme Variant
+ * 
+ * Standalone summer theme variant that can be loaded independently.
+ * Uses [data-theme="summer"] scope for activation.
+ * CDN-compatible and opt-in via import or JS.
+ * 
+ * @layer themes.variants
+ */
+
+@layer themes.variants {
+  [data-theme="summer"] {
+    /* Summer Color Palette - Bright yellows, oranges, and turquoise */
+    --color-primary: #eab308;
+    --color-primary-50: #fefce8;
+    --color-primary-100: #fef3c7;
+    --color-primary-500: #eab308;
+    --color-primary-600: #ca8a04;
+    --color-primary-900: #713f12;
+    
+    /* Secondary Summer Colors - Orange/Coral tones */
+    --color-secondary: #f97316;
+    --color-secondary-50: #fff7ed;
+    --color-secondary-500: #f97316;
+    --color-secondary-900: #9a3412;
+    
+    /* Summer-specific Surface Colors */
+    --color-surface: #fefce8;
+    --color-surface-elevated: #fff;
+    --color-background: #fffef5;
+    
+    /* Summer Text Colors */
+    --color-text: #713f12;
+    --color-text-muted: #a16207;
+    
+    /* Summer Borders */
+    --color-border: #fde68a;
+    --color-border-strong: #fcd34d;
+    
+    /* Summer Focus States */
+    --color-focus: #eab308;
+    --color-focus-glow: rgb(234 179 8 / 25%);
+  }
+}

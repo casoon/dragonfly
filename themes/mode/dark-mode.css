@@ -1,6 +1,56 @@
 /**
  * Dark Mode Theme
  * 
+ * Dark mode definitions with [data-theme="dark"] scope.
+ * Only overrides base tokens, aliases remain stable.
+ * 
+ * @layer themes.mode
+ */
+
+@layer themes.mode {
+  [data-theme="dark"] {
+    /* Color Scheme */
+    color-scheme: dark;
+    
+    /* Base Color Tokens - Only override what's needed for dark mode */
+    --color-background: #1d1f24;
+    --color-surface: #262830;
+    --color-surface-elevated: #30333c;
+    --color-text: #f3f3f5;
+    --color-text-muted: #8f96a8;
+    --color-text-inverse: #1d1f24;
+    --color-border: #4a4e5c;
+    --color-border-strong: #6c7285;
+    
+    /* Primary Colors - Dark Mode Values */
+    --color-primary: #4a90e2;
+    --color-primary-50: #001433;
+    --color-primary-100: #002966;
+    --color-primary-500: #4a90e2;
+    --color-primary-600: #66a3ff;
+    --color-primary-900: #e6f0ff;
+    
+    /* Secondary Colors - Dark Mode Values */
+    --color-secondary: #8b7cf6;
+    --color-secondary-50: #110a33;
+    --color-secondary-500: #8b7cf6;
+    --color-secondary-900: #eeeaff;
+    
+    /* Gray Colors - Dark Mode Values */
+    --color-gray-50: #1d1f24;
+    --color-gray-100: #262830;
+    --color-gray-500: #8f96a8;
+    --color-gray-900: #f9f9fa;
+    
+    /* Focus and Interactive States */
+    --color-focus: #6366f1;
+    --color-focus-glow: rgb(99 102 241 / 40%);
+  }
+}
+
+/**
+ * Dark Mode Theme
+ * 
  * Diese Datei definiert das Dark Mode Theme.
  * Die Farben orientieren sich an den Variablen aus colors.css.
  * Das Theme wird über die Klasse "theme-dark-mode" aktiviert.

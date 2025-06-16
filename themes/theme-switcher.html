@@ -1,34 +1,20 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Theme Switcher - Casoon UI</title>
+  <title>Theme Switcher - Dragonfly CSS</title>
   
-  <!-- Theme-Initialisierungs-Script (vor CSS laden) -->
-  <script>
-    // Setze die initiale Theme-Variable basierend auf gespeichertem Theme
-    (function() {
-      try {
-        const savedTheme = JSON.parse(localStorage.getItem('casoon-dragonfly-theme')) || {};
-        document.documentElement.style.setProperty(
-          '--initial-theme', 
-          savedTheme.mode || 'auto'
-        );
-      } catch (e) {
-        document.documentElement.style.setProperty('--initial-theme', 'auto');
-      }
-    })();
-  </script>
-  
-  <!-- UI-Lib CSS einbinden -->
+  <!-- Core CSS with base themes -->
   <link rel="stylesheet" href="../core.css">
   
-  <!-- Zusätzliches CSS für den Theme-Switcher -->
+  <!-- Theme Helper Script -->
+  <script src="./theme-helper.js"></script>
+  
   <style>
     body {
-      font-family: var(--font-family-sans);
-      color: var(--color-text-primary);
+      font-family: var(--font-family-base);
+      color: var(--color-text);
       background-color: var(--color-background);
       padding: 2rem;
       transition: background-color 0.3s, color 0.3s;
@@ -41,30 +27,16 @@
       flex-direction: column;
       gap: 2rem;
       padding: 2rem;
-      border-radius: var(--border-radius-lg);
-      background-color: var(--color-surface);
+      border-radius: var(--radius-lg);
+      background-color: var(--color-surface-elevated);
       box-shadow: var(--shadow-md);
-    }
-    
-    header {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-    
-    h1 {
-      margin-bottom: 0.5rem;
-    }
-    
-    .theme-controls {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
     }
     
     .theme-section {
       padding: 1.5rem;
-      border-radius: var(--border-radius-md);
-      background-color: var(--color-surface-hover);
+      border-radius: var(--radius-md);
+      background-color: var(--color-surface);
+      border: 1px solid var(--color-border);
     }
     
     .control-group {
@@ -74,22 +46,39 @@
       margin-top: 1rem;
     }
     
-    .color-swatch {
-      width: 2.5rem;
-      height: 2.5rem;
-      border-radius: 50%;
+    button {
+      padding: var(--space-2) var(--space-4);
+      border-radius: var(--radius-md);
+      background-color: var(--color-primary);
+      color: var(--color-text-inverse);
+      border: 1px solid var(--color-primary);
       cursor: pointer;
-      border: 2px solid transparent;
-      transition: transform 0.2s, border-color 0.2s;
+      font-weight: var(--font-weight-medium);
+      transition: all 0.2s ease;
     }
     
-    .color-swatch:hover {
-      transform: scale(1.1);
+    button:hover {
+      background-color: var(--color-primary-600);
     }
     
-    .color-swatch.active {
-      border-color: var(--color-primary-500);
-      box-shadow: 0 0 0 2px var(--color-focus-ring);
+    button.secondary {
+      background-color: var(--color-secondary);
+      border-color: var(--color-secondary);
+    }
+    
+    button.outline {
+      background-color: transparent;
+      color: var(--color-primary);
+    }
+    
+    .current-theme {
+      font-size: var(--font-size-sm);
+      color: var(--color-text-muted);
+      margin-top: 1rem;
+      padding: var(--space-2);
+      background-color: var(--color-surface);
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--color-border);
     }
     
     .demo-elements {
@@ -100,294 +89,188 @@
     }
     
     .demo-card {
-      padding: 1.5rem;
-      border-radius: var(--border-radius-md);
-      background-color: var(--color-surface);
+      padding: var(--space-6);
+      border-radius: var(--radius-md);
+      background-color: var(--color-surface-elevated);
       box-shadow: var(--shadow-sm);
       border: 1px solid var(--color-border);
     }
     
-    button {
-      padding: 0.5rem 1rem;
-      border-radius: var(--border-radius-md);
-      background-color: var(--color-primary-500);
-      color: white;
-      border: none;
-      cursor: pointer;
-      font-weight: var(--font-weight-medium);
-      transition: background-color 0.2s;
-    }
-    
-    button:hover {
-      background-color: var(--color-primary-600);
-    }
-    
-    button.secondary {
-      background-color: var(--color-secondary-500);
-    }
-    
-    button.secondary:hover {
-      background-color: var(--color-secondary-600);
-    }
-    
-    .current-theme {
-      font-size: 0.875rem;
-      color: var(--color-text-secondary);
+    .color-palette {
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      gap: 2px;
       margin-top: 1rem;
+    }
+    
+    .color-swatch {
+      height: 2rem;
+      border-radius: var(--radius-sm);
+    }
+    
+    .variant-loader {
+      margin-top: 1rem;
+      padding: var(--space-4);
+      background-color: var(--color-surface);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border);
+    }
+    
+    .loaded-variants {
+      margin-top: 1rem;
+      font-size: var(--font-size-sm);
+      color: var(--color-text-muted);
     }
   </style>
 </head>
-<body class="theme-auto">
+<body>
   <div class="container">
     <header>
-      <h1>Casoon UI Theme Switcher</h1>
-      <p>Passe das Theme der UI-Bibliothek an deine Bedürfnisse an</p>
+      <h1>Dragonfly CSS Theme System</h1>
+      <p>Test the new theme system with data-theme attributes and dynamic variant loading</p>
     </header>
     
     <div class="theme-controls">
+      <!-- Base Theme Modes -->
       <div class="theme-section">
-        <h2>Theme-Modus</h2>
-        <p>Wähle zwischen automatischem, hellem und dunklem Modus</p>
+        <h2>Base Theme Modes</h2>
+        <p>Switch between light, dark, and auto modes (always loaded)</p>
         
         <div class="control-group">
-          <button id="mode-auto">Auto (System)</button>
-          <button id="mode-light">Hell</button>
-          <button id="mode-dark">Dunkel</button>
-          <button id="mode-cycle">Wechseln</button>
+          <button onclick="setTheme('light')">Light</button>
+          <button onclick="setTheme('dark')">Dark</button>
+          <button onclick="setTheme('auto')">Auto</button>
+          <button onclick="cycleTheme()">Cycle</button>
         </div>
         
         <div class="current-theme">
-          Aktueller Modus: <span id="current-mode">Auto</span>
+          Current theme: <span id="current-theme">light</span><br>
+          Data attribute: <span id="current-data-theme">light</span>
         </div>
       </div>
       
+      <!-- Theme Variants -->
       <div class="theme-section">
-        <h2>Farbschema</h2>
-        <p>Wähle eine Primärfarbe für dein Theme</p>
+        <h2>Theme Variants (Opt-in)</h2>
+        <p>Load theme variants dynamically - these are not included by default</p>
         
         <div class="control-group">
-          <div class="color-swatch" id="color-default" style="background-color: hsl(210, 100%, 50%);" title="Standard"></div>
-          <div class="color-swatch" id="color-blue" style="background-color: hsl(210, 100%, 50%);" title="Blau"></div>
-          <div class="color-swatch" id="color-green" style="background-color: hsl(150, 80%, 40%);" title="Grün"></div>
-          <div class="color-swatch" id="color-purple" style="background-color: hsl(270, 70%, 55%);" title="Lila"></div>
-          <div class="color-swatch" id="color-orange" style="background-color: hsl(30, 100%, 50%);" title="Orange"></div>
-          <div class="color-swatch" id="color-teal" style="background-color: hsl(175, 80%, 40%);" title="Blaugrün"></div>
-          <div class="color-swatch" id="color-violet" style="background-color: hsl(270, 80%, 50%);" title="Violett"></div>
-          <div class="color-swatch" id="color-amber" style="background-color: hsl(45, 100%, 50%);" title="Bernstein"></div>
-          <div class="color-swatch" id="color-red" style="background-color: hsl(0, 90%, 45%);" title="Rot"></div>
-          <div class="color-swatch" id="color-custom-green" style="background-color: hsl(135, 80%, 40%);" title="Angepasstes Grün"></div>
+          <button onclick="loadVariant('brand')">Brand</button>
+          <button onclick="loadVariant('autumn')">Autumn</button>
+          <button onclick="loadVariant('ocean')">Ocean</button>
+          <button onclick="loadVariant('forest')">Forest</button>
+          <button onclick="loadVariant('sunset')">Sunset</button>
+          <button onclick="loadVariant('neon')">Neon</button>
         </div>
         
-        <div class="current-theme">
-          Aktuelle Farbe: <span id="current-color">Standard</span>
+        <div class="variant-loader">
+          <h4>Variant Loader Test</h4>
+          <input type="text" id="variant-input" placeholder="Enter variant name (e.g., 'winter')" style="margin-right: 0.5rem; padding: 0.5rem;">
+          <button onclick="loadCustomVariant()">Load Variant</button>
+        </div>
+        
+        <div class="loaded-variants">
+          Loaded variants: <span id="loaded-variants">none</span>
         </div>
       </div>
     </div>
     
+    <!-- Demo Elements -->
     <div class="demo-elements">
       <div class="demo-card">
-        <h3>Primäre Farben</h3>
-        <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1rem;">
-          <div style="height: 1.5rem; background-color: var(--color-primary-50);"></div>
-          <div style="height: 1.5rem; background-color: var(--color-primary-100);"></div>
-          <div style="height: 1.5rem; background-color: var(--color-primary-200);"></div>
-          <div style="height: 1.5rem; background-color: var(--color-primary-300);"></div>
-          <div style="height: 1.5rem; background-color: var(--color-primary-400);"></div>
-          <div style="height: 1.5rem; background-color: var(--color-primary-500);"></div>
-          <div style="height: 1.5rem; background-color: var(--color-primary-600);"></div>
-          <div style="height: 1.5rem; background-color: var(--color-primary-700);"></div>
-          <div style="height: 1.5rem; background-color: var(--color-primary-800);"></div>
-          <div style="height: 1.5rem; background-color: var(--color-primary-900);"></div>
+        <h3>Color Tokens</h3>
+        <div class="color-palette">
+          <div class="color-swatch" style="background-color: var(--color-primary-50);"></div>
+          <div class="color-swatch" style="background-color: var(--color-primary-100);"></div>
+          <div class="color-swatch" style="background-color: var(--color-primary-200);"></div>
+          <div class="color-swatch" style="background-color: var(--color-primary-300);"></div>
+          <div class="color-swatch" style="background-color: var(--color-primary-400);"></div>
+          <div class="color-swatch" style="background-color: var(--color-primary-500);"></div>
+          <div class="color-swatch" style="background-color: var(--color-primary-600);"></div>
+          <div class="color-swatch" style="background-color: var(--color-primary-700);"></div>
+          <div class="color-swatch" style="background-color: var(--color-primary-800);"></div>
+          <div class="color-swatch" style="background-color: var(--color-primary-900);"></div>
         </div>
       </div>
       
       <div class="demo-card">
-        <h3>UI-Elemente</h3>
-        <div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem;">
-          <button>Primärer Button</button>
-          <button class="secondary">Sekundärer Button</button>
-          <input type="text" placeholder="Texteingabe">
-          <label>
-            <input type="checkbox"> Checkbox
-          </label>
-          <label>
-            <input type="radio" name="demo"> Radio
-          </label>
+        <h3>Component Aliases</h3>
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+          <button style="background-color: var(--btn-bg); color: var(--btn-text);">Primary Button</button>
+          <button class="secondary" style="background-color: var(--btn-secondary-bg); color: var(--btn-secondary-text);">Secondary Button</button>
+          <div style="padding: var(--card-padding); background-color: var(--card-bg); border: 1px solid var(--card-border); border-radius: var(--card-radius);">
+            Card with aliases
+          </div>
+        </div>
+      </div>
+      
+      <div class="demo-card">
+        <h3>Form Elements</h3>
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+          <input type="text" placeholder="Input field" style="padding: var(--form-padding-y) var(--form-padding-x); border: 1px solid var(--form-border); border-radius: var(--form-radius); background-color: var(--form-bg);">
+          <textarea placeholder="Textarea" style="padding: var(--form-padding-y) var(--form-padding-x); border: 1px solid var(--form-border); border-radius: var(--form-radius); background-color: var(--form-bg);"></textarea>
+        </div>
+      </div>
+      
+      <div class="demo-card">
+        <h3>Theme Information</h3>
+        <div style="font-size: var(--font-size-sm); color: var(--color-text-muted);">
+          <p><strong>Current data-theme:</strong> <span id="info-theme">light</span></p>
+          <p><strong>Color scheme:</strong> <span id="info-color-scheme">light</span></p>
+          <p><strong>Loaded variants:</strong> <span id="info-variants">none</span></p>
         </div>
       </div>
     </div>
   </div>
-  
-  <!-- Theme-Helper-Script einbinden -->
-  <script src="theme-helper.js"></script>
-  
-  <!-- Theme-Switcher-Logik -->
+
   <script>
+    // Update UI when theme changes
+    function updateThemeInfo() {
+      const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+      const savedTheme = themeHelper.getSavedTheme();
+      const loadedVariants = themeHelper.getLoadedVariants();
+      
+      document.getElementById('current-theme').textContent = savedTheme;
+      document.getElementById('current-data-theme').textContent = currentTheme;
+      document.getElementById('loaded-variants').textContent = loadedVariants.length ? loadedVariants.join(', ') : 'none';
+      document.getElementById('info-theme').textContent = currentTheme;
+      document.getElementById('info-color-scheme').textContent = getComputedStyle(document.documentElement).colorScheme || 'light';
+      document.getElementById('info-variants').textContent = loadedVariants.length ? loadedVariants.join(', ') : 'none';
+    }
+    
+    // Load a theme variant
+    async function loadVariant(variantName) {
+      try {
+        await loadThemeVariant(variantName);
+        console.log(`Loaded theme variant: ${variantName}`);
+        updateThemeInfo();
+      } catch (error) {
+        console.error(`Failed to load variant ${variantName}:`, error);
+        alert(`Failed to load theme variant: ${variantName}`);
+      }
+    }
+    
+    // Load custom variant from input
+    async function loadCustomVariant() {
+      const variantName = document.getElementById('variant-input').value.trim();
+      if (variantName) {
+        await loadVariant(variantName);
+        document.getElementById('variant-input').value = '';
+      }
+    }
+    
+    // Listen for theme changes
+    document.addEventListener('theme-change', (event) => {
+      console.log('Theme changed:', event.detail);
+      updateThemeInfo();
+    });
+    
+    // Initialize
     document.addEventListener('DOMContentLoaded', () => {
-      // Elemente
-      const modeButtons = {
-        auto: document.getElementById('mode-auto'),
-        light: document.getElementById('mode-light'),
-        dark: document.getElementById('mode-dark'),
-        cycle: document.getElementById('mode-cycle')
-      };
-      
-      const colorSwatches = {
-        default: document.getElementById('color-default'),
-        blue: document.getElementById('color-blue'),
-        green: document.getElementById('color-green'),
-        purple: document.getElementById('color-purple'),
-        orange: document.getElementById('color-orange'),
-        teal: document.getElementById('color-teal'),
-        violet: document.getElementById('color-violet'),
-        amber: document.getElementById('color-amber'),
-        red: document.getElementById('color-red'),
-        customGreen: document.getElementById('color-custom-green')
-      };
-      
-      const currentModeSpan = document.getElementById('current-mode');
-      const currentColorSpan = document.getElementById('current-color');
-      
-      // Event-Listener für Theme-Modus-Buttons
-      modeButtons.auto.addEventListener('click', () => {
-        window.CasoonUITheme.setMode(window.CasoonUITheme.MODES.AUTO);
-        updateThemeInfo();
-      });
-      
-      modeButtons.light.addEventListener('click', () => {
-        window.CasoonUITheme.setMode(window.CasoonUITheme.MODES.LIGHT);
-        updateThemeInfo();
-      });
-      
-      modeButtons.dark.addEventListener('click', () => {
-        window.CasoonUITheme.setMode(window.CasoonUITheme.MODES.DARK);
-        updateThemeInfo();
-      });
-      
-      modeButtons.cycle.addEventListener('click', () => {
-        window.CasoonUITheme.cycleMode();
-        updateThemeInfo();
-      });
-      
-      // Event-Listener für Farbschema-Swatches
-      colorSwatches.default.addEventListener('click', () => {
-        window.CasoonUITheme.setColor(window.CasoonUITheme.COLORS.DEFAULT);
-        updateThemeInfo();
-      });
-      
-      colorSwatches.blue.addEventListener('click', () => {
-        window.CasoonUITheme.setColor(window.CasoonUITheme.COLORS.BLUE);
-        updateThemeInfo();
-      });
-      
-      colorSwatches.green.addEventListener('click', () => {
-        window.CasoonUITheme.setColor(window.CasoonUITheme.COLORS.GREEN);
-        updateThemeInfo();
-      });
-      
-      colorSwatches.purple.addEventListener('click', () => {
-        window.CasoonUITheme.setColor(window.CasoonUITheme.COLORS.PURPLE);
-        updateThemeInfo();
-      });
-      
-      colorSwatches.orange.addEventListener('click', () => {
-        window.CasoonUITheme.setColor(window.CasoonUITheme.COLORS.ORANGE);
-        updateThemeInfo();
-      });
-      
-      colorSwatches.teal.addEventListener('click', () => {
-        window.CasoonUITheme.setColor(window.CasoonUITheme.COLORS.TEAL);
-        updateThemeInfo();
-      });
-      
-      colorSwatches.violet.addEventListener('click', () => {
-        window.CasoonUITheme.setColor(window.CasoonUITheme.COLORS.VIOLET);
-        updateThemeInfo();
-      });
-      
-      colorSwatches.amber.addEventListener('click', () => {
-        window.CasoonUITheme.setColor(window.CasoonUITheme.COLORS.AMBER);
-        updateThemeInfo();
-      });
-      
-      colorSwatches.red.addEventListener('click', () => {
-        window.CasoonUITheme.setColor(window.CasoonUITheme.COLORS.RED);
-        updateThemeInfo();
-      });
-      
-      colorSwatches.customGreen.addEventListener('click', () => {
-        window.CasoonUITheme.setColor(window.CasoonUITheme.COLORS.CUSTOM_GREEN);
-        updateThemeInfo();
-      });
-      
-      // Aktualisiere Anzeige der Theme-Informationen
-      function updateThemeInfo() {
-        const theme = window.CasoonUITheme.getTheme();
-        
-        // Aktualisiere Anzeige des aktuellen Modus
-        currentModeSpan.textContent = theme.mode.charAt(0).toUpperCase() + theme.mode.slice(1);
-        
-        // Aktualisiere Anzeige der aktuellen Farbe
-        const colorName = getColorName(theme.color);
-        currentColorSpan.textContent = colorName;
-        
-        // Aktualisiere aktive Klassen für Farbswatches
-        Object.values(colorSwatches).forEach(swatch => {
-          swatch.classList.remove('active');
-        });
-        
-        // Setze aktive Klasse für aktuellen Farbswatch
-        const colorKey = getColorKey(theme.color);
-        if (colorKey && colorSwatches[colorKey]) {
-          colorSwatches[colorKey].classList.add('active');
-        } else {
-          colorSwatches.default.classList.add('active');
-        }
-      }
-      
-      // Hilfsfunktion: Farbschlüssel zu Farbnamen
-      function getColorName(colorValue) {
-        switch (colorValue) {
-          case '': return 'Standard';
-          case 'blue': return 'Blau';
-          case 'green': return 'Grün';
-          case 'purple': return 'Lila';
-          case 'orange': return 'Orange';
-          case 'custom-teal': return 'Blaugrün';
-          case 'custom-violet': return 'Violett';
-          case 'custom-amber': return 'Bernstein';
-          case 'custom-red': return 'Rot';
-          case 'custom-green': return 'Angepasstes Grün';
-          default: return colorValue;
-        }
-      }
-      
-      // Hilfsfunktion: Farbwert zu Farbschlüssel
-      function getColorKey(colorValue) {
-        switch (colorValue) {
-          case '': return 'default';
-          case 'blue': return 'blue';
-          case 'green': return 'green';
-          case 'purple': return 'purple';
-          case 'orange': return 'orange';
-          case 'custom-teal': return 'teal';
-          case 'custom-violet': return 'violet';
-          case 'custom-amber': return 'amber';
-          case 'custom-red': return 'red';
-          case 'custom-green': return 'customGreen';
-          default: return null;
-        }
-      }
-      
-      // Initialisiere Theme-Anzeige
-      window.CasoonUITheme.initialize();
       updateThemeInfo();
       
-      // Event-Listener für Theme-Änderungen
-      document.addEventListener('casoon-ui-theme-change', (event) => {
-        console.log('Theme changed:', event.detail);
-        updateThemeInfo();
-      });
+      // Update every second to catch any changes
+      setInterval(updateThemeInfo, 1000);
     });
   </script>
 </body>

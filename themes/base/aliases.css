@@ -1,0 +1,177 @@
+/**
+ * Semantic Alias Tokens
+ * 
+ * This file defines semantic aliases that reference the base design tokens.
+ * Components should use these aliases instead of direct token references.
+ * This provides a semantic layer that can be easily themed and maintained.
+ * 
+ * @layer themes.aliases
+ */
+
+@layer themes.aliases {
+  :root {
+    /* Button Aliases */
+    --btn-bg: var(--color-primary);
+    --btn-bg-hover: var(--color-primary-600);
+    --btn-bg-active: var(--color-primary-700);
+    --btn-bg-disabled: var(--color-gray-300);
+    --btn-text: var(--color-text-inverse);
+    --btn-text-disabled: var(--color-text-muted);
+    --btn-border: var(--color-primary);
+    --btn-border-hover: var(--color-primary-600);
+    --btn-radius: var(--radius-button);
+    --btn-padding-x: var(--space-button-padding-x);
+    --btn-padding-y: var(--space-button-padding-y);
+    --btn-font-size: var(--font-size-base);
+    --btn-font-weight: var(--font-weight-medium);
+    
+    /* Button Secondary */
+    --btn-secondary-bg: var(--color-secondary);
+    --btn-secondary-bg-hover: var(--color-secondary-600);
+    --btn-secondary-text: var(--color-text-inverse);
+    --btn-secondary-border: var(--color-secondary);
+    
+    /* Button Outline */
+    --btn-outline-bg: transparent;
+    --btn-outline-bg-hover: var(--color-primary);
+    --btn-outline-text: var(--color-primary);
+    --btn-outline-text-hover: var(--color-text-inverse);
+    --btn-outline-border: var(--color-primary);
+    
+    /* Card Aliases */
+    --card-bg: var(--color-surface-elevated);
+    --card-bg-hover: var(--color-surface);
+    --card-border: var(--color-border);
+    --card-border-hover: var(--color-border-strong);
+    --card-radius: var(--radius-card);
+    --card-padding: var(--space-card-padding);
+    --card-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px -1px rgb(0 0 0 / 10%);
+    --card-shadow-hover: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -2px rgb(0 0 0 / 10%);
+    
+    /* Form Aliases */
+    --form-bg: var(--color-surface-elevated);
+    --form-border: var(--color-border);
+    --form-border-focus: var(--color-primary);
+    --form-border-error: var(--color-error);
+    --form-text: var(--color-text);
+    --form-text-placeholder: var(--color-text-muted);
+    --form-radius: var(--radius-input);
+    --form-padding-x: var(--space-sm);
+    --form-padding-y: var(--space-sm);
+    --form-gap: var(--space-form-gap);
+    --form-font-size: var(--font-size-base);
+    
+    /* Form Error States */
+    --form-error-color: var(--color-error);
+    --form-error-bg: var(--color-error-50);
+    --form-error-border: var(--color-error);
+    
+    /* Form Success States */
+    --form-success-color: var(--color-success);
+    --form-success-bg: var(--color-success-50);
+    --form-success-border: var(--color-success);
+    
+    /* Navigation Aliases */
+    --nav-bg: var(--color-surface-elevated);
+    --nav-border: var(--color-border);
+    --nav-text: var(--color-text);
+    --nav-text-hover: var(--color-primary);
+    --nav-text-active: var(--color-primary);
+    --nav-link-padding-x: var(--space-md);
+    --nav-link-padding-y: var(--space-sm);
+    
+    /* Header Aliases */
+    --header-bg: var(--color-surface-elevated);
+    --header-border: var(--color-border);
+    --header-text: var(--color-text);
+    --header-height: 4rem;
+    --header-padding: var(--space-md);
+    
+    /* Footer Aliases */
+    --footer-bg: var(--color-surface);
+    --footer-border: var(--color-border);
+    --footer-text: var(--color-text-muted);
+    --footer-text-hover: var(--color-text);
+    --footer-padding: var(--space-xl);
+    
+    /* Modal Aliases */
+    --modal-bg: var(--color-surface-elevated);
+    --modal-overlay-bg: rgb(0 0 0 / 50%);
+    --modal-border: var(--color-border);
+    --modal-radius: var(--radius-modal);
+    --modal-padding: var(--space-xl);
+    --modal-shadow: 0 20px 25px -5px rgb(0 0 0 / 10%), 0 8px 10px -6px rgb(0 0 0 / 10%);
+    
+    /* Badge Aliases */
+    --badge-bg: var(--color-gray-100);
+    --badge-text: var(--color-gray-800);
+    --badge-radius: var(--radius-badge);
+    --badge-padding-x: var(--space-xs);
+    --badge-padding-y: var(--space-0-5);
+    --badge-font-size: var(--font-size-xs);
+    --badge-font-weight: var(--font-weight-medium);
+    
+    /* Badge Primary */
+    --badge-primary-bg: var(--color-primary-100);
+    --badge-primary-text: var(--color-primary-800);
+    
+    /* Badge Success */
+    --badge-success-bg: var(--color-success-100);
+    --badge-success-text: var(--color-success-800);
+    
+    /* Badge Warning */
+    --badge-warning-bg: var(--color-warning-100);
+    --badge-warning-text: var(--color-warning-800);
+    
+    /* Badge Error */
+    --badge-error-bg: var(--color-error-100);
+    --badge-error-text: var(--color-error-800);
+    
+    /* Alert Aliases */
+    --alert-info-bg: var(--color-primary-50);
+    --alert-info-border: var(--color-primary-200);
+    --alert-info-text: var(--color-primary-800);
+    --alert-info-icon: var(--color-primary-600);
+    --alert-success-bg: var(--color-success-50);
+    --alert-success-border: var(--color-success-200);
+    --alert-success-text: var(--color-success-800);
+    --alert-success-icon: var(--color-success-600);
+    --alert-warning-bg: var(--color-warning-50);
+    --alert-warning-border: var(--color-warning-200);
+    --alert-warning-text: var(--color-warning-800);
+    --alert-warning-icon: var(--color-warning-600);
+    --alert-error-bg: var(--color-error-50);
+    --alert-error-border: var(--color-error-200);
+    --alert-error-text: var(--color-error-800);
+    --alert-error-icon: var(--color-error-600);
+    
+    /* Layout Aliases */
+    --layout-container-max-width: 1200px;
+    --layout-container-padding: var(--space-container-padding);
+    --layout-section-gap: var(--space-section-gap);
+    --layout-grid-gap: var(--space-grid-gap);
+    --layout-flex-gap: var(--space-flex-gap);
+    
+    /* Typography Aliases */
+    --text-heading-color: var(--color-text);
+    --text-body-color: var(--color-text);
+    --text-muted-color: var(--color-text-muted);
+    --text-link-color: var(--color-primary);
+    --text-link-hover-color: var(--color-primary-600);
+    
+    /* Focus Aliases */
+    --focus-ring-color: var(--color-primary);
+    --focus-ring-width: 2px;
+    --focus-ring-offset: 2px;
+    --focus-ring-style: solid;
+    
+    /* Transition Aliases */
+    --transition-fast: 150ms ease;
+    --transition-normal: 250ms ease;
+    --transition-slow: 350ms ease;
+    --transition-colors: color 150ms ease, background-color 150ms ease, border-color 150ms ease;
+    --transition-transform: transform 150ms ease;
+    --transition-opacity: opacity 150ms ease;
+    --transition-shadow: box-shadow 150ms ease;
+  }
+} 

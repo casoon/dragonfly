@@ -1,0 +1,405 @@
+/**
+ * Spacing Properties with @property Definitions
+ * 
+ * Typed CSS custom properties for spacing using @property.
+ * This enables better tooling support, autocomplete, and animation capabilities.
+ * 
+ * @layer tokens.properties
+ */
+
+@layer tokens.properties {
+  /* Base Spacing Properties - Complete Scale */
+  @property --space-0 {
+    inherits: true;
+    initial-value: 0;
+    syntax: '<length>';
+  }
+  
+  @property --space-px {
+    inherits: true;
+    initial-value: 1px;
+    syntax: '<length>';
+  }
+  
+  @property --space-1 {
+    inherits: true;
+    initial-value: 0.25rem;
+    syntax: '<length>';
+  }
+  
+  @property --space-2 {
+    inherits: true;
+    initial-value: 0.5rem;
+    syntax: '<length>';
+  }
+  
+  @property --space-3 {
+    inherits: true;
+    initial-value: 0.75rem;
+    syntax: '<length>';
+  }
+  
+  @property --space-4 {
+    inherits: true;
+    initial-value: 1rem;
+    syntax: '<length>';
+  }
+  
+  @property --space-5 {
+    inherits: true;
+    initial-value: 1.25rem;
+    syntax: '<length>';
+  }
+  
+  @property --space-6 {
+    inherits: true;
+    initial-value: 1.5rem;
+    syntax: '<length>';
+  }
+  
+  @property --space-7 {
+    inherits: true;
+    initial-value: 1.75rem;
+    syntax: '<length>';
+  }
+  
+  @property --space-8 {
+    inherits: true;
+    initial-value: 2rem;
+    syntax: '<length>';
+  }
+  
+  @property --space-9 {
+    inherits: true;
+    initial-value: 2.25rem;
+    syntax: '<length>';
+  }
+  
+  @property --space-10 {
+    inherits: true;
+    initial-value: 2.5rem;
+    syntax: '<length>';
+  }
+  
+  @property --space-11 {
+    inherits: true;
+    initial-value: 2.75rem;
+    syntax: '<length>';
+  }
+  
+  @property --space-12 {
+    inherits: true;
+    initial-value: 3rem;
+    syntax: '<length>';
+  }
+  
+  @property --space-14 {
+    inherits: true;
+    initial-value: 3.5rem;
+    syntax: '<length>';
+  }
+  
+  @property --space-16 {
+    inherits: true;
+    initial-value: 4rem;
+    syntax: '<length>';
+  }
+  
+  @property --space-20 {
+    inherits: true;
+    initial-value: 5rem;
+    syntax: '<length>';
+  }
+  
+  @property --space-24 {
+    inherits: true;
+    initial-value: 6rem;
+    syntax: '<length>';
+  }
+  
+  @property --space-28 {
+    inherits: true;
+    initial-value: 7rem;
+    syntax: '<length>';
+  }
+  
+  @property --space-32 {
+    inherits: true;
+    initial-value: 8rem;
+    syntax: '<length>';
+  }
+  
+  @property --space-36 {
+    inherits: true;
+    initial-value: 9rem;
+    syntax: '<length>';
+  }
+  
+  @property --space-40 {
+    inherits: true;
+    initial-value: 10rem;
+    syntax: '<length>';
+  }
+  
+  @property --space-44 {
+    inherits: true;
+    initial-value: 11rem;
+    syntax: '<length>';
+  }
+  
+  @property --space-48 {
+    inherits: true;
+    initial-value: 12rem;
+    syntax: '<length>';
+  }
+  
+  @property --space-52 {
+    inherits: true;
+    initial-value: 13rem;
+    syntax: '<length>';
+  }
+  
+  @property --space-56 {
+    inherits: true;
+    initial-value: 14rem;
+    syntax: '<length>';
+  }
+  
+  @property --space-60 {
+    inherits: true;
+    initial-value: 15rem;
+    syntax: '<length>';
+  }
+  
+  @property --space-64 {
+    inherits: true;
+    initial-value: 16rem;
+    syntax: '<length>';
+  }
+  
+  @property --space-72 {
+    inherits: true;
+    initial-value: 18rem;
+    syntax: '<length>';
+  }
+  
+  @property --space-80 {
+    inherits: true;
+    initial-value: 20rem;
+    syntax: '<length>';
+  }
+  
+  @property --space-96 {
+    inherits: true;
+    initial-value: 24rem;
+    syntax: '<length>';
+  }
+  
+  /* Semantic Spacing Aliases */
+  @property --space-xs {
+    inherits: true;
+    initial-value: 0.25rem;
+    syntax: '<length>';
+  }
+  
+  @property --space-sm {
+    inherits: true;
+    initial-value: 0.5rem;
+    syntax: '<length>';
+  }
+  
+  @property --space-md {
+    inherits: true;
+    initial-value: 1rem;
+    syntax: '<length>';
+  }
+  
+  @property --space-lg {
+    inherits: true;
+    initial-value: 1.5rem;
+    syntax: '<length>';
+  }
+  
+  @property --space-xl {
+    inherits: true;
+    initial-value: 2rem;
+    syntax: '<length>';
+  }
+  
+  @property --space-2xl {
+    inherits: true;
+    initial-value: 3rem;
+    syntax: '<length>';
+  }
+  
+  @property --space-3xl {
+    inherits: true;
+    initial-value: 4rem;
+    syntax: '<length>';
+  }
+  
+  /* Component-Specific Spacing Properties */
+  @property --space-button-padding-x {
+    inherits: true;
+    initial-value: 1rem;
+    syntax: '<length>';
+  }
+  
+  @property --space-button-padding-y {
+    inherits: true;
+    initial-value: 0.5rem;
+    syntax: '<length>';
+  }
+  
+  @property --space-card-padding {
+    inherits: true;
+    initial-value: 1.5rem;
+    syntax: '<length>';
+  }
+  
+  @property --space-form-gap {
+    inherits: true;
+    initial-value: 1rem;
+    syntax: '<length>';
+  }
+  
+  @property --space-section-gap {
+    inherits: true;
+    initial-value: 3rem;
+    syntax: '<length>';
+  }
+  
+  @property --space-input-padding {
+    inherits: true;
+    initial-value: 0.75rem;
+    syntax: '<length>';
+  }
+  
+  @property --space-modal-padding {
+    inherits: true;
+    initial-value: 1.5rem;
+    syntax: '<length>';
+  }
+  
+  /* Gap Properties */
+  @property --space-gap-xs {
+    inherits: true;
+    initial-value: 0.25rem;
+    syntax: '<length>';
+  }
+  
+  @property --space-gap-sm {
+    inherits: true;
+    initial-value: 0.5rem;
+    syntax: '<length>';
+  }
+  
+  @property --space-gap-md {
+    inherits: true;
+    initial-value: 1rem;
+    syntax: '<length>';
+  }
+  
+  @property --space-gap-lg {
+    inherits: true;
+    initial-value: 1.5rem;
+    syntax: '<length>';
+  }
+  
+  @property --space-gap-xl {
+    inherits: true;
+    initial-value: 2rem;
+    syntax: '<length>';
+  }
+  
+  /* Layout Spacing Properties */
+  @property --space-container-padding {
+    inherits: true;
+    initial-value: 1rem;
+    syntax: '<length>';
+  }
+  
+  @property --space-grid-gap {
+    inherits: true;
+    initial-value: 1rem;
+    syntax: '<length>';
+  }
+  
+  @property --space-flex-gap {
+    inherits: true;
+    initial-value: 1rem;
+    syntax: '<length>';
+  }
+  
+  /* Animatable Spacing Properties */
+  @property --space-transition-padding {
+    inherits: true;
+    initial-value: 1rem;
+    syntax: '<length>';
+  }
+  
+  @property --space-transition-margin {
+    inherits: true;
+    initial-value: 1rem;
+    syntax: '<length>';
+  }
+  
+  @property --space-transition-gap {
+    inherits: true;
+    initial-value: 1rem;
+    syntax: '<length>';
+  }
+  
+  /* Initial Value Definitions */
+  :root {
+    /* Base Spacing Scale */
+    --space-0: 0;
+    --space-px: 1px;
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.25rem;
+    --space-6: 1.5rem;
+    --space-7: 1.75rem;
+    --space-8: 2rem;
+    --space-9: 2.25rem;
+    --space-10: 2.5rem;
+    --space-11: 2.75rem;
+    --space-12: 3rem;
+    --space-14: 3.5rem;
+    --space-16: 4rem;
+    --space-20: 5rem;
+    --space-24: 6rem;
+    --space-28: 7rem;
+    --space-32: 8rem;
+    --space-36: 9rem;
+    --space-40: 10rem;
+    --space-44: 11rem;
+    --space-48: 12rem;
+    --space-52: 13rem;
+    --space-56: 14rem;
+    --space-60: 15rem;
+    --space-64: 16rem;
+    --space-72: 18rem;
+    --space-80: 20rem;
+    --space-96: 24rem;
+    
+    /* Component Spacing */
+    --space-button-padding-x: var(--space-md);
+    --space-button-padding-y: var(--space-sm);
+    --space-card-padding: var(--space-lg);
+    --space-form-gap: var(--space-md);
+    --space-section-gap: var(--space-3xl);
+    
+    /* Layout Spacing */
+    --space-container-padding: var(--space-md);
+    --space-grid-gap: var(--space-md);
+    --space-flex-gap: var(--space-md);
+    
+    /* Transition Spacing */
+    --space-transition-padding: var(--space-md);
+    --space-transition-margin: var(--space-md);
+    --space-transition-gap: var(--space-md);
+  }
+} 

@@ -1,0 +1,143 @@
+/**
+ * Effects Properties with @property Definitions
+ * 
+ * Typed CSS custom properties for visual effects using @property.
+ * This enables better tooling support, autocomplete, and animation capabilities.
+ * 
+ * @layer tokens.properties
+ */
+
+@layer tokens.properties {
+  /* Shadow Properties */
+  @property --shadow-color {
+    inherits: true;
+    initial-value: rgb(0 0 0);
+    syntax: '<color>';
+  }
+  
+  @property --shadow-opacity-sm {
+    inherits: true;
+    initial-value: 0.05;
+    syntax: '<number>';
+  }
+  
+  @property --shadow-opacity-md {
+    inherits: true;
+    initial-value: 0.1;
+    syntax: '<number>';
+  }
+  
+  @property --shadow-opacity-lg {
+    inherits: true;
+    initial-value: 0.15;
+    syntax: '<number>';
+  }
+  
+  @property --shadow-opacity-xl {
+    inherits: true;
+    initial-value: 0.25;
+    syntax: '<number>';
+  }
+  
+  /* Transition Duration Properties */
+  @property --transition-duration-fast {
+    inherits: true;
+    initial-value: 150ms;
+    syntax: '<time>';
+  }
+  
+  @property --transition-duration-normal {
+    inherits: true;
+    initial-value: 300ms;
+    syntax: '<time>';
+  }
+  
+  @property --transition-duration-slow {
+    inherits: true;
+    initial-value: 500ms;
+    syntax: '<time>';
+  }
+  
+  /* Opacity Properties */
+  @property --opacity-disabled {
+    inherits: true;
+    initial-value: 0.5;
+    syntax: '<number>';
+  }
+  
+  @property --opacity-hover {
+    inherits: true;
+    initial-value: 0.8;
+    syntax: '<number>';
+  }
+  
+  @property --opacity-overlay {
+    inherits: true;
+    initial-value: 0.5;
+    syntax: '<number>';
+  }
+  
+  /* Backdrop Properties */
+  @property --color-backdrop {
+    inherits: true;
+    initial-value: rgb(0 0 0 / 50%);
+    syntax: '<color>';
+  }
+  
+  @property --color-tooltip-background {
+    inherits: true;
+    initial-value: rgb(0 0 0 / 80%);
+    syntax: '<color>';
+  }
+  
+  @property --color-tooltip-text {
+    inherits: true;
+    initial-value: #fff;
+    syntax: '<color>';
+  }
+  
+  /* Focus Properties */
+  @property --color-focus {
+    inherits: true;
+    initial-value: #4f46e5;
+    syntax: '<color>';
+  }
+  
+  @property --color-focus-glow {
+    inherits: true;
+    initial-value: rgb(79 70 229 / 30%);
+    syntax: '<color>';
+  }
+  
+  /* Gradient Properties */
+  @property --color-gradient-start {
+    inherits: true;
+    initial-value: #4f46e5;
+    syntax: '<color>';
+  }
+  
+  @property --color-gradient-end {
+    inherits: true;
+    initial-value: #3b82f6;
+    syntax: '<color>';
+  }
+  
+  /* Background Effect Properties */
+  @property --color-background-subtle {
+    inherits: true;
+    initial-value: rgb(0 0 0 / 2%);
+    syntax: '<color>';
+  }
+  
+  @property --color-background-muted {
+    inherits: true;
+    initial-value: rgb(0 0 0 / 5%);
+    syntax: '<color>';
+  }
+  
+  @property --color-status {
+    inherits: true;
+    initial-value: #4f46e5;
+    syntax: '<color>';
+  }
+} 

@@ -1,0 +1,194 @@
+/**
+ * Layout Properties with @property Definitions
+ * 
+ * Typed CSS custom properties for layout using @property.
+ * This enables better tooling support, autocomplete, and animation capabilities.
+ * 
+ * @layer tokens.properties
+ */
+
+@layer tokens.properties {
+  /* Z-Index Properties */
+  @property --z-index-dropdown {
+    inherits: true;
+    initial-value: 1000;
+    syntax: '<integer>';
+  }
+  
+  @property --z-index-modal {
+    inherits: true;
+    initial-value: 1050;
+    syntax: '<integer>';
+  }
+  
+  @property --z-index-tooltip {
+    inherits: true;
+    initial-value: 1100;
+    syntax: '<integer>';
+  }
+  
+  @property --z-index-toast {
+    inherits: true;
+    initial-value: 1200;
+    syntax: '<integer>';
+  }
+  
+  @property --z-index-popover {
+    inherits: true;
+    initial-value: 1200;
+    syntax: '<integer>';
+  }
+  
+  @property --z-base {
+    inherits: true;
+    initial-value: 0;
+    syntax: '<integer>';
+  }
+  
+  @property --z-dropdown {
+    inherits: true;
+    initial-value: 10;
+    syntax: '<integer>';
+  }
+  
+  @property --z-sticky {
+    inherits: true;
+    initial-value: 20;
+    syntax: '<integer>';
+  }
+  
+  @property --z-fixed {
+    inherits: true;
+    initial-value: 30;
+    syntax: '<integer>';
+  }
+  
+  @property --z-modal {
+    inherits: true;
+    initial-value: 40;
+    syntax: '<integer>';
+  }
+  
+  @property --z-popover {
+    inherits: true;
+    initial-value: 50;
+    syntax: '<integer>';
+  }
+  
+  @property --z-toast {
+    inherits: true;
+    initial-value: 60;
+    syntax: '<integer>';
+  }
+  
+  @property --z-modal-backdrop {
+    inherits: true;
+    initial-value: 40;
+    syntax: '<integer>';
+  }
+  
+  @property --z-tooltip {
+    inherits: true;
+    initial-value: 30;
+    syntax: '<integer>';
+  }
+  
+  /* Breakpoint Properties */
+  @property --breakpoint-xs {
+    inherits: true;
+    initial-value: 0;
+    syntax: '<length>';
+  }
+  
+  @property --breakpoint-sm {
+    inherits: true;
+    initial-value: 640px;
+    syntax: '<length>';
+  }
+  
+  @property --breakpoint-md {
+    inherits: true;
+    initial-value: 768px;
+    syntax: '<length>';
+  }
+  
+  @property --breakpoint-lg {
+    inherits: true;
+    initial-value: 1024px;
+    syntax: '<length>';
+  }
+  
+  @property --breakpoint-xl {
+    inherits: true;
+    initial-value: 1280px;
+    syntax: '<length>';
+  }
+  
+  @property --breakpoint-2xl {
+    inherits: true;
+    initial-value: 1536px;
+    syntax: '<length>';
+  }
+  
+  /* Container Properties */
+  @property --container-sm {
+    inherits: true;
+    initial-value: 640px;
+    syntax: '<length>';
+  }
+  
+  @property --container-md {
+    inherits: true;
+    initial-value: 768px;
+    syntax: '<length>';
+  }
+  
+  @property --container-lg {
+    inherits: true;
+    initial-value: 1024px;
+    syntax: '<length>';
+  }
+  
+  @property --container-xl {
+    inherits: true;
+    initial-value: 1280px;
+    syntax: '<length>';
+  }
+  
+  @property --container-2xl {
+    inherits: true;
+    initial-value: 1536px;
+    syntax: '<length>';
+  }
+  
+  /* Container Query Properties */
+  @property --container-query-xs {
+    inherits: true;
+    initial-value: 240px;
+    syntax: '<length>';
+  }
+  
+  @property --container-query-sm {
+    inherits: true;
+    initial-value: 380px;
+    syntax: '<length>';
+  }
+  
+  @property --container-query-md {
+    inherits: true;
+    initial-value: 540px;
+    syntax: '<length>';
+  }
+  
+  @property --container-query-lg {
+    inherits: true;
+    initial-value: 720px;
+    syntax: '<length>';
+  }
+  
+  @property --container-query-xl {
+    inherits: true;
+    initial-value: 960px;
+    syntax: '<length>';
+  }
+} 

@@ -1,0 +1,44 @@
+/**
+ * Forest Theme Variant
+ * 
+ * Standalone forest theme variant that can be loaded independently.
+ * Uses [data-theme="forest"] scope for activation.
+ * CDN-compatible and opt-in via import or JS.
+ * 
+ * @layer themes.variants
+ */
+
+@layer themes.variants {
+  [data-theme="forest"] {
+    /* Forest Color Palette - Deep greens and earth tones */
+    --color-primary: #059669;
+    --color-primary-50: #ecfdf5;
+    --color-primary-100: #d1fae5;
+    --color-primary-500: #059669;
+    --color-primary-600: #047857;
+    --color-primary-900: #064e3b;
+    
+    /* Secondary Forest Colors - Emerald/Sage tones */
+    --color-secondary: #10b981;
+    --color-secondary-50: #f0fdf4;
+    --color-secondary-500: #10b981;
+    --color-secondary-900: #14532d;
+    
+    /* Forest-specific Surface Colors */
+    --color-surface: #f0fdf4;
+    --color-surface-elevated: #fff;
+    --color-background: #fafffe;
+    
+    /* Forest Text Colors */
+    --color-text: #064e3b;
+    --color-text-muted: #047857;
+    
+    /* Forest Borders */
+    --color-border: #bbf7d0;
+    --color-border-strong: #86efac;
+    
+    /* Forest Focus States */
+    --color-focus: #059669;
+    --color-focus-glow: rgb(5 150 105 / 25%);
+  }
+}

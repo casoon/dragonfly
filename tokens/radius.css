@@ -1,0 +1,158 @@
+/**
+ * Border Radius Properties with @property Definitions
+ * 
+ * Typed CSS custom properties for border-radius using @property.
+ * This enables better tooling support, autocomplete, and animation capabilities.
+ * 
+ * @layer tokens.properties
+ */
+
+@layer tokens.properties {
+  /* Base Radius Properties */
+  @property --radius-none {
+    inherits: true;
+    initial-value: 0;
+    syntax: '<length>';
+  }
+  
+  @property --radius-xs {
+    inherits: true;
+    initial-value: 0.125rem;
+    syntax: '<length>';
+  }
+  
+  @property --radius-sm {
+    inherits: true;
+    initial-value: 0.25rem;
+    syntax: '<length>';
+  }
+  
+  @property --radius-md {
+    inherits: true;
+    initial-value: 0.375rem;
+    syntax: '<length>';
+  }
+  
+  @property --radius-lg {
+    inherits: true;
+    initial-value: 0.5rem;
+    syntax: '<length>';
+  }
+  
+  @property --radius-xl {
+    inherits: true;
+    initial-value: 0.75rem;
+    syntax: '<length>';
+  }
+  
+  @property --radius-2xl {
+    inherits: true;
+    initial-value: 1rem;
+    syntax: '<length>';
+  }
+  
+  @property --radius-3xl {
+    inherits: true;
+    initial-value: 1.5rem;
+    syntax: '<length>';
+  }
+  
+  @property --radius-full {
+    inherits: true;
+    initial-value: 9999px;
+    syntax: '<length-percentage>';
+  }
+  
+  /* Component-Specific Radius Properties */
+  @property --radius-button {
+    inherits: true;
+    initial-value: 0.375rem;
+    syntax: '<length>';
+  }
+  
+  @property --radius-card {
+    inherits: true;
+    initial-value: 0.5rem;
+    syntax: '<length>';
+  }
+  
+  @property --radius-input {
+    inherits: true;
+    initial-value: 0.375rem;
+    syntax: '<length>';
+  }
+  
+  @property --radius-modal {
+    inherits: true;
+    initial-value: 0.75rem;
+    syntax: '<length>';
+  }
+  
+  @property --radius-badge {
+    inherits: true;
+    initial-value: 0.25rem;
+    syntax: '<length>';
+  }
+  
+  @property --radius-avatar {
+    inherits: true;
+    initial-value: 50%;
+    syntax: '<length-percentage>';
+  }
+  
+  /* Interactive Radius Properties */
+  @property --radius-hover {
+    inherits: true;
+    initial-value: 0.5rem;
+    syntax: '<length>';
+  }
+  
+  @property --radius-focus {
+    inherits: true;
+    initial-value: 0.375rem;
+    syntax: '<length>';
+  }
+  
+  /* Animatable Radius Properties */
+  @property --radius-transition {
+    inherits: true;
+    initial-value: 0.375rem;
+    syntax: '<length>';
+  }
+  
+  @property --radius-transition-hover {
+    inherits: true;
+    initial-value: 0.5rem;
+    syntax: '<length>';
+  }
+  
+  /* Initial Value Definitions */
+  :root {
+    /* Base Radius Scale */
+    --radius-none: 0;
+    --radius-xs: 0.125rem;
+    --radius-sm: 0.25rem;
+    --radius-md: 0.375rem;
+    --radius-lg: 0.5rem;
+    --radius-xl: 0.75rem;
+    --radius-2xl: 1rem;
+    --radius-3xl: 1.5rem;
+    --radius-full: 9999px;
+    
+    /* Component Radius */
+    --radius-button: var(--radius-md);
+    --radius-card: var(--radius-lg);
+    --radius-input: var(--radius-md);
+    --radius-modal: var(--radius-xl);
+    --radius-badge: var(--radius-sm);
+    --radius-avatar: 50%;
+    
+    /* Interactive Radius */
+    --radius-hover: var(--radius-lg);
+    --radius-focus: var(--radius-md);
+    
+    /* Transition Radius */
+    --radius-transition: var(--radius-md);
+    --radius-transition-hover: var(--radius-lg);
+  }
+} 

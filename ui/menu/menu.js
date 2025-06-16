@@ -1,6 +1,6 @@
 /**
  * Menu JavaScript
- * 
+ *
  * Enhanced menu functionality for headers, off-canvas, and nested navigation.
  * Supports mobile hamburger menus, dropdowns, megamenus, and accessibility.
  */
@@ -28,10 +28,10 @@ class MenuSystem {
       headerToggle.addEventListener('click', (e) => {
         e.stopPropagation();
         const isExpanded = headerToggle.getAttribute('aria-expanded') === 'true';
-        
+
         headerToggle.setAttribute('aria-expanded', !isExpanded);
         headerMobile.classList.toggle('visible');
-        
+
         const hamburger = headerToggle.querySelector('.hamburger');
         if (hamburger) {
           hamburger.classList.toggle('active');
@@ -46,67 +46,67 @@ class MenuSystem {
     const closeButtons = document.querySelectorAll('.off-canvas-close');
     const overlays = document.querySelectorAll('.off-canvas-overlay');
 
-    triggers.forEach(trigger => {
+    for (const trigger of triggers) {
       trigger.addEventListener('click', (e) => {
         e.stopPropagation();
         const targetId = trigger.getAttribute('data-target');
         const offCanvas = document.querySelector(targetId || '.off-canvas');
         const overlay = document.querySelector('.off-canvas-overlay');
-        
+
         if (offCanvas) {
           offCanvas.classList.toggle('open');
           overlay?.classList.toggle('visible');
-          
+
           const hamburger = trigger.querySelector('.hamburger');
           if (hamburger) {
             hamburger.classList.toggle('active');
           }
         }
       });
-    });
+    }
 
-    closeButtons.forEach(button => {
+    for (const button of closeButtons) {
       button.addEventListener('click', () => {
         this.closeAllOffCanvas();
       });
-    });
+    }
 
-    overlays.forEach(overlay => {
+    for (const overlay of overlays) {
       overlay.addEventListener('click', () => {
         this.closeAllOffCanvas();
       });
-    });
+    }
   }
 
   // Desktop dropdown functionality
   initDropdowns() {
     const dropdownItems = document.querySelectorAll('.header-nav .has-dropdown');
-    
-    dropdownItems.forEach(item => {
+
+    for (const item of dropdownItems) {
       item.addEventListener('mouseenter', () => {
         item.classList.add('open');
       });
-      
+
       item.addEventListener('mouseleave', () => {
         item.classList.remove('open');
       });
-    });
+    }
   }
 
   // Nested navigation (mobile and off-canvas)
   initNestedNavigation() {
     const nestedItems = document.querySelectorAll('.has-submenu');
-    
-    nestedItems.forEach(item => {
+
+    for (const item of nestedItems) {
       const link = item.querySelector('a');
-      
+
       if (link) {
         link.addEventListener('click', (e) => {
           e.preventDefault();
           item.classList.toggle('open');
         });
       }
-    });
+    }
   }
 
   // Keyboard navigation
@@ -122,42 +122,42 @@ class MenuSystem {
   initAccessibility() {
     // Add ARIA attributes
     const dropdownToggles = document.querySelectorAll('.has-dropdown > a, .has-submenu > a');
-    dropdownToggles.forEach(toggle => {
+    for (const toggle of dropdownToggles) {
       toggle.setAttribute('aria-haspopup', 'true');
       toggle.setAttribute('aria-expanded', 'false');
-    });
+    }
 
     // Update ARIA states
     const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
+      for (const mutation of mutations) {
         if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
           const target = mutation.target;
           const isOpen = target.classList.contains('open');
           const toggle = target.querySelector('a');
-          
+
           if (toggle) {
             toggle.setAttribute('aria-expanded', isOpen.toString());
           }
         }
-      });
+      }
     });
 
-    document.querySelectorAll('.has-dropdown, .has-submenu').forEach(item => {
+    for (const item of document.querySelectorAll('.has-dropdown, .has-submenu')) {
       observer.observe(item, { attributes: true });
-    });
+    }
   }
 
   // Helper methods
   closeAllOffCanvas() {
-    document.querySelectorAll('.off-canvas').forEach(menu => {
+    for (const menu of document.querySelectorAll('.off-canvas')) {
       menu.classList.remove('open');
-    });
-    document.querySelectorAll('.off-canvas-overlay').forEach(overlay => {
+    }
+    for (const overlay of document.querySelectorAll('.off-canvas-overlay')) {
       overlay.classList.remove('visible');
-    });
-    document.querySelectorAll('.hamburger').forEach(hamburger => {
+    }
+    for (const hamburger of document.querySelectorAll('.hamburger')) {
       hamburger.classList.remove('active');
-    });
+    }
   }
 
   closeAllMenus() {
@@ -175,4 +175,4 @@ document.addEventListener('DOMContentLoaded', () => {
 // Export for module usage
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = MenuSystem;
-} 
+}

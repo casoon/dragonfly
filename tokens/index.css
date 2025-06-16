@@ -2,20 +2,18 @@
  * Design Tokens
  * 
  * Zentrale Index-Datei für alle Design-Tokens des UI-Systems.
- * Diese Datei importiert die thematisch organisierten Token-Dateien.
+ * Alle Tokens sind als @property definiert für bessere Typisierung,
+ * Tooling-Unterstützung und Animationsfähigkeiten.
  */
 
-/* Colors - Farbvariablen */
-@import url('./colors/index.css');
+/* Layer Definition */
+@layer tokens;
 
-/* Spacing - Abstände und Größen */
-@import url('./spacing/index.css');
-
-/* Typography - Schriftvariablen */
-@import url('./typography/index.css');
-
-/* Layout - Breakpoints, Container, Z-Index */
-@import url('./layout/index.css');
-
-/* Effects - Schatten, Radien, Transitionen */
-@import url('./effects/index.css'); 
+/* Import all @property definitions */
+@import url('./colors.css');
+@import url('./spacing.css');
+@import url('./typography.css');
+@import url('./radius.css');
+@import url('./effects.css');
+@import url('./layout.css');
+@import url('./transitions.css'); 

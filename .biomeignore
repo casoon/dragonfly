@@ -1,0 +1,39 @@
+# NPM directories
+node_modules/
+
+# Build directories
+dist/
+build/
+.cache/
+.output/
+.logs/
+
+# Test directories
+tests/
+
+# Documentation
+docs/
+
+# Editor-specific files
+.vscode/
+.idea/
+
+# CSS files (handled by Stylelint)
+**/*.css
+
+# Minified and bundled files
+**/*.min.js
+**/*.bundle.js
+**/*.min.css
+
+# Configuration files
+*.json
+!package.json
+!biome.json
+
+# Log files
+*.log
+
+# Temporary files
+.tmp/
+temp/ 

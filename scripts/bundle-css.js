@@ -1,13 +1,13 @@
 /**
  * CSS Bundle Generator
- * 
+ *
  * Dieses Skript nimmt die index.css und erstellt eine gebündelte Version,
  * in der alle @import-Anweisungen aufgelöst sind. Das Ergebnis ist eine einzelne
  * minifizierte CSS-Datei (index.min.css), die direkt in Projekten eingebunden werden kann.
  */
 
-const fs = require('fs');
-const path = require('path');
+const fs = require('node:fs');
+const path = require('node:path');
 const { bundleAsync } = require('lightningcss');
 
 // Pfade konfigurieren
@@ -28,8 +28,6 @@ let nonMinifiedSize = 0;
 
 async function generateBundle(minify = true) {
   try {
-    console.log(`🔄 Generiere CSS-Bundle ${minify ? '(minifiziert)' : '(nicht minifiziert)'}...`);
-    
     // Bundle erstellen mit aufgelösten Importen
     const result = await bundleAsync({
       filename: inputFile,
@@ -38,67 +36,63 @@ async function generateBundle(minify = true) {
       analyzeDependencies: true,
       drafts: {
         nesting: true,
-        customMedia: true
+        customMedia: true,
       },
       errorRecovery: true,
       // Targets für bessere Kompatibilität
       targets: {
         chrome: 95,
         firefox: 95,
-        safari: 15
+        safari: 15,
       },
       // Verbesserte Minifizierungsoptionen für besser parsbare Ausgabe
-      minifyOptions: minify ? {
-        targets: { 
-          chrome: 95, 
-          firefox: 95,
-          safari: 15 
-        },
-        lineBreaks: {
-          // Zeilenumbrüche bei Schachtelungstiefe >3 für bessere Parsbarkeit  
-          depth: 3 
-        },
-        comments: 'none'
-      } : undefined
+      minifyOptions: minify
+        ? {
+            targets: {
+              chrome: 95,
+              firefox: 95,
+              safari: 15,
+            },
+            lineBreaks: {
+              // Zeilenumbrüche bei Schachtelungstiefe >3 für bessere Parsbarkeit
+              depth: 3,
+            },
+            comments: 'none',
+          }
+        : undefined,
     });
-    
+
     // Ausgabe in die Zieldatei schreiben
     const targetFile = minify ? outputFile : nonMinifiedOutput;
     fs.writeFileSync(targetFile, result.code);
-    
+
     if (result.map && minify) {
       fs.writeFileSync(outputMapFile, result.map);
-      console.log(`✅ Sourcemap erstellt: ${outputMapFile}`);
     }
-    
+
     const outputSize = fs.statSync(targetFile).size;
-    
+
     // Speichere die Größe des nicht-minifizierten Bundles für den Vergleich
     if (!minify) {
       nonMinifiedSize = outputSize;
-      console.log(`✅ Bundle erfolgreich erstellt: ${targetFile}`);
-      console.log(`   Bundle-Größe: ${formatBytes(outputSize)}`);
     } else {
       // Berechne die Reduktion zwischen nicht-minifiziertem und minifiziertem Bundle
       const reductionPercent = ((1 - outputSize / nonMinifiedSize) * 100).toFixed(2);
-      console.log(`✅ Bundle erfolgreich erstellt: ${targetFile}`);
-      console.log(`   Bundle-Größe: ${formatBytes(outputSize)} (${reductionPercent}% Reduktion gegenüber nicht-minifiziertem Bundle)`);
-      
+
       // Validiere, dass das minifizierte Bundle erfolgreich geparsed werden kann
       try {
         // Test-Parse der erzeugten Datei
         const testParse = require('lightningcss').transform({
           filename: targetFile,
           code: result.code,
-          minify: false
+          minify: false,
         });
-        console.log(`✅ Das minifizierte Bundle wurde erfolgreich validiert`);
       } catch (parseError) {
-        console.warn(`⚠️ Warnung: Das minifizierte Bundle könnte Parsing-Probleme verursachen:`);
+        console.warn('⚠️ Warnung: Das minifizierte Bundle könnte Parsing-Probleme verursachen:');
         console.warn(parseError.message);
       }
     }
-    
+
     return true;
   } catch (error) {
     console.error('❌ Fehler beim Bündeln:', error);
@@ -109,28 +103,25 @@ async function generateBundle(minify = true) {
 // Hilfsfunktion zum formatieren von Bytes in lesbare Größen
 function formatBytes(bytes, decimals = 2) {
   if (bytes === 0) return '0 Bytes';
-  
+
   const k = 1024;
   const dm = decimals < 0 ? 0 : decimals;
   const sizes = ['Bytes', 'KB', 'MB', 'GB'];
-  
+
   const i = Math.floor(Math.log(bytes) / Math.log(k));
-  
-  return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+
+  return `${Number.parseFloat((bytes / k ** i).toFixed(dm))} ${sizes[i]}`;
 }
 
 // Beide Versionen generieren: minifiziert und nicht minifiziert
 async function main() {
-  console.log('🚀 Starte CSS-Bundling-Prozess...');
-  
   // Nicht-minifizierte Version für Debug-Zwecke
   const nonMinResult = await generateBundle(false);
-  
+
   // Minifizierte Version für Produktion
   const minResult = await generateBundle(true);
-  
+
   if (nonMinResult && minResult) {
-    console.log('✨ Alle CSS-Bundles wurden erfolgreich erstellt.');
   } else {
     console.error('❌ Es gab Probleme beim Erstellen der CSS-Bundles.');
     process.exit(1);
@@ -138,4 +129,4 @@ async function main() {
 }
 
 // Skript ausführen
-main(); 
+main();

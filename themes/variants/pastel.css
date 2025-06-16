@@ -1,0 +1,44 @@
+/**
+ * Pastel Theme Variant
+ * 
+ * Standalone pastel theme variant that can be loaded independently.
+ * Uses [data-theme="pastel"] scope for activation.
+ * CDN-compatible and opt-in via import or JS.
+ * 
+ * @layer themes.variants
+ */
+
+@layer themes.variants {
+  [data-theme="pastel"] {
+    /* Pastel Color Palette - Soft, muted colors */
+    --color-primary: #a78bfa;
+    --color-primary-50: #faf5ff;
+    --color-primary-100: #f3e8ff;
+    --color-primary-500: #a78bfa;
+    --color-primary-600: #9333ea;
+    --color-primary-900: #581c87;
+    
+    /* Secondary Pastel Colors - Soft pink */
+    --color-secondary: #f9a8d4;
+    --color-secondary-50: #fdf2f8;
+    --color-secondary-500: #f9a8d4;
+    --color-secondary-900: #831843;
+    
+    /* Pastel-specific Surface Colors */
+    --color-surface: #faf5ff;
+    --color-surface-elevated: #fff;
+    --color-background: #fefefe;
+    
+    /* Pastel Text Colors */
+    --color-text: #581c87;
+    --color-text-muted: #7c3aed;
+    
+    /* Pastel Borders */
+    --color-border: #e9d5ff;
+    --color-border-strong: #c4b5fd;
+    
+    /* Pastel Focus States */
+    --color-focus: #a78bfa;
+    --color-focus-glow: rgb(167 139 250 / 25%);
+  }
+}

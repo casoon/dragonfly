@@ -1,12 +1,12 @@
 /**
  * Token Cleanup Script
- * 
+ *
  * Dieses Skript bereinigt Duplikate zwischen den Tokens-Dateien im /tokens Verzeichnis.
  * Es konsolidiert die Tokens aus design-tokens.css und default-tokens.css in eine einzige Datei.
  */
 
-const fs = require('fs');
-const path = require('path');
+const fs = require('node:fs');
+const path = require('node:path');
 
 // Pfade zu den Token-Dateien
 const designTokensPath = path.join(__dirname, '../../tokens/design-tokens.css');
@@ -21,10 +21,12 @@ function extractCSSVariables(filePath) {
     const variables = {};
     let match;
 
-    while ((match = variableRegex.exec(content)) !== null) {
+    match = variableRegex.exec(content);
+    while (match !== null) {
       const name = match[1];
       const value = match[2].trim();
       variables[`--${name}`] = value;
+      match = variableRegex.exec(content);
     }
 
     return variables;
@@ -36,34 +38,29 @@ function extractCSSVariables(filePath) {
 
 // Funktion zum Vergleichen und Konsolidieren der Variablen
 function consolidateTokens() {
-  console.log('Token-Konsolidierung wird gestartet...');
-  
   // Tokens aus beiden Dateien extrahieren
   const designTokens = extractCSSVariables(designTokensPath);
   const defaultTokens = extractCSSVariables(defaultTokensPath);
-  
+
   // Konsolidierte Variablen erstellen (design-tokens als Basis verwenden)
   const consolidatedTokens = { ...designTokens };
-  
+
   // Zähler für die Statistiken
   let duplicateCount = 0;
   let uniqueToDefaultCount = 0;
-  
+
   // Variablen aus default-tokens hinzufügen, die nicht in design-tokens existieren
   for (const [name, value] of Object.entries(defaultTokens)) {
     if (consolidatedTokens[name]) {
       duplicateCount++;
       if (consolidatedTokens[name] !== value) {
-        console.log(`Warnung: Variable ${name} hat unterschiedliche Werte in beiden Dateien:`);
-        console.log(`  design-tokens: ${consolidatedTokens[name]}`);
-        console.log(`  default-tokens: ${value}`);
       }
     } else {
       consolidatedTokens[name] = value;
       uniqueToDefaultCount++;
     }
   }
-  
+
   // Konsolidierte Tokens in eine neue Datei schreiben
   let consolidatedContent = `/**
  * Consolidated Design Tokens
@@ -78,42 +75,42 @@ function consolidateTokens() {
 
   // Sortiere die Variablen nach Kategorien
   const categories = {
-    'COLOR': [],
-    'SPACE': [],
-    'SIZE': [],
-    'RADIUS': [],
-    'SHADOW': [],
-    'BREAKPOINT': [],
-    'CONTAINER': [],
+    COLOR: [],
+    SPACE: [],
+    SIZE: [],
+    RADIUS: [],
+    SHADOW: [],
+    BREAKPOINT: [],
+    CONTAINER: [],
     'Z-INDEX': [],
-    'TYPOGRAPHY': [],
-    'OTHER': []
+    TYPOGRAPHY: [],
+    OTHER: [],
   };
-  
+
   for (const [name, value] of Object.entries(consolidatedTokens)) {
     if (name.includes('color')) {
-      categories['COLOR'].push({ name, value });
+      categories.COLOR.push({ name, value });
     } else if (name.includes('space')) {
-      categories['SPACE'].push({ name, value });
+      categories.SPACE.push({ name, value });
     } else if (name.includes('size')) {
-      categories['SIZE'].push({ name, value });
+      categories.SIZE.push({ name, value });
     } else if (name.includes('radius')) {
-      categories['RADIUS'].push({ name, value });
+      categories.RADIUS.push({ name, value });
     } else if (name.includes('shadow')) {
-      categories['SHADOW'].push({ name, value });
+      categories.SHADOW.push({ name, value });
     } else if (name.includes('breakpoint')) {
-      categories['BREAKPOINT'].push({ name, value });
+      categories.BREAKPOINT.push({ name, value });
     } else if (name.includes('container')) {
-      categories['CONTAINER'].push({ name, value });
+      categories.CONTAINER.push({ name, value });
     } else if (name.includes('z-index') || name.includes('zIndex')) {
       categories['Z-INDEX'].push({ name, value });
     } else if (name.includes('font') || name.includes('text')) {
-      categories['TYPOGRAPHY'].push({ name, value });
+      categories.TYPOGRAPHY.push({ name, value });
     } else {
-      categories['OTHER'].push({ name, value });
+      categories.OTHER.push({ name, value });
     }
   }
-  
+
   // Füge Variablen nach Kategorien sortiert hinzu
   for (const [category, variables] of Object.entries(categories)) {
     if (variables.length > 0) {
@@ -123,21 +120,14 @@ function consolidateTokens() {
       }
     }
   }
-  
+
   consolidatedContent += `  }
 }
 `;
 
   // Schreibe die konsolidierte Datei
   fs.writeFileSync(consolidatedTokensPath, consolidatedContent, 'utf8');
-  
-  console.log('Token-Konsolidierung abgeschlossen!');
-  console.log(`Statistik:`);
-  console.log(`- Gesamtzahl konsolidierter Tokens: ${Object.keys(consolidatedTokens).length}`);
-  console.log(`- Duplikate zwischen design-tokens.css und default-tokens.css: ${duplicateCount}`);
-  console.log(`- Tokens, die nur in default-tokens.css existieren: ${uniqueToDefaultCount}`);
-  console.log(`Die konsolidierten Tokens wurden in ${consolidatedTokensPath} gespeichert.`);
 }
 
 // Skript ausführen
-consolidateTokens(); 
+consolidateTokens();

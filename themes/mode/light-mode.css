@@ -1,116 +1,49 @@
-/*
+/**
  * Light Mode Theme
  * 
- * Definitionen für das Light-Mode-Theme.
- * Kann über die Klasse .theme-light oder via @media (prefers-color-scheme: light) aktiviert werden.
+ * Light mode definitions with [data-theme="light"] scope.
+ * Only overrides base tokens, aliases remain stable.
+ * 
+ * @layer themes.mode
  */
 
-/* Gemeinsame Light Mode Variablen für Wiederverwendung */
-:root {
-  --light-mode-text: var(--color-gray-900);
-  --light-mode-text-muted: var(--color-gray-600);
-  --light-mode-text-light: var(--color-gray-400);
-  --light-mode-text-inverted: var(--color-gray-100);
-  --light-mode-background: var(--color-gray-50);
-  --light-mode-background-alt: var(--color-gray-100);
-  --light-mode-background-elevated: #fff;
-  --light-mode-background-inverted: var(--color-gray-900);
-  --light-mode-border: var(--color-gray-200);
-  --light-mode-border-hover: var(--color-gray-300);
-  --light-mode-border-focus: var(--color-primary-500);
-  --light-mode-border-error: var(--color-error-500);
-  --light-mode-shadow-sm: rgb(0 0 0 / 5%);
-  --light-mode-shadow-md: rgb(0 0 0 / 10%);
-  --light-mode-shadow-lg: rgb(0 0 0 / 15%);
-  --light-mode-shadow-xl: rgb(0 0 0 / 20%);
-  --light-mode-focus-ring: var(--color-primary-500);
-  --light-mode-focus-ring-offset: #fff;
-  --light-mode-outline: var(--color-primary-500);
-}
-
-@layer themes-mode {
-  /* 
-   * Light-Mode-Variablen
-   * Diese Variablen werden in der :root gesetzt und von den anderen CSS-Dateien verwendet.
-   */
-  :root,
-  .theme-light {
-    /* Aktiviere explizit Light Color Scheme */
+@layer themes.mode {
+  [data-theme="light"] {
+    /* Color Scheme */
     color-scheme: light;
     
-    /* Primärfarben-Palette */
-    --color-primary-50: hsl(210deg 100% 98%);
-    --color-primary-100: hsl(210deg 100% 95%);
-    --color-primary-200: hsl(210deg 100% 90%);
-    --color-primary-300: hsl(210deg 100% 80%);
-    --color-primary-400: hsl(210deg 100% 65%);
-    --color-primary-500: hsl(210deg 100% 50%);
-    --color-primary-600: hsl(210deg 100% 45%);
-    --color-primary-700: hsl(210deg 100% 40%);
-    --color-primary-800: hsl(210deg 100% 35%);
-    --color-primary-900: hsl(210deg 100% 30%);
+    /* Base Color Tokens - Only override what's needed for light mode */
+    --color-background: #fff;
+    --color-surface: #f9fafb;
+    --color-surface-elevated: #fff;
+    --color-text: #1f2937;
+    --color-text-muted: #6b7280;
+    --color-text-inverse: #fff;
+    --color-border: #e5e7eb;
+    --color-border-strong: #d1d5db;
     
-    /* Sekundärfarben-Palette */
-    --color-secondary-50: hsl(250deg 100% 98%);
-    --color-secondary-100: hsl(250deg 100% 95%);
-    --color-secondary-200: hsl(250deg 100% 90%);
-    --color-secondary-300: hsl(250deg 100% 80%);
-    --color-secondary-400: hsl(250deg 100% 65%);
-    --color-secondary-500: hsl(250deg 100% 60%);
-    --color-secondary-600: hsl(250deg 100% 55%);
-    --color-secondary-700: hsl(250deg 100% 45%);
-    --color-secondary-800: hsl(250deg 100% 35%);
-    --color-secondary-900: hsl(250deg 100% 30%);
+    /* Primary Colors - Light Mode Values */
+    --color-primary: #06f;
+    --color-primary-50: #e6f0ff;
+    --color-primary-100: #cce0ff;
+    --color-primary-500: #06f;
+    --color-primary-600: #0052cc;
+    --color-primary-900: #001433;
     
-    /* Grau-Palette */
-    --color-gray-50: hsl(210deg 20% 98%);
-    --color-gray-100: hsl(210deg 15% 95%);
-    --color-gray-200: hsl(210deg 15% 90%);
-    --color-gray-300: hsl(210deg 10% 80%);
-    --color-gray-400: hsl(210deg 10% 65%);
-    --color-gray-500: hsl(210deg 10% 50%);
-    --color-gray-600: hsl(210deg 10% 35%);
-    --color-gray-700: hsl(210deg 10% 25%);
-    --color-gray-800: hsl(210deg 15% 15%);
-    --color-gray-900: hsl(210deg 20% 10%);
+    /* Secondary Colors - Light Mode Values */
+    --color-secondary: #5333ff;
+    --color-secondary-50: #eeeaff;
+    --color-secondary-500: #5333ff;
+    --color-secondary-900: #110a33;
     
-    /* Status-Paletten */
-    --color-success-light: hsl(160deg 80% 45%);
-    --color-success: hsl(160deg 100% 35%);
-    --color-success-dark: hsl(160deg 100% 25%);
-    --color-warning-light: hsl(45deg 100% 55%);
-    --color-warning: hsl(45deg 100% 45%);
-    --color-warning-dark: hsl(45deg 100% 35%);
-    --color-error-light: hsl(0deg 100% 60%);
-    --color-error: hsl(0deg 100% 50%);
-    --color-error-dark: hsl(0deg 100% 40%);
-    --color-info-light: hsl(210deg 100% 60%);
-    --color-info: hsl(210deg 100% 50%);
-    --color-info-dark: hsl(210deg 100% 40%);
+    /* Gray Colors - Light Mode Values */
+    --color-gray-50: #f9f9fa;
+    --color-gray-100: #f3f3f5;
+    --color-gray-500: #8f96a8;
+    --color-gray-900: #1d1f24;
     
-    /* =================== UI-FARBEN =================== */
-    --color-text: var(--light-mode-text);
-    --color-text-muted: var(--light-mode-text-muted);
-    --color-text-light: var(--light-mode-text-light);
-    --color-text-inverted: var(--light-mode-text-inverted);
-    --color-background: var(--light-mode-background);
-    --color-background-alt: var(--light-mode-background-alt);
-    --color-background-elevated: var(--light-mode-background-elevated);
-    --color-background-inverted: var(--light-mode-background-inverted);
-    
-    /* =================== BORDER & SHADOW =================== */
-    --color-border: var(--light-mode-border);
-    --color-border-hover: var(--light-mode-border-hover);
-    --color-border-focus: var(--light-mode-border-focus);
-    --color-border-error: var(--light-mode-border-error);
-    --color-shadow-sm: var(--light-mode-shadow-sm);
-    --color-shadow-md: var(--light-mode-shadow-md);
-    --color-shadow-lg: var(--light-mode-shadow-lg);
-    --color-shadow-xl: var(--light-mode-shadow-xl);
-    
-    /* =================== FOCUS & OUTLINE =================== */
-    --color-focus-ring: var(--light-mode-focus-ring);
-    --color-focus-ring-offset: var(--light-mode-focus-ring-offset);
-    --color-outline: var(--light-mode-outline);
+    /* Focus and Interactive States */
+    --color-focus: #4f46e5;
+    --color-focus-glow: rgb(79 70 229 / 30%);
   }
 } 

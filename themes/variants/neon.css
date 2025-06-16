@@ -1,0 +1,44 @@
+/**
+ * Neon Theme Variant
+ * 
+ * Standalone neon theme variant that can be loaded independently.
+ * Uses [data-theme="neon"] scope for activation.
+ * CDN-compatible and opt-in via import or JS.
+ * 
+ * @layer themes.variants
+ */
+
+@layer themes.variants {
+  [data-theme="neon"] {
+    /* Neon Color Palette - Bright, electric colors */
+    --color-primary: #06ffa5;
+    --color-primary-50: #f0fff4;
+    --color-primary-100: #dcfce7;
+    --color-primary-500: #06ffa5;
+    --color-primary-600: #00e676;
+    --color-primary-900: #00695c;
+    
+    /* Secondary Neon Colors - Electric blue/cyan */
+    --color-secondary: #00e5ff;
+    --color-secondary-50: #e0f7fa;
+    --color-secondary-500: #00e5ff;
+    --color-secondary-900: #006064;
+    
+    /* Neon-specific Surface Colors - Dark background for contrast */
+    --color-surface: #0a0a0a;
+    --color-surface-elevated: #1a1a1a;
+    --color-background: #000;
+    
+    /* Neon Text Colors - Bright on dark */
+    --color-text: #06ffa5;
+    --color-text-muted: #00e676;
+    
+    /* Neon Borders - Glowing effect */
+    --color-border: #06ffa5;
+    --color-border-strong: #00e676;
+    
+    /* Neon Focus States - Extra bright */
+    --color-focus: #06ffa5;
+    --color-focus-glow: rgb(6 255 165 / 50%);
+  }
+}

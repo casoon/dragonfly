@@ -1,13 +1,3 @@
-/* eslint-env browser */
-/**
- * View Transitions API Handler
- * 
- * Diese Datei enthält Funktionen zur Verwendung der View Transitions API
- * mit Unterstützung für verschiedene Übergangseffekte und Cross-Document Transitions.
- */
-
-'use strict';
-
 // Logger-Funktion statt direkter console-Aufrufe
 const logger = {
   /**
@@ -17,8 +7,6 @@ const logger = {
   log(message) {
     try {
       if (typeof process !== 'undefined' && process.env.NODE_ENV !== 'production') {
-        // eslint-disable-next-line no-console
-        console.log(message);
       }
     } catch (e) {
       // Ignoriere Fehler in Umgebungen ohne process
@@ -42,7 +30,7 @@ const logger = {
   error(message, err) {
     // eslint-disable-next-line no-console
     console.error(message, err);
-  }
+  },
 };
 
 /**
@@ -50,8 +38,7 @@ const logger = {
  * @returns {boolean} True wenn die API unterstützt wird
  */
 function supportsViewTransitions() {
-  return typeof document !== 'undefined' && 
-         typeof document.startViewTransition === 'function';
+  return typeof document !== 'undefined' && typeof document.startViewTransition === 'function';
 }
 
 /**
@@ -83,13 +70,12 @@ class ViewTransitionHandler {
   }
 
   /**
-   * Entfernt alle registrierten Event-Listener
-   * @public
+   * Cleanup method to remove all event listeners
    */
   cleanup() {
-    this._eventListeners.forEach(({ target, type, listener, options }) => {
+    for (const { target, type, listener, options } of this._eventListeners) {
       target.removeEventListener(type, listener, options);
-    });
+    }
     this._eventListeners = [];
   }
 
@@ -108,48 +94,48 @@ class ViewTransitionHandler {
     if (this.initialized) {
       return;
     }
-    
+
     const defaultOptions = {
       handleAnchors: true,
       handleForms: true,
       handlePosters: true,
       handleBackButton: true,
       defaultTransitionType: 'basic',
-      posterTransitionType: 'cover'
+      posterTransitionType: 'cover',
     };
-    
+
     const config = { ...defaultOptions, ...options };
-    
+
     this.defaultTransitionType = config.defaultTransitionType;
     this.posterTransitionType = config.posterTransitionType;
-    
+
     // Überprüfen der Browser-Unterstützung
     if (!supportsViewTransitions()) {
       logger.warn('View Transitions API wird von diesem Browser nicht unterstützt.');
       return;
     }
-    
+
     // Event-Listener registrieren
     if (config.handleAnchors) {
       this.setupAnchorHandlers();
     }
-    
+
     if (config.handleForms) {
       this.setupFormHandlers();
     }
-    
+
     if (config.handlePosters) {
       this.setupPosterHandlers();
     }
-    
+
     if (config.handleBackButton) {
       this.setupBackButtonHandler();
     }
-    
+
     this.initialized = true;
     logger.log('View Transitions API Handler initialisiert.');
   }
-  
+
   /**
    * Richtet Event-Handler für Anker-Elemente ein
    * @returns {void}
@@ -161,16 +147,16 @@ class ViewTransitionHandler {
       if (!anchor) {
         return;
       }
-      
+
       // Spezielle Links ignorieren
       if (
-        anchor.hasAttribute('download') || 
-        anchor.target === '_blank' || 
+        anchor.hasAttribute('download') ||
+        anchor.target === '_blank' ||
         anchor.dataset.noTransition === 'true'
       ) {
         return;
       }
-      
+
       // Überprüfen, ob die URL zur selben Domain gehört
       try {
         const url = new URL(anchor.href);
@@ -180,17 +166,17 @@ class ViewTransitionHandler {
       } catch (err) {
         return; // Ungültige URL
       }
-      
+
       // Transition-Typ aus Datenattribut oder Standard verwenden
       const transitionType = anchor.dataset.transitionType || this.defaultTransitionType;
-      
+
       e.preventDefault();
       this.navigateTo(anchor.href, transitionType);
     };
-    
+
     this._addEventListenerWithCleanup(document, 'click', handleAnchorClick);
   }
-  
+
   /**
    * Richtet Event-Handler für Formulare ein
    * @returns {void}
@@ -198,28 +184,28 @@ class ViewTransitionHandler {
   setupFormHandlers() {
     const handleFormSubmit = (e) => {
       const form = e.target;
-      
+
       // Formulare mit speziellem Attribut ignorieren
       if (form.dataset.noTransition === 'true' || form.method === 'post') {
         return;
       }
-      
+
       // Nur GET-Formulare unterstützen
       if (form.method.toLowerCase() === 'get' && form.action) {
         e.preventDefault();
-        
+
         const formData = new FormData(form);
         const queryParams = new URLSearchParams(formData).toString();
         const url = form.action + (form.action.includes('?') ? '&' : '?') + queryParams;
-        
+
         const transitionType = form.dataset.transitionType || this.defaultTransitionType;
         this.navigateTo(url, transitionType);
       }
     };
-    
+
     this._addEventListenerWithCleanup(document, 'submit', handleFormSubmit);
   }
-  
+
   /**
    * Richtet Event-Handler für Poster-Elemente ein
    * @returns {void}
@@ -230,19 +216,19 @@ class ViewTransitionHandler {
       if (!poster) {
         return;
       }
-      
+
       const transitionType = poster.dataset.transitionType || this.posterTransitionType;
       const transitionCallback = poster.dataset.transitionCallback;
-      
+
       if (transitionCallback && typeof window[transitionCallback] === 'function') {
         e.preventDefault();
         this.transitionElement(poster, transitionType, window[transitionCallback]);
       }
     };
-    
+
     this._addEventListenerWithCleanup(document, 'click', handlePosterClick);
   }
-  
+
   /**
    * Richtet Event-Handler für den Zurück-Button ein
    * @returns {void}
@@ -252,15 +238,15 @@ class ViewTransitionHandler {
       if (this.transitionActive) {
         return;
       }
-      
+
       // Übergangstyp für Zurück-Navigation (kann aus dem History-State kommen)
       const state = e.state || {};
       const transitionType = state.transitionType || 'slide-right';
-      
+
       if (!supportsViewTransitions()) {
         return;
       }
-      
+
       // View Transition für Browser-Zurück-Taste
       try {
         document.startViewTransition(() => {
@@ -268,7 +254,7 @@ class ViewTransitionHandler {
           // Wir müssen nichts tun, da der Browser bereits die URL geändert hat
           this.transitionActive = false;
         });
-        
+
         // Übergangstyp anwenden
         this.applyTransitionType(transitionType);
       } catch (error) {
@@ -276,10 +262,10 @@ class ViewTransitionHandler {
         this.transitionActive = false;
       }
     };
-    
+
     this._addEventListenerWithCleanup(window, 'popstate', handlePopState);
   }
-  
+
   /**
    * Navigiert zu einer URL mit Übergangseffekt
    * @param {string} url - Ziel-URL
@@ -292,35 +278,37 @@ class ViewTransitionHandler {
       window.location.href = url;
       return;
     }
-    
+
     this.transitionActive = true;
     this.applyTransitionType(transitionType);
-    
+
     try {
       // Transition starten
       const transition = document.startViewTransition(() => {
         // History-Eintrag hinzufügen
         window.history.pushState({ transitionType }, '', url);
-        
+
         // Seite laden
         window.location.href = url;
       });
-      
-      transition.finished.then(() => {
-        this.transitionActive = false;
-      }).catch((error) => {
-        logger.error('Transition fehlgeschlagen:', error);
-        this.transitionActive = false;
-      });
+
+      transition.finished
+        .then(() => {
+          this.transitionActive = false;
+        })
+        .catch((error) => {
+          logger.error('Transition fehlgeschlagen:', error);
+          this.transitionActive = false;
+        });
     } catch (error) {
       logger.error('Fehler beim Starten der View Transition:', error);
       this.transitionActive = false;
-      
+
       // Fallback zur normalen Navigation
       window.location.href = url;
     }
   }
-  
+
   /**
    * Wendet den Übergangtyp auf das Dokument an
    * @param {string} transitionType - Typ des Übergangs
@@ -330,15 +318,15 @@ class ViewTransitionHandler {
     if (!document.documentElement) {
       return;
     }
-    
+
     // Bestehende Transition-Klassen entfernen
     document.documentElement.classList.remove(
-      'cross-fade', 
-      'cross-slide-left', 
-      'cross-slide-right', 
+      'cross-fade',
+      'cross-slide-left',
+      'cross-slide-right',
       'cross-scale'
     );
-    
+
     // Neue Transition-Klasse hinzufügen
     switch (transitionType) {
       case 'crossfade':
@@ -358,7 +346,7 @@ class ViewTransitionHandler {
         break;
     }
   }
-  
+
   /**
    * Anwenden eines Übergangseffekts auf ein einzelnes Element
    * @param {HTMLElement} element - Das Element, auf das der Effekt angewendet werden soll
@@ -366,14 +354,14 @@ class ViewTransitionHandler {
    * @param {Function} callback - Callback-Funktion, die während des Übergangs aufgerufen wird
    * @returns {void}
    */
-  transitionElement(element, transitionType = 'cover', callback) {
+  transitionElement(element, transitionType, callback) {
     if (!element || !supportsViewTransitions()) {
       if (callback && typeof callback === 'function') {
         callback(element);
       }
       return;
     }
-    
+
     const container = element.closest('div');
     if (!container) {
       if (callback && typeof callback === 'function') {
@@ -381,16 +369,16 @@ class ViewTransitionHandler {
       }
       return;
     }
-    
+
     // Bestehende Poster-Klassen entfernen
     container.classList.remove(
-      'poster-cover', 
-      'poster-contain', 
-      'poster-zoom-in', 
-      'poster-flip', 
+      'poster-cover',
+      'poster-contain',
+      'poster-zoom-in',
+      'poster-flip',
       'poster-reveal'
     );
-    
+
     // Neue Poster-Klasse hinzufügen
     switch (transitionType) {
       case 'cover':
@@ -412,7 +400,7 @@ class ViewTransitionHandler {
         container.classList.add('poster-cover');
         break;
     }
-    
+
     try {
       // Transition starten
       document.startViewTransition(() => {
@@ -440,4 +428,4 @@ if (typeof document !== 'undefined') {
   document.addEventListener('DOMContentLoaded', () => {
     viewTransitions.init();
   });
-} 
+}

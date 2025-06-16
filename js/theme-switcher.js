@@ -1,7 +1,7 @@
 /**
  * Casoon UI Theme Switcher
  * Ein einfaches Script zum Umschalten zwischen verschiedenen Themes
- * 
+ *
  * Unterstützt sowohl die light-dark() CSS-Syntax als auch klassische Theming-Ansätze.
  * Moderne Browser werden automatisch vom color-scheme und light-dark() profitieren.
  */
@@ -21,17 +21,17 @@ function initThemeSwitcher() {
   // Gespeichertes Theme laden
   const savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
   const savedDarkMode = localStorage.getItem(DARK_MODE_STORAGE_KEY);
-  
+
   // System-Präferenzen prüfen
   const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  
+
   // Theme anwenden
   if (savedTheme) {
     setTheme(savedTheme);
   } else {
     setTheme(DEFAULT_THEME);
   }
-  
+
   // Dark Mode anwenden, wenn er explizit gespeichert wurde
   // Bei Browsern mit light-dark() Unterstützung dient dies als Override
   if (savedDarkMode === 'true' || (prefersDarkMode && savedDarkMode === null)) {
@@ -39,7 +39,7 @@ function initThemeSwitcher() {
   } else if (savedDarkMode === 'false') {
     document.documentElement.classList.remove('dark-mode');
   }
-  
+
   // Auf Änderungen der System-Präferenzen reagieren
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
     if (localStorage.getItem(DARK_MODE_STORAGE_KEY) === null) {
@@ -59,19 +59,20 @@ function initThemeSwitcher() {
  */
 function setTheme(themeName) {
   if (!themeName) return;
-  
+
   // Alle Theme-Klassen entfernen
-  const themeClasses = Array.from(document.documentElement.classList)
-    .filter(className => className.startsWith('theme-'));
-  
+  const themeClasses = Array.from(document.documentElement.classList).filter((className) =>
+    className.startsWith('theme-')
+  );
+
   document.documentElement.classList.remove(...themeClasses);
-  
+
   // Neues Theme hinzufügen
   document.documentElement.classList.add(themeName);
-  
+
   // Theme speichern
   localStorage.setItem(THEME_STORAGE_KEY, themeName);
-  
+
   // Event auslösen
   document.dispatchEvent(new CustomEvent('themeChanged', { detail: { theme: themeName } }));
 }
@@ -82,7 +83,7 @@ function setTheme(themeName) {
  */
 function toggleDarkMode() {
   const isDarkMode = document.documentElement.classList.contains('dark-mode');
-  
+
   if (isDarkMode) {
     document.documentElement.classList.remove('dark-mode');
     localStorage.setItem(DARK_MODE_STORAGE_KEY, 'false');
@@ -90,11 +91,13 @@ function toggleDarkMode() {
     document.documentElement.classList.add('dark-mode');
     localStorage.setItem(DARK_MODE_STORAGE_KEY, 'true');
   }
-  
+
   // Event auslösen
-  document.dispatchEvent(new CustomEvent('darkModeChanged', { 
-    detail: { darkMode: !isDarkMode } 
-  }));
+  document.dispatchEvent(
+    new CustomEvent('darkModeChanged', {
+      detail: { darkMode: !isDarkMode },
+    })
+  );
 }
 
 /**
@@ -103,20 +106,22 @@ function toggleDarkMode() {
  */
 function resetDarkMode() {
   const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  
+
   if (prefersDarkMode) {
     document.documentElement.classList.add('dark-mode');
   } else {
     document.documentElement.classList.remove('dark-mode');
   }
-  
+
   // Gespeicherte Präferenz löschen
   localStorage.removeItem(DARK_MODE_STORAGE_KEY);
-  
+
   // Event auslösen
-  document.dispatchEvent(new CustomEvent('darkModeChanged', { 
-    detail: { darkMode: prefersDarkMode, auto: true } 
-  }));
+  document.dispatchEvent(
+    new CustomEvent('darkModeChanged', {
+      detail: { darkMode: prefersDarkMode, auto: true },
+    })
+  );
 }
 
 /**
@@ -124,9 +129,10 @@ function resetDarkMode() {
  * @returns {string|null} - Der Name des aktiven Themes oder null
  */
 function getCurrentTheme() {
-  const themeClasses = Array.from(document.documentElement.classList)
-    .filter(className => className.startsWith('theme-'));
-  
+  const themeClasses = Array.from(document.documentElement.classList).filter((className) =>
+    className.startsWith('theme-')
+  );
+
   return themeClasses.length > 0 ? themeClasses[0] : null;
 }
 
@@ -139,12 +145,12 @@ function isDarkModeActive() {
   if (document.documentElement.classList.contains('dark-mode')) {
     return true;
   }
-  
+
   // Sonst prüfe System-Präferenz falls kein expliziter Override vorhanden ist
   if (localStorage.getItem(DARK_MODE_STORAGE_KEY) === null) {
     return window.matchMedia('(prefers-color-scheme: dark)').matches;
   }
-  
+
   return false;
 }
 
@@ -153,7 +159,7 @@ function isDarkModeActive() {
  */
 function toggleHighContrast() {
   const isHighContrast = document.documentElement.classList.contains('high-contrast');
-  
+
   if (isHighContrast) {
     document.documentElement.classList.remove('high-contrast');
     localStorage.setItem('casoon-ui-high-contrast', 'false');
@@ -168,7 +174,7 @@ function toggleHighContrast() {
  */
 function toggleReducedMotion() {
   const isReducedMotion = document.documentElement.classList.contains('reduced-motion');
-  
+
   if (isReducedMotion) {
     document.documentElement.classList.remove('reduced-motion');
     localStorage.setItem('casoon-ui-reduced-motion', 'false');
@@ -198,6 +204,6 @@ if (typeof module !== 'undefined' && module.exports) {
     getCurrentTheme,
     isDarkModeActive,
     toggleHighContrast,
-    toggleReducedMotion
+    toggleReducedMotion,
   };
-} 
+}

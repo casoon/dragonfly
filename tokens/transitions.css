@@ -1,0 +1,116 @@
+/**
+ * Transition Tokens
+ * 
+ * @property definitions for smooth theme transitions and animations.
+ * These properties enable smooth interpolation between theme values.
+ * 
+ * @layer tokens
+ */
+
+@layer tokens {
+  /* Transition Duration Properties */
+  @property --transition-fast {
+    inherits: true;
+    initial-value: 150ms;
+    syntax: '<time>';
+  }
+  
+  @property --transition-normal {
+    inherits: true;
+    initial-value: 250ms;
+    syntax: '<time>';
+  }
+  
+  @property --transition-slow {
+    inherits: true;
+    initial-value: 400ms;
+    syntax: '<time>';
+  }
+  
+  /* Transition Easing Properties */
+  @property --transition-ease-out {
+    inherits: true;
+    initial-value: cubic-bezier(0, 0, 0.2, 1);
+    syntax: '<custom-ident> | ease | ease-in | ease-out | ease-in-out | linear | step-start | step-end';
+  }
+  
+  @property --transition-ease-in {
+    inherits: true;
+    initial-value: cubic-bezier(0.4, 0, 1, 1);
+    syntax: '<custom-ident> | ease | ease-in | ease-out | ease-in-out | linear | step-start | step-end';
+  }
+  
+  @property --transition-ease-in-out {
+    inherits: true;
+    initial-value: cubic-bezier(0.4, 0, 0.2, 1);
+    syntax: '<custom-ident> | ease | ease-in | ease-out | ease-in-out | linear | step-start | step-end';
+  }
+  
+  /* Animatable Color Properties for Theme Transitions */
+  @property --transition-bg {
+    inherits: true;
+    initial-value: #fff;
+    syntax: '<color>';
+  }
+  
+  @property --transition-fg {
+    inherits: true;
+    initial-value: #1f2937;
+    syntax: '<color>';
+  }
+  
+  @property --transition-border {
+    inherits: true;
+    initial-value: #e5e7eb;
+    syntax: '<color>';
+  }
+  
+  @property --transition-surface {
+    inherits: true;
+    initial-value: #f9fafb;
+    syntax: '<color>';
+  }
+  
+  @property --transition-accent {
+    inherits: true;
+    initial-value: #3b82f6;
+    syntax: '<color>';
+  }
+  
+  @property --transition-shadow-opacity {
+    inherits: true;
+    initial-value: 0.1;
+    syntax: '<number>';
+  }
+  
+  /* Component-Specific Transition Properties */
+  @property --transition-colors {
+    inherits: true;
+    initial-value: background-color 250ms var(--transition-ease-out), color 250ms var(--transition-ease-out), border-color 250ms var(--transition-ease-out);
+    syntax: '*';
+  }
+  
+  @property --transition-transform {
+    inherits: true;
+    initial-value: transform 200ms var(--transition-ease-out);
+    syntax: '*';
+  }
+  
+  @property --transition-opacity {
+    inherits: true;
+    initial-value: opacity 200ms var(--transition-ease-out);
+    syntax: '*';
+  }
+  
+  @property --transition-shadow {
+    inherits: true;
+    initial-value: box-shadow 200ms var(--transition-ease-out);
+    syntax: '*';
+  }
+  
+  @property --transition-all {
+    inherits: true;
+    initial-value: all 250ms var(--transition-ease-out);
+    syntax: '*';
+  }
+} 

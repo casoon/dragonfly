@@ -1,0 +1,44 @@
+/**
+ * Ocean Theme Variant
+ * 
+ * Standalone ocean theme variant that can be loaded independently.
+ * Uses [data-theme="ocean"] scope for activation.
+ * CDN-compatible and opt-in via import or JS.
+ * 
+ * @layer themes.variants
+ */
+
+@layer themes.variants {
+  [data-theme="ocean"] {
+    /* Ocean Color Palette - Deep blues, cyans, and teals */
+    --color-primary: #0ea5e9;
+    --color-primary-50: #f0f9ff;
+    --color-primary-100: #e0f2fe;
+    --color-primary-500: #0ea5e9;
+    --color-primary-600: #0284c7;
+    --color-primary-900: #0c4a6e;
+    
+    /* Secondary Ocean Colors - Cyan/Teal tones */
+    --color-secondary: #06b6d4;
+    --color-secondary-50: #ecfeff;
+    --color-secondary-500: #06b6d4;
+    --color-secondary-900: #164e63;
+    
+    /* Ocean-specific Surface Colors */
+    --color-surface: #f0f9ff;
+    --color-surface-elevated: #fff;
+    --color-background: #fafbff;
+    
+    /* Ocean Text Colors */
+    --color-text: #0c4a6e;
+    --color-text-muted: #0369a1;
+    
+    /* Ocean Borders */
+    --color-border: #bae6fd;
+    --color-border-strong: #7dd3fc;
+    
+    /* Ocean Focus States */
+    --color-focus: #0ea5e9;
+    --color-focus-glow: rgb(14 165 233 / 25%);
+  }
+}

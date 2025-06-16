@@ -1,0 +1,44 @@
+/**
+ * Retro Theme Variant
+ * 
+ * Standalone retro theme variant that can be loaded independently.
+ * Uses [data-theme="retro"] scope for activation.
+ * CDN-compatible and opt-in via import or JS.
+ * 
+ * @layer themes.variants
+ */
+
+@layer themes.variants {
+  [data-theme="retro"] {
+    /* Retro Color Palette - Muted vintage tones */
+    --color-primary: #dc2626;
+    --color-primary-50: #fef2f2;
+    --color-primary-100: #fee2e2;
+    --color-primary-500: #dc2626;
+    --color-primary-600: #b91c1c;
+    --color-primary-900: #7f1d1d;
+    
+    /* Secondary Retro Colors - Amber/Brown tones */
+    --color-secondary: #d97706;
+    --color-secondary-50: #fff7ed;
+    --color-secondary-500: #d97706;
+    --color-secondary-900: #92400e;
+    
+    /* Retro-specific Surface Colors */
+    --color-surface: #fef2f2;
+    --color-surface-elevated: #fff;
+    --color-background: #fffaf5;
+    
+    /* Retro Text Colors */
+    --color-text: #7f1d1d;
+    --color-text-muted: #92400e;
+    
+    /* Retro Borders */
+    --color-border: #fecaca;
+    --color-border-strong: #fca5a5;
+    
+    /* Retro Focus States */
+    --color-focus: #dc2626;
+    --color-focus-glow: rgb(220 38 38 / 25%);
+  }
+}

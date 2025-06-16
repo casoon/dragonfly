@@ -1,4 +1,4 @@
-const fs = require('fs');
+const fs = require('node:fs');
 const pkg = require('../package.json');
 
 const [major, minor, patch] = pkg.version.split('.').map(Number);
@@ -24,8 +24,7 @@ if (arg) {
 const newVersion = `${newMajor}.${newMinor}.${newPatch}`;
 pkg.version = newVersion;
 
-fs.writeFileSync('./package.json', JSON.stringify(pkg, null, 2) + '\n');
-console.log(`Version updated to ${newVersion}`);
+fs.writeFileSync('./package.json', `${JSON.stringify(pkg, null, 2)}\n`);
 
 // Note: Documentation files are not automatically updated
 // To update the "Last Modified" information, use:

@@ -1,0 +1,44 @@
+/**
+ * Monochrome Theme Variant
+ * 
+ * Standalone monochrome theme variant that can be loaded independently.
+ * Uses [data-theme="monochrome"] scope for activation.
+ * CDN-compatible and opt-in via import or JS.
+ * 
+ * @layer themes.variants
+ */
+
+@layer themes.variants {
+  [data-theme="monochrome"] {
+    /* Monochrome Color Palette - Pure grayscale */
+    --color-primary: #374151;
+    --color-primary-50: #f9fafb;
+    --color-primary-100: #f3f4f6;
+    --color-primary-500: #374151;
+    --color-primary-600: #4b5563;
+    --color-primary-900: #111827;
+    
+    /* Secondary Monochrome Colors - Different gray tones */
+    --color-secondary: #6b7280;
+    --color-secondary-50: #f9fafb;
+    --color-secondary-500: #6b7280;
+    --color-secondary-900: #1f2937;
+    
+    /* Monochrome-specific Surface Colors */
+    --color-surface: #f9fafb;
+    --color-surface-elevated: #fff;
+    --color-background: #fefefe;
+    
+    /* Monochrome Text Colors */
+    --color-text: #111827;
+    --color-text-muted: #4b5563;
+    
+    /* Monochrome Borders */
+    --color-border: #d1d5db;
+    --color-border-strong: #9ca3af;
+    
+    /* Monochrome Focus States */
+    --color-focus: #374151;
+    --color-focus-glow: rgb(55 65 81 / 25%);
+  }
+}

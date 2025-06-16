@@ -1,0 +1,555 @@
+/**
+ * Color Properties with @property Definitions
+ * 
+ * Typed CSS custom properties for colors using @property.
+ * This enables better tooling support, autocomplete, and animation capabilities.
+ * 
+ * @layer tokens.properties
+ */
+
+@layer tokens.properties {
+  /* Primary Color Properties - Complete Palette */
+  @property --color-primary-50 {
+    inherits: true;
+    initial-value: #e6f0ff;
+    syntax: '<color>';
+  }
+  
+  @property --color-primary-100 {
+    inherits: true;
+    initial-value: #cce0ff;
+    syntax: '<color>';
+  }
+  
+  @property --color-primary-200 {
+    inherits: true;
+    initial-value: #99c2ff;
+    syntax: '<color>';
+  }
+  
+  @property --color-primary-300 {
+    inherits: true;
+    initial-value: #66a3ff;
+    syntax: '<color>';
+  }
+  
+  @property --color-primary-400 {
+    inherits: true;
+    initial-value: #3385ff;
+    syntax: '<color>';
+  }
+  
+  @property --color-primary-500 {
+    inherits: true;
+    initial-value: #06f;
+    syntax: '<color>';
+  }
+  
+  @property --color-primary-600 {
+    inherits: true;
+    initial-value: #0052cc;
+    syntax: '<color>';
+  }
+  
+  @property --color-primary-700 {
+    inherits: true;
+    initial-value: #003d99;
+    syntax: '<color>';
+  }
+  
+  @property --color-primary-800 {
+    inherits: true;
+    initial-value: #002966;
+    syntax: '<color>';
+  }
+  
+  @property --color-primary-900 {
+    inherits: true;
+    initial-value: #001433;
+    syntax: '<color>';
+  }
+  
+  @property --color-primary {
+    inherits: true;
+    initial-value: #06f;
+    syntax: '<color>';
+  }
+  
+  /* Secondary Color Properties - Complete Palette */
+  @property --color-secondary-50 {
+    inherits: true;
+    initial-value: #eeeaff;
+    syntax: '<color>';
+  }
+  
+  @property --color-secondary-100 {
+    inherits: true;
+    initial-value: #dcd6ff;
+    syntax: '<color>';
+  }
+  
+  @property --color-secondary-200 {
+    inherits: true;
+    initial-value: #baadff;
+    syntax: '<color>';
+  }
+  
+  @property --color-secondary-300 {
+    inherits: true;
+    initial-value: #9784ff;
+    syntax: '<color>';
+  }
+  
+  @property --color-secondary-400 {
+    inherits: true;
+    initial-value: #755cff;
+    syntax: '<color>';
+  }
+  
+  @property --color-secondary-500 {
+    inherits: true;
+    initial-value: #5333ff;
+    syntax: '<color>';
+  }
+  
+  @property --color-secondary-600 {
+    inherits: true;
+    initial-value: #4229cc;
+    syntax: '<color>';
+  }
+  
+  @property --color-secondary-700 {
+    inherits: true;
+    initial-value: #321f99;
+    syntax: '<color>';
+  }
+  
+  @property --color-secondary-800 {
+    inherits: true;
+    initial-value: #211566;
+    syntax: '<color>';
+  }
+  
+  @property --color-secondary-900 {
+    inherits: true;
+    initial-value: #110a33;
+    syntax: '<color>';
+  }
+  
+  @property --color-secondary {
+    inherits: true;
+    initial-value: #5333ff;
+    syntax: '<color>';
+  }
+  
+  /* Success Color Properties - Complete Palette */
+  @property --color-success-50 {
+    inherits: true;
+    initial-value: #e6f9f1;
+    syntax: '<color>';
+  }
+  
+  @property --color-success-100 {
+    inherits: true;
+    initial-value: #ccf3e3;
+    syntax: '<color>';
+  }
+  
+  @property --color-success-200 {
+    inherits: true;
+    initial-value: #99e7c7;
+    syntax: '<color>';
+  }
+  
+  @property --color-success-300 {
+    inherits: true;
+    initial-value: #66dbab;
+    syntax: '<color>';
+  }
+  
+  @property --color-success-400 {
+    inherits: true;
+    initial-value: #33cf8f;
+    syntax: '<color>';
+  }
+  
+  @property --color-success-500 {
+    inherits: true;
+    initial-value: #10b981;
+    syntax: '<color>';
+  }
+  
+  @property --color-success-600 {
+    inherits: true;
+    initial-value: #0d9467;
+    syntax: '<color>';
+  }
+  
+  @property --color-success-700 {
+    inherits: true;
+    initial-value: #0a6f4d;
+    syntax: '<color>';
+  }
+  
+  @property --color-success-800 {
+    inherits: true;
+    initial-value: #064a34;
+    syntax: '<color>';
+  }
+  
+  @property --color-success-900 {
+    inherits: true;
+    initial-value: #03251a;
+    syntax: '<color>';
+  }
+  
+  @property --color-success {
+    inherits: true;
+    initial-value: #10b981;
+    syntax: '<color>';
+  }
+  
+  /* Warning Color Properties - Complete Palette */
+  @property --color-warning-50 {
+    inherits: true;
+    initial-value: #fef4e6;
+    syntax: '<color>';
+  }
+  
+  @property --color-warning-100 {
+    inherits: true;
+    initial-value: #fdeacc;
+    syntax: '<color>';
+  }
+  
+  @property --color-warning-200 {
+    inherits: true;
+    initial-value: #fbd599;
+    syntax: '<color>';
+  }
+  
+  @property --color-warning-300 {
+    inherits: true;
+    initial-value: #f9bf66;
+    syntax: '<color>';
+  }
+  
+  @property --color-warning-400 {
+    inherits: true;
+    initial-value: #f7aa33;
+    syntax: '<color>';
+  }
+  
+  @property --color-warning-500 {
+    inherits: true;
+    initial-value: #f59e0b;
+    syntax: '<color>';
+  }
+  
+  @property --color-warning-600 {
+    inherits: true;
+    initial-value: #c47e09;
+    syntax: '<color>';
+  }
+  
+  @property --color-warning-700 {
+    inherits: true;
+    initial-value: #935f06;
+    syntax: '<color>';
+  }
+  
+  @property --color-warning-800 {
+    inherits: true;
+    initial-value: #623f04;
+    syntax: '<color>';
+  }
+  
+  @property --color-warning-900 {
+    inherits: true;
+    initial-value: #312002;
+    syntax: '<color>';
+  }
+  
+  @property --color-warning {
+    inherits: true;
+    initial-value: #f59e0b;
+    syntax: '<color>';
+  }
+  
+  /* Error Color Properties - Complete Palette */
+  @property --color-error-50 {
+    inherits: true;
+    initial-value: #fdeded;
+    syntax: '<color>';
+  }
+  
+  @property --color-error-100 {
+    inherits: true;
+    initial-value: #fbdbdb;
+    syntax: '<color>';
+  }
+  
+  @property --color-error-200 {
+    inherits: true;
+    initial-value: #f7b7b7;
+    syntax: '<color>';
+  }
+  
+  @property --color-error-300 {
+    inherits: true;
+    initial-value: #f39393;
+    syntax: '<color>';
+  }
+  
+  @property --color-error-400 {
+    inherits: true;
+    initial-value: #ef6f6f;
+    syntax: '<color>';
+  }
+  
+  @property --color-error-500 {
+    inherits: true;
+    initial-value: #ef4444;
+    syntax: '<color>';
+  }
+  
+  @property --color-error-600 {
+    inherits: true;
+    initial-value: #bf3636;
+    syntax: '<color>';
+  }
+  
+  @property --color-error-700 {
+    inherits: true;
+    initial-value: #8f2929;
+    syntax: '<color>';
+  }
+  
+  @property --color-error-800 {
+    inherits: true;
+    initial-value: #601b1b;
+    syntax: '<color>';
+  }
+  
+  @property --color-error-900 {
+    inherits: true;
+    initial-value: #300e0e;
+    syntax: '<color>';
+  }
+  
+  @property --color-error {
+    inherits: true;
+    initial-value: #ef4444;
+    syntax: '<color>';
+  }
+  
+  @property --color-info {
+    inherits: true;
+    initial-value: #06f;
+    syntax: '<color>';
+  }
+  
+  /* Gray Color Properties - Complete Palette */
+  @property --color-gray-50 {
+    inherits: true;
+    initial-value: #f9f9fa;
+    syntax: '<color>';
+  }
+  
+  @property --color-gray-100 {
+    inherits: true;
+    initial-value: #f3f3f5;
+    syntax: '<color>';
+  }
+  
+  @property --color-gray-200 {
+    inherits: true;
+    initial-value: #e9eaef;
+    syntax: '<color>';
+  }
+  
+  @property --color-gray-300 {
+    inherits: true;
+    initial-value: #d8dae3;
+    syntax: '<color>';
+  }
+  
+  @property --color-gray-400 {
+    inherits: true;
+    initial-value: #b9bdc9;
+    syntax: '<color>';
+  }
+  
+  @property --color-gray-500 {
+    inherits: true;
+    initial-value: #8f96a8;
+    syntax: '<color>';
+  }
+  
+  @property --color-gray-600 {
+    inherits: true;
+    initial-value: #6c7285;
+    syntax: '<color>';
+  }
+  
+  @property --color-gray-700 {
+    inherits: true;
+    initial-value: #4a4e5c;
+    syntax: '<color>';
+  }
+  
+  @property --color-gray-780 {
+    inherits: true;
+    initial-value: #282b36;
+    syntax: '<color>';
+  }
+  
+  @property --color-gray-800 {
+    inherits: true;
+    initial-value: #30333c;
+    syntax: '<color>';
+  }
+  
+  @property --color-gray-850 {
+    inherits: true;
+    initial-value: #262830;
+    syntax: '<color>';
+  }
+  
+  @property --color-gray-900 {
+    inherits: true;
+    initial-value: #1d1f24;
+    syntax: '<color>';
+  }
+  
+  /* Neutral Color Properties - Complete Palette */
+  @property --color-neutral-50 {
+    inherits: true;
+    initial-value: #f9fafb;
+    syntax: '<color>';
+  }
+  
+  @property --color-neutral-100 {
+    inherits: true;
+    initial-value: #f3f4f6;
+    syntax: '<color>';
+  }
+  
+  @property --color-neutral-200 {
+    inherits: true;
+    initial-value: #e5e7eb;
+    syntax: '<color>';
+  }
+  
+  @property --color-neutral-300 {
+    inherits: true;
+    initial-value: #d1d5db;
+    syntax: '<color>';
+  }
+  
+  @property --color-neutral-400 {
+    inherits: true;
+    initial-value: #9ca3af;
+    syntax: '<color>';
+  }
+  
+  @property --color-neutral-500 {
+    inherits: true;
+    initial-value: #6b7280;
+    syntax: '<color>';
+  }
+  
+  @property --color-neutral-600 {
+    inherits: true;
+    initial-value: #4b5563;
+    syntax: '<color>';
+  }
+  
+  @property --color-neutral-700 {
+    inherits: true;
+    initial-value: #374151;
+    syntax: '<color>';
+  }
+  
+  @property --color-neutral-800 {
+    inherits: true;
+    initial-value: #1f2937;
+    syntax: '<color>';
+  }
+  
+  @property --color-neutral-900 {
+    inherits: true;
+    initial-value: #111827;
+    syntax: '<color>';
+  }
+  
+  /* Surface Color Properties */
+  @property --color-background {
+    inherits: true;
+    initial-value: #fff;
+    syntax: '<color>';
+  }
+  
+  @property --color-surface {
+    inherits: true;
+    initial-value: #f9fafb;
+    syntax: '<color>';
+  }
+  
+  @property --color-surface-elevated {
+    inherits: true;
+    initial-value: #fff;
+    syntax: '<color>';
+  }
+  
+  /* Text Color Properties */
+  @property --color-text {
+    inherits: true;
+    initial-value: #1f2937;
+    syntax: '<color>';
+  }
+  
+  @property --color-text-muted {
+    inherits: true;
+    initial-value: #6b7280;
+    syntax: '<color>';
+  }
+  
+  @property --color-text-inverse {
+    inherits: true;
+    initial-value: #fff;
+    syntax: '<color>';
+  }
+  
+  /* Border Color Properties */
+  @property --color-border {
+    inherits: true;
+    initial-value: #e5e7eb;
+    syntax: '<color>';
+  }
+  
+  @property --color-border-strong {
+    inherits: true;
+    initial-value: #d1d5db;
+    syntax: '<color>';
+  }
+  
+  /* Animatable Color Properties for Smooth Transitions */
+  @property --color-transition-primary {
+    inherits: true;
+    initial-value: #06f;
+    syntax: '<color>';
+  }
+  
+  @property --color-transition-surface {
+    inherits: true;
+    initial-value: #fff;
+    syntax: '<color>';
+  }
+  
+  @property --color-transition-text {
+    inherits: true;
+    initial-value: #1f2937;
+    syntax: '<color>';
+  }
+} 

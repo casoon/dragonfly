@@ -1,6 +1,6 @@
 /**
  * Simple Test Suite for Dragonfly JavaScript Utilities
- * 
+ *
  * Run this file in a browser console or Node.js environment to test utilities.
  * This is a lightweight testing approach without external dependencies.
  */
@@ -18,25 +18,18 @@ class SimpleTest {
   }
 
   async run() {
-    console.log('🧪 Running Dragonfly Utilities Tests...\n');
-    
     for (const { name, fn } of this.tests) {
       try {
         await fn();
-        console.log(`✅ ${name}`);
         this.passed++;
       } catch (error) {
         console.error(`❌ ${name}: ${error.message}`);
         this.failed++;
       }
     }
-    
-    console.log(`\n📊 Test Results: ${this.passed} passed, ${this.failed} failed`);
-    
+
     if (this.failed === 0) {
-      console.log('🎉 All tests passed!');
     } else {
-      console.log('⚠️  Some tests failed. Check the output above.');
     }
   }
 
@@ -54,7 +47,9 @@ class SimpleTest {
 
   assertDeepEqual(actual, expected, message) {
     if (JSON.stringify(actual) !== JSON.stringify(expected)) {
-      throw new Error(message || `Expected ${JSON.stringify(expected)}, got ${JSON.stringify(actual)}`);
+      throw new Error(
+        message || `Expected ${JSON.stringify(expected)}, got ${JSON.stringify(actual)}`
+      );
     }
   }
 }
@@ -62,7 +57,7 @@ class SimpleTest {
 // Test utilities (mock imports for testing)
 const testUtils = {
   // Mock implementations for testing
-  debounce: function(func, delay = 300) {
+  debounce: (func, delay = 300) => {
     let timeout;
     return (...args) => {
       clearTimeout(timeout);
@@ -70,40 +65,38 @@ const testUtils = {
     };
   },
 
-  sleep: function(ms) {
-    return new Promise((resolve) => setTimeout(resolve, ms));
-  },
+  sleep: (ms) => new Promise((resolve) => setTimeout(resolve, ms)),
 
-  capitalize: function(str) {
+  capitalize: (str) => {
     if (!str || typeof str !== 'string') return str;
     return str.charAt(0).toUpperCase() + str.slice(1);
   },
 
-  formatDate: function(dateStr, options = {}) {
+  formatDate: (dateStr, options = {}) => {
     const { locale = 'en-US', format = 'short' } = options;
     const date = new Date(dateStr);
-    
-    if (isNaN(date.getTime())) {
+
+    if (Number.isNaN(date.getTime())) {
       return 'Invalid Date';
     }
-    
+
     const formatOptions = {
       short: { year: 'numeric', month: 'short', day: 'numeric' },
       medium: { year: 'numeric', month: 'long', day: 'numeric' },
-      long: { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
+      long: { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' },
     };
-    
+
     return date.toLocaleDateString(locale, formatOptions[format] || formatOptions.short);
   },
 
-  classNames: function(...args) {
+  classNames: (...args) => {
     const classes = [];
-    
+
     for (const arg of args) {
       if (!arg) continue;
-      
+
       const argType = typeof arg;
-      
+
       if (argType === 'string' || argType === 'number') {
         classes.push(arg);
       } else if (Array.isArray(arg)) {
@@ -115,21 +108,21 @@ const testUtils = {
         }
       } else if (argType === 'object') {
         for (const key in arg) {
-          if (arg.hasOwnProperty(key) && arg[key]) {
+          if (Object.hasOwn(arg, key) && arg[key]) {
             classes.push(key);
           }
         }
       }
     }
-    
+
     return classes.join(' ');
   },
 
-  safeJsonParse: function(str, fallback = {}) {
+  safeJsonParse: (str, fallback = {}) => {
     if (typeof str !== 'string') {
       return fallback;
     }
-    
+
     try {
       const parsed = JSON.parse(str);
       return parsed !== null ? parsed : fallback;
@@ -138,27 +131,24 @@ const testUtils = {
     }
   },
 
-  isEmpty: function(obj) {
-    return obj && 
-           typeof obj === 'object' && 
-           !Array.isArray(obj) && 
-           Object.keys(obj).length === 0 && 
-           obj.constructor === Object;
-  },
+  isEmpty: (obj) =>
+    obj &&
+    typeof obj === 'object' &&
+    !Array.isArray(obj) &&
+    Object.keys(obj).length === 0 &&
+    obj.constructor === Object,
 
-  uniqueArray: function(arr, keyFn = null) {
+  uniqueArray: (arr, keyFn = null) => {
     if (!Array.isArray(arr)) return [];
-    
+
     if (!keyFn) {
       return [...new Set(arr)];
     }
-    
+
     const seen = new Set();
-    const getKey = typeof keyFn === 'string' 
-      ? item => item[keyFn]
-      : keyFn;
-    
-    return arr.filter(item => {
+    const getKey = typeof keyFn === 'string' ? (item) => item[keyFn] : keyFn;
+
+    return arr.filter((item) => {
       const key = getKey(item);
       if (seen.has(key)) {
         return false;
@@ -168,28 +158,29 @@ const testUtils = {
     });
   },
 
-  titleCase: function(str) {
+  titleCase: (str) => {
     if (!str || typeof str !== 'string') return str;
-    return str.replace(/\w\S*/g, (txt) => 
-      txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
+    return str.replace(
+      /\w\S*/g,
+      (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
     );
   },
 
-  camelCase: function(str) {
+  camelCase: (str) => {
     if (!str || typeof str !== 'string') return str;
     return str
-      .replace(/(?:^\w|[A-Z]|\b\w)/g, (word, index) => 
+      .replace(/(?:^\w|[A-Z]|\b\w)/g, (word, index) =>
         index === 0 ? word.toLowerCase() : word.toUpperCase()
       )
       .replace(/\s+/g, '')
       .replace(/[-_]/g, '');
   },
 
-  truncate: function(str, length, suffix = '...') {
+  truncate: (str, length, suffix = '...') => {
     if (!str || typeof str !== 'string') return str;
     if (str.length <= length) return str;
     return str.slice(0, length - suffix.length) + suffix;
-  }
+  },
 };
 
 // Create test instance
@@ -246,10 +237,7 @@ test.test('classNames should handle conditional classes', () => {
 });
 
 test.test('classNames should handle object syntax', () => {
-  test.assertEqual(
-    testUtils.classNames('btn', { active: true, disabled: false }), 
-    'btn active'
-  );
+  test.assertEqual(testUtils.classNames('btn', { active: true, disabled: false }), 'btn active');
 });
 
 test.test('classNames should handle arrays', () => {
@@ -288,9 +276,9 @@ test.test('uniqueArray should work with key function', () => {
   const users = [
     { id: 1, name: 'John' },
     { id: 2, name: 'Jane' },
-    { id: 1, name: 'John Doe' }
+    { id: 1, name: 'John Doe' },
   ];
-  
+
   const unique = testUtils.uniqueArray(users, 'id');
   test.assertEqual(unique.length, 2, 'Should have 2 unique users');
   test.assertEqual(unique[0].id, 1, 'First user should have id 1');
@@ -309,7 +297,7 @@ test.test('sleep should delay execution', async () => {
   await testUtils.sleep(100);
   const end = Date.now();
   const elapsed = end - start;
-  
+
   test.assert(elapsed >= 90, `Sleep should take at least 90ms, took ${elapsed}ms`);
   test.assert(elapsed < 200, `Sleep should take less than 200ms, took ${elapsed}ms`);
 });
@@ -318,18 +306,18 @@ test.test('debounce should delay function execution', async () => {
   let callCount = 0;
   const fn = () => callCount++;
   const debouncedFn = testUtils.debounce(fn, 50);
-  
+
   // Call multiple times quickly
   debouncedFn();
   debouncedFn();
   debouncedFn();
-  
+
   // Should not have been called yet
   test.assertEqual(callCount, 0, 'Function should not be called immediately');
-  
+
   // Wait for debounce delay
   await testUtils.sleep(60);
-  
+
   // Should have been called once
   test.assertEqual(callCount, 1, 'Function should be called once after delay');
 });
@@ -341,7 +329,7 @@ test.test('utilities should handle large datasets', () => {
   const start = Date.now();
   const unique = testUtils.uniqueArray(largeArray);
   const end = Date.now();
-  
+
   test.assertEqual(unique.length, 100, 'Should have 100 unique values');
   test.assert(end - start < 100, `Should complete in under 100ms, took ${end - start}ms`);
 });
@@ -349,7 +337,7 @@ test.test('utilities should handle large datasets', () => {
 test.test('classNames should handle many arguments', () => {
   const manyClasses = Array.from({ length: 100 }, (_, i) => `class-${i}`);
   const result = testUtils.classNames(...manyClasses);
-  
+
   test.assert(result.includes('class-0'), 'Should include first class');
   test.assert(result.includes('class-99'), 'Should include last class');
   test.assertEqual(result.split(' ').length, 100, 'Should have 100 classes');
@@ -362,7 +350,7 @@ test.test('utilities should handle edge cases gracefully', () => {
   test.assertEqual(testUtils.capitalize(undefined), undefined);
   test.assertEqual(testUtils.classNames(null, undefined, false, ''), '');
   test.assertDeepEqual(testUtils.uniqueArray(null), []);
-  
+
   // Test with empty inputs
   test.assertEqual(testUtils.capitalize(''), '');
   test.assertEqual(testUtils.classNames(), '');
@@ -388,5 +376,3 @@ if (typeof window !== 'undefined') {
   // Node.js environment - run tests immediately
   test.run();
 }
-
-console.log('📝 Test suite loaded. Call test.run() to execute all tests.'); 

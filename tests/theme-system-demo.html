@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Theme System Demo - @casoon/dragonfly</title>
+  
+  <!-- Import the complete UI library -->
+  <link rel="stylesheet" href="../ui/index.css">
+  <link rel="stylesheet" href="../themes/index.css">
+  
+  <style>
+    /* Demo-specific styles */
+    .demo-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: var(--space-xl);
+    }
+    
+    .demo-section {
+      margin-bottom: var(--space-3xl);
+      padding: var(--space-xl);
+      background: var(--theme-surface-primary);
+      border: 1px solid var(--theme-border);
+      border-radius: var(--theme-radius-lg);
+    }
+    
+    .demo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--space-lg);
+      margin-top: var(--space-lg);
+    }
+    
+    .demo-card {
+      padding: var(--space-lg);
+      background: var(--theme-surface-secondary);
+      border: 1px solid var(--theme-border);
+      border-radius: var(--theme-radius-md);
+    }
+    
+    .theme-controls {
+      position: fixed;
+      top: var(--space-lg);
+      right: var(--space-lg);
+      background: var(--theme-surface-elevated);
+      border: 1px solid var(--theme-border);
+      border-radius: var(--theme-radius-lg);
+      padding: var(--space-lg);
+      box-shadow: var(--theme-shadow-lg);
+      z-index: var(--z-index-modal);
+    }
+    
+    .color-palette {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+      gap: var(--space-sm);
+      margin-top: var(--space-md);
+    }
+    
+    .color-swatch {
+      height: 60px;
+      border-radius: var(--theme-radius-sm);
+      border: 1px solid var(--theme-border);
+      display: flex;
+      align-items: end;
+      justify-content: center;
+      padding: var(--space-xs);
+      font-size: var(--font-size-xs);
+      color: var(--theme-fg-inverse);
+      text-shadow: 0 1px 2px rgb(0 0 0 / 50%);
+    }
+    
+    .transition-demo {
+      padding: var(--space-lg);
+      margin: var(--space-md) 0;
+      border-radius: var(--theme-radius-md);
+      cursor: pointer;
+      user-select: none;
+    }
+    
+    .property-demo {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-lg);
+      margin-top: var(--space-lg);
+    }
+    
+    .property-list {
+      background: var(--theme-surface-tertiary);
+      padding: var(--space-md);
+      border-radius: var(--theme-radius-sm);
+      font-family: monospace;
+      font-size: var(--font-size-sm);
+      line-height: var(--line-height-relaxed);
+    }
+    
+    .alias-demo {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      margin-top: var(--space-md);
+    }
+    
+    .alias-token {
+      background: var(--theme-surface-accent);
+      color: var(--theme-fg);
+      padding: var(--space-xs) var(--space-sm);
+      border-radius: var(--theme-radius-sm);
+      font-family: monospace;
+      font-size: var(--font-size-xs);
+      border: 1px solid var(--theme-border-accent);
+    }
+  </style>
+</head>
+<body class="theme-transition">
+  <!-- Theme Controls -->
+  <div class="theme-controls">
+    <h3>Theme Controls</h3>
+    <div style="display: flex; flex-direction: column; gap: var(--space-sm);">
+      <button onclick="setTheme('light')" class="btn btn-sm">Light</button>
+      <button onclick="setTheme('dark')" class="btn btn-sm btn-secondary">Dark</button>
+      <button onclick="setTheme('auto')" class="btn btn-sm btn-outline">Auto</button>
+      <button onclick="toggleTransitions()" class="btn btn-sm btn-success">Toggle Transitions</button>
+    </div>
+  </div>
+
+  <div class="demo-container">
+    <header style="text-align: center; margin-bottom: var(--space-3xl);">
+      <h1 style="color: var(--theme-fg-accent); margin-bottom: var(--space-md);">
+        🎨 Theme System Demo
+      </h1>
+      <p style="color: var(--theme-fg-muted); font-size: var(--font-size-lg);">
+        Showcasing @property definitions, semantic aliases, and smooth theme transitions
+      </p>
+    </header>
+
+    <!-- @property Definitions Demo -->
+    <section class="demo-section">
+      <h2>🔧 @property Definitions</h2>
+      <p>Typed CSS custom properties enable better tooling support and smooth animations.</p>
+      
+      <div class="property-demo">
+        <div>
+          <h3>Color Properties</h3>
+          <div class="property-list">
+@property --color-primary {
+  syntax: '&lt;color&gt;';
+  inherits: true;
+  initial-value: #06f;
+}
+
+@property --color-transition-primary {
+  syntax: '&lt;color&gt;';
+  inherits: true;
+  initial-value: #06f;
+}
+          </div>
+        </div>
+        
+        <div>
+          <h3>Spacing Properties</h3>
+          <div class="property-list">
+@property --space-md {
+  syntax: '&lt;length&gt;';
+  inherits: true;
+  initial-value: 1rem;
+}
+
+@property --space-transition-padding {
+  syntax: '&lt;length&gt;';
+  inherits: true;
+  initial-value: 1rem;
+}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Semantic Aliases Demo -->
+    <section class="demo-section">
+      <h2>🏷️ Semantic Aliases</h2>
+      <p>Component-focused tokens that reference base design tokens for better maintainability.</p>
+      
+      <div class="alias-demo">
+        <span class="alias-token">--btn-bg</span>
+        <span class="alias-token">--card-radius</span>
+        <span class="alias-token">--form-error-color</span>
+        <span class="alias-token">--nav-text-hover</span>
+        <span class="alias-token">--modal-shadow</span>
+        <span class="alias-token">--badge-primary-bg</span>
+        <span class="alias-token">--alert-success-border</span>
+        <span class="alias-token">--focus-ring-color</span>
+      </div>
+      
+      <div class="demo-grid">
+        <div class="demo-card">
+          <h3>Button Aliases</h3>
+          <button class="btn" style="background: var(--btn-bg); color: var(--btn-text); border-radius: var(--btn-radius); padding: var(--btn-padding-y) var(--btn-padding-x);">
+            Primary Button
+          </button>
+        </div>
+        
+        <div class="demo-card">
+          <h3>Card Aliases</h3>
+          <div style="background: var(--card-bg); border: 1px solid var(--card-border); border-radius: var(--card-radius); padding: var(--card-padding); box-shadow: var(--card-shadow);">
+            Card with semantic tokens
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Theme Layer Demo -->
+    <section class="demo-section">
+      <h2>🎭 Theme Layer</h2>
+      <p>Design-independent variables that work across all themes.</p>
+      
+      <div class="demo-grid">
+        <div class="demo-card" style="background: var(--theme-bg-elevated); border-color: var(--theme-border);">
+          <h3 style="color: var(--theme-fg);">Surface Colors</h3>
+          <div style="background: var(--theme-surface-primary); padding: var(--space-md); margin: var(--space-sm) 0; border-radius: var(--theme-radius-sm);">
+            Primary Surface
+          </div>
+          <div style="background: var(--theme-surface-secondary); padding: var(--space-md); margin: var(--space-sm) 0; border-radius: var(--theme-radius-sm);">
+            Secondary Surface
+          </div>
+        </div>
+        
+        <div class="demo-card" style="background: var(--theme-bg-elevated); border-color: var(--theme-border);">
+          <h3 style="color: var(--theme-fg);">Interactive States</h3>
+          <button style="background: var(--theme-interactive); color: var(--theme-fg-inverse); border: none; padding: var(--space-sm) var(--space-md); border-radius: var(--theme-radius-sm); margin: var(--space-xs);">
+            Interactive
+          </button>
+          <button style="background: var(--theme-interactive-hover); color: var(--theme-fg-inverse); border: none; padding: var(--space-sm) var(--space-md); border-radius: var(--theme-radius-sm); margin: var(--space-xs);">
+            Hover
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Transition Demo -->
+    <section class="demo-section">
+      <h2>✨ Theme Transitions</h2>
+      <p>Smooth animations between themes using @property interpolation.</p>
+      
+      <div class="transition-demo theme-transition" 
+           style="background: var(--theme-transition-surface); border: 2px solid var(--theme-transition-border);"
+           onclick="this.style.setProperty('--theme-transition-radius', this.style.getPropertyValue('--theme-transition-radius') === 'var(--theme-radius-full)' ? 'var(--theme-radius-sm)' : 'var(--theme-radius-full)')">
+        <h3 style="color: var(--theme-transition-fg);">Click me to see morphing border radius!</h3>
+        <p style="color: var(--theme-fg-muted);">This uses @property for smooth interpolation.</p>
+      </div>
+      
+      <div class="demo-grid">
+        <div class="card-transition" style="padding: var(--space-lg);">
+          <h3>Card Transition</h3>
+          <p>Hover to see smooth color transitions</p>
+        </div>
+        
+        <div class="button-transition" style="padding: var(--space-lg); cursor: pointer;" onclick="this.classList.toggle('morphing-radius')">
+          <h3>Button Transition</h3>
+          <p>Click to toggle morphing radius</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Color Palette Demo -->
+    <section class="demo-section">
+      <h2>🎨 Color System</h2>
+      <p>Comprehensive color palette with semantic meanings.</p>
+      
+      <div class="color-palette">
+        <div class="color-swatch" style="background: var(--color-primary);">Primary</div>
+        <div class="color-swatch" style="background: var(--color-secondary);">Secondary</div>
+        <div class="color-swatch" style="background: var(--color-success);">Success</div>
+        <div class="color-swatch" style="background: var(--color-warning);">Warning</div>
+        <div class="color-swatch" style="background: var(--color-error);">Error</div>
+        <div class="color-swatch" style="background: var(--color-info);">Info</div>
+        <div class="color-swatch" style="background: var(--theme-bg); color: var(--theme-fg);">Background</div>
+        <div class="color-swatch" style="background: var(--theme-surface-primary); color: var(--theme-fg);">Surface</div>
+      </div>
+    </section>
+
+    <!-- Component Examples -->
+    <section class="demo-section">
+      <h2>🧩 Component Examples</h2>
+      <p>Real components using the new theme system.</p>
+      
+      <div class="demo-grid">
+        <div class="demo-card">
+          <h3>Buttons</h3>
+          <div style="display: flex; flex-wrap: wrap; gap: var(--space-sm);">
+            <button class="btn theme-transition">Primary</button>
+            <button class="btn btn-secondary theme-transition">Secondary</button>
+            <button class="btn btn-success theme-transition">Success</button>
+            <button class="btn btn-outline theme-transition">Outline</button>
+          </div>
+        </div>
+        
+        <div class="demo-card">
+          <h3>Form Elements</h3>
+          <div style="display: flex; flex-direction: column; gap: var(--space-sm);">
+            <input type="text" placeholder="Input with theme transitions" class="input-transition" style="padding: var(--space-sm); border: 1px solid var(--theme-border); border-radius: var(--theme-radius-sm);">
+            <select class="input-transition" style="padding: var(--space-sm); border: 1px solid var(--theme-border); border-radius: var(--theme-radius-sm);">
+              <option>Select option</option>
+              <option>Option 1</option>
+              <option>Option 2</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Details -->
+    <section class="demo-section">
+      <h2>⚙️ Technical Implementation</h2>
+      <p>Key features of the new theme system:</p>
+      
+      <div class="demo-grid">
+        <div class="demo-card">
+          <h3>✅ Features Implemented</h3>
+          <ul style="color: var(--theme-fg-muted); line-height: var(--line-height-relaxed);">
+            <li>@property definitions for all tokens</li>
+            <li>Semantic alias system</li>
+            <li>Theme-independent design layer</li>
+            <li>Smooth theme transitions</li>
+            <li>data-theme attribute switching</li>
+            <li>Reduced motion support</li>
+            <li>Lightning CSS compatibility</li>
+            <li>100% lint-free codebase</li>
+          </ul>
+        </div>
+        
+        <div class="demo-card">
+          <h3>🚀 Performance Benefits</h3>
+          <ul style="color: var(--theme-fg-muted); line-height: var(--line-height-relaxed);">
+            <li>Hardware-accelerated animations</li>
+            <li>Efficient CSS custom property updates</li>
+            <li>Minimal layout recalculations</li>
+            <li>Optimized for modern browsers</li>
+            <li>Smooth 60fps transitions</li>
+            <li>Memory-efficient token system</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // Theme switching functionality
+    function setTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+      
+      // Add theme switching animation
+      document.body.classList.add('theme-switching');
+      setTimeout(() => {
+        document.body.classList.remove('theme-switching');
+      }, 300);
+    }
+    
+    function toggleTransitions() {
+      const elements = document.querySelectorAll('.theme-transition, .card-transition, .button-transition, .input-transition');
+      elements.forEach(el => {
+        if (el.style.transition === 'none') {
+          el.style.transition = '';
+        } else {
+          el.style.transition = 'none';
+        }
+      });
+    }
+    
+    // Initialize theme from localStorage
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    setTheme(savedTheme);
+    
+    // System theme detection
+    if (savedTheme === 'auto') {
+      const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+      mediaQuery.addEventListener('change', (e) => {
+        if (localStorage.getItem('theme') === 'auto') {
+          // Theme will automatically update via CSS
+        }
+      });
+    }
+    
+    // Demo interactions
+    document.addEventListener('DOMContentLoaded', () => {
+      // Add hover effects to cards
+      const cards = document.querySelectorAll('.card-transition');
+      cards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+          card.style.transform = 'translateY(-2px)';
+          card.style.boxShadow = 'var(--theme-shadow-lg)';
+        });
+        
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = '';
+          card.style.boxShadow = '';
+        });
+      });
+    });
+  </script>
+</body>
+</html> 

@@ -1,6 +1,6 @@
 {
   "name": "@casoon/dragonfly",
-  "version": "0.7.5",
+  "version": "0.7.6",
   "description": "Modular, lightweight CSS framework and design system for modern web projects. Optimized for Astro JS, LightningCSS and Container Queries with @layer-based architecture and comprehensive accessibility.",
   "main": "index.css",
   "style": "index.css",
@@ -24,8 +24,13 @@
     "STYLE-GUIDE.md"
   ],
   "scripts": {
-    "lint": "stylelint \"**/*.css\" --ignore-path .stylelintignore",
-    "lint:fix": "stylelint \"**/*.css\" --fix --ignore-path .stylelintignore",
+    "lint:css": "stylelint \"**/*.css\" --ignore-path .stylelintignore",
+    "lint:css:fix": "stylelint \"**/*.css\" --fix --ignore-path .stylelintignore",
+    "lint:js": "biome lint .",
+    "lint:js:fix": "biome lint . --write",
+    "format:js": "biome format . --write",
+    "lint": "npm run lint:css && npm run lint:js",
+    "lint:fix": "npm run lint:css:fix && npm run lint:js:fix",
     "test": "npm run lint",
     "test:all": "npm run test && npm run test:lightningcss",
     "test:lightningcss": "cd tests/css-processing && npm run test",
@@ -88,6 +93,7 @@
     "wcag-contrast": "3.0.0"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.9.4",
     "@iconify-json/bi": "^1.2.2",
     "@iconify-json/feather": "^1.2.1",
     "@iconify-json/heroicons": "^1.2.2",

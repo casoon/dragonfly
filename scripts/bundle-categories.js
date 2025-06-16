@@ -12,40 +12,40 @@
  * - {kategorie}.min.css: Minifizierte Version mit Sourcemap
  */
 
-const fs = require("fs");
-const path = require("path");
-const { bundleAsync, transform } = require("lightningcss");
-const glob = require("glob");
+const fs = require('node:fs');
+const path = require('node:path');
+const { bundleAsync, transform } = require('lightningcss');
+const glob = require('glob');
 
 // Pfade konfigurieren
-const rootDir = path.resolve(__dirname, "..");
-const distDir = path.join(rootDir, "dist");
+const rootDir = path.resolve(__dirname, '..');
+const distDir = path.join(rootDir, 'dist');
 
 // Kategorien definieren
 const categories = [
   {
-    name: "effects",
-    pattern: "effects/**/*.css",
+    name: 'effects',
+    pattern: 'effects/**/*.css',
     // Standard-Bundling über Import
-    bundleMethod: "import",
+    bundleMethod: 'import',
   },
   {
-    name: "icons",
-    pattern: "icons/**/*.css",
+    name: 'icons',
+    pattern: 'icons/**/*.css',
     // Standard-Bundling über Import
-    bundleMethod: "import",
+    bundleMethod: 'import',
   },
   {
-    name: "themes",
-    pattern: "themes/**/*.css",
+    name: 'themes',
+    pattern: 'themes/**/*.css',
     // Spezielles Bundling für Themes, wegen der Layer-Problematik
-    bundleMethod: "concat",
+    bundleMethod: 'concat',
   },
   {
-    name: "components",
-    pattern: "ui/components/**/*.css",
+    name: 'components',
+    pattern: 'ui/components/**/*.css',
     // Standard-Bundling über Import
-    bundleMethod: "import",
+    bundleMethod: 'import',
   },
 ];
 
@@ -56,20 +56,20 @@ if (!fs.existsSync(distDir)) {
 
 // Hilfsfunktion zum formatieren von Bytes in lesbare Größen
 function formatBytes(bytes, decimals = 2) {
-  if (bytes === 0) return "0 Bytes";
+  if (bytes === 0) return '0 Bytes';
 
   const k = 1024;
   const dm = decimals < 0 ? 0 : decimals;
-  const sizes = ["Bytes", "KB", "MB", "GB"];
+  const sizes = ['Bytes', 'KB', 'MB', 'GB'];
 
   const i = Math.floor(Math.log(bytes) / Math.log(k));
 
-  return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + " " + sizes[i];
+  return `${Number.parseFloat((bytes / k ** i).toFixed(dm))} ${sizes[i]}`;
 }
 
 // Generiere temporäre Indexdatei für eine Kategorie
 function generateTempIndexFile(category, files) {
-  const tempDir = path.join(distDir, "temp");
+  const tempDir = path.join(distDir, 'temp');
   if (!fs.existsSync(tempDir)) {
     fs.mkdirSync(tempDir, { recursive: true });
   }
@@ -84,7 +84,7 @@ function generateTempIndexFile(category, files) {
       // Verwende Standard-Import-Syntax, die LightningCSS versteht
       return `@import "${relativePath}";`;
     })
-    .join("\n");
+    .join('\n');
 
   fs.writeFileSync(tempFilePath, imports);
   return tempFilePath;
@@ -92,12 +92,12 @@ function generateTempIndexFile(category, files) {
 
 // Generiere direktes Concatenation-Bundle für Kategorien mit Layer-Problemen
 function generateConcatBundle(category, files, minify = true) {
-  const tempDir = path.join(distDir, "temp");
+  const tempDir = path.join(distDir, 'temp');
   if (!fs.existsSync(tempDir)) {
     fs.mkdirSync(tempDir, { recursive: true });
   }
 
-  const suffix = minify ? ".min.css" : ".bundled.css";
+  const suffix = minify ? '.min.css' : '.bundled.css';
   const outputFileName = `${category.name}${suffix}`;
   const outputFile = path.join(distDir, outputFileName);
   const outputMapFile = path.join(distDir, `${outputFileName}.map`);
@@ -105,46 +105,39 @@ function generateConcatBundle(category, files, minify = true) {
   // Sammle @import und @layer Anweisungen am Anfang
   let importStatements = [];
   let layerStatements = [];
-  let regularContent = [];
+  const regularContent = [];
 
   // Lese alle Dateien und kategorisiere den Inhalt
-  files.forEach((file) => {
-    const content = fs.readFileSync(file, "utf8");
-    const lines = content.split("\n");
+  for (const file of files) {
+    const content = fs.readFileSync(file, 'utf8');
+    const lines = content.split('\n');
 
     // Kommentar für jede Datei hinzufügen
     regularContent.push(`/* Datei: ${path.relative(rootDir, file)} */`);
 
     // Extrahiere @import und @layer Anweisungen
-    lines.forEach((line) => {
+    for (const line of lines) {
       const trimmedLine = line.trim();
 
-      if (trimmedLine.startsWith("@import")) {
+      if (trimmedLine.startsWith('@import')) {
         importStatements.push(trimmedLine);
-      } else if (
-        trimmedLine.startsWith("@layer") &&
-        !trimmedLine.includes("{")
-      ) {
+      } else if (trimmedLine.startsWith('@layer') && !trimmedLine.includes('{')) {
         // Nur @layer-Deklarationen, keine @layer-Blöcke
         layerStatements.push(trimmedLine);
       } else {
         regularContent.push(line);
       }
-    });
+    }
 
-    regularContent.push(""); // Leerzeile zwischen Dateien
-  });
+    regularContent.push(''); // Leerzeile zwischen Dateien
+  }
 
   // Entferne Duplikate
   importStatements = [...new Set(importStatements)];
   layerStatements = [...new Set(layerStatements)];
 
   // Kombiniere den Inhalt in der richtigen Reihenfolge
-  const combinedContent = [
-    ...importStatements,
-    ...layerStatements,
-    ...regularContent,
-  ].join("\n");
+  const combinedContent = [...importStatements, ...layerStatements, ...regularContent].join('\n');
 
   // Schreibe die kombinierte Datei
   const tempFilePath = path.join(tempDir, `${category.name}-temp-combined.css`);
@@ -167,7 +160,6 @@ function generateConcatBundle(category, files, minify = true) {
       fs.writeFileSync(outputFile, result.code);
       if (result.map) {
         fs.writeFileSync(outputMapFile, result.map);
-        console.log(`  ✅ Sourcemap erstellt: ${outputMapFile}`);
       }
     } catch (error) {
       console.error(`❌ Fehler beim Minifizieren von ${category.name}:`, error);
@@ -180,8 +172,6 @@ function generateConcatBundle(category, files, minify = true) {
   }
 
   const outputSize = fs.statSync(outputFile).size;
-  console.log(`  ✅ Bundle erfolgreich erstellt: ${outputFile}`);
-  console.log(`     Bundle-Größe: ${formatBytes(outputSize)}`);
 
   return {
     size: outputSize,
@@ -192,27 +182,21 @@ function generateConcatBundle(category, files, minify = true) {
 // Bundle für eine Kategorie erstellen
 async function generateCategoryBundle(category, minify = true) {
   try {
-    const suffix = minify ? ".min.css" : ".bundled.css";
+    const suffix = minify ? '.min.css' : '.bundled.css';
     const outputFileName = `${category.name}${suffix}`;
     const outputFile = path.join(distDir, outputFileName);
     const outputMapFile = path.join(distDir, `${outputFileName}.map`);
-
-    console.log(
-      `🔄 Generiere ${category.name}-Bundle ${minify ? "(minifiziert)" : "(nicht minifiziert)"}...`,
-    );
 
     // Finde alle CSS-Dateien für diese Kategorie
     const files = glob.sync(path.join(rootDir, category.pattern));
 
     if (files.length === 0) {
-      console.warn(
-        `⚠️ Keine CSS-Dateien für Kategorie ${category.name} gefunden!`,
-      );
+      console.warn(`⚠️ Keine CSS-Dateien für Kategorie ${category.name} gefunden!`);
       return false;
     }
 
     // Wähle die Bundling-Methode basierend auf der Kategorie
-    if (category.bundleMethod === "concat") {
+    if (category.bundleMethod === 'concat') {
       return generateConcatBundle(category, files, minify);
     }
 
@@ -238,12 +222,9 @@ async function generateCategoryBundle(category, minify = true) {
 
     if (result.map && minify) {
       fs.writeFileSync(outputMapFile, result.map);
-      console.log(`  ✅ Sourcemap erstellt: ${outputMapFile}`);
     }
 
     const outputSize = fs.statSync(outputFile).size;
-    console.log(`  ✅ Bundle erfolgreich erstellt: ${outputFile}`);
-    console.log(`     Bundle-Größe: ${formatBytes(outputSize)}`);
 
     // Lösche temporäre Datei
     fs.unlinkSync(tempIndexFile);
@@ -260,10 +241,8 @@ async function generateCategoryBundle(category, minify = true) {
 
 // Alle Kategorien bündeln
 async function main() {
-  console.log("🚀 Starte CSS-Category-Bundling-Prozess...");
-
   // Temporäres Verzeichnis erstellen und am Ende bereinigen
-  const tempDir = path.join(distDir, "temp");
+  const tempDir = path.join(distDir, 'temp');
   if (!fs.existsSync(tempDir)) {
     fs.mkdirSync(tempDir, { recursive: true });
   }
@@ -272,8 +251,6 @@ async function main() {
 
   // Alle Kategorien durchlaufen
   for (const category of categories) {
-    console.log(`\n📦 Verarbeite Kategorie: ${category.name}`);
-
     // Nicht-minifizierte Version für Debug-Zwecke
     const nonMinResult = await generateCategoryBundle(category, false);
 
@@ -281,11 +258,7 @@ async function main() {
     const minResult = await generateCategoryBundle(category, true);
 
     if (nonMinResult && minResult) {
-      const reductionPercent = (
-        (1 - minResult.size / nonMinResult.size) *
-        100
-      ).toFixed(2);
-      console.log(`  📊 Reduktion durch Minifizierung: ${reductionPercent}%`);
+      const reductionPercent = ((1 - minResult.size / nonMinResult.size) * 100).toFixed(2);
 
       results[category.name] = {
         bundled: nonMinResult,
@@ -294,18 +267,11 @@ async function main() {
       };
     }
   }
-
-  // Zusammenfassung ausgeben
-  console.log("\n📋 Zusammenfassung:");
   let allSuccess = true;
 
   for (const category of categories) {
     if (results[category.name]) {
-      console.log(
-        `  ✅ ${category.name}: ${formatBytes(results[category.name].bundled.size)} → ${formatBytes(results[category.name].minified.size)} (${results[category.name].reduction}% Reduktion)`,
-      );
     } else {
-      console.log(`  ❌ ${category.name}: Fehler beim Bundling`);
       allSuccess = false;
     }
   }
@@ -316,11 +282,8 @@ async function main() {
   }
 
   if (allSuccess) {
-    console.log("\n✨ Alle Kategorie-Bundles wurden erfolgreich erstellt.");
   } else {
-    console.error(
-      "\n❌ Es gab Probleme beim Erstellen einiger Kategorie-Bundles.",
-    );
+    console.error('\n❌ Es gab Probleme beim Erstellen einiger Kategorie-Bundles.');
     process.exit(1);
   }
 }

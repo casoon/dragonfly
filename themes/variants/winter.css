@@ -1,0 +1,44 @@
+/**
+ * Winter Theme Variant
+ * 
+ * Standalone winter theme variant that can be loaded independently.
+ * Uses [data-theme="winter"] scope for activation.
+ * CDN-compatible and opt-in via import or JS.
+ * 
+ * @layer themes.variants
+ */
+
+@layer themes.variants {
+  [data-theme="winter"] {
+    /* Winter Color Palette - Cool blues, whites, and grays */
+    --color-primary: #3b82f6;
+    --color-primary-50: #eff6ff;
+    --color-primary-100: #dbeafe;
+    --color-primary-500: #3b82f6;
+    --color-primary-600: #2563eb;
+    --color-primary-900: #1e3a8a;
+    
+    /* Secondary Winter Colors - Slate/Steel tones */
+    --color-secondary: #64748b;
+    --color-secondary-50: #f8fafc;
+    --color-secondary-500: #64748b;
+    --color-secondary-900: #0f172a;
+    
+    /* Winter-specific Surface Colors */
+    --color-surface: #f8fafc;
+    --color-surface-elevated: #fff;
+    --color-background: #fefefe;
+    
+    /* Winter Text Colors */
+    --color-text: #1e3a8a;
+    --color-text-muted: #475569;
+    
+    /* Winter Borders */
+    --color-border: #cbd5e1;
+    --color-border-strong: #94a3b8;
+    
+    /* Winter Focus States */
+    --color-focus: #3b82f6;
+    --color-focus-glow: rgb(59 130 246 / 25%);
+  }
+}

@@ -1,237 +1,237 @@
 /**
  * Google Fonts Download Script
- * 
+ *
  * This script downloads Google Fonts and converts them to WOFF2 format
  * for local hosting with the UI library. It also generates individual CSS files
  * for each font in the typography/web-fonts directory if they don't already exist.
- * 
+ *
  * Requirements:
  * - Node.js
  * - npm packages: axios, fs-extra
- * 
+ *
  * Install dependencies:
  * npm install axios fs-extra
  */
 
 const axios = require('axios');
 const fs = require('fs-extra');
-const path = require('path');
-const { exec } = require('child_process');
-const util = require('util');
+const path = require('node:path');
+const { exec } = require('node:child_process');
+const util = require('node:util');
 const execPromise = util.promisify(exec);
 
 // List of Google Fonts to download
 const fonts = [
-  { 
-    name: 'Roboto', 
-    weights: [400, 700], 
+  {
+    name: 'Roboto',
+    weights: [400, 700],
     category: 'sans-serif',
     fallback: 'system-ui, -apple-system, sans-serif',
-    varName: 'roboto'
+    varName: 'roboto',
   },
-  { 
-    name: 'Open Sans', 
-    weights: [400, 700], 
+  {
+    name: 'Open Sans',
+    weights: [400, 700],
     category: 'sans-serif',
     fallback: 'system-ui, -apple-system, sans-serif',
-    varName: 'openSans'
+    varName: 'openSans',
   },
-  { 
-    name: 'Lato', 
-    weights: [400, 700], 
+  {
+    name: 'Lato',
+    weights: [400, 700],
     category: 'sans-serif',
     fallback: 'system-ui, -apple-system, sans-serif',
-    varName: 'lato'
+    varName: 'lato',
   },
-  { 
-    name: 'Montserrat', 
-    weights: [400, 700], 
+  {
+    name: 'Montserrat',
+    weights: [400, 700],
     category: 'sans-serif',
     fallback: 'system-ui, -apple-system, sans-serif',
-    varName: 'montserrat'
+    varName: 'montserrat',
   },
-  { 
-    name: 'Oswald', 
-    weights: [400, 700], 
+  {
+    name: 'Oswald',
+    weights: [400, 700],
     category: 'sans-serif',
     fallback: 'system-ui, -apple-system, sans-serif',
-    varName: 'oswald'
+    varName: 'oswald',
   },
-  { 
-    name: 'Raleway', 
-    weights: [400, 700], 
+  {
+    name: 'Raleway',
+    weights: [400, 700],
     category: 'sans-serif',
     fallback: 'system-ui, -apple-system, sans-serif',
-    varName: 'raleway'
+    varName: 'raleway',
   },
-  { 
-    name: 'Poppins', 
-    weights: [400, 700], 
+  {
+    name: 'Poppins',
+    weights: [400, 700],
     category: 'sans-serif',
     fallback: 'system-ui, -apple-system, sans-serif',
-    varName: 'poppins'
+    varName: 'poppins',
   },
-  { 
-    name: 'Source Sans Pro', 
-    weights: [400, 700], 
+  {
+    name: 'Source Sans Pro',
+    weights: [400, 700],
     category: 'sans-serif',
     fallback: 'system-ui, -apple-system, sans-serif',
-    varName: 'sourceSansPro'
+    varName: 'sourceSansPro',
   },
-  { 
-    name: 'Roboto Condensed', 
-    weights: [400, 700], 
+  {
+    name: 'Roboto Condensed',
+    weights: [400, 700],
     category: 'sans-serif',
     fallback: 'system-ui, -apple-system, sans-serif',
-    varName: 'robotoCondensed'
+    varName: 'robotoCondensed',
   },
-  { 
-    name: 'Merriweather', 
-    weights: [400, 700], 
+  {
+    name: 'Merriweather',
+    weights: [400, 700],
     category: 'serif',
     fallback: 'georgia, cambria, serif',
-    varName: 'merriweather'
+    varName: 'merriweather',
   },
-  { 
-    name: 'Noto Sans', 
-    weights: [400, 700], 
+  {
+    name: 'Noto Sans',
+    weights: [400, 700],
     category: 'sans-serif',
     fallback: 'system-ui, -apple-system, sans-serif',
-    varName: 'notoSans'
+    varName: 'notoSans',
   },
-  { 
-    name: 'Ubuntu', 
-    weights: [400, 700], 
+  {
+    name: 'Ubuntu',
+    weights: [400, 700],
     category: 'sans-serif',
     fallback: 'system-ui, -apple-system, sans-serif',
-    varName: 'ubuntu'
+    varName: 'ubuntu',
   },
-  { 
-    name: 'PT Sans', 
-    weights: [400, 700], 
+  {
+    name: 'PT Sans',
+    weights: [400, 700],
     category: 'sans-serif',
     fallback: 'system-ui, -apple-system, sans-serif',
-    varName: 'ptSans'
+    varName: 'ptSans',
   },
-  { 
-    name: 'Playfair Display', 
-    weights: [400, 700], 
+  {
+    name: 'Playfair Display',
+    weights: [400, 700],
     category: 'serif',
     fallback: 'georgia, cambria, serif',
-    varName: 'playfairDisplay'
+    varName: 'playfairDisplay',
   },
-  { 
-    name: 'Nunito', 
-    weights: [400, 700], 
+  {
+    name: 'Nunito',
+    weights: [400, 700],
     category: 'sans-serif',
     fallback: 'system-ui, -apple-system, sans-serif',
-    varName: 'nunito'
+    varName: 'nunito',
   },
-  { 
-    name: 'Inter', 
-    weights: [400, 700], 
+  {
+    name: 'Inter',
+    weights: [400, 700],
     category: 'sans-serif',
     fallback: 'system-ui, -apple-system, sans-serif',
-    varName: 'inter'
+    varName: 'inter',
   },
-  { 
-    name: 'Quicksand', 
-    weights: [400, 700], 
+  {
+    name: 'Quicksand',
+    weights: [400, 700],
     category: 'sans-serif',
     fallback: 'system-ui, -apple-system, sans-serif',
-    varName: 'quicksand'
+    varName: 'quicksand',
   },
-  { 
-    name: 'Mukta', 
-    weights: [400, 700], 
+  {
+    name: 'Mukta',
+    weights: [400, 700],
     category: 'sans-serif',
     fallback: 'system-ui, -apple-system, sans-serif',
-    varName: 'mukta'
+    varName: 'mukta',
   },
-  { 
-    name: 'Work Sans', 
-    weights: [400, 700], 
+  {
+    name: 'Work Sans',
+    weights: [400, 700],
     category: 'sans-serif',
     fallback: 'system-ui, -apple-system, sans-serif',
-    varName: 'workSans'
+    varName: 'workSans',
   },
-  { 
-    name: 'Titillium Web', 
-    weights: [400, 700], 
+  {
+    name: 'Titillium Web',
+    weights: [400, 700],
     category: 'sans-serif',
     fallback: 'system-ui, -apple-system, sans-serif',
-    varName: 'titilliumWeb'
+    varName: 'titilliumWeb',
   },
-  { 
-    name: 'Cabin', 
-    weights: [400, 700], 
+  {
+    name: 'Cabin',
+    weights: [400, 700],
     category: 'sans-serif',
     fallback: 'system-ui, -apple-system, sans-serif',
-    varName: 'cabin'
+    varName: 'cabin',
   },
-  { 
-    name: 'Fira Sans', 
-    weights: [400, 700], 
+  {
+    name: 'Fira Sans',
+    weights: [400, 700],
     category: 'sans-serif',
     fallback: 'system-ui, -apple-system, sans-serif',
-    varName: 'firaSans'
+    varName: 'firaSans',
   },
-  { 
-    name: 'Inconsolata', 
-    weights: [400, 700], 
+  {
+    name: 'Inconsolata',
+    weights: [400, 700],
     category: 'monospace',
     fallback: 'ui-monospace, monospace',
-    varName: 'inconsolata'
+    varName: 'inconsolata',
   },
-  { 
-    name: 'Anton', 
-    weights: [400], 
+  {
+    name: 'Anton',
+    weights: [400],
     category: 'display',
     fallback: 'impact, sans-serif',
-    varName: 'anton'
+    varName: 'anton',
   },
-  { 
-    name: 'Bebas Neue', 
-    weights: [400], 
+  {
+    name: 'Bebas Neue',
+    weights: [400],
     category: 'display',
     fallback: 'impact, sans-serif',
-    varName: 'bebasNeue'
+    varName: 'bebasNeue',
   },
-  { 
-    name: 'Dosis', 
-    weights: [400, 700], 
+  {
+    name: 'Dosis',
+    weights: [400, 700],
     category: 'sans-serif',
     fallback: 'system-ui, -apple-system, sans-serif',
-    varName: 'dosis'
+    varName: 'dosis',
   },
-  { 
-    name: 'Arimo', 
-    weights: [400, 700], 
+  {
+    name: 'Arimo',
+    weights: [400, 700],
     category: 'sans-serif',
     fallback: 'system-ui, -apple-system, sans-serif',
-    varName: 'arimo'
+    varName: 'arimo',
   },
-  { 
-    name: 'DM Sans', 
-    weights: [400, 700], 
+  {
+    name: 'DM Sans',
+    weights: [400, 700],
     category: 'sans-serif',
     fallback: 'system-ui, -apple-system, sans-serif',
-    varName: 'dmSans'
+    varName: 'dmSans',
   },
-  { 
-    name: 'Josefin Sans', 
-    weights: [400, 700], 
+  {
+    name: 'Josefin Sans',
+    weights: [400, 700],
     category: 'sans-serif',
     fallback: 'system-ui, -apple-system, sans-serif',
-    varName: 'josefinSans'
+    varName: 'josefinSans',
   },
-  { 
-    name: 'Teko', 
-    weights: [400, 700], 
+  {
+    name: 'Teko',
+    weights: [400, 700],
     category: 'display',
     fallback: 'impact, sans-serif',
-    varName: 'teko'
-  }
+    varName: 'teko',
+  },
 ];
 
 // Target directories
@@ -267,50 +267,49 @@ async function downloadFont(font, weight) {
   try {
     // Format font family name for URL
     const formattedName = font.name.replace(/\s+/g, '+');
-    
+
     // Create URL for Google Fonts API
     const url = `https://fonts.googleapis.com/css2?family=${formattedName}:wght@${weight}&display=swap`;
-    
+
     // Create file name for the font
     const fileName = font.name.toLowerCase().replace(/\s+/g, '-');
     const weightName = weight === 400 ? 'regular' : weight === 700 ? 'bold' : weight;
     const outputPath = path.join(fontsDir, `${fileName}-${weightName}.woff2`);
-    
+
     // Check if font already exists
     if (await fileExists(outputPath)) {
-      console.log(`Font ${font.name} (${weight}) already exists at ${outputPath}`);
       return outputPath;
     }
-    
+
     // Send request with browser-like headers to prevent API rejection
     const response = await axios.get(url, {
       headers: {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
-        'Accept': 'text/css,*/*;q=0.1'
-      }
+        'User-Agent':
+          'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+        Accept: 'text/css,*/*;q=0.1',
+      },
     });
-    
+
     // Extract font URL from CSS
     const cssContent = response.data;
     const fontUrlMatch = cssContent.match(/url\(([^)]+\.woff2)\)/);
-    
+
     if (!fontUrlMatch) {
       throw new Error(`Could not find woff2 URL in CSS for ${font.name} (${weight})`);
     }
-    
+
     const fontUrl = fontUrlMatch[1];
-    
+
     // Download font file
     const fontResponse = await axios({
       method: 'get',
       url: fontUrl,
-      responseType: 'arraybuffer'
+      responseType: 'arraybuffer',
     });
-    
+
     // Save font file
     await fs.writeFile(outputPath, fontResponse.data);
-    console.log(`Downloaded ${font.name} (${weight}) to ${outputPath}`);
-    
+
     return outputPath;
   } catch (error) {
     console.error(`Error downloading ${font.name} (${weight}):`, error.message);
@@ -322,13 +321,12 @@ async function downloadFont(font, weight) {
 async function generateCssFile(font) {
   const kebabName = font.name.toLowerCase().replace(/\s+/g, '-');
   const cssFileName = path.join(webFontsDir, `${kebabName}.css`);
-  
+
   // Check if CSS file already exists
   if (await fileExists(cssFileName)) {
-    console.log(`CSS file for ${font.name} already exists at ${cssFileName}, skipping generation`);
     return;
   }
-  
+
   let cssContent = `/**
  * ${font.name} Font
  * 
@@ -369,56 +367,51 @@ async function generateCssFile(font) {
 
   // Write CSS file
   await fs.writeFile(cssFileName, cssContent);
-  console.log(`Generated CSS file for ${font.name} at ${cssFileName}`);
 }
 
 // Download Inter variable font (special case)
 async function downloadInterVariableFont() {
   try {
-    console.log('Downloading Inter variable font...');
-    
     const interVarPath = path.join(fontsDir, 'inter-var.woff2');
     const interVarCssPath = path.join(webFontsDir, 'inter-var.css');
-    
+
     // Check if font file already exists
     if (await fileExists(interVarPath)) {
-      console.log(`Inter variable font already exists at ${interVarPath}`);
     } else {
       // Updated URL to a more reliable source
-      const interVarUrl = 'https://github.com/rsms/inter/raw/master/docs/font-files/Inter.var.woff2';
-      
+      const interVarUrl =
+        'https://github.com/rsms/inter/raw/master/docs/font-files/Inter.var.woff2';
+
       try {
         const interVarResponse = await axios({
           method: 'get',
           url: interVarUrl,
-          responseType: 'arraybuffer'
+          responseType: 'arraybuffer',
         });
-        
+
         await fs.writeFile(interVarPath, interVarResponse.data);
-        console.log(`Downloaded Inter variable font to ${interVarPath}`);
       } catch (downloadError) {
-        console.error(`Error downloading from GitHub, trying alternate source...`);
-        
+        console.error('Error downloading from GitHub, trying alternate source...');
+
         // Fallback to Google Fonts CDN
-        const alternateCdnUrl = 'https://fonts.gstatic.com/s/inter/v12/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.woff2';
-        
+        const alternateCdnUrl =
+          'https://fonts.gstatic.com/s/inter/v12/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.woff2';
+
         const fallbackResponse = await axios({
           method: 'get',
           url: alternateCdnUrl,
-          responseType: 'arraybuffer'
+          responseType: 'arraybuffer',
         });
-        
+
         await fs.writeFile(interVarPath, fallbackResponse.data);
-        console.log(`Downloaded Inter variable font from alternate source to ${interVarPath}`);
       }
     }
 
     // Check if CSS file already exists
     if (await fileExists(interVarCssPath)) {
-      console.log(`CSS file for Inter variable font already exists at ${interVarCssPath}, skipping generation`);
       return interVarPath;
     }
-    
+
     // Create special CSS file for Inter variable font
     const interVarCssContent = `/**
  * Inter Variable Font
@@ -459,10 +452,9 @@ async function downloadInterVariableFont() {
   .font-weight-extra-bold { font-weight: 800; }
   .font-weight-black { font-weight: 900; }
 }`;
-    
+
     await fs.writeFile(interVarCssPath, interVarCssContent);
-    console.log(`Generated CSS file for Inter variable font at ${interVarCssPath}`);
-    
+
     return interVarPath;
   } catch (error) {
     console.error('Error with Inter variable font:', error.message);
@@ -477,33 +469,28 @@ async function main() {
   if (!hasWoff2Tools) {
     process.exit(1);
   }
-  
+
   // Create directories if they don't exist
   await fs.ensureDir(fontsDir);
   await fs.ensureDir(webFontsDir);
-  
-  console.log('Starting download of Google Fonts...');
-  console.log('Note: CSS files that already exist will not be overwritten');
-  
+
   // Process each font
   for (const font of fonts) {
     // Download font files
     for (const weight of font.weights) {
       await downloadFont(font, weight);
     }
-    
+
     // Generate CSS file if it doesn't exist
     await generateCssFile(font);
   }
-  
+
   // Special case for Inter variable font
   await downloadInterVariableFont();
-  
-  console.log('Font download and CSS generation complete!');
 }
 
 // Run the script
-main().catch(error => {
+main().catch((error) => {
   console.error('Error:', error);
   process.exit(1);
-}); 
+});
