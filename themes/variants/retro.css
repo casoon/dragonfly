@@ -1,7 +1,7 @@
 /**
  * Retro Theme Variant
  * 
- * Standalone retro theme variant that can be loaded independently.
+ * Standalone theme variant that can be loaded independently.
  * Uses [data-theme="retro"] scope for activation.
  * CDN-compatible and opt-in via import or JS.
  * 
@@ -10,35 +10,33 @@
 
 @layer themes.variants {
   [data-theme="retro"] {
-    /* Retro Color Palette - Muted vintage tones */
-    --color-primary: #dc2626;
-    --color-primary-50: #fef2f2;
-    --color-primary-100: #fee2e2;
-    --color-primary-500: #dc2626;
-    --color-primary-600: #b91c1c;
-    --color-primary-900: #7f1d1d;
+    /* Primary Colors */
+    --color-primary: #a16207;
+    --color-secondary: #ea580c;
     
-    /* Secondary Retro Colors - Amber/Brown tones */
-    --color-secondary: #d97706;
-    --color-secondary-50: #fff7ed;
-    --color-secondary-500: #d97706;
-    --color-secondary-900: #92400e;
+    /* Status Colors */
+    --color-success: #10b981;
+    --color-warning: #f59e0b;
+    --color-error: #ef4444;
+    --color-info: #06b6d4;
     
-    /* Retro-specific Surface Colors */
-    --color-surface: #fef2f2;
-    --color-surface-elevated: #fff;
-    --color-background: #fffaf5;
+    /* Text Colors */
+    --color-text: #78350f;
+    --color-text-muted: #4b5563;
+    --color-text-inverse: #ffffff;
     
-    /* Retro Text Colors */
-    --color-text: #7f1d1d;
-    --color-text-muted: #92400e;
+    /* Surface Colors */
+    --color-background: #fef3c7;
+    --color-surface: #fde047;
+    --color-surface-elevated: #ffffff;
     
-    /* Retro Borders */
-    --color-border: #fecaca;
-    --color-border-strong: #fca5a5;
+    /* Border Colors */
+    --color-border: #facc15;
+    --color-border-strong: #eab308;
     
-    /* Retro Focus States */
-    --color-focus: #dc2626;
-    --color-focus-glow: rgb(220 38 38 / 25%);
+    /* Transition Colors for smooth animations */
+    --color-transition-primary: #a16207;
+    --color-transition-surface: #fef3c7;
+    --color-transition-text: #78350f;
   }
 }

@@ -1,7 +1,7 @@
 /**
  * Neon Theme Variant
  * 
- * Standalone neon theme variant that can be loaded independently.
+ * Standalone theme variant that can be loaded independently.
  * Uses [data-theme="neon"] scope for activation.
  * CDN-compatible and opt-in via import or JS.
  * 
@@ -10,35 +10,33 @@
 
 @layer themes.variants {
   [data-theme="neon"] {
-    /* Neon Color Palette - Bright, electric colors */
-    --color-primary: #06ffa5;
-    --color-primary-50: #f0fff4;
-    --color-primary-100: #dcfce7;
-    --color-primary-500: #06ffa5;
-    --color-primary-600: #00e676;
-    --color-primary-900: #00695c;
+    /* Primary Colors */
+    --color-primary: #a855f7;
+    --color-secondary: #ec4899;
     
-    /* Secondary Neon Colors - Electric blue/cyan */
-    --color-secondary: #00e5ff;
-    --color-secondary-50: #e0f7fa;
-    --color-secondary-500: #00e5ff;
-    --color-secondary-900: #006064;
+    /* Status Colors */
+    --color-success: #10b981;
+    --color-warning: #f59e0b;
+    --color-error: #ef4444;
+    --color-info: #06b6d4;
     
-    /* Neon-specific Surface Colors - Dark background for contrast */
-    --color-surface: #0a0a0a;
-    --color-surface-elevated: #1a1a1a;
-    --color-background: #000;
+    /* Text Colors */
+    --color-text: #581c87;
+    --color-text-muted: #4b5563;
+    --color-text-inverse: #ffffff;
     
-    /* Neon Text Colors - Bright on dark */
-    --color-text: #06ffa5;
-    --color-text-muted: #00e676;
+    /* Surface Colors */
+    --color-background: #faf5ff;
+    --color-surface: #e9d5ff;
+    --color-surface-elevated: #ffffff;
     
-    /* Neon Borders - Glowing effect */
-    --color-border: #06ffa5;
-    --color-border-strong: #00e676;
+    /* Border Colors */
+    --color-border: #c084fc;
+    --color-border-strong: #a855f7;
     
-    /* Neon Focus States - Extra bright */
-    --color-focus: #06ffa5;
-    --color-focus-glow: rgb(6 255 165 / 50%);
+    /* Transition Colors for smooth animations */
+    --color-transition-primary: #a855f7;
+    --color-transition-surface: #faf5ff;
+    --color-transition-text: #581c87;
   }
 }

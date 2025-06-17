@@ -1,7 +1,7 @@
 /**
  * Forest Theme Variant
  * 
- * Standalone forest theme variant that can be loaded independently.
+ * Standalone theme variant that can be loaded independently.
  * Uses [data-theme="forest"] scope for activation.
  * CDN-compatible and opt-in via import or JS.
  * 
@@ -10,35 +10,33 @@
 
 @layer themes.variants {
   [data-theme="forest"] {
-    /* Forest Color Palette - Deep greens and earth tones */
+    /* Primary Colors - Forest green */
     --color-primary: #059669;
-    --color-primary-50: #ecfdf5;
-    --color-primary-100: #d1fae5;
-    --color-primary-500: #059669;
-    --color-primary-600: #047857;
-    --color-primary-900: #064e3b;
+    --color-secondary: #0d9488;
     
-    /* Secondary Forest Colors - Emerald/Sage tones */
-    --color-secondary: #10b981;
-    --color-secondary-50: #f0fdf4;
-    --color-secondary-500: #10b981;
-    --color-secondary-900: #14532d;
+    /* Status Colors */
+    --color-success: #10b981;
+    --color-warning: #f59e0b;
+    --color-error: #ef4444;
+    --color-info: #06b6d4;
     
-    /* Forest-specific Surface Colors */
-    --color-surface: #f0fdf4;
-    --color-surface-elevated: #fff;
-    --color-background: #fafffe;
+    /* Text Colors */
+    --color-text: #14532d;
+    --color-text-muted: #4b5563;
+    --color-text-inverse: #ffffff;
     
-    /* Forest Text Colors */
-    --color-text: #064e3b;
-    --color-text-muted: #047857;
+    /* Surface Colors */
+    --color-background: #f0fdf4;
+    --color-surface: #dcfce7;
+    --color-surface-elevated: #ffffff;
     
-    /* Forest Borders */
+    /* Border Colors */
     --color-border: #bbf7d0;
     --color-border-strong: #86efac;
     
-    /* Forest Focus States */
-    --color-focus: #059669;
-    --color-focus-glow: rgb(5 150 105 / 25%);
+    /* Transition Colors for smooth animations */
+    --color-transition-primary: #059669;
+    --color-transition-surface: #f0fdf4;
+    --color-transition-text: #14532d;
   }
 }

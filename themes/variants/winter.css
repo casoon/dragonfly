@@ -1,7 +1,7 @@
 /**
  * Winter Theme Variant
  * 
- * Standalone winter theme variant that can be loaded independently.
+ * Standalone theme variant that can be loaded independently.
  * Uses [data-theme="winter"] scope for activation.
  * CDN-compatible and opt-in via import or JS.
  * 
@@ -10,35 +10,33 @@
 
 @layer themes.variants {
   [data-theme="winter"] {
-    /* Winter Color Palette - Cool blues, whites, and grays */
-    --color-primary: #3b82f6;
-    --color-primary-50: #eff6ff;
-    --color-primary-100: #dbeafe;
-    --color-primary-500: #3b82f6;
-    --color-primary-600: #2563eb;
-    --color-primary-900: #1e3a8a;
+    /* Primary Colors */
+    --color-primary: #0891b2;
+    --color-secondary: #0284c7;
     
-    /* Secondary Winter Colors - Slate/Steel tones */
-    --color-secondary: #64748b;
-    --color-secondary-50: #f8fafc;
-    --color-secondary-500: #64748b;
-    --color-secondary-900: #0f172a;
+    /* Status Colors */
+    --color-success: #10b981;
+    --color-warning: #f59e0b;
+    --color-error: #ef4444;
+    --color-info: #06b6d4;
     
-    /* Winter-specific Surface Colors */
-    --color-surface: #f8fafc;
-    --color-surface-elevated: #fff;
-    --color-background: #fefefe;
+    /* Text Colors */
+    --color-text: #164e63;
+    --color-text-muted: #4b5563;
+    --color-text-inverse: #ffffff;
     
-    /* Winter Text Colors */
-    --color-text: #1e3a8a;
-    --color-text-muted: #475569;
+    /* Surface Colors */
+    --color-background: #f0f9ff;
+    --color-surface: #bae6fd;
+    --color-surface-elevated: #ffffff;
     
-    /* Winter Borders */
-    --color-border: #cbd5e1;
-    --color-border-strong: #94a3b8;
+    /* Border Colors */
+    --color-border: #7dd3fc;
+    --color-border-strong: #38bdf8;
     
-    /* Winter Focus States */
-    --color-focus: #3b82f6;
-    --color-focus-glow: rgb(59 130 246 / 25%);
+    /* Transition Colors for smooth animations */
+    --color-transition-primary: #0891b2;
+    --color-transition-surface: #f0f9ff;
+    --color-transition-text: #164e63;
   }
 }

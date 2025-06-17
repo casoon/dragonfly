@@ -1,68 +1,42 @@
 /**
- * Night Theme
+ * Night Theme Variant
  * 
- * Diese Datei definiert das Night Theme.
- * Die Farben orientieren sich an den Variablen aus colors.css.
- * Das Theme wird nur aktiviert, wenn die Klasse "theme-night" auf einem Element angewendet wird.
+ * Standalone theme variant that can be loaded independently.
+ * Uses [data-theme="night"] scope for activation.
+ * CDN-compatible and opt-in via import or JS.
+ * 
+ * @layer themes.variants
  */
 
-.theme-night {
-    /* =================== BASIS-FARBEN =================== */
-
-    /* Primary Colors */
-    --color-primary-50: var(--color-indigo-50);
-    --color-primary-100: var(--color-indigo-100);
-    --color-primary-200: var(--color-indigo-200);
-    --color-primary-300: var(--color-indigo-300);
-    --color-primary-400: var(--color-indigo-400);
-    --color-primary-500: var(--color-indigo-500);
-    --color-primary-600: var(--color-indigo-600);
-    --color-primary-700: var(--color-indigo-700);
-    --color-primary-800: var(--color-indigo-800);
-    --color-primary-900: var(--color-indigo-900);
-    --color-primary: var(--color-primary-600);
-    --color-primary-hover: var(--color-primary-700);
-    --color-primary-active: var(--color-primary-800);
-    --color-primary-light: var(--color-primary-100);
-    --color-primary-dark: var(--color-primary-900);
-
-    /* Secondary Colors */
-    --color-secondary-50: var(--color-violet-50);
-    --color-secondary-100: var(--color-violet-100);
-    --color-secondary-200: var(--color-violet-200);
-    --color-secondary-300: var(--color-violet-300);
-    --color-secondary-400: var(--color-violet-400);
-    --color-secondary-500: var(--color-violet-500);
-    --color-secondary-600: var(--color-violet-600);
-    --color-secondary-700: var(--color-violet-700);
-    --color-secondary-800: var(--color-violet-800);
-    --color-secondary-900: var(--color-violet-900);
-    --color-secondary: var(--color-secondary-600);
-    --color-secondary-hover: var(--color-secondary-700);
-    --color-secondary-active: var(--color-secondary-800);
-    --color-secondary-light: var(--color-secondary-100);
-    --color-secondary-dark: var(--color-secondary-900);
-
-    /* Accent Colors */
-    --color-accent-50: var(--color-purple-50);
-    --color-accent-100: var(--color-purple-100);
-    --color-accent-200: var(--color-purple-200);
-    --color-accent-300: var(--color-purple-300);
-    --color-accent-400: var(--color-purple-400);
-    --color-accent-500: var(--color-purple-500);
-    --color-accent-600: var(--color-purple-600);
-    --color-accent-700: var(--color-purple-700);
-    --color-accent-800: var(--color-purple-800);
-    --color-accent-900: var(--color-purple-900);
-    --color-accent: var(--color-accent-500);
-    --color-accent-hover: var(--color-accent-600);
-    --color-accent-active: var(--color-accent-700);
-    --color-accent-light: var(--color-accent-100);
-    --color-accent-dark: var(--color-accent-900);
-
-    /* =================== STATUS-FARBEN =================== */
-    --color-success: var(--color-emerald-500);
-    --color-error: var(--color-red-500);
-    --color-warning: var(--color-amber-500);
-    --color-info: var(--color-sky-500);
+@layer themes.variants {
+  [data-theme="night"] {
+    /* Primary Colors - Purple/indigo for night theme */
+    --color-primary: #6366f1;
+    --color-secondary: #8b5cf6;
+    
+    /* Status Colors */
+    --color-success: #10b981;
+    --color-warning: #f59e0b;
+    --color-error: #ef4444;
+    --color-info: #06b6d4;
+    
+    /* Text Colors - Light text for dark backgrounds */
+    --color-text: #f9fafb;
+    --color-text-muted: #d1d5db;
+    --color-text-inverse: #1f2937;
+    
+    /* Surface Colors - Dark surfaces for night theme */
+    --color-background: #111827;
+    --color-surface: #1f2937;
+    --color-surface-elevated: #374151;
+    
+    /* Border Colors */
+    --color-border: #374151;
+    --color-border-strong: #4b5563;
+    
+    /* Transition Colors for smooth animations */
+    --color-transition-primary: #6366f1;
+    --color-transition-surface: #111827;
+    --color-transition-text: #f9fafb;
   }
+}

@@ -10,35 +10,33 @@
 
 @layer themes.variants {
   [data-theme="brand"] {
-    /* Primary Brand Colors */
+    /* Primary Colors - Brand indigo */
     --color-primary: #4f46e5;
-    --color-primary-50: #eef2ff;
-    --color-primary-100: #e0e7ff;
-    --color-primary-500: #4f46e5;
-    --color-primary-600: #4338ca;
-    --color-primary-900: #312e81;
-    
-    /* Secondary Brand Colors */
     --color-secondary: #7c3aed;
-    --color-secondary-50: #f5f3ff;
-    --color-secondary-500: #7c3aed;
-    --color-secondary-900: #581c87;
     
-    /* Brand-specific Surface Colors */
-    --color-surface: #f8fafc;
-    --color-surface-elevated: #fff;
-    --color-background: #fff;
+    /* Status Colors */
+    --color-success: #10b981;
+    --color-warning: #f59e0b;
+    --color-error: #ef4444;
+    --color-info: #06b6d4;
     
-    /* Brand Text Colors */
+    /* Text Colors */
     --color-text: #1e293b;
     --color-text-muted: #64748b;
+    --color-text-inverse: #ffffff;
     
-    /* Brand Borders */
+    /* Surface Colors */
+    --color-background: #ffffff;
+    --color-surface: #f8fafc;
+    --color-surface-elevated: #ffffff;
+    
+    /* Border Colors */
     --color-border: #e2e8f0;
     --color-border-strong: #cbd5e1;
     
-    /* Brand Focus States */
-    --color-focus: #4f46e5;
-    --color-focus-glow: rgb(79 70 229 / 25%);
+    /* Transition Colors for smooth animations */
+    --color-transition-primary: #4f46e5;
+    --color-transition-surface: #ffffff;
+    --color-transition-text: #1e293b;
   }
 }

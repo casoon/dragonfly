@@ -1,7 +1,7 @@
 /**
  * Summer Theme Variant
  * 
- * Standalone summer theme variant that can be loaded independently.
+ * Standalone theme variant that can be loaded independently.
  * Uses [data-theme="summer"] scope for activation.
  * CDN-compatible and opt-in via import or JS.
  * 
@@ -10,35 +10,33 @@
 
 @layer themes.variants {
   [data-theme="summer"] {
-    /* Summer Color Palette - Bright yellows, oranges, and turquoise */
-    --color-primary: #eab308;
-    --color-primary-50: #fefce8;
-    --color-primary-100: #fef3c7;
-    --color-primary-500: #eab308;
-    --color-primary-600: #ca8a04;
-    --color-primary-900: #713f12;
+    /* Primary Colors */
+    --color-primary: #ca8a04;
+    --color-secondary: #16a34a;
     
-    /* Secondary Summer Colors - Orange/Coral tones */
-    --color-secondary: #f97316;
-    --color-secondary-50: #fff7ed;
-    --color-secondary-500: #f97316;
-    --color-secondary-900: #9a3412;
+    /* Status Colors */
+    --color-success: #10b981;
+    --color-warning: #f59e0b;
+    --color-error: #ef4444;
+    --color-info: #06b6d4;
     
-    /* Summer-specific Surface Colors */
-    --color-surface: #fefce8;
-    --color-surface-elevated: #fff;
-    --color-background: #fffef5;
-    
-    /* Summer Text Colors */
+    /* Text Colors */
     --color-text: #713f12;
-    --color-text-muted: #a16207;
+    --color-text-muted: #4b5563;
+    --color-text-inverse: #ffffff;
     
-    /* Summer Borders */
-    --color-border: #fde68a;
-    --color-border-strong: #fcd34d;
+    /* Surface Colors */
+    --color-background: #fefce8;
+    --color-surface: #fef08a;
+    --color-surface-elevated: #ffffff;
     
-    /* Summer Focus States */
-    --color-focus: #eab308;
-    --color-focus-glow: rgb(234 179 8 / 25%);
+    /* Border Colors */
+    --color-border: #facc15;
+    --color-border-strong: #eab308;
+    
+    /* Transition Colors for smooth animations */
+    --color-transition-primary: #ca8a04;
+    --color-transition-surface: #fefce8;
+    --color-transition-text: #713f12;
   }
 }

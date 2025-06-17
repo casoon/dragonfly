@@ -1,7 +1,7 @@
 /**
  * Monochrome Theme Variant
  * 
- * Standalone monochrome theme variant that can be loaded independently.
+ * Standalone theme variant that can be loaded independently.
  * Uses [data-theme="monochrome"] scope for activation.
  * CDN-compatible and opt-in via import or JS.
  * 
@@ -10,35 +10,33 @@
 
 @layer themes.variants {
   [data-theme="monochrome"] {
-    /* Monochrome Color Palette - Pure grayscale */
+    /* Primary Colors */
     --color-primary: #374151;
-    --color-primary-50: #f9fafb;
-    --color-primary-100: #f3f4f6;
-    --color-primary-500: #374151;
-    --color-primary-600: #4b5563;
-    --color-primary-900: #111827;
-    
-    /* Secondary Monochrome Colors - Different gray tones */
     --color-secondary: #6b7280;
-    --color-secondary-50: #f9fafb;
-    --color-secondary-500: #6b7280;
-    --color-secondary-900: #1f2937;
     
-    /* Monochrome-specific Surface Colors */
-    --color-surface: #f9fafb;
-    --color-surface-elevated: #fff;
-    --color-background: #fefefe;
+    /* Status Colors */
+    --color-success: #10b981;
+    --color-warning: #f59e0b;
+    --color-error: #ef4444;
+    --color-info: #06b6d4;
     
-    /* Monochrome Text Colors */
+    /* Text Colors */
     --color-text: #111827;
     --color-text-muted: #4b5563;
+    --color-text-inverse: #ffffff;
     
-    /* Monochrome Borders */
-    --color-border: #d1d5db;
-    --color-border-strong: #9ca3af;
+    /* Surface Colors */
+    --color-background: #ffffff;
+    --color-surface: #f9fafb;
+    --color-surface-elevated: #ffffff;
     
-    /* Monochrome Focus States */
-    --color-focus: #374151;
-    --color-focus-glow: rgb(55 65 81 / 25%);
+    /* Border Colors */
+    --color-border: #e5e7eb;
+    --color-border-strong: #d1d5db;
+    
+    /* Transition Colors for smooth animations */
+    --color-transition-primary: #374151;
+    --color-transition-surface: #ffffff;
+    --color-transition-text: #111827;
   }
 }
