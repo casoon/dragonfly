@@ -7,15 +7,15 @@
 
 @keyframes error-shake {
     10, 90 {
-        transform: translate3d(-var(--border-width), 0, 0);
+        transform: translate3d(calc(-1 * var(--border-width)), 0%, 0);
     }
 
     20, 80 {
-        transform: translate3d(var(--border-width-thick), 0, 0);
+        transform: translate3d(var(--border-width-thick), 0%, 0);
     }
 
     30, 50, 70 {
-        transform: translate3d(-var(--spacing-1), 0, 0);
+        transform: translate3d(calc(-1 * var(--spacing-1)), 0, 0);
     }
 
     40, 60 {
@@ -25,25 +25,25 @@
 
 @keyframes error-shake-sm {
     10, 90 {
-        transform: translate3d(-0.var(--spacing-1), 0, 0);
+        transform: translate3d(-0.5 var(--spacing-1), 0, 0);
     }
 
     20, 80 {
-        transform: translate3d(var(--border-width), 0, 0);
+        transform: translate3d(var(--border-width), 0%, 0);
     }
 
     30, 50, 70 {
-        transform: translate3d(-var(--border-width-thick), 0, 0);
+        transform: translate3d(calc(-1 * var(--border-width-thick)), 0%, 0);
     }
 
     40, 60 {
-        transform: translate3d(var(--border-width-thick), 0, 0);
+        transform: translate3d(var(--border-width-thick), 0%, 0);
     }
 }
 
 @keyframes error-shake-lg {
     10, 90 {
-        transform: translate3d(-var(--border-width-thick), 0, 0);
+        transform: translate3d(calc(-1 * var(--border-width-thick)), 0%, 0);
     }
 
     20, 80 {
@@ -51,7 +51,7 @@
     }
 
     30, 50, 70 {
-        transform: translate3d(-var(--spacing-2), 0, 0);
+        transform: translate3d(calc(-1 * var(--spacing-2)), 0, 0);
     }
 
     40, 60 {
@@ -61,7 +61,7 @@
 
 @keyframes error-pulse {
     0, 100 {
-        opacity: var(--opacity-10)0;
+        opacity: var(--opacity-100);
     }
 
     50 {
@@ -97,7 +97,7 @@
 
     .error-bg {
         animation: error-pulse 2s infinite;
-        background-color: var(--error-bg, rgb(239 68 68 / 10));
+        background-color: var(--error-bg, rgb(239 68 68 / 10%));
     }
 
     .error-bg-sm {
@@ -105,7 +105,7 @@
     }
 
     .error-bg-lg {
-        background-color: var(--error-bg-lg, rgb(239 68 68 / 20));
+        background-color: var(--error-bg-lg, rgb(239 68 68 / 20%));
     }
 
     .error-text {
@@ -122,15 +122,15 @@
 
     .error-glow {
         animation: error-pulse 2s infinite;
-        box-shadow: 0 0 var(--spacing-2-5) var(--error-glow, rgb(239 68 68 / 50));
+        box-shadow: 0 0 var(--spacing-2-5) var(--error-glow, rgb(239 68 68 / 50%));
     }
 
     .error-glow-sm {
-        box-shadow: 0 0 var(--spacing-1) var(--error-glow-sm, rgb(239 68 68 / 30));
+        box-shadow: 0 0 var(--spacing-1) var(--error-glow-sm, rgb(239 68 68 / 30%));
     }
 
     .error-glow-lg {
-        box-shadow: 0 0 1var(--spacing-1) var(--error-glow-lg, rgb(239 68 68 / 70));
+        box-shadow: 0 0 var(--spacing-1)(--spacing-1) var(--error-glow-lg, rgb(239 68 68 / 70%));
     }
 }
 

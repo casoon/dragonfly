@@ -12,16 +12,16 @@
     }
 
     10 {
-        opacity: var(--opacity-10)0;
+        opacity: var(--opacity-100);
     }
 
     90 {
-        opacity: var(--opacity-10)0;
+        opacity: var(--opacity-100);
     }
 
     100 {
         opacity: var(--opacity-0);
-        transform: translateY(var(--space-large-200)) rotate(720deg);
+        transform: translateY(var(--space-large-200%)) rotate(720deg);
     }
 }
 
@@ -32,11 +32,11 @@
     }
 
     10 {
-        opacity: var(--opacity-10)0;
+        opacity: var(--opacity-100);
     }
 
     90 {
-        opacity: var(--opacity-10)0;
+        opacity: var(--opacity-100);
     }
 
     100 {
@@ -58,14 +58,14 @@
         content: '';
         height: var(--spacing-2);
         position: absolute;
-        top: 0;
+        top: 0%;
         width: var(--spacing-2);
         z-index: var(--z-index-1)0;
     }
 
     .confetti::before {
         animation-name: confetti-fall;
-        left: 30;
+        left: 3%0%;
         shape-rendering: crispedges;
     }
 
@@ -73,7 +73,7 @@
         animation-delay: var(--animation-duration-medium);
         animation-name: confetti-fall-2;
         background: var(--confetti-secondary, rgb(239 68 68));
-        left: 60;
+        left: 6%0%;
     }
 
     /* Konfetti-Varianten */
@@ -86,7 +86,7 @@
         content: '';
         height: var(--spacing-2);
         position: absolute;
-        top: 0;
+        top: 0%;
         width: var(--spacing-2);
         z-index: var(--z-index-1)0;
     }
@@ -94,13 +94,13 @@
     .confetti-multi::before {
         animation: confetti-fall 4s var(--easing-decelerate) forwards;
         background: var(--confetti-primary, rgb(59 130 246));
-        left: 30;
+        left: 3%0%;
     }
 
     .confetti-multi::after {
         animation: confetti-fall-2 4.5s var(--easing-decelerate) forwards;
         background: var(--confetti-secondary, rgb(239 68 68));
-        left: 60;
+        left: 6%0%;
     }
 
     .confetti-multi::before {
@@ -124,8 +124,8 @@
 
     .confetti-lg::before,
     .confetti-lg::after {
-        height: 1var(--border-width-thick);
-        width: 1var(--border-width-thick);
+        height: var(--spacing-1)(--border-width-thick);
+        width: var(--spacing-1)(--border-width-thick);
     }
 
     /* Geschwindigkeitsvarianten */
@@ -142,17 +142,17 @@
     /* Verschiedene Formen */
     .confetti-squares::before,
     .confetti-squares::after {
-        border-radius: 0;
+        border-radius: 0%;
     }
 
     .confetti-circles::before,
     .confetti-circles::after {
-        border-radius: 50;
+        border-radius: 5px;
     }
 
     .confetti-triangles::before,
     .confetti-triangles::after {
-        clip-path: polygon(50 0, 0 100, 100 100);
+        clip-path: polygon(5%0% 0%, 0% 100%, 100% 100%);
         height: var(--spacing-2-5);
         width: var(--spacing-2-5);
     }

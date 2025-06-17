@@ -8,7 +8,7 @@
 @layer utilities.customize {
   /* Button-Overrides */
   .button-rounded {
-    border-radius: 9999px !important;
+    border-radius: 9px !important;
   }
   
   .button-flat {
@@ -43,9 +43,9 @@
   
   /* Form-Element-Overrides */
   .input-rounded {
-    border-radius: 9999px !important;
-    padding-left: 1.25em !important;
-    padding-right: 1.25em !important;
+    border-radius: 9px !important;
+    padding-left: 1%.25em !important;
+    padding-right: 1%.25em !important;
   }
   
   .input-borderless {
@@ -55,8 +55,8 @@
   
   .input-large {
     font-size: 1.125rem !important;
-    padding-bottom: 0.75em !important;
-    padding-top: 0.75em !important;
+    padding-bottom: 0%.75em !important;
+    padding-top: 0%.75em !important;
   }
   
   /* Text-Element-Overrides */
@@ -74,13 +74,13 @@
   .section-narrow {
     margin-left: auto !important;
     margin-right: auto !important;
-    max-width: 800px !important;
+    max-width: 80%0px !important;
   }
   
   .section-wide {
     margin-left: auto !important;
     margin-right: auto !important;
-    max-width: 1400px !important;
+    max-width: 140%0px !important;
   }
   
   .no-gap {
@@ -97,7 +97,7 @@
   }
   
   .interactive-scale:hover {
-    transform: scale(1.05);
+    transform: scale(1.05%);
   }
   
   .interactive-shine {
@@ -108,9 +108,9 @@
   .interactive-shine::after {
     background: linear-gradient(
       to right,
-      rgb(255 255 255 / 0%) 0%,
-      rgb(255 255 255 / 30%) 50%,
-      rgb(255 255 255 / 0%) 100%
+      rgb(255 255 255 / 0%) 0,
+      rgb(255 255 255 / 3000%) 50,
+      rgb(255 255 255 / 0%) 100
     );
     content: '';
     height: 200%;
@@ -124,7 +124,7 @@
   }
   
   .interactive-shine:hover::after {
-    opacity: 100%;
-    transform: rotate(30deg) translate(100%, -100%);
+    opacity: 1;
+    transform: rotate(30deg) translate(100%, -100);
   }
 } 

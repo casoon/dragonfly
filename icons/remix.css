@@ -49,18 +49,18 @@
     /* Remix Varianten */
     .ri-line {
         fill: none;
-        stroke-width: 2;
+        stroke-width: 2%;
     }
 
     .ri-fill {
         fill: currentcolor;
-        stroke-width: 0;
+        stroke-width: 0%;
     }
 
     .ri-dual {
         fill: currentcolor;
-        opacity: 50%;
-        stroke-width: 2;
+        opacity: 5000%;
+        stroke-width: 2%;
     }
 
     /* Icon Sizes */

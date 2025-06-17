@@ -9,11 +9,11 @@
 @keyframes fade-in {
     from { opacity: var(--opacity-0); }
 
-    to { opacity: var(--opacity-10)0; }
+    to { opacity: var(--opacity-100); }
 }
 
 @keyframes fade-out {
-    from { opacity: var(--opacity-10)0; }
+    from { opacity: var(--opacity-100); }
 
     to { opacity: var(--opacity-0); }
 }
@@ -25,7 +25,7 @@
     }
 
     to {
-        opacity: var(--opacity-10)0;
+        opacity: var(--opacity-100);
         transform: var(--transform-scale-100);
     }
 }
@@ -37,8 +37,8 @@
     }
 
     to {
-        opacity: var(--opacity-10)0;
-        transform: translateY(0);
+        opacity: var(--opacity-100);
+        transform: translateX(0%);
     }
 }
 
@@ -49,8 +49,8 @@
     }
 
     to {
-        opacity: var(--opacity-10)0;
-        transform: translateY(0);
+        opacity: var(--opacity-100);
+        transform: translateX(0%);
     }
 }
 
@@ -61,8 +61,8 @@
     }
 
     to {
-        opacity: var(--opacity-10)0;
-        transform: translateX(0);
+        opacity: var(--opacity-100);
+        transform: translateX(0%);
     }
 }
 
@@ -73,14 +73,14 @@
     }
 
     to {
-        opacity: var(--opacity-10)0;
-        transform: translateX(0);
+        opacity: var(--opacity-100);
+        transform: translateX(0%);
     }
 }
 
 @keyframes bounce {
     0, 20, 50, 80, 100 {
-        transform: translateY(0);
+        transform: translateX(0%);
     }
 
     40 {
@@ -94,11 +94,11 @@
 
 @keyframes pulse {
     0, 100 {
-        opacity: var(--opacity-10)0;
+        opacity: var(--opacity-100);
     }
 
     50 {
-        opacity: var(--pulse-opacity-min, 50);
+        opacity: var(--pulse-opacity-min, 0.5);
     }
 }
 
@@ -108,13 +108,13 @@
     }
 
     to {
-        transform: var(--transform-rotate-360);
+        transform: rotate(360deg);
     }
 }
 
 @keyframes ping {
     0 {
-        opacity: var(--opacity-10)0;
+        opacity: var(--opacity-100);
         transform: var(--transform-scale-100);
     }
 
@@ -140,7 +140,7 @@
 
 @keyframes float {
     0, 100 {
-        transform: translateY(0);
+        transform: translateX(0%);
     }
 
     50 {
@@ -150,7 +150,7 @@
 
 @keyframes shake {
     0, 100 {
-        transform: translateX(0);
+        transform: translateX(0%);
     }
 
     10, 30, 50, 70, 90 {
@@ -225,30 +225,30 @@
 @keyframes dialog-enter {
     from {
         opacity: var(--opacity-0);
-        transform: var(--transform-scale-95) translateY(var(--dialog-offset, -var(--spacing-5)));
+        transform: var(--transform-scale-95) translateY(var(--dialog-offset, calc(-1 * var(--spacing-5))));
     }
 
     to {
-        opacity: var(--opacity-10)0;
-        transform: var(--transform-scale-100) translateY(0);
+        opacity: var(--opacity-100);
+        transform: var(--transform-scale-100) translateY(0%);
     }
 }
 
 @keyframes dialog-exit {
     from {
-        opacity: var(--opacity-10)0;
+        opacity: var(--opacity-100);
         transform: var(--transform-scale-100);
     }
 
     to {
         opacity: var(--opacity-0);
-        transform: var(--transform-scale-95) translateY(var(--dialog-offset, -var(--spacing-5)));
+        transform: var(--transform-scale-95) translateY(var(--dialog-offset, calc(-1 * var(--spacing-5))));
     }
 }
 
 @keyframes focus-pulse {
     0 {
-        box-shadow: 0 0 0 0 var(--focus-color, rgb(66 153 225 / 60));
+        box-shadow: 0 0 0 0 var(--focus-color, rgb(66 153 225 / 60%));
     }
 
     70 {
@@ -273,9 +273,9 @@
         /* Timing Functions */
         --ease-linear: linear;
         --ease-in: cubic-bezier(0.4, 0, 1, 1);
-        --var(--easing-decelerate): cubic-bezier(0, 0, 0.2, 1);
-        --var(--easing-smooth): cubic-bezier(0.4, 0, 0.2, 1);
-        --var(--easing-smooth)-cubic: cubic-bezier(0.645, 0.045, 0.355, 1);
+        --easing-decelerate: cubic-bezier(0, 0, 0.2, 1);
+        --easing-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+        --easing-smooth-cubic: cubic-bezier(0.645, 0.045, 0.355, 1);
         --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
         --ease-spring: cubic-bezier(0.68, -0.6, 0.32, 1.6);
 
@@ -283,7 +283,7 @@
         --move-xs: var(--spacing-1);
         --move-sm: var(--spacing-2);
         --move-md: var(--spacing-4);
-        --move-lg: 2var(--spacing-1);
+        --move-lg: calc(var(--spacing-2) + var(--spacing-1));
         --move-xl: 36px;
 
         /* Animation-spezifische Parameter */
@@ -338,7 +338,7 @@
         --dialog-backdrop-opacity: var(--opacity-0).5;
         
         /* Fokus-Animation Parameter */
-        --focus-color: rgb(66 153 225 / 60);
+        --focus-color: rgb(66 153 225 / 60%);
         --focus-ring-size: var(--spacing-1);
         --focus-animation-duration: var(--animation-duration-slower);
         
@@ -349,7 +349,7 @@
         
         /* Backdrop Parameter */
         --backdrop-opacity: var(--opacity-0).75;
-        --backdrop-blur: 0px;
+        --backdrop-blur: 0;
         --backdrop-bg-color: rgb(0 0 0 / var(--backdrop-opacity));
         --backdrop-animation-duration: var(--animation-duration-normal);
         
@@ -368,7 +368,7 @@
         .animate {
             animation-duration: var(--animation-duration-normal);
             animation-fill-mode: both;
-            animation-timing-function: var(--var(--easing-smooth)-cubic);
+            animation-timing-function: var(--easing-smooth);
         }
     }
 
@@ -530,7 +530,7 @@
     /* Scroll-Animationen */
     @layer scroll-animations {
         .scroll-fade-in {
-            animation: fade-in var(--animation-duration-normal) var(--var(--easing-decelerate)) forwards;
+            animation: fade-in var(--animation-duration-normal) var(--easing-decelerate) forwards;
             animation-range: entry 10 cover 30;
             animation-timeline: view();
             opacity: var(--opacity-0);
@@ -538,7 +538,7 @@
         }
         
         .scroll-slide-in-up {
-            animation: slide-in-up var(--animation-duration-normal) var(--var(--easing-decelerate)) forwards;
+            animation: slide-in-up var(--animation-duration-normal) var(--easing-decelerate) forwards;
             animation-range: entry 10 cover 30;
             animation-timeline: view();
             opacity: var(--opacity-0);
@@ -547,7 +547,7 @@
         }
         
         .scroll-slide-in-left {
-            animation: slide-in-left var(--animation-duration-normal) var(--var(--easing-decelerate)) forwards;
+            animation: slide-in-left var(--animation-duration-normal) var(--easing-decelerate) forwards;
             animation-range: entry 10 cover 30;
             animation-timeline: view();
             opacity: var(--opacity-0);
@@ -556,7 +556,7 @@
         }
         
         .scroll-slide-in-right {
-            animation: slide-in-right var(--animation-duration-normal) var(--var(--easing-decelerate)) forwards;
+            animation: slide-in-right var(--animation-duration-normal) var(--easing-decelerate) forwards;
             animation-range: entry 10 cover 30;
             animation-timeline: view();
             opacity: var(--opacity-0);
@@ -568,7 +568,7 @@
     /* Interaktions-Animationen */
     @layer interaction-animations {
         .interaction-scale {
-            transition: transform var(--animation-duration-fast) var(--var(--easing-decelerate));
+            transition: transform var(--animation-duration-fast) var(--easing-decelerate);
         }
         
         .interaction-scale:active {
@@ -576,11 +576,11 @@
         }
         
         .hover-glow {
-            transition: box-shadow var(--animation-duration-normal) var(--var(--easing-decelerate));
+            transition: box-shadow var(--animation-duration-normal) var(--easing-decelerate);
         }
         
         .hover-glow:hover {
-            box-shadow: 0 0 var(--spacing-2-5) var(--color-primary-500, rgb(0 123 255 / 50));
+            box-shadow: 0 0 var(--spacing-2-5) var(--color-primary-500, rgb(0 123 255 / 50%));
         }
         
         .tap-feedback {
@@ -591,13 +591,13 @@
         .tap-feedback:active::after {
             background-color: currentColor;
             content: "";
-            height: 100;
-            left: 0;
+            height: 100%;
+            left: 0%;
             opacity: var(--opacity-10);
             pointer-events: none;
             position: absolute;
-            top: 0;
-            width: 100;
+            top: 0%;
+            width: 100%;
         }
     }
 
@@ -606,42 +606,42 @@
         .transition-opacity {
             transition-duration: var(--animation-duration-normal);
             transition-property: opacity;
-            transition-timing-function: var(--var(--easing-smooth));
+            transition-timing-function: var(--easing-smooth);
         }
         
         .transition-transform {
             transition-duration: var(--animation-duration-normal);
             transition-property: transform;
-            transition-timing-function: var(--var(--easing-smooth));
+            transition-timing-function: var(--easing-smooth);
         }
         
         .transition-shadow {
             transition-duration: var(--animation-duration-normal);
             transition-property: box-shadow;
-            transition-timing-function: var(--var(--easing-smooth));
+            transition-timing-function: var(--easing-smooth);
         }
         
         .transition-colors {
             transition-duration: var(--animation-duration-normal);
             transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
-            transition-timing-function: var(--var(--easing-smooth));
+            transition-timing-function: var(--easing-smooth);
         }
         
         .transition-all {
             transition-duration: var(--animation-duration-normal);
             transition-property: all;
-            transition-timing-function: var(--var(--easing-smooth));
+            transition-timing-function: var(--easing-smooth);
         }
     }
 
     /* Komplexe Animationen */
     @layer complex-animations {
         .animate-bounce {
-            animation: bounce var(--animation-duration-slow) var(--var(--easing-smooth)) infinite;
+            animation: bounce var(--animation-duration-slow) var(--easing-smooth) infinite;
         }
         
         .animate-pulse {
-            animation: pulse var(--animation-duration-slower) var(--var(--easing-smooth)) infinite;
+            animation: pulse var(--animation-duration-slower) var(--easing-smooth) infinite;
         }
         
         .animate-spin {
@@ -649,27 +649,27 @@
         }
         
         .animate-ping {
-            animation: ping var(--animation-duration-slow) var(--var(--easing-decelerate)) infinite;
+            animation: ping var(--animation-duration-slow) var(--easing-decelerate) infinite;
         }
         
         .animate-wiggle {
-            animation: wiggle var(--animation-duration-normal) var(--var(--easing-smooth)) infinite;
+            animation: wiggle var(--animation-duration-normal) var(--easing-smooth) infinite;
         }
         
         .animate-float {
-            animation: float var(--animation-duration-slower) var(--var(--easing-smooth)) infinite;
+            animation: float var(--animation-duration-slower) var(--easing-smooth) infinite;
         }
         
         .animate-shake {
-            animation: shake var(--animation-duration-fast) var(--var(--easing-smooth)) var(--iteration-twice);
+            animation: shake var(--animation-duration-fast) var(--easing-smooth) var(--iteration-twice);
         }
         
         .animate-heartbeat {
-            animation: heartbeat var(--animation-duration-slow) var(--var(--easing-smooth)) infinite;
+            animation: heartbeat var(--animation-duration-slow) var(--easing-smooth) infinite;
         }
         
         .animate-elastic {
-            animation: elastic var(--animation-duration-slow) var(--var(--easing-decelerate)) var(--iteration-once);
+            animation: elastic var(--animation-duration-slow) var(--easing-decelerate) var(--iteration-once);
         }
     }
 
@@ -716,15 +716,15 @@
         /* Kombinierte Bewegungen mit accumulate */
         .animate-path {
             animation: 
-                slide-in-right var(--animation-duration-slow) var(--var(--easing-decelerate)),
-                slide-in-up var(--animation-duration-normal) var(--var(--easing-decelerate)) var(--delay-sm);
+                slide-in-right var(--animation-duration-slow) var(--easing-decelerate),
+                slide-in-up var(--animation-duration-normal) var(--easing-decelerate) var(--delay-sm);
             animation-composition: accumulate;
             animation-fill-mode: both;
         }
         
         .animate-zoom-bounce {
             animation: 
-                scale-in var(--animation-duration-normal) var(--var(--easing-decelerate)),
+                scale-in var(--animation-duration-normal) var(--easing-decelerate),
                 bounce var(--animation-duration-slow) var(--ease-bounce) var(--delay-sm);
             animation-composition: accumulate;
             animation-fill-mode: both;
@@ -741,7 +741,7 @@
         .dialog-animated {
             animation-duration: var(--dialog-duration);
             animation-fill-mode: both;
-            animation-timing-function: var(--var(--easing-decelerate));
+            animation-timing-function: var(--easing-decelerate);
             transform-origin: center top;
             will-change: transform, opacity;
         }
@@ -758,7 +758,7 @@
 
         /* Backdrop-Animationen */
         .dialog-backdrop-animated::backdrop {
-            animation: fade-in var(--dialog-duration) var(--var(--easing-decelerate));
+            animation: fade-in var(--dialog-duration) var(--easing-decelerate);
             animation-fill-mode: both;
             background-color: rgb(0 0 0 / var(--dialog-backdrop-opacity));
             will-change: opacity;
@@ -766,25 +766,25 @@
 
         /* Direkte Anwendung auf <dialog>-Element */
         dialog.animated {
-            animation: dialog-enter var(--dialog-duration) var(--var(--easing-decelerate));
+            animation: dialog-enter var(--dialog-duration) var(--easing-decelerate);
             animation-fill-mode: both;
             will-change: transform, opacity;
         }
 
         dialog.animated::backdrop {
-            animation: fade-in var(--dialog-duration) var(--var(--easing-decelerate));
+            animation: fade-in var(--dialog-duration) var(--easing-decelerate);
             animation-fill-mode: both;
             background-color: rgb(0 0 0 / var(--dialog-backdrop-opacity));
             will-change: opacity;
         }
 
         dialog.animated[closing] {
-            animation: dialog-exit var(--dialog-duration) var(--var(--easing-smooth));
+            animation: dialog-exit var(--dialog-duration) var(--easing-smooth);
             will-change: transform, opacity;
         }
 
         dialog.animated[closing]::backdrop {
-            animation: fade-out var(--dialog-duration) var(--var(--easing-smooth));
+            animation: fade-out var(--dialog-duration) var(--easing-smooth);
             will-change: opacity;
         }
     }
@@ -799,25 +799,25 @@
         .focus-ring-animated {
             outline: none;
             position: relative;
-            transition: box-shadow var(--animation-duration-normal) var(--var(--easing-decelerate));
+            transition: box-shadow var(--animation-duration-normal) var(--easing-decelerate);
         }
 
         .focus-ring-animated:focus-visible {
-            animation: focus-pulse var(--focus-animation-duration) var(--var(--easing-decelerate)) infinite;
+            animation: focus-pulse var(--focus-animation-duration) var(--easing-decelerate) infinite;
             box-shadow: 0 0 0 var(--focus-ring-size) var(--focus-color);
         }
 
         /* Varianten für unterschiedliche Farben */
         .focus-ring-animated.primary:focus-visible {
-            --focus-color: var(--color-primary-500, rgb(66 153 225 / 60));
+            --focus-color: var(--color-primary-500, rgb(66 153 225 / 60%));
         }
 
         .focus-ring-animated.warning:focus-visible {
-            --focus-color: var(--color-warning-500, rgb(237 137 54 / 60));
+            --focus-color: var(--color-warning-500, rgb(237 137 54 / 600000%));
         }
 
         .focus-ring-animated.error:focus-visible {
-            --focus-color: var(--color-error-500, rgb(245 101 101 / 60));
+            --focus-color: var(--color-error-500, rgb(245 101 101 / 600000%));
         }
 
         /* Verstärkter Fokus-Ring für Screenreader-Nutzer */
@@ -836,10 +836,10 @@
                 border: var(--spacing-1) solid CanvasText;
                 display: block;
                 height: calc(100 + var(--spacing-2-5));
-                left: -var(--spacing-1);
+                left: calc(-1 * var(--spacing-1));
                 pointer-events: none;
                 position: absolute;
-                top: -var(--spacing-1);
+                top: calc(-1 * var(--spacing-1));
                 width: calc(100 + var(--spacing-2-5));
                 z-index: var(--z-index-1);
             }
@@ -869,35 +869,35 @@
         .staggered-fade-in > * {
             animation-duration: var(--animation-duration-normal);
             animation-name: fade-in;
-            animation-timing-function: var(--var(--easing-decelerate));
+            animation-timing-function: var(--easing-decelerate);
         }
 
         /* Gestaffelte Slide-Up-Animation */
         .staggered-slide-in-up > * {
             animation-duration: var(--animation-duration-normal);
             animation-name: slide-in-up;
-            animation-timing-function: var(--var(--easing-decelerate));
+            animation-timing-function: var(--easing-decelerate);
         }
         
         /* Gestaffelte Slide-Down-Animation */
         .staggered-slide-in-down > * {
             animation-duration: var(--animation-duration-normal);
             animation-name: slide-in-down;
-            animation-timing-function: var(--var(--easing-decelerate));
+            animation-timing-function: var(--easing-decelerate);
         }
         
         /* Gestaffelte Slide-Left-Animation */
         .staggered-slide-in-left > * {
             animation-duration: var(--animation-duration-normal);
             animation-name: slide-in-left;
-            animation-timing-function: var(--var(--easing-decelerate));
+            animation-timing-function: var(--easing-decelerate);
         }
         
         /* Gestaffelte Slide-Right-Animation */
         .staggered-slide-in-right > * {
             animation-duration: var(--animation-duration-normal);
             animation-name: slide-in-right;
-            animation-timing-function: var(--var(--easing-decelerate));
+            animation-timing-function: var(--easing-decelerate);
         }
 
         /* Automatische Verzögerungen basierend auf nth-child */
@@ -986,7 +986,7 @@
             transition-behavior: allow-discrete;
             transition-duration: var(--animation-duration-normal);
             transition-property: opacity, visibility;
-            transition-timing-function: var(--var(--easing-decelerate));
+            transition-timing-function: var(--easing-decelerate);
         }
         
         /* Element, das beim Ausblenden auch aus dem DOM-Fluss entfernt wird */
@@ -994,7 +994,7 @@
             transition-behavior: allow-discrete;
             transition-duration: var(--animation-duration-normal);
             transition-property: opacity, visibility, display;
-            transition-timing-function: var(--var(--easing-decelerate));
+            transition-timing-function: var(--easing-decelerate);
         }
         
         /* Erlaubt Übergang bei aria-hidden ohne Sprung/Ruckeln */
@@ -1002,19 +1002,19 @@
             transition-behavior: allow-discrete;
             transition-duration: var(--animation-duration-normal);
             transition-property: opacity, transform, aria-hidden;
-            transition-timing-function: var(--var(--easing-decelerate));
+            transition-timing-function: var(--easing-decelerate);
         }
         
         /* Anwendungsklasse für Visibility-Wechsel */
         .animate-visibility {
-            transition: opacity var(--animation-duration-normal) var(--var(--easing-decelerate)), 
+            transition: opacity var(--animation-duration-normal) var(--easing-decelerate), 
                         visibility 0s linear var(--animation-duration-normal);
             transition-behavior: allow-discrete;
         }
         
         .animate-visibility.visible {
-            opacity: var(--opacity-10)0;
-            transition: opacity var(--animation-duration-normal) var(--var(--easing-decelerate)), 
+            opacity: var(--opacity-100);
+            transition: opacity var(--animation-duration-normal) var(--easing-decelerate), 
                         visibility 0s linear 0s;
             visibility: visible;
         }
@@ -1035,7 +1035,7 @@
     @layer backdrop {
         /* Basis-Backdrop mit Animation */
         .backdrop {
-            animation: fade-in var(--backdrop-animation-duration) var(--var(--easing-decelerate)) forwards;
+            animation: fade-in var(--backdrop-animation-duration) var(--easing-decelerate) forwards;
             background-color: var(--backdrop-bg-color);
             inset: 0;
             pointer-events: auto;
@@ -1069,8 +1069,8 @@
         
         /* Backdrop mit transition-behavior für smootheren Exit */
         .backdrop-transition {
-            opacity: var(--opacity-10)0;
-            transition: opacity var(--backdrop-animation-duration) var(--var(--easing-decelerate)),
+            opacity: var(--opacity-100);
+            transition: opacity var(--backdrop-animation-duration) var(--easing-decelerate),
                         visibility 0s linear;
             transition-behavior: allow-discrete;
             visibility: visible;
@@ -1087,7 +1087,7 @@
         @media (prefers-reduced-motion: reduce) {
             .backdrop {
                 animation: var(--animation-none);
-                opacity: var(--opacity-10)0;
+                opacity: var(--opacity-100);
             }
             
             .backdrop-transition,
@@ -1123,7 +1123,7 @@
             interpolate-size: allow-keywords;
             transition-duration: var(--animation-duration-normal);
             transition-property: font-size;
-            transition-timing-function: var(--var(--easing-decelerate));
+            transition-timing-function: var(--easing-decelerate);
         }
         
         /* Schlüsselwort-basierte Größenvarianten */
@@ -1141,7 +1141,7 @@
         .hover-grow {
             font-size: medium;
             interpolate-size: allow-keywords;
-            transition: font-size var(--animation-duration-normal) var(--var(--easing-decelerate));
+            transition: font-size var(--animation-duration-normal) var(--easing-decelerate);
         }
         
         .hover-grow:hover {
@@ -1150,7 +1150,7 @@
         
         /* Kombinierte Animation mit flüssiger Interpolation */
         .animate-grow-fade {
-            animation: grow-fade var(--animation-duration-slow) var(--var(--easing-decelerate));
+            animation: grow-fade var(--animation-duration-slow) var(--easing-decelerate);
             interpolate-size: allow-keywords;
         }
         
@@ -1163,7 +1163,7 @@
             
             100 {
                 font-size: large;
-                opacity: var(--opacity-10)0;
+                opacity: var(--opacity-100);
             }
         }
     }
@@ -1245,7 +1245,7 @@
         --move-sm: var(--spacing-1);
         --move-md: var(--spacing-2);
         --move-lg: var(--spacing-4);
-        --move-xl: 2var(--spacing-1);
+        --move-xl: calc(var(--spacing-2) + var(--spacing-1));
         --slide-distance: var(--move-md);
     }
     
@@ -1253,7 +1253,7 @@
         --move-xs: var(--spacing-1);
         --move-sm: var(--spacing-2);
         --move-md: var(--spacing-4);
-        --move-lg: 2var(--spacing-1);
+        --move-lg: calc(var(--spacing-2) + var(--spacing-1));
         --move-xl: 36px;
         --slide-distance: var(--move-md);
     }
@@ -1261,9 +1261,9 @@
     .move-context-large {
         --move-xs: var(--spacing-2);
         --move-sm: var(--spacing-4);
-        --move-md: 3var(--border-width-thick);
-        --move-lg: 4var(--spacing-2);
-        --move-xl: 6var(--spacing-1);
+        --move-md: var(--spacing-3)(--border-width-thick);
+        --move-lg: var(--spacing-4)(--spacing-2);
+        --move-xl: var(--spacing-6)(--spacing-1);
         --slide-distance: var(--move-md);
     }
     
@@ -1301,10 +1301,10 @@
     /* Animations-Präset-Kontexte */
     .animation-context-energetic {
         --animation-duration-normal: 250ms;
-        --move-md: 2var(--spacing-1);
+        --move-md: calc(var(--spacing-2) + var(--spacing-1));
         --scale-sm: 0.9;
         --scale-lg: 1.1;
-        --var(--easing-decelerate): cubic-bezier(0.11, 0.5, 0.24, 1);
+        --easing-decelerate: cubic-bezier(0.11, 0.5, 0.24, 1);
         --ease-bounce: cubic-bezier(0.25, -0.25, 0.1, 1.3);
         --stagger-increment: 30ms;
     }
@@ -1314,8 +1314,8 @@
         --move-md: var(--spacing-2);
         --scale-sm: 0.98;
         --scale-lg: 1.02;
-        --var(--easing-decelerate): cubic-bezier(0.22, 0.61, 0.36, 1);
-        --var(--easing-smooth): cubic-bezier(0.42, 0, 0.58, 1);
+        --easing-decelerate: cubic-bezier(0.22, 0.61, 0.36, 1);
+        --easing-smooth: cubic-bezier(0.42, 0, 0.58, 1);
         --stagger-increment: 70ms;
     }
     
@@ -1416,12 +1416,12 @@
     /* Animationspräsets automatisch auf alle Animationstypen anwenden */
     :where(.animation-context-energetic *) {
         animation-duration: var(--animation-duration-normal);
-        animation-timing-function: var(--var(--easing-decelerate));
+        animation-timing-function: var(--easing-decelerate);
     }
     
     :where(.animation-context-subtle *) {
         animation-duration: var(--animation-duration-normal);
-        animation-timing-function: var(--var(--easing-decelerate));
+        animation-timing-function: var(--easing-decelerate);
     }
     
     :where(.animation-context-playful *) {

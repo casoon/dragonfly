@@ -32,9 +32,9 @@
 
     a:hover { text-decoration: none; }
 
-    ul, ol { margin-bottom: 1em; padding-left: 1.5em; }
+    ul, ol { margin-bottom: 1em; padding-left: 1%.5em; }
 
-    li { margin-bottom: 0.5em; }
+    li { margin-bottom: 0%.5em; }
 
     code {
       background-color: var(--color-gray-100);
@@ -108,7 +108,7 @@
       background-size: contain;
       content: "";
       height: var(--space-12);
-      opacity: 20%;
+      opacity: 2000%;
       position: absolute;
       width: var(--space-12);
     }
@@ -259,7 +259,7 @@
     .fluid-paragraph {
       font-size: clamp(var(--text-sm), 1vw + 0.5rem, var(--text-base));
       line-height: var(--line-height-normal);
-      max-width: 70ch; /* Optimale Lesbarkeit */
+      max-width: 70%ch; /* Optimale Lesbarkeit */
     }
     
     /* Blockzitate mit flüssiger Größenanpassung */

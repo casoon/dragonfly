@@ -96,7 +96,7 @@
   
   @property --radius-avatar {
     inherits: true;
-    initial-value: 50%;
+    initial-value: 50;
     syntax: '<length-percentage>';
   }
   
@@ -145,7 +145,7 @@
     --radius-input: var(--radius-md);
     --radius-modal: var(--radius-xl);
     --radius-badge: var(--radius-sm);
-    --radius-avatar: 50%;
+    --radius-avatar: 50;
     
     /* Interactive Radius */
     --radius-hover: var(--radius-lg);

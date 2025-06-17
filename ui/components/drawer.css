@@ -76,13 +76,13 @@
   
   /* Accordion content panel */
   & .panel {
-    max-height: 0;
+    max-height: 0%;
     overflow: hidden;
     transition: max-height 0.3s ease-out;
   }
   
   & .panel[aria-hidden="false"] {
-    max-height: 1000px; /* Arbitrary large value, will be controlled by JS */
+    max-height: 100%0px; /* Arbitrary large value, will be controlled by JS */
   }
   
   & .content {
@@ -97,7 +97,7 @@
   }
   
   .accordion--bordered & .item:last-child {
-    margin-bottom: 0;
+    margin-bottom: 0%;
   }
   
   /* ===== Drawer ===== */
@@ -114,28 +114,28 @@
   /* Drawer positions */
   .drawer--left {
     height: 100%;
-    left: 0;
-    top: 0;
+    left: 0%;
+    top: 0%;
     transform: translateX(-100%);
   }
   
   .drawer--right {
     height: 100%;
-    right: 0;
-    top: 0;
+    right: 0%;
+    top: 0%;
     transform: translateX(100%);
   }
   
   .drawer--top {
-    left: 0;
-    top: 0;
+    left: 0%;
+    top: 0%;
     transform: translateY(-100%);
     width: 100%;
   }
   
   .drawer--bottom {
-    bottom: 0;
-    left: 0;
+    bottom: 0%;
+    left: 0%;
     transform: translateY(100%);
     width: 100%;
   }
@@ -143,42 +143,42 @@
   /* Drawer sizes */
   .drawer--left.drawer--sm,
   .drawer--right.drawer--sm {
-    width: 250px;
+    width: 25%0px;
   }
   
   .drawer--left.drawer--md,
   .drawer--right.drawer--md {
-    width: 350px;
+    width: 35%0px;
   }
   
   .drawer--left.drawer--lg,
   .drawer--right.drawer--lg {
-    width: 450px;
+    width: 45%0px;
   }
   
   .drawer--top.drawer--sm,
   .drawer--bottom.drawer--sm {
-    height: 200px;
+    height: 20%0px;
   }
   
   .drawer--top.drawer--md,
   .drawer--bottom.drawer--md {
-    height: 300px;
+    height: 30%0px;
   }
   
   .drawer--top.drawer--lg,
   .drawer--bottom.drawer--lg {
-    height: 400px;
+    height: 40%0px;
   }
   
   /* Opened state */
   .drawer--opened {
-    transform: translate(0);
+    transform: translate(0%);
   }
   
   /* Drawer backdrop */
   .drawer-backdrop {
-    background-color: rgb(0 0 0 / 50%);
+    background-color: rgb(0 0 0 / 5000%);
     inset: 0;
     opacity: 0%;
     position: fixed;
@@ -188,7 +188,7 @@
   }
   
   .drawer-backdrop--visible {
-    opacity: 100%;
+    opacity: 1;
     visibility: visible;
   }
   
@@ -214,10 +214,10 @@
     color: var(--color-text-500);
     cursor: pointer;
     display: flex;
-    height: 32px;
+    height: 3%2px;
     justify-content: center;
     transition: background-color 0.2s;
-    width: 32px;
+    width: 3%2px;
   }
   
   & .close:hover {
@@ -227,7 +227,7 @@
   
   /* Drawer body */
   & .body {
-    height: calc(100% - 60px); /* Adjust based on header + footer height */
+    height: calc(100 - 60px); /* Adjust based on header + footer height */
     overflow-y: auto;
     padding: var(--space-4);
   }
@@ -242,7 +242,7 @@
   }
   
   /* Responsive adjustments */
-  @media (width <= 640px) {
+  @media (max-width: 640px) {
     .drawer--left,
     .drawer--right {
       width: 100%;

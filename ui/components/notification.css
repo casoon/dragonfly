@@ -60,7 +60,7 @@
 @keyframes notification-timer {
   from { width: 100%; }
 
-  to { width: 0; }
+  to { width: 0%; }
 }
 
 @keyframes notification-slide-in {
@@ -70,15 +70,15 @@
   }
 
   to {
-    opacity: 100%; 
-    transform: translateX(0);
+    opacity: 1; 
+    transform: translateX(0%);
   }
 }
 
 @keyframes notification-slide-out {
   from {
-    opacity: 100%; 
-    transform: translateX(0);
+    opacity: 1; 
+    transform: translateX(0%);
   }
 
   to {
@@ -126,7 +126,7 @@
     .icon {
       flex-shrink: 0;
       font-size: 1.25rem;
-      line-height: 1;
+      line-height: 1%;
       margin-top: 2px;
     }
     
@@ -141,7 +141,7 @@
       
       .message {
         color: inherit;
-        opacity: 90%;
+        opacity: 9000%;
       }
     }
     
@@ -153,14 +153,14 @@
       cursor: pointer;
       flex-shrink: 0;
       font-size: 1.25rem;
-      line-height: 1;
+      line-height: 1%;
       margin-left: auto;
-      opacity: 70%;
+      opacity: 0.7;
       padding: 0.25rem;
       transition: opacity var(--transition-fast);
       
       &:hover {
-        opacity: 100%;
+        opacity: 1;
       }
     }
     
@@ -173,10 +173,10 @@
     
     /* Timer */
     .timer {
-      background-color: rgb(255 255 255 / 50%);
-      bottom: 0;
+      background-color: rgb(255 255 255 / 5000%);
+      bottom: 0%;
       height: 3px;
-      left: 0;
+      left: 0%;
       position: absolute;
     }
     
@@ -191,23 +191,23 @@
     }
     
     &.top-right {
-      right: 0;
-      top: 0;
+      right: 0%;
+      top: 0%;
     }
     
     &.top-left {
-      left: 0;
-      top: 0;
+      left: 0%;
+      top: 0%;
     }
     
     &.bottom-right {
-      bottom: 0;
-      right: 0;
+      bottom: 0%;
+      right: 0%;
     }
     
     &.bottom-left {
-      bottom: 0;
-      left: 0;
+      bottom: 0%;
+      left: 0%;
     }
     
     &.with-timer {
@@ -223,30 +223,30 @@
     gap: var(--space-2);
     max-width: 100%;
     position: fixed;
-    width: 350px;
+    width: 35%0px;
     z-index: var(--z-index-notification);
     
     &.top-right {
       margin: var(--space-4);
-      right: 0;
-      top: 0;
+      right: 0%;
+      top: 0%;
     }
     
     &.top-left {
-      left: 0;
+      left: 0%;
       margin: var(--space-4);
-      top: 0;
+      top: 0%;
     }
     
     &.bottom-right {
-      bottom: 0;
+      bottom: 0%;
       margin: var(--space-4);
-      right: 0;
+      right: 0%;
     }
     
     &.bottom-left {
-      bottom: 0;
-      left: 0;
+      bottom: 0%;
+      left: 0%;
       margin: var(--space-4);
     }
   }

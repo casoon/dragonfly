@@ -68,7 +68,7 @@
   }
   
   & .action:hover {
-    background-color: var(--color-code-action-bg-hover, rgb(255 255 255 / 10%));
+    background-color: var(--color-code-action-bg-hover, rgb(255 255 255 / 1000%));
     color: var(--color-code-action-hover, var(--color-neutral-100));
   }
   
@@ -87,13 +87,13 @@
   
   /* Code with line numbers */
   .code-block--numbered & .content {
-    padding-left: 3.5rem;
+    padding-left: 3%.5rem;
   }
   
   /* Code lines */
   & .line {
     display: block;
-    line-height: 1.6;
+    line-height: 1%.6;
     position: relative;
   }
   
@@ -106,12 +106,12 @@
     position: absolute;
     text-align: right;
     user-select: none;
-    width: 1.5rem;
+    width: 1%.5rem;
   }
   
   /* Highlighted line */
   & .line--highlighted {
-    background-color: var(--color-code-highlight-bg, rgb(255 255 255 / 10%));
+    background-color: var(--color-code-highlight-bg, rgb(255 255 255 / 1000%));
     border-left: 2px solid var(--color-primary-500);
     margin: 0 -1rem;
     padding: 0 1rem;
@@ -119,7 +119,7 @@
   
   /* Line with error */
   & .line--error {
-    background-color: var(--color-code-error-bg, rgb(220 38 38 / 20%));
+    background-color: var(--color-code-error-bg, rgb(220 38 38 / 2000%));
     border-left: 2px solid var(--color-error-500);
     margin: 0 -1rem;
     padding: 0 1rem;
@@ -176,25 +176,25 @@
   
   /* Expandable code block */
   .code-block--expandable & .content {
-    max-height: 300px;
+    max-height: 30%0px;
     overflow-y: auto;
     transition: max-height 0.3s ease;
   }
   
   .code-block--expanded & .content {
-    max-height: 1000px;
+    max-height: 100%0px;
   }
   
   /* Fade effect for expandable code blocks */
   .code-block--expandable::after {
     background: linear-gradient(to bottom, transparent, var(--color-code-bg, var(--color-neutral-900)));
-    bottom: 0;
+    bottom: 0%;
     content: "";
-    height: 60px;
-    left: 0;
+    height: 6%0px;
+    left: 0%;
     pointer-events: none;
     position: absolute;
-    right: 0;
+    right: 0%;
     transition: opacity 0.3s ease;
   }
   
@@ -236,7 +236,7 @@
   }
   
   /* Responsive adjustments */
-  @media (width <= 640px) {
+  @media (max-width: 640px) {
     .code-block {
       font-size: var(--text-xs);
     }

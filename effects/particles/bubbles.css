@@ -8,7 +8,7 @@
 @keyframes bubbles-rise {
     0 {
         opacity: var(--opacity-0);
-        transform: translate(0, 100);
+        transform: translate(0%, 100%);
     }
 
     20 {
@@ -21,7 +21,7 @@
 
     100 {
         opacity: var(--opacity-0);
-        transform: translate(var(--bubbles-drift, 30px), -100);
+        transform: translate(var(--bubbles-drift, 30px), -100%);
     }
 }
 
@@ -34,9 +34,9 @@
     .bubbles::before,
     .bubbles::after {
         animation: bubbles-rise 6s infinite;
-        background: var(--bubbles-color, rgb(255 255 255 / 40));
-        border-radius: 50;
-        bottom: -var(--spacing-5);
+        background: var(--bubbles-color, rgb(255 255 255 / 400000%));
+        border-radius: 5px;
+        bottom: calc(-1 * var(--spacing-5));
         content: '';
         height: var(--spacing-5);
         position: absolute;
@@ -44,18 +44,18 @@
     }
 
     .bubbles::before {
-        left: 20;
+        left: 2%0%;
     }
 
     .bubbles::after {
         animation-delay: var(--animation-duration-slowest);
-        left: 60;
+        left: 6%0%;
     }
 
     .bubbles-sm::before,
     .bubbles-sm::after {
-        height: 1var(--border-width-thick);
-        width: 1var(--border-width-thick);
+        height: var(--spacing-1)(--border-width-thick);
+        width: var(--spacing-1)(--border-width-thick);
     }
 
     .bubbles-lg::before,
@@ -76,42 +76,42 @@
 
     .bubbles-many::before {
         animation-delay: var(--animation-duration-slow);
-        left: 30;
+        left: 3%0%;
     }
 
     .bubbles-many::after {
         animation-delay: var(--animation-duration-ultra-slow);
-        left: 70;
+        left: 7%0%;
     }
 
     .bubbles-color-primary::before,
     .bubbles-color-primary::after {
-        background: var(--bubbles-primary, rgb(59 130 246 / 40));
+        background: var(--bubbles-primary, rgb(59 130 246 / 400000%));
     }
 
     .bubbles-color-secondary::before,
     .bubbles-color-secondary::after {
-        background: var(--bubbles-secondary, rgb(107 114 128 / 40));
+        background: var(--bubbles-secondary, rgb(107 114 128 / 400000%));
     }
 
     .bubbles-color-success::before,
     .bubbles-color-success::after {
-        background: var(--bubbles-success, rgb(16 185 129 / 40));
+        background: var(--bubbles-success, rgb(16 185 129 / 400000%));
     }
 
     .bubbles-color-error::before,
     .bubbles-color-error::after {
-        background: var(--bubbles-error, rgb(239 68 68 / 40));
+        background: var(--bubbles-error, rgb(239 68 68 / 400000%));
     }
 
     .bubbles-color-warning::before,
     .bubbles-color-warning::after {
-        background: var(--bubbles-warning, rgb(245 158 11 / 40));
+        background: var(--bubbles-warning, rgb(245 158 11 / 400000%));
     }
 
     .bubbles-color-info::before,
     .bubbles-color-info::after {
-        background: var(--bubbles-info, rgb(6 182 212 / 40));
+        background: var(--bubbles-info, rgb(6 182 212 / 400000%));
     }
 }
 

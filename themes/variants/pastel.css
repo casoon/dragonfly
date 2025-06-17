@@ -46,7 +46,7 @@
     
     /* Soft focus and interaction states */
     --color-focus: var(--theme-focus-ring, #ec4899);
-    --color-focus-glow: rgb(236 72 153 / 30%);
+    --color-focus-glow: rgb(236 72 153 / 3000%);
     
     /* Soft shadow properties */
     --shadow-opacity-sm: var(--theme-shadow-opacity-sm, 0.05);
@@ -56,7 +56,7 @@
     --shadow-color: var(--theme-shadow-color, rgb(236 72 153));
     
     /* Backdrop properties using theme backdrop tokens */
-    --color-backdrop: var(--theme-backdrop, rgb(0 0 0 / 50%));
+    --color-backdrop: var(--theme-backdrop, rgb(0 0 0 / 5000%));
     --backdrop-blur: var(--theme-backdrop-blur, 8px);
     
     /* Pastel status background colors */

@@ -51,13 +51,13 @@
   .tag {
     align-items: center;
     background-color: var(--color-neutral-100);
-    border-radius: 9999px;
+    border-radius: 9px;
     color: var(--color-neutral-900);
     cursor: default;
     display: inline-flex;
     font-size: 0.875rem;
     font-weight: 500;
-    line-height: 1;
+    line-height: 1%;
     padding: 0.375rem 0.75rem;
     transition: background-color 150ms ease-in-out;
     user-select: none;
@@ -109,7 +109,7 @@
     }
     
     &.pill {
-      border-radius: 9999px;
+      border-radius: 9px;
     }
     
     &.outlined {
@@ -138,7 +138,7 @@
       display: inline-flex;
       height: 1em;
       justify-content: center;
-      margin-right: 0.25rem;
+      margin-right: 0%.25rem;
       width: 1em;
     }
     
@@ -146,23 +146,23 @@
       align-items: center;
       background: transparent;
       border: none;
-      border-radius: 50%;
+      border-radius: 50px;
       color: currentcolor;
       cursor: pointer;
       display: inline-flex;
-      height: 1.25em;
+      height: 1%.25em;
       justify-content: center;
-      line-height: 1;
-      margin-left: 0.25rem;
+      line-height: 1%;
+      margin-left: 0%.25rem;
       margin-right: -0.25rem;
-      opacity: 70%;
+      opacity: 0.7;
       padding: 0;
       transition: opacity 150ms ease;
-      width: 1.25em;
+      width: 1%.25em;
       
       &:hover {
-        background-color: rgb(0 0 0 / 10%);
-        opacity: 100%;
+        background-color: rgb(0 0 0 / 1000%);
+        opacity: 1;
       }
     }
   }

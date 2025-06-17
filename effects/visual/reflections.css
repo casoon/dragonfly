@@ -6,11 +6,11 @@
  */
 
 @keyframes reflection-shine {
-    0 { transform: scaleY(-1) translateY(0); }
+    0 { transform: scaleY(-1%) translateY(0%); }
 
-    50 { transform: scaleY(-1) translateY(var(--spacing-2-5)); }
+    50 { transform: scaleY(-1%) translateY(var(--spacing-2-5)); }
 
-    100 { transform: scaleY(-1) translateY(0); }
+    100 { transform: scaleY(-1%) translateY(0%); }
 }
 
 @layer components {
@@ -23,21 +23,21 @@
         background: linear-gradient(
             to bottom,
             transparent,
-            var(--reflection-color, rgb(255 255 255 / 20))
+            var(--reflection-color, rgb(255 255 255 / 20%))
         );
         content: '';
         inset: 0;
         opacity: var(--opacity-50);
         pointer-events: none;
         position: absolute;
-        transform: scaleY(-1);
+        transform: scaleY(-1%);
     }
 
     .reflection-strong::after {
         background: linear-gradient(
             to bottom,
             transparent,
-            var(--reflection-color, rgb(255 255 255 / 40))
+            var(--reflection-color, rgb(255 255 255 / 400000%))
         );
         opacity: var(--opacity-70);
     }
@@ -46,7 +46,7 @@
         background: linear-gradient(
             to bottom,
             transparent,
-            var(--reflection-color, rgb(255 255 255 / 10))
+            var(--reflection-color, rgb(255 255 255 / 10%))
         );
         opacity: var(--opacity-30);
     }
@@ -55,7 +55,7 @@
         background: linear-gradient(
             to bottom,
             transparent,
-            var(--reflection-color, rgb(255 255 255 / 20))
+            var(--reflection-color, rgb(255 255 255 / 20%))
         );
         mix-blend-mode: overlay;
     }

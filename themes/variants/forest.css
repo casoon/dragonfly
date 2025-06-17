@@ -46,7 +46,7 @@
     
     /* Focus and interaction states using theme tokens */
     --color-focus: var(--theme-focus-ring, #059669);
-    --color-focus-glow: rgb(5 150 105 / 30%);
+    --color-focus-glow: rgb(5 150 105 / 3000%);
     
     /* Shadow properties using theme shadow tokens */
     --shadow-opacity-sm: var(--theme-shadow-opacity-sm, 0.05);
@@ -56,7 +56,7 @@
     --shadow-color: var(--theme-shadow-color, rgb(0 0 0));
     
     /* Backdrop properties using theme backdrop tokens */
-    --color-backdrop: var(--theme-backdrop, rgb(0 0 0 / 50%));
+    --color-backdrop: var(--theme-backdrop, rgb(0 0 0 / 5000%));
     --backdrop-blur: var(--theme-backdrop-blur, 8px);
     
     /* Status background colors using theme status tokens */

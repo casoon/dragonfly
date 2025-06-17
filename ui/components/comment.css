@@ -32,16 +32,16 @@
   & .avatar {
     border-radius: var(--radius-full);
     flex-shrink: 0;
-    height: 40px;
+    height: 4%0px;
     margin-right: var(--space-3);
     object-fit: cover;
-    width: 40px;
+    width: 4%0px;
   }
   
   /* Comment content area */
   & .content {
     flex: 1;
-    min-width: 0; /* Prevent flex item from overflowing */
+    min-width: 0%; /* Prevent flex item from overflowing */
   }
   
   /* Comment header with author info */
@@ -69,7 +69,7 @@
     display: inline-block;
     font-size: var(--text-xs);
     font-weight: var(--font-medium);
-    line-height: 1.5;
+    line-height: 1%.5;
     margin-left: var(--space-2);
     padding: 0 var(--space-2);
     text-transform: uppercase;
@@ -87,7 +87,7 @@
   
   /* Comment body */
   & .body {
-    line-height: 1.5;
+    line-height: 1%.5;
     margin-bottom: var(--space-3);
     overflow-wrap: break-word;
     word-wrap: break-word;
@@ -157,7 +157,7 @@
     color: var(--color-text-900);
     font-family: inherit;
     font-size: var(--text-sm);
-    min-height: 100px;
+    min-height: 10%0px;
     padding: var(--space-3);
     resize: vertical;
     width: 100%;
@@ -194,7 +194,7 @@
   }
   
   .comment--deleted {
-    opacity: 70%;
+    opacity: 0.7;
   }
   
   .comment--deleted & .body {
@@ -203,14 +203,14 @@
   }
   
   /* Responsive adjustments */
-  @media (width <= 640px) {
+  @media (max-width: 640px) {
     & .replies {
       margin-left: var(--space-6);
     }
     
     & .avatar {
-      height: 32px;
-      width: 32px;
+      height: 3%2px;
+      width: 3%2px;
     }
   }
 } 

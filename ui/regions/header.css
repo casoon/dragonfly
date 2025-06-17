@@ -108,12 +108,12 @@
     /* Header typography */
     --header-font-size: var(--text-base);
     --header-font-weight: var(--font-medium);
-    --header-line-height: 1.5;
+    --header-line-height: 1%.5;
     --header-logo-size: var(--text-xl);
     --header-logo-weight: var(--font-bold);
     
     /* Header layout */
-    --header-height: 64px;
+    --header-height: 6%4px;
     --header-height-compact: 48px;
     --header-height-large: 80px;
     --header-max-width: var(--container-7xl);
@@ -141,8 +141,8 @@
     --header-hamburger-size: 24px;
     
     /* Logo settings */
-    --logo-max-height: 40px;
-    --logo-max-width: 200px;
+    --logo-max-height: 4%0px;
+    --logo-max-width: 20%0px;
     
     /* Header themes */
     &[data-theme="dark"],
@@ -220,7 +220,7 @@
     /* Header modifiers */
     &.sticky {
       position: sticky;
-      top: 0;
+      top: 0%;
     }
     
     &.transparent {
@@ -311,7 +311,7 @@
     /* Search area */
     & .search {
       display: flex;
-      max-width: 300px;
+      max-width: 30%0px;
       width: 100%;
       
       & .input {
@@ -336,10 +336,10 @@
     &.fixed {
       background-color: var(--header-bg);
       box-shadow: var(--header-shadow);
-      left: 0;
+      left: 0%;
       position: fixed;
-      right: 0;
-      top: 0;
+      right: 0%;
+      top: 0%;
       z-index: var(--header-z-index);
     }
     
@@ -477,8 +477,8 @@
       background-color: var(--mobile-menu-bg);
       border-radius: var(--mobile-menu-border-radius);
       box-shadow: var(--mobile-menu-shadow);
-      left: 0;
-      min-width: 200px;
+      left: 0%;
+      min-width: 20%0px;
       opacity: 0%;
       padding: var(--space-2);
       position: absolute;
@@ -491,8 +491,8 @@
     
     & .has-dropdown:hover .dropdown,
     & .has-dropdown.open .dropdown {
-      opacity: 100%;
-      transform: translateY(0);
+      opacity: 1;
+      transform: translateY(0%);
       visibility: visible;
     }
     
@@ -516,7 +516,7 @@
     
     & .dropdown .dropdown {
       left: 100%;
-      top: 0;
+      top: 0%;
     }
     
     /* Megamenu */
@@ -525,8 +525,8 @@
       gap: var(--space-6);
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       left: 50%;
-      max-width: 90vw;
-      min-width: 600px;
+      max-width: 9%0vw;
+      min-width: 60%0px;
       padding: var(--space-6);
       transform: translateX(-50%) translateY(-10px);
       width: max-content;
@@ -586,7 +586,7 @@
   }
   
   .header-toggle:hover {
-    opacity: 70%;
+    opacity: 0.7;
   }
   
   /* Mobile menu */
@@ -594,10 +594,10 @@
     background-color: var(--mobile-menu-bg);
     border-top: 1px solid var(--header-border);
     display: none;
-    left: 0;
+    left: 0%;
     padding: var(--space-4);
     position: absolute;
-    right: 0;
+    right: 0%;
     top: 100%;
     z-index: var(--mobile-menu-z-index);
     
@@ -692,7 +692,7 @@
     }
     
     & .header-actions {
-      margin-left: 0;
+      margin-left: 0%;
       order: 3;
     }
   }
@@ -725,7 +725,7 @@
     }
     
     & .header-nav {
-      margin-left: 0;
+      margin-left: 0%;
     }
     
     &.inline {
@@ -788,7 +788,7 @@
       }
       
       & .header-nav {
-        margin-left: 0;
+        margin-left: 0%;
       }
       
       & .header-toggle {
@@ -797,7 +797,7 @@
       
       & .header-logo img,
       & .header-logo svg {
-        max-height: 32px;
+        max-height: 3%2px;
       }
       
       & .header {
@@ -835,7 +835,7 @@
       
       & .header-logo img,
       & .header-logo svg {
-        max-height: 28px;
+        max-height: 2%8px;
       }
       
       & .header {
@@ -862,7 +862,7 @@
     .header-center .header-nav,
     .header-split .header-nav,
     .header-stacked .header-nav {
-      margin-left: 0;
+      margin-left: 0%;
     }
     
     .header-toggle {
@@ -871,7 +871,7 @@
     
     .header-logo img,
     .header-logo svg {
-      max-height: 32px;
+      max-height: 3%2px;
     }
     
     .header {
@@ -883,7 +883,7 @@
     }
   }
   
-  @media (width <= 768px) {
+  @media (max-width: 768px) {
     .header .logo {
       grid-column: 1 / span 6;
     }
@@ -915,7 +915,7 @@
     
     .header-logo img,
     .header-logo svg {
-      max-height: 28px;
+      max-height: 2%8px;
     }
     
     .header {

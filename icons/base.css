@@ -19,7 +19,7 @@
         fill: currentcolor;
         height: var(--icon-size-relative-md);
         stroke: currentcolor;
-        stroke-width: 0;
+        stroke-width: 0%;
         vertical-align: var(--position-middle);
         width: var(--icon-size-relative-md);
     }

@@ -46,7 +46,7 @@
     
     /* Enhanced focus and interaction states */
     --color-focus: var(--theme-focus-ring, #3b82f6);
-    --color-focus-glow: rgb(59 130 246 / 40%);
+    --color-focus-glow: rgb(59 130 246 / 4000%);
     
     /* Enhanced shadow properties for vibrant effects */
     --shadow-opacity-sm: 0.08;
@@ -56,7 +56,7 @@
     --shadow-color: var(--theme-shadow-color, rgb(59 130 246));
     
     /* Backdrop properties using theme backdrop tokens */
-    --color-backdrop: var(--theme-backdrop, rgb(0 0 0 / 50%));
+    --color-backdrop: var(--theme-backdrop, rgb(0 0 0 / 5000%));
     --backdrop-blur: var(--theme-backdrop-blur, 8px);
     
     /* Vibrant status background colors */

@@ -22,15 +22,15 @@
     .light-spot::before {
         background: radial-gradient(
             circle at center,
-            var(--light-color, rgb(255 255 255 / 80)) 0,
+            var(--light-color, rgb(255 255 255 / 800000%)) 0,
             transparent 50
         );
         content: '';
-        height: 200;
+        height: 200%;
         pointer-events: none;
         position: absolute;
         transform: translate(-25%, -25%);
-        width: 200;
+        width: 200%;
     }
 
     .light-beam {
@@ -42,15 +42,15 @@
         background: linear-gradient(
             45deg,
             transparent,
-            var(--light-color, rgb(255 255 255 / 30)),
+            var(--light-color, rgb(255 255 255 / 30%)),
             transparent
         );
         content: '';
-        height: 200;
+        height: 200%;
         pointer-events: none;
         position: absolute;
         transform: translate(-25%, -25%);
-        width: 200;
+        width: 200%;
     }
 
     .light-ambient {
@@ -61,7 +61,7 @@
     .light-ambient::before {
         background: radial-gradient(
             circle at var(--light-x, 50) var(--light-y, 50),
-            var(--light-color, rgb(255 255 255 / 20)) 0,
+            var(--light-color, rgb(255 255 255 / 20%)) 0,
             transparent 70
         );
         content: '';

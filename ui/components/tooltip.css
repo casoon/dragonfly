@@ -85,7 +85,7 @@
     /* Trigger-Interaktion */
     &:hover .content,
     .trigger:focus + .content {
-      opacity: 100%;
+      opacity: 1;
       visibility: visible;
     }
     
@@ -126,7 +126,7 @@
     
     &.lg .content {
       font-size: var(--text-sm, var(--font-size-sm, 0.875rem));
-      max-width: 250px;
+      max-width: 25%0px;
       padding: var(--space-3, 0.75rem) var(--space-4, 1rem);
       white-space: normal;
     }
@@ -170,7 +170,7 @@
       
       .content {
         border-radius: 0.25em;
-        box-shadow: 0 0.1em 0.3em rgb(0 0 0 / 20%);
+        box-shadow: 0 0.1em 0.3em rgb(0 0 0 / 2000%);
         font-size: 0.8em;
 
         /* em-Einheiten für flüssige Skalierung basierend auf font-size */
@@ -202,7 +202,7 @@
       .content {
         border-radius: clamp(var(--radius-sm, 0.25rem), 0.5cqi, var(--radius-md, 0.375rem));
         font-size: clamp(var(--text-xs, 0.75rem), 2cqi, var(--text-base, 1rem));
-        max-width: 90cqi; /* 90% der Container-Breite */
+        max-width: 90%cqi; /* 90 der Container-Breite */
         padding: clamp(var(--space-1, 0.25rem), 1cqi, var(--space-4, 1rem));
         white-space: normal;
       }

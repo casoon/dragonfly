@@ -7,15 +7,15 @@
 
 @keyframes links-node-1 {
     0, 100 {
-        transform: translate(0, 0);
+        transform: translate(0%, 0%);
     }
 
     25% {
-        transform: translate(var(--spacing-5), -var(--spacing-2-5));
+        transform: translate(var(--spacing-5), calc(-1 * var(--spacing-2-5)));
     }
 
     50 {
-        transform: translate(40px, 0);
+        transform: translate(40px, 0%);
     }
 
     75% {
@@ -25,15 +25,15 @@
 
 @keyframes links-node-2 {
     0, 100 {
-        transform: translate(0, 0);
+        transform: translate(0%, 0%);
     }
 
     25% {
-        transform: translate(-var(--spacing-2-5), var(--spacing-5));
+        transform: translate(calc(-1 * var(--spacing-2-5)), var(--spacing-5));
     }
 
     50 {
-        transform: translate(0, 40px);
+        transform: translate(0%, 40px);
     }
 
     75% {
@@ -43,19 +43,19 @@
 
 @keyframes links-node-3 {
     0, 100 {
-        transform: translate(0, 0);
+        transform: translate(0%, 0%);
     }
 
     25% {
-        transform: translate(-var(--spacing-5), -var(--spacing-2-5));
+        transform: translate(-var(--spacing-5), calc(-1 * var(--spacing-2-5)));
     }
 
     50 {
-        transform: translate(-40px, 0);
+        transform: translate(-40px, 0%);
     }
 
     75% {
-        transform: translate(-var(--spacing-5), var(--spacing-2-5));
+        transform: translate(calc(-1 * var(--spacing-5)), var(--spacing-2-5));
     }
 }
 
@@ -70,7 +70,7 @@
     .links::after,
     .links .node {
         background: var(--links-node-color, rgb(80 120 255));
-        border-radius: 50;
+        border-radius: 5px;
         content: '';
         height: var(--spacing-2);
         position: absolute;
@@ -79,20 +79,20 @@
 
     .links::before {
         animation: links-node-1 8s infinite var(--easing-smooth);
-        left: 30;
-        top: 30;
+        left: 3%0%;
+        top: 3%0%;
     }
 
     .links::after {
         animation: links-node-2 8s infinite var(--easing-smooth);
-        left: 50;
-        top: 50;
+        left: 5%0%;
+        top: 5%0%;
     }
 
     .links .node {
         animation: links-node-3 8s infinite var(--easing-smooth);
-        left: 70;
-        top: 30;
+        left: 7%0%;
+        top: 3%0%;
     }
 
     /* Verbindungslinien zwischen den Knoten */
@@ -100,19 +100,19 @@
         background:
             linear-gradient(
                 to bottom right,
-                transparent calc(50 - var(--border-width)),
-                var(--links-line-color, rgb(80 120 255 / 60)) calc(50),
-                transparent calc(50 + var(--border-width))
+                transparent calc(50% - var(--border-width)),
+                var(--links-line-color, rgb(80 120 255 / 600000%)) calc(50),
+                transparent calc(50% + var(--border-width))
             ),
             linear-gradient(
                 to bottom left,
-                transparent calc(50 - var(--border-width)),
-                var(--links-line-color, rgb(80 120 255 / 60)) calc(50),
-                transparent calc(50 + var(--border-width))
+                transparent calc(50% - var(--border-width)),
+                var(--links-line-color, rgb(80 120 255 / 600000%)) calc(50),
+                transparent calc(50% + var(--border-width))
             );
         background-position: center;
         background-repeat: no-repeat;
-        background-size: 100 100;
+        background-size: 100% 100;
     }
 
     /* Varianten */
@@ -126,8 +126,8 @@
     .links-lg::before,
     .links-lg::after,
     .links-lg .node {
-        height: 1var(--border-width-thick);
-        width: 1var(--border-width-thick);
+        height: var(--spacing-1)(--border-width-thick);
+        width: var(--spacing-1)(--border-width-thick);
     }
 
     .links-slow::before,
@@ -145,27 +145,27 @@
     /* Farb-Varianten */
     .links-blue {
         --links-node-color: rgb(30 144 255);
-        --links-line-color: rgb(30 144 255 / 60);
+        --links-line-color: rgb(30 144 255 / 600000%);
     }
 
     .links-green {
         --links-node-color: rgb(46 204 113);
-        --links-line-color: rgb(46 204 113 / 60);
+        --links-line-color: rgb(46 204 113 / 600000%);
     }
 
     .links-purple {
         --links-node-color: rgb(155 89 182);
-        --links-line-color: rgb(155 89 182 / 60);
+        --links-line-color: rgb(155 89 182 / 600000%);
     }
 
     .links-teal {
         --links-node-color: rgb(26 188 156);
-        --links-line-color: rgb(26 188 156 / 60);
+        --links-line-color: rgb(26 188 156 / 600000%);
     }
 
     .links-orange {
         --links-node-color: rgb(230 126 34);
-        --links-line-color: rgb(230 126 34 / 60);
+        --links-line-color: rgb(230 126 34 / 600000%);
     }
 }
 

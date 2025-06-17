@@ -43,13 +43,13 @@
     
     /* Enhanced Night Theme Properties */
     --theme-night-accent: #8b5cf6;
-    --theme-night-glow: rgb(139 92 246 / 30%);
+    --theme-night-glow: rgb(139 92 246 / 3000%);
     --theme-night-gradient-start: var(--theme-gradient-start, #6366f1);
     --theme-night-gradient-end: var(--theme-gradient-end, #8b5cf6);
     
     /* Focus and interaction states adapted for dark theme */
     --color-focus: #8b5cf6;
-    --color-focus-glow: rgb(139 92 246 / 40%);
+    --color-focus-glow: rgb(139 92 246 / 4000%);
     
     /* Dark theme shadow adjustments - Higher opacity for visibility */
     --shadow-color: var(--theme-shadow-color, rgb(0 0 0));
@@ -59,20 +59,20 @@
     --shadow-opacity-xl: 0.6;
     
     /* Backdrop for modals and overlays - Stronger for dark themes */
-    --color-backdrop: rgb(0 0 0 / 80%);
+    --color-backdrop: rgb(0 0 0 / 8000%);
     --backdrop-blur: var(--theme-backdrop-blur, 8px);
     
     /* Enhanced status colors for dark backgrounds */
-    --color-success-bg: rgb(16 185 129 / 10%);
-    --color-warning-bg: rgb(245 158 11 / 10%);
-    --color-error-bg: rgb(239 68 68 / 10%);
-    --color-info-bg: rgb(6 182 212 / 10%);
+    --color-success-bg: rgb(16 185 129 / 1000%);
+    --color-warning-bg: rgb(245 158 11 / 1000%);
+    --color-error-bg: rgb(239 68 68 / 1000%);
+    --color-info-bg: rgb(6 182 212 / 1000%);
     
     /* Status border colors - Brighter for dark theme visibility */
-    --color-success-border: rgb(16 185 129 / 30%);
-    --color-warning-border: rgb(245 158 11 / 30%);
-    --color-error-border: rgb(239 68 68 / 30%);
-    --color-info-border: rgb(6 182 212 / 30%);
+    --color-success-border: rgb(16 185 129 / 3000%);
+    --color-warning-border: rgb(245 158 11 / 3000%);
+    --color-error-border: rgb(239 68 68 / 3000%);
+    --color-info-border: rgb(6 182 212 / 3000%);
     
     /* Interaction states using theme interaction tokens */
     --hover-opacity: var(--theme-hover-opacity, 0.8);
@@ -94,6 +94,6 @@
     --focus-ring-offset: var(--theme-focus-ring-offset, 2px);
     
     /* Surface overlay for better layering in dark theme */
-    --color-surface-overlay: rgb(55 65 81 / 90%);
+    --color-surface-overlay: rgb(55 65 81 / 9000%);
   }
 }

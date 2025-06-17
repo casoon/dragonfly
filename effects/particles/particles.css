@@ -8,11 +8,11 @@
 @keyframes particles-float {
     0 {
         opacity: var(--opacity-0);
-        transform: translate(0, 0);
+        transform: translate(0%, 0%);
     }
 
     50 {
-        opacity: var(--opacity-10)0;
+        opacity: var(--opacity-100);
     }
 
     100 {
@@ -24,11 +24,11 @@
 @keyframes particles-dots {
     0 {
         opacity: var(--opacity-0);
-        transform: translate(0, 0);
+        transform: translate(0%, 0%);
     }
 
     50 {
-        opacity: var(--opacity-10)0;
+        opacity: var(--opacity-100);
     }
 
     100 {
@@ -40,11 +40,11 @@
 @keyframes particles-lines {
     0 {
         opacity: var(--opacity-0);
-        transform: translate(0, 0) rotate(0deg);
+        transform: translate(0%, 0%) rotate(0deg);
     }
 
     50 {
-        opacity: var(--opacity-10)0;
+        opacity: var(--opacity-100);
     }
 
     100 {
@@ -62,8 +62,8 @@
     .particles::before,
     .particles::after {
         animation: particles-float 3s infinite;
-        background: var(--particle-color, rgb(255 255 255 / 50));
-        border-radius: 50;
+        background: var(--particle-color, rgb(255 255 255 / 50%));
+        border-radius: 5px;
         content: '';
         height: var(--spacing-1);
         position: absolute;
@@ -104,8 +104,8 @@
     .particles-dots::before,
     .particles-dots::after {
         animation: particles-dots 3s infinite;
-        background: var(--particle-dots-color, rgb(255 255 255 / 50));
-        border-radius: 50;
+        background: var(--particle-dots-color, rgb(255 255 255 / 50%));
+        border-radius: 5px;
         content: '';
         height: var(--spacing-1);
         position: absolute;
@@ -146,7 +146,7 @@
     .particles-lines::before,
     .particles-lines::after {
         animation: particles-lines 3s infinite;
-        background: var(--particle-lines-color, rgb(255 255 255 / 50));
+        background: var(--particle-lines-color, rgb(255 255 255 / 50%));
         content: '';
         height: var(--spacing-5);
         position: absolute;
@@ -181,32 +181,32 @@
 
     .particles-color-primary::before,
     .particles-color-primary::after {
-        background: var(--particle-primary, rgb(59 130 246 / 50));
+        background: var(--particle-primary, rgb(59 130 246 / 50%));
     }
 
     .particles-color-secondary::before,
     .particles-color-secondary::after {
-        background: var(--particle-secondary, rgb(107 114 128 / 50));
+        background: var(--particle-secondary, rgb(107 114 128 / 50%));
     }
 
     .particles-color-success::before,
     .particles-color-success::after {
-        background: var(--particle-success, rgb(16 185 129 / 50));
+        background: var(--particle-success, rgb(16 185 129 / 50%));
     }
 
     .particles-color-error::before,
     .particles-color-error::after {
-        background: var(--particle-error, rgb(239 68 68 / 50));
+        background: var(--particle-error, rgb(239 68 68 / 50%));
     }
 
     .particles-color-warning::before,
     .particles-color-warning::after {
-        background: var(--particle-warning, rgb(245 158 11 / 50));
+        background: var(--particle-warning, rgb(245 158 11 / 50%));
     }
 
     .particles-color-info::before,
     .particles-color-info::after {
-        background: var(--particle-info, rgb(6 182 212 / 50));
+        background: var(--particle-info, rgb(6 182 212 / 50%));
     }
 }
 

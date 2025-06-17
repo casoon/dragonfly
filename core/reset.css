@@ -47,11 +47,11 @@
     }
   
     body {
-      background-color: var(--color-background, var(--color-var(--color-white)));
-      color: var(--color-foreground, var(--color-var(--color-black)));
+      background-color: var(--color-background, var(--color-white));
+      color: var(--color-foreground, var(--color-black));
       font-family: system-ui, sans-serif;
-      line-height: var(--line-height-none).5;
-      min-height: 100vh;
+      line-height: 1.5;
+      min-height: 100;
       text-rendering: optimizespeed;
     }
   

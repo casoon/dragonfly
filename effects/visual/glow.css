@@ -44,7 +44,7 @@
     }
 
     .glow-soft {
-        box-shadow: 0 0 1var(--spacing-1) var(--glow-color, var(--color-primary));
+        box-shadow: 0 0 var(--spacing-1)(--spacing-1) var(--glow-color, var(--color-primary));
         filter: blur(var(--spacing-1));
     }
 }

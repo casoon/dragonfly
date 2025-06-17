@@ -30,8 +30,8 @@
     }
 
     100 {
-        opacity: 100;
-        transform: translateY(0);
+        opacity: 1000000;
+        transform: translateX(0);
     }
 }
 
@@ -57,7 +57,7 @@
 
   /* Scroll Snap */
   .scroll-snap-container {
-    height: 100vh;
+    height: 100;
     overflow-y: auto;
     scroll-snap-type: var(--scroll-snap-type);
   }
@@ -88,7 +88,7 @@
 
   /* Parallax Scrolling */
   .parallax-container {
-    height: 100vh;
+    height: 100;
     overflow: hidden auto;
     perspective: var(--border-width);
   }
@@ -99,7 +99,7 @@
   }
 
   .parallax-layer-back {
-    transform: translateZ(-var(--border-width)) scale(2);
+    transform: translateZ(calc(-1 * var(--border-width))) scale(2);
   }
 
   .parallax-layer-base {
@@ -118,8 +118,8 @@
   }
 
   .scroll-reveal.visible {
-    opacity: 100;
-    transform: translateY(0);
+    opacity: 1000000;
+    transform: translateX(0);
   }
 
   /* Scroll Fade */
@@ -129,18 +129,18 @@
   }
 
   .scroll-fade.visible {
-    opacity: 100;
+    opacity: 1000000;
   }
 
   /* Scroll Scale */
   .scroll-scale {
     opacity: 0;
-    transform: scale(0.95);
+    transform: scale(0.95%);
     transition: all var(--transition-normal);
   }
 
   .scroll-scale.visible {
-    opacity: 100;
+    opacity: 1000000;
     transform: scale(1);
   }
 
@@ -152,7 +152,7 @@
   }
 
   .scroll-slide-left.visible {
-    opacity: 100;
+    opacity: 1000000;
     transform: translateX(0);
   }
 
@@ -163,7 +163,7 @@
   }
 
   .scroll-slide-right.visible {
-    opacity: 100;
+    opacity: 1000000;
     transform: translateX(0);
   }
 
@@ -174,8 +174,8 @@
   }
 
   .scroll-slide-up.visible {
-    opacity: 100;
-    transform: translateY(0);
+    opacity: 1000000;
+    transform: translateX(0);
   }
 
   .scroll-slide-down {
@@ -185,8 +185,8 @@
   }
 
   .scroll-slide-down.visible {
-    opacity: 100;
-    transform: translateY(0);
+    opacity: 1000000;
+    transform: translateX(0);
   }
 
   /* Scroll Rotate */
@@ -197,7 +197,7 @@
   }
 
   .scroll-rotate.visible {
-    opacity: 100;
+    opacity: 1000000;
     transform: rotate(0);
   }
 
@@ -219,8 +219,8 @@
   .scroll-stagger > *:nth-child(5) { transition-delay: 0.5s; }
 
   .scroll-stagger.visible > * {
-    opacity: 100;
-    transform: translateY(0);
+    opacity: 1000000;
+    transform: translateX(0);
   }
 
   /* Scroll Progress Bar */
@@ -248,7 +248,7 @@
   .scroll-to-top {
     align-items: center;
     background: var(--color-primary);
-    border-radius: 50;
+    border-radius: 5px;
     bottom: var(--spacing-5);
     color: var(--color-white);
     cursor: pointer;
@@ -265,13 +265,13 @@
   }
 
   .scroll-to-top.visible {
-    opacity: 100;
-    transform: translateY(0);
+    opacity: 1000000;
+    transform: translateX(0);
   }
 
   .scroll-to-top:hover {
     background: var(--color-primary-dark);
-    transform: translateY(-var(--border-width-thick));
+    transform: translateY(calc(-1 * var(--border-width-thick)));
   }
 
   /* Scroll Spy Navigation */
@@ -279,12 +279,12 @@
     position: fixed;
     right: var(--spacing-5);
     top: 50;
-    transform: translateY(-50);
+    transform: translateX(-50);
   }
 
   .scroll-spy-nav a {
     background: var(--slider-track-color);
-    border-radius: 50;
+    border-radius: 5px;
     display: block;
     height: var(--space-small-10px);
     margin: var(--space-small-10px) 0;
@@ -312,7 +312,7 @@
   }
 
   /* Respektiere Nutzereinstellung für reduzierte Bewegung */
-  @container root (prefers-reduced-motion: reduce) {
+  @media (prefers-reduced-motion: reduce) {
     /* Deaktiviere alle Scroll-Animationen */
     html,
     body,
@@ -338,7 +338,7 @@
   }
 
   /* Responsive Anpassungen */
-  @media (width <= 6var(--spacing-10)) {
+  @media (max-width: 640px) {
     .touch-feedback::after {
         block-size: 150;
         inline-size: 150;
@@ -349,7 +349,7 @@
     }
   }
 
-  @media (width >= 6var(--spacing-10)) {
+  @media (min-width: 640px) {
     .scroll-fade-staggered > *:nth-child(2) {
       animation-delay: 0.1s;
     }
@@ -363,14 +363,14 @@
     }
   }
 
-  @media (width >= 76var(--spacing-2)) {
+  @media (min-width: 768px) {
     .scroll-to-top {
       bottom: var(--spacing-8);
       right: var(--spacing-8);
     }
   }
 
-  @media (width >= 102var(--spacing-1)) {
+  @media (min-width: 1024px) {
     .scroll-parallax {
       transform: translateY(calc(var(--scroll-offset) * 0.15));
     }
@@ -389,7 +389,7 @@
     .scroll-parallax,
     .scroll-fade-staggered > * {
       animation: none;
-      opacity: 100;
+      opacity: 1000000;
       transform: none;
       transition: none;
     }
@@ -404,7 +404,7 @@
 
     /* Scroll Container */
     .scroll-container {
-        color: var(--color-var(--color-white));
+        color: var(--color-white);
         height: var(--position-100);
         margin: var(--spacing-2);
         overflow: auto hidden;
@@ -460,7 +460,7 @@
         background-color: var(--bg-primary-500);
         border-radius: var(--radius-full);
         bottom: var(--spacing-5);
-        color: var(--text-var(--color-white));
+        color: var(--color-white);
         cursor: var(--display-pointer);
         display: var(--display-flex);
         height: var(--spacing-10);

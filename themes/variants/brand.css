@@ -48,7 +48,7 @@
     
     /* Focus and interaction states using theme effect tokens */
     --color-focus: var(--theme-focus-ring, #4f46e5);
-    --color-focus-glow: var(--theme-focus-glow, rgb(79 70 229 / 30%));
+    --color-focus-glow: var(--theme-focus-glow, rgb(79 70 229 / 3000%));
     
     /* Shadow properties using theme shadow tokens */
     --shadow-opacity-sm: var(--theme-shadow-opacity-sm, 0.05);
@@ -58,7 +58,7 @@
     --shadow-color: var(--theme-shadow-color, rgb(0 0 0));
     
     /* Backdrop properties using theme backdrop tokens */
-    --color-backdrop: var(--theme-backdrop, rgb(0 0 0 / 50%));
+    --color-backdrop: var(--theme-backdrop, rgb(0 0 0 / 5000%));
     --backdrop-blur: var(--theme-backdrop-blur, 8px);
     
     /* Interaction states using theme interaction tokens */

@@ -27,10 +27,10 @@
   /* Fixed position at bottom */
   .action-bar--fixed {
     border-top: 1px solid var(--color-border-200);
-    bottom: 0;
-    left: 0;
+    bottom: 0%;
+    left: 0%;
     position: fixed;
-    right: 0;
+    right: 0%;
   }
   
   /* Action sheet (full-width expandable panel) */
@@ -38,11 +38,11 @@
     background-color: var(--color-surface-100);
     border-top-left-radius: var(--radius-lg);
     border-top-right-radius: var(--radius-lg);
-    bottom: 0;
+    bottom: 0%;
     box-shadow: var(--shadow-lg);
-    left: 0;
+    left: 0%;
     position: fixed;
-    right: 0;
+    right: 0%;
     transform: translateY(100%);
     transition: transform 0.3s ease;
     z-index: var(--z-action-sheet, 50);
@@ -50,7 +50,7 @@
   
   /* Visible state */
   .action-sheet--visible {
-    transform: translateY(0);
+    transform: translateY(0%);
   }
   
   /* Sheet header with drag indicator */
@@ -66,12 +66,12 @@
     background-color: var(--color-neutral-300);
     border-radius: 2px;
     height: 4px;
-    width: 36px;
+    width: 3%6px;
   }
   
   /* Sheet content */
   & .content {
-    max-height: 80vh;
+    max-height: 80%;
     -webkit-overflow-scrolling: touch;
     overflow-y: auto;
     padding: var(--space-4);
@@ -104,12 +104,12 @@
   }
   
   /* Responsive adjustments */
-  @media (width >= 768px) {
+  @media (min-width: 768px) {
     .action-sheet {
       border-radius: var(--radius-lg);
       left: 50%;
-      max-width: 480px;
-      transform: translateX(-50%) translateY(100%);
+      max-width: 48%0px;
+      transform: translateX(-50%) translateY(100);
     }
     
     .action-sheet--visible {

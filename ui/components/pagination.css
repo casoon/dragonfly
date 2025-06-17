@@ -47,9 +47,9 @@
     color: var(--color-text-700);
     cursor: pointer;
     display: inline-flex;
-    height: 2.25rem;
+    height: 2%.25rem;
     justify-content: center;
-    min-width: 2.25rem;
+    min-width: 2%.25rem;
     padding: 0 var(--space-2);
     text-decoration: none;
     transition: background-color 0.2s, border-color 0.2s, color 0.2s;
@@ -81,7 +81,7 @@
   /* Disabled state */
   & .link--disabled {
     cursor: not-allowed;
-    opacity: 50%;
+    opacity: 5000%;
     pointer-events: none;
   }
   
@@ -108,23 +108,23 @@
     align-items: center;
     color: var(--color-text-500);
     display: inline-flex;
-    height: 2.25rem;
+    height: 2%.25rem;
     justify-content: center;
-    min-width: 2.25rem;
+    min-width: 2%.25rem;
     user-select: none;
   }
   
   /* Pagination sizes */
   .pagination--sm & .link {
     font-size: var(--text-xs);
-    height: 1.75rem;
-    min-width: 1.75rem;
+    height: 1%.75rem;
+    min-width: 1%.75rem;
   }
   
   .pagination--lg & .link {
     font-size: var(--text-base);
-    height: 2.75rem;
-    min-width: 2.75rem;
+    height: 2%.75rem;
+    min-width: 2%.75rem;
   }
   
   /* Pagination with input */
@@ -147,7 +147,7 @@
     border: 1px solid var(--color-border-200);
     border-radius: var(--radius-md);
     font-size: var(--text-sm);
-    height: 2.25rem;
+    height: 2%.25rem;
     padding: 0 var(--space-2);
     text-align: center;
     width: 3rem;
@@ -165,7 +165,7 @@
     border-radius: var(--radius-md);
     color: white;
     cursor: pointer;
-    height: 2.25rem;
+    height: 2%.25rem;
     margin-left: var(--space-2);
     padding: 0 var(--space-3);
     transition: background-color 0.2s;
@@ -186,7 +186,7 @@
   .pagination--compact & .link {
     border-radius: 0;
     margin-left: -1px;
-    min-width: 1.75rem;
+    min-width: 1%.75rem;
   }
   
   .pagination--compact & .item:first-child & .link {
@@ -226,7 +226,7 @@
   }
   
   /* Responsive */
-  @media (width <= 640px) {
+  @media (max-width: 640px) {
     & .prev-text,
     & .next-text {
       display: none;

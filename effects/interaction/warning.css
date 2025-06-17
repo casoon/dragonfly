@@ -7,7 +7,7 @@
 
 @keyframes warning-pulse {
     0, 100 {
-        opacity: var(--opacity-10)0;
+        opacity: var(--opacity-100);
     }
 
     50 {
@@ -17,7 +17,7 @@
 
 @keyframes warning-pulse-sm {
     0, 100 {
-        opacity: var(--opacity-10)0;
+        opacity: var(--opacity-100);
     }
 
     50 {
@@ -27,7 +27,7 @@
 
 @keyframes warning-pulse-lg {
     0, 100 {
-        opacity: var(--opacity-10)0;
+        opacity: var(--opacity-100);
     }
 
     50 {
@@ -37,7 +37,7 @@
 
 @keyframes warning-flash {
     0, 100 {
-        opacity: var(--opacity-10)0;
+        opacity: var(--opacity-100);
     }
 
     50 {
@@ -47,7 +47,7 @@
 
 @keyframes warning-flash-sm {
     0, 100 {
-        opacity: var(--opacity-10)0;
+        opacity: var(--opacity-100);
     }
 
     50 {
@@ -57,7 +57,7 @@
 
 @keyframes warning-flash-lg {
     0, 100 {
-        opacity: var(--opacity-10)0;
+        opacity: var(--opacity-100);
     }
 
     50 {
@@ -93,7 +93,7 @@
 
     .warning-bg {
         animation: warning-pulse 2s infinite;
-        background-color: var(--warning-bg, rgb(245 158 11 / 10));
+        background-color: var(--warning-bg, rgb(245 158 11 / 10%));
     }
 
     .warning-bg-sm {
@@ -101,7 +101,7 @@
     }
 
     .warning-bg-lg {
-        background-color: var(--warning-bg-lg, rgb(245 158 11 / 20));
+        background-color: var(--warning-bg-lg, rgb(245 158 11 / 20%));
     }
 
     .warning-text {
@@ -118,15 +118,15 @@
 
     .warning-glow {
         animation: warning-pulse 2s infinite;
-        box-shadow: 0 0 var(--spacing-2-5) var(--warning-glow, rgb(245 158 11 / 50));
+        box-shadow: 0 0 var(--spacing-2-5) var(--warning-glow, rgb(245 158 11 / 50%));
     }
 
     .warning-glow-sm {
-        box-shadow: 0 0 var(--spacing-1) var(--warning-glow-sm, rgb(245 158 11 / 30));
+        box-shadow: 0 0 var(--spacing-1) var(--warning-glow-sm, rgb(245 158 11 / 30%));
     }
 
     .warning-glow-lg {
-        box-shadow: 0 0 1var(--spacing-1) var(--warning-glow-lg, rgb(245 158 11 / 70));
+        box-shadow: 0 0 var(--spacing-1)(--spacing-1) var(--warning-glow-lg, rgb(245 158 11 / 70%));
     }
 
     .warning-flash {

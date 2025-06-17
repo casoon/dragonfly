@@ -31,7 +31,7 @@
     }
 
     .transform-rotate-lg {
-        transform: var(--transform-rotate-45);
+        transform: var(--transform-rotate-45deg);
     }
 
     .transform-skew-sm {

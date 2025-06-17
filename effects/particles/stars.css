@@ -12,14 +12,14 @@
     }
 
     50 {
-        opacity: var(--opacity-10)0;
+        opacity: var(--opacity-100);
         transform: var(--transform-scale-100);
     }
 }
 
 @keyframes stars-drift {
     0 {
-        transform: translateX(0) translateY(0);
+        transform: translateX(0%) translateY(0%);
     }
 
     25% {
@@ -27,15 +27,15 @@
     }
 
     50 {
-        transform: translateX(var(--spacing-1)) translateY(0);
+        transform: translateX(var(--spacing-1)) translateY(0%);
     }
 
     75% {
-        transform: translateX(var(--spacing-1)) translateY(-var(--border-width));
+        transform: translateX(var(--spacing-1)) translateY(calc(-1 * var(--border-width)));
     }
 
     100 {
-        transform: translateX(0) translateY(0);
+        transform: translateX(0%) translateY(0%);
     }
 }
 
@@ -52,8 +52,8 @@
             stars-twinkle 4s var(--easing-smooth) infinite,
             stars-drift 20s linear infinite;
         background: var(--stars-color, rgb(255 255 200));
-        border-radius: 50;
-        box-shadow: 0 0 var(--spacing-1) var(--border-width) var(--stars-glow, rgb(255 255 200 / 70));
+        border-radius: 5px;
+        box-shadow: 0 0 var(--spacing-1) var(--border-width) var(--stars-glow, rgb(255 255 200 / 70%));
         content: '';
         height: var(--spacing-1);
         position: absolute;
@@ -61,20 +61,20 @@
     }
 
     .stars::before {
-        right: 20;
-        top: 30;
+        right: 2%0%;
+        top: 3%0%;
     }
 
     .stars::after {
         animation-delay: var(--animation-duration-slow), 5s;
-        right: 50;
-        top: 60;
+        right: 5%0%;
+        top: 6%0%;
     }
 
     .stars .star {
         animation-delay: var(--animation-duration-slowest), 10s;
-        right: 80;
-        top: 20;
+        right: 8%0%;
+        top: 2%0%;
     }
 
     .stars .star-alt {
@@ -83,12 +83,12 @@
             stars-drift 20s linear infinite;
         animation-delay: var(--animation-duration-ultra-slow), 15s;
         background: var(--stars-color, rgb(255 255 200));
-        border-radius: 50;
-        box-shadow: 0 0 var(--spacing-1) var(--border-width) var(--stars-glow, rgb(255 255 200 / 70));
+        border-radius: 5px;
+        box-shadow: 0 0 var(--spacing-1) var(--border-width) var(--stars-glow, rgb(255 255 200 / 70%));
         height: var(--spacing-1);
         position: absolute;
-        right: 30;
-        top: 70;
+        right: 3%0%;
+        top: 7%0%;
         width: var(--spacing-1);
     }
 
@@ -107,8 +107,8 @@
             stars-twinkle 4s var(--easing-smooth) infinite,
             stars-drift 20s linear infinite;
         background: var(--stars-color, rgb(255 255 200));
-        border-radius: 50;
-        box-shadow: 0 0 var(--spacing-1) var(--border-width) var(--stars-glow, rgb(255 255 200 / 70));
+        border-radius: 5px;
+        box-shadow: 0 0 var(--spacing-1) var(--border-width) var(--stars-glow, rgb(255 255 200 / 70%));
         content: '';
         height: var(--spacing-1);
         position: absolute;
@@ -117,14 +117,14 @@
 
     .stars-dense .star-extra {
         animation-delay: var(--animation-duration-slower), 8s;
-        right: 10;
-        top: 40;
+        right: 1%0%;
+        top: 4%0%;
     }
 
     .stars-dense .star-extra-alt {
         animation-delay: 2.5s, 12s;
-        right: 70;
-        top: 50;
+        right: 7%0%;
+        top: 5%0%;
     }
 
     /* Größenvarianten */
@@ -134,7 +134,7 @@
     .stars-sm .star-alt,
     .stars-sm .star-extra,
     .stars-sm .star-extra-alt {
-        box-shadow: 0 0 var(--border-width-thick) 0.var(--spacing-1) var(--stars-glow, rgb(255 255 200 / 70));
+        box-shadow: 0 0 var(--border-width-thick) 0.5 var(--spacing-1) var(--stars-glow, rgb(255 255 200 / 70%));
         height: var(--border-width-thick);
         width: var(--border-width-thick);
     }
@@ -145,7 +145,7 @@
     .stars-lg .star-alt,
     .stars-lg .star-extra,
     .stars-lg .star-extra-alt {
-        box-shadow: 0 0 6px var(--border-width-thick) var(--stars-glow, rgb(255 255 200 / 70));
+        box-shadow: 0 0 6px var(--border-width-thick) var(--stars-glow, rgb(255 255 200 / 70%));
         height: var(--spacing-1);
         width: var(--spacing-1);
     }
@@ -172,37 +172,37 @@
     /* Farbvarianten */
     .stars-white {
         --stars-color: rgb(255 255 255);
-        --stars-glow: rgb(255 255 255 / 70);
+        --stars-glow: rgb(255 255 255 / 70%);
     }
 
     .stars-blue {
         --stars-color: rgb(200 220 255);
-        --stars-glow: rgb(200 220 255 / 70);
+        --stars-glow: rgb(200 220 255 / 70%);
     }
 
     .stars-gold {
         --stars-color: rgb(255 215 0);
-        --stars-glow: rgb(255 215 0 / 70);
+        --stars-glow: rgb(255 215 0 / 70%);
     }
 
     .stars-multi .star {
         --stars-color: rgb(255 150 150);
-        --stars-glow: rgb(255 150 150 / 70);
+        --stars-glow: rgb(255 150 150 / 70%);
     }
 
     .stars-multi .star-alt {
         --stars-color: rgb(150 255 150);
-        --stars-glow: rgb(150 255 150 / 70);
+        --stars-glow: rgb(150 255 150 / 70%);
     }
 
     .stars-multi .star-extra {
         --stars-color: rgb(150 150 255);
-        --stars-glow: rgb(150 150 255 / 70);
+        --stars-glow: rgb(150 150 255 / 70%);
     }
 
     .stars-multi .star-extra-alt {
         --stars-color: rgb(255 255 150);
-        --stars-glow: rgb(255 255 150 / 70);
+        --stars-glow: rgb(255 255 150 / 70%);
     }
 }
 

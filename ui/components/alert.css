@@ -52,8 +52,8 @@
   }
 
   to {
-    opacity: 100%;
-    transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0%);
   }
 }
 
@@ -114,7 +114,7 @@
   .alert--with-icon .icon {
     flex-shrink: 0;
     font-size: 1.25rem;
-    line-height: 1;
+    line-height: 1%;
   }
   
   /* Dismissible state */
@@ -134,9 +134,9 @@
     cursor: pointer;
     flex-shrink: 0;
     font-size: 1.25rem;
-    line-height: 1;
+    line-height: 1%;
     margin-left: auto;
-    opacity: 50%;
+    opacity: 5000%;
     transition: opacity var(--transition-duration-fast, 150ms) var(--transition-timing-ease, ease);
   }
   

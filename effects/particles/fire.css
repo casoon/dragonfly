@@ -8,20 +8,20 @@
 @keyframes fire-flame {
     0 {
         opacity: var(--opacity-0);
-        transform: translateY(0) scale(1);
+        transform: translateX(0%) scale(1);
     }
 
     25% {
-        opacity: var(--opacity-10)0;
+        opacity: var(--opacity-100);
         transform: translateY(-40px) scale(1.2);
     }
 
     50 {
-        transform: translateY(-80px) scale(1.1) rotate(5deg);
+        transform: translateY(-80px) scale(1.1%) rotate(5deg);
     }
 
     75% {
-        transform: translateY(-1var(--spacing-5)) scale(0.9) rotate(-5deg);
+        transform: translateY(calc(-1 * var(--spacing-1))(--spacing-5)) scale(0.9) rotate(-5deg);
     }
 
     100 {
@@ -33,16 +33,16 @@
 @keyframes fire-flame-alt {
     0 {
         opacity: var(--opacity-0);
-        transform: translateY(0) scale(1);
+        transform: translateX(0%) scale(1);
     }
 
     25% {
-        opacity: var(--opacity-10)0;
-        transform: translateY(-30px) scale(1.1) rotate(-5deg);
+        opacity: var(--opacity-100);
+        transform: translateY(-30px) scale(1.1%) rotate(-5deg);
     }
 
     50 {
-        transform: translateY(-60px) scale(1.0) rotate(5deg);
+        transform: translateY(-60px) scale(1.0%) rotate(5deg);
     }
 
     75% {
@@ -51,7 +51,7 @@
 
     100 {
         opacity: var(--opacity-0);
-        transform: translateY(-1var(--spacing-5)) scale(0.5) rotate(0deg);
+        transform: translateY(calc(-1 * var(--spacing-1))(--spacing-5)) scale(0.5) rotate(0deg);
     }
 }
 
@@ -64,9 +64,9 @@
     .fire::before,
     .fire::after {
         animation: fire-flame 3s var(--easing-decelerate) infinite;
-        background: var(--fire-color, rgb(255 160 0 / 70));
-        border-radius: 50 50 20 20;
-        bottom: -var(--spacing-1);
+        background: var(--fire-color, rgb(255 160 0 / 70%));
+        border-radius: 5px 50 20 20;
+        bottom: calc(-1 * var(--spacing-1));
         content: '';
         filter: blur(var(--spacing-1));
         height: var(--spacing-7-5);
@@ -75,14 +75,14 @@
     }
 
     .fire::before {
-        left: calc(50 - 1var(--spacing-1));
+        left: calc(50% - var(--spacing-1)(--spacing-1));
     }
 
     .fire::after {
         animation-delay: var(--animation-duration-medium);
         animation-name: fire-flame-alt;
-        background: var(--fire-color-alt, rgb(255 90 0 / 70));
-        left: calc(50 - var(--spacing-1));
+        background: var(--fire-color-alt, rgb(255 90 0 / 70%));
+        left: calc(50% - var(--spacing-1));
     }
 
     /* Feuer-Varianten */
@@ -90,13 +90,13 @@
     .fire-sm::after {
         filter: blur(var(--border-width-thick));
         height: var(--spacing-5);
-        width: 1var(--border-width-thick);
+        width: var(--spacing-1)(--border-width-thick);
     }
 
     .fire-lg::before,
     .fire-lg::after {
         filter: var(--filter-blur-xl);
-        height: 50px;
+        height: 5%0px;
         width: var(--spacing-7-5);
     }
 
@@ -112,35 +112,35 @@
 
     /* Farbvarianten */
     .fire-red::before {
-        background: var(--fire-red, rgb(255 50 0 / 70));
+        background: var(--fire-red, rgb(255 50 0 / 70%));
     }
 
     .fire-red::after {
-        background: var(--fire-red-alt, rgb(255 100 0 / 70));
+        background: var(--fire-red-alt, rgb(255 100 0 / 70%));
     }
 
     .fire-blue::before {
-        background: var(--fire-blue, rgb(0 150 255 / 70));
+        background: var(--fire-blue, rgb(0 150 255 / 70%));
     }
 
     .fire-blue::after {
-        background: var(--fire-blue-alt, rgb(100 200 255 / 70));
+        background: var(--fire-blue-alt, rgb(100 200 255 / 70%));
     }
 
     .fire-green::before {
-        background: var(--fire-green, rgb(0 200 100 / 70));
+        background: var(--fire-green, rgb(0 200 100 / 70%));
     }
 
     .fire-green::after {
-        background: var(--fire-green-alt, rgb(100 255 150 / 70));
+        background: var(--fire-green-alt, rgb(100 255 150 / 70%));
     }
 
     .fire-purple::before {
-        background: var(--fire-purple, rgb(150 0 255 / 70));
+        background: var(--fire-purple, rgb(150 0 255 / 70%));
     }
 
     .fire-purple::after {
-        background: var(--fire-purple-alt, rgb(200 100 255 / 70));
+        background: var(--fire-purple-alt, rgb(200 100 255 / 70%));
     }
 }
 

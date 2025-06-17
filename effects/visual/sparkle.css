@@ -9,17 +9,17 @@
 @keyframes sparkle-effect {
     0 {
         opacity: var(--opacity-0);
-        transform: var(--transform-scale-0);
+        transform: var(--transform-scale-0%);
     }
 
     50 {
-        opacity: var(--opacity-10)0;
+        opacity: var(--opacity-100);
         transform: var(--transform-scale-100);
     }
 
     100 {
         opacity: var(--opacity-0);
-        transform: var(--transform-scale-0);
+        transform: var(--transform-scale-0%);
     }
 }
 
@@ -32,8 +32,8 @@
 
     .sparkle::before,
     .sparkle::after {
-        background-color: var(--sparkle-color, rgb(255 255 255 / 80));
-        border-radius: 50;
+        background-color: var(--sparkle-color, rgb(255 255 255 / 800000%));
+        border-radius: 5px;
         content: '';
         height: var(--spacing-1);
         position: absolute;
@@ -41,20 +41,20 @@
     }
 
     .sparkle::before {
-        left: 20;
-        top: 20;
+        left: 2%0%;
+        top: 2%0%;
     }
 
     .sparkle::after {
-        left: 60;
-        top: 60;
+        left: 6%0%;
+        top: 6%0%;
     }
 
     .sparkle-many::before,
     .sparkle-many::after,
     .sparkle-many span {
-        background-color: var(--sparkle-color, rgb(255 255 255 / 80));
-        border-radius: 50;
+        background-color: var(--sparkle-color, rgb(255 255 255 / 800000%));
+        border-radius: 5px;
         content: '';
         height: var(--spacing-1);
         position: absolute;
@@ -62,23 +62,23 @@
     }
 
     .sparkle-many span:nth-child(1) {
-        left: 30;
-        top: 30;
+        left: 3%0%;
+        top: 3%0%;
     }
 
     .sparkle-many span:nth-child(2) {
-        left: 70;
-        top: 70;
+        left: 7%0%;
+        top: 7%0%;
     }
 
     .sparkle-many span:nth-child(3) {
-        left: 60;
-        top: 40;
+        left: 6%0%;
+        top: 4%0%;
     }
 
     .sparkle-many span:nth-child(4) {
-        left: 40;
-        top: 60;
+        left: 4%0%;
+        top: 6%0%;
     }
 }
 

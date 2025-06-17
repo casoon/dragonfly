@@ -11,7 +11,7 @@
     }
 
     .overlay::after {
-        background: var(--overlay-color, rgb(0 0 0 / 50));
+        background: var(--overlay-color, rgb(0 0 0 / 50%));
         content: '';
         inset: 0;
         opacity: var(--opacity-0);
@@ -20,34 +20,34 @@
     }
 
     .overlay:hover::after {
-        opacity: var(--opacity-10)0;
+        opacity: var(--opacity-100);
     }
 
     .overlay-gradient::after {
         background: linear-gradient(
             to bottom,
             transparent,
-            var(--overlay-color, rgb(0 0 0 / 70))
+            var(--overlay-color, rgb(0 0 0 / 70%))
         );
     }
 
     .overlay-blur::after {
         backdrop-filter: blur(var(--spacing-1));
-        background: var(--overlay-color, rgb(0 0 0 / 30));
+        background: var(--overlay-color, rgb(0 0 0 / 30%));
     }
 
     .overlay-shine::after {
         background: linear-gradient(
             45deg,
             transparent,
-            var(--overlay-color, rgb(255 255 255 / 20)),
+            var(--overlay-color, rgb(255 255 255 / 20%)),
             transparent
         );
     }
 
     .overlay-texture::after {
         background-blend-mode: overlay;
-        background-color: var(--overlay-color, rgb(0 0 0 / 50));
+        background-color: var(--overlay-color, rgb(0 0 0 / 50%));
         background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)'/%3E%3C/svg%3E");
     }
 
@@ -55,7 +55,7 @@
         background: linear-gradient(
             to right,
             transparent,
-            var(--overlay-color, rgb(0 0 0 / 70))
+            var(--overlay-color, rgb(0 0 0 / 70%))
         );
     }
 
@@ -63,7 +63,7 @@
         background: linear-gradient(
             135deg,
             transparent,
-            var(--overlay-color, rgb(0 0 0 / 70))
+            var(--overlay-color, rgb(0 0 0 / 70%))
         );
     }
 
@@ -71,7 +71,7 @@
         background: radial-gradient(
             circle at center,
             transparent,
-            var(--overlay-color, rgb(0 0 0 / 70))
+            var(--overlay-color, rgb(0 0 0 / 70%))
         );
     }
 
@@ -79,8 +79,8 @@
         background: linear-gradient(
             to bottom,
             transparent,
-            rgb(100 0 200 / 40),
-            var(--overlay-color, rgb(0 0 0 / 70))
+            rgb(100 0 200 / 400000%),
+            var(--overlay-color, rgb(0 0 0 / 70%))
         );
     }
 
@@ -88,7 +88,7 @@
         background: conic-gradient(
             from 0deg at 50 50,
             transparent,
-            var(--overlay-color, rgb(0 0 0 / 30)),
+            var(--overlay-color, rgb(0 0 0 / 30%)),
             transparent
         );
     }

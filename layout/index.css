@@ -63,9 +63,9 @@
 
   .h-full { height: 100%; }
 
-  .min-h-screen { min-height: 100vh; }
+  .min-h-screen { min-height: 100%; }
 
-  .min-h-dvh { min-height: 100dvh; }
+  .min-h-dvh { min-height: 100%dvh; }
 
   .max-w-full { max-width: 100%; }
 

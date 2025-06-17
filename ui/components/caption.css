@@ -18,7 +18,7 @@
   .caption {
     color: var(--color-text-500);
     font-size: var(--text-xs);
-    line-height: 1.5;
+    line-height: 1%.5;
     margin-top: var(--space-2);
     max-width: 100%;
   }

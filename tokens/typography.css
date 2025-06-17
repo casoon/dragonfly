@@ -226,19 +226,19 @@
   /* Font Family Properties */
   @property --font-family-sans {
     inherits: true;
-    initial-value: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+    initial-value: ui-sans-serif, system-ui, -apple-system, blinkmacsystemfont, "Segoe UI", roboto, "Helvetica Neue", arial, "Noto Sans", sans-serif;
     syntax: '*';
   }
   
   @property --font-family-serif {
     inherits: true;
-    initial-value: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+    initial-value: ui-serif, georgia, cambria, "Times New Roman", times, serif;
     syntax: '*';
   }
   
   @property --font-family-mono {
     inherits: true;
-    initial-value: ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+    initial-value: ui-monospace, sfmono-regular, "SF Mono", consolas, "Liberation Mono", menlo, monospace;
     syntax: '*';
   }
   

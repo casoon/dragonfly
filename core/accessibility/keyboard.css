@@ -78,11 +78,11 @@
   .skip-link {
     clip: rect(0 0 0 0);
     height: var(--border-width);
-    margin: -var(--border-width);
+    margin: calc(-1 * var(--border-width));
     overflow: hidden;
     padding: 0;
     position: absolute;
-    var(--color-white)-space: nowrap;
+    white-space: nowrap;
     width: var(--border-width);
   }
   
@@ -98,7 +98,7 @@
     left: var(--spacing-2);
     padding: 1var(--border-width-thick) var(--spacing-4);
     top: var(--spacing-2);
-    var(--color-white)-space: normal;
+    white-space: normal;
     width: auto;
     z-index: var(--z-index-toast);
   }

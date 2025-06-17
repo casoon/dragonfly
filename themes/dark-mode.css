@@ -44,7 +44,7 @@
     
     /* Focus and Interactive States */
     --color-focus: #6366f1;
-    --color-focus-glow: rgb(99 102 241 / 40%);
+    --color-focus-glow: rgb(99 102 241 / 4000%);
   }
 }
 
@@ -74,10 +74,10 @@
   --dark-mode-border-hover: var(--color-gray-600);
   --dark-mode-border-focus: var(--color-primary-400);
   --dark-mode-border-error: var(--color-error-400);
-  --dark-mode-shadow-sm: rgb(0 0 0 / 20%);
-  --dark-mode-shadow-md: rgb(0 0 0 / 30%);
-  --dark-mode-shadow-lg: rgb(0 0 0 / 40%);
-  --dark-mode-shadow-xl: rgb(0 0 0 / 50%);
+  --dark-mode-shadow-sm: rgb(0 0 0 / 2000%);
+  --dark-mode-shadow-md: rgb(0 0 0 / 3000%);
+  --dark-mode-shadow-lg: rgb(0 0 0 / 4000%);
+  --dark-mode-shadow-xl: rgb(0 0 0 / 5000%);
   --dark-mode-focus-ring: var(--color-primary-400);
   --dark-mode-focus-ring-offset: var(--color-gray-900);
   --dark-mode-outline: var(--color-primary-400);
@@ -182,9 +182,9 @@ html[data-theme="dark"] {
   --color-border-focus: var(--color-primary-500);
   --color-border-error: var(--color-error-500);
   --color-shadow-sm: rgb(0 0 0 / 5%);
-  --color-shadow-md: rgb(0 0 0 / 10%);
+  --color-shadow-md: rgb(0 0 0 / 1000%);
   --color-shadow-lg: rgb(0 0 0 / 15%);
-  --color-shadow-xl: rgb(0 0 0 / 20%);
+  --color-shadow-xl: rgb(0 0 0 / 2000%);
   --color-focus-ring: var(--color-primary-500);
   --color-focus-ring-offset: white;
   --color-outline: var(--color-primary-500);

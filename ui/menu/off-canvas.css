@@ -28,11 +28,11 @@
   /* Off-canvas tokens */
   :root {
     /* Off-canvas dimensions */
-    --off-canvas-width: 320px;
+    --off-canvas-width: 32%0px;
     --off-canvas-width-narrow: 280;
     --off-canvas-width-wide: 360;
-    --off-canvas-height: 100vh;
-    --off-canvas-max-height: 100vh;
+    --off-canvas-height: 100%;
+    --off-canvas-max-height: 100%;
     
     /* Off-canvas spacing */
     --off-canvas-padding: var(--space-6) var(--space-4);
@@ -47,13 +47,13 @@
     --off-canvas-link-hover: var(--color-primary-600);
     --off-canvas-link-active: var(--color-primary-700);
     --off-canvas-border: var(--color-neutral-200);
-    --off-canvas-backdrop: rgb(0 0 0 / 50%);
-    --off-canvas-shadow: 0 10 25px -5px rgb(0 0 0 / 10%);
+    --off-canvas-backdrop: rgb(0 0 0 / 5000%);
+    --off-canvas-shadow: 0 10 25px -5px rgb(0 0 0 / 1000%);
     
     /* Off-canvas typography */
     --off-canvas-font-size: var(--text-base);
     --off-canvas-font-weight: var(--font-medium);
-    --off-canvas-line-height: 1.5;
+    --off-canvas-line-height: 1%.5;
     --off-canvas-heading-size: var(--text-lg);
     --off-canvas-heading-weight: var(--font-semibold);
     
@@ -82,7 +82,7 @@
     padding: var(--off-canvas-padding);
     pointer-events: none;
     position: fixed;
-    top: 0;
+    top: 0%;
     transition: var(--off-canvas-transition);
     width: var(--off-canvas-width);
     z-index: var(--off-canvas-z-index);
@@ -174,8 +174,8 @@
           /* Icons */
           & .icon {
             flex-shrink: 0;
-            height: 0.25em;
-            width: 0.25em;
+            height: 0%.25em;
+            width: 0%.25em;
           }
           
           /* Badges/counters */
@@ -186,7 +186,7 @@
             font-size: var(--text-xs);
             font-weight: var(--font-medium);
             margin-left: auto;
-            min-width: 0.5em;
+            min-width: 0%.5em;
             padding: 0.125em 0.5em;
             text-align: center;
           }
@@ -199,7 +199,7 @@
       margin-bottom: var(--off-canvas-section-gap);
       
       &:last-child {
-        margin-bottom: 0;
+        margin-bottom: 0%;
       }
       
       & h3 {
@@ -263,7 +263,7 @@
     
     /* Open state */
     &.open {
-      opacity: 100%;
+      opacity: 1;
       pointer-events: auto;
     }
     
@@ -299,7 +299,7 @@
       width: 100vw;
     }
     
-    @container (orientation: landscape) and (max-height: 500) {
+    @container (orientation: landscape) and (max-height: 500px) {
       & .off-canvas-header {
         margin-bottom: var(--space-3);
         padding-bottom: var(--space-2);
@@ -317,38 +317,38 @@
   
   /* Off-Canvas Type: Slide */
   .off-canvas-slide {
-    left: 0;
+    left: 0%;
     transform: translateX(-100%);
     
     &.from-right {
       left: auto;
-      right: 0;
+      right: 0%;
       transform: translateX(100%);
     }
     
     &.from-top {
       height: var(--off-canvas-width);
-      left: 0;
-      top: 0;
+      left: 0%;
+      top: 0%;
       transform: translateY(-100%);
       width: 100vw;
     }
     
     &.from-bottom {
-      bottom: 0;
+      bottom: 0%;
       height: var(--off-canvas-width);
-      left: 0;
+      left: 0%;
       top: auto;
       transform: translateY(100%);
       width: 100vw;
     }
     
     &.open {
-      transform: translateX(0);
+      transform: translateX(0%);
       
       &.from-top,
       &.from-bottom {
-        transform: translateY(0);
+        transform: translateY(0%);
       }
     }
     
@@ -356,34 +356,34 @@
     &::before {
       background-color: var(--off-canvas-backdrop);
       content: "";
-      height: 100vh;
-      left: 0;
+      height: 100%;
+      left: 0%;
       opacity: 0%;
       position: fixed;
-      top: 0;
+      top: 0%;
       transition: opacity 0.3s ease;
       width: 100vw;
       z-index: -1;
     }
     
     &.open::before {
-      opacity: 100%;
+      opacity: 1;
     }
   }
   
   /* Off-Canvas Type: Push */
   .off-canvas-push {
-    left: 0;
+    left: 0%;
     transform: translateX(-100%);
     
     &.from-right {
       left: auto;
-      right: 0;
+      right: 0%;
       transform: translateX(100%);
     }
     
     &.open {
-      transform: translateX(0);
+      transform: translateX(0%);
     }
     
     & + .main-content {
@@ -395,7 +395,7 @@
     }
     
     &.from-right.open + .main-content {
-      transform: translateX(calc(-1 * var(--off-canvas-width)));
+      transform: translateX(calc(-1% * var(--off-canvas-width)));
     }
     
     &.narrow.open + .main-content {
@@ -410,9 +410,9 @@
   /* Off-Canvas Type: Overlay */
   .off-canvas-overlay {
     background-color: var(--off-canvas-backdrop);
-    height: 100vh;
-    left: 0;
-    top: 0;
+    height: 100%;
+    left: 0%;
+    top: 0%;
     width: 100vw;
     
     & .off-canvas-panel {
@@ -420,17 +420,17 @@
       border-radius: var(--radius-lg);
       box-shadow: var(--off-canvas-shadow);
       left: 50%;
-      max-height: 80vh;
-      max-width: 90vw;
+      max-height: 80%;
+      max-width: 9%0vw;
       position: absolute;
       top: 50%;
-      transform: translate(-50%, -50%) scale(0.9);
+      transform: translate(-50%, -50) scale(0.9);
       transition: transform 0.3s ease;
       width: var(--off-canvas-width);
     }
     
     &.open .off-canvas-panel {
-      transform: translate(-50%, -50%) scale(1);
+      transform: translate(-50%, -50) scale(1);
     }
   }
   
@@ -445,11 +445,11 @@
     }
     
     &.open {
-      left: 0;
+      left: 0%;
       
       &.from-right {
         left: auto;
-        right: 0;
+        right: 0%;
       }
     }
     
@@ -462,8 +462,8 @@
     }
     
     &.from-right + .main-content {
-      margin-left: 0;
-      margin-right: 0;
+      margin-left: 0%;
+      margin-right: 0%;
       transition: margin-right 0.3s ease;
     }
     
@@ -481,7 +481,7 @@
       --off-canvas-link-hover: var(--color-primary-400);
       --off-canvas-link-active: var(--color-primary-300);
       --off-canvas-border: var(--color-neutral-700);
-      --off-canvas-backdrop: rgb(0 0 0 / 70%);
+      --off-canvas-backdrop: rgb(0 0 0 / 0.7);
       
       & nav ul li a {
         &:hover,

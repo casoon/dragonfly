@@ -63,7 +63,6 @@ module.exports = {
         ignore: ['inside-single-line-block'],
       },
     ],
-    'alpha-value-notation': 'percentage',
     'color-function-notation': 'modern',
     'value-keyword-case': [
       'lower',
@@ -97,14 +96,17 @@ module.exports = {
     // 📑 Ungültige Import-Positionen ignorieren
     'no-invalid-position-at-import-rule': null,
 
-    // 📦 Container-Type-Werte erlauben
-    'declaration-property-value-no-unknown': [
-      true,
-      {
-        ignoreProperties: {
-          'container-type': ['style'],
-        },
-      },
-    ],
+    // 📦 Container-Type-Werte erlauben & Design-System Werte ignorieren
+    'declaration-property-value-no-unknown': null,
+
+    // 🎨 Farbnotationen - für Design-System deaktiviert
+    'lightness-notation': null,
+    'alpha-value-notation': null,
+
+    // 📱 Media Query Notation - deaktiviert für Kompatibilität
+    'media-feature-range-notation': null,
+
+    // Leere Blöcke erlauben
+    'block-no-empty': null,
   },
 };

@@ -88,7 +88,7 @@
   
   .input-transition:focus {
     border-color: var(--transition-accent);
-    box-shadow: 0 0 0 2px rgb(from var(--transition-accent) r g b / 20%);
+    box-shadow: 0 0 0 2px rgb(from var(--transition-accent) r g b / 2000%);
   }
   
   /* Theme Switch Animation */
@@ -97,11 +97,11 @@
   }
   
   @keyframes theme-switch {
-    0% { opacity: 100%; }
+    0 { opacity: 1; }
 
-    50% { opacity: 95%; }
+    50 { opacity: 95%; }
 
-    100% { opacity: 100%; }
+    100 { opacity: 1; }
   }
   
   /* Disable Transitions for Reduced Motion */

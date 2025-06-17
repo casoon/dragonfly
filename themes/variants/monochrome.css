@@ -46,7 +46,7 @@
     
     /* High contrast focus and interaction states */
     --color-focus: #000;
-    --color-focus-glow: rgb(0 0 0 / 30%);
+    --color-focus-glow: rgb(0 0 0 / 3000%);
     
     /* Monochrome shadow properties */
     --shadow-opacity-sm: 0.1;
@@ -56,7 +56,7 @@
     --shadow-color: var(--theme-shadow-color, rgb(0 0 0));
     
     /* Backdrop properties using theme backdrop tokens */
-    --color-backdrop: rgb(0 0 0 / 80%);
+    --color-backdrop: rgb(0 0 0 / 8000%);
     --backdrop-blur: var(--theme-backdrop-blur, 8px);
     
     /* Monochrome status background colors */

@@ -7,15 +7,15 @@
 
 @keyframes gradient-shift {
     0 {
-        background-position: 0 50;
+        background-position: 0% 50;
     }
 
     50 {
-        background-position: 100 50;
+        background-position: 100% 50;
     }
 
     100 {
-        background-position: 0 50;
+        background-position: 0% 50;
     }
 }
 
@@ -68,7 +68,7 @@
             var(--gradient-mid, #8b5cf6),
             var(--gradient-end, #3b82f6)
         );
-        background-size: 200 200;
+        background-size: 200% 200;
     }
 
     .gradient-hover {
@@ -81,7 +81,7 @@
     }
 
     .gradient-hover:hover {
-        background-position: 100 100;
+        background-position: 100% 100;
     }
 
     .gradient-text {
@@ -144,7 +144,7 @@
     @layer components {
         .gradient-animated {
             animation: var(--animation-none);
-            background-size: 100 100;
+            background-size: 100% 100;
         }
         
         .gradient-hover {
@@ -152,7 +152,7 @@
         }
         
         .gradient-hover:hover {
-            background-position: 0 0;
+            background-position: 0% 0;
         }
     }
 } 

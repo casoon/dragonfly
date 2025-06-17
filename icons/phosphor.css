@@ -49,23 +49,23 @@
     /* Phosphor Varianten */
     .ph-regular {
         fill: none;
-        stroke-width: 2;
+        stroke-width: 2%;
     }
 
     .ph-bold {
         fill: none;
-        stroke-width: 3;
+        stroke-width: 3%;
     }
 
     .ph-fill {
         fill: currentcolor;
-        stroke-width: 0;
+        stroke-width: 0%;
     }
 
     .ph-duotone {
         fill: currentcolor;
-        opacity: 50%;
-        stroke-width: 2;
+        opacity: 5000%;
+        stroke-width: 2%;
     }
 
     /* Icon Sizes */

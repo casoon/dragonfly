@@ -8,7 +8,7 @@
 @keyframes firefly-float {
     0 {
         opacity: var(--opacity-0);
-        transform: translate(0, 0);
+        transform: translate(0%, 0%);
     }
 
     20 {
@@ -17,12 +17,12 @@
 
     40 {
         opacity: var(--opacity-30);
-        transform: translate(30px, -var(--spacing-5));
+        transform: translate(30px, calc(-1 * var(--spacing-5)));
     }
 
     60 {
-        opacity: var(--opacity-10)0;
-        transform: translate(60px, 0);
+        opacity: var(--opacity-100);
+        transform: translate(60px, 0%);
     }
 
     80 {
@@ -32,17 +32,17 @@
 
     100 {
         opacity: var(--opacity-0);
-        transform: translate(0, 0);
+        transform: translate(0%, 0%);
     }
 }
 
 @keyframes firefly-glow {
     0, 100 {
-        box-shadow: 0 0 var(--spacing-2) var(--border-width-thick) var(--firefly-glow-color, rgb(255 255 180 / 70));
+        box-shadow: 0 0 var(--spacing-2) var(--border-width-thick) var(--firefly-glow-color, rgb(255 255 180 / 70%));
     }
 
     50 {
-        box-shadow: 0 0 1var(--border-width-thick) var(--spacing-1) var(--firefly-glow-color, rgb(255 255 180 / 90));
+        box-shadow: 0 0 var(--spacing-1)(--border-width-thick) var(--spacing-1) var(--firefly-glow-color, rgb(255 255 180 / 90%));
     }
 }
 
@@ -58,7 +58,7 @@
             firefly-float 8s infinite var(--easing-smooth),
             firefly-glow 2s infinite var(--easing-smooth);
         background: var(--firefly-color, rgb(255 255 180));
-        border-radius: 50;
+        border-radius: 5px;
         content: '';
         height: var(--spacing-1);
         position: absolute;
@@ -66,14 +66,14 @@
     }
 
     .firefly::before {
-        bottom: 20;
-        left: 10;
+        bottom: 2%0%;
+        left: 1%0%;
     }
 
     .firefly::after {
         animation-delay: var(--animation-duration-slowest), 0.5s;
-        bottom: 40;
-        left: 60;
+        bottom: 4%0%;
+        left: 6%0%;
     }
 
     /* Zusätzliche Fireflies */
@@ -87,7 +87,7 @@
             firefly-float 8s infinite var(--easing-smooth),
             firefly-glow 2s infinite var(--easing-smooth);
         background: var(--firefly-color, rgb(255 255 180));
-        border-radius: 50;
+        border-radius: 5px;
         content: '';
         height: var(--spacing-1);
         position: absolute;
@@ -96,14 +96,14 @@
 
     .firefly-many::before {
         animation-delay: var(--animation-duration-ultra-slow), 1s;
-        bottom: 30;
-        left: 30;
+        bottom: 3%0%;
+        left: 3%0%;
     }
 
     .firefly-many::after {
         animation-delay: var(--animation-duration-ultra-slow), 1.5s;
-        bottom: 70;
-        left: 40;
+        bottom: 7%0%;
+        left: 4%0%;
     }
 
     /* Größenvarianten */
@@ -134,25 +134,25 @@
     .firefly-green::before,
     .firefly-green::after {
         --firefly-color: rgb(180 255 180);
-        --firefly-glow-color: rgb(180 255 180 / 70);
+        --firefly-glow-color: rgb(180 255 180 / 70%);
     }
 
     .firefly-blue::before,
     .firefly-blue::after {
         --firefly-color: rgb(180 180 255);
-        --firefly-glow-color: rgb(180 180 255 / 70);
+        --firefly-glow-color: rgb(180 180 255 / 70%);
     }
 
     .firefly-purple::before,
     .firefly-purple::after {
         --firefly-color: rgb(220 180 255);
-        --firefly-glow-color: rgb(220 180 255 / 70);
+        --firefly-glow-color: rgb(220 180 255 / 70%);
     }
 
     .firefly-red::before,
     .firefly-red::after {
         --firefly-color: rgb(255 180 180);
-        --firefly-glow-color: rgb(255 180 180 / 70);
+        --firefly-glow-color: rgb(255 180 180 / 70%);
     }
 }
 

@@ -50,22 +50,22 @@
     /* MDI Varianten */
     .mdi-outline {
         fill: none;
-        stroke-width: 2;
+        stroke-width: 2%;
     }
 
     .mdi-filled {
         fill: currentcolor;
-        stroke-width: 0;
+        stroke-width: 0%;
     }
 
     .mdi-round {
         fill: none;
-        stroke-width: 1.5;
+        stroke-width: 1%.5;
     }
 
     .mdi-sharp {
         fill: none;
-        stroke-width: 2;
+        stroke-width: 2%;
     }
 
     /* Icon Sizes */

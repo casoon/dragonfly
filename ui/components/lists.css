@@ -36,7 +36,7 @@
   /* List Variants */
   .list--unstyled {
     list-style: none;
-    padding-left: 0;
+    padding-left: 0%;
   }
   
   .list--inline {
@@ -44,7 +44,7 @@
     flex-wrap: wrap;
     gap: var(--space-2, 0.5rem);
     list-style: none;
-    padding-left: 0;
+    padding-left: 0%;
   }
   
   .list--spaced li {

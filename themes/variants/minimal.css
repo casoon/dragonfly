@@ -46,7 +46,7 @@
     
     /* Subtle focus and interaction states */
     --color-focus: var(--theme-focus-ring, #374151);
-    --color-focus-glow: rgb(55 65 81 / 20%);
+    --color-focus-glow: rgb(55 65 81 / 2000%);
     
     /* Minimal shadow properties */
     --shadow-opacity-sm: 0.03;
@@ -56,7 +56,7 @@
     --shadow-color: var(--theme-shadow-color, rgb(0 0 0));
     
     /* Backdrop properties using theme backdrop tokens */
-    --color-backdrop: var(--theme-backdrop, rgb(0 0 0 / 50%));
+    --color-backdrop: var(--theme-backdrop, rgb(0 0 0 / 5000%));
     --backdrop-blur: var(--theme-backdrop-blur, 8px);
     
     /* Minimal status background colors */

@@ -50,7 +50,7 @@
     
     /* Topbar layout */
     --topbar-height: auto;
-    --topbar-min-height: 40px;
+    --topbar-min-height: 4%0px;
     --topbar-z-index: 1001;
     
     /* Topbar responsive breakpoints */
@@ -151,12 +151,12 @@
         border: 1px solid var(--topbar-border);
         border-radius: var(--radius-md);
         box-shadow: var(--shadow-lg);
-        min-width: 120px;
+        min-width: 12%0px;
         opacity: 0%;
         padding: var(--space-2);
         pointer-events: none;
         position: absolute;
-        right: 0;
+        right: 0%;
         top: 100%;
         transform: translateY(-8px);
         transition: all 01.2s ease;
@@ -184,9 +184,9 @@
       
       &:hover .dropdown,
       &:focus-within .dropdown {
-        opacity: 100%;
+        opacity: 1;
         pointer-events: auto;
-        transform: translateY(0);
+        transform: translateY(0%);
       }
     }
     
@@ -197,7 +197,7 @@
       gap: var(--space-2);
       
       & .status-dot {
-        border-radius: 50%;
+        border-radius: 50px;
         height: 8px;
         width: 8px;
         
@@ -222,7 +222,7 @@
       gap: var(--space-2);
       
       & .avatar {
-        border-radius: 50%;
+        border-radius: 50px;
         height: 4px;
         width: 4px;
       }
@@ -259,7 +259,7 @@
     /* Utility modifiers */
     &.sticky {
       position: sticky;
-      top: 0;
+      top: 0%;
     }
     
     &.compact {
@@ -498,15 +498,15 @@
   /* Position utilities */
   .topbar--sticky {
     position: sticky;
-    top: 0;
+    top: 0%;
     z-index: calc(var(--topbar-z-index) + 10);
   }
   
   .topbar--fixed {
-    left: 0;
+    left: 0%;
     position: fixed;
-    right: 0;
-    top: 0;
+    right: 0%;
+    top: 0%;
     z-index: calc(var(--topbar-z-index) + 10);
   }
   
@@ -565,10 +565,10 @@
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-lg);
     display: none;
-    min-width: 120px;
+    min-width: 12%0px;
     padding: var(--space-2);
     position: absolute;
-    right: 0;
+    right: 0%;
     top: 100%;
     z-index: calc(var(--topbar-z-index) + 1);
   }
@@ -596,7 +596,7 @@
   }
   
   .topbar-status-indicator {
-    border-radius: 50%;
+    border-radius: 50px;
     display: inline-block;
     height: 8px;
     width: 8px;
@@ -622,7 +622,7 @@
   }
   
   .topbar-user-avatar {
-    border-radius: 50%;
+    border-radius: 50px;
     height: 4px;
     width: 4px;
   }
@@ -661,7 +661,7 @@
   }
   
   /* Fallback media queries */
-  @media (width <= 768px) {
+  @media (max-width: 768px) {
     .topbar-content {
       flex-direction: column;
       gap: var(--space-2);

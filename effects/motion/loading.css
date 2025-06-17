@@ -8,7 +8,7 @@
 /* Animationen - außerhalb von @layer definieren */
 @keyframes loading-spin {
     to {
-        transform: var(--transform-rotate-360);
+        transform: var(--transform-rotate-360%);
     }
 }
 
@@ -19,7 +19,7 @@
     }
 
     50 {
-        opacity: var(--opacity-10)0;
+        opacity: var(--opacity-100);
         transform: var(--transform-scale-100);
     }
 }
@@ -31,24 +31,24 @@
     }
 
     50 {
-        opacity: var(--opacity-10)0;
+        opacity: var(--opacity-100);
         transform: var(--transform-scale-100);
     }
 }
 
 @keyframes loading-progress {
     0 {
-        transform: translateX(-100);
+        transform: translateX(-100%);
     }
 
     100 {
-        transform: translateX(100);
+        transform: translateX(100%);
     }
 }
 
 @keyframes loading-skeleton {
     0 {
-        background-position: 100 0;
+        background-position: 100% 0;
     }
 
     100 {
@@ -58,16 +58,16 @@
 
 @keyframes loading-shimmer {
     100 {
-        transform: translateX(100);
+        transform: translateX(100%);
     }
 }
 
 /* Komponenten-Styles */
 @layer components {
     .loading-spinner {
-        border: var(--spacing-1) solid var(--loading-color, rgb(0 0 0 / 10));
+        border: var(--spacing-1) solid var(--loading-color, rgb(0 0 0 / 10%));
         border-left-color: var(--loading-spinner-color, #3b82f6);
-        border-radius: 50;
+        border-radius: 5px;
         height: var(--spacing-10);
         width: var(--spacing-10);
     }
@@ -86,7 +86,7 @@
 
     .loading-pulse {
         background: var(--loading-pulse-color, #3b82f6);
-        border-radius: 50;
+        border-radius: 5px;
         height: var(--spacing-10);
         width: var(--spacing-10);
     }
@@ -109,7 +109,7 @@
     .loading-dots::before,
     .loading-dots::after {
         background: var(--loading-dots-color, #3b82f6);
-        border-radius: 50;
+        border-radius: 5px;
         content: '';
         height: var(--spacing-2);
         width: var(--spacing-2);
@@ -123,24 +123,24 @@
 
     .loading-dots-lg::before,
     .loading-dots-lg::after {
-        height: 1var(--border-width-thick);
-        width: 1var(--border-width-thick);
+        height: var(--spacing-1)(--border-width-thick);
+        width: var(--spacing-1)(--border-width-thick);
     }
 
     .loading-progress {
-        background: var(--loading-progress-bg, rgb(0 0 0 / 10));
+        background: var(--loading-progress-bg, rgb(0 0 0 / 10%));
         border-radius: var(--border-width-thick);
         height: var(--spacing-1);
         overflow: hidden;
-        width: 100;
+        width: 100%;
     }
 
     .loading-progress::after {
         background: var(--loading-progress-color, #3b82f6);
         content: '';
         display: block;
-        height: 100;
-        width: 40;
+        height: 100%;
+        width: 4%0;
     }
 
     .loading-progress-sm {
@@ -154,19 +154,19 @@
     .loading-skeleton {
         background: linear-gradient(
             90deg,
-            var(--loading-skeleton-start, rgb(0 0 0 / 10)) 0,
-            var(--loading-skeleton-end, rgb(0 0 0 / 20)) 50,
-            var(--loading-skeleton-start, rgb(0 0 0 / 10)) 100
+            var(--loading-skeleton-start, rgb(0 0 0 / 10%)) 0,
+            var(--loading-skeleton-end, rgb(0 0 0 / 20%)) 50,
+            var(--loading-skeleton-start, rgb(0 0 0 / 10%)) 100
         );
-        background-size: 200 100;
+        background-size: 200% 100;
     }
 
     .loading-skeleton-sm {
-        background-size: 150 100;
+        background-size: 1%5%0 100;
     }
 
     .loading-skeleton-lg {
-        background-size: 300 100;
+        background-size: 30%0% 100;
     }
 
     .loading-shimmer {
@@ -178,15 +178,15 @@
         background: linear-gradient(
             90deg,
             transparent 0,
-            var(--loading-shimmer-color, rgb(255 255 255 / 20)) 50,
+            var(--loading-shimmer-color, rgb(255 255 255 / 20%)) 50,
             transparent 100
         );
         content: '';
-        height: 100;
-        left: 0;
+        height: 100%;
+        left: 0%;
         position: absolute;
-        top: 0;
-        width: 100;
+        top: 0%;
+        width: 100%;
     }
 
     .loading-color-primary {

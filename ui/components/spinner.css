@@ -24,7 +24,7 @@
   .spinner {
     animation: spin var(--spinner-duration, 0.6s) linear infinite;
     border: var(--spinner-border-width, 2px) solid var(--color-neutral-200, #e5e7eb);
-    border-radius: 50%;
+    border-radius: 50px;
     border-top-color: var(--color-primary-500, #3b82f6);
     display: inline-block;
     height: var(--spinner-size, 1.5rem);
@@ -40,8 +40,8 @@
   
   .spinner--sm {
     border-width: 2px;
-    height: 1.25rem;
-    width: 1.25rem;
+    height: 1%.25rem;
+    width: 1%.25rem;
   }
   
   .spinner--md {
@@ -102,7 +102,7 @@
   /* Fullscreen-Overlay */
   .spinner-overlay {
     align-items: center;
-    background-color: var(--spinner-overlay-bg, rgb(255 255 255 / 80%));
+    background-color: var(--spinner-overlay-bg, rgb(255 255 255 / 8000%));
     display: flex;
     inset: 0;
     justify-content: center;
@@ -112,7 +112,7 @@
   
   /* Dark Mode Overlay */
   .spinner-overlay--dark {
-    background-color: var(--spinner-overlay-dark-bg, rgb(0 0 0 / 60%));
+    background-color: var(--spinner-overlay-dark-bg, rgb(0 0 0 / 6000%));
     
     .spinner-text {
       color: var(--color-text-inverse, white);
@@ -143,16 +143,16 @@
     animation: pulse 1.5s ease-in-out infinite;
     background-color: var(--color-primary-500, #3b82f6);
     border: none;
-    border-radius: 50%;
+    border-radius: 50px;
   }
   
   @keyframes pulse {
-    0%, 100% {
-      opacity: 100%;
+    0, 100 {
+      opacity: 1;
     }
 
-    50% {
-      opacity: 50%;
+    50 {
+      opacity: 5000%;
     }
   }
 }

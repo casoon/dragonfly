@@ -44,6 +44,6 @@
     
     /* Focus and Interactive States */
     --color-focus: #4f46e5;
-    --color-focus-glow: rgb(79 70 229 / 30%);
+    --color-focus-glow: rgb(79 70 229 / 3000%);
   }
 } 

@@ -8,51 +8,51 @@
 @keyframes firework-rise {
     0 {
         opacity: var(--opacity-0);
-        transform: translateY(100);
+        transform: translateX(100%);
     }
 
     50 {
-        opacity: var(--opacity-10)0;
+        opacity: var(--opacity-100);
     }
 
     75%, 100 {
         opacity: var(--opacity-0);
-        transform: translateY(0);
+        transform: translateX(0%);
     }
 }
 
 @keyframes firework-explode {
     0 {
         box-shadow:
-            0 0 0 0 var(--firework-color-1, rgb(255 50 50 / 90)),
-            0 0 0 0 var(--firework-color-2, rgb(50 255 50 / 90)),
-            0 0 0 0 var(--firework-color-3, rgb(50 50 255 / 90));
-        opacity: var(--opacity-10)0;
+            0 0 0 0 var(--firework-color-1, rgb(255 50 50 / 90%)),
+            0 0 0 0 var(--firework-color-2, rgb(50 255 50 / 90%)),
+            0 0 0 0 var(--firework-color-3, rgb(50 50 255 / 90%));
+        opacity: var(--opacity-100);
         transform: scale(0.01);
     }
 
     30 {
         box-shadow:
-            -50px -50px 0 0 var(--firework-color-1, rgb(255 50 50 / 0)),
-            50px -40px 0 0 var(--firework-color-2, rgb(50 255 50 / 0)),
-            0 60px 0 0 var(--firework-color-3, rgb(50 50 255 / 0));
-        opacity: var(--opacity-10)0;
+            -50px -50px 0 0 var(--firework-color-1, rgb(255 50 50 / 0%)),
+            50px -40px 0 0 var(--firework-color-2, rgb(50 255 50 / 0%)),
+            0 60px 0 0 var(--firework-color-3, rgb(50 50 255 / 0%));
+        opacity: var(--opacity-100);
         transform: scale(0.7);
     }
 
     70 {
         box-shadow:
-            -100px -100px 0 0 var(--firework-color-1, rgb(255 50 50 / 0)),
-            100px -80px 0 0 var(--firework-color-2, rgb(50 255 50 / 0)),
-            0 1var(--spacing-5) 0 0 var(--firework-color-3, rgb(50 50 255 / 0));
+            -100px -100px 0 0 var(--firework-color-1, rgb(255 50 50 / 0%)),
+            100px -80px 0 0 var(--firework-color-2, rgb(50 255 50 / 0%)),
+            0 var(--spacing-1)(--spacing-5) 0 0 var(--firework-color-3, rgb(50 50 255 / 0%));
         opacity: var(--opacity-30);
     }
 
     100 {
         box-shadow:
-            -1var(--spacing-5) -1var(--spacing-5) 0 0 var(--firework-color-1, rgb(255 50 50 / 0)),
-            1var(--spacing-5) -100px 0 0 var(--firework-color-2, rgb(50 255 50 / 0)),
-            0 140px 0 0 var(--firework-color-3, rgb(50 50 255 / 0));
+            -var(--spacing-1)(--spacing-5) -var(--spacing-1)(--spacing-5) 0 0 var(--firework-color-1, rgb(255 50 50 / 0%)),
+            var(--spacing-1)(--spacing-5) -100px 0 0 var(--firework-color-2, rgb(50 255 50 / 0%)),
+            0 140px 0 0 var(--firework-color-3, rgb(50 50 255 / 0%));
         opacity: var(--opacity-0);
         transform: var(--transform-scale-100);
     }
@@ -67,7 +67,7 @@
     .fireworks::before,
     .fireworks::after {
         background: var(--firework-base-color, rgb(255 220 180));
-        border-radius: 50;
+        border-radius: 5px;
         content: '';
         height: var(--spacing-1);
         position: absolute;
@@ -78,16 +78,16 @@
         animation: 
             firework-rise 2.5s var(--easing-decelerate) forwards,
             firework-explode 0.5s var(--easing-decelerate) 1.2s forwards;
-        bottom: 0;
-        left: 40;
+        bottom: 0%;
+        left: 4%0%;
     }
 
     .fireworks::after {
         animation: 
             firework-rise 2.5s var(--easing-decelerate) 1s forwards,
             firework-explode 0.5s var(--easing-decelerate) 2.2s forwards;
-        bottom: 0;
-        left: 60;
+        bottom: 0%;
+        left: 6%0%;
     }
 
     /* Varianten */
@@ -134,30 +134,30 @@
     /* Farbvarianten */
     .fireworks-red {
         --firework-base-color: rgb(255 150 150);
-        --firework-color-1: rgb(255 50 50 / 90);
-        --firework-color-2: rgb(255 100 50 / 90);
-        --firework-color-3: rgb(255 50 100 / 90);
+        --firework-color-1: rgb(255 50 50 / 90%);
+        --firework-color-2: rgb(255 100 50 / 90%);
+        --firework-color-3: rgb(255 50 100 / 90%);
     }
 
     .fireworks-blue {
         --firework-base-color: rgb(150 150 255);
-        --firework-color-1: rgb(50 50 255 / 90);
-        --firework-color-2: rgb(50 100 255 / 90);
-        --firework-color-3: rgb(100 50 255 / 90);
+        --firework-color-1: rgb(50 50 255 / 90%);
+        --firework-color-2: rgb(50 100 255 / 90%);
+        --firework-color-3: rgb(100 50 255 / 90%);
     }
 
     .fireworks-green {
         --firework-base-color: rgb(150 255 150);
-        --firework-color-1: rgb(50 255 50 / 90);
-        --firework-color-2: rgb(100 255 50 / 90);
-        --firework-color-3: rgb(50 255 100 / 90);
+        --firework-color-1: rgb(50 255 50 / 90%);
+        --firework-color-2: rgb(100 255 50 / 90%);
+        --firework-color-3: rgb(50 255 100 / 90%);
     }
 
     .fireworks-gold {
         --firework-base-color: rgb(255 230 150);
-        --firework-color-1: rgb(255 215 0 / 90);
-        --firework-color-2: rgb(255 200 50 / 90);
-        --firework-color-3: rgb(255 180 0 / 90);
+        --firework-color-1: rgb(255 215 0 / 90%);
+        --firework-color-2: rgb(255 200 50 / 90%);
+        --firework-color-3: rgb(255 180 0 / 90%);
     }
 }
 

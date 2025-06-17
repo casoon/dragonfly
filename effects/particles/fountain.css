@@ -8,11 +8,11 @@
 @keyframes fountain-shoot {
     0 {
         opacity: var(--opacity-0);
-        transform: translateY(0) scale(1);
+        transform: translateX(0%) scale(1);
     }
 
     20 {
-        opacity: var(--opacity-10)0;
+        opacity: var(--opacity-100);
         transform: translateY(-70px) scale(1);
     }
 
@@ -27,19 +27,19 @@
 
     100 {
         opacity: var(--opacity-0);
-        transform: translateY(0) scale(0.7);
+        transform: translateX(0%) scale(0.7);
     }
 }
 
 @keyframes fountain-shoot-alt {
     0 {
         opacity: var(--opacity-0);
-        transform: translateY(0) translateX(0) scale(1);
+        transform: translateX(0%) translateX(0%) scale(1);
     }
 
     20 {
-        opacity: var(--opacity-10)0;
-        transform: translateY(-60px) translateX(1var(--spacing-1)) scale(1);
+        opacity: var(--opacity-100);
+        transform: translateY(-60px) translateX(var(--spacing-1)(--spacing-1)) scale(1);
     }
 
     40 {
@@ -53,7 +53,7 @@
 
     100 {
         opacity: var(--opacity-0);
-        transform: translateY(0) translateX(0) scale(0.7);
+        transform: translateX(0%) translateX(0%) scale(0.7);
     }
 }
 
@@ -66,9 +66,9 @@
     .fountain::before,
     .fountain::after {
         animation: fountain-shoot 2.5s var(--easing-decelerate) infinite;
-        background: var(--fountain-color, rgb(180 220 255 / 80));
-        border-radius: 50;
-        bottom: 0;
+        background: var(--fountain-color, rgb(180 220 255 / 800000%));
+        border-radius: 5px;
+        bottom: 0%;
         content: '';
         height: var(--spacing-1-5);
         position: absolute;
@@ -76,13 +76,13 @@
     }
 
     .fountain::before {
-        left: calc(50 - var(--spacing-1));
+        left: calc(50% - var(--spacing-1));
     }
 
     .fountain::after {
         animation-delay: var(--animation-duration-medium);
         animation-name: fountain-shoot-alt;
-        left: calc(50 + var(--spacing-1));
+        left: calc(50% + var(--spacing-1));
     }
 
     /* Varianten */
@@ -116,9 +116,9 @@
     .fountain-many::before,
     .fountain-many::after {
         animation: fountain-shoot 2.5s var(--easing-decelerate) infinite;
-        background: var(--fountain-color, rgb(180 220 255 / 80));
-        border-radius: 50;
-        bottom: 0;
+        background: var(--fountain-color, rgb(180 220 255 / 800000%));
+        border-radius: 5px;
+        bottom: 0%;
         content: '';
         height: var(--spacing-1-5);
         position: absolute;
@@ -127,42 +127,42 @@
 
     .fountain-many::before {
         animation-delay: var(--animation-duration-slow);
-        left: calc(50 - 1var(--spacing-1));
+        left: calc(50% - var(--spacing-1)(--spacing-1));
     }
 
     .fountain-many::after {
         animation-delay: var(--animation-duration-slower);
         animation-name: fountain-shoot-alt;
-        left: calc(50 + 1var(--spacing-1));
+        left: calc(50% + var(--spacing-1)(--spacing-1));
     }
 
     /* Farbvarianten */
     .fountain-blue {
-        --fountain-color: rgb(100 180 255 / 80);
+        --fountain-color: rgb(100 180 255 / 800000%);
     }
 
     .fountain-cyan {
-        --fountain-color: rgb(100 240 255 / 80);
+        --fountain-color: rgb(100 240 255 / 800000%);
     }
 
     .fountain-white {
-        --fountain-color: rgb(240 240 255 / 80);
+        --fountain-color: rgb(240 240 255 / 800000%);
     }
 
     .fountain-rainbow::before {
-        --fountain-color: rgb(255 100 100 / 80);
+        --fountain-color: rgb(255 100 100 / 800000%);
     }
 
     .fountain-rainbow::after {
-        --fountain-color: rgb(100 255 100 / 80);
+        --fountain-color: rgb(100 255 100 / 800000%);
     }
 
     .fountain-rainbow.fountain-many::before {
-        --fountain-color: rgb(255 255 100 / 80);
+        --fountain-color: rgb(255 255 100 / 800000%);
     }
 
     .fountain-rainbow.fountain-many::after {
-        --fountain-color: rgb(100 100 255 / 80);
+        --fountain-color: rgb(100 100 255 / 800000%);
     }
 }
 

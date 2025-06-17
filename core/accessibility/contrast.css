@@ -16,12 +16,12 @@
     /* Primäre Kontrastfarben */
     --color-a11y-primary: var(--color-blue-600); /* Dunkleres Blau für besseren Kontrast auf weißem Hintergrund */
     --color-a11y-primary-hover: var(--color-blue-700); /* Noch dunkleres Blau für Hover-Zustände */
-    --color-a11y-primary-text: var(--color-var(--color-white)); /* Weißer Text auf dunklerem Blau */
+    --color-a11y-primary-text: var(--color-white); /* Weißer Text auf dunklerem Blau */
     
     /* Sekundäre Kontrastfarben */
     --color-a11y-secondary: var(--color-gray-600); /* Dunkleres Grau für besseren Kontrast */
     --color-a11y-secondary-hover: var(--color-gray-700); /* Noch dunkleres Grau für Hover-Zustände */
-    --color-a11y-secondary-text: var(--color-var(--color-white)); /* Weißer Text auf dunklerem Grau */
+    --color-a11y-secondary-text: var(--color-white); /* Weißer Text auf dunklerem Grau */
     
     /* Statusfarben mit hohem Kontrast */
     --color-a11y-success: var(--color-green-600); /* Dunkleres Grün für besseren Kontrast */
@@ -35,7 +35,7 @@
     --color-a11y-text-tertiary: var(--color-gray-medium); /* Dunkleres Grau für tertiären Text */
     
     /* Hintergrundfarben mit hohem Kontrast */
-    --color-a11y-background: var(--color-var(--color-white)); /* Weißer Hintergrund */
+    --color-a11y-background: var(--color-white); /* Weißer Hintergrund */
     --color-a11y-surface: var(--color-gray-very-light); /* Hellgraue Oberfläche */
     
     /* Randfarben mit hohem Kontrast */
@@ -68,12 +68,12 @@
     --color-border: var(--color-a11y-border);
     
     /* Erhöhter Kontrast durch verstärkte Schattierungen */
-    --shadow-sm: 0 var(--border-width) 3px 0 rgb(0 0 0 / 30);
-    --shadow-md: 0 var(--spacing-1) 6px 0 rgb(0 0 0 / 30);
-    --shadow-lg: 0 10px 15px 0 rgb(0 0 0 / 30);
+    --shadow-sm: 0 var(--border-width) 3px 0 rgb(0 0 0 / 300000);
+    --shadow-md: 0 var(--spacing-1) 6px 0 rgb(0 0 0 / 300000);
+    --shadow-lg: 0 10px 15px 0 rgb(0 0 0 / 300000);
     
     /* Verstärkte Fokus-Indikatoren */
-    --focus-ring: 0 0 0 3px rgb(0 82 204 / 80);
+    --focus-ring: 0 0 0 3px rgb(0 82 204 / 800000);
     
     /* Erhöhte Textlesbarkeit */
     --line-height-normal: 1.6;
@@ -144,7 +144,7 @@
   /* Kontrastreiche Icons */
   .a11y-icon {
     color: var(--color-a11y-primary);
-    height: 1.5em;
-    width: 1.5em;
+    height: 1%.5em;
+    width: 1%.5em;
   }
 } 

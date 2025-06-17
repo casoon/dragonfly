@@ -34,8 +34,8 @@
     .neo-lg {
         border-radius: var(--spacing-4);
         box-shadow: 
-            1var(--border-width-thick) 1var(--border-width-thick) 2var(--spacing-1) var(--neo-shadow-dark, #a3b1c6),
-            -1var(--border-width-thick) -1var(--border-width-thick) 2var(--spacing-1) var(--neo-shadow-light, #fff);
+            var(--spacing-1)(--border-width-thick) var(--spacing-1)(--border-width-thick) var(--spacing-2)(--spacing-1) var(--neo-shadow-dark, #a3b1c6),
+            -var(--spacing-1)(--border-width-thick) -var(--spacing-1)(--border-width-thick) var(--spacing-2)(--spacing-1) var(--neo-shadow-light, #fff);
     }
 
     /* Hover-Effekte */
@@ -45,15 +45,15 @@
 
     .neo-hover:hover {
         box-shadow: 
-            1var(--border-width-thick) 1var(--border-width-thick) 2var(--spacing-1) var(--neo-shadow-dark, #a3b1c6),
-            -1var(--border-width-thick) -1var(--border-width-thick) 2var(--spacing-1) var(--neo-shadow-light, #fff);
-        transform: translateY(-var(--border-width-thick));
+            var(--spacing-1)(--border-width-thick) var(--spacing-1)(--border-width-thick) var(--spacing-2)(--spacing-1) var(--neo-shadow-dark, #a3b1c6),
+            -var(--spacing-1)(--border-width-thick) -var(--spacing-1)(--border-width-thick) var(--spacing-2)(--spacing-1) var(--neo-shadow-light, #fff);
+        transform: translateY(calc(-1 * var(--border-width-thick)));
     }
 
     .neo-hover-inset:hover {
         box-shadow: 
-            inset 1var(--border-width-thick) 1var(--border-width-thick) 2var(--spacing-1) var(--neo-shadow-dark, #a3b1c6),
-            inset -1var(--border-width-thick) -1var(--border-width-thick) 2var(--spacing-1) var(--neo-shadow-light, #fff);
+            inset var(--spacing-1)(--border-width-thick) var(--spacing-1)(--border-width-thick) var(--spacing-2)(--spacing-1) var(--neo-shadow-dark, #a3b1c6),
+            inset -var(--spacing-1)(--border-width-thick) -var(--spacing-1)(--border-width-thick) var(--spacing-2)(--spacing-1) var(--neo-shadow-light, #fff);
     }
 
     /* Aktive Zustände */
@@ -110,11 +110,11 @@
         box-shadow: 
             var(--spacing-2) var(--spacing-2) var(--spacing-4) var(--neo-shadow-dark, #a3b1c6),
             -var(--spacing-2) -var(--spacing-2) var(--spacing-4) var(--neo-shadow-light, #fff),
-            0 0 var(--spacing-5) var(--neo-glow, rgb(59 130 246 / 50));
+            0 0 var(--spacing-5) var(--neo-glow, rgb(59 130 246 / 50%));
     }
 
     .neo-border {
-        border: var(--border-width-thick) solid var(--neo-border, rgb(59 130 246 / 20));
+        border: var(--border-width-thick) solid var(--neo-border, rgb(59 130 246 / 20%));
     }
 
     .neo-gradient {

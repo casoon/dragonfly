@@ -16,8 +16,8 @@ const cssDirectories = [
   path.join(rootDir, 'icons'),
   path.join(rootDir, 'ui'),
   path.join(rootDir, 'effects'),
-  path.join(rootDir, 'core'),
-  path.join(rootDir, 'dist')
+  path.join(rootDir, 'core')
+  // dist/ entfernt - diese Dateien sind automatisch generiert
 ];
 
 // Ausgabeverzeichnis für verarbeitete Dateien
@@ -26,6 +26,33 @@ const outputDir = path.resolve(__dirname, 'output');
 // Sicherstellen, dass das Ausgabeverzeichnis existiert
 if (!fs.existsSync(outputDir)) {
   fs.mkdirSync(outputDir, { recursive: true });
+}
+
+// Funktion zum Prüfen, ob eine Datei ignoriert werden sollte
+function shouldIgnoreFile(filePath) {
+  const relativePath = path.relative(rootDir, filePath);
+  
+  // Ignoriere dist/ Verzeichnis
+  if (relativePath.startsWith('dist/') || relativePath.startsWith('dist\\')) {
+    return true;
+  }
+  
+  // Ignoriere .min.css Dateien
+  if (path.basename(filePath).endsWith('.min.css')) {
+    return true;
+  }
+  
+  // Ignoriere node_modules
+  if (relativePath.includes('node_modules')) {
+    return true;
+  }
+  
+  // Ignoriere test Verzeichnisse
+  if (relativePath.startsWith('tests/') || relativePath.startsWith('tests\\')) {
+    return true;
+  }
+  
+  return false;
 }
 
 // Finde alle CSS-Dateien in den angegebenen Verzeichnissen
@@ -45,10 +72,11 @@ function findCssFiles(directories) {
           if (fs.existsSync(nestedDir)) {
             const nestedFiles = fs.readdirSync(nestedDir)
               .filter(f => f.endsWith('.css'))
-              .map(f => path.join(nestedDir, f));
+              .map(f => path.join(nestedDir, f))
+              .filter(f => !shouldIgnoreFile(f)); // Filtere ignorierte Dateien
             cssFiles.push(...nestedFiles);
           }
-        } else if (file.endsWith('.css')) {
+        } else if (file.endsWith('.css') && !shouldIgnoreFile(filePath)) {
           cssFiles.push(filePath);
         }
       });

@@ -10,27 +10,27 @@
   .theme-generator {
     /* Primärfarbe übergeben, alle Abstufungen werden automatisch generiert */
     --theme-primary-500: var(--theme-primary, #3b82f6);
-    --theme-primary-50: color-mix(in srgb, var(--theme-primary-500), white 90%);
-    --theme-primary-100: color-mix(in srgb, var(--theme-primary-500), white 80%);
-    --theme-primary-200: color-mix(in srgb, var(--theme-primary-500), white 60%);
-    --theme-primary-300: color-mix(in srgb, var(--theme-primary-500), white 40%);
-    --theme-primary-400: color-mix(in srgb, var(--theme-primary-500), white 20%);
-    --theme-primary-600: color-mix(in srgb, var(--theme-primary-500), black 10%);
-    --theme-primary-700: color-mix(in srgb, var(--theme-primary-500), black 20%);
-    --theme-primary-800: color-mix(in srgb, var(--theme-primary-500), black 30%);
-    --theme-primary-900: color-mix(in srgb, var(--theme-primary-500), black 40%);
+    --theme-primary-50: color-mix(in srgb, var(--theme-primary-500), white 90);
+    --theme-primary-100: color-mix(in srgb, var(--theme-primary-500), white 80);
+    --theme-primary-200: color-mix(in srgb, var(--theme-primary-500), white 60);
+    --theme-primary-300: color-mix(in srgb, var(--theme-primary-500), white 40);
+    --theme-primary-400: color-mix(in srgb, var(--theme-primary-500), white 20);
+    --theme-primary-600: color-mix(in srgb, var(--theme-primary-500), black 10);
+    --theme-primary-700: color-mix(in srgb, var(--theme-primary-500), black 20);
+    --theme-primary-800: color-mix(in srgb, var(--theme-primary-500), black 30);
+    --theme-primary-900: color-mix(in srgb, var(--theme-primary-500), black 40);
     
     /* Sekundärfarbe (kann übergeben oder automatisch abgeleitet werden) */
-    --theme-secondary-500: var(--theme-secondary, color-mix(in hsl, var(--theme-primary-500), hsl(60deg 100% 50%) 50%));
-    --theme-secondary-50: color-mix(in srgb, var(--theme-secondary-500), white 90%);
-    --theme-secondary-100: color-mix(in srgb, var(--theme-secondary-500), white 80%);
-    --theme-secondary-200: color-mix(in srgb, var(--theme-secondary-500), white 60%);
-    --theme-secondary-300: color-mix(in srgb, var(--theme-secondary-500), white 40%);
-    --theme-secondary-400: color-mix(in srgb, var(--theme-secondary-500), white 20%);
-    --theme-secondary-600: color-mix(in srgb, var(--theme-secondary-500), black 10%);
-    --theme-secondary-700: color-mix(in srgb, var(--theme-secondary-500), black 20%);
-    --theme-secondary-800: color-mix(in srgb, var(--theme-secondary-500), black 30%);
-    --theme-secondary-900: color-mix(in srgb, var(--theme-secondary-500), black 40%);
+    --theme-secondary-500: var(--theme-secondary, color-mix(in hsl, var(--theme-primary-500), hsl(60deg 100 50) 50));
+    --theme-secondary-50: color-mix(in srgb, var(--theme-secondary-500), white 90);
+    --theme-secondary-100: color-mix(in srgb, var(--theme-secondary-500), white 80);
+    --theme-secondary-200: color-mix(in srgb, var(--theme-secondary-500), white 60);
+    --theme-secondary-300: color-mix(in srgb, var(--theme-secondary-500), white 40);
+    --theme-secondary-400: color-mix(in srgb, var(--theme-secondary-500), white 20);
+    --theme-secondary-600: color-mix(in srgb, var(--theme-secondary-500), black 10);
+    --theme-secondary-700: color-mix(in srgb, var(--theme-secondary-500), black 20);
+    --theme-secondary-800: color-mix(in srgb, var(--theme-secondary-500), black 30);
+    --theme-secondary-900: color-mix(in srgb, var(--theme-secondary-500), black 40);
     
     /* Ableitung semantischer Farben */
     --theme-success: var(--theme-success-custom, #10b981);

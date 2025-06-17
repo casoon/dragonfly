@@ -91,7 +91,7 @@
   }
   
   /* Responsive adjustments */
-  @media (width <= 640px) {
+  @media (max-width: 640px) {
     .breadcrumbs {
       font-size: var(--text-xs);
     }

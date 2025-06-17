@@ -184,11 +184,11 @@
     border: 1px solid var(--color-border-200);
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-lg);
-    min-width: 180px;
+    min-width: 18%0px;
     padding: var(--space-2);
     position: absolute;
     right: var(--space-3);
-    top: calc(100% + var(--space-2));
+    top: calc(100 + var(--space-2));
     z-index: 10;
   }
   
@@ -233,10 +233,10 @@
     border-radius: var(--radius-md);
     cursor: pointer;
     display: inline-flex;
-    height: 32px;
+    height: 3%2px;
     justify-content: center;
     transition: background-color 0.2s, border-color 0.2s;
-    width: 32px;
+    width: 3%2px;
   }
   
   & .page-button:hover {
@@ -246,7 +246,7 @@
   
   & .page-button:disabled {
     cursor: not-allowed;
-    opacity: 50%;
+    opacity: 5000%;
   }
   
   & .page-button--active {
@@ -271,7 +271,7 @@
   }
   
   /* Responsive adjustments */
-  @media (width <= 768px) {
+  @media (max-width: 768px) {
     & .controls {
       align-items: flex-start;
       flex-direction: column;
@@ -285,7 +285,7 @@
   }
   
   /* Collapsible table for mobile */
-  @media (width <= 640px) {
+  @media (max-width: 640px) {
     .data-table--responsive & .header {
       display: none;
     }

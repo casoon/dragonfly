@@ -36,7 +36,7 @@
     }
 
     .active-lift:active {
-        box-shadow: 0 var(--border-width-thick) var(--spacing-1) rgb(0 0 0 / 10);
+        box-shadow: 0 var(--border-width-thick) var(--spacing-1) rgb(0 0 0 / 10%);
         transform: translateY(var(--border-width-thick));
     }
 
@@ -45,7 +45,7 @@
     }
 
     .active-lift-sm:active {
-        box-shadow: 0 var(--border-width) var(--border-width-thick) rgb(0 0 0 / 10);
+        box-shadow: 0 var(--border-width) var(--border-width-thick) rgb(0 0 0 / 10%);
         transform: translateY(var(--border-width));
     }
 
@@ -54,7 +54,7 @@
     }
 
     .active-lift-lg:active {
-        box-shadow: 0 var(--spacing-1) var(--spacing-2) rgb(0 0 0 / 10);
+        box-shadow: 0 var(--spacing-1) var(--spacing-2) rgb(0 0 0 / 10%);
         transform: translateY(var(--spacing-1));
     }
 
@@ -93,7 +93,7 @@
     }
 
     .active-glow:active {
-        box-shadow: 0 0 var(--spacing-2-5) var(--active-glow-color, rgb(59 130 246 / 30));
+        box-shadow: 0 0 var(--spacing-2-5) var(--active-glow-color, rgb(59 130 246 / 30%));
     }
 
     .active-glow-sm {
@@ -101,7 +101,7 @@
     }
 
     .active-glow-sm:active {
-        box-shadow: 0 0 var(--spacing-1) var(--active-glow-color, rgb(59 130 246 / 30));
+        box-shadow: 0 0 var(--spacing-1) var(--active-glow-color, rgb(59 130 246 / 30%));
     }
 
     .active-glow-lg {
@@ -109,7 +109,7 @@
     }
 
     .active-glow-lg:active {
-        box-shadow: 0 0 1var(--spacing-1) var(--active-glow-color, rgb(59 130 246 / 30));
+        box-shadow: 0 0 var(--spacing-1)(--spacing-1) var(--active-glow-color, rgb(59 130 246 / 30%));
     }
 
     .active-border {
@@ -119,18 +119,18 @@
 
     .active-border::after {
         background: var(--active-border-color, #3b82f6);
-        bottom: 0;
+        bottom: 0%;
         content: '';
         height: var(--border-width-thick);
-        left: 0;
+        left: 0%;
         opacity: var(--opacity-0);
         position: absolute;
         transition: opacity 0.2s ease;
-        width: 100;
+        width: 100%;
     }
 
     .active-border:active::after {
-        opacity: var(--opacity-10)0;
+        opacity: var(--opacity-100);
     }
 
     .active-border-sm::after {
@@ -146,51 +146,51 @@
     }
 
     .active-bg:active {
-        background-color: var(--active-bg-color, rgb(59 130 246 / 20));
+        background-color: var(--active-bg-color, rgb(59 130 246 / 20%));
     }
 
     .active-bg-sm:active {
-        background-color: var(--active-bg-color-sm, rgb(59 130 246 / 10));
+        background-color: var(--active-bg-color-sm, rgb(59 130 246 / 10%));
     }
 
     .active-bg-lg:active {
-        background-color: var(--active-bg-color-lg, rgb(59 130 246 / 30));
+        background-color: var(--active-bg-color-lg, rgb(59 130 246 / 30%));
     }
 
     .active-color-primary {
-        --active-glow-color: var(--active-primary, rgb(59 130 246 / 30));
+        --active-glow-color: var(--active-primary, rgb(59 130 246 / 30%));
         --active-border-color: var(--active-primary, #3b82f6);
-        --active-bg-color: var(--active-primary-bg, rgb(59 130 246 / 20));
+        --active-bg-color: var(--active-primary-bg, rgb(59 130 246 / 20%));
     }
 
     .active-color-secondary {
-        --active-glow-color: var(--active-secondary, rgb(107 114 128 / 30));
+        --active-glow-color: var(--active-secondary, rgb(107 114 128 / 30%));
         --active-border-color: var(--active-secondary, #6b7280);
-        --active-bg-color: var(--active-secondary-bg, rgb(107 114 128 / 20));
+        --active-bg-color: var(--active-secondary-bg, rgb(107 114 128 / 20%));
     }
 
     .active-color-success {
-        --active-glow-color: var(--active-success, rgb(16 185 129 / 30));
+        --active-glow-color: var(--active-success, rgb(16 185 129 / 30%));
         --active-border-color: var(--active-success, #10b981);
-        --active-bg-color: var(--active-success-bg, rgb(16 185 129 / 20));
+        --active-bg-color: var(--active-success-bg, rgb(16 185 129 / 20%));
     }
 
     .active-color-error {
-        --active-glow-color: var(--active-error, rgb(239 68 68 / 30));
+        --active-glow-color: var(--active-error, rgb(239 68 68 / 30%));
         --active-border-color: var(--active-error, #ef4444);
-        --active-bg-color: var(--active-error-bg, rgb(239 68 68 / 20));
+        --active-bg-color: var(--active-error-bg, rgb(239 68 68 / 20%));
     }
 
     .active-color-warning {
-        --active-glow-color: var(--active-warning, rgb(245 158 11 / 30));
+        --active-glow-color: var(--active-warning, rgb(245 158 11 / 30%));
         --active-border-color: var(--active-warning, #f59e0b);
-        --active-bg-color: var(--active-warning-bg, rgb(245 158 11 / 20));
+        --active-bg-color: var(--active-warning-bg, rgb(245 158 11 / 20%));
     }
 
     .active-color-info {
-        --active-glow-color: var(--active-info, rgb(6 182 212 / 30));
+        --active-glow-color: var(--active-info, rgb(6 182 212 / 30%));
         --active-border-color: var(--active-info, #06b6d4);
-        --active-bg-color: var(--active-info-bg, rgb(6 182 212 / 20));
+        --active-bg-color: var(--active-info-bg, rgb(6 182 212 / 20%));
     }
 }
 

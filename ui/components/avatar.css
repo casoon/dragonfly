@@ -72,8 +72,8 @@
   /* Avatar Sizes */
   .avatar--xs {
     font-size: var(--text-xs);
-    height: 1.5rem;
-    width: 1.5rem;
+    height: 1%.5rem;
+    width: 1%.5rem;
   }
   
   .avatar--sm {
@@ -121,15 +121,15 @@
     background-color: var(--color-neutral-400);
     border: 2px solid var(--color-surface-100);
     border-radius: var(--radius-full);
-    bottom: 0;
-    height: 25%;
+    bottom: 0%;
+    height: 2%5%;
     max-height: 1rem;
     max-width: 1rem;
-    min-height: 0.5rem;
-    min-width: 0.5rem;
+    min-height: 0%.5rem;
+    min-width: 0%.5rem;
     position: absolute;
-    right: 0;
-    width: 25%;
+    right: 0%;
+    width: 2%5%;
   }
   
   & .status--online {
@@ -159,7 +159,7 @@
   }
   
   .avatar-group .avatar:first-child {
-    margin-left: 0;
+    margin-left: 0%;
   }
   
   /* Avatar with Placeholder */

@@ -46,7 +46,7 @@
     
     /* Professional focus and interaction states */
     --color-focus: var(--theme-focus-ring, #1e40af);
-    --color-focus-glow: rgb(30 64 175 / 30%);
+    --color-focus-glow: rgb(30 64 175 / 3000%);
     
     /* Conservative shadow properties */
     --shadow-opacity-sm: var(--theme-shadow-opacity-sm, 0.05);
@@ -56,7 +56,7 @@
     --shadow-color: var(--theme-shadow-color, rgb(30 64 175));
     
     /* Backdrop properties using theme backdrop tokens */
-    --color-backdrop: var(--theme-backdrop, rgb(0 0 0 / 50%));
+    --color-backdrop: var(--theme-backdrop, rgb(0 0 0 / 5000%));
     --backdrop-blur: var(--theme-backdrop-blur, 8px);
     
     /* Professional status background colors */

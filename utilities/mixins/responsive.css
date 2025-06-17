@@ -58,7 +58,7 @@
 
   /* Viewport-Media-Query-Mixins */
   @define-mixin viewport-sm {
-    @media (width <= 640px) {
+    @media (max-width: 640px) {
       @mixin-content;
     }
   }

@@ -8,7 +8,7 @@
 @keyframes big-circles-float {
     0 {
         opacity: var(--opacity-0);
-        transform: translate(0, 0);
+        transform: translate(0%, 0%);
     }
 
     50 {
@@ -17,7 +17,7 @@
 
     100 {
         opacity: var(--opacity-0);
-        transform: translate(1var(--spacing-5), -1var(--spacing-5));
+        transform: translate(var(--spacing-1)(--spacing-5), calc(-1 * var(--spacing-1))(--spacing-5));
     }
 }
 
@@ -30,8 +30,8 @@
     .big-circles::before,
     .big-circles::after {
         animation: big-circles-float 8s infinite;
-        background: var(--big-circles-color, rgb(255 255 255 / 30));
-        border-radius: 50;
+        background: var(--big-circles-color, rgb(255 255 255 / 30%));
+        border-radius: 5px;
         content: '';
         height: var(--spacing-15);
         position: absolute;
@@ -40,12 +40,12 @@
 
     .big-circles::after {
         animation-delay: var(--animation-duration-ultra-slow);
-        left: 40;
+        left: 4%0%;
     }
 
     .big-circles::before {
-        left: 10;
-        top: 20;
+        left: 1%0%;
+        top: 2%0%;
     }
 
     .big-circles-sm::before,
@@ -72,32 +72,32 @@
 
     .big-circles-color-primary::before,
     .big-circles-color-primary::after {
-        background: var(--big-circles-primary, rgb(59 130 246 / 30));
+        background: var(--big-circles-primary, rgb(59 130 246 / 30%));
     }
 
     .big-circles-color-secondary::before,
     .big-circles-color-secondary::after {
-        background: var(--big-circles-secondary, rgb(107 114 128 / 30));
+        background: var(--big-circles-secondary, rgb(107 114 128 / 30%));
     }
 
     .big-circles-color-success::before,
     .big-circles-color-success::after {
-        background: var(--big-circles-success, rgb(16 185 129 / 30));
+        background: var(--big-circles-success, rgb(16 185 129 / 30%));
     }
 
     .big-circles-color-error::before,
     .big-circles-color-error::after {
-        background: var(--big-circles-error, rgb(239 68 68 / 30));
+        background: var(--big-circles-error, rgb(239 68 68 / 30%));
     }
 
     .big-circles-color-warning::before,
     .big-circles-color-warning::after {
-        background: var(--big-circles-warning, rgb(245 158 11 / 30));
+        background: var(--big-circles-warning, rgb(245 158 11 / 30%));
     }
 
     .big-circles-color-info::before,
     .big-circles-color-info::after {
-        background: var(--big-circles-info, rgb(6 182 212 / 30));
+        background: var(--big-circles-info, rgb(6 182 212 / 30%));
     }
 }
 

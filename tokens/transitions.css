@@ -152,9 +152,9 @@
   --transition-duration-slow: var(--transition-slow);
   
   /* Timing Functions */
-  --transition-ease-out: cubic-bezier(0, 0, 0.2, 1);
-  --transition-ease-in: cubic-bezier(0.4, 0, 1, 1);
-  --transition-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-ease-out: ease-out;
+  --transition-ease-in: ease-in;
+  --transition-ease-in-out: ease-in-out;
   --transition-timing-ease: var(--transition-ease-in-out);
   
   /* Combined Transition Properties */

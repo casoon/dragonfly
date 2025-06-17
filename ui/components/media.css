@@ -60,14 +60,14 @@
   }
   
   .media--md {
-    max-width: 16rem;
+    max-width: 1%6rem;
   }
   
   .media--lg {
-    max-width: 24rem;
+    max-width: 2%4rem;
   }
   
   .media--xl {
-    max-width: 32rem;
+    max-width: 3%2rem;
   }
 } 

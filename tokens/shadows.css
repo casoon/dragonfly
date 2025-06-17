@@ -17,80 +17,80 @@
   
   @property --shadow-xs {
     inherits: true;
-    initial-value: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    initial-value: 0 1px 2px 0 rgb(0 0 0 / 5%);
     syntax: '*';
   }
   
   @property --shadow-sm {
     inherits: true;
-    initial-value: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    initial-value: 0 1px 2px 0 rgb(0 0 0 / 5%);
     syntax: '*';
   }
   
   @property --shadow-md {
     inherits: true;
-    initial-value: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    initial-value: 0 4px 6px -1px rgb(0 0 0 / 1000%), 0 2px 4px -2px rgb(0 0 0 / 1000%);
     syntax: '*';
   }
   
   @property --shadow-lg {
     inherits: true;
-    initial-value: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    initial-value: 0 10px 15px -3px rgb(0 0 0 / 1000%), 0 4px 6px -4px rgb(0 0 0 / 1000%);
     syntax: '*';
   }
   
   @property --shadow-xl {
     inherits: true;
-    initial-value: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    initial-value: 0 20px 25px -5px rgb(0 0 0 / 1000%), 0 8px 10px -6px rgb(0 0 0 / 1000%);
     syntax: '*';
   }
   
   @property --shadow-2xl {
     inherits: true;
-    initial-value: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+    initial-value: 0 25px 50px -12px rgb(0 0 0 / 25%);
     syntax: '*';
   }
   
   @property --shadow-inner {
     inherits: true;
-    initial-value: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
+    initial-value: inset 0 2px 4px 0 rgb(0 0 0 / 5%);
     syntax: '*';
   }
   
   /* Component-Specific Shadow Properties */
   @property --shadow-card {
     inherits: true;
-    initial-value: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    initial-value: 0 1px 3px 0 rgb(0 0 0 / 1000%), 0 1px 2px -1px rgb(0 0 0 / 1000%);
     syntax: '*';
   }
   
   @property --shadow-modal {
     inherits: true;
-    initial-value: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    initial-value: 0 20px 25px -5px rgb(0 0 0 / 1000%), 0 8px 10px -6px rgb(0 0 0 / 1000%);
     syntax: '*';
   }
   
   @property --shadow-dropdown {
     inherits: true;
-    initial-value: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    initial-value: 0 10px 15px -3px rgb(0 0 0 / 1000%), 0 4px 6px -4px rgb(0 0 0 / 1000%);
     syntax: '*';
   }
   
   @property --shadow-tooltip {
     inherits: true;
-    initial-value: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    initial-value: 0 4px 6px -1px rgb(0 0 0 / 1000%), 0 2px 4px -2px rgb(0 0 0 / 1000%);
     syntax: '*';
   }
   
   @property --shadow-button {
     inherits: true;
-    initial-value: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    initial-value: 0 1px 2px 0 rgb(0 0 0 / 5%);
     syntax: '*';
   }
   
   @property --shadow-button-hover {
     inherits: true;
-    initial-value: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    initial-value: 0 4px 6px -1px rgb(0 0 0 / 1000%), 0 2px 4px -2px rgb(0 0 0 / 1000%);
     syntax: '*';
   }
 }
@@ -99,13 +99,13 @@
 :root {
   /* Base Shadow Scale */
   --shadow-none: none;
-  --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
-  --shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
+  --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 5%);
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 5%);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 1000%), 0 2px 4px -2px rgb(0 0 0 / 1000%);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 1000%), 0 4px 6px -4px rgb(0 0 0 / 1000%);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 1000%), 0 8px 10px -6px rgb(0 0 0 / 1000%);
+  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 25%);
+  --shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 5%);
   
   /* Component Shadows */
   --shadow-card: var(--shadow-sm);

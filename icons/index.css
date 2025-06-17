@@ -26,7 +26,6 @@
  * Definiert Größen, Farben und Grundstile für alle Icons
  */
 @layer icons {
-  
   /* Basis-Icon-Klasse */
   .icon {
     display: var(--display-inline-block);

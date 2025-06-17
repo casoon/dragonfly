@@ -6,11 +6,11 @@
  */
 
 @keyframes gradient-shift {
-    0 { background-position: 0 50; }
+    0 { background-position: 0% 50; }
 
-    50 { background-position: 100 50; }
+    50 { background-position: 100% 50; }
 
-    100 { background-position: 0 50; }
+    100 { background-position: 0% 50; }
 }
 
 @layer utilities {
@@ -50,7 +50,7 @@
             #4b0082,
             #8b00ff
         );
-        background-size: 200 200;
+        background-size: 200% 200;
     }
 
     .gradient-metallic {
@@ -76,7 +76,7 @@
             #ff00c8,
             #f00
         );
-        background-size: 200 200;
+        background-size: 200% 200;
     }
 }
 

@@ -28,8 +28,8 @@
   
   /* Baseline-Grid-Hilfeklassen */
   .baseline-grid {
-    background-image: linear-gradient(to bottom, rgb(0 0 255 / 10%) 1px, transparent 1px);
-    background-position: 0 0;
+    background-image: linear-gradient(to bottom, rgb(0 0 255 / 1000%) 1px, transparent 1px);
+    background-position: 0% 0;
     background-size: 100% var(--baseline-grid);
     position: relative;
   }
@@ -70,7 +70,7 @@
   }
   
   li:last-child {
-    margin-bottom: 0;
+    margin-bottom: 0%;
   }
   
   /* Typografie-Baseline-Klassen */

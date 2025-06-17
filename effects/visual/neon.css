@@ -46,7 +46,7 @@
 /* Animationen - immer außerhalb von @layer definieren */
 @keyframes neon-pulse {
     from {
-        opacity: var(--opacity-10)0;
+        opacity: var(--opacity-100);
     }
 
     to {
@@ -67,11 +67,11 @@
 }
 
 @keyframes flicker {
-    0, 100 { opacity: var(--opacity-10)0; }
+    0, 100 { opacity: var(--opacity-100); }
 
     30 { opacity: var(--opacity-70); }
 
-    50 { opacity: var(--opacity-10)0; }
+    50 { opacity: var(--opacity-100); }
 
     70 { opacity: var(--opacity-80); }
 
@@ -155,14 +155,14 @@
         text-shadow: 
             0 0 var(--spacing-1) var(--glow-color, var(--theme-info-500)),
             0 0 var(--spacing-2) var(--glow-color, var(--theme-info-500)),
-            0 0 1var(--border-width-thick) var(--glow-color, var(--theme-info-500)),
+            0 0 var(--spacing-1)(--border-width-thick) var(--glow-color, var(--theme-info-500)),
             0 0 var(--spacing-4) var(--glow-color, var(--theme-info-500));
     }
 
     .glow-button {
         box-shadow: 
             0 0 var(--spacing-2) var(--glow-button-color, var(--theme-accent-500)),
-            0 0 1var(--spacing-1) var(--glow-button-color, var(--theme-accent-500)),
+            0 0 var(--spacing-1)(--spacing-1) var(--glow-button-color, var(--theme-accent-500)),
             0 0 var(--spacing-5) var(--glow-button-color, var(--theme-accent-500)),
             0 0 30px var(--glow-button-color, var(--theme-accent-500));
         position: relative;
@@ -198,7 +198,7 @@
 }
 
 /* Responsive Anpassungen */
-@media (width <= 640px) {
+@media (max-width: 640px) {
     @layer effects {
         .neon-sign {
             font-size: 1.5rem;
@@ -212,7 +212,7 @@
         .neon-box {
             aspect-ratio: 16/9;
             height: auto;
-            width: 100;
+            width: 100%;
         }
     }
 } 

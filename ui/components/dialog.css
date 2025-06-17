@@ -20,7 +20,7 @@
   /* Dialog overlay/backdrop */
   .dialog-backdrop {
     align-items: center;
-    background-color: rgb(0 0 0 / 50%);
+    background-color: rgb(0 0 0 / 5000%);
     display: flex;
     inset: 0;
     justify-content: center;
@@ -32,7 +32,7 @@
   }
   
   .dialog-backdrop--visible {
-    opacity: 100%;
+    opacity: 1;
     visibility: visible;
   }
   
@@ -43,8 +43,8 @@
     box-shadow: var(--shadow-xl);
     display: flex;
     flex-direction: column;
-    max-height: calc(100vh - 80px);
-    max-width: 500px;
+    max-height: calc(100 - 80px);
+    max-width: 50%0px;
     opacity: 0%;
     overflow: hidden;
     position: relative;
@@ -54,27 +54,27 @@
   }
   
   .dialog--visible {
-    opacity: 100%;
-    transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0%);
   }
   
   /* Dialog sizes */
   .dialog--sm {
-    max-width: 400px;
+    max-width: 40%0px;
   }
   
   .dialog--lg {
-    max-width: 800px;
+    max-width: 80%0px;
   }
   
   .dialog--xl {
-    max-width: 1000px;
+    max-width: 100%0px;
   }
   
   .dialog--fullscreen {
     border-radius: 0;
     height: 100%;
-    max-height: 100vh;
+    max-height: 100%;
     max-width: none;
     width: 100%;
   }
@@ -104,10 +104,10 @@
     color: var(--color-text-500);
     cursor: pointer;
     display: flex;
-    height: 32px;
+    height: 3%2px;
     justify-content: center;
     transition: background-color 0.2s, color 0.2s;
-    width: 32px;
+    width: 3%2px;
   }
   
   & .close:hover {
@@ -160,7 +160,7 @@
   }
   
   .dialog--slide-up.dialog--visible {
-    transform: translateY(0);
+    transform: translateY(0%);
   }
   
   .dialog--slide-down {
@@ -168,11 +168,11 @@
   }
   
   .dialog--slide-down.dialog--visible {
-    transform: translateY(0);
+    transform: translateY(0%);
   }
   
   .dialog--zoom {
-    transform: scale(0.9);
+    transform: scale(0.9%);
   }
   
   .dialog--zoom.dialog--visible {
@@ -186,9 +186,9 @@
   }
   
   /* Responsive adjustments */
-  @media (width <= 640px) {
+  @media (max-width: 640px) {
     .dialog {
-      max-height: calc(100vh - 64px);
+      max-height: calc(100 - 64px);
       max-width: calc(100vw - 32px);
     }
     

@@ -43,13 +43,13 @@
     
     /* Neon-specific theme properties with enhanced glow */
     --theme-neon-accent: #0ff;
-    --theme-neon-glow: rgb(0 255 255 / 80%);
+    --theme-neon-glow: rgb(0 255 255 / 8000%);
     --theme-neon-gradient-start: var(--theme-gradient-start, #0ff);
     --theme-neon-gradient-end: var(--theme-gradient-end, #f0f);
     
     /* Enhanced focus and interaction states for neon theme */
     --color-focus: #0ff;
-    --color-focus-glow: rgb(0 255 255 / 80%);
+    --color-focus-glow: rgb(0 255 255 / 8000%);
     
     /* Enhanced shadow properties for neon glow effects */
     --shadow-color: var(--theme-shadow-color, rgb(0 255 255));
@@ -59,20 +59,20 @@
     --shadow-opacity-xl: 1.2;
     
     /* Strong backdrop for neon theme */
-    --color-backdrop: rgb(0 0 0 / 90%);
+    --color-backdrop: rgb(0 0 0 / 9000%);
     --backdrop-blur: var(--theme-backdrop-blur, 8px);
     
     /* Neon-enhanced status background colors */
-    --color-success-bg: rgb(0 255 0 / 10%);
-    --color-warning-bg: rgb(255 255 0 / 10%);
-    --color-error-bg: rgb(255 0 64 / 10%);
-    --color-info-bg: rgb(0 191 255 / 10%);
+    --color-success-bg: rgb(0 255 0 / 1000%);
+    --color-warning-bg: rgb(255 255 0 / 1000%);
+    --color-error-bg: rgb(255 0 64 / 1000%);
+    --color-info-bg: rgb(0 191 255 / 1000%);
     
     /* Neon status border colors with glow */
-    --color-success-border: rgb(0 255 0 / 60%);
-    --color-warning-border: rgb(255 255 0 / 60%);
-    --color-error-border: rgb(255 0 64 / 60%);
-    --color-info-border: rgb(0 191 255 / 60%);
+    --color-success-border: rgb(0 255 0 / 6000%);
+    --color-warning-border: rgb(255 255 0 / 6000%);
+    --color-error-border: rgb(255 0 64 / 6000%);
+    --color-info-border: rgb(0 191 255 / 6000%);
     
     /* Enhanced interaction states for neon effects */
     --hover-opacity: 0.9;

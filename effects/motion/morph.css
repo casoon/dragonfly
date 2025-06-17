@@ -7,31 +7,31 @@
 
 @keyframes morph-pulse {
     0, 100 {
-        border-radius: 30 70 70 30 / 30 30 70 70;
+        border-radius: 3px 70 70 30 / 30 30 70 70;
     }
 
     50 {
-        border-radius: 70 30 30 70 / 70 70 30 30;
+        border-radius: 7px 30 30 70 / 70 70 30 30;
     }
 }
 
 @keyframes morph-pulse-sm {
     0, 100 {
-        border-radius: 20 80 80 20 / 20 20 80 80;
+        border-radius: 2px 80 80 20 / 20 20 80 80;
     }
 
     50 {
-        border-radius: 80 20 20 80 / 80 80 20 20;
+        border-radius: 8px 20 20 80 / 80 80 20 20;
     }
 }
 
 @keyframes morph-pulse-lg {
     0, 100 {
-        border-radius: 40 60 60 40 / 40 40 60 60;
+        border-radius: 4px 60 60 40 / 40 40 60 60;
     }
 
     50 {
-        border-radius: 60 40 40 60 / 60 60 40 40;
+        border-radius: 6px 40 40 60 / 60 60 40 40;
     }
 }
 
@@ -41,15 +41,15 @@
     }
 
     .morph:hover {
-        border-radius: 30 70 70 30 / 30 30 70 70;
+        border-radius: 3px 70 70 30 / 30 30 70 70;
     }
 
     .morph-sm:hover {
-        border-radius: 20 80 80 20 / 20 20 80 80;
+        border-radius: 2px 80 80 20 / 20 20 80 80;
     }
 
     .morph-lg:hover {
-        border-radius: 40 60 60 40 / 40 40 60 60;
+        border-radius: 4px 60 60 40 / 40 40 60 60;
     }
 
     .morph-slow {
@@ -65,15 +65,15 @@
     }
 
     .morph-blob:hover {
-        border-radius: 60 40 30 70 / 60 30 70 40;
+        border-radius: 6px 40 30 70 / 60 30 70 40;
     }
 
     .morph-blob-sm:hover {
-        border-radius: 50 50 20 80 / 50 20 80 50;
+        border-radius: 5px 50 20 80 / 50 20 80 50;
     }
 
     .morph-blob-lg:hover {
-        border-radius: 70 30 40 60 / 70 40 60 30;
+        border-radius: 7px 30 40 60 / 70 40 60 30;
     }
 
     .morph-wave {
@@ -81,15 +81,15 @@
     }
 
     .morph-wave:hover {
-        border-radius: 30 70 30 70 / 30 70 30 70;
+        border-radius: 3px 70 30 70 / 30 70 30 70;
     }
 
     .morph-wave-sm:hover {
-        border-radius: 20 80 20 80 / 20 80 20 80;
+        border-radius: 2px 80 20 80 / 20 80 20 80;
     }
 
     .morph-wave-lg:hover {
-        border-radius: 40 60 40 60 / 40 60 40 60;
+        border-radius: 4px 60 40 60 / 40 60 40 60;
     }
 
     .morph-pulse {

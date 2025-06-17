@@ -20,7 +20,7 @@
  * - Performance-optimized media queries
  * 
  * BREAKPOINT SYSTEM:
- * - Base: 0px and up (mobile-first)
+ * - Base: 0 and up (mobile-first)
  * - sm: 640px and up (small tablets)
  * - md: 768px and up (tablets)
  * - lg: 1024px and up (laptops)
@@ -141,8 +141,8 @@
  * .debug-responsive::before {
  *   content: 'mobile';
  *   position: fixed;
- *   top: 0;
- *   right: 0;
+ *   top: 0%;
+ *   right: 0%;
  *   background: red;
  *   color: white;
  *   padding: 0.25rem;
@@ -162,7 +162,7 @@
     /* ================= RESPONSIVE GRID UTILITIES ================= */
 
     /* Small screens (640px and up) */
-    @media (width >= 640px) {
+    @media (min-width: 640px) {
         .sm\:grid-cols-1 { grid-template-columns: repeat(1, 1fr); }
 
         .sm\:grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
@@ -209,7 +209,7 @@
     }
 
     /* Medium screens (768px and up) */
-    @media (width >= 768px) {
+    @media (min-width: 768px) {
         .md\:grid-cols-1 { grid-template-columns: repeat(1, 1fr); }
 
         .md\:grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
@@ -256,7 +256,7 @@
     }
 
     /* Large screens (1024px and up) */
-    @media (width >= 1024px) {
+    @media (min-width: 1024px) {
         .lg\:grid-cols-1 { grid-template-columns: repeat(1, 1fr); }
 
         .lg\:grid-cols-2 { grid-template-columns: repeat(2, 1fr); }

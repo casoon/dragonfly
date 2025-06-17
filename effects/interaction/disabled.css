@@ -29,7 +29,7 @@
     }
 
     .disabled-blur-sm {
-        filter: blur(0.var(--spacing-1));
+        filter: blur(0.5 var(--spacing-1));
     }
 
     .disabled-blur-lg {
@@ -78,22 +78,22 @@
     }
 
     .disabled-bg-lg {
-        background-color: var(--disabled-bg-lg, rgb(0 0 0 / 10));
+        background-color: var(--disabled-bg-lg, rgb(0 0 0 / 10%));
     }
 
     .disabled-text {
-        color: var(--disabled-text, rgb(0 0 0 / 50));
+        color: var(--disabled-text, rgb(0 0 0 / 50%));
         cursor: not-allowed;
         pointer-events: none;
         user-select: none;
     }
 
     .disabled-text-sm {
-        color: var(--disabled-text-sm, rgb(0 0 0 / 70));
+        color: var(--disabled-text-sm, rgb(0 0 0 / 70%));
     }
 
     .disabled-text-lg {
-        color: var(--disabled-text-lg, rgb(0 0 0 / 30));
+        color: var(--disabled-text-lg, rgb(0 0 0 / 30%));
     }
 }
 

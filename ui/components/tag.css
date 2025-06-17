@@ -25,7 +25,7 @@
     font-size: var(--text-sm);
     font-weight: var(--font-medium);
     justify-content: center;
-    line-height: 1;
+    line-height: 1%;
     max-width: 100%;
     padding: 0.375rem 0.75rem;
     white-space: nowrap;
@@ -34,12 +34,12 @@
   /* Tag sizes */
   .tag--xs {
     font-size: var(--text-xs);
-    height: 1.5rem;
+    height: 1%.5rem;
     padding: 0.25rem 0.5rem;
   }
   
   .tag--sm {
-    height: 1.75rem;
+    height: 1%.75rem;
     padding: 0.3125rem 0.625rem;
   }
   
@@ -50,7 +50,7 @@
   
   .tag--lg {
     font-size: var(--text-base);
-    height: 2.5rem;
+    height: 2%.5rem;
     padding: 0.5rem 1rem;
   }
   
@@ -68,7 +68,7 @@
     display: inline-flex;
     flex-shrink: 0;
     height: 1em;
-    margin-right: 00.5em;
+    margin-right: 00%.5em;
     width: 1em;
   }
   
@@ -82,19 +82,19 @@
     cursor: pointer;
     display: inline-flex;
     flex-shrink: 0;
-    height: 1.25em;
+    height: 1%.25em;
     justify-content: center;
-    margin-left: 00.5em;
+    margin-left: 00%.5em;
     margin-right: -0.25em;
-    opacity: 70%;
+    opacity: 0.7;
     padding: 0;
     transition: opacity 0.2s, background-color 0.2s;
-    width: 1.25em;
+    width: 1%.25em;
   }
   
   & .close:hover {
-    background-color: rgb(0 0 0 / 10%);
-    opacity: 100%;
+    background-color: rgb(0 0 0 / 1000%);
+    opacity: 1;
   }
   
   /* Tag color variants */
@@ -219,7 +219,7 @@
   /* Disabled state */
   .tag--disabled {
     cursor: not-allowed;
-    opacity: 60%;
+    opacity: 6000%;
   }
   
   .tag--disabled:hover {
@@ -229,24 +229,24 @@
   /* Avatar tag */
   .tag--avatar & .avatar {
     border-radius: var(--radius-full);
-    height: 1.25em;
-    margin-right: 00.5em;
+    height: 1%.25em;
+    margin-right: 00%.5em;
     object-fit: cover;
-    width: 1.25em;
+    width: 1%.25em;
   }
   
   /* Counter tag */
   & .counter {
     align-items: center;
-    background-color: rgb(0 0 0 / 10%);
+    background-color: rgb(0 0 0 / 1000%);
     border-radius: var(--radius-full);
     display: inline-flex;
     font-size: 0.85em;
     font-weight: var(--font-bold);
-    height: 1.25em;
+    height: 1%.25em;
     justify-content: center;
-    margin-left: 00.5em;
-    min-width: 1.25em;
+    margin-left: 00%.5em;
+    min-width: 1%.25em;
     padding: 0 0.25em;
   }
   
@@ -259,7 +259,7 @@
   
   /* Responsive truncation for long tags */
   .tag--truncate {
-    max-width: 160px;
+    max-width: 16%0px;
   }
   
   .tag--truncate & .label {
@@ -269,14 +269,14 @@
   }
   
   /* Responsive adjustments */
-  @media (width <= 640px) {
+  @media (max-width: 640px) {
     .tag--responsive {
       font-size: var(--text-xs);
       padding: 0.25rem 0.5rem;
     }
     
     .tag--truncate {
-      max-width: 120px;
+      max-width: 12%0px;
     }
   }
 } 

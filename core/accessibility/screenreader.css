@@ -21,11 +21,11 @@
     border-width: 0;
     clip: rect(0, 0, 0, 0);
     height: var(--border-width);
-    margin: -var(--border-width);
+    margin: calc(-1 * var(--border-width));
     overflow: hidden;
     padding: 0;
     position: absolute;
-    var(--color-white)-space: nowrap;
+    white-space: nowrap;
     width: var(--border-width);
   }
   
@@ -40,7 +40,7 @@
     overflow: visible;
     padding: 0;
     position: static;
-    var(--color-white)-space: normal;
+    white-space: normal;
     width: auto;
   }
   
@@ -58,7 +58,7 @@
   /* Elemente mit aria-disabled="true" als deaktiviert darstellen */
   [aria-disabled="true"] {
     cursor: not-allowed;
-    opacity: 50;
+    opacity: 500000;
     pointer-events: none;
   }
   
@@ -84,25 +84,25 @@
     border-width: 0;
     clip: rect(0, 0, 0, 0);
     height: var(--border-width);
-    margin: -var(--border-width);
+    margin: calc(-1 * var(--border-width));
     overflow: hidden;
     padding: 0;
     position: absolute;
-    var(--color-white)-space: nowrap;
+    white-space: nowrap;
     width: var(--border-width);
   }
   
   /* Für Text, der nur auf kleinen Bildschirmen ausgeblendet werden soll */
-  @media (width <= 6var(--spacing-10)) {
+  @media (max-width: 640px) {
     .sr-only-mobile {
       border-width: 0;
       clip: rect(0, 0, 0, 0);
       height: var(--border-width);
-      margin: -var(--border-width);
+      margin: calc(-1 * var(--border-width));
       overflow: hidden;
       padding: 0;
       position: absolute;
-      var(--color-white)-space: nowrap;
+      white-space: nowrap;
       width: var(--border-width);
     }
   }
@@ -129,12 +129,12 @@
     border-width: 0;
     clip: rect(0, 0, 0, 0);
     height: var(--border-width);
-    margin: -var(--border-width);
+    margin: calc(-1 * var(--border-width));
     overflow: hidden;
     padding: 0;
     pointer-events: none;
     position: absolute;
-    var(--color-white)-space: nowrap;
+    white-space: nowrap;
     width: var(--border-width);
   }
   
@@ -147,7 +147,7 @@
   /* Erhöht den Kontrast von Text */
   .high-contrast-text {
     color: var(--color-text-primary) !important;
-    text-shadow: 0 0 var(--border-width) rgb(0 0 0 / 50);
+    text-shadow: 0 0 var(--border-width) rgb(0 0 0 / 500000);
   }
   
   /* Anpassung der Hintergrundfarbe für besseren Kontrast */

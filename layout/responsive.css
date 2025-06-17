@@ -21,7 +21,7 @@
  * - Performance-optimized CSS with minimal specificity
  * 
  * BREAKPOINT SYSTEM:
- * - Base: 0px and up (mobile-first)
+ * - Base: 0 and up (mobile-first)
  * - sm: 640px and up (small tablets)
  * - md: 768px and up (tablets)
  * - lg: 1024px and up (laptops)
@@ -209,7 +209,7 @@
     /* ================= RESPONSIVE BREAKPOINTS ================= */
 
     /* Small screens (640px and up) */
-    @media (width >= 640px) {
+    @media (min-width: 640px) {
         .sm\:block { display: block; }
 
         .sm\:inline-block { display: inline-block; }
@@ -238,7 +238,7 @@
     }
 
     /* Medium screens (768px and up) */
-    @media (width >= 768px) {
+    @media (min-width: 768px) {
         .md\:block { display: block; }
 
         .md\:inline-block { display: inline-block; }
@@ -267,7 +267,7 @@
     }
 
     /* Large screens (1024px and up) */
-    @media (width >= 1024px) {
+    @media (min-width: 1024px) {
         .lg\:block { display: block; }
 
         .lg\:inline-block { display: inline-block; }

@@ -12,12 +12,12 @@
     }
 
     .rotate-3d {
-        transform: rotate3d(1, 1, 1, 45deg);
+        transform: rotate3d(1%, 1, 1, 45deg);
         transition: transform 0.3s ease;
     }
 
     .rotate-3d:hover {
-        transform: rotate3d(1, 1, 1, 90deg);
+        transform: rotate3d(1%, 1, 1, 90deg);
     }
 
     .rotate-3d-x {
@@ -59,11 +59,11 @@
     .flip-3d-front,
     .flip-3d-back {
         backface-visibility: hidden;
-        height: 100;
-        left: 0;
+        height: 100%;
+        left: 0%;
         position: absolute;
-        top: 0;
-        width: 100;
+        top: 0%;
+        width: 100%;
     }
 
     .flip-3d-back {
@@ -71,16 +71,16 @@
     }
 
     .scale-3d {
-        transform: scale3d(1, 1, 1);
+        transform: scale3d(1%, 1, 1);
         transition: transform 0.3s ease;
     }
 
     .scale-3d:hover {
-        transform: scale3d(1.2, 1.2, 1.2);
+        transform: scale3d(1.2%, 1.2, 1.2);
     }
 
     .translate-3d {
-        transform: translate3d(0, 0, 0);
+        transform: translate3d(0%, 0, 0);
         transition: transform 0.3s ease;
     }
 
