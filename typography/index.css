@@ -17,12 +17,6 @@
 
 /* Basis-Typografie-Definitionen */
 @layer typography {
-  /* Grundlegende Schriftfamilien-Definitionen */
-  :root {
-    --font-family-sans: system-ui, -apple-system, blinkmacsystemfont, "segoe ui", roboto, "helvetica neue", arial, sans-serif;
-    --font-family-serif: georgia, cambria, "times new roman", times, serif;
-    --font-family-mono: ui-monospace, sfmono-regular, menlo, monaco, consolas, "liberation mono", "courier new", monospace;
-  }
 }
 
 /* Basis-Typografie-Stile für Standardelemente */
@@ -118,21 +112,21 @@
 @layer typography.responsive {
   @container root (max-width: 640px) {
     body {
-      font-size: 14px;
-      line-height: 1.4;
+      font-size: var(--font-size-sm);
+      line-height: var(--line-height-snug);
     }
     
-    h1 { font-size: 1.875rem; }
+    h1 { font-size: var(--font-size-3xl); }
 
-    h2 { font-size: 1.5rem; }
+    h2 { font-size: var(--font-size-2xl); }
 
-    h3 { font-size: 1.25rem; }
+    h3 { font-size: var(--font-size-xl); }
 
-    h4 { font-size: 1.125rem; }
+    h4 { font-size: var(--font-size-lg); }
 
-    h5 { font-size: 1.1rem; }
+    h5 { font-size: var(--font-size-lg); }
 
-    h6 { font-size: 1rem; }
+    h6 { font-size: var(--font-size-base); }
   }
 }
 

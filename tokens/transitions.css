@@ -26,6 +26,25 @@
     initial-value: 400ms;
     syntax: '<time>';
   }
+
+  /* Extended Duration Properties (für Kompatibilität) */
+  @property --transition-duration-fast {
+    inherits: true;
+    initial-value: 150ms;
+    syntax: '<time>';
+  }
+  
+  @property --transition-duration-normal {
+    inherits: true;
+    initial-value: 250ms;
+    syntax: '<time>';
+  }
+  
+  @property --transition-duration-slow {
+    inherits: true;
+    initial-value: 400ms;
+    syntax: '<time>';
+  }
   
   /* Transition Easing Properties */
   @property --transition-ease-out {
@@ -41,6 +60,13 @@
   }
   
   @property --transition-ease-in-out {
+    inherits: true;
+    initial-value: cubic-bezier(0.4, 0, 0.2, 1);
+    syntax: '<custom-ident> | ease | ease-in | ease-out | ease-in-out | linear | step-start | step-end';
+  }
+
+  /* Timing Function Aliases */
+  @property --transition-timing-ease {
     inherits: true;
     initial-value: cubic-bezier(0.4, 0, 0.2, 1);
     syntax: '<custom-ident> | ease | ease-in | ease-out | ease-in-out | linear | step-start | step-end';
@@ -113,4 +139,30 @@
     initial-value: all 250ms var(--transition-ease-out);
     syntax: '*';
   }
+}
+
+/* Fallback Values für Transition-Tokens */
+:root {
+  /* Duration Tokens */
+  --transition-fast: 150ms;
+  --transition-normal: 250ms;
+  --transition-slow: 400ms;
+  --transition-duration-fast: var(--transition-fast);
+  --transition-duration-normal: var(--transition-normal);
+  --transition-duration-slow: var(--transition-slow);
+  
+  /* Timing Functions */
+  --transition-ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --transition-ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --transition-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-timing-ease: var(--transition-ease-in-out);
+  
+  /* Combined Transition Properties */
+  --transition-colors: background-color var(--transition-normal) var(--transition-ease-out), 
+                      color var(--transition-normal) var(--transition-ease-out), 
+                      border-color var(--transition-normal) var(--transition-ease-out);
+  --transition-transform: transform 200ms var(--transition-ease-out);
+  --transition-opacity: opacity 200ms var(--transition-ease-out);
+  --transition-shadow: box-shadow 200ms var(--transition-ease-out);
+  --transition-all: all var(--transition-normal) var(--transition-ease-out);
 } 

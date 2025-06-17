@@ -2,18 +2,23 @@
  * Typography Weights
  *
  * Definitionen für Schriftgewichte und -varianten.
+ * Verwendet zentrale Tokens aus /tokens/typography.css
  */
 
 @layer typography.weights {
-  /* Basis-Schriftgewichte */
-  :root {
-    --font-weight-normal: 400;
-    --font-weight-medium: 500;
-    --font-weight-semibold: 600;
-    --font-weight-bold: 700;
+  /* Schriftgewicht-Klassen - verwenden zentrale Tokens aus /tokens/typography.css */
+  .font-thin {
+    font-weight: var(--font-weight-thin);
   }
   
-  /* Schriftgewicht-Klassen */
+  .font-extralight {
+    font-weight: var(--font-weight-extralight);
+  }
+  
+  .font-light {
+    font-weight: var(--font-weight-light);
+  }
+  
   .font-normal {
     font-weight: var(--font-weight-normal);
   }
@@ -30,24 +35,12 @@
     font-weight: var(--font-weight-bold);
   }
   
-  .font-thin {
-    font-weight: 100;
-  }
-  
-  .font-extralight {
-    font-weight: 200;
-  }
-  
-  .font-light {
-    font-weight: 300;
-  }
-  
   .font-extrabold {
-    font-weight: 800;
+    font-weight: var(--font-weight-extrabold);
   }
   
   .font-black {
-    font-weight: 900;
+    font-weight: var(--font-weight-black);
   }
   
   /* Schriftform-Varianten */
@@ -85,28 +78,28 @@
     text-transform: none;
   }
   
-  /* Buchstabenabstand */
+  /* Buchstabenabstand - verwenden zentrale Tokens aus /tokens/typography.css */
   .tracking-tighter {
-    letter-spacing: -0.05em;
+    letter-spacing: var(--letter-spacing-tighter);
   }
   
   .tracking-tight {
-    letter-spacing: -0.025em;
+    letter-spacing: var(--letter-spacing-tight);
   }
   
   .tracking-normal {
-    letter-spacing: 0;
+    letter-spacing: var(--letter-spacing-normal);
   }
   
   .tracking-wide {
-    letter-spacing: 0.025em;
+    letter-spacing: var(--letter-spacing-wide);
   }
   
   .tracking-wider {
-    letter-spacing: 0.05em;
+    letter-spacing: var(--letter-spacing-wider);
   }
   
   .tracking-widest {
-    letter-spacing: 0.1em;
+    letter-spacing: var(--letter-spacing-widest);
   }
 } 

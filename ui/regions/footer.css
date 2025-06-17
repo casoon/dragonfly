@@ -287,7 +287,7 @@
     /* Copyright */
     & .copyright {
       color: var(--footer-text);
-      font-size: var(--font-size-sm);
+      font-size: var(--text-sm);
       margin: 0;
     }
     
@@ -298,13 +298,13 @@
       
       & .social-link {
         align-items: center;
-        background-color: var(--color-gray-100);
+        background-color: var(--color-neutral-100);
         border-radius: 50%;
-        color: var(--color-gray-600);
+        color: var(--color-neutral-600);
         display: flex;
         height: 2rem;
         justify-content: center;
-        transition: background-color var(--transition-fast), color var(--transition-fast);
+        transition: background-color 150ms ease, color 150ms ease;
         width: 2rem;
         
         &:hover {
@@ -321,7 +321,7 @@
       
       & a {
         color: var(--footer-text);
-        font-size: var(--font-size-sm);
+        font-size: var(--text-sm);
         
         &:hover {
           color: var(--footer-link-hover);
@@ -335,14 +335,14 @@
     }
     
     &.dark {
-      background-color: var(--color-gray-900);
+      background-color: var(--color-neutral-900);
       
       & .heading {
         color: var(--color-white);
       }
       
       & .link, & .address {
-        color: var(--color-gray-300);
+        color: var(--color-neutral-300);
       }
       
       & .link:hover {
@@ -350,16 +350,16 @@
       }
       
       & .bottom {
-        border-top-color: var(--color-gray-700);
+        border-top-color: var(--color-neutral-700);
       }
       
       & .copyright, & .legal a {
-        color: var(--color-gray-400);
+        color: var(--color-neutral-400);
       }
       
       & .social-link {
-        background-color: var(--color-gray-700);
-        color: var(--color-gray-300);
+        background-color: var(--color-neutral-700);
+        color: var(--color-neutral-300);
       }
     }
     
@@ -399,7 +399,7 @@
       padding: var(--space-4) 0;
       
       & .bottom {
-        border-top: 1px solid var(--color-gray-200);
+        border-top: 1px solid var(--color-neutral-200);
         margin-top: 0;
         padding-top: var(--space-4);
       }
@@ -817,11 +817,11 @@
   .footer-split,
   .footer-minimal {
     background: white !important;
-    border-top: 1px solid #000;
-    color: #000 !important;
+    border-top: 1px solid var(--color-neutral-900);
+    color: var(--color-neutral-900) !important;
     
     & a {
-      color: #000 !important;
+      color: var(--color-neutral-900) !important;
       text-decoration: underline;
     }
     

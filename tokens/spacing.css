@@ -195,6 +195,25 @@
     syntax: '<length>';
   }
   
+  /* Large spacing for special cases */
+  @property --space-large-200 {
+    inherits: true;
+    initial-value: 200px;
+    syntax: '<length>';
+  }
+
+  @property --space-large-30rem {
+    inherits: true;
+    initial-value: 30rem;
+    syntax: '<length>';
+  }
+
+  @property --space-small-10px {
+    inherits: true;
+    initial-value: 10px;
+    syntax: '<length>';
+  }
+  
   /* Semantic Spacing Aliases */
   @property --space-xs {
     inherits: true;

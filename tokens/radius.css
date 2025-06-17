@@ -154,5 +154,13 @@
     /* Transition Radius */
     --radius-transition: var(--radius-md);
     --radius-transition-hover: var(--radius-lg);
+    
+    /* Border-Radius Aliases (für Kompatibilität mit Typography-System) */
+    --border-radius-none: var(--radius-none);
+    --border-radius-sm: var(--radius-sm);
+    --border-radius-md: var(--radius-md);
+    --border-radius-lg: var(--radius-lg);
+    --border-radius-xl: var(--radius-xl);
+    --border-radius-full: var(--radius-full);
   }
 } 

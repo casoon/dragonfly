@@ -1,0 +1,1012 @@
+/**
+ * Component-Specific Tokens
+ * 
+ * Semantische Tokens für UI-Komponenten mit @property Definitionen.
+ * Diese Tokens werden speziell für Komponenten verwendet und erweitern
+ * die Basis-Token um komponentenspezifische Werte.
+ * 
+ * @layer tokens.properties
+ * @version 1.0.0
+ * @author Dragonfly Design System
+ */
+
+@layer tokens.properties {
+  /* Alert Component Tokens */
+  @property --alert-padding {
+    inherits: true;
+    initial-value: 1rem;
+    syntax: '<length>';
+  }
+  
+  @property --alert-padding-sm {
+    inherits: true;
+    initial-value: 0.5rem;
+    syntax: '<length>';
+  }
+  
+  @property --alert-padding-lg {
+    inherits: true;
+    initial-value: 1.25rem;
+    syntax: '<length>';
+  }
+  
+  @property --alert-gap {
+    inherits: true;
+    initial-value: 0.75rem;
+    syntax: '<length>';
+  }
+  
+  @property --alert-border-radius {
+    inherits: true;
+    initial-value: 0.5rem;
+    syntax: '<length>';
+  }
+  
+  /* Badge Component Tokens */
+  @property --badge-padding-xs {
+    inherits: true;
+    initial-value: 0.15rem 0.35rem;
+    syntax: '*';
+  }
+  
+  @property --badge-padding-sm {
+    inherits: true;
+    initial-value: 0.2rem 0.4rem;
+    syntax: '*';
+  }
+  
+  @property --badge-padding-md {
+    inherits: true;
+    initial-value: 0.25rem 0.5rem;
+    syntax: '*';
+  }
+  
+  @property --badge-padding-lg {
+    inherits: true;
+    initial-value: 0.3rem 0.6rem;
+    syntax: '*';
+  }
+  
+  @property --badge-min-width-xs {
+    inherits: true;
+    initial-value: 1.2rem;
+    syntax: '<length>';
+  }
+  
+  @property --badge-min-width-sm {
+    inherits: true;
+    initial-value: 1.5rem;
+    syntax: '<length>';
+  }
+  
+  @property --badge-min-width-md {
+    inherits: true;
+    initial-value: 1.75rem;
+    syntax: '<length>';
+  }
+  
+  @property --badge-min-width-lg {
+    inherits: true;
+    initial-value: 2rem;
+    syntax: '<length>';
+  }
+  
+  /* Card Component Tokens */
+  @property --card-padding {
+    inherits: true;
+    initial-value: 1rem;
+    syntax: '<length>';
+  }
+  
+  @property --card-padding-fluid {
+    inherits: true;
+    initial-value: 1.25rem;
+    syntax: '<length>';
+  }
+  
+  @property --card-gap {
+    inherits: true;
+    initial-value: 0.75rem;
+    syntax: '<length>';
+  }
+  
+  @property --card-grid-gap {
+    inherits: true;
+    initial-value: 1rem;
+    syntax: '<length>';
+  }
+  
+  @property --card-grid-min-width {
+    inherits: true;
+    initial-value: 250px;
+    syntax: '<length>';
+  }
+  
+  /* Button Component Tokens */
+  @property --button-padding-sm {
+    inherits: true;
+    initial-value: 0.5rem 0.75rem;
+    syntax: '*';
+  }
+  
+  @property --button-padding-md {
+    inherits: true;
+    initial-value: 0.75rem 1rem;
+    syntax: '*';
+  }
+  
+  @property --button-padding-lg {
+    inherits: true;
+    initial-value: 1rem 1.5rem;
+    syntax: '*';
+  }
+  
+  @property --button-height-sm {
+    inherits: true;
+    initial-value: 2rem;
+    syntax: '<length>';
+  }
+  
+  @property --button-height-md {
+    inherits: true;
+    initial-value: 2.5rem;
+    syntax: '<length>';
+  }
+  
+  @property --button-height-lg {
+    inherits: true;
+    initial-value: 3rem;
+    syntax: '<length>';
+  }
+  
+  /* Input Component Tokens */
+  @property --input-padding {
+    inherits: true;
+    initial-value: 0.75rem;
+    syntax: '<length>';
+  }
+  
+  @property --input-height {
+    inherits: true;
+    initial-value: 2.5rem;
+    syntax: '<length>';
+  }
+  
+  @property --input-border-width {
+    inherits: true;
+    initial-value: 1px;
+    syntax: '<length>';
+  }
+  
+  /* Modal Component Tokens */
+  @property --modal-padding {
+    inherits: true;
+    initial-value: 1.5rem;
+    syntax: '<length>';
+  }
+  
+  @property --modal-header-padding {
+    inherits: true;
+    initial-value: 1.5rem 1.5rem 1rem;
+    syntax: '*';
+  }
+  
+  @property --modal-footer-padding {
+    inherits: true;
+    initial-value: 1rem 1.5rem 1.5rem;
+    syntax: '*';
+  }
+  
+  @property --modal-max-width {
+    inherits: true;
+    initial-value: 32rem;
+    syntax: '<length>';
+  }
+  
+  /* Table Component Tokens */
+  @property --table-cell-padding {
+    inherits: true;
+    initial-value: 0.75rem;
+    syntax: '<length>';
+  }
+  
+  @property --table-header-padding {
+    inherits: true;
+    initial-value: 1rem 0.75rem;
+    syntax: '*';
+  }
+  
+  /* Avatar Component Tokens */
+  @property --avatar-size-xs {
+    inherits: true;
+    initial-value: 1.5rem;
+    syntax: '<length>';
+  }
+  
+  @property --avatar-size-sm {
+    inherits: true;
+    initial-value: 2rem;
+    syntax: '<length>';
+  }
+  
+  @property --avatar-size-md {
+    inherits: true;
+    initial-value: 2.5rem;
+    syntax: '<length>';
+  }
+  
+  @property --avatar-size-lg {
+    inherits: true;
+    initial-value: 3rem;
+    syntax: '<length>';
+  }
+  
+  @property --avatar-size-xl {
+    inherits: true;
+    initial-value: 4rem;
+    syntax: '<length>';
+  }
+  
+  /* Tooltip Component Tokens */
+  @property --tooltip-padding {
+    inherits: true;
+    initial-value: 0.5rem 0.75rem;
+    syntax: '*';
+  }
+  
+  @property --tooltip-max-width {
+    inherits: true;
+    initial-value: 200px;
+    syntax: '<length>';
+  }
+  
+  @property --tooltip-arrow-size {
+    inherits: true;
+    initial-value: 4px;
+    syntax: '<length>';
+  }
+  
+  /* Progress Component Tokens */
+  @property --progress-height {
+    inherits: true;
+    initial-value: 0.5rem;
+    syntax: '<length>';
+  }
+  
+  @property --progress-height-sm {
+    inherits: true;
+    initial-value: 0.25rem;
+    syntax: '<length>';
+  }
+  
+  @property --progress-height-lg {
+    inherits: true;
+    initial-value: 0.75rem;
+    syntax: '<length>';
+  }
+  
+  /* Spinner Component Tokens */
+  @property --spinner-size-sm {
+    inherits: true;
+    initial-value: 1rem;
+    syntax: '<length>';
+  }
+  
+  @property --spinner-size-md {
+    inherits: true;
+    initial-value: 1.5rem;
+    syntax: '<length>';
+  }
+  
+  @property --spinner-size-lg {
+    inherits: true;
+    initial-value: 2rem;
+    syntax: '<length>';
+  }
+  
+  @property --spinner-border-width {
+    inherits: true;
+    initial-value: 2px;
+    syntax: '<length>';
+  }
+  
+  /* Breadcrumb Component Tokens */
+  @property --breadcrumb-separator-spacing {
+    inherits: true;
+    initial-value: 0.5rem;
+    syntax: '<length>';
+  }
+  
+  @property --breadcrumb-item-padding {
+    inherits: true;
+    initial-value: 0.25rem 0.5rem;
+    syntax: '*';
+  }
+  
+  /* Tab Component Tokens */
+  @property --tab-padding {
+    inherits: true;
+    initial-value: 0.75rem 1rem;
+    syntax: '*';
+  }
+  
+  @property --tab-border-width {
+    inherits: true;
+    initial-value: 2px;
+    syntax: '<length>';
+  }
+  
+  /* Drawer Component Tokens */
+  @property --drawer-width {
+    inherits: true;
+    initial-value: 20rem;
+    syntax: '<length>';
+  }
+  
+  @property --drawer-padding {
+    inherits: true;
+    initial-value: 1.5rem;
+    syntax: '<length>';
+  }
+  
+  /* Pagination Component Tokens */
+  @property --pagination-item-size {
+    inherits: true;
+    initial-value: 2.5rem;
+    syntax: '<length>';
+  }
+  
+  @property --pagination-gap {
+    inherits: true;
+    initial-value: 0.25rem;
+    syntax: '<length>';
+  }
+  
+  /* Navigation/Menu Component Tokens */
+  @property --nav-padding {
+    inherits: true;
+    initial-value: 1rem;
+    syntax: '<length>';
+  }
+  
+  @property --nav-padding-compact {
+    inherits: true;
+    initial-value: 0.75rem;
+    syntax: '<length>';
+  }
+  
+  @property --nav-gap {
+    inherits: true;
+    initial-value: 1rem;
+    syntax: '<length>';
+  }
+  
+  @property --nav-gap-compact {
+    inherits: true;
+    initial-value: 0.5rem;
+    syntax: '<length>';
+  }
+  
+  @property --nav-item-padding {
+    inherits: true;
+    initial-value: 0.5rem 0.75rem;
+    syntax: '*';
+  }
+  
+  @property --nav-section-gap {
+    inherits: true;
+    initial-value: 1.5rem;
+    syntax: '<length>';
+  }
+  
+  /* Topbar specific tokens */
+  @property --topbar-min-height {
+    inherits: true;
+    initial-value: 3.5rem;
+    syntax: '<length>';
+  }
+  
+  @property --topbar-z-index {
+    inherits: true;
+    initial-value: 100;
+    syntax: '<integer>';
+  }
+  
+  @property --topbar-line-height {
+    inherits: true;
+    initial-value: 1.5;
+    syntax: '<number>';
+  }
+  
+  @property --topbar-transition {
+    inherits: true;
+    initial-value: all 0.2s ease;
+    syntax: '*';
+  }
+  
+  /* Sidebar specific tokens */
+  @property --sidebar-width {
+    inherits: true;
+    initial-value: 16rem;
+    syntax: '<length>';
+  }
+  
+  @property --sidebar-width-narrow {
+    inherits: true;
+    initial-value: 12rem;
+    syntax: '<length>';
+  }
+  
+  @property --sidebar-width-wide {
+    inherits: true;
+    initial-value: 20rem;
+    syntax: '<length>';
+  }
+  
+  @property --sidebar-width-collapsed {
+    inherits: true;
+    initial-value: 4rem;
+    syntax: '<length>';
+  }
+  
+  @property --sidebar-z-index {
+    inherits: true;
+    initial-value: 200;
+    syntax: '<integer>';
+  }
+  
+  @property --sidebar-line-height {
+    inherits: true;
+    initial-value: 1.5;
+    syntax: '<number>';
+  }
+  
+  @property --sidebar-shadow {
+    inherits: true;
+    initial-value: 0 1px 3px 0 rgb(0 0 0 / 10%);
+    syntax: '*';
+  }
+  
+  @property --sidebar-transition {
+    inherits: true;
+    initial-value: width 0.3s ease;
+    syntax: '*';
+  }
+  
+  /* Mobile Navigation specific tokens */
+  @property --mobile-nav-width {
+    inherits: true;
+    initial-value: 20rem;
+    syntax: '<length>';
+  }
+  
+  @property --mobile-nav-width-narrow {
+    inherits: true;
+    initial-value: 16rem;
+    syntax: '<length>';
+  }
+  
+  @property --mobile-nav-width-wide {
+    inherits: true;
+    initial-value: 24rem;
+    syntax: '<length>';
+  }
+  
+  @property --mobile-nav-height {
+    inherits: true;
+    initial-value: 100vh;
+    syntax: '<length>';
+  }
+  
+  @property --mobile-nav-max-height {
+    inherits: true;
+    initial-value: 100vh;
+    syntax: '<length>';
+  }
+  
+  @property --mobile-nav-z-index {
+    inherits: true;
+    initial-value: 1000;
+    syntax: '<integer>';
+  }
+  
+  @property --mobile-nav-line-height {
+    inherits: true;
+    initial-value: 1.5;
+    syntax: '<number>';
+  }
+  
+  @property --mobile-nav-transition {
+    inherits: true;
+    initial-value: transform 0.3s ease;
+    syntax: '*';
+  }
+  
+  /* Off-canvas specific tokens */
+  @property --off-canvas-width {
+    inherits: true;
+    initial-value: 20rem;
+    syntax: '<length>';
+  }
+  
+  @property --off-canvas-width-narrow {
+    inherits: true;
+    initial-value: 16rem;
+    syntax: '<length>';
+  }
+  
+  @property --off-canvas-width-wide {
+    inherits: true;
+    initial-value: 24rem;
+    syntax: '<length>';
+  }
+  
+  @property --off-canvas-height {
+    inherits: true;
+    initial-value: 100vh;
+    syntax: '<length>';
+  }
+  
+  @property --off-canvas-max-height {
+    inherits: true;
+    initial-value: 100vh;
+    syntax: '<length>';
+  }
+  
+  @property --off-canvas-z-index {
+    inherits: true;
+    initial-value: 1000;
+    syntax: '<integer>';
+  }
+  
+  @property --off-canvas-line-height {
+    inherits: true;
+    initial-value: 1.5;
+    syntax: '<number>';
+  }
+  
+  @property --off-canvas-transition {
+    inherits: true;
+    initial-value: transform 0.3s ease;
+    syntax: '*';
+  }
+  
+  @property --off-canvas-backdrop {
+    inherits: true;
+    initial-value: rgb(0 0 0 / 50%);
+    syntax: '<color>';
+  }
+  
+  /* Breadcrumb specific tokens */
+  @property --breadcrumb-line-height {
+    inherits: true;
+    initial-value: 1.5;
+    syntax: '<number>';
+  }
+  
+  /* Container and Header tokens that are referenced */
+  @property --container-7xl {
+    inherits: true;
+    initial-value: 80rem;
+    syntax: '<length>';
+  }
+  
+  @property --header-max-width {
+    inherits: true;
+    initial-value: 80rem;
+    syntax: '<length>';
+  }
+  
+  @property --header-transition {
+    inherits: true;
+    initial-value: all 0.2s ease;
+    syntax: '*';
+  }
+  
+  /* Pattern Component Tokens */
+  
+  /* Blog Pattern Tokens */
+  @property --blog-max-width {
+    inherits: true;
+    initial-value: 65ch;
+    syntax: '<length>';
+  }
+  
+  @property --blog-content-spacing {
+    inherits: true;
+    initial-value: 1.5rem;
+    syntax: '<length>';
+  }
+  
+  @property --blog-card-hover-transform {
+    inherits: true;
+    initial-value: translateY(-4px);
+    syntax: '*';
+  }
+  
+  /* Tag Pattern Tokens */
+  @property --tag-padding-sm {
+    inherits: true;
+    initial-value: 0.25rem 0.5rem;
+    syntax: '*';
+  }
+  
+  @property --tag-padding-md {
+    inherits: true;
+    initial-value: 0.375rem 0.75rem;
+    syntax: '*';
+  }
+  
+  @property --tag-padding-lg {
+    inherits: true;
+    initial-value: 0.5rem 1rem;
+    syntax: '*';
+  }
+  
+  @property --tag-border-radius {
+    inherits: true;
+    initial-value: 9999px;
+    syntax: '<length>';
+  }
+  
+  @property --tag-transition {
+    inherits: true;
+    initial-value: background-color 150ms ease-in-out;
+    syntax: '*';
+  }
+  
+  /* Code Pattern Tokens */
+  @property --code-padding {
+    inherits: true;
+    initial-value: 1rem;
+    syntax: '<length>';
+  }
+  
+  @property --code-inline-padding {
+    inherits: true;
+    initial-value: 0.25rem 0.5rem;
+    syntax: '*';
+  }
+  
+  @property --code-line-height {
+    inherits: true;
+    initial-value: 1.4;
+    syntax: '<number>';
+  }
+  
+  /* Widget Pattern Tokens */
+  @property --widget-header-padding {
+    inherits: true;
+    initial-value: 0.75rem 1rem;
+    syntax: '*';
+  }
+  
+  @property --widget-body-padding {
+    inherits: true;
+    initial-value: 1rem;
+    syntax: '<length>';
+  }
+  
+  @property --widget-footer-padding {
+    inherits: true;
+    initial-value: 0.75rem 1rem;
+    syntax: '*';
+  }
+  
+  @property --widget-action-padding {
+    inherits: true;
+    initial-value: 0.25rem 0.5rem;
+    syntax: '*';
+  }
+  
+  /* Skeleton Pattern Tokens */
+  @property --skeleton-height-sm {
+    inherits: true;
+    initial-value: 0.75rem;
+    syntax: '<length>';
+  }
+  
+  @property --skeleton-height-md {
+    inherits: true;
+    initial-value: 1rem;
+    syntax: '<length>';
+  }
+  
+  @property --skeleton-height-lg {
+    inherits: true;
+    initial-value: 1.5rem;
+    syntax: '<length>';
+  }
+  
+  @property --skeleton-animation-duration {
+    inherits: true;
+    initial-value: 1.5s;
+    syntax: '<time>';
+  }
+  
+  /* Social Media Brand Colors */
+  @property --color-twitter {
+    inherits: true;
+    initial-value: #1DA1F2;
+    syntax: '<color>';
+  }
+  
+  @property --color-facebook {
+    inherits: true;
+    initial-value: #4267B2;
+    syntax: '<color>';
+  }
+  
+  @property --color-linkedin {
+    inherits: true;
+    initial-value: #0077B5;
+    syntax: '<color>';
+  }
+
+  /* Region Component Tokens */
+  
+  /* Header Region Tokens */
+  @property --header-height-sm {
+    inherits: true;
+    initial-value: 48px;
+    syntax: '<length>';
+  }
+  
+  @property --header-height-md {
+    inherits: true;
+    initial-value: 64px;
+    syntax: '<length>';
+  }
+  
+  @property --header-height-lg {
+    inherits: true;
+    initial-value: 80px;
+    syntax: '<length>';
+  }
+  
+  @property --header-z-index {
+    inherits: true;
+    initial-value: 1000;
+    syntax: '<integer>';
+  }
+  
+  @property --header-line-height {
+    inherits: true;
+    initial-value: 1.5;
+    syntax: '<number>';
+  }
+  
+  @property --header-logo-max-height {
+    inherits: true;
+    initial-value: 40px;
+    syntax: '<length>';
+  }
+  
+  @property --header-hamburger-size {
+    inherits: true;
+    initial-value: 24px;
+    syntax: '<length>';
+  }
+  
+  @property --header-mobile-breakpoint {
+    inherits: true;
+    initial-value: 768px;
+    syntax: '<length>';
+  }
+  
+  /* Footer Region Tokens */
+  @property --footer-columns {
+    inherits: true;
+    initial-value: 4;
+    syntax: '<integer>';
+  }
+  
+  @property --footer-column-gap {
+    inherits: true;
+    initial-value: 2rem;
+    syntax: '<length>';
+  }
+  
+  @property --footer-line-height {
+    inherits: true;
+    initial-value: 1.6;
+    syntax: '<number>';
+  }
+  
+  /* Main Content Region Tokens */
+  @property --main-max-width {
+    inherits: true;
+    initial-value: 1200px;
+    syntax: '<length>';
+  }
+  
+  @property --main-max-width-narrow {
+    inherits: true;
+    initial-value: 800px;
+    syntax: '<length>';
+  }
+  
+  @property --main-max-width-wide {
+    inherits: true;
+    initial-value: 1400px;
+    syntax: '<length>';
+  }
+  
+  @property --main-line-height {
+    inherits: true;
+    initial-value: 1.6;
+    syntax: '<number>';
+  }
+  
+  @property --main-mobile-breakpoint {
+    inherits: true;
+    initial-value: 768px;
+    syntax: '<length>';
+  }
+  
+  @property --main-tablet-breakpoint {
+    inherits: true;
+    initial-value: 1024px;
+    syntax: '<length>';
+  }
+  
+  /* Sidebar Region Tokens */
+  @property --sidebar-grid-columns {
+    inherits: true;
+    initial-value: 3;
+    syntax: '<integer>';
+  }
+}
+
+/* Fallback Values for Component Tokens */
+:root {
+  /* Alert */
+  --alert-padding: var(--space-4);
+  --alert-padding-sm: var(--space-2);
+  --alert-padding-lg: var(--space-5);
+  --alert-gap: var(--space-3);
+  --alert-border-radius: var(--radius-md);
+  
+  /* Badge */
+  --badge-padding-xs: 0.15rem 0.35rem;
+  --badge-padding-sm: 0.2rem 0.4rem;
+  --badge-padding-md: 0.25rem 0.5rem;
+  --badge-padding-lg: 0.3rem 0.6rem;
+  --badge-min-width-xs: 1.2rem;
+  --badge-min-width-sm: 1.5rem;
+  --badge-min-width-md: 1.75rem;
+  --badge-min-width-lg: 2rem;
+  
+  /* Card */
+  --card-padding: var(--space-4);
+  --card-padding-fluid: var(--space-5);
+  --card-gap: var(--space-3);
+  --card-grid-gap: var(--space-4);
+  --card-grid-min-width: 250px;
+  
+  /* Button */
+  --button-padding-sm: 0.5rem 0.75rem;
+  --button-padding-md: 0.75rem 1rem;
+  --button-padding-lg: 1rem 1.5rem;
+  --button-height-sm: 2rem;
+  --button-height-md: 2.5rem;
+  --button-height-lg: 3rem;
+  
+  /* Input */
+  --input-padding: var(--space-3);
+  --input-height: 2.5rem;
+  --input-border-width: 1px;
+  
+  /* Modal */
+  --modal-padding: var(--space-6);
+  --modal-header-padding: 1.5rem 1.5rem 1rem;
+  --modal-footer-padding: 1rem 1.5rem 1.5rem;
+  --modal-max-width: 32rem;
+  
+  /* Table */
+  --table-cell-padding: var(--space-3);
+  --table-header-padding: 1rem 0.75rem;
+  
+  /* Avatar */
+  --avatar-size-xs: 1.5rem;
+  --avatar-size-sm: 2rem;
+  --avatar-size-md: 2.5rem;
+  --avatar-size-lg: 3rem;
+  --avatar-size-xl: 4rem;
+  
+  /* Tooltip */
+  --tooltip-padding: 0.5rem 0.75rem;
+  --tooltip-max-width: 200px;
+  --tooltip-arrow-size: 4px;
+  
+  /* Progress */
+  --progress-height: 0.5rem;
+  --progress-height-sm: 0.25rem;
+  --progress-height-lg: 0.75rem;
+  
+  /* Spinner */
+  --spinner-size-sm: 1rem;
+  --spinner-size-md: 1.5rem;
+  --spinner-size-lg: 2rem;
+  --spinner-border-width: 2px;
+  
+  /* Breadcrumb */
+  --breadcrumb-separator-spacing: 0.5rem;
+  --breadcrumb-item-padding: 0.25rem 0.5rem;
+  
+  /* Tab */
+  --tab-padding: 0.75rem 1rem;
+  --tab-border-width: 2px;
+  
+  /* Drawer */
+  --drawer-width: 20rem;
+  --drawer-padding: var(--space-6);
+  
+  /* Pagination */
+  --pagination-item-size: 2.5rem;
+  --pagination-gap: 0.25rem;
+  
+  /* Pattern Components */
+  
+  /* Blog Pattern */
+  --blog-max-width: 65ch;
+  --blog-content-spacing: var(--space-6);
+  --blog-card-hover-transform: translateY(-4px);
+  
+  /* Tag Pattern */
+  --tag-padding-sm: 0.25rem 0.5rem;
+  --tag-padding-md: 0.375rem 0.75rem;
+  --tag-padding-lg: 0.5rem 1rem;
+  --tag-border-radius: 9999px;
+  --tag-transition: background-color 150ms ease-in-out;
+  
+  /* Code Pattern */
+  --code-padding: var(--space-4);
+  --code-inline-padding: var(--space-1) var(--space-2);
+  --code-line-height: 1.4;
+  
+  /* Widget Pattern */
+  --widget-header-padding: var(--space-3) var(--space-4);
+  --widget-body-padding: var(--space-4);
+  --widget-footer-padding: var(--space-3) var(--space-4);
+  --widget-action-padding: var(--space-1) var(--space-2);
+  
+  /* Skeleton Pattern */
+  --skeleton-height-sm: 0.75rem;
+  --skeleton-height-md: 1rem;
+  --skeleton-height-lg: 1.5rem;
+  --skeleton-animation-duration: 1.5s;
+  
+  /* Social Media Brand Colors */
+  --color-twitter: #1DA1F2;
+  --color-facebook: #4267B2;
+  --color-linkedin: #0077B5;
+  
+  /* Region Components */
+  
+  /* Header Region */
+  --header-height-sm: 48px;
+  --header-height-md: 64px;
+  --header-height-lg: 80px;
+  --header-z-index: 1000;
+  --header-line-height: 1.5;
+  --header-logo-max-height: 40px;
+  --header-hamburger-size: 24px;
+  --header-mobile-breakpoint: 768px;
+  
+  /* Footer Region */
+  --footer-columns: 4;
+  --footer-column-gap: var(--space-8);
+  --footer-line-height: 1.6;
+  
+  /* Main Content Region */
+  --main-max-width: 1200px;
+  --main-max-width-narrow: 800px;
+  --main-max-width-wide: 1400px;
+  --main-line-height: 1.6;
+  --main-mobile-breakpoint: 768px;
+  --main-tablet-breakpoint: 1024px;
+  
+  /* Sidebar Region */
+  --sidebar-grid-columns: 3;
+} 

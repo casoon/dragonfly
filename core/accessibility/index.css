@@ -75,7 +75,7 @@
   
   /* Globale Einstellungen für Tap-Targets */
   a, button, [role="button"], [type="button"], [type="submit"], [type="reset"] {
-    min-height: 44px; /* Mindesthöhe für Touch-Targets */
-    min-width: 44px;  /* Mindestbreite für Touch-Targets */
+    min-height: 4var(--spacing-1); /* Mindesthöhe für Touch-Targets */
+    min-width: 4var(--spacing-1);  /* Mindestbreite für Touch-Targets */
   }
 } 

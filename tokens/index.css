@@ -1,20 +1,26 @@
 /**
- * Design Tokens
+ * Design Token Index
  * 
- * Zentrale Index-Datei für alle Design-Tokens des UI-Systems.
- * Alle Tokens sind als @property definiert für bessere Typisierung,
- * Tooling-Unterstützung und Animationsfähigkeiten.
+ * Zentraler Import aller Design Tokens für das Dragonfly Design System.
+ * Diese Datei importiert alle Token-Kategorien in der richtigen Reihenfolge.
+ * 
+ * @layer tokens
+ * @version 2.0.0
+ * @author Dragonfly Design System
  */
 
-/* Layer Definition */
-@layer tokens;
-
-/* Import all @property definitions */
+/* Core Design Tokens */
 @import url('./colors.css');
 @import url('./spacing.css');
 @import url('./typography.css');
 @import url('./radius.css');
-@import url('./effects.css');
+@import url('./shadows.css');
 @import url('./layout.css');
 @import url('./transitions.css');
-@import url('./themes.css'); 
+@import url('./effects.css');
+@import url('./themes.css');
+@import url('./icons.css');
+
+/* Component-Specific Tokens */
+@import url('./icons.css');
+@import url('./components.css'); 

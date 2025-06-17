@@ -62,11 +62,60 @@
     initial-value: 3rem;
     syntax: '<length>';
   }
+
+  @property --font-size-6xl {
+    inherits: true;
+    initial-value: 4rem;
+    syntax: '<length>';
+  }
+
+  /* Text Size Aliases (für Komponenten-Kompatibilität) */
+  @property --text-xs {
+    inherits: true;
+    initial-value: 0.75rem;
+    syntax: '<length>';
+  }
   
+  @property --text-sm {
+    inherits: true;
+    initial-value: 0.875rem;
+    syntax: '<length>';
+  }
+  
+  @property --text-base {
+    inherits: true;
+    initial-value: 1rem;
+    syntax: '<length>';
+  }
+  
+  @property --text-lg {
+    inherits: true;
+    initial-value: 1.125rem;
+    syntax: '<length>';
+  }
+  
+  @property --text-xl {
+    inherits: true;
+    initial-value: 1.25rem;
+    syntax: '<length>';
+  }
+
+  @property --text-2xl {
+    inherits: true;
+    initial-value: 1.5rem;
+    syntax: '<length>';
+  }
+
   /* Line Height Properties */
   @property --line-height-tight {
     inherits: true;
     initial-value: 1.25;
+    syntax: '<number>';
+  }
+  
+  @property --line-height-snug {
+    inherits: true;
+    initial-value: 1.375;
     syntax: '<number>';
   }
   
@@ -89,6 +138,18 @@
   }
   
   /* Font Weight Properties */
+  @property --font-weight-thin {
+    inherits: true;
+    initial-value: 100;
+    syntax: '<number>';
+  }
+  
+  @property --font-weight-extralight {
+    inherits: true;
+    initial-value: 200;
+    syntax: '<number>';
+  }
+  
   @property --font-weight-light {
     inherits: true;
     initial-value: 300;
@@ -118,8 +179,95 @@
     initial-value: 700;
     syntax: '<number>';
   }
+
+  @property --font-weight-extrabold {
+    inherits: true;
+    initial-value: 800;
+    syntax: '<number>';
+  }
+
+  @property --font-weight-black {
+    inherits: true;
+    initial-value: 900;
+    syntax: '<number>';
+  }
+
+  /* Font Weight Aliases (für Komponenten-Kompatibilität) */
+  @property --font-light {
+    inherits: true;
+    initial-value: 300;
+    syntax: '<number>';
+  }
+  
+  @property --font-normal {
+    inherits: true;
+    initial-value: 400;
+    syntax: '<number>';
+  }
+  
+  @property --font-medium {
+    inherits: true;
+    initial-value: 500;
+    syntax: '<number>';
+  }
+  
+  @property --font-semibold {
+    inherits: true;
+    initial-value: 600;
+    syntax: '<number>';
+  }
+  
+  @property --font-bold {
+    inherits: true;
+    initial-value: 700;
+    syntax: '<number>';
+  }
+
+  /* Font Family Properties */
+  @property --font-family-sans {
+    inherits: true;
+    initial-value: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+    syntax: '*';
+  }
+  
+  @property --font-family-serif {
+    inherits: true;
+    initial-value: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+    syntax: '*';
+  }
+  
+  @property --font-family-mono {
+    inherits: true;
+    initial-value: ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+    syntax: '*';
+  }
+  
+  /* Font Family Aliases (kurze Versionen für Komponenten) */
+  @property --font-sans {
+    inherits: true;
+    initial-value: var(--font-family-sans);
+    syntax: '*';
+  }
+  
+  @property --font-serif {
+    inherits: true;
+    initial-value: var(--font-family-serif);
+    syntax: '*';
+  }
+  
+  @property --font-mono {
+    inherits: true;
+    initial-value: var(--font-family-mono);
+    syntax: '*';
+  }
   
   /* Letter Spacing Properties */
+  @property --letter-spacing-tighter {
+    inherits: true;
+    initial-value: -0.05em;
+    syntax: '<length>';
+  }
+  
   @property --letter-spacing-tight {
     inherits: true;
     initial-value: -0.025em;
@@ -143,6 +291,12 @@
     initial-value: 0.05em;
     syntax: '<length>';
   }
+
+  @property --letter-spacing-widest {
+    inherits: true;
+    initial-value: 0.1em;
+    syntax: '<length>';
+  }
   
   /* Animatable Typography Properties */
   @property --font-size-transition {
@@ -162,42 +316,78 @@
     initial-value: 0;
     syntax: '<length>';
   }
+}
+
+/* Initial Value Definitions */
+:root {
+  /* Font Sizes */
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+  --font-size-5xl: 3rem;
+  --font-size-6xl: 4rem;
   
-  /* Initial Value Definitions */
-  :root {
-    /* Font Sizes */
-    --font-size-xs: 0.75rem;
-    --font-size-sm: 0.875rem;
-    --font-size-base: 1rem;
-    --font-size-lg: 1.125rem;
-    --font-size-xl: 1.25rem;
-    --font-size-2xl: 1.5rem;
-    --font-size-3xl: 1.875rem;
-    --font-size-4xl: 2.25rem;
-    --font-size-5xl: 3rem;
-    
-    /* Line Heights */
-    --line-height-tight: 1.25;
-    --line-height-normal: 1.5;
-    --line-height-relaxed: 1.625;
-    --line-height-loose: 2;
-    
-    /* Font Weights */
-    --font-weight-light: 300;
-    --font-weight-normal: 400;
-    --font-weight-medium: 500;
-    --font-weight-semibold: 600;
-    --font-weight-bold: 700;
-    
-    /* Letter Spacing */
-    --letter-spacing-tight: -0.025em;
-    --letter-spacing-normal: 0;
-    --letter-spacing-wide: 0.025em;
-    --letter-spacing-wider: 0.05em;
-    
-    /* Transition Properties */
-    --font-size-transition: var(--font-size-base);
-    --line-height-transition: var(--line-height-normal);
-    --letter-spacing-transition: var(--letter-spacing-normal);
-  }
-} 
+  /* Text Size Aliases */
+  --text-xs: var(--font-size-xs);
+  --text-sm: var(--font-size-sm);
+  --text-base: var(--font-size-base);
+  --text-lg: var(--font-size-lg);
+  --text-xl: var(--font-size-xl);
+  --text-2xl: var(--font-size-2xl);
+  
+  /* Line Heights */
+  --line-height-tight: 1.25;
+  --line-height-snug: 1.375;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.625;
+  --line-height-loose: 2;
+  
+  /* Font Weights */
+  --font-weight-thin: 100;
+  --font-weight-extralight: 200;
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  --font-weight-black: 900;
+  
+  /* Font Weight Aliases */
+  --font-light: var(--font-weight-light);
+  --font-normal: var(--font-weight-normal);
+  --font-medium: var(--font-weight-medium);
+  --font-semibold: var(--font-weight-semibold);
+  --font-bold: var(--font-weight-bold);
+  
+  /* Font Families */
+  --font-family-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  --font-family-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-family-mono: ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+  
+  /* Font Family Aliases (kurze Versionen für Komponenten) */
+  --font-sans: var(--font-family-sans);
+  --font-serif: var(--font-family-serif);
+  --font-mono: var(--font-family-mono);
+  
+  /* Font Family Aliases (kurze Versionen für Komponenten) */
+  --font-sans: var(--font-family-sans);
+  --font-serif: var(--font-family-serif);
+  --font-mono: var(--font-family-mono);
+  
+  /* Letter Spacing */
+  --letter-spacing-tight: -0.025em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.025em;
+  --letter-spacing-wider: 0.05em;
+  
+  /* Transition Properties */
+  --font-size-transition: var(--font-size-base);
+  --line-height-transition: var(--line-height-normal);
+  --letter-spacing-transition: var(--letter-spacing-normal);
+}

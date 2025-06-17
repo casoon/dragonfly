@@ -8,329 +8,4907 @@
  */
 
 @layer tokens.properties {
+  /* Display Properties */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
+  
+  @property --display-block {
+    inherits: true;
+    initial-value: block;
+    syntax: '<custom-ident>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
+  
+  @property --display-inline {
+    inherits: true;
+    initial-value: inline;
+    syntax: '<custom-ident>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
+  
+  @property --display-flex {
+    inherits: true;
+    initial-value: flex;
+    syntax: '<custom-ident>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
+  
+  @property --display-grid {
+    inherits: true;
+    initial-value: grid;
+    syntax: '<custom-ident>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
+  
+  @property --display-none {
+    inherits: true;
+    initial-value: none;
+    syntax: '<custom-ident>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
+  
+  /* Position Properties */
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
+  
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
+  
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
+  
+  @property --position-left {
+    inherits: true;
+    initial-value: left;
+    syntax: '<custom-ident>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
+  
+  @property --position-right {
+    inherits: true;
+    initial-value: right;
+    syntax: '<custom-ident>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
+  
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
+  
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
+  
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
+  
+  /* Background Properties */
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
+  
+  @property --bg-repeat {
+    inherits: true;
+    initial-value: repeat;
+    syntax: '<custom-ident>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
+  
+  @property --bg-repeat-x {
+    inherits: true;
+    initial-value: repeat-x;
+    syntax: '<custom-ident>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
+  
+  @property --bg-repeat-y {
+    inherits: true;
+    initial-value: repeat-y;
+    syntax: '<custom-ident>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
+  
   /* Z-Index Properties */
   @property --z-index-dropdown {
     inherits: true;
     initial-value: 1000;
     syntax: '<integer>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
   }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
   
   @property --z-index-modal {
     inherits: true;
     initial-value: 1050;
     syntax: '<integer>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
   }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
   
   @property --z-index-tooltip {
     inherits: true;
     initial-value: 1100;
     syntax: '<integer>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
   }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
   
   @property --z-index-toast {
     inherits: true;
     initial-value: 1200;
     syntax: '<integer>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
   }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
   
   @property --z-index-popover {
     inherits: true;
     initial-value: 1200;
     syntax: '<integer>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
   }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
   
   @property --z-base {
     inherits: true;
     initial-value: 0;
     syntax: '<integer>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
   }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
   
   @property --z-dropdown {
     inherits: true;
     initial-value: 10;
     syntax: '<integer>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
   }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
   
   @property --z-sticky {
     inherits: true;
     initial-value: 20;
     syntax: '<integer>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
   }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
   
   @property --z-fixed {
     inherits: true;
     initial-value: 30;
     syntax: '<integer>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
   }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
   
   @property --z-modal {
     inherits: true;
     initial-value: 40;
     syntax: '<integer>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
   }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
   
   @property --z-popover {
     inherits: true;
     initial-value: 50;
     syntax: '<integer>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
   }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
   
   @property --z-toast {
     inherits: true;
     initial-value: 60;
     syntax: '<integer>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
   }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
   
   @property --z-modal-backdrop {
     inherits: true;
     initial-value: 40;
     syntax: '<integer>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
   }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
   
   @property --z-tooltip {
     inherits: true;
     initial-value: 30;
     syntax: '<integer>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
   }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
   
   /* Breakpoint Properties */
   @property --breakpoint-xs {
     inherits: true;
     initial-value: 0;
     syntax: '<length>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
   }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
   
   @property --breakpoint-sm {
     inherits: true;
     initial-value: 640px;
     syntax: '<length>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
   }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
   
   @property --breakpoint-md {
     inherits: true;
     initial-value: 768px;
     syntax: '<length>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
   }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
   
   @property --breakpoint-lg {
     inherits: true;
     initial-value: 1024px;
     syntax: '<length>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
   }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
   
   @property --breakpoint-xl {
     inherits: true;
     initial-value: 1280px;
     syntax: '<length>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
   }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
   
   @property --breakpoint-2xl {
     inherits: true;
     initial-value: 1536px;
     syntax: '<length>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
   }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
   
   /* Container Properties */
   @property --container-sm {
     inherits: true;
     initial-value: 640px;
     syntax: '<length>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
   }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
   
   @property --container-md {
     inherits: true;
     initial-value: 768px;
     syntax: '<length>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
   }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
   
   @property --container-lg {
     inherits: true;
     initial-value: 1024px;
     syntax: '<length>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
   }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
   
   @property --container-xl {
     inherits: true;
     initial-value: 1280px;
     syntax: '<length>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
   }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
   
   @property --container-2xl {
     inherits: true;
     initial-value: 1536px;
     syntax: '<length>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
   }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
+  
+  @property --container-7xl {
+    inherits: true;
+    initial-value: 1280px;
+    syntax: '<length>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
   
   @property --container-max-width {
     inherits: true;
     initial-value: 1200px;
     syntax: '<length>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
   }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
   
   @property --container-padding {
     inherits: true;
     initial-value: 1rem;
     syntax: '<length>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
   }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
   
   /* Container Query Properties */
   @property --container-query-xs {
     inherits: true;
     initial-value: 240px;
     syntax: '<length>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
   }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
   
   @property --container-query-sm {
     inherits: true;
     initial-value: 380px;
     syntax: '<length>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
   }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
   
   @property --container-query-md {
     inherits: true;
     initial-value: 540px;
     syntax: '<length>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
   }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
   
   @property --container-query-lg {
     inherits: true;
     initial-value: 720px;
     syntax: '<length>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
   }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
   
   @property --container-query-xl {
     inherits: true;
     initial-value: 960px;
     syntax: '<length>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
   }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
   
   /* Grid Properties */
   @property --grid-columns {
     inherits: true;
     initial-value: 12;
     syntax: '<integer>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
   }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
   
   @property --grid-gutter {
     inherits: true;
     initial-value: 1rem;
     syntax: '<length>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
   }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
   
   @property --grid-gutter-sm {
     inherits: true;
     initial-value: 0.5rem;
     syntax: '<length>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
   }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
   
   @property --grid-gutter-md {
     inherits: true;
     initial-value: 1rem;
     syntax: '<length>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
   }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
   
   @property --grid-gutter-lg {
     inherits: true;
     initial-value: 1.5rem;
     syntax: '<length>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
   }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
   
   @property --grid-gutter-xl {
     inherits: true;
     initial-value: 2rem;
     syntax: '<length>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
   }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
   
   @property --grid-auto-fit-min {
     inherits: true;
     initial-value: 250px;
     syntax: '<length>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
   }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
   
   @property --grid-auto-fill-min {
     inherits: true;
     initial-value: 250px;
     syntax: '<length>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
   }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
   
   /* Container Styling Properties */
   @property --container-border-radius {
     inherits: true;
     initial-value: 0.5rem;
     syntax: '<length>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
   }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
   
   @property --container-border-color {
     inherits: true;
     initial-value: #e5e7eb;
     syntax: '<color>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
   }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
   
   @property --container-bg {
     inherits: true;
     initial-value: #fff;
     syntax: '<color>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
   }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
   
   @property --container-shadow {
     inherits: true;
     initial-value: 0 1px 3px rgb(0 0 0 / 10%);
     syntax: '*';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
   }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
   
   @property --container-elevated-shadow {
     inherits: true;
     initial-value: 0 10px 25px rgb(0 0 0 / 15%);
     syntax: '*';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
   }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
   
   @property --container-elevated-hover-shadow {
     inherits: true;
     initial-value: 0 20px 40px rgb(0 0 0 / 20%);
     syntax: '*';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
   }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
   
   @property --container-card-padding {
     inherits: true;
     initial-value: 1.5rem;
     syntax: '<length>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
   }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
   
   /* Modal and Overlay Properties */
   @property --modal-max-width {
     inherits: true;
     initial-value: 400px;
     syntax: '<length>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
   }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
   
   @property --tooltip-max-width {
     inherits: true;
     initial-value: 200px;
     syntax: '<length>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
   }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
   
   @property --popover-max-width {
     inherits: true;
     initial-value: 320px;
     syntax: '<length>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
   }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
   
   /* Sidebar and Header Properties */
   @property --sidebar-width {
     inherits: true;
     initial-value: 250px;
     syntax: '<length>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
   }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
   
   @property --header-height {
     inherits: true;
     initial-value: 64px;
     syntax: '<length>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
   }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
   
   @property --footer-height {
     inherits: true;
     initial-value: 80px;
     syntax: '<length>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
   }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
+  
+  /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
+  
+  @property --display-block {
+    inherits: true;
+    initial-value: block;
+    syntax: '<custom-ident>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
+  
+  @property --display-inline {
+    inherits: true;
+    initial-value: inline;
+    syntax: '<custom-ident>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
+  
+  @property --display-flex {
+    inherits: true;
+    initial-value: flex;
+    syntax: '<custom-ident>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
+  
+  @property --display-grid {
+    inherits: true;
+    initial-value: grid;
+    syntax: '<custom-ident>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
+  
+  @property --display-none {
+    inherits: true;
+    initial-value: none;
+    syntax: '<custom-ident>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
+  
+  /* Position Properties für Icon-System */
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
+  
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
+  
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
+  
+  @property --position-left {
+    inherits: true;
+    initial-value: left;
+    syntax: '<custom-ident>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
+  
+  @property --position-right {
+    inherits: true;
+    initial-value: right;
+    syntax: '<custom-ident>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
+  
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
+  
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
+  
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
+  
+  /* Background Properties für Icon-System */
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
+  
+  @property --bg-repeat {
+    inherits: true;
+    initial-value: repeat;
+    syntax: '<custom-ident>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
+  
+  @property --bg-repeat-x {
+    inherits: true;
+    initial-value: repeat-x;
+    syntax: '<custom-ident>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
+  
+  @property --bg-repeat-y {
+    inherits: true;
+    initial-value: repeat-y;
+    syntax: '<custom-ident>';
+    /* Display Properties für Icon-System */
+  @property --display-inline-block {
+    inherits: true;
+    initial-value: inline-block;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-center {
+    inherits: true;
+    initial-value: center;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-middle {
+    inherits: true;
+    initial-value: middle;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-baseline {
+    inherits: true;
+    initial-value: baseline;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-top {
+    inherits: true;
+    initial-value: top;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-bottom {
+    inherits: true;
+    initial-value: bottom;
+    syntax: '<custom-ident>';
+  }
+
+  @property --position-100 {
+    inherits: true;
+    initial-value: 100%;
+    syntax: '<percentage>';
+  }
+
+  @property --bg-no-repeat {
+    inherits: true;
+    initial-value: no-repeat;
+    syntax: '<custom-ident>';
+  }
+}
+  /* Accessibility Tokens */
+  --tap-target-min: 44px;
+  --focus-ring-width: 2px;
+  --focus-ring-offset: 2px;
+  --focus-ring-color: var(--color-blue-500);
+  --focus-ring: var(--focus-ring-width) solid var(--focus-ring-color);
+  
+  /* Border Tokens */
+  --border-width: 1px;
+  --border-width-thick: 2px;
+  --border-width-thicker: 4px;
+  
+  /* Percentage Tokens */
+  --percentage-50: 50%;
+  --percentage-90: 90%;
+  --percentage-100: 100%;
+  --percentage-150: 150%;
+  
+  /* Z-Index Tokens */
+  --z-index-1: 1;
+  --z-index-2: 2;
+  --z-index-10: 10;
+  --z-index-20: 20;
+  --z-index-30: 30;
+  --z-index-40: 40;
+  --z-index-50: 50;
+  --z-index-modal: 999;
+  --z-index-tooltip: 9999;
+  --z-index-toast: 10000;
+
 } 

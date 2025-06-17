@@ -17,9 +17,9 @@
 @layer components {
   /* Base progress bar container */
   .progress {
-    background-color: var(--color-neutral-200);
-    border-radius: var(--radius-full);
-    height: 0.5rem;
+    background-color: var(--color-neutral-200, #e5e7eb);
+    border-radius: var(--radius-full, 9999px);
+    height: var(--progress-height, 0.5rem);
     overflow: hidden;
     position: relative;
     width: 100%;
@@ -27,31 +27,31 @@
   
   /* Progress bar fill */
   & .fill {
-    background-color: var(--color-primary-500);
-    border-radius: var(--radius-full);
+    background-color: var(--color-primary-500, #3b82f6);
+    border-radius: var(--radius-full, 9999px);
     height: 100%;
     left: 0;
     position: absolute;
     top: 0;
-    transition: width 0.3s ease;
+    transition: width var(--transition-duration-normal, 300ms) var(--transition-timing-ease, ease);
   }
   
   /* Progress with label */
   .progress--with-label {
-    margin-bottom: var(--space-1);
+    margin-bottom: var(--space-1, 0.25rem);
   }
   
   /* Progress label */
   & .label {
-    color: var(--color-text-700);
+    color: var(--color-text-muted, var(--color-neutral-700, #374151));
     display: flex;
-    font-size: var(--text-sm);
+    font-size: var(--text-sm, var(--font-size-sm, 0.875rem));
     justify-content: space-between;
-    margin-bottom: var(--space-2);
+    margin-bottom: var(--space-2, 0.5rem);
   }
   
   & .title {
-    font-weight: var(--font-medium);
+    font-weight: var(--font-medium, var(--font-weight-medium, 500));
   }
   
   & .value {
@@ -68,7 +68,7 @@
   }
   
   .progress--md {
-    height: 0.5rem;
+    height: var(--progress-height, 0.5rem);
   }
   
   .progress--lg {
@@ -81,82 +81,92 @@
   
   /* Progress shapes */
   .progress--square {
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-sm, 0.25rem);
   }
   
   .progress--square & .fill {
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-sm, 0.25rem);
   }
   
   /* Progress colors */
   .progress--primary & .fill {
-    background-color: var(--color-primary-500);
+    background-color: var(--color-primary-500, #3b82f6);
   }
   
   .progress--secondary & .fill {
-    background-color: var(--color-secondary-500);
+    background-color: var(--color-secondary-500, #6b7280);
   }
   
   .progress--success & .fill {
-    background-color: var(--color-success-500);
+    background-color: var(--color-success-500, #10b981);
   }
   
   .progress--danger & .fill {
-    background-color: var(--color-error-500);
+    background-color: var(--color-error-500, #ef4444);
   }
   
   .progress--warning & .fill {
-    background-color: var(--color-warning-500);
+    background-color: var(--color-warning-500, #f59e0b);
   }
   
   .progress--info & .fill {
-    background-color: var(--color-info-500);
+    background-color: var(--color-info-500, #3b82f6);
   }
   
   /* Progress with steps */
   .progress--stepped {
     background-color: transparent;
     display: flex;
-    gap: 4px;
+    gap: var(--progress-step-gap, 4px);
     height: auto;
     justify-content: space-between;
   }
   
   & .step {
-    background-color: var(--color-neutral-200);
-    border-radius: var(--radius-full);
+    background-color: var(--color-neutral-200, #e5e7eb);
+    border-radius: var(--radius-full, 9999px);
     flex: 1;
-    height: 0.5rem;
+    height: var(--progress-height, 0.5rem);
+    transition: background-color var(--transition-duration-fast, 150ms) var(--transition-timing-ease, ease);
   }
   
   & .step--completed {
-    background-color: var(--color-primary-500);
+    background-color: var(--color-primary-500, #3b82f6);
+  }
+  
+  & .step--active {
+    background-color: var(--color-primary-300, #93c5fd);
   }
   
   .progress--stepped.progress--square & .step {
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-sm, 0.25rem);
   }
   
   /* Progress with steps and labels */
   .progress--with-step-labels {
-    margin-bottom: var(--space-6);
+    margin-bottom: var(--space-6, 1.5rem);
   }
   
   & .steps-container {
     display: flex;
     justify-content: space-between;
-    margin-top: var(--space-2);
+    margin-top: var(--space-2, 0.5rem);
     position: relative;
   }
   
   & .step-label {
-    color: var(--color-text-500);
-    font-size: var(--text-xs);
+    color: var(--color-neutral-500, #6b7280);
+    font-size: var(--text-xs, var(--font-size-xs, 0.75rem));
     position: absolute;
     text-align: center;
-    top: var(--space-2);
+    top: var(--space-2, 0.5rem);
     transform: translateX(-50%);
     white-space: nowrap;
+  }
+  
+  & .step-label--completed {
+    color: var(--color-primary-600, #2563eb);
+    font-weight: var(--font-medium, var(--font-weight-medium, 500));
   }
   
   /* Indeterminate progress animation */
@@ -201,50 +211,79 @@
   
   @keyframes progressStripes {
     0% {
-      background-position: 1rem 0;
+      background-position: 0 0;
     }
 
     100% {
-      background-position: 0 0;
+      background-position: 1rem 0;
     }
   }
   
   /* Progress with value inside */
   .progress--with-value-inside {
-    height: 1.5rem;
+    position: relative;
   }
   
   & .value-inside {
-    align-items: center;
-    color: var(--color-text-900);
-    display: flex;
-    font-size: var(--text-xs);
-    font-weight: var(--font-medium);
-    height: 100%;
-    justify-content: center;
-    left: 0;
+    color: var(--color-text-inverse, white);
+    font-size: var(--text-xs, var(--font-size-xs, 0.75rem));
+    font-weight: var(--font-medium, var(--font-weight-medium, 500));
+    left: 50%;
     position: absolute;
-    top: 0;
-    width: 100%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     z-index: 1;
   }
   
-  /* Buffer progress (two levels) */
+  /* Buffer progress */
   .progress--buffer {
-    background-color: var(--color-neutral-100);
+    background-color: transparent;
   }
   
   & .buffer {
-    background-color: var(--color-neutral-300);
-    border-radius: var(--radius-full);
+    background-color: var(--color-neutral-300, #d1d5db);
+    border-radius: var(--radius-full, 9999px);
     height: 100%;
     left: 0;
     position: absolute;
     top: 0;
-    transition: width 0.3s ease;
+    transition: width var(--transition-duration-normal, 300ms) var(--transition-timing-ease, ease);
   }
   
   .progress--buffer & .fill {
     z-index: 1;
+  }
+  
+  /* Gradient progress */
+  .progress--gradient & .fill {
+    background: linear-gradient(
+      90deg,
+      var(--color-primary-400, #60a5fa),
+      var(--color-primary-600, #2563eb)
+    );
+  }
+  
+  .progress--gradient.progress--success & .fill {
+    background: linear-gradient(
+      90deg,
+      var(--color-success-400, #34d399),
+      var(--color-success-600, #059669)
+    );
+  }
+  
+  .progress--gradient.progress--warning & .fill {
+    background: linear-gradient(
+      90deg,
+      var(--color-warning-400, #fbbf24),
+      var(--color-warning-600, #d97706)
+    );
+  }
+  
+  .progress--gradient.progress--danger & .fill {
+    background: linear-gradient(
+      90deg,
+      var(--color-error-400, #f87171),
+      var(--color-error-600, #dc2626)
+    );
   }
 } 

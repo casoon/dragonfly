@@ -60,38 +60,49 @@
 @layer components {
   .table {
     border-collapse: collapse;
-    font-size: var(--font-size-sm);
+    font-size: var(--text-sm, var(--font-size-sm, 0.875rem));
     width: 100%;
     
     /* Basiselemente */
     thead {
-      background-color: var(--color-gray-100);
+      background-color: var(--color-neutral-100, #f3f4f6);
     }
     
     th,
     td {
-      border: 1px solid var(--color-gray-300);
-      padding: var(--space-3);
+      border: 1px solid var(--color-border, var(--color-neutral-300, #d1d5db));
+      padding: var(--table-cell-padding, var(--space-3, 0.75rem));
       text-align: left;
+    }
+    
+    th {
+      color: var(--color-text, var(--color-neutral-900, #111827));
+      font-weight: var(--font-semibold, var(--font-weight-semibold, 600));
+      padding: var(--table-header-padding, 1rem 0.75rem);
+    }
+    
+    td {
+      color: var(--color-text-muted, var(--color-neutral-700, #374151));
     }
     
     /* Tabellen-Varianten */
     &.striped tbody tr:nth-child(odd) {
-      background-color: var(--color-gray-50);
+      background-color: var(--color-neutral-50, #f9fafb);
     }
     
     &.hoverable tbody tr:hover {
-      background-color: var(--color-gray-100);
+      background-color: var(--color-neutral-100, #f3f4f6);
+      transition: background-color var(--transition-duration-fast, 150ms) var(--transition-timing-ease, ease);
     }
     
     &.bordered th,
     &.bordered td {
-      border: 1px solid var(--color-gray-300);
+      border: 1px solid var(--color-border, var(--color-neutral-300, #d1d5db));
     }
     
     &.compact th,
     &.compact td {
-      padding: var(--space-2);
+      padding: var(--space-2, 0.5rem);
     }
     
     /* Flüssige Größenanpassung mit interpolate-size: allow-keywords */
@@ -105,7 +116,7 @@
       }
       
       thead {
-        font-weight: 600;
+        font-weight: var(--font-semibold, 600);
       }
       
       /* Größenvarianten mit CSS-Schlüsselwörtern */
@@ -128,15 +139,15 @@
     
     /* Container-adaptive Größenanpassung */
     &.adaptive {
-      font-size: clamp(var(--font-size-xs), 2cqi, var(--font-size-base));
+      font-size: clamp(var(--text-xs, 0.75rem), 2cqi, var(--text-base, 1rem));
       
       th, td {
-        padding: clamp(var(--space-1), 1cqi, var(--space-4));
+        padding: clamp(var(--space-1, 0.25rem), 1cqi, var(--space-4, 1rem));
       }
       
       @container (min-width: 300px) {
         th {
-          font-weight: var(--font-weight-bold);
+          font-weight: var(--font-bold, var(--font-weight-bold, 700));
         }
       }
       
@@ -150,7 +161,7 @@
       
       @container (min-width: 700px) {
         &.hoverable tbody tr:hover {
-          box-shadow: var(--shadow-sm);
+          box-shadow: var(--shadow-sm, 0 1px 2px 0 rgb(0 0 0 / 5%));
         }
       }
     }
@@ -178,15 +189,18 @@
     
     /* Statuszeilen */
     .success {
-      background-color: var(--color-success-100);
+      background-color: var(--color-success-100, #d1fae5);
+      color: var(--color-success-800, #065f46);
     }
     
     .warning {
-      background-color: var(--color-warning-100);
+      background-color: var(--color-warning-100, #fef3c7);
+      color: var(--color-warning-800, #92400e);
     }
     
     .danger {
-      background-color: var(--color-error-100);
+      background-color: var(--color-error-100, #fee2e2);
+      color: var(--color-error-800, #991b1b);
     }
   }
 }

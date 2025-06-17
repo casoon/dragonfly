@@ -103,7 +103,7 @@
     --header-link-hover: var(--color-primary-600);
     --header-link-active: var(--color-primary-700);
     --header-border: var(--color-neutral-200);
-    --header-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%);
+    --header-shadow: var(--shadow-sm);
     
     /* Header typography */
     --header-font-size: var(--text-base);
@@ -133,7 +133,7 @@
     /* Header dropdown */
     --mobile-menu-bg: var(--color-white);
     --mobile-menu-border-radius: var(--radius-lg);
-    --mobile-menu-shadow: 0 10px 25px -5px rgb(0 0 0 / 10%);
+    --mobile-menu-shadow: var(--shadow-lg);
     --mobile-menu-z-index: 1001;
     
     /* Header mobile */
@@ -153,7 +153,7 @@
       --header-link-hover: var(--color-primary-400);
       --header-link-active: var(--color-primary-300);
       --header-border: var(--color-neutral-700);
-      --header-shadow: 0 1px 3px 0 rgb(0 0 0 / 30%);
+      --header-shadow: var(--shadow-md);
       --nav-link-color: var(--color-neutral-300);
       --nav-link-color-hover: var(--color-primary-400);
       --nav-link-color-active: var(--color-primary-300);
@@ -278,7 +278,7 @@
       & .link {
         color: var(--nav-link-color);
         display: inline-block;
-        font-weight: var(--font-weight-medium);
+        font-weight: var(--font-medium);
         padding: var(--space-2);
         text-decoration: none;
         transition: var(--menu-transition);
@@ -289,7 +289,7 @@
         
         &.active {
           color: var(--nav-link-color-active);
-          font-weight: var(--font-weight-semibold);
+          font-weight: var(--font-semibold);
         }
       }
       
@@ -361,10 +361,10 @@
     }
     
     &.dark {
-      background-color: var(--color-gray-900);
+      background-color: var(--color-neutral-900);
       
       & .link {
-        color: var(--color-gray-300);
+        color: var(--color-neutral-300);
         
         &:hover {
           color: var(--color-white);
@@ -938,13 +938,13 @@
   .header-left,
   .header-bottom-bar {
     background: white !important;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid var(--color-neutral-900);
     box-shadow: none !important;
-    color: #000 !important;
+    color: var(--color-neutral-900) !important;
     position: static !important;
     
     & a {
-      color: #000 !important;
+      color: var(--color-neutral-900) !important;
       text-decoration: underline;
     }
     

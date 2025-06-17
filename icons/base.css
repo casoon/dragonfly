@@ -15,61 +15,61 @@
 
     /* Basis Icon Styles */
     .icon {
-        display: inline-block;
+        display: var(--display-inline-block);
         fill: currentcolor;
-        height: 1em;
+        height: var(--icon-size-relative-md);
         stroke: currentcolor;
         stroke-width: 0;
-        vertical-align: middle;
-        width: 1em;
+        vertical-align: var(--position-middle);
+        width: var(--icon-size-relative-md);
     }
 
     /* Größenvarianten */
     .icon-xs {
-        height: 0.5em;
-        width: 0.5em;
+        height: var(--icon-size-relative-xs);
+        width: var(--icon-size-relative-xs);
     }
 
     .icon-sm {
-        height: 0.75em;
-        width: 0.75em;
+        height: var(--icon-size-relative-sm);
+        width: var(--icon-size-relative-sm);
     }
 
     .icon-lg {
-        height: 1.25em;
-        width: 1.25em;
+        height: var(--icon-size-relative-lg);
+        width: var(--icon-size-relative-lg);
     }
 
     .icon-xl {
-        height: 1.5em;
-        width: 1.5em;
+        height: var(--icon-size-relative-xl);
+        width: var(--icon-size-relative-xl);
     }
 
     .icon-2xl {
-        height: 2em;
-        width: 2em;
+        height: var(--icon-size-relative-2xl);
+        width: var(--icon-size-relative-2xl);
     }
 
     /* Ausrichtung */
     .icon-baseline {
-        vertical-align: baseline;
+        vertical-align: var(--position-baseline);
     }
 
     .icon-top {
-        vertical-align: top;
+        vertical-align: var(--position-top);
     }
 
     .icon-middle {
-        vertical-align: middle;
+        vertical-align: var(--position-middle);
     }
 
     .icon-bottom {
-        vertical-align: bottom;
+        vertical-align: var(--position-bottom);
     }
 
     /* Animation */
     .icon-spin {
-        animation: icon-spin 2s infinite linear;
+        animation: icon-spin var(--icon-animation-duration-slow) infinite var(--icon-animation-timing);
     }
 
     @keyframes icon-spin {

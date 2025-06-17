@@ -9,7 +9,6 @@
 @import url('./components/action-bar.css');
 @import url('./components/alert.css');
 @import url('./components/breadcrumbs.css');
-@import url('./components/calendar-picker.css');
 @import url('./components/caption.css');
 @import url('./components/card.css');
 @import url('./components/chat.css');
@@ -17,9 +16,7 @@
 @import url('./components/data-table.css');
 @import url('./components/dialog.css');
 @import url('./components/drawer.css');
-@import url('./components/file.css');
 @import url('./components/hamburger.css');
-@import url('./components/input-group.css');
 @import url('./components/modal.css');
 @import url('./components/notification.css');
 @import url('./components/popover.css');

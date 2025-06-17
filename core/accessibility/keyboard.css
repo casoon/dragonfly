@@ -23,7 +23,7 @@
     outline: var(--focus-ring);
     outline-offset: var(--focus-ring-offset);
     position: relative;
-    z-index: 2;
+    z-index: var(--z-index-2);
   }
   
   /* 
@@ -62,11 +62,11 @@
   
   /* Utility-Klassen für fokussierbare Elemente */
   .focus-ring-inset {
-    --focus-ring-offset: -2px;
+    --focus-ring-offset: -var(--border-width-thick);
   }
   
   .focus-ring-large {
-    --focus-ring: 0 0 0 4px var(--color-focus-ring);
+    --focus-ring: 0 0 0 var(--spacing-1) var(--color-focus-ring);
   }
   
   /* 
@@ -77,28 +77,28 @@
    */
   .skip-link {
     clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
+    height: var(--border-width);
+    margin: -var(--border-width);
     overflow: hidden;
     padding: 0;
     position: absolute;
-    white-space: nowrap;
-    width: 1px;
+    var(--color-white)-space: nowrap;
+    width: var(--border-width);
   }
   
   .skip-link:focus-visible {
     background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
+    border: var(--border-width) solid var(--color-border);
     border-radius: var(--border-radius-md);
     box-shadow: var(--shadow-md);
     clip: auto;
     color: var(--color-text-primary);
     font-weight: var(--font-weight-semibold);
     height: auto;
-    left: 8px;
-    padding: 12px 16px;
-    top: 8px;
-    white-space: normal;
+    left: var(--spacing-2);
+    padding: 1var(--border-width-thick) var(--spacing-4);
+    top: var(--spacing-2);
+    var(--color-white)-space: normal;
     width: auto;
     z-index: var(--z-index-toast);
   }

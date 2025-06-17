@@ -58,8 +58,8 @@
   .heading-display {
     font-size: var(--font-size-5xl);
     font-weight: var(--font-weight-bold);
-    letter-spacing: -0.025em;
-    line-height: 1;
+    letter-spacing: var(--letter-spacing-tight);
+    line-height: var(--line-height-none);
     margin-bottom: var(--space-6);
     text-wrap: balance;
   }
@@ -67,14 +67,14 @@
   .heading-jumbo {
     font-size: var(--font-size-6xl, 4rem);
     font-weight: var(--font-weight-bold);
-    letter-spacing: -0.025em;
-    line-height: 1;
+    letter-spacing: var(--letter-spacing-tight);
+    line-height: var(--line-height-none);
     margin-bottom: var(--space-8);
     text-wrap: balance;
   }
   
   .heading-section {
-    border-bottom: 2px solid var(--color-gray-200);
+    border-bottom: var(--border-width-thick) solid var(--color-gray-200);
     font-size: var(--font-size-xl);
     font-weight: var(--font-weight-semibold);
     margin-bottom: var(--space-6);

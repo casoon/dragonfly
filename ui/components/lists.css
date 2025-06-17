@@ -5,25 +5,53 @@
 @layer elements {
   /* Listen */
   ul, ol {
-    margin: 1rem 0;
-    padding-left: 2rem;
+    color: var(--color-text, var(--color-neutral-900, #111827));
+    margin: var(--space-4, 1rem) 0;
+    padding-left: var(--space-8, 2rem);
   }
 
   li {
-    margin: 0.5rem 0;
+    color: var(--color-text, var(--color-neutral-900, #111827));
+    line-height: var(--line-height-relaxed, 1.625);
+    margin: var(--space-2, 0.5rem) 0;
   }
 
   /* Beschreibungslisten */
   dl {
-    margin: 1rem 0;
+    margin: var(--space-4, 1rem) 0;
   }
 
   dt {
-    margin-top: 1rem;
+    color: var(--color-text, var(--color-neutral-900, #111827));
+    font-weight: var(--font-semibold, var(--font-weight-semibold, 600));
+    margin-top: var(--space-4, 1rem);
   }
 
   dd {
-    margin-left: 1rem;
-    margin-top: 0.5rem;
+    color: var(--color-text-muted, var(--color-neutral-700, #374151));
+    margin-left: var(--space-4, 1rem);
+    margin-top: var(--space-2, 0.5rem);
+  }
+  
+  /* List Variants */
+  .list--unstyled {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .list--inline {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2, 0.5rem);
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .list--spaced li {
+    margin: var(--space-3, 0.75rem) 0;
+  }
+  
+  .list--compact li {
+    margin: var(--space-1, 0.25rem) 0;
   }
 } 

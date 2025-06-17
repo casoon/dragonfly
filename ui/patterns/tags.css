@@ -50,9 +50,9 @@
 @layer components {
   .tag {
     align-items: center;
-    background-color: var(--color-gray-100, #f3f4f6);
+    background-color: var(--color-neutral-100);
     border-radius: 9999px;
-    color: var(--color-text, #111827);
+    color: var(--color-neutral-900);
     cursor: default;
     display: inline-flex;
     font-size: 0.875rem;
@@ -64,7 +64,7 @@
     white-space: nowrap;
     
     &:hover {
-      background-color: var(--color-gray-200, #e5e7eb);
+      background-color: var(--color-neutral-200);
     }
     
     /* Varianten */
@@ -74,33 +74,33 @@
     
     /* Farbvarianten */
     &.primary {
-      background-color: var(--color-primary-100, #dbeafe);
-      color: var(--color-primary-800, #1e40af);
+      background-color: var(--color-primary-100);
+      color: var(--color-primary-800);
     }
     
     &.secondary {
-      background-color: var(--color-secondary-100, #f3e8ff);
-      color: var(--color-secondary-800, #5b21b6);
+      background-color: var(--color-secondary-100);
+      color: var(--color-secondary-800);
     }
     
     &.success {
-      background-color: var(--color-success-100, #dcfce7);
-      color: var(--color-success-800, #166534);
+      background-color: var(--color-success-100);
+      color: var(--color-success-800);
     }
     
     &.warning {
-      background-color: var(--color-warning-100, #fef3c7);
-      color: var(--color-warning-800, #92400e);
+      background-color: var(--color-warning-100);
+      color: var(--color-warning-800);
     }
     
     &.danger {
-      background-color: var(--color-error-100, #fee2e2);
-      color: var(--color-error-800, #991b1b);
+      background-color: var(--color-error-100);
+      color: var(--color-error-800);
     }
     
     &.info {
-      background-color: var(--color-info-100, #e0f2fe);
-      color: var(--color-info-800, #075985);
+      background-color: var(--color-info-100);
+      color: var(--color-info-800);
     }
     
     /* Form-Varianten */

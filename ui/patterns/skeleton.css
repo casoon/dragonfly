@@ -62,7 +62,7 @@
 /* Komponenten-Styles */
 @layer components {
   .skeleton {
-    background-color: var(--color-gray-200);
+    background-color: var(--color-neutral-200);
     border-radius: var(--radius-sm);
     
     /* Formvarianten */

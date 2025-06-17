@@ -20,13 +20,13 @@
   .sr-only {
     border-width: 0;
     clip: rect(0, 0, 0, 0);
-    height: 1px;
-    margin: -1px;
+    height: var(--border-width);
+    margin: -var(--border-width);
     overflow: hidden;
     padding: 0;
     position: absolute;
-    white-space: nowrap;
-    width: 1px;
+    var(--color-white)-space: nowrap;
+    width: var(--border-width);
   }
   
   /* 
@@ -40,7 +40,7 @@
     overflow: visible;
     padding: 0;
     position: static;
-    white-space: normal;
+    var(--color-white)-space: normal;
     width: auto;
   }
   
@@ -58,7 +58,7 @@
   /* Elemente mit aria-disabled="true" als deaktiviert darstellen */
   [aria-disabled="true"] {
     cursor: not-allowed;
-    opacity: 50%;
+    opacity: 50;
     pointer-events: none;
   }
   
@@ -83,27 +83,27 @@
   .sr-only-focusable:not(:focus) {
     border-width: 0;
     clip: rect(0, 0, 0, 0);
-    height: 1px;
-    margin: -1px;
+    height: var(--border-width);
+    margin: -var(--border-width);
     overflow: hidden;
     padding: 0;
     position: absolute;
-    white-space: nowrap;
-    width: 1px;
+    var(--color-white)-space: nowrap;
+    width: var(--border-width);
   }
   
   /* Für Text, der nur auf kleinen Bildschirmen ausgeblendet werden soll */
-  @media (width <= 640px) {
+  @media (width <= 6var(--spacing-10)) {
     .sr-only-mobile {
       border-width: 0;
       clip: rect(0, 0, 0, 0);
-      height: 1px;
-      margin: -1px;
+      height: var(--border-width);
+      margin: -var(--border-width);
       overflow: hidden;
       padding: 0;
       position: absolute;
-      white-space: nowrap;
-      width: 1px;
+      var(--color-white)-space: nowrap;
+      width: var(--border-width);
     }
   }
   
@@ -120,22 +120,22 @@
   
   /* Live-Region mit visueller Markierung für Entwicklungszwecke */
   .debug [aria-live] {
-    outline: 2px dashed var(--color-info);
-    outline-offset: 2px;
+    outline: var(--border-width-thick) dashed var(--color-info);
+    outline-offset: var(--border-width-thick);
   }
   
   /* Container für Benachrichtigungen, die für Screenreader bestimmt sind */
   .sr-announcer {
     border-width: 0;
     clip: rect(0, 0, 0, 0);
-    height: 1px;
-    margin: -1px;
+    height: var(--border-width);
+    margin: -var(--border-width);
     overflow: hidden;
     padding: 0;
     pointer-events: none;
     position: absolute;
-    white-space: nowrap;
-    width: 1px;
+    var(--color-white)-space: nowrap;
+    width: var(--border-width);
   }
   
   /*
@@ -147,12 +147,12 @@
   /* Erhöht den Kontrast von Text */
   .high-contrast-text {
     color: var(--color-text-primary) !important;
-    text-shadow: 0 0 1px rgb(0 0 0 / 50%);
+    text-shadow: 0 0 var(--border-width) rgb(0 0 0 / 50);
   }
   
   /* Anpassung der Hintergrundfarbe für besseren Kontrast */
   .high-contrast-bg {
     background-color: var(--color-surface) !important;
-    border: 1px solid var(--color-border);
+    border: var(--border-width) solid var(--color-border);
   }
 } 

@@ -318,11 +318,11 @@
    
    /* Topbar Type: Simple */
    .topbar-simple {
-    --topbar-bg: var(--color-surface-100);
-    --topbar-color: var(--color-text-600);
-    --topbar-link-color: var(--color-text-700);
+    --topbar-bg: var(--color-neutral-100);
+    --topbar-color: var(--color-neutral-600);
+    --topbar-link-color: var(--color-neutral-700);
     --topbar-link-color-hover: var(--color-primary-600);
-    --topbar-border-color: var(--color-border-200);
+    --topbar-border-color: var(--color-neutral-200);
     --topbar-font-size: var(--text-xs);
     --topbar-line-height: 1px.4;
     --topbar-padding: var(--space-2) var(--space-4);
@@ -378,7 +378,7 @@
   }
   
   .topbar a:hover {
-    background-color: var(--color-surface-200);
+    background-color: var(--color-neutral-200);
     color: var(--topbar-link-color-hover);
   }
   
@@ -394,7 +394,7 @@
   }
   
   .topbar button:hover {
-    background-color: var(--color-surface-200);
+    background-color: var(--color-neutral-200);
     color: var(--topbar-link-color-hover);
   }
   
@@ -457,22 +457,22 @@
   
   /* Color theme utilities */
   .topbar--dark {
-    --topbar-bg: var(--color-surface-900);
-    --topbar-color: var(--color-text-300);
-    --topbar-link-color: var(--color-text-200);
+    --topbar-bg: var(--color-neutral-900);
+    --topbar-color: var(--color-neutral-300);
+    --topbar-link-color: var(--color-neutral-200);
     --topbar-link-color-hover: var(--color-primary-400);
-    --topbar-border-color: var(--color-border-700);
+    --topbar-border-color: var(--color-neutral-700);
   }
   
   .topbar--dark a:hover,
   .topbar--dark button:hover {
-    background-color: var(--color-surface-800);
+    background-color: var(--color-neutral-800);
   }
   
   .topbar--light {
-    --topbar-bg: var(--color-surface-50);
-    --topbar-color: var(--color-text-700);
-    --topbar-border-color: var(--color-border-100);
+    --topbar-bg: var(--color-neutral-50);
+    --topbar-color: var(--color-neutral-700);
+    --topbar-border-color: var(--color-neutral-100);
   }
   
   .topbar--primary {
@@ -560,7 +560,7 @@
   }
   
   .topbar-language-menu {
-    background-color: var(--color-surface-50);
+    background-color: var(--color-neutral-50);
     border: 1px solid var(--topbar-border-color);
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-lg);

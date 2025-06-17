@@ -42,18 +42,18 @@
 @layer components {
   .card-grid {
     display: grid;
-    gap: var(--space-4);
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: var(--card-grid-gap, var(--space-4, 1rem));
+    grid-template-columns: repeat(auto-fill, minmax(var(--card-min-width, 250px), 1fr));
   }
 
   .card {
-    background-color: var(--color-surface);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-sm);
+    background-color: var(--color-surface, var(--color-surface-elevated, #fff));
+    border-radius: var(--radius-card, var(--radius-md, 0.375rem));
+    box-shadow: var(--shadow-sm, 0 1px 2px 0 rgb(0 0 0 / 5%));
     display: flex;
     flex-direction: column;
-    gap: var(--space-3);
-    padding: var(--space-4);
+    gap: var(--card-gap, var(--space-3, 0.75rem));
+    padding: var(--card-padding, var(--space-4, 1rem));
 
     /* Element-Styling */
     h3 {

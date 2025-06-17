@@ -54,24 +54,24 @@
 @layer components {
   /* Inline-Code */
   .code-inline {
-    background: var(--color-gray-100);
+    background: var(--color-neutral-100);
     border-radius: var(--radius-sm);
     color: var(--color-primary-700);
-    font-family: var(--font-family-mono);
-    font-size: var(--font-size-sm);
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
     padding: var(--space-1) var(--space-2);
   }
   
   /* Code-Block */
   .code {
-    background: var(--color-gray-100);
-    border: 1px solid var(--color-gray-200);
+    background: var(--color-neutral-100);
+    border: 1px solid var(--color-neutral-200);
     border-radius: var(--radius-md);
-    color: var(--color-gray-800);
+    color: var(--color-neutral-800);
     display: block;
-    font-family: var(--font-family-mono);
-    font-size: var(--font-size-sm);
-    line-height: var(--line-height-snug);
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    line-height: 1.4;
     margin: var(--space-4) 0;
     overflow-x: auto;
     padding: var(--space-4);
@@ -92,8 +92,8 @@
       grid-template-columns: auto 1fr;
       
       .line-numbers {
-        border-right: 1px solid var(--color-gray-300);
-        color: var(--color-gray-500);
+        border-right: 1px solid var(--color-neutral-300);
+        color: var(--color-neutral-500);
         padding-right: var(--space-2);
         text-align: right;
         user-select: none;
@@ -102,24 +102,24 @@
     
     /* Varianten */
     &.dark {
-      background-color: var(--color-gray-900);
-      border-color: var(--color-gray-800);
-      color: var(--color-gray-100);
+      background-color: var(--color-neutral-900);
+      border-color: var(--color-neutral-800);
+      color: var(--color-neutral-100);
     }
     
     &.light {
       background-color: var(--color-white);
-      border-color: var(--color-gray-200);
-      color: var(--color-gray-900);
+      border-color: var(--color-neutral-200);
+      color: var(--color-neutral-900);
     }
     
     &.terminal {
-      background-color: var(--color-gray-900);
-      border-color: var(--color-gray-800);
-      color: var(--color-gray-100);
+      background-color: var(--color-neutral-900);
+      border-color: var(--color-neutral-800);
+      color: var(--color-neutral-100);
       
       &::before {
-        color: var(--color-gray-500);
+        color: var(--color-neutral-500);
         content: '>';
         margin-right: var(--space-2);
       }
@@ -132,7 +132,7 @@
 
       .string { color: var(--color-success-600); }
 
-      .comment { color: var(--color-gray-500); font-style: italic; }
+      .comment { color: var(--color-neutral-500); font-style: italic; }
 
       .function { color: var(--color-secondary-600); }
 
@@ -145,22 +145,22 @@
     position: relative;
     
     .copy-button {
-      background-color: var(--color-gray-200);
+      background-color: var(--color-neutral-200);
       border: none;
       border-radius: var(--radius-sm);
-      color: var(--color-gray-700);
+      color: var(--color-neutral-700);
       cursor: pointer;
-      font-size: var(--font-size-xs);
+      font-size: var(--text-xs);
       opacity: 0%;
       padding: var(--space-1) var(--space-2);
       position: absolute;
       right: var(--space-2);
       top: var(--space-2);
-      transition: opacity var(--transition-fast);
+      transition: opacity 150ms ease;
       
       &:hover {
-        background-color: var(--color-gray-300);
-        color: var(--color-gray-900);
+        background-color: var(--color-neutral-300);
+        color: var(--color-neutral-900);
       }
     }
     
