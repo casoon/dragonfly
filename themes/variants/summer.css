@@ -23,12 +23,12 @@
     /* Text Colors */
     --color-text: #713f12;
     --color-text-muted: #4b5563;
-    --color-text-inverse: #ffffff;
+    --color-text-inverse: #fff;
     
     /* Surface Colors */
     --color-background: #fefce8;
     --color-surface: #fef08a;
-    --color-surface-elevated: #ffffff;
+    --color-surface-elevated: #fff;
     
     /* Border Colors */
     --color-border: #facc15;

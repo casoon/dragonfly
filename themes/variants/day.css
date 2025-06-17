@@ -23,12 +23,12 @@
     /* Text Colors */
     --color-text: #1f2937;
     --color-text-muted: #6b7280;
-    --color-text-inverse: #ffffff;
+    --color-text-inverse: #fff;
     
     /* Surface Colors */
-    --color-background: #ffffff;
+    --color-background: #fff;
     --color-surface: #f9fafb;
-    --color-surface-elevated: #ffffff;
+    --color-surface-elevated: #fff;
     
     /* Border Colors */
     --color-border: #e5e7eb;
@@ -36,7 +36,7 @@
     
     /* Transition Colors for smooth animations */
     --color-transition-primary: #2563eb;
-    --color-transition-surface: #ffffff;
+    --color-transition-surface: #fff;
     --color-transition-text: #1f2937;
   }
 }

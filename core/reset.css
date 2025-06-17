@@ -36,10 +36,10 @@
   
     /* 2. Core Root Defaults */
     html {
+      -webkit-font-smoothing: antialiased;
       height: 100%;
       scroll-behavior: smooth;
       text-size-adjust: 100%;
-      -webkit-font-smoothing: antialiased;
     }
   
     html:focus-within {
@@ -47,12 +47,12 @@
     }
   
     body {
-      min-height: 100vh;
-      line-height: 1.5;
-      font-family: system-ui, sans-serif;
       background-color: var(--color-background, #fff);
       color: var(--color-foreground, #000);
-      text-rendering: optimizeSpeed;
+      font-family: system-ui, sans-serif;
+      line-height: 1.5;
+      min-height: 100vh;
+      text-rendering: optimizespeed;
     }
   
     /* 3. List & Table */
@@ -68,19 +68,19 @@
     /* 4. Media */
     img, picture, video, canvas, svg {
       display: block;
-      max-width: 100%;
       height: auto;
+      max-width: 100%;
     }
   
     /* 5. Forms & Buttons */
     input, button, textarea, select {
-      font: inherit;
-      color: inherit;
+      appearance: none;
       background: none;
       border: none;
-      appearance: none;
-      padding: 0;
+      color: inherit;
+      font: inherit;
       margin: 0;
+      padding: 0;
     }
   
     button {
@@ -93,8 +93,8 @@
   
     /* 6. Links */
     a:not([class]) {
-      text-decoration-skip-ink: auto;
       color: inherit;
+      text-decoration-skip-ink: auto;
     }
   
     /* 7. Accessibility: Motion Reduce */
@@ -102,6 +102,7 @@
       html {
         scroll-behavior: auto;
       }
+
       *, *::before, *::after {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;

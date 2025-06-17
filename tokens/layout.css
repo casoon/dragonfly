@@ -268,7 +268,7 @@
   
   @property --container-bg {
     inherits: true;
-    initial-value: #ffffff;
+    initial-value: #fff;
     syntax: '<color>';
   }
   
