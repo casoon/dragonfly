@@ -223,43 +223,7 @@
     syntax: '<number>';
   }
 
-  /* Font Family Properties */
-  @property --font-family-sans {
-    inherits: true;
-    initial-value: ui-sans-serif, system-ui, -apple-system, blinkmacsystemfont, "Segoe UI", roboto, "Helvetica Neue", arial, "Noto Sans", sans-serif;
-    syntax: '*';
-  }
-  
-  @property --font-family-serif {
-    inherits: true;
-    initial-value: ui-serif, georgia, cambria, "Times New Roman", times, serif;
-    syntax: '*';
-  }
-  
-  @property --font-family-mono {
-    inherits: true;
-    initial-value: ui-monospace, sfmono-regular, "SF Mono", consolas, "Liberation Mono", menlo, monospace;
-    syntax: '*';
-  }
-  
-  /* Font Family Aliases (kurze Versionen für Komponenten) */
-  @property --font-sans {
-    inherits: true;
-    initial-value: var(--font-family-sans);
-    syntax: '*';
-  }
-  
-  @property --font-serif {
-    inherits: true;
-    initial-value: var(--font-family-serif);
-    syntax: '*';
-  }
-  
-  @property --font-mono {
-    inherits: true;
-    initial-value: var(--font-family-mono);
-    syntax: '*';
-  }
+  /* Font Family Properties - Defined only in :root for better performance */
   
   /* Letter Spacing Properties */
   @property --letter-spacing-tighter {
@@ -369,11 +333,6 @@
   --font-family-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
   --font-family-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
   --font-family-mono: ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
-  
-  /* Font Family Aliases (kurze Versionen für Komponenten) */
-  --font-sans: var(--font-family-sans);
-  --font-serif: var(--font-family-serif);
-  --font-mono: var(--font-family-mono);
   
   /* Font Family Aliases (kurze Versionen für Komponenten) */
   --font-sans: var(--font-family-sans);

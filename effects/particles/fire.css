@@ -6,7 +6,7 @@
  */
 
 @keyframes fire-flame {
-    0 {
+    0% {
         opacity: var(--opacity-0);
         transform: translateX(0%) scale(1);
     }
@@ -16,42 +16,42 @@
         transform: translateY(-40px) scale(1.2);
     }
 
-    50 {
-        transform: translateY(-80px) scale(1.1%) rotate(5deg);
+    50% {
+        transform: translateY(-80px) scale(1.1) rotate(5deg);
     }
 
     75% {
-        transform: translateY(calc(-1 * var(--spacing-1))(--spacing-5)) scale(0.9) rotate(-5deg);
+        transform: translateY(calc(-1 * var(--spacing-15))) scale(0.9) rotate(-5deg);
     }
 
-    100 {
+    100% {
         opacity: var(--opacity-0);
         transform: translateY(-160px) scale(0.5) rotate(0deg);
     }
 }
 
 @keyframes fire-flame-alt {
-    0 {
+    0% {
         opacity: var(--opacity-0);
         transform: translateX(0%) scale(1);
     }
 
     25% {
         opacity: var(--opacity-100);
-        transform: translateY(-30px) scale(1.1%) rotate(-5deg);
+        transform: translateY(-30px) scale(1.1) rotate(-5deg);
     }
 
-    50 {
-        transform: translateY(-60px) scale(1.0%) rotate(5deg);
+    50% {
+        transform: translateY(-60px) scale(1.0) rotate(5deg);
     }
 
     75% {
         transform: translateY(-90px) scale(0.8) rotate(-2deg);
     }
 
-    100 {
+    100% {
         opacity: var(--opacity-0);
-        transform: translateY(calc(-1 * var(--spacing-1))(--spacing-5)) scale(0.5) rotate(0deg);
+        transform: translateY(calc(-1 * var(--spacing-15))) scale(0.5) rotate(0deg);
     }
 }
 
@@ -65,7 +65,7 @@
     .fire::after {
         animation: fire-flame 3s var(--easing-decelerate) infinite;
         background: var(--fire-color, rgb(255 160 0 / 70%));
-        border-radius: 5px 50 20 20;
+        border-radius: 5px 50px 20px 20px;
         bottom: calc(-1 * var(--spacing-1));
         content: '';
         filter: blur(var(--spacing-1));
@@ -75,7 +75,7 @@
     }
 
     .fire::before {
-        left: calc(50% - var(--spacing-1)(--spacing-1));
+        left: calc(50% - var(--spacing-1));
     }
 
     .fire::after {
@@ -90,13 +90,13 @@
     .fire-sm::after {
         filter: blur(var(--border-width-thick));
         height: var(--spacing-5);
-        width: var(--spacing-1)(--border-width-thick);
+        width: calc(var(--spacing-1) + var(--border-width-thick));
     }
 
     .fire-lg::before,
     .fire-lg::after {
         filter: var(--filter-blur-xl);
-        height: 5%0px;
+        height: 50px;
         width: var(--spacing-7-5);
     }
 
@@ -153,4 +153,4 @@
             opacity: var(--opacity-0);
         }
     }
-} 
+}

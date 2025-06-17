@@ -24,28 +24,46 @@ const distDir = path.join(rootDir, 'dist');
 // Kategorien definieren
 const categories = [
   {
+    name: 'core',
+    pattern: 'core/**/*.css',
+    // Concat-Bundling um Datei-Kommentare zu erhalten
+    bundleMethod: 'concat',
+  },
+  {
+    name: 'layout',
+    pattern: 'layout/**/*.css',
+    // Concat-Bundling um Datei-Kommentare zu erhalten
+    bundleMethod: 'concat',
+  },
+  {
+    name: 'tokens',
+    pattern: 'tokens/**/*.css',
+    // Concat-Bundling um Datei-Kommentare zu erhalten
+    bundleMethod: 'concat',
+  },
+  {
+    name: 'ui',
+    pattern: 'ui/**/*.css',
+    // Concat-Bundling um Datei-Kommentare zu erhalten (komplettes UI-Verzeichnis)
+    bundleMethod: 'concat',
+  },
+  {
     name: 'effects',
     pattern: 'effects/**/*.css',
-    // Standard-Bundling über Import
-    bundleMethod: 'import',
+    // Concat-Bundling um Datei-Kommentare zu erhalten
+    bundleMethod: 'concat',
   },
   {
     name: 'icons',
     pattern: 'icons/**/*.css',
-    // Standard-Bundling über Import
-    bundleMethod: 'import',
+    // Concat-Bundling um Datei-Kommentare zu erhalten
+    bundleMethod: 'concat',
   },
   {
     name: 'themes',
     pattern: 'themes/**/*.css',
-    // Spezielles Bundling für Themes, wegen der Layer-Problematik
+    // Concat-Bundling für Themes, wegen der Layer-Problematik und Datei-Kommentare
     bundleMethod: 'concat',
-  },
-  {
-    name: 'components',
-    pattern: 'ui/components/**/*.css',
-    // Standard-Bundling über Import
-    bundleMethod: 'import',
   },
 ];
 
@@ -90,6 +108,89 @@ function generateTempIndexFile(category, files) {
   return tempFilePath;
 }
 
+// Hilfsfunktion zum Normalisieren der Einrückung
+function normalizeIndentation(content, indentSize = 2) {
+  const lines = content.split('\n');
+  const normalizedLines = [];
+  let indentLevel = 0;
+  const indentString = ' '.repeat(indentSize);
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i].trim();
+    
+    // Skip empty lines and comments
+    if (line === '' || line.startsWith('/*')) {
+      normalizedLines.push(line);
+      continue;
+    }
+
+    // Decrease indent level for closing braces
+    if (line === '}') {
+      indentLevel = Math.max(0, indentLevel - 1);
+    }
+
+    // Apply current indentation
+    const indentedLine = indentLevel > 0 ? indentString.repeat(indentLevel) + line : line;
+    normalizedLines.push(indentedLine);
+
+    // Increase indent level for opening braces
+    if (line.endsWith('{')) {
+      indentLevel++;
+    }
+  }
+
+  return normalizedLines.join('\n');
+}
+
+// Hilfsfunktion zum Auflösen von @import-Anweisungen
+function resolveImports(content, baseDir, resolvedFiles = new Set()) {
+  const lines = content.split('\n');
+  const resolvedContent = [];
+
+  for (const line of lines) {
+    const trimmedLine = line.trim();
+    
+    // Prüfe auf @import-Anweisung
+    if (trimmedLine.startsWith('@import')) {
+      // Extrahiere den Dateipfad aus der @import-Anweisung
+      const match = trimmedLine.match(/@import\s+(?:url\()?['"]([^'"]+)['"](?:\))?/);
+      if (match) {
+        const importPath = match[1];
+        let resolvedPath;
+        
+        // Bestimme den absoluten Pfad der zu importierenden Datei
+        if (importPath.startsWith('./') || importPath.startsWith('../')) {
+          resolvedPath = path.resolve(baseDir, importPath);
+        } else {
+          resolvedPath = path.resolve(rootDir, importPath);
+        }
+        
+        // Verhindere zirkuläre Imports
+        if (!resolvedFiles.has(resolvedPath) && fs.existsSync(resolvedPath)) {
+          resolvedFiles.add(resolvedPath);
+          
+          // Lese und löse die importierte Datei auf
+          const importedContent = fs.readFileSync(resolvedPath, 'utf8');
+          const importedDir = path.dirname(resolvedPath);
+          
+          // Füge Kommentar für importierte Datei hinzu
+          resolvedContent.push(`/* Importierte Datei: ${path.relative(rootDir, resolvedPath)} */`);
+          
+          // Rekursiv Imports in der importierten Datei auflösen
+          const resolvedImportContent = resolveImports(importedContent, importedDir, resolvedFiles);
+          resolvedContent.push(resolvedImportContent);
+          resolvedContent.push(''); // Leerzeile nach importiertem Inhalt
+        }
+      }
+    } else {
+      // Normale CSS-Zeile hinzufügen
+      resolvedContent.push(line);
+    }
+  }
+  
+  return resolvedContent.join('\n');
+}
+
 // Generiere direktes Concatenation-Bundle für Kategorien mit Layer-Problemen
 function generateConcatBundle(category, files, minify = true) {
   const tempDir = path.join(distDir, 'temp');
@@ -102,26 +203,27 @@ function generateConcatBundle(category, files, minify = true) {
   const outputFile = path.join(distDir, outputFileName);
   const outputMapFile = path.join(distDir, `${outputFileName}.map`);
 
-  // Sammle @import und @layer Anweisungen am Anfang
-  let importStatements = [];
+  // Sammle @layer Anweisungen am Anfang
   let layerStatements = [];
   const regularContent = [];
 
   // Lese alle Dateien und kategorisiere den Inhalt
   for (const file of files) {
     const content = fs.readFileSync(file, 'utf8');
-    const lines = content.split('\n');
-
+    const fileDir = path.dirname(file);
+    
     // Kommentar für jede Datei hinzufügen
     regularContent.push(`/* Datei: ${path.relative(rootDir, file)} */`);
 
-    // Extrahiere @import und @layer Anweisungen
+    // Löse @import-Anweisungen auf
+    const resolvedContent = resolveImports(content, fileDir);
+    const lines = resolvedContent.split('\n');
+
+    // Extrahiere @layer Anweisungen
     for (const line of lines) {
       const trimmedLine = line.trim();
 
-      if (trimmedLine.startsWith('@import')) {
-        importStatements.push(trimmedLine);
-      } else if (trimmedLine.startsWith('@layer') && !trimmedLine.includes('{')) {
+      if (trimmedLine.startsWith('@layer') && !trimmedLine.includes('{')) {
         // Nur @layer-Deklarationen, keine @layer-Blöcke
         layerStatements.push(trimmedLine);
       } else {
@@ -132,12 +234,14 @@ function generateConcatBundle(category, files, minify = true) {
     regularContent.push(''); // Leerzeile zwischen Dateien
   }
 
-  // Entferne Duplikate
-  importStatements = [...new Set(importStatements)];
+  // Entferne Duplikate bei Layer-Anweisungen
   layerStatements = [...new Set(layerStatements)];
 
   // Kombiniere den Inhalt in der richtigen Reihenfolge
-  const combinedContent = [...importStatements, ...layerStatements, ...regularContent].join('\n');
+  let combinedContent = [...layerStatements, ...regularContent].join('\n');
+
+  // Normalisiere die Einrückung für bessere Lesbarkeit
+  combinedContent = normalizeIndentation(combinedContent);
 
   // Schreibe die kombinierte Datei
   const tempFilePath = path.join(tempDir, `${category.name}-temp-combined.css`);
