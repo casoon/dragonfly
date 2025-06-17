@@ -161,6 +161,18 @@
     syntax: '<length>';
   }
   
+  @property --container-max-width {
+    inherits: true;
+    initial-value: 1200px;
+    syntax: '<length>';
+  }
+  
+  @property --container-padding {
+    inherits: true;
+    initial-value: 1rem;
+    syntax: '<length>';
+  }
+  
   /* Container Query Properties */
   @property --container-query-xs {
     inherits: true;
@@ -189,6 +201,136 @@
   @property --container-query-xl {
     inherits: true;
     initial-value: 960px;
+    syntax: '<length>';
+  }
+  
+  /* Grid Properties */
+  @property --grid-columns {
+    inherits: true;
+    initial-value: 12;
+    syntax: '<integer>';
+  }
+  
+  @property --grid-gutter {
+    inherits: true;
+    initial-value: 1rem;
+    syntax: '<length>';
+  }
+  
+  @property --grid-gutter-sm {
+    inherits: true;
+    initial-value: 0.5rem;
+    syntax: '<length>';
+  }
+  
+  @property --grid-gutter-md {
+    inherits: true;
+    initial-value: 1rem;
+    syntax: '<length>';
+  }
+  
+  @property --grid-gutter-lg {
+    inherits: true;
+    initial-value: 1.5rem;
+    syntax: '<length>';
+  }
+  
+  @property --grid-gutter-xl {
+    inherits: true;
+    initial-value: 2rem;
+    syntax: '<length>';
+  }
+  
+  @property --grid-auto-fit-min {
+    inherits: true;
+    initial-value: 250px;
+    syntax: '<length>';
+  }
+  
+  @property --grid-auto-fill-min {
+    inherits: true;
+    initial-value: 250px;
+    syntax: '<length>';
+  }
+  
+  /* Container Styling Properties */
+  @property --container-border-radius {
+    inherits: true;
+    initial-value: 0.5rem;
+    syntax: '<length>';
+  }
+  
+  @property --container-border-color {
+    inherits: true;
+    initial-value: #e5e7eb;
+    syntax: '<color>';
+  }
+  
+  @property --container-bg {
+    inherits: true;
+    initial-value: #ffffff;
+    syntax: '<color>';
+  }
+  
+  @property --container-shadow {
+    inherits: true;
+    initial-value: 0 1px 3px rgb(0 0 0 / 10%);
+    syntax: '*';
+  }
+  
+  @property --container-elevated-shadow {
+    inherits: true;
+    initial-value: 0 10px 25px rgb(0 0 0 / 15%);
+    syntax: '*';
+  }
+  
+  @property --container-elevated-hover-shadow {
+    inherits: true;
+    initial-value: 0 20px 40px rgb(0 0 0 / 20%);
+    syntax: '*';
+  }
+  
+  @property --container-card-padding {
+    inherits: true;
+    initial-value: 1.5rem;
+    syntax: '<length>';
+  }
+  
+  /* Modal and Overlay Properties */
+  @property --modal-max-width {
+    inherits: true;
+    initial-value: 400px;
+    syntax: '<length>';
+  }
+  
+  @property --tooltip-max-width {
+    inherits: true;
+    initial-value: 200px;
+    syntax: '<length>';
+  }
+  
+  @property --popover-max-width {
+    inherits: true;
+    initial-value: 320px;
+    syntax: '<length>';
+  }
+  
+  /* Sidebar and Header Properties */
+  @property --sidebar-width {
+    inherits: true;
+    initial-value: 250px;
+    syntax: '<length>';
+  }
+  
+  @property --header-height {
+    inherits: true;
+    initial-value: 64px;
+    syntax: '<length>';
+  }
+  
+  @property --footer-height {
+    inherits: true;
+    initial-value: 80px;
     syntax: '<length>';
   }
 } 
