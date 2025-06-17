@@ -1,51 +1,51 @@
 # Themes System
 
-Modernes, performantes Theme-System für die Dragonfly UI-Bibliothek.
+Modern, performant theme system for the Dragonfly UI library.
 
-## 🏗️ **Architektur**
+## 🏗️ **Architecture**
 
-### **Layer-Struktur**
+### **Layer Structure**
 ```css
 @layer tokens, themes.aliases, themes.mode, themes.transitions, themes.variants;
 ```
 
-1. **`tokens`** - Basis Design Tokens (@property Definitionen)
-2. **`themes.aliases`** - Semantische Komponenten-Aliases
-3. **`themes.mode`** - Light/Dark Mode Definitionen
-4. **`themes.transitions`** - Theme-Übergänge
-5. **`themes.variants`** - Opt-in Theme-Varianten
+1. **`tokens`** - Base design tokens (@property definitions)
+2. **`themes.aliases`** - Semantic component aliases
+3. **`themes.mode`** - Light/dark mode definitions
+4. **`themes.transitions`** - Theme transitions
+5. **`themes.variants`** - Opt-in theme variants
 
-### **Verzeichnisstruktur**
+### **Directory Structure**
 ```
 themes/
-├── index.css              # Haupt-Einstiegspunkt
-├── aliases.css            # Semantische Aliases
-├── theme-transitions.css  # Theme-Übergänge
-├── light-mode.css         # Light Mode
-├── dark-mode.css          # Dark Mode
-├── theme-helper.js        # JavaScript Theme-Loader
-├── theme-switcher.html    # Test/Demo Interface
-└── variants/              # Theme-Varianten (opt-in)
-    ├── autumn.css         # Herbst-Theme
-    ├── brand.css          # Corporate Brand
-    ├── day.css            # Heller Tag
-    ├── forest.css         # Wald-Theme
-    ├── monochrome.css     # Schwarz-Weiß
-    ├── neon.css           # Neon-Farben
-    ├── night.css          # Dunkle Nacht
-    ├── ocean.css          # Ozean-Theme
-    ├── pastel.css         # Pastell-Töne
-    ├── retro.css          # Retro-Stil
-    ├── spring.css         # Frühlings-Theme
-    ├── summer.css         # Sommer-Theme
-    ├── sunset.css         # Sonnenuntergang
-    └── winter.css         # Winter-Theme
+├── index.css              # Main entry point
+├── aliases.css            # Semantic aliases
+├── theme-transitions.css  # Theme transitions
+├── light-mode.css         # Light mode
+├── dark-mode.css          # Dark mode
+├── theme-helper.js        # JavaScript theme loader
+├── theme-switcher.html    # Test/demo interface
+└── variants/              # Theme variants (opt-in)
+    ├── autumn.css         # Autumn theme
+    ├── brand.css          # Corporate brand
+    ├── day.css            # Bright day
+    ├── forest.css         # Forest theme
+    ├── monochrome.css     # Black & white
+    ├── neon.css           # Neon colors
+    ├── night.css          # Dark night
+    ├── ocean.css          # Ocean theme
+    ├── pastel.css         # Pastel tones
+    ├── retro.css          # Retro style
+    ├── spring.css         # Spring theme
+    ├── summer.css         # Summer theme
+    ├── sunset.css         # Sunset colors
+    └── winter.css         # Winter theme
 ```
 
-## 🎨 **Theme-Aktivierung**
+## 🎨 **Theme Activation**
 
 ### **Data-Theme System**
-Alle Themes verwenden das einheitliche `data-theme` Attribut:
+All themes use the unified `data-theme` attribute:
 
 ```html
 <!-- Light/Dark Modes -->
@@ -63,48 +63,48 @@ Alle Themes verwenden das einheitliche `data-theme` Attribut:
 
 ### **JavaScript API**
 ```javascript
-// Theme-Variante laden
+// Load theme variant
 ThemeHelper.loadThemeVariant('autumn');
 
-// Mode wechseln
+// Switch mode
 document.documentElement.dataset.theme = 'dark';
 
-// Auto-Erkennung
+// Auto-detection
 ThemeHelper.loadThemeVariant('auto');
 ```
 
 ## 📦 **Integration**
 
-### **Basis-System (immer geladen)**
+### **Base System (always loaded)**
 ```css
 @import url("path/to/themes/index.css");
 ```
-Enthält: Design Tokens, Aliases, Light/Dark Modes, Transitions
+Includes: Design tokens, aliases, light/dark modes, transitions
 
-### **Theme-Varianten (opt-in)**
+### **Theme Variants (opt-in)**
 ```css
-/* Statisch */
+/* Static */
 @import url("path/to/themes/variants/autumn.css");
 
-/* Dynamisch */
+/* Dynamic */
 <script>
 ThemeHelper.loadThemeVariant('autumn');
 </script>
 ```
 
-### **CDN-Kompatibel**
+### **CDN Compatible**
 ```html
 <link rel="stylesheet" href="https://cdn.example.com/dragonfly/themes/index.css">
 <script>
-// Dynamisches Laden von Varianten
+// Dynamic loading of variants
 ThemeHelper.loadThemeVariant('ocean');
 </script>
 ```
 
-## 🔧 **Entwicklung**
+## 🔧 **Development**
 
-### **Neue Theme-Variante erstellen**
-Alle Theme-Varianten folgen der einheitlichen Struktur basierend auf `tokens/colors.css`:
+### **Creating New Theme Variants**
+All theme variants follow the unified structure based on `tokens/colors.css`:
 
 ```css
 /**
@@ -151,69 +151,69 @@ Alle Theme-Varianten folgen der einheitlichen Struktur basierend auf `tokens/col
 }
 ```
 
-### **Semantische Aliases verwenden**
+### **Using Semantic Aliases**
 ```css
 .my-component {
-  background: var(--surface-bg);      /* ✅ Semantisch */
-  color: var(--text-primary);        /* ✅ Semantisch */
-  border: 1px solid var(--border);   /* ✅ Semantisch */
+  background: var(--surface-bg);      /* ✅ Semantic */
+  color: var(--text-primary);        /* ✅ Semantic */
+  border: 1px solid var(--border);   /* ✅ Semantic */
   
-  /* Statt direkter Token-Referenzen */
-  background: var(--color-gray-50);  /* ❌ Direkt */
+  /* Instead of direct token references */
+  background: var(--color-gray-50);  /* ❌ Direct */
 }
 ```
 
 ## 🚀 **Performance**
 
-- **Basis-System**: ~25KB (komprimiert) - enthält alle essentiellen Features
-- **Theme-Varianten**: ~1-2KB pro Variante (opt-in, einheitliche Struktur)
-- **CSS Layers**: Optimale Spezifität ohne !important
-- **@property**: Bessere Browser-Performance und Tooling
-- **Vereinheitlicht**: Alle 14 Varianten folgen derselben Struktur
+- **Base System**: ~25KB (compressed) - contains all essential features
+- **Theme Variants**: ~1-2KB per variant (opt-in, unified structure)
+- **CSS Layers**: Optimal specificity without !important
+- **@property**: Better browser performance and tooling
+- **Unified**: All 14 variants follow the same structure
 
 ## 🎯 **Features**
 
-- ✅ **Framework-agnostisch** - Funktioniert mit jedem CSS Framework
-- ✅ **CDN-kompatibel** - Kann von CDN geladen werden
-- ✅ **Opt-in Varianten** - Nur laden was benötigt wird
-- ✅ **Einheitliche Struktur** - Alle Varianten basieren auf `tokens/colors.css`
-- ✅ **TypeScript Support** - @property Definitionen für bessere DX
-- ✅ **Dark Mode** - Automatisch und manuell
-- ✅ **Transitions** - Sanfte Theme-Übergänge
-- ✅ **localStorage** - Persistente Theme-Auswahl
-- ✅ **SSR-kompatibel** - Server-Side Rendering Support
+- ✅ **Framework-agnostic** - Works with any CSS framework
+- ✅ **CDN-compatible** - Can be loaded from CDN
+- ✅ **Opt-in variants** - Only load what you need
+- ✅ **Unified structure** - All variants based on `tokens/colors.css`
+- ✅ **TypeScript support** - @property definitions for better DX
+- ✅ **Dark mode** - Automatic and manual
+- ✅ **Transitions** - Smooth theme transitions
+- ✅ **localStorage** - Persistent theme selection
+- ✅ **SSR-compatible** - Server-side rendering support
 
-## 📋 **Verfügbare Themes**
+## 📋 **Available Themes**
 
-Alle Theme-Varianten verwenden das einheitliche `data-theme` System:
+All theme variants use the unified `data-theme` system:
 
-| Theme | Beschreibung | Primärfarben | Anwendung |
-|-------|-------------|--------------|-----------|
-| `light` | Standard Light Mode | Neutral grays | Standard-Hellmodus |
-| `dark` | Standard Dark Mode | Dark grays | Standard-Dunkelmodus |
-| `auto` | System-Präferenz | Automatisch | Folgt OS-Einstellung |
-| `brand` | Corporate Brand | Indigo (#4f46e5) | Firmen-Branding |
-| `day` | Heller Tag | Bright Blue (#2563eb) | Sehr helle Tagesansicht |
-| `night` | Dunkle Nacht | Purple/Indigo (#6366f1) | Sehr dunkle Nachtansicht |
-| `autumn` | Herbst-Töne | Amber (#d97706) | Warme Herbstfarben |
-| `winter` | Winter-Töne | Cyan (#0891b2) | Kühle Winterfarben |
-| `spring` | Frühlings-Töne | Green (#16a34a) | Frische Frühlingsfarben |
-| `summer` | Sommer-Töne | Yellow (#ca8a04) | Helle Sommerfarben |
-| `ocean` | Ozean-Töne | Teal (#0891b2) | Meeresfarben |
-| `forest` | Wald-Töne | Green (#059669) | Waldfarben |
-| `sunset` | Sonnenuntergang | Orange (#ea580c) | Sonnenuntergangsfarben |
-| `retro` | Retro-Stil | Brown (#a16207) | Vintage-Töne |
-| `monochrome` | Schwarz-Weiß | Gray (#374151) | Nur Graustufen |
-| `pastel` | Pastell-Töne | Purple (#8b5cf6) | Sanfte Pastellfarben |
-| `neon` | Neon-Farben | Bright Purple (#a855f7) | Leuchtende Neonfarben |
+| Theme | Description | Primary Colors | Use Case |
+|-------|-------------|----------------|----------|
+| `light` | Standard Light Mode | Neutral grays | Default light mode |
+| `dark` | Standard Dark Mode | Dark grays | Default dark mode |
+| `auto` | System Preference | Automatic | Follows OS setting |
+| `brand` | Corporate Brand | Indigo (#4f46e5) | Company branding |
+| `day` | Bright Day | Bright Blue (#2563eb) | Very bright day view |
+| `night` | Dark Night | Purple/Indigo (#6366f1) | Very dark night view |
+| `autumn` | Autumn Tones | Amber (#d97706) | Warm autumn colors |
+| `winter` | Winter Tones | Cyan (#0891b2) | Cool winter colors |
+| `spring` | Spring Tones | Green (#16a34a) | Fresh spring colors |
+| `summer` | Summer Tones | Yellow (#ca8a04) | Bright summer colors |
+| `ocean` | Ocean Tones | Teal (#0891b2) | Ocean colors |
+| `forest` | Forest Tones | Green (#059669) | Forest colors |
+| `sunset` | Sunset Colors | Orange (#ea580c) | Sunset colors |
+| `retro` | Retro Style | Brown (#a16207) | Vintage tones |
+| `monochrome` | Black & White | Gray (#374151) | Grayscale only |
+| `pastel` | Pastel Tones | Purple (#8b5cf6) | Soft pastel colors |
+| `neon` | Neon Colors | Bright Purple (#a855f7) | Bright neon colors |
 
 ## 🔍 **Testing**
 
-Öffne `theme-switcher.html` im Browser für interaktive Tests aller Themes und Features.
+Open `theme-switcher.html` in your browser for interactive testing of all themes and features.
 
-## 🔄 **Letzte Updates**
+## 🔄 **Recent Updates**
 
-- **Vereinheitlichung**: Alle 14 Theme-Varianten verwenden jetzt dieselbe Struktur
-- **Flache Hierarchie**: `mode/` und `base/` Verzeichnisse aufgelöst
-- **Konsistente Aktivierung**: Alle Themes verwenden `data-theme` Attribut
-- **Basis auf tokens/colors.css**: Vollständige Kompatibilität mit Design Token System
+- **Unification**: All 14 theme variants now use the same structure
+- **Flat hierarchy**: `mode/` and `base/` directories resolved
+- **Consistent activation**: All themes use `data-theme` attribute
+- **Based on tokens/colors.css**: Full compatibility with design token system
