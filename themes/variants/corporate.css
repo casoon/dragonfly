@@ -1,0 +1,87 @@
+/**
+ * Corporate Theme Variant - Token-Based Version
+ * 
+ * Standalone theme variant that can be loaded independently.
+ * Uses [data-theme="corporate"] scope for activation.
+ * CDN-compatible and opt-in via import or JS.
+ * 
+ * @layer themes.variants
+ */
+
+@layer themes.variants {
+  [data-theme="corporate"] {
+    /* Primary Colors - Professional corporate blue/navy theme */
+    --color-primary: #1e40af;
+    --color-secondary: #1e3a8a;
+    
+    /* Status Colors - Professional status colors */
+    --color-success: #059669;
+    --color-warning: #d97706;
+    --color-error: #dc2626;
+    --color-info: #0369a1;
+    
+    /* Text Colors - Professional corporate text */
+    --color-text: #1e3a8a;
+    --color-text-muted: #64748b;
+    --color-text-inverse: var(--theme-text-inverse, #fff);
+    
+    /* Surface Colors - Clean corporate surfaces */
+    --color-background: #f8fafc;
+    --color-surface: #f1f5f9;
+    --color-surface-elevated: #fff;
+    
+    /* Border Colors - Professional borders */
+    --color-border: #cbd5e1;
+    --color-border-strong: #94a3b8;
+    
+    /* Transition Colors for smooth animations */
+    --color-transition-primary: #1e40af;
+    --color-transition-surface: #f8fafc;
+    --color-transition-text: #1e3a8a;
+    
+    /* Corporate-specific theme properties */
+    --theme-corporate-accent: #1e40af;
+    --theme-corporate-gradient-start: var(--theme-gradient-start, #1e40af);
+    --theme-corporate-gradient-end: var(--theme-gradient-end, #1e3a8a);
+    
+    /* Professional focus and interaction states */
+    --color-focus: var(--theme-focus-ring, #1e40af);
+    --color-focus-glow: rgb(30 64 175 / 30%);
+    
+    /* Conservative shadow properties */
+    --shadow-opacity-sm: var(--theme-shadow-opacity-sm, 0.05);
+    --shadow-opacity-md: var(--theme-shadow-opacity-md, 0.1);
+    --shadow-opacity-lg: var(--theme-shadow-opacity-lg, 0.15);
+    --shadow-opacity-xl: var(--theme-shadow-opacity-xl, 0.25);
+    --shadow-color: var(--theme-shadow-color, rgb(30 64 175));
+    
+    /* Backdrop properties using theme backdrop tokens */
+    --color-backdrop: var(--theme-backdrop, rgb(0 0 0 / 50%));
+    --backdrop-blur: var(--theme-backdrop-blur, 8px);
+    
+    /* Professional status background colors */
+    --color-success-bg: #f0fdf4;
+    --color-warning-bg: #fffbeb;
+    --color-error-bg: var(--theme-error-bg, #fef2f2);
+    --color-info-bg: #eff6ff;
+    
+    /* Professional status border colors */
+    --color-success-border: #bbf7d0;
+    --color-warning-border: #fed7aa;
+    --color-error-border: var(--theme-error-border, #fecaca);
+    --color-info-border: #bfdbfe;
+    
+    /* Conservative interaction states */
+    --hover-opacity: 0.85;
+    --hover-scale: 1.02;
+    --active-opacity: 0.9;
+    --active-scale: 0.98;
+    --disabled-opacity: var(--theme-disabled-opacity, 0.5);
+    
+    /* Professional transition properties */
+    --transition-fast: var(--theme-transition-fast, 150ms);
+    --transition-normal: var(--theme-transition-normal, 250ms);
+    --transition-slow: var(--theme-transition-slow, 400ms);
+    --transition-ease-out: var(--theme-ease-out, cubic-bezier(0, 0, 0.2, 1));
+  }
+} 

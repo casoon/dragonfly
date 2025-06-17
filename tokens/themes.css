@@ -1,0 +1,421 @@
+/**
+ * Theme Tokens
+ * 
+ * Comprehensive theme-specific tokens that extend the base design tokens.
+ * These tokens provide a semantic layer for theme variants and enable
+ * consistent theming across all components.
+ * 
+ * @layer tokens.themes
+ */
+
+@layer tokens.themes {
+  /* ================= THEME COLOR TOKENS ================= */
+  
+  /* Primary Theme Colors */
+  @property --theme-primary {
+    inherits: true;
+    initial-value: #4f46e5;
+    syntax: '<color>';
+  }
+  
+  @property --theme-primary-hover {
+    inherits: true;
+    initial-value: #4338ca;
+    syntax: '<color>';
+  }
+  
+  @property --theme-primary-active {
+    inherits: true;
+    initial-value: #3730a3;
+    syntax: '<color>';
+  }
+  
+  @property --theme-secondary {
+    inherits: true;
+    initial-value: #7c3aed;
+    syntax: '<color>';
+  }
+  
+  @property --theme-secondary-hover {
+    inherits: true;
+    initial-value: #6d28d9;
+    syntax: '<color>';
+  }
+  
+  @property --theme-secondary-active {
+    inherits: true;
+    initial-value: #5b21b6;
+    syntax: '<color>';
+  }
+  
+  /* Theme Surface Colors */
+  @property --theme-background {
+    inherits: true;
+    initial-value: #fff;
+    syntax: '<color>';
+  }
+  
+  @property --theme-background-subtle {
+    inherits: true;
+    initial-value: #f8fafc;
+    syntax: '<color>';
+  }
+  
+  @property --theme-surface {
+    inherits: true;
+    initial-value: #f1f5f9;
+    syntax: '<color>';
+  }
+  
+  @property --theme-surface-elevated {
+    inherits: true;
+    initial-value: #fff;
+    syntax: '<color>';
+  }
+  
+  @property --theme-surface-overlay {
+    inherits: true;
+    initial-value: rgb(255 255 255 / 90%);
+    syntax: '<color>';
+  }
+  
+  /* Theme Text Colors */
+  @property --theme-text {
+    inherits: true;
+    initial-value: #1e293b;
+    syntax: '<color>';
+  }
+  
+  @property --theme-text-muted {
+    inherits: true;
+    initial-value: #64748b;
+    syntax: '<color>';
+  }
+  
+  @property --theme-text-subtle {
+    inherits: true;
+    initial-value: #94a3b8;
+    syntax: '<color>';
+  }
+  
+  @property --theme-text-inverse {
+    inherits: true;
+    initial-value: #fff;
+    syntax: '<color>';
+  }
+  
+  @property --theme-text-on-primary {
+    inherits: true;
+    initial-value: #fff;
+    syntax: '<color>';
+  }
+  
+  /* Theme Border Colors */
+  @property --theme-border {
+    inherits: true;
+    initial-value: #e2e8f0;
+    syntax: '<color>';
+  }
+  
+  @property --theme-border-strong {
+    inherits: true;
+    initial-value: #cbd5e1;
+    syntax: '<color>';
+  }
+  
+  @property --theme-border-subtle {
+    inherits: true;
+    initial-value: #f1f5f9;
+    syntax: '<color>';
+  }
+  
+  @property --theme-border-focus {
+    inherits: true;
+    initial-value: #4f46e5;
+    syntax: '<color>';
+  }
+  
+  /* ================= THEME EFFECT TOKENS ================= */
+  
+  /* Theme Shadows */
+  @property --theme-shadow-color {
+    inherits: true;
+    initial-value: rgb(0 0 0);
+    syntax: '<color>';
+  }
+  
+  @property --theme-shadow-opacity-sm {
+    inherits: true;
+    initial-value: 0.05;
+    syntax: '<number>';
+  }
+  
+  @property --theme-shadow-opacity-md {
+    inherits: true;
+    initial-value: 0.1;
+    syntax: '<number>';
+  }
+  
+  @property --theme-shadow-opacity-lg {
+    inherits: true;
+    initial-value: 0.15;
+    syntax: '<number>';
+  }
+  
+  @property --theme-shadow-opacity-xl {
+    inherits: true;
+    initial-value: 0.25;
+    syntax: '<number>';
+  }
+  
+  /* Theme Focus Effects */
+  @property --theme-focus-ring {
+    inherits: true;
+    initial-value: #4f46e5;
+    syntax: '<color>';
+  }
+  
+  @property --theme-focus-glow {
+    inherits: true;
+    initial-value: rgb(79 70 229 / 30%);
+    syntax: '<color>';
+  }
+  
+  @property --theme-focus-ring-width {
+    inherits: true;
+    initial-value: 2px;
+    syntax: '<length>';
+  }
+  
+  @property --theme-focus-ring-offset {
+    inherits: true;
+    initial-value: 2px;
+    syntax: '<length>';
+  }
+  
+  /* Theme Backdrop Effects */
+  @property --theme-backdrop {
+    inherits: true;
+    initial-value: rgb(0 0 0 / 50%);
+    syntax: '<color>';
+  }
+  
+  @property --theme-backdrop-blur {
+    inherits: true;
+    initial-value: 8px;
+    syntax: '<length>';
+  }
+  
+  /* Theme Gradient Colors */
+  @property --theme-gradient-start {
+    inherits: true;
+    initial-value: #4f46e5;
+    syntax: '<color>';
+  }
+  
+  @property --theme-gradient-end {
+    inherits: true;
+    initial-value: #7c3aed;
+    syntax: '<color>';
+  }
+  
+  @property --theme-gradient-accent {
+    inherits: true;
+    initial-value: #3b82f6;
+    syntax: '<color>';
+  }
+  
+  /* ================= THEME INTERACTION TOKENS ================= */
+  
+  /* Theme Hover States */
+  @property --theme-hover-opacity {
+    inherits: true;
+    initial-value: 0.8;
+    syntax: '<number>';
+  }
+  
+  @property --theme-hover-scale {
+    inherits: true;
+    initial-value: 1.05;
+    syntax: '<number>';
+  }
+  
+  /* Theme Active States */
+  @property --theme-active-opacity {
+    inherits: true;
+    initial-value: 0.9;
+    syntax: '<number>';
+  }
+  
+  @property --theme-active-scale {
+    inherits: true;
+    initial-value: 0.95;
+    syntax: '<number>';
+  }
+  
+  /* Theme Disabled States */
+  @property --theme-disabled-opacity {
+    inherits: true;
+    initial-value: 0.5;
+    syntax: '<number>';
+  }
+  
+  /* ================= THEME TRANSITION TOKENS ================= */
+  
+  /* Theme Transition Durations */
+  @property --theme-transition-fast {
+    inherits: true;
+    initial-value: 150ms;
+    syntax: '<time>';
+  }
+  
+  @property --theme-transition-normal {
+    inherits: true;
+    initial-value: 250ms;
+    syntax: '<time>';
+  }
+  
+  @property --theme-transition-slow {
+    inherits: true;
+    initial-value: 400ms;
+    syntax: '<time>';
+  }
+  
+  /* Theme Transition Easings */
+  @property --theme-ease-out {
+    inherits: true;
+    initial-value: cubic-bezier(0, 0, 0.2, 1);
+    syntax: '<custom-ident>';
+  }
+  
+  @property --theme-ease-in {
+    inherits: true;
+    initial-value: cubic-bezier(0.4, 0, 1, 1);
+    syntax: '<custom-ident>';
+  }
+  
+  @property --theme-ease-in-out {
+    inherits: true;
+    initial-value: cubic-bezier(0.4, 0, 0.2, 1);
+    syntax: '<custom-ident>';
+  }
+  
+  /* ================= THEME STATUS TOKENS ================= */
+  
+  /* Success Theme Colors */
+  @property --theme-success {
+    inherits: true;
+    initial-value: #10b981;
+    syntax: '<color>';
+  }
+  
+  @property --theme-success-bg {
+    inherits: true;
+    initial-value: #ecfdf5;
+    syntax: '<color>';
+  }
+  
+  @property --theme-success-border {
+    inherits: true;
+    initial-value: #a7f3d0;
+    syntax: '<color>';
+  }
+  
+  /* Warning Theme Colors */
+  @property --theme-warning {
+    inherits: true;
+    initial-value: #f59e0b;
+    syntax: '<color>';
+  }
+  
+  @property --theme-warning-bg {
+    inherits: true;
+    initial-value: #fffbeb;
+    syntax: '<color>';
+  }
+  
+  @property --theme-warning-border {
+    inherits: true;
+    initial-value: #fed7aa;
+    syntax: '<color>';
+  }
+  
+  /* Error Theme Colors */
+  @property --theme-error {
+    inherits: true;
+    initial-value: #ef4444;
+    syntax: '<color>';
+  }
+  
+  @property --theme-error-bg {
+    inherits: true;
+    initial-value: #fef2f2;
+    syntax: '<color>';
+  }
+  
+  @property --theme-error-border {
+    inherits: true;
+    initial-value: #fecaca;
+    syntax: '<color>';
+  }
+  
+  /* Info Theme Colors */
+  @property --theme-info {
+    inherits: true;
+    initial-value: #3b82f6;
+    syntax: '<color>';
+  }
+  
+  @property --theme-info-bg {
+    inherits: true;
+    initial-value: #eff6ff;
+    syntax: '<color>';
+  }
+  
+  @property --theme-info-border {
+    inherits: true;
+    initial-value: #bfdbfe;
+    syntax: '<color>';
+  }
+  
+  /* ================= THEME VARIANT TOKENS ================= */
+  
+  /* Light Theme Variant */
+  @property --theme-variant-light-bg {
+    inherits: true;
+    initial-value: #fff;
+    syntax: '<color>';
+  }
+  
+  @property --theme-variant-light-text {
+    inherits: true;
+    initial-value: #1e293b;
+    syntax: '<color>';
+  }
+  
+  /* Dark Theme Variant */
+  @property --theme-variant-dark-bg {
+    inherits: true;
+    initial-value: #1e293b;
+    syntax: '<color>';
+  }
+  
+  @property --theme-variant-dark-text {
+    inherits: true;
+    initial-value: #f1f5f9;
+    syntax: '<color>';
+  }
+  
+  /* High Contrast Theme Variant */
+  @property --theme-variant-contrast-bg {
+    inherits: true;
+    initial-value: #000;
+    syntax: '<color>';
+  }
+  
+  @property --theme-variant-contrast-text {
+    inherits: true;
+    initial-value: #fff;
+    syntax: '<color>';
+  }
+}

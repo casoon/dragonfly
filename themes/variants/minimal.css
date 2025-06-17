@@ -1,0 +1,87 @@
+/**
+ * Minimal Theme Variant - Token-Based Version
+ * 
+ * Standalone theme variant that can be loaded independently.
+ * Uses [data-theme="minimal"] scope for activation.
+ * CDN-compatible and opt-in via import or JS.
+ * 
+ * @layer themes.variants
+ */
+
+@layer themes.variants {
+  [data-theme="minimal"] {
+    /* Primary Colors - Minimal grayscale theme */
+    --color-primary: #374151;
+    --color-secondary: #6b7280;
+    
+    /* Status Colors - Subtle status colors for minimal theme */
+    --color-success: #059669;
+    --color-warning: #d97706;
+    --color-error: #dc2626;
+    --color-info: #0369a1;
+    
+    /* Text Colors - Minimal theme text */
+    --color-text: #111827;
+    --color-text-muted: #6b7280;
+    --color-text-inverse: var(--theme-text-inverse, #fff);
+    
+    /* Surface Colors - Clean minimal surfaces */
+    --color-background: #fff;
+    --color-surface: #f9fafb;
+    --color-surface-elevated: #fff;
+    
+    /* Border Colors - Subtle minimal borders */
+    --color-border: #e5e7eb;
+    --color-border-strong: #d1d5db;
+    
+    /* Transition Colors for smooth animations */
+    --color-transition-primary: #374151;
+    --color-transition-surface: #fff;
+    --color-transition-text: #111827;
+    
+    /* Minimal-specific theme properties */
+    --theme-minimal-accent: #374151;
+    --theme-minimal-gradient-start: var(--theme-gradient-start, #374151);
+    --theme-minimal-gradient-end: var(--theme-gradient-end, #6b7280);
+    
+    /* Subtle focus and interaction states */
+    --color-focus: var(--theme-focus-ring, #374151);
+    --color-focus-glow: rgb(55 65 81 / 20%);
+    
+    /* Minimal shadow properties */
+    --shadow-opacity-sm: 0.03;
+    --shadow-opacity-md: 0.05;
+    --shadow-opacity-lg: 0.08;
+    --shadow-opacity-xl: 0.12;
+    --shadow-color: var(--theme-shadow-color, rgb(0 0 0));
+    
+    /* Backdrop properties using theme backdrop tokens */
+    --color-backdrop: var(--theme-backdrop, rgb(0 0 0 / 50%));
+    --backdrop-blur: var(--theme-backdrop-blur, 8px);
+    
+    /* Minimal status background colors */
+    --color-success-bg: #f0fdf4;
+    --color-warning-bg: #fffbeb;
+    --color-error-bg: var(--theme-error-bg, #fef2f2);
+    --color-info-bg: #eff6ff;
+    
+    /* Minimal status border colors */
+    --color-success-border: #d1fae5;
+    --color-warning-border: #fed7aa;
+    --color-error-border: var(--theme-error-border, #fecaca);
+    --color-info-border: #dbeafe;
+    
+    /* Subtle interaction states */
+    --hover-opacity: 0.7;
+    --hover-scale: 1.02;
+    --active-opacity: 0.8;
+    --active-scale: 0.98;
+    --disabled-opacity: var(--theme-disabled-opacity, 0.5);
+    
+    /* Smooth transition properties */
+    --transition-fast: var(--theme-transition-fast, 150ms);
+    --transition-normal: var(--theme-transition-normal, 250ms);
+    --transition-slow: var(--theme-transition-slow, 400ms);
+    --transition-ease-out: var(--theme-ease-out, cubic-bezier(0, 0, 0.2, 1));
+  }
+} 

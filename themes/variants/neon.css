@@ -1,42 +1,98 @@
 /**
- * Neon Theme Variant
+ * Neon Theme Variant - Enhanced Token-Based Version
  * 
  * Standalone theme variant that can be loaded independently.
  * Uses [data-theme="neon"] scope for activation.
  * CDN-compatible and opt-in via import or JS.
+ * 
+ * Enhanced with vibrant neon colors and glow effects.
  * 
  * @layer themes.variants
  */
 
 @layer themes.variants {
   [data-theme="neon"] {
-    /* Primary Colors */
-    --color-primary: #a855f7;
-    --color-secondary: #ec4899;
+    /* Primary Colors - Vibrant neon cyan/pink theme */
+    --color-primary: #0ff;
+    --color-secondary: #f0f;
     
-    /* Status Colors */
-    --color-success: #10b981;
-    --color-warning: #f59e0b;
-    --color-error: #ef4444;
-    --color-info: #06b6d4;
+    /* Status Colors - Neon-enhanced status colors */
+    --color-success: #0f0;
+    --color-warning: #ff0;
+    --color-error: #ff0040;
+    --color-info: #00bfff;
     
-    /* Text Colors */
-    --color-text: #581c87;
-    --color-text-muted: #4b5563;
-    --color-text-inverse: #fff;
+    /* Text Colors - High contrast for neon theme */
+    --color-text: #fff;
+    --color-text-muted: #ccc;
+    --color-text-inverse: #000;
     
-    /* Surface Colors */
-    --color-background: #faf5ff;
-    --color-surface: #e9d5ff;
-    --color-surface-elevated: #fff;
+    /* Surface Colors - Dark surfaces for neon glow */
+    --color-background: #0a0a0a;
+    --color-surface: #1a1a1a;
+    --color-surface-elevated: #2a2a2a;
     
-    /* Border Colors */
-    --color-border: #c084fc;
-    --color-border-strong: #a855f7;
+    /* Border Colors - Glowing neon borders */
+    --color-border: #0ff;
+    --color-border-strong: #f0f;
     
     /* Transition Colors for smooth animations */
-    --color-transition-primary: #a855f7;
-    --color-transition-surface: #faf5ff;
-    --color-transition-text: #581c87;
+    --color-transition-primary: #0ff;
+    --color-transition-surface: #0a0a0a;
+    --color-transition-text: #fff;
+    
+    /* Neon-specific theme properties with enhanced glow */
+    --theme-neon-accent: #0ff;
+    --theme-neon-glow: rgb(0 255 255 / 80%);
+    --theme-neon-gradient-start: var(--theme-gradient-start, #0ff);
+    --theme-neon-gradient-end: var(--theme-gradient-end, #f0f);
+    
+    /* Enhanced focus and interaction states for neon theme */
+    --color-focus: #0ff;
+    --color-focus-glow: rgb(0 255 255 / 80%);
+    
+    /* Enhanced shadow properties for neon glow effects */
+    --shadow-color: var(--theme-shadow-color, rgb(0 255 255));
+    --shadow-opacity-sm: 0.6;
+    --shadow-opacity-md: 0.8;
+    --shadow-opacity-lg: 1.0;
+    --shadow-opacity-xl: 1.2;
+    
+    /* Strong backdrop for neon theme */
+    --color-backdrop: rgb(0 0 0 / 90%);
+    --backdrop-blur: var(--theme-backdrop-blur, 8px);
+    
+    /* Neon-enhanced status background colors */
+    --color-success-bg: rgb(0 255 0 / 10%);
+    --color-warning-bg: rgb(255 255 0 / 10%);
+    --color-error-bg: rgb(255 0 64 / 10%);
+    --color-info-bg: rgb(0 191 255 / 10%);
+    
+    /* Neon status border colors with glow */
+    --color-success-border: rgb(0 255 0 / 60%);
+    --color-warning-border: rgb(255 255 0 / 60%);
+    --color-error-border: rgb(255 0 64 / 60%);
+    --color-info-border: rgb(0 191 255 / 60%);
+    
+    /* Enhanced interaction states for neon effects */
+    --hover-opacity: 0.9;
+    --hover-scale: var(--theme-hover-scale, 1.05);
+    --active-opacity: 1.0;
+    --active-scale: var(--theme-active-scale, 0.95);
+    --disabled-opacity: 0.3;
+    
+    /* Faster transitions for responsive neon effects */
+    --transition-fast: 100ms;
+    --transition-normal: 200ms;
+    --transition-slow: 300ms;
+    --transition-ease-out: var(--theme-ease-out, cubic-bezier(0, 0, 0.2, 1));
+    
+    /* Neon-specific glow properties */
+    --neon-glow-blur: 10px;
+    --neon-glow-spread: 2px;
+    --neon-pulse-duration: 2s;
+    
+    /* Surface overlay with neon tint */
+    --color-surface-overlay: rgb(26 26 26 / 95%);
   }
 }

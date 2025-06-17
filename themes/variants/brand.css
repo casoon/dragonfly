@@ -1,42 +1,91 @@
 /**
- * Brand Theme Variant
+ * Brand Theme Variant - Token-Based Version
  * 
  * Standalone theme variant that can be loaded independently.
  * Uses [data-theme="brand"] scope for activation.
  * CDN-compatible and opt-in via import or JS.
+ * 
+ * Now uses design tokens from tokens/ directory for better consistency.
  * 
  * @layer themes.variants
  */
 
 @layer themes.variants {
   [data-theme="brand"] {
-    /* Primary Colors - Brand indigo */
-    --color-primary: #4f46e5;
-    --color-secondary: #7c3aed;
+    /* Primary Colors - Using theme tokens with fallbacks */
+    --color-primary: var(--theme-primary, #4f46e5);
+    --color-secondary: var(--theme-secondary, #7c3aed);
     
-    /* Status Colors */
-    --color-success: #10b981;
-    --color-warning: #f59e0b;
-    --color-error: #ef4444;
-    --color-info: #06b6d4;
+    /* Status Colors - Using theme status tokens */
+    --color-success: var(--theme-success, #10b981);
+    --color-warning: var(--theme-warning, #f59e0b);
+    --color-error: var(--theme-error, #ef4444);
+    --color-info: var(--theme-info, #06b6d4);
     
-    /* Text Colors */
-    --color-text: #1e293b;
-    --color-text-muted: #64748b;
-    --color-text-inverse: #fff;
+    /* Text Colors - Using theme text tokens */
+    --color-text: var(--theme-text, #1e293b);
+    --color-text-muted: var(--theme-text-muted, #64748b);
+    --color-text-inverse: var(--theme-text-inverse, #fff);
     
-    /* Surface Colors */
-    --color-background: #fff;
-    --color-surface: #f8fafc;
-    --color-surface-elevated: #fff;
+    /* Surface Colors - Using theme surface tokens */
+    --color-background: var(--theme-background, #fff);
+    --color-surface: var(--theme-surface, #f8fafc);
+    --color-surface-elevated: var(--theme-surface-elevated, #fff);
     
-    /* Border Colors */
-    --color-border: #e2e8f0;
-    --color-border-strong: #cbd5e1;
+    /* Border Colors - Using theme border tokens */
+    --color-border: var(--theme-border, #e2e8f0);
+    --color-border-strong: var(--theme-border-strong, #cbd5e1);
     
-    /* Transition Colors for smooth animations */
-    --color-transition-primary: #4f46e5;
-    --color-transition-surface: #fff;
-    --color-transition-text: #1e293b;
+    /* Transition Colors - Using theme transition tokens */
+    --color-transition-primary: var(--color-primary);
+    --color-transition-surface: var(--color-background);
+    --color-transition-text: var(--color-text);
+    
+    /* Enhanced with theme-specific brand properties */
+    --theme-brand-accent: #4f46e5;
+    --theme-brand-gradient-start: var(--theme-gradient-start, #4f46e5);
+    --theme-brand-gradient-end: var(--theme-gradient-end, #7c3aed);
+    
+    /* Focus and interaction states using theme effect tokens */
+    --color-focus: var(--theme-focus-ring, #4f46e5);
+    --color-focus-glow: var(--theme-focus-glow, rgb(79 70 229 / 30%));
+    
+    /* Shadow properties using theme shadow tokens */
+    --shadow-opacity-sm: var(--theme-shadow-opacity-sm, 0.05);
+    --shadow-opacity-md: var(--theme-shadow-opacity-md, 0.1);
+    --shadow-opacity-lg: var(--theme-shadow-opacity-lg, 0.15);
+    --shadow-opacity-xl: var(--theme-shadow-opacity-xl, 0.25);
+    --shadow-color: var(--theme-shadow-color, rgb(0 0 0));
+    
+    /* Backdrop properties using theme backdrop tokens */
+    --color-backdrop: var(--theme-backdrop, rgb(0 0 0 / 50%));
+    --backdrop-blur: var(--theme-backdrop-blur, 8px);
+    
+    /* Interaction states using theme interaction tokens */
+    --hover-opacity: var(--theme-hover-opacity, 0.8);
+    --hover-scale: var(--theme-hover-scale, 1.05);
+    --active-opacity: var(--theme-active-opacity, 0.9);
+    --active-scale: var(--theme-active-scale, 0.95);
+    --disabled-opacity: var(--theme-disabled-opacity, 0.5);
+    
+    /* Transition properties using theme transition tokens */
+    --transition-fast: var(--theme-transition-fast, 150ms);
+    --transition-normal: var(--theme-transition-normal, 250ms);
+    --transition-slow: var(--theme-transition-slow, 400ms);
+    --transition-ease-out: var(--theme-ease-out, cubic-bezier(0, 0, 0.2, 1));
+    --transition-ease-in: var(--theme-ease-in, cubic-bezier(0.4, 0, 1, 1));
+    --transition-ease-in-out: var(--theme-ease-in-out, cubic-bezier(0.4, 0, 0.2, 1));
+    
+    /* Status background colors using theme status tokens */
+    --color-success-bg: var(--theme-success-bg, #ecfdf5);
+    --color-warning-bg: var(--theme-warning-bg, #fffbeb);
+    --color-error-bg: var(--theme-error-bg, #fef2f2);
+    --color-info-bg: var(--theme-info-bg, #eff6ff);
+    
+    /* Status border colors using theme status tokens */
+    --color-success-border: var(--theme-success-border, #a7f3d0);
+    --color-warning-border: var(--theme-warning-border, #fed7aa);
+    --color-error-border: var(--theme-error-border, #fecaca);
+    --color-info-border: var(--theme-info-border, #bfdbfe);
   }
 }

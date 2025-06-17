@@ -1,5 +1,5 @@
 /**
- * Forest Theme Variant
+ * Forest Theme Variant - Token-Based Version
  * 
  * Standalone theme variant that can be loaded independently.
  * Uses [data-theme="forest"] scope for activation.
@@ -10,27 +10,27 @@
 
 @layer themes.variants {
   [data-theme="forest"] {
-    /* Primary Colors - Forest green */
+    /* Primary Colors - Forest green theme */
     --color-primary: #059669;
     --color-secondary: #0d9488;
     
-    /* Status Colors */
-    --color-success: #10b981;
-    --color-warning: #f59e0b;
-    --color-error: #ef4444;
-    --color-info: #06b6d4;
+    /* Status Colors - Using theme status tokens */
+    --color-success: var(--theme-success, #10b981);
+    --color-warning: var(--theme-warning, #f59e0b);
+    --color-error: var(--theme-error, #ef4444);
+    --color-info: var(--theme-info, #06b6d4);
     
-    /* Text Colors */
+    /* Text Colors - Forest theme text */
     --color-text: #14532d;
-    --color-text-muted: #4b5563;
-    --color-text-inverse: #fff;
+    --color-text-muted: var(--theme-text-muted, #4b5563);
+    --color-text-inverse: var(--theme-text-inverse, #fff);
     
-    /* Surface Colors */
+    /* Surface Colors - Forest theme surfaces */
     --color-background: #f0fdf4;
     --color-surface: #dcfce7;
-    --color-surface-elevated: #fff;
+    --color-surface-elevated: var(--theme-surface-elevated, #fff);
     
-    /* Border Colors */
+    /* Border Colors - Forest theme borders */
     --color-border: #bbf7d0;
     --color-border-strong: #86efac;
     
@@ -38,5 +38,50 @@
     --color-transition-primary: #059669;
     --color-transition-surface: #f0fdf4;
     --color-transition-text: #14532d;
+    
+    /* Forest-specific theme properties */
+    --theme-forest-accent: #059669;
+    --theme-forest-gradient-start: var(--theme-gradient-start, #059669);
+    --theme-forest-gradient-end: var(--theme-gradient-end, #0d9488);
+    
+    /* Focus and interaction states using theme tokens */
+    --color-focus: var(--theme-focus-ring, #059669);
+    --color-focus-glow: rgb(5 150 105 / 30%);
+    
+    /* Shadow properties using theme shadow tokens */
+    --shadow-opacity-sm: var(--theme-shadow-opacity-sm, 0.05);
+    --shadow-opacity-md: var(--theme-shadow-opacity-md, 0.1);
+    --shadow-opacity-lg: var(--theme-shadow-opacity-lg, 0.15);
+    --shadow-opacity-xl: var(--theme-shadow-opacity-xl, 0.25);
+    --shadow-color: var(--theme-shadow-color, rgb(0 0 0));
+    
+    /* Backdrop properties using theme backdrop tokens */
+    --color-backdrop: var(--theme-backdrop, rgb(0 0 0 / 50%));
+    --backdrop-blur: var(--theme-backdrop-blur, 8px);
+    
+    /* Status background colors using theme status tokens */
+    --color-success-bg: var(--theme-success-bg, #ecfdf5);
+    --color-warning-bg: var(--theme-warning-bg, #fffbeb);
+    --color-error-bg: var(--theme-error-bg, #fef2f2);
+    --color-info-bg: var(--theme-info-bg, #eff6ff);
+    
+    /* Status border colors using theme status tokens */
+    --color-success-border: var(--theme-success-border, #a7f3d0);
+    --color-warning-border: var(--theme-warning-border, #fed7aa);
+    --color-error-border: var(--theme-error-border, #fecaca);
+    --color-info-border: var(--theme-info-border, #bfdbfe);
+    
+    /* Interaction states using theme interaction tokens */
+    --hover-opacity: var(--theme-hover-opacity, 0.8);
+    --hover-scale: var(--theme-hover-scale, 1.05);
+    --active-opacity: var(--theme-active-opacity, 0.9);
+    --active-scale: var(--theme-active-scale, 0.95);
+    --disabled-opacity: var(--theme-disabled-opacity, 0.5);
+    
+    /* Transition properties using theme transition tokens */
+    --transition-fast: var(--theme-transition-fast, 150ms);
+    --transition-normal: var(--theme-transition-normal, 250ms);
+    --transition-slow: var(--theme-transition-slow, 400ms);
+    --transition-ease-out: var(--theme-ease-out, cubic-bezier(0, 0, 0.2, 1));
   }
 }

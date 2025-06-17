@@ -1,5 +1,5 @@
 /**
- * Sunset Theme Variant
+ * Sunset Theme Variant - Token-Based Version
  * 
  * Standalone theme variant that can be loaded independently.
  * Uses [data-theme="sunset"] scope for activation.
@@ -10,27 +10,27 @@
 
 @layer themes.variants {
   [data-theme="sunset"] {
-    /* Primary Colors */
+    /* Primary Colors - Sunset orange/red theme */
     --color-primary: #ea580c;
     --color-secondary: #dc2626;
     
-    /* Status Colors */
-    --color-success: #10b981;
-    --color-warning: #f59e0b;
-    --color-error: #ef4444;
-    --color-info: #06b6d4;
+    /* Status Colors - Using theme status tokens */
+    --color-success: var(--theme-success, #10b981);
+    --color-warning: var(--theme-warning, #f59e0b);
+    --color-error: var(--theme-error, #ef4444);
+    --color-info: var(--theme-info, #06b6d4);
     
-    /* Text Colors */
+    /* Text Colors - Sunset theme text */
     --color-text: #7c2d12;
-    --color-text-muted: #4b5563;
-    --color-text-inverse: #fff;
+    --color-text-muted: var(--theme-text-muted, #4b5563);
+    --color-text-inverse: var(--theme-text-inverse, #fff);
     
-    /* Surface Colors */
+    /* Surface Colors - Sunset theme surfaces */
     --color-background: #fff7ed;
     --color-surface: #fed7aa;
-    --color-surface-elevated: #fff;
+    --color-surface-elevated: var(--theme-surface-elevated, #fff);
     
-    /* Border Colors */
+    /* Border Colors - Sunset theme borders */
     --color-border: #fdba74;
     --color-border-strong: #fb923c;
     
@@ -38,5 +38,50 @@
     --color-transition-primary: #ea580c;
     --color-transition-surface: #fff7ed;
     --color-transition-text: #7c2d12;
+    
+    /* Sunset-specific theme properties */
+    --theme-sunset-accent: #ea580c;
+    --theme-sunset-gradient-start: var(--theme-gradient-start, #ea580c);
+    --theme-sunset-gradient-end: var(--theme-gradient-end, #dc2626);
+    
+    /* Focus and interaction states using theme tokens */
+    --color-focus: var(--theme-focus-ring, #ea580c);
+    --color-focus-glow: rgb(234 88 12 / 30%);
+    
+    /* Shadow properties using theme shadow tokens */
+    --shadow-opacity-sm: var(--theme-shadow-opacity-sm, 0.05);
+    --shadow-opacity-md: var(--theme-shadow-opacity-md, 0.1);
+    --shadow-opacity-lg: var(--theme-shadow-opacity-lg, 0.15);
+    --shadow-opacity-xl: var(--theme-shadow-opacity-xl, 0.25);
+    --shadow-color: var(--theme-shadow-color, rgb(0 0 0));
+    
+    /* Backdrop properties using theme backdrop tokens */
+    --color-backdrop: var(--theme-backdrop, rgb(0 0 0 / 50%));
+    --backdrop-blur: var(--theme-backdrop-blur, 8px);
+    
+    /* Status background colors using theme status tokens */
+    --color-success-bg: var(--theme-success-bg, #ecfdf5);
+    --color-warning-bg: var(--theme-warning-bg, #fffbeb);
+    --color-error-bg: var(--theme-error-bg, #fef2f2);
+    --color-info-bg: var(--theme-info-bg, #eff6ff);
+    
+    /* Status border colors using theme status tokens */
+    --color-success-border: var(--theme-success-border, #a7f3d0);
+    --color-warning-border: var(--theme-warning-border, #fed7aa);
+    --color-error-border: var(--theme-error-border, #fecaca);
+    --color-info-border: var(--theme-info-border, #bfdbfe);
+    
+    /* Interaction states using theme interaction tokens */
+    --hover-opacity: var(--theme-hover-opacity, 0.8);
+    --hover-scale: var(--theme-hover-scale, 1.05);
+    --active-opacity: var(--theme-active-opacity, 0.9);
+    --active-scale: var(--theme-active-scale, 0.95);
+    --disabled-opacity: var(--theme-disabled-opacity, 0.5);
+    
+    /* Transition properties using theme transition tokens */
+    --transition-fast: var(--theme-transition-fast, 150ms);
+    --transition-normal: var(--theme-transition-normal, 250ms);
+    --transition-slow: var(--theme-transition-slow, 400ms);
+    --transition-ease-out: var(--theme-ease-out, cubic-bezier(0, 0, 0.2, 1));
   }
 }

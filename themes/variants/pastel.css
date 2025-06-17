@@ -1,5 +1,5 @@
 /**
- * Pastel Theme Variant
+ * Pastel Theme Variant - Token-Based Version
  * 
  * Standalone theme variant that can be loaded independently.
  * Uses [data-theme="pastel"] scope for activation.
@@ -10,33 +10,78 @@
 
 @layer themes.variants {
   [data-theme="pastel"] {
-    /* Primary Colors */
-    --color-primary: #8b5cf6;
-    --color-secondary: #ec4899;
+    /* Primary Colors - Soft pastel pink/purple theme */
+    --color-primary: #ec4899;
+    --color-secondary: #a855f7;
     
-    /* Status Colors */
-    --color-success: #10b981;
-    --color-warning: #f59e0b;
-    --color-error: #ef4444;
-    --color-info: #06b6d4;
+    /* Status Colors - Soft pastel status colors */
+    --color-success: #34d399;
+    --color-warning: #fbbf24;
+    --color-error: #f87171;
+    --color-info: #60a5fa;
     
-    /* Text Colors */
-    --color-text: #581c87;
-    --color-text-muted: #4b5563;
-    --color-text-inverse: #fff;
+    /* Text Colors - Pastel theme text */
+    --color-text: #831843;
+    --color-text-muted: var(--theme-text-muted, #6b7280);
+    --color-text-inverse: var(--theme-text-inverse, #fff);
     
-    /* Surface Colors */
-    --color-background: #fdf4ff;
-    --color-surface: #f3e8ff;
-    --color-surface-elevated: #fff;
+    /* Surface Colors - Soft pastel surfaces */
+    --color-background: #fdf2f8;
+    --color-surface: #fce7f3;
+    --color-surface-elevated: var(--theme-surface-elevated, #fff);
     
-    /* Border Colors */
-    --color-border: #ddd6fe;
-    --color-border-strong: #c4b5fd;
+    /* Border Colors - Soft pastel borders */
+    --color-border: #f9a8d4;
+    --color-border-strong: #f472b6;
     
     /* Transition Colors for smooth animations */
-    --color-transition-primary: #8b5cf6;
-    --color-transition-surface: #fdf4ff;
-    --color-transition-text: #581c87;
+    --color-transition-primary: #ec4899;
+    --color-transition-surface: #fdf2f8;
+    --color-transition-text: #831843;
+    
+    /* Pastel-specific theme properties */
+    --theme-pastel-accent: #ec4899;
+    --theme-pastel-gradient-start: var(--theme-gradient-start, #ec4899);
+    --theme-pastel-gradient-end: var(--theme-gradient-end, #a855f7);
+    
+    /* Soft focus and interaction states */
+    --color-focus: var(--theme-focus-ring, #ec4899);
+    --color-focus-glow: rgb(236 72 153 / 30%);
+    
+    /* Soft shadow properties */
+    --shadow-opacity-sm: var(--theme-shadow-opacity-sm, 0.05);
+    --shadow-opacity-md: var(--theme-shadow-opacity-md, 0.1);
+    --shadow-opacity-lg: var(--theme-shadow-opacity-lg, 0.15);
+    --shadow-opacity-xl: var(--theme-shadow-opacity-xl, 0.25);
+    --shadow-color: var(--theme-shadow-color, rgb(236 72 153));
+    
+    /* Backdrop properties using theme backdrop tokens */
+    --color-backdrop: var(--theme-backdrop, rgb(0 0 0 / 50%));
+    --backdrop-blur: var(--theme-backdrop-blur, 8px);
+    
+    /* Pastel status background colors */
+    --color-success-bg: #ecfdf5;
+    --color-warning-bg: #fffbeb;
+    --color-error-bg: #fef2f2;
+    --color-info-bg: #eff6ff;
+    
+    /* Pastel status border colors */
+    --color-success-border: #a7f3d0;
+    --color-warning-border: #fed7aa;
+    --color-error-border: #fecaca;
+    --color-info-border: #bfdbfe;
+    
+    /* Gentle interaction states */
+    --hover-opacity: var(--theme-hover-opacity, 0.8);
+    --hover-scale: var(--theme-hover-scale, 1.05);
+    --active-opacity: var(--theme-active-opacity, 0.9);
+    --active-scale: var(--theme-active-scale, 0.95);
+    --disabled-opacity: var(--theme-disabled-opacity, 0.5);
+    
+    /* Smooth transition properties */
+    --transition-fast: var(--theme-transition-fast, 150ms);
+    --transition-normal: var(--theme-transition-normal, 250ms);
+    --transition-slow: var(--theme-transition-slow, 400ms);
+    --transition-ease-out: var(--theme-ease-out, cubic-bezier(0, 0, 0.2, 1));
   }
 }

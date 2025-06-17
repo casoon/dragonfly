@@ -1,5 +1,5 @@
 /**
- * Retro Theme Variant
+ * Retro Theme Variant - Token-Based Version
  * 
  * Standalone theme variant that can be loaded independently.
  * Uses [data-theme="retro"] scope for activation.
@@ -10,33 +10,78 @@
 
 @layer themes.variants {
   [data-theme="retro"] {
-    /* Primary Colors */
-    --color-primary: #a16207;
-    --color-secondary: #ea580c;
+    /* Primary Colors - Retro amber/brown theme */
+    --color-primary: #d97706;
+    --color-secondary: #92400e;
     
-    /* Status Colors */
-    --color-success: #10b981;
-    --color-warning: #f59e0b;
-    --color-error: #ef4444;
-    --color-info: #06b6d4;
+    /* Status Colors - Retro-styled status colors */
+    --color-success: #65a30d;
+    --color-warning: #ca8a04;
+    --color-error: #dc2626;
+    --color-info: #0369a1;
     
-    /* Text Colors */
-    --color-text: #78350f;
-    --color-text-muted: #4b5563;
-    --color-text-inverse: #fff;
+    /* Text Colors - Retro theme text */
+    --color-text: #451a03;
+    --color-text-muted: #78716c;
+    --color-text-inverse: var(--theme-text-inverse, #fff);
     
-    /* Surface Colors */
-    --color-background: #fef3c7;
-    --color-surface: #fde047;
-    --color-surface-elevated: #fff;
+    /* Surface Colors - Retro warm surfaces */
+    --color-background: #fefcbf;
+    --color-surface: #fef3c7;
+    --color-surface-elevated: var(--theme-surface-elevated, #fff);
     
-    /* Border Colors */
-    --color-border: #facc15;
-    --color-border-strong: #eab308;
+    /* Border Colors - Retro warm borders */
+    --color-border: #fde68a;
+    --color-border-strong: #fcd34d;
     
     /* Transition Colors for smooth animations */
-    --color-transition-primary: #a16207;
-    --color-transition-surface: #fef3c7;
-    --color-transition-text: #78350f;
+    --color-transition-primary: #d97706;
+    --color-transition-surface: #fefcbf;
+    --color-transition-text: #451a03;
+    
+    /* Retro-specific theme properties */
+    --theme-retro-accent: #d97706;
+    --theme-retro-gradient-start: var(--theme-gradient-start, #d97706);
+    --theme-retro-gradient-end: var(--theme-gradient-end, #92400e);
+    
+    /* Focus and interaction states using theme tokens */
+    --color-focus: var(--theme-focus-ring, #d97706);
+    --color-focus-glow: rgb(217 119 6 / 30%);
+    
+    /* Shadow properties using theme shadow tokens */
+    --shadow-opacity-sm: var(--theme-shadow-opacity-sm, 0.05);
+    --shadow-opacity-md: var(--theme-shadow-opacity-md, 0.1);
+    --shadow-opacity-lg: var(--theme-shadow-opacity-lg, 0.15);
+    --shadow-opacity-xl: var(--theme-shadow-opacity-xl, 0.25);
+    --shadow-color: var(--theme-shadow-color, rgb(69 26 3));
+    
+    /* Backdrop properties using theme backdrop tokens */
+    --color-backdrop: var(--theme-backdrop, rgb(0 0 0 / 50%));
+    --backdrop-blur: var(--theme-backdrop-blur, 8px);
+    
+    /* Retro status background colors */
+    --color-success-bg: #f7fee7;
+    --color-warning-bg: #fffbeb;
+    --color-error-bg: var(--theme-error-bg, #fef2f2);
+    --color-info-bg: #eff6ff;
+    
+    /* Retro status border colors */
+    --color-success-border: #d9f99d;
+    --color-warning-border: #fed7aa;
+    --color-error-border: var(--theme-error-border, #fecaca);
+    --color-info-border: #bfdbfe;
+    
+    /* Interaction states using theme interaction tokens */
+    --hover-opacity: var(--theme-hover-opacity, 0.8);
+    --hover-scale: var(--theme-hover-scale, 1.05);
+    --active-opacity: var(--theme-active-opacity, 0.9);
+    --active-scale: var(--theme-active-scale, 0.95);
+    --disabled-opacity: var(--theme-disabled-opacity, 0.5);
+    
+    /* Transition properties using theme transition tokens */
+    --transition-fast: var(--theme-transition-fast, 150ms);
+    --transition-normal: var(--theme-transition-normal, 250ms);
+    --transition-slow: var(--theme-transition-slow, 400ms);
+    --transition-ease-out: var(--theme-ease-out, cubic-bezier(0, 0, 0.2, 1));
   }
 }

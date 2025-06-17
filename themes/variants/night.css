@@ -1,9 +1,11 @@
 /**
- * Night Theme Variant
+ * Night Theme Variant - Enhanced Token-Based Version
  * 
  * Standalone theme variant that can be loaded independently.
  * Uses [data-theme="night"] scope for activation.
  * CDN-compatible and opt-in via import or JS.
+ * 
+ * Enhanced with design tokens and dark-mode-specific adjustments.
  * 
  * @layer themes.variants
  */
@@ -14,11 +16,11 @@
     --color-primary: #6366f1;
     --color-secondary: #8b5cf6;
     
-    /* Status Colors */
-    --color-success: #10b981;
-    --color-warning: #f59e0b;
-    --color-error: #ef4444;
-    --color-info: #06b6d4;
+    /* Status Colors - Using theme status tokens */
+    --color-success: var(--theme-success, #10b981);
+    --color-warning: var(--theme-warning, #f59e0b);
+    --color-error: var(--theme-error, #ef4444);
+    --color-info: var(--theme-info, #06b6d4);
     
     /* Text Colors - Light text for dark backgrounds */
     --color-text: #f9fafb;
@@ -30,7 +32,7 @@
     --color-surface: #1f2937;
     --color-surface-elevated: #374151;
     
-    /* Border Colors */
+    /* Border Colors - Adapted for dark theme */
     --color-border: #374151;
     --color-border-strong: #4b5563;
     
@@ -38,5 +40,60 @@
     --color-transition-primary: #6366f1;
     --color-transition-surface: #111827;
     --color-transition-text: #f9fafb;
+    
+    /* Enhanced Night Theme Properties */
+    --theme-night-accent: #8b5cf6;
+    --theme-night-glow: rgb(139 92 246 / 30%);
+    --theme-night-gradient-start: var(--theme-gradient-start, #6366f1);
+    --theme-night-gradient-end: var(--theme-gradient-end, #8b5cf6);
+    
+    /* Focus and interaction states adapted for dark theme */
+    --color-focus: #8b5cf6;
+    --color-focus-glow: rgb(139 92 246 / 40%);
+    
+    /* Dark theme shadow adjustments - Higher opacity for visibility */
+    --shadow-color: var(--theme-shadow-color, rgb(0 0 0));
+    --shadow-opacity-sm: 0.3;
+    --shadow-opacity-md: 0.4;
+    --shadow-opacity-lg: 0.5;
+    --shadow-opacity-xl: 0.6;
+    
+    /* Backdrop for modals and overlays - Stronger for dark themes */
+    --color-backdrop: rgb(0 0 0 / 80%);
+    --backdrop-blur: var(--theme-backdrop-blur, 8px);
+    
+    /* Enhanced status colors for dark backgrounds */
+    --color-success-bg: rgb(16 185 129 / 10%);
+    --color-warning-bg: rgb(245 158 11 / 10%);
+    --color-error-bg: rgb(239 68 68 / 10%);
+    --color-info-bg: rgb(6 182 212 / 10%);
+    
+    /* Status border colors - Brighter for dark theme visibility */
+    --color-success-border: rgb(16 185 129 / 30%);
+    --color-warning-border: rgb(245 158 11 / 30%);
+    --color-error-border: rgb(239 68 68 / 30%);
+    --color-info-border: rgb(6 182 212 / 30%);
+    
+    /* Interaction states using theme interaction tokens */
+    --hover-opacity: var(--theme-hover-opacity, 0.8);
+    --hover-scale: var(--theme-hover-scale, 1.05);
+    --active-opacity: var(--theme-active-opacity, 0.9);
+    --active-scale: var(--theme-active-scale, 0.95);
+    --disabled-opacity: var(--theme-disabled-opacity, 0.5);
+    
+    /* Transition properties using theme transition tokens */
+    --transition-fast: var(--theme-transition-fast, 150ms);
+    --transition-normal: var(--theme-transition-normal, 250ms);
+    --transition-slow: var(--theme-transition-slow, 400ms);
+    --transition-ease-out: var(--theme-ease-out, cubic-bezier(0, 0, 0.2, 1));
+    --transition-ease-in: var(--theme-ease-in, cubic-bezier(0.4, 0, 1, 1));
+    --transition-ease-in-out: var(--theme-ease-in-out, cubic-bezier(0.4, 0, 0.2, 1));
+    
+    /* Focus ring adjustments for dark theme */
+    --focus-ring-width: var(--theme-focus-ring-width, 2px);
+    --focus-ring-offset: var(--theme-focus-ring-offset, 2px);
+    
+    /* Surface overlay for better layering in dark theme */
+    --color-surface-overlay: rgb(55 65 81 / 90%);
   }
 }

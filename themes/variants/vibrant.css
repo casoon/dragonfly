@@ -1,0 +1,87 @@
+/**
+ * Vibrant Theme Variant - Token-Based Version
+ * 
+ * Standalone theme variant that can be loaded independently.
+ * Uses [data-theme="vibrant"] scope for activation.
+ * CDN-compatible and opt-in via import or JS.
+ * 
+ * @layer themes.variants
+ */
+
+@layer themes.variants {
+  [data-theme="vibrant"] {
+    /* Primary Colors - Vibrant electric blue/purple theme */
+    --color-primary: #3b82f6;
+    --color-secondary: #8b5cf6;
+    
+    /* Status Colors - Vibrant status colors */
+    --color-success: #10b981;
+    --color-warning: #f59e0b;
+    --color-error: #ef4444;
+    --color-info: #06b6d4;
+    
+    /* Text Colors - High contrast for vibrant theme */
+    --color-text: #1e40af;
+    --color-text-muted: var(--theme-text-muted, #4b5563);
+    --color-text-inverse: var(--theme-text-inverse, #fff);
+    
+    /* Surface Colors - Bright vibrant surfaces */
+    --color-background: #eff6ff;
+    --color-surface: #dbeafe;
+    --color-surface-elevated: var(--theme-surface-elevated, #fff);
+    
+    /* Border Colors - Vibrant borders */
+    --color-border: #93c5fd;
+    --color-border-strong: #60a5fa;
+    
+    /* Transition Colors for smooth animations */
+    --color-transition-primary: #3b82f6;
+    --color-transition-surface: #eff6ff;
+    --color-transition-text: #1e40af;
+    
+    /* Vibrant-specific theme properties */
+    --theme-vibrant-accent: #3b82f6;
+    --theme-vibrant-gradient-start: var(--theme-gradient-start, #3b82f6);
+    --theme-vibrant-gradient-end: var(--theme-gradient-end, #8b5cf6);
+    
+    /* Enhanced focus and interaction states */
+    --color-focus: var(--theme-focus-ring, #3b82f6);
+    --color-focus-glow: rgb(59 130 246 / 40%);
+    
+    /* Enhanced shadow properties for vibrant effects */
+    --shadow-opacity-sm: 0.08;
+    --shadow-opacity-md: 0.15;
+    --shadow-opacity-lg: 0.25;
+    --shadow-opacity-xl: 0.35;
+    --shadow-color: var(--theme-shadow-color, rgb(59 130 246));
+    
+    /* Backdrop properties using theme backdrop tokens */
+    --color-backdrop: var(--theme-backdrop, rgb(0 0 0 / 50%));
+    --backdrop-blur: var(--theme-backdrop-blur, 8px);
+    
+    /* Vibrant status background colors */
+    --color-success-bg: #ecfdf5;
+    --color-warning-bg: #fffbeb;
+    --color-error-bg: var(--theme-error-bg, #fef2f2);
+    --color-info-bg: #f0f9ff;
+    
+    /* Vibrant status border colors */
+    --color-success-border: #6ee7b7;
+    --color-warning-border: #fcd34d;
+    --color-error-border: #fca5a5;
+    --color-info-border: #7dd3fc;
+    
+    /* Enhanced interaction states for vibrant effects */
+    --hover-opacity: 0.9;
+    --hover-scale: 1.08;
+    --active-opacity: 1.0;
+    --active-scale: 0.92;
+    --disabled-opacity: var(--theme-disabled-opacity, 0.5);
+    
+    /* Snappy transition properties for vibrant responsiveness */
+    --transition-fast: 120ms;
+    --transition-normal: 200ms;
+    --transition-slow: 350ms;
+    --transition-ease-out: var(--theme-ease-out, cubic-bezier(0, 0, 0.2, 1));
+  }
+} 
