@@ -6,53 +6,53 @@
  */
 
 @keyframes fountain-shoot {
-    0% {
-        opacity: 0%;
+    0 {
+        opacity: var(--opacity-0);
         transform: translateY(0) scale(1);
     }
 
-    20% {
-        opacity: 100%;
+    20 {
+        opacity: var(--opacity-10)0;
         transform: translateY(-70px) scale(1);
     }
 
-    40% {
+    40 {
         transform: translateY(-90px) scale(0.9);
     }
 
-    70% {
-        opacity: 80%;
+    70 {
+        opacity: var(--opacity-80);
         transform: translateY(-40px) scale(0.8);
     }
 
-    100% {
-        opacity: 0%;
+    100 {
+        opacity: var(--opacity-0);
         transform: translateY(0) scale(0.7);
     }
 }
 
 @keyframes fountain-shoot-alt {
-    0% {
-        opacity: 0%;
+    0 {
+        opacity: var(--opacity-0);
         transform: translateY(0) translateX(0) scale(1);
     }
 
-    20% {
-        opacity: 100%;
-        transform: translateY(-60px) translateX(15px) scale(1);
+    20 {
+        opacity: var(--opacity-10)0;
+        transform: translateY(-60px) translateX(1var(--spacing-1)) scale(1);
     }
 
-    40% {
-        transform: translateY(-80px) translateX(20px) scale(0.9);
+    40 {
+        transform: translateY(-80px) translateX(var(--spacing-5)) scale(0.9);
     }
 
-    70% {
-        opacity: 80%;
-        transform: translateY(-30px) translateX(10px) scale(0.8);
+    70 {
+        opacity: var(--opacity-80);
+        transform: translateY(-30px) translateX(var(--spacing-2-5)) scale(0.8);
     }
 
-    100% {
-        opacity: 0%;
+    100 {
+        opacity: var(--opacity-0);
         transform: translateY(0) translateX(0) scale(0.7);
     }
 }
@@ -65,47 +65,47 @@
 
     .fountain::before,
     .fountain::after {
-        animation: fountain-shoot 2.5s ease-out infinite;
-        background: var(--fountain-color, rgb(180 220 255 / 80%));
-        border-radius: 50%;
+        animation: fountain-shoot 2.5s var(--easing-decelerate) infinite;
+        background: var(--fountain-color, rgb(180 220 255 / 80));
+        border-radius: 50;
         bottom: 0;
         content: '';
-        height: 6px;
+        height: var(--spacing-1-5);
         position: absolute;
-        width: 6px;
+        width: var(--spacing-1-5);
     }
 
     .fountain::before {
-        left: calc(50% - 5px);
+        left: calc(50 - var(--spacing-1));
     }
 
     .fountain::after {
-        animation-delay: 0.5s;
+        animation-delay: var(--animation-duration-medium);
         animation-name: fountain-shoot-alt;
-        left: calc(50% + 5px);
+        left: calc(50 + var(--spacing-1));
     }
 
     /* Varianten */
     .fountain-sm::before,
     .fountain-sm::after {
-        height: 4px;
-        width: 4px;
+        height: var(--spacing-1);
+        width: var(--spacing-1);
     }
 
     .fountain-lg::before,
     .fountain-lg::after {
-        height: 8px;
-        width: 8px;
+        height: var(--spacing-2);
+        width: var(--spacing-2);
     }
 
     .fountain-slow::before,
     .fountain-slow::after {
-        animation-duration: 4s;
+        animation-duration: var(--animation-duration-ultra-slow);
     }
 
     .fountain-fast::before,
     .fountain-fast::after {
-        animation-duration: 1.5s;
+        animation-duration: var(--animation-duration-slower);
     }
 
     /* Mehrere Partikel */
@@ -115,54 +115,54 @@
 
     .fountain-many::before,
     .fountain-many::after {
-        animation: fountain-shoot 2.5s ease-out infinite;
-        background: var(--fountain-color, rgb(180 220 255 / 80%));
-        border-radius: 50%;
+        animation: fountain-shoot 2.5s var(--easing-decelerate) infinite;
+        background: var(--fountain-color, rgb(180 220 255 / 80));
+        border-radius: 50;
         bottom: 0;
         content: '';
-        height: 6px;
+        height: var(--spacing-1-5);
         position: absolute;
-        width: 6px;
+        width: var(--spacing-1-5);
     }
 
     .fountain-many::before {
-        animation-delay: 1s;
-        left: calc(50% - 15px);
+        animation-delay: var(--animation-duration-slow);
+        left: calc(50 - 1var(--spacing-1));
     }
 
     .fountain-many::after {
-        animation-delay: 1.5s;
+        animation-delay: var(--animation-duration-slower);
         animation-name: fountain-shoot-alt;
-        left: calc(50% + 15px);
+        left: calc(50 + 1var(--spacing-1));
     }
 
     /* Farbvarianten */
     .fountain-blue {
-        --fountain-color: rgb(100 180 255 / 80%);
+        --fountain-color: rgb(100 180 255 / 80);
     }
 
     .fountain-cyan {
-        --fountain-color: rgb(100 240 255 / 80%);
+        --fountain-color: rgb(100 240 255 / 80);
     }
 
     .fountain-white {
-        --fountain-color: rgb(240 240 255 / 80%);
+        --fountain-color: rgb(240 240 255 / 80);
     }
 
     .fountain-rainbow::before {
-        --fountain-color: rgb(255 100 100 / 80%);
+        --fountain-color: rgb(255 100 100 / 80);
     }
 
     .fountain-rainbow::after {
-        --fountain-color: rgb(100 255 100 / 80%);
+        --fountain-color: rgb(100 255 100 / 80);
     }
 
     .fountain-rainbow.fountain-many::before {
-        --fountain-color: rgb(255 255 100 / 80%);
+        --fountain-color: rgb(255 255 100 / 80);
     }
 
     .fountain-rainbow.fountain-many::after {
-        --fountain-color: rgb(100 100 255 / 80%);
+        --fountain-color: rgb(100 100 255 / 80);
     }
 }
 
@@ -173,8 +173,8 @@
         .fountain::after,
         .fountain-many::before,
         .fountain-many::after {
-            animation: none;
-            opacity: 0%;
+            animation: var(--animation-none);
+            opacity: var(--opacity-0);
         }
     }
 } 

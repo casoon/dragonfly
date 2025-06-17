@@ -7,12 +7,12 @@
 
 /* Animationen - außerhalb von @layer definieren */
 @keyframes typing-cursor {
-    0%, 100% {
-        opacity: 100%;
+    0, 100 {
+        opacity: var(--opacity-10)0;
     }
 
-    50% {
-        opacity: 0%;
+    50 {
+        opacity: var(--opacity-0);
     }
 }
 
@@ -22,17 +22,17 @@
     }
 
     to {
-        width: 100%;
+        width: 100;
     }
 }
 
 @keyframes typing-blink {
-    0%, 100% {
-        opacity: 100%;
+    0, 100 {
+        opacity: var(--opacity-10)0;
     }
 
-    50% {
-        opacity: 0%;
+    50 {
+        opacity: var(--opacity-0);
     }
 }
 
@@ -118,47 +118,47 @@
 /* Animations-Styles */
 @layer animations {
     .typing::after {
-        animation: typing-cursor 1s step-end infinite;
+        animation: typing-cursor 1s var(--easing-step) infinite;
     }
 
     .typing-slow::after {
-        animation-duration: 1.5s;
+        animation-duration: var(--animation-duration-slower);
     }
 
     .typing-fast::after {
-        animation-duration: 0.5s;
+        animation-duration: var(--animation-duration-medium);
     }
 
     .typing-text {
-        animation: typing-text 3s steps(40, end);
+        animation: typing-text 3s var(--easing-typewriter);
     }
 
     .typing-text-sm {
-        animation-duration: 2s;
+        animation-duration: var(--animation-duration-slowest);
     }
 
     .typing-text-lg {
-        animation-duration: 4s;
+        animation-duration: var(--animation-duration-ultra-slow);
     }
 
     .typing-text-slow {
-        animation-duration: 4s;
+        animation-duration: var(--animation-duration-ultra-slow);
     }
 
     .typing-text-fast {
-        animation-duration: 2s;
+        animation-duration: var(--animation-duration-slowest);
     }
 
     .typing-blink::after {
-        animation: typing-blink 1s step-end infinite;
+        animation: typing-blink 1s var(--easing-step) infinite;
     }
 
     .typing-blink-slow::after {
-        animation-duration: 1.5s;
+        animation-duration: var(--animation-duration-slower);
     }
 
     .typing-blink-fast::after {
-        animation-duration: 0.5s;
+        animation-duration: var(--animation-duration-medium);
     }
 }
 
@@ -168,18 +168,18 @@
         .typing::after,
         .typing-text,
         .typing-blink::after {
-            animation: none;
+            animation: var(--animation-none);
         }
     }
     
     @layer components {
         .typing::after,
         .typing-blink::after {
-            opacity: 100%;
+            opacity: var(--opacity-10)0;
         }
         
         .typing-text {
-            width: 100%;
+            width: 100;
         }
     }
 } 

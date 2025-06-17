@@ -7,32 +7,32 @@
 
 @layer utilities {
     .pattern-dots {
-        background-image: radial-gradient(var(--pattern-color, currentColor) 1px, transparent 1px);
-        background-size: 10px 10px;
+        background-image: radial-gradient(var(--pattern-color, currentColor) var(--border-width), transparent var(--border-width));
+        background-size: var(--spacing-2-5) var(--spacing-2-5);
     }
 
     .pattern-lines {
         background-image: linear-gradient(45deg, var(--pattern-color, currentColor) 25%, transparent 25%);
-        background-size: 10px 10px;
+        background-size: var(--spacing-2-5) var(--spacing-2-5);
     }
 
     .pattern-grid {
         background-image: 
-            linear-gradient(var(--pattern-color, currentColor) 1px, transparent 1px),
-            linear-gradient(90deg, var(--pattern-color, currentColor) 1px, transparent 1px);
-        background-size: 10px 10px;
+            linear-gradient(var(--pattern-color, currentColor) var(--border-width), transparent var(--border-width)),
+            linear-gradient(90deg, var(--pattern-color, currentColor) var(--border-width), transparent var(--border-width));
+        background-size: var(--spacing-2-5) var(--spacing-2-5);
     }
 
     .pattern-zigzag {
         background-image: linear-gradient(135deg, var(--pattern-color, currentColor) 25%, transparent 25%),
                         linear-gradient(225deg, var(--pattern-color, currentColor) 25%, transparent 25%);
-        background-size: 10px 10px;
+        background-size: var(--spacing-2-5) var(--spacing-2-5);
     }
 
     .pattern-checker {
         background-image: linear-gradient(45deg, var(--pattern-color, currentColor) 25%, transparent 25%),
                         linear-gradient(-45deg, var(--pattern-color, currentColor) 25%, transparent 25%);
-        background-size: 10px 10px;
+        background-size: var(--spacing-2-5) var(--spacing-2-5);
     }
 
     .pattern-hover:hover {
@@ -45,7 +45,7 @@
 @media (prefers-reduced-motion: reduce) {
     @layer utilities {
         .pattern-hover:hover {
-            transition: none;
+            transition: var(--transition-none);
         }
     }
 } 

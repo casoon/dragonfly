@@ -8,15 +8,15 @@
 @layer utilities {
     /* Basis-Filter */
     .filter-blur {
-        filter: blur(4px);
+        filter: blur(var(--spacing-1));
     }
 
     .filter-blur-sm {
-        filter: blur(2px);
+        filter: blur(var(--border-width-thick));
     }
 
     .filter-blur-lg {
-        filter: blur(8px);
+        filter: blur(var(--spacing-2));
     }
 
     .filter-brightness {
@@ -32,7 +32,7 @@
     }
 
     .filter-contrast {
-        filter: contrast(1.2);
+        filter: var(--filter-contrast-125);
     }
 
     .filter-contrast-sm {
@@ -44,7 +44,7 @@
     }
 
     .filter-grayscale {
-        filter: grayscale(1);
+        filter: var(--filter-grayscale-100);
     }
 
     .filter-grayscale-sm {
@@ -133,7 +133,7 @@
     }
 
     .filter-soft {
-        filter: blur(1px) brightness(1.1) contrast(0.9);
+        filter: blur(var(--border-width)) brightness(1.1) contrast(0.9);
     }
 
     /* Hover-Effekte */
@@ -160,7 +160,7 @@
         .filter-hover,
         .filter-hover-sm,
         .filter-hover-lg {
-            transition: none;
+            transition: var(--transition-none);
         }
     }
 }

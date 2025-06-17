@@ -44,8 +44,8 @@
     }
 
     .scroll-thin::-webkit-scrollbar {
-        height: 6px;
-        width: 6px;
+        height: var(--spacing-1-5);
+        width: var(--spacing-1-5);
     }
 
     .scroll-thin::-webkit-scrollbar-track {
@@ -53,8 +53,8 @@
     }
 
     .scroll-thin::-webkit-scrollbar-thumb {
-        background: var(--scroll-thumb-color, rgb(0 0 0 / 20%));
-        border-radius: 3px;
+        background: var(--scroll-thumb-color, rgb(0 0 0 / 20));
+        border-radius: var(--spacing-1);
     }
 }
 

@@ -13,8 +13,8 @@
     .vignette::after {
         background: radial-gradient(
             circle at center,
-            transparent 0%,
-            rgb(0 0 0 / 30%) 100%
+            transparent 0,
+            rgb(0 0 0 / 30) 100
         );
         content: '';
         inset: 0;
@@ -25,45 +25,45 @@
     .vignette-strong::after {
         background: radial-gradient(
             circle at center,
-            transparent 0%,
-            rgb(0 0 0 / 50%) 100%
+            transparent 0,
+            rgb(0 0 0 / 50) 100
         );
     }
 
     .vignette-soft::after {
         background: radial-gradient(
             circle at center,
-            transparent 0%,
-            rgb(0 0 0 / 20%) 100%
+            transparent 0,
+            rgb(0 0 0 / 20) 100
         );
     }
 
     .vignette-color::after {
         background: radial-gradient(
             circle at center,
-            transparent 0%,
-            var(--vignette-color, rgb(0 0 0 / 30%)) 100%
+            transparent 0,
+            var(--vignette-color, rgb(0 0 0 / 30)) 100
         );
     }
 
     .vignette-top::after {
         background: radial-gradient(
             circle at top,
-            transparent 0%,
-            rgb(0 0 0 / 30%) 100%
+            transparent 0,
+            rgb(0 0 0 / 30) 100
         );
     }
 
     .vignette-bottom::after {
         background: radial-gradient(
             circle at bottom,
-            transparent 0%,
-            rgb(0 0 0 / 30%) 100%
+            transparent 0,
+            rgb(0 0 0 / 30) 100
         );
     }
 
     .vignette-hover:hover::after {
-        opacity: 80%;
+        opacity: var(--opacity-80);
         transition: opacity var(--transition-normal);
     }
 }
@@ -72,7 +72,7 @@
 @media (prefers-reduced-motion: reduce) {
     @layer components {
         .vignette-hover:hover::after {
-            transition: none;
+            transition: var(--transition-none);
         }
     }
 } 

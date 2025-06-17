@@ -8,47 +8,47 @@
 @layer components {
     .disabled {
         cursor: not-allowed;
-        opacity: 50%;
+        opacity: var(--opacity-50);
         pointer-events: none;
         user-select: none;
     }
 
     .disabled-sm {
-        opacity: 70%;
+        opacity: var(--opacity-70);
     }
 
     .disabled-lg {
-        opacity: 30%;
+        opacity: var(--opacity-30);
     }
 
     .disabled-blur {
         cursor: not-allowed;
-        filter: blur(1px);
+        filter: blur(var(--border-width));
         pointer-events: none;
         user-select: none;
     }
 
     .disabled-blur-sm {
-        filter: blur(0.5px);
+        filter: blur(0.var(--spacing-1));
     }
 
     .disabled-blur-lg {
-        filter: blur(2px);
+        filter: blur(var(--border-width-thick));
     }
 
     .disabled-grayscale {
         cursor: not-allowed;
-        filter: grayscale(100%);
+        filter: var(--filter-grayscale-100);
         pointer-events: none;
         user-select: none;
     }
 
     .disabled-grayscale-sm {
-        filter: grayscale(50%);
+        filter: var(--filter-grayscale-50);
     }
 
     .disabled-grayscale-lg {
-        filter: grayscale(100%) brightness(0.8);
+        filter: var(--filter-grayscale-100) brightness(0.8);
     }
 
     .disabled-border {
@@ -59,11 +59,11 @@
     }
 
     .disabled-border-sm {
-        border-width: 1px;
+        border-width: var(--border-width);
     }
 
     .disabled-border-lg {
-        border-width: 3px;
+        border-width: var(--spacing-1);
     }
 
     .disabled-bg {
@@ -78,22 +78,22 @@
     }
 
     .disabled-bg-lg {
-        background-color: var(--disabled-bg-lg, rgb(0 0 0 / 10%));
+        background-color: var(--disabled-bg-lg, rgb(0 0 0 / 10));
     }
 
     .disabled-text {
-        color: var(--disabled-text, rgb(0 0 0 / 50%));
+        color: var(--disabled-text, rgb(0 0 0 / 50));
         cursor: not-allowed;
         pointer-events: none;
         user-select: none;
     }
 
     .disabled-text-sm {
-        color: var(--disabled-text-sm, rgb(0 0 0 / 70%));
+        color: var(--disabled-text-sm, rgb(0 0 0 / 70));
     }
 
     .disabled-text-lg {
-        color: var(--disabled-text-lg, rgb(0 0 0 / 30%));
+        color: var(--disabled-text-lg, rgb(0 0 0 / 30));
     }
 }
 
@@ -106,7 +106,7 @@
         .disabled-border,
         .disabled-bg,
         .disabled-text {
-            transition: none;
+            transition: var(--transition-none);
         }
     }
 } 

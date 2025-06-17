@@ -7,31 +7,31 @@
 
 @layer utilities {
     .shadow-sm {
-        box-shadow: var(--shadow-sm, 0 1px 2px 0 rgb(0 0 0 / 5%));
+        box-shadow: var(--shadow-sm, 0 var(--border-width) var(--border-width-thick) 0 rgb(0 0 0 / 5%));
     }
 
     .shadow {
-        box-shadow: var(--shadow, 0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px -1px rgb(0 0 0 / 10%));
+        box-shadow: var(--shadow, 0 var(--border-width) var(--spacing-1) 0 rgb(0 0 0 / 10), 0 var(--border-width) var(--border-width-thick) -var(--border-width) rgb(0 0 0 / 10));
     }
 
     .shadow-md {
-        box-shadow: var(--shadow-md, 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -2px rgb(0 0 0 / 10%));
+        box-shadow: var(--shadow-md, 0 var(--spacing-1) 6px -var(--border-width) rgb(0 0 0 / 10), 0 var(--border-width-thick) var(--spacing-1) -var(--border-width-thick) rgb(0 0 0 / 10));
     }
 
     .shadow-lg {
-        box-shadow: var(--shadow-lg, 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -4px rgb(0 0 0 / 10%));
+        box-shadow: var(--shadow-lg, 0 var(--spacing-2-5) 1var(--spacing-1) -var(--spacing-1) rgb(0 0 0 / 10), 0 var(--spacing-1) 6px -var(--spacing-1) rgb(0 0 0 / 10));
     }
 
     .shadow-xl {
-        box-shadow: var(--shadow-xl, 0 20px 25px -5px rgb(0 0 0 / 10%), 0 8px 10px -6px rgb(0 0 0 / 10%));
+        box-shadow: var(--shadow-xl, 0 var(--spacing-5) 2var(--spacing-1) -var(--spacing-1) rgb(0 0 0 / 10), 0 var(--spacing-2) var(--spacing-2-5) -6px rgb(0 0 0 / 10));
     }
 
     .shadow-2xl {
-        box-shadow: var(--shadow-2xl, 0 25px 50px -12px rgb(0 0 0 / 25%));
+        box-shadow: var(--shadow-2xl, 0 2var(--spacing-1) 50px -1var(--border-width-thick) rgb(0 0 0 / 25%));
     }
 
     .shadow-inner {
-        box-shadow: var(--shadow-inner, inset 0 2px 4px 0 rgb(0 0 0 / 5%));
+        box-shadow: var(--shadow-inner, inset 0 var(--border-width-thick) var(--spacing-1) 0 rgb(0 0 0 / 5%));
     }
 
     .shadow-none {
@@ -44,7 +44,7 @@
     @layer utilities {
         .shadow-hover,
         .shadow-transition {
-            transition: none;
+            transition: var(--transition-none);
         }
     }
 } 

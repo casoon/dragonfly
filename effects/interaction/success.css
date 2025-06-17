@@ -6,103 +6,103 @@
  */
 
 @keyframes success-bounce {
-    0%, 20%, 50%, 80%, 100% {
+    0, 20, 50, 80, 100 {
         transform: translateY(0);
     }
 
-    40% {
-        transform: translateY(-10px);
+    40 {
+        transform: translateY(-var(--spacing-2-5));
     }
 
-    60% {
-        transform: translateY(-5px);
+    60 {
+        transform: translateY(-var(--spacing-1));
     }
 }
 
 @keyframes success-bounce-sm {
-    0%, 20%, 50%, 80%, 100% {
+    0, 20, 50, 80, 100 {
         transform: translateY(0);
     }
 
-    40% {
-        transform: translateY(-5px);
+    40 {
+        transform: translateY(-var(--spacing-1));
     }
 
-    60% {
-        transform: translateY(-2px);
+    60 {
+        transform: translateY(-var(--border-width-thick));
     }
 }
 
 @keyframes success-bounce-lg {
-    0%, 20%, 50%, 80%, 100% {
+    0, 20, 50, 80, 100 {
         transform: translateY(0);
     }
 
-    40% {
-        transform: translateY(-20px);
+    40 {
+        transform: translateY(-var(--spacing-5));
     }
 
-    60% {
-        transform: translateY(-10px);
+    60 {
+        transform: translateY(-var(--spacing-2-5));
     }
 }
 
 @keyframes success-pulse {
-    0%, 100% {
-        opacity: 100%;
+    0, 100 {
+        opacity: var(--opacity-10)0;
     }
 
-    50% {
-        opacity: 70%;
+    50 {
+        opacity: var(--opacity-70);
     }
 }
 
 @keyframes success-check {
-    0% {
-        opacity: 0%;
-        transform: translate(-50%, -50%) scale(0);
+    0 {
+        opacity: var(--opacity-0);
+        transform: translate(-50, -50) scale(0);
     }
 
-    50% {
-        opacity: 100%;
-        transform: translate(-50%, -50%) scale(1.2);
+    50 {
+        opacity: var(--opacity-10)0;
+        transform: translate(-50, -50) scale(1.2);
     }
 
-    100% {
-        opacity: 100%;
-        transform: translate(-50%, -50%) scale(1);
+    100 {
+        opacity: var(--opacity-10)0;
+        transform: translate(-50, -50) scale(1);
     }
 }
 
 @layer components {
     .success-bounce {
-        animation: success-bounce 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+        animation: success-bounce 0.5s var(--easing-bounce) both;
     }
 
     .success-bounce-sm {
-        animation: success-bounce-sm 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+        animation: success-bounce-sm 0.5s var(--easing-bounce) both;
     }
 
     .success-bounce-lg {
-        animation: success-bounce-lg 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+        animation: success-bounce-lg 0.5s var(--easing-bounce) both;
     }
 
     .success-border {
         animation: success-pulse 2s infinite;
-        border: 2px solid var(--success-color, #10b981);
+        border: var(--border-width-thick) solid var(--success-color, #10b981);
     }
 
     .success-border-sm {
-        border-width: 1px;
+        border-width: var(--border-width);
     }
 
     .success-border-lg {
-        border-width: 3px;
+        border-width: var(--spacing-1);
     }
 
     .success-bg {
         animation: success-pulse 2s infinite;
-        background-color: var(--success-bg, rgb(16 185 129 / 10%));
+        background-color: var(--success-bg, rgb(16 185 129 / 10));
     }
 
     .success-bg-sm {
@@ -110,7 +110,7 @@
     }
 
     .success-bg-lg {
-        background-color: var(--success-bg-lg, rgb(16 185 129 / 20%));
+        background-color: var(--success-bg-lg, rgb(16 185 129 / 20));
     }
 
     .success-text {
@@ -127,15 +127,15 @@
 
     .success-glow {
         animation: success-pulse 2s infinite;
-        box-shadow: 0 0 10px var(--success-glow, rgb(16 185 129 / 50%));
+        box-shadow: 0 0 var(--spacing-2-5) var(--success-glow, rgb(16 185 129 / 50));
     }
 
     .success-glow-sm {
-        box-shadow: 0 0 5px var(--success-glow-sm, rgb(16 185 129 / 30%));
+        box-shadow: 0 0 var(--spacing-1) var(--success-glow-sm, rgb(16 185 129 / 30));
     }
 
     .success-glow-lg {
-        box-shadow: 0 0 15px var(--success-glow-lg, rgb(16 185 129 / 70%));
+        box-shadow: 0 0 1var(--spacing-1) var(--success-glow-lg, rgb(16 185 129 / 70));
     }
 
     .success-check {
@@ -143,14 +143,14 @@
     }
 
     .success-check::after {
-        animation: success-check 0.5s ease-in-out;
+        animation: success-check 0.5s var(--easing-smooth);
         color: var(--success-color, #10b981);
         content: '✓';
         font-size: 1.5em;
-        left: 50%;
+        left: 50;
         position: absolute;
-        top: 50%;
-        transform: translate(-50%, -50%);
+        top: 50;
+        transform: translate(-50, -50);
     }
 }
 
@@ -164,7 +164,7 @@
         .success-bg,
         .success-glow,
         .success-check::after {
-            animation: none;
+            animation: var(--animation-none);
         }
     }
 } 

@@ -6,42 +6,42 @@
  */
 
 @keyframes fire-flame {
-    0% {
-        opacity: 0%;
+    0 {
+        opacity: var(--opacity-0);
         transform: translateY(0) scale(1);
     }
 
     25% {
-        opacity: 100%;
+        opacity: var(--opacity-10)0;
         transform: translateY(-40px) scale(1.2);
     }
 
-    50% {
+    50 {
         transform: translateY(-80px) scale(1.1) rotate(5deg);
     }
 
     75% {
-        transform: translateY(-120px) scale(0.9) rotate(-5deg);
+        transform: translateY(-1var(--spacing-5)) scale(0.9) rotate(-5deg);
     }
 
-    100% {
-        opacity: 0%;
+    100 {
+        opacity: var(--opacity-0);
         transform: translateY(-160px) scale(0.5) rotate(0deg);
     }
 }
 
 @keyframes fire-flame-alt {
-    0% {
-        opacity: 0%;
+    0 {
+        opacity: var(--opacity-0);
         transform: translateY(0) scale(1);
     }
 
     25% {
-        opacity: 100%;
+        opacity: var(--opacity-10)0;
         transform: translateY(-30px) scale(1.1) rotate(-5deg);
     }
 
-    50% {
+    50 {
         transform: translateY(-60px) scale(1.0) rotate(5deg);
     }
 
@@ -49,9 +49,9 @@
         transform: translateY(-90px) scale(0.8) rotate(-2deg);
     }
 
-    100% {
-        opacity: 0%;
-        transform: translateY(-120px) scale(0.5) rotate(0deg);
+    100 {
+        opacity: var(--opacity-0);
+        transform: translateY(-1var(--spacing-5)) scale(0.5) rotate(0deg);
     }
 }
 
@@ -63,84 +63,84 @@
 
     .fire::before,
     .fire::after {
-        animation: fire-flame 3s ease-out infinite;
-        background: var(--fire-color, rgb(255 160 0 / 70%));
-        border-radius: 50% 50% 20% 20%;
-        bottom: -5px;
+        animation: fire-flame 3s var(--easing-decelerate) infinite;
+        background: var(--fire-color, rgb(255 160 0 / 70));
+        border-radius: 50 50 20 20;
+        bottom: -var(--spacing-1);
         content: '';
-        filter: blur(4px);
-        height: 30px;
+        filter: blur(var(--spacing-1));
+        height: var(--spacing-7-5);
         position: absolute;
-        width: 20px;
+        width: var(--spacing-5);
     }
 
     .fire::before {
-        left: calc(50% - 15px);
+        left: calc(50 - 1var(--spacing-1));
     }
 
     .fire::after {
-        animation-delay: 0.5s;
+        animation-delay: var(--animation-duration-medium);
         animation-name: fire-flame-alt;
-        background: var(--fire-color-alt, rgb(255 90 0 / 70%));
-        left: calc(50% - 5px);
+        background: var(--fire-color-alt, rgb(255 90 0 / 70));
+        left: calc(50 - var(--spacing-1));
     }
 
     /* Feuer-Varianten */
     .fire-sm::before,
     .fire-sm::after {
-        filter: blur(2px);
-        height: 20px;
-        width: 12px;
+        filter: blur(var(--border-width-thick));
+        height: var(--spacing-5);
+        width: 1var(--border-width-thick);
     }
 
     .fire-lg::before,
     .fire-lg::after {
-        filter: blur(6px);
+        filter: var(--filter-blur-xl);
         height: 50px;
-        width: 30px;
+        width: var(--spacing-7-5);
     }
 
     .fire-slow::before,
     .fire-slow::after {
-        animation-duration: 4s;
+        animation-duration: var(--animation-duration-ultra-slow);
     }
 
     .fire-fast::before,
     .fire-fast::after {
-        animation-duration: 2s;
+        animation-duration: var(--animation-duration-slowest);
     }
 
     /* Farbvarianten */
     .fire-red::before {
-        background: var(--fire-red, rgb(255 50 0 / 70%));
+        background: var(--fire-red, rgb(255 50 0 / 70));
     }
 
     .fire-red::after {
-        background: var(--fire-red-alt, rgb(255 100 0 / 70%));
+        background: var(--fire-red-alt, rgb(255 100 0 / 70));
     }
 
     .fire-blue::before {
-        background: var(--fire-blue, rgb(0 150 255 / 70%));
+        background: var(--fire-blue, rgb(0 150 255 / 70));
     }
 
     .fire-blue::after {
-        background: var(--fire-blue-alt, rgb(100 200 255 / 70%));
+        background: var(--fire-blue-alt, rgb(100 200 255 / 70));
     }
 
     .fire-green::before {
-        background: var(--fire-green, rgb(0 200 100 / 70%));
+        background: var(--fire-green, rgb(0 200 100 / 70));
     }
 
     .fire-green::after {
-        background: var(--fire-green-alt, rgb(100 255 150 / 70%));
+        background: var(--fire-green-alt, rgb(100 255 150 / 70));
     }
 
     .fire-purple::before {
-        background: var(--fire-purple, rgb(150 0 255 / 70%));
+        background: var(--fire-purple, rgb(150 0 255 / 70));
     }
 
     .fire-purple::after {
-        background: var(--fire-purple-alt, rgb(200 100 255 / 70%));
+        background: var(--fire-purple-alt, rgb(200 100 255 / 70));
     }
 }
 
@@ -149,8 +149,8 @@
     @layer components {
         .fire::before,
         .fire::after {
-            animation: none;
-            opacity: 0%;
+            animation: var(--animation-none);
+            opacity: var(--opacity-0);
         }
     }
 } 

@@ -6,11 +6,11 @@
  */
 
 @keyframes reflection-shine {
-    0% { transform: scaleY(-1) translateY(0); }
+    0 { transform: scaleY(-1) translateY(0); }
 
-    50% { transform: scaleY(-1) translateY(10px); }
+    50 { transform: scaleY(-1) translateY(var(--spacing-2-5)); }
 
-    100% { transform: scaleY(-1) translateY(0); }
+    100 { transform: scaleY(-1) translateY(0); }
 }
 
 @layer components {
@@ -23,11 +23,11 @@
         background: linear-gradient(
             to bottom,
             transparent,
-            var(--reflection-color, rgb(255 255 255 / 20%))
+            var(--reflection-color, rgb(255 255 255 / 20))
         );
         content: '';
         inset: 0;
-        opacity: 50%;
+        opacity: var(--opacity-50);
         pointer-events: none;
         position: absolute;
         transform: scaleY(-1);
@@ -37,25 +37,25 @@
         background: linear-gradient(
             to bottom,
             transparent,
-            var(--reflection-color, rgb(255 255 255 / 40%))
+            var(--reflection-color, rgb(255 255 255 / 40))
         );
-        opacity: 70%;
+        opacity: var(--opacity-70);
     }
 
     .reflection-soft::after {
         background: linear-gradient(
             to bottom,
             transparent,
-            var(--reflection-color, rgb(255 255 255 / 10%))
+            var(--reflection-color, rgb(255 255 255 / 10))
         );
-        opacity: 30%;
+        opacity: var(--opacity-30);
     }
 
     .reflection-color::after {
         background: linear-gradient(
             to bottom,
             transparent,
-            var(--reflection-color, rgb(255 255 255 / 20%))
+            var(--reflection-color, rgb(255 255 255 / 20))
         );
         mix-blend-mode: overlay;
     }
@@ -69,7 +69,7 @@
 @media (prefers-reduced-motion: reduce) {
     @layer components {
         .reflection-hover:hover::after {
-            animation: none;
+            animation: var(--animation-none);
         }
     }
 } 

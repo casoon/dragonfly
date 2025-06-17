@@ -46,43 +46,43 @@
 /* Animationen - immer außerhalb von @layer definieren */
 @keyframes neon-pulse {
     from {
-        opacity: 100%;
+        opacity: var(--opacity-10)0;
     }
 
     to {
-        opacity: 70%;
+        opacity: var(--opacity-70);
     }
 }
 
 @keyframes neon-flicker {
-    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    0, 19%, 21%, 23%, 25%, 54%, 56%, 100 {
         text-shadow: var(--spacing-0) var(--spacing-0) var(--spacing-5) currentcolor,
                     var(--spacing-0) var(--spacing-0) var(--spacing-10) currentcolor,
                     var(--spacing-0) var(--spacing-0) var(--spacing-20) currentcolor;
     }
 
-    20%, 24%, 55% {
+    20, 24%, 55% {
         text-shadow: var(--display-none);
     }
 }
 
 @keyframes flicker {
-    0%, 100% { opacity: 100%; }
+    0, 100 { opacity: var(--opacity-10)0; }
 
-    30% { opacity: 70%; }
+    30 { opacity: var(--opacity-70); }
 
-    50% { opacity: 100%; }
+    50 { opacity: var(--opacity-10)0; }
 
-    70% { opacity: 80%; }
+    70 { opacity: var(--opacity-80); }
 
-    90% { opacity: 50%; }
+    90 { opacity: var(--opacity-50); }
 }
 
 /* Effekte-Definitionen in Layer */
 @layer effects {
     /* Neon Text */
     .neon-text {
-        animation: neon-pulse 1.5s ease-in-out infinite alternate;
+        animation: neon-pulse 1.5s var(--easing-smooth) infinite alternate;
         color: var(--theme-primary-500);
         text-shadow: var(--spacing-0) var(--spacing-0) var(--spacing-5) var(--theme-primary-500),
                      var(--spacing-0) var(--spacing-0) var(--spacing-10) var(--theme-primary-500),
@@ -105,7 +105,7 @@
 
     /* Neon Border */
     .neon-border {
-        animation: neon-pulse 1.5s ease-in-out infinite alternate;
+        animation: neon-pulse 1.5s var(--easing-smooth) infinite alternate;
         border: var(--spacing-2) solid var(--theme-primary-500);
         box-shadow: var(--spacing-0) var(--spacing-0) var(--spacing-5) var(--theme-primary-500),
                     var(--spacing-0) var(--spacing-0) var(--spacing-10) var(--theme-primary-500),
@@ -128,15 +128,15 @@
 
     /* Animation Variants */
     .neon-text-slow {
-        animation: neon-pulse 4s ease-in-out infinite;
+        animation: neon-pulse 4s var(--easing-smooth) infinite;
     }
 
     .neon-text-fast {
-        animation: neon-pulse 1s ease-in-out infinite;
+        animation: neon-pulse 1s var(--easing-smooth) infinite;
     }
 
     .neon-text-flicker {
-        animation: neon-flicker 2s ease-in-out infinite;
+        animation: neon-flicker 2s var(--easing-smooth) infinite;
     }
 
     .neon-text-hover {
@@ -153,20 +153,20 @@
     .glow {
         color: var(--glow-color, var(--theme-info-500));
         text-shadow: 
-            0 0 4px var(--glow-color, var(--theme-info-500)),
-            0 0 8px var(--glow-color, var(--theme-info-500)),
-            0 0 12px var(--glow-color, var(--theme-info-500)),
-            0 0 16px var(--glow-color, var(--theme-info-500));
+            0 0 var(--spacing-1) var(--glow-color, var(--theme-info-500)),
+            0 0 var(--spacing-2) var(--glow-color, var(--theme-info-500)),
+            0 0 1var(--border-width-thick) var(--glow-color, var(--theme-info-500)),
+            0 0 var(--spacing-4) var(--glow-color, var(--theme-info-500));
     }
 
     .glow-button {
         box-shadow: 
-            0 0 8px var(--glow-button-color, var(--theme-accent-500)),
-            0 0 15px var(--glow-button-color, var(--theme-accent-500)),
-            0 0 20px var(--glow-button-color, var(--theme-accent-500)),
+            0 0 var(--spacing-2) var(--glow-button-color, var(--theme-accent-500)),
+            0 0 1var(--spacing-1) var(--glow-button-color, var(--theme-accent-500)),
+            0 0 var(--spacing-5) var(--glow-button-color, var(--theme-accent-500)),
             0 0 30px var(--glow-button-color, var(--theme-accent-500));
         position: relative;
-        z-index: 1;
+        z-index: var(--z-index-1);
     }
 
     .flicker-element {
@@ -191,8 +191,8 @@
         .flicker-element,
         .flicker-fast,
         .flicker-slow {
-            animation: none;
-            transition: none;
+            animation: var(--animation-none);
+            transition: var(--transition-none);
         }
     }
 }
@@ -202,17 +202,17 @@
     @layer effects {
         .neon-sign {
             font-size: 1.5rem;
-            padding: 0.5rem 1rem;
+            padding: 0.5rem var(--spacing-4);
         }
         
         .neon-border {
-            border-width: 2px;
+            border-width: var(--border-width-thick);
         }
         
         .neon-box {
             aspect-ratio: 16/9;
             height: auto;
-            width: 100%;
+            width: 100;
         }
     }
 } 

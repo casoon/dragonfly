@@ -7,15 +7,15 @@
 
 @layer utilities {
     .backdrop-blur-sm {
-        backdrop-filter: blur(4px);
+        backdrop-filter: blur(var(--spacing-1));
     }
 
     .backdrop-blur-md {
-        backdrop-filter: blur(8px);
+        backdrop-filter: blur(var(--spacing-2));
     }
 
     .backdrop-blur-lg {
-        backdrop-filter: blur(12px);
+        backdrop-filter: blur(1var(--border-width-thick));
     }
 
     .backdrop-brightness {
@@ -52,7 +52,7 @@
 
     .backdrop-multiple {
         backdrop-filter: 
-            blur(8px)
+            blur(var(--spacing-2))
             brightness(0.8)
             contrast(1.2)
             saturate(1.5);
@@ -74,7 +74,7 @@
         .backdrop-saturate,
         .backdrop-sepia,
         .backdrop-multiple {
-            transition: none;
+            transition: var(--transition-none);
         }
     }
 } 

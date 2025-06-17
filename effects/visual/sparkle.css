@@ -7,19 +7,19 @@
 
 /* Animationen - außerhalb von @layer definieren */
 @keyframes sparkle-effect {
-    0% {
-        opacity: 0%;
-        transform: scale(0);
+    0 {
+        opacity: var(--opacity-0);
+        transform: var(--transform-scale-0);
     }
 
-    50% {
-        opacity: 100%;
-        transform: scale(1);
+    50 {
+        opacity: var(--opacity-10)0;
+        transform: var(--transform-scale-100);
     }
 
-    100% {
-        opacity: 0%;
-        transform: scale(0);
+    100 {
+        opacity: var(--opacity-0);
+        transform: var(--transform-scale-0);
     }
 }
 
@@ -32,53 +32,53 @@
 
     .sparkle::before,
     .sparkle::after {
-        background-color: var(--sparkle-color, rgb(255 255 255 / 80%));
-        border-radius: 50%;
+        background-color: var(--sparkle-color, rgb(255 255 255 / 80));
+        border-radius: 50;
         content: '';
-        height: 4px;
+        height: var(--spacing-1);
         position: absolute;
-        width: 4px;
+        width: var(--spacing-1);
     }
 
     .sparkle::before {
-        left: 20%;
-        top: 20%;
+        left: 20;
+        top: 20;
     }
 
     .sparkle::after {
-        left: 60%;
-        top: 60%;
+        left: 60;
+        top: 60;
     }
 
     .sparkle-many::before,
     .sparkle-many::after,
     .sparkle-many span {
-        background-color: var(--sparkle-color, rgb(255 255 255 / 80%));
-        border-radius: 50%;
+        background-color: var(--sparkle-color, rgb(255 255 255 / 80));
+        border-radius: 50;
         content: '';
-        height: 4px;
+        height: var(--spacing-1);
         position: absolute;
-        width: 4px;
+        width: var(--spacing-1);
     }
 
     .sparkle-many span:nth-child(1) {
-        left: 30%;
-        top: 30%;
+        left: 30;
+        top: 30;
     }
 
     .sparkle-many span:nth-child(2) {
-        left: 70%;
-        top: 70%;
+        left: 70;
+        top: 70;
     }
 
     .sparkle-many span:nth-child(3) {
-        left: 60%;
-        top: 40%;
+        left: 60;
+        top: 40;
     }
 
     .sparkle-many span:nth-child(4) {
-        left: 40%;
-        top: 60%;
+        left: 40;
+        top: 60;
     }
 }
 
@@ -94,7 +94,7 @@
     }
 
     .sparkle::after {
-        animation-delay: 1s;
+        animation-delay: var(--animation-duration-slow);
     }
 
     .sparkle-hover:hover::before,
@@ -109,7 +109,7 @@
     }
 
     .sparkle-many span:nth-child(1) {
-        animation-delay: 0.3s;
+        animation-delay: var(--animation-duration-normal);
     }
 
     .sparkle-many span:nth-child(2) {
@@ -135,7 +135,7 @@
         .sparkle-many::before,
         .sparkle-many::after,
         .sparkle-many span {
-            animation: none;
+            animation: var(--animation-none);
         }
     }
 } 

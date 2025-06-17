@@ -6,53 +6,53 @@
  */
 
 @keyframes triangles-float {
-    0% {
-        opacity: 0%;
+    0 {
+        opacity: var(--opacity-0);
         transform: translate(0, 0) rotate(0deg);
     }
 
-    20% {
-        opacity: 100%;
-        transform: translate(20px, -20px) rotate(30deg);
+    20 {
+        opacity: var(--opacity-10)0;
+        transform: translate(var(--spacing-5), -var(--spacing-5)) rotate(30deg);
     }
 
-    50% {
-        transform: translate(50px, -10px) rotate(90deg);
+    50 {
+        transform: translate(50px, -var(--spacing-2-5)) rotate(90deg);
     }
 
-    80% {
-        opacity: 100%;
-        transform: translate(80px, -20px) rotate(150deg);
+    80 {
+        opacity: var(--opacity-10)0;
+        transform: translate(80px, -var(--spacing-5)) rotate(150deg);
     }
 
-    100% {
-        opacity: 0%;
+    100 {
+        opacity: var(--opacity-0);
         transform: translate(100px, 0) rotate(180deg);
     }
 }
 
 @keyframes triangles-float-alt {
-    0% {
-        opacity: 0%;
+    0 {
+        opacity: var(--opacity-0);
         transform: translate(0, 0) rotate(0deg);
     }
 
-    20% {
-        opacity: 100%;
-        transform: translate(-20px, -20px) rotate(-30deg);
+    20 {
+        opacity: var(--opacity-10)0;
+        transform: translate(-var(--spacing-5), -var(--spacing-5)) rotate(-30deg);
     }
 
-    50% {
-        transform: translate(-50px, -10px) rotate(-90deg);
+    50 {
+        transform: translate(-50px, -var(--spacing-2-5)) rotate(-90deg);
     }
 
-    80% {
-        opacity: 100%;
-        transform: translate(-80px, -20px) rotate(-150deg);
+    80 {
+        opacity: var(--opacity-10)0;
+        transform: translate(-80px, -var(--spacing-5)) rotate(-150deg);
     }
 
-    100% {
-        opacity: 0%;
+    100 {
+        opacity: var(--opacity-0);
         transform: translate(-100px, 0) rotate(-180deg);
     }
 }
@@ -65,25 +65,25 @@
 
     .triangles::before,
     .triangles::after {
-        animation: triangles-float 8s ease-in-out infinite;
-        background: var(--triangles-color, rgb(120 90 255 / 70%));
-        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        animation: triangles-float 8s var(--easing-smooth) infinite;
+        background: var(--triangles-color, rgb(120 90 255 / 70));
+        clip-path: polygon(50 0, 0 100, 100 100);
         content: '';
-        height: 15px;
+        height: 1var(--spacing-1);
         position: absolute;
-        width: 15px;
+        width: 1var(--spacing-1);
     }
 
     .triangles::before {
-        left: 30%;
-        top: 30%;
+        left: 30;
+        top: 30;
     }
 
     .triangles::after {
-        animation-delay: 2s;
+        animation-delay: var(--animation-duration-slowest);
         animation-name: triangles-float-alt;
-        left: 60%;
-        top: 50%;
+        left: 60;
+        top: 50;
     }
 
     /* Viele Dreiecke */
@@ -93,50 +93,50 @@
 
     .triangles-many::before,
     .triangles-many::after {
-        animation: triangles-float 8s ease-in-out infinite;
-        background: var(--triangles-color, rgb(120 90 255 / 70%));
-        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        animation: triangles-float 8s var(--easing-smooth) infinite;
+        background: var(--triangles-color, rgb(120 90 255 / 70));
+        clip-path: polygon(50 0, 0 100, 100 100);
         content: '';
-        height: 15px;
+        height: 1var(--spacing-1);
         position: absolute;
-        width: 15px;
+        width: 1var(--spacing-1);
     }
 
     .triangles-many::before {
-        animation-delay: 1s;
-        left: 20%;
-        top: 40%;
+        animation-delay: var(--animation-duration-slow);
+        left: 20;
+        top: 40;
     }
 
     .triangles-many::after {
-        animation-delay: 3s;
+        animation-delay: var(--animation-duration-ultra-slow);
         animation-name: triangles-float-alt;
-        left: 70%;
-        top: 60%;
+        left: 70;
+        top: 60;
     }
 
     .triangles-many .triangle {
-        animation: triangles-float 8s ease-in-out infinite;
-        animation-delay: 1.5s;
-        background: var(--triangles-color, rgb(120 90 255 / 70%));
-        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-        height: 15px;
-        left: 50%;
+        animation: triangles-float 8s var(--easing-smooth) infinite;
+        animation-delay: var(--animation-duration-slower);
+        background: var(--triangles-color, rgb(120 90 255 / 70));
+        clip-path: polygon(50 0, 0 100, 100 100);
+        height: 1var(--spacing-1);
+        left: 50;
         position: absolute;
-        top: 20%;
-        width: 15px;
+        top: 20;
+        width: 1var(--spacing-1);
     }
 
     .triangles-many .triangle-alt {
-        animation: triangles-float-alt 8s ease-in-out infinite;
+        animation: triangles-float-alt 8s var(--easing-smooth) infinite;
         animation-delay: 3.5s;
-        background: var(--triangles-color, rgb(120 90 255 / 70%));
-        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-        height: 15px;
-        left: 40%;
+        background: var(--triangles-color, rgb(120 90 255 / 70));
+        clip-path: polygon(50 0, 0 100, 100 100);
+        height: 1var(--spacing-1);
+        left: 40;
         position: absolute;
-        top: 70%;
-        width: 15px;
+        top: 70;
+        width: 1var(--spacing-1);
     }
 
     /* Größenvarianten */
@@ -144,16 +144,16 @@
     .triangles-sm::after,
     .triangles-sm .triangle,
     .triangles-sm .triangle-alt {
-        height: 10px;
-        width: 10px;
+        height: var(--spacing-2-5);
+        width: var(--spacing-2-5);
     }
 
     .triangles-lg::before,
     .triangles-lg::after,
     .triangles-lg .triangle,
     .triangles-lg .triangle-alt {
-        height: 20px;
-        width: 20px;
+        height: var(--spacing-5);
+        width: var(--spacing-5);
     }
 
     /* Geschwindigkeitsvarianten */
@@ -161,35 +161,35 @@
     .triangles-slow::after,
     .triangles-slow .triangle,
     .triangles-slow .triangle-alt {
-        animation-duration: 12s;
+        animation-duration: var(--animation-duration-ultra-slow);
     }
 
     .triangles-fast::before,
     .triangles-fast::after,
     .triangles-fast .triangle,
     .triangles-fast .triangle-alt {
-        animation-duration: 5s;
+        animation-duration: var(--animation-duration-ultra-slow);
     }
 
     /* Farbvarianten */
     .triangles-purple {
-        --triangles-color: rgb(120 90 255 / 70%);
+        --triangles-color: rgb(120 90 255 / 70);
     }
 
     .triangles-blue {
-        --triangles-color: rgb(90 150 255 / 70%);
+        --triangles-color: rgb(90 150 255 / 70);
     }
 
     .triangles-teal {
-        --triangles-color: rgb(90 220 220 / 70%);
+        --triangles-color: rgb(90 220 220 / 70);
     }
 
     .triangles-pink {
-        --triangles-color: rgb(255 120 220 / 70%);
+        --triangles-color: rgb(255 120 220 / 70);
     }
 
     .triangles-orange {
-        --triangles-color: rgb(255 150 90 / 70%);
+        --triangles-color: rgb(255 150 90 / 70);
     }
 
     /* Verschiedene Formen */
@@ -197,21 +197,21 @@
     .triangles-inverted::after,
     .triangles-inverted .triangle,
     .triangles-inverted .triangle-alt {
-        clip-path: polygon(50% 100%, 0% 0%, 100% 0%);
+        clip-path: polygon(50 100, 0 0, 100 0);
     }
 
     .triangles-right::before,
     .triangles-right::after,
     .triangles-right .triangle,
     .triangles-right .triangle-alt {
-        clip-path: polygon(0% 0%, 0% 100%, 100% 50%);
+        clip-path: polygon(0 0, 0 100, 100 50);
     }
 
     .triangles-left::before,
     .triangles-left::after,
     .triangles-left .triangle,
     .triangles-left .triangle-alt {
-        clip-path: polygon(100% 0%, 100% 100%, 0% 50%);
+        clip-path: polygon(100 0, 100 100, 0 50);
     }
 }
 
@@ -224,8 +224,8 @@
         .triangles-many::after,
         .triangles-many .triangle,
         .triangles-many .triangle-alt {
-            animation: none;
-            opacity: 0%;
+            animation: var(--animation-none);
+            opacity: var(--opacity-0);
         }
     }
 } 

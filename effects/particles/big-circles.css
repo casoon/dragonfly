@@ -6,18 +6,18 @@
  */
 
 @keyframes big-circles-float {
-    0% {
-        opacity: 0%;
+    0 {
+        opacity: var(--opacity-0);
         transform: translate(0, 0);
     }
 
-    50% {
-        opacity: 70%;
+    50 {
+        opacity: var(--opacity-70);
     }
 
-    100% {
-        opacity: 0%;
-        transform: translate(120px, -120px);
+    100 {
+        opacity: var(--opacity-0);
+        transform: translate(1var(--spacing-5), -1var(--spacing-5));
     }
 }
 
@@ -30,74 +30,74 @@
     .big-circles::before,
     .big-circles::after {
         animation: big-circles-float 8s infinite;
-        background: var(--big-circles-color, rgb(255 255 255 / 30%));
-        border-radius: 50%;
+        background: var(--big-circles-color, rgb(255 255 255 / 30));
+        border-radius: 50;
         content: '';
-        height: 60px;
+        height: var(--spacing-15);
         position: absolute;
-        width: 60px;
+        width: var(--spacing-15);
     }
 
     .big-circles::after {
-        animation-delay: 4s;
-        left: 40%;
+        animation-delay: var(--animation-duration-ultra-slow);
+        left: 40;
     }
 
     .big-circles::before {
-        left: 10%;
-        top: 20%;
+        left: 10;
+        top: 20;
     }
 
     .big-circles-sm::before,
     .big-circles-sm::after {
-        height: 40px;
-        width: 40px;
+        height: var(--spacing-10);
+        width: var(--spacing-10);
     }
 
     .big-circles-lg::before,
     .big-circles-lg::after {
-        height: 100px;
-        width: 100px;
+        height: var(--spacing-25);
+        width: var(--spacing-25);
     }
 
     .big-circles-slow::before,
     .big-circles-slow::after {
-        animation-duration: 12s;
+        animation-duration: var(--animation-duration-ultra-slow);
     }
 
     .big-circles-fast::before,
     .big-circles-fast::after {
-        animation-duration: 6s;
+        animation-duration: var(--animation-duration-ultra-slow);
     }
 
     .big-circles-color-primary::before,
     .big-circles-color-primary::after {
-        background: var(--big-circles-primary, rgb(59 130 246 / 30%));
+        background: var(--big-circles-primary, rgb(59 130 246 / 30));
     }
 
     .big-circles-color-secondary::before,
     .big-circles-color-secondary::after {
-        background: var(--big-circles-secondary, rgb(107 114 128 / 30%));
+        background: var(--big-circles-secondary, rgb(107 114 128 / 30));
     }
 
     .big-circles-color-success::before,
     .big-circles-color-success::after {
-        background: var(--big-circles-success, rgb(16 185 129 / 30%));
+        background: var(--big-circles-success, rgb(16 185 129 / 30));
     }
 
     .big-circles-color-error::before,
     .big-circles-color-error::after {
-        background: var(--big-circles-error, rgb(239 68 68 / 30%));
+        background: var(--big-circles-error, rgb(239 68 68 / 30));
     }
 
     .big-circles-color-warning::before,
     .big-circles-color-warning::after {
-        background: var(--big-circles-warning, rgb(245 158 11 / 30%));
+        background: var(--big-circles-warning, rgb(245 158 11 / 30));
     }
 
     .big-circles-color-info::before,
     .big-circles-color-info::after {
-        background: var(--big-circles-info, rgb(6 182 212 / 30%));
+        background: var(--big-circles-info, rgb(6 182 212 / 30));
     }
 }
 
@@ -106,8 +106,8 @@
     @layer components {
         .big-circles::before,
         .big-circles::after {
-            animation: none;
-            opacity: 0%;
+            animation: var(--animation-none);
+            opacity: var(--opacity-0);
         }
     }
 } 

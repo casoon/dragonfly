@@ -139,5 +139,125 @@
     inherits: true;
     initial-value: #4f46e5;
     syntax: '<color>';
+    /* Opacity Tokens */
+    --opacity-0: 0;
+    --opacity-5: 0.05;
+    --opacity-10: 0.1;
+    --opacity-20: 0.2;
+    --opacity-30: 0.3;
+    --opacity-40: 0.4;
+    --opacity-50: 0.5;
+    --opacity-60: 0.6;
+    --opacity-70: 0.7;
+    --opacity-75: 0.75;
+    --opacity-80: 0.8;
+    --opacity-90: 0.9;
+    --opacity-100: 1;
+
+    /* Animation Duration Tokens */
+    --animation-duration-ultra-fast: 100ms;
+    --animation-duration-fast: 200ms;
+    --animation-duration-normal: 300ms;
+    --animation-duration-medium: 500ms;
+    --animation-duration-slow: 1s;
+    --animation-duration-slower: 1.5s;
+    --animation-duration-slowest: 2s;
+    --animation-duration-ultra-slow: 4s;
+    --animation-none: none;
+
+    /* Transform Tokens */
+    --transform-none: none;
+    --transform-scale-90: scale(0.9);
+    --transform-scale-95: scale(0.95);
+    --transform-scale-98: scale(0.98);
+    --transform-scale-105: scale(1.05);
+    --transform-scale-110: scale(1.1);
+    --transform-translate-y-1: translateY(1px);
+    --transform-translate-y-2: translateY(2px);
+    --transform-translate-y-4: translateY(4px);
+    --transform-rotate-1: rotate(1deg);
+    --transform-rotate-3: rotate(3deg);
+    --transform-rotate-5: rotate(5deg);
+
+    /* Filter Tokens */
+    --filter-blur-xs: blur(0.5px);
+    --filter-blur-sm: blur(1px);
+    --filter-blur-md: blur(2px);
+    --filter-blur-lg: blur(4px);
+    --filter-blur-xl: blur(8px);
+    --filter-blur-2xl: blur(12px);
+    --filter-brightness-75: brightness(0.75);
+    --filter-brightness-125: brightness(1.25);
+    --filter-contrast-125: contrast(1.25);
+    --filter-grayscale-50: grayscale(0.5);
+    --filter-grayscale-100: grayscale(1);
+    --filter-invert-100: invert(1);
+
+    /* Additional Percentage Tokens */
+    --percentage-20: 20%;
+    --percentage-25: 25%;
+    --percentage-30: 30%;
+    --percentage-40: 40%;
+    --percentage-60: 60%;
+    --percentage-75: 75%;
+    --percentage-200: 200%;
+
+    /* Special Spacing for Effects */
+    --spacing-2-5: 0.625rem;
+    --spacing-relative-1: 1em;
+    --space-large-400: 400px;
+    --space-large-1000: 1000px;
+    /* Extended Spacing Tokens */
+    --spacing-1-5: 0.375rem;
+    --spacing-7-5: 1.875rem;
+    --spacing-15: 3.75rem;
+    --spacing-25: 6.25rem;
+    --spacing-45: 11.25rem;
+
+    /* Extended Percentage Tokens */
+    --percentage-25: 25%;
+    --percentage-35: 35%;
+    --percentage-45: 45%;
+    --percentage-65: 65%;
+    --percentage-75: 75%;
+    --percentage-85: 85%;
+    --percentage-95: 95%;
+
+    /* Extended Opacity Tokens */
+    --opacity-5: 0.05;
+    --opacity-15: 0.15;
+    --opacity-35: 0.35;
+    --opacity-45: 0.45;
+    --opacity-55: 0.55;
+    --opacity-65: 0.65;
+    --opacity-85: 0.85;
+    --opacity-95: 0.95;
+
+    /* Extended Transform Tokens */
+    --transform-scale-0: scale(0);
+    --transform-scale-100: scale(1);
+    --transform-scale-150: scale(1.5);
+    --transform-scale-1000: scale(10);
+    --transform-translate-x-full-left: translateX(-100%);
+    --transform-translate-x-full-right: translateX(100%);
+    --transform-translate-y-full-up: translateY(-100%);
+    --transform-translate-y-full-down: translateY(100%);
+    --transform-rotate-45: rotate(45deg);
+    --transform-rotate-90: rotate(90deg);
+    --transform-rotate-180: rotate(180deg);
+    --transform-rotate-360: rotate(360deg);
+    --transform-rotate-720: rotate(720deg);
+    --transform-rotate-neg-720: rotate(-720deg);
+
+    /* Extended Filter Tokens */
+    --filter-brightness-125: brightness(1.25);
+    --filter-contrast-125: contrast(1.25);
+
+    /* Easing Function Tokens */
+    --easing-bounce: cubic-bezier(0.36, 0.07, 0.19, 0.97);
+    --easing-smooth: ease-in-out;
+    --easing-decelerate: ease-out;
+    --easing-step: step-end;
+    --easing-typewriter: steps(40, end);
   }
-} 
+}

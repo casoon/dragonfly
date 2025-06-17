@@ -6,22 +6,22 @@
  */
 
 @keyframes bubbles-rise {
-    0% {
-        opacity: 0%;
-        transform: translate(0, 100%);
+    0 {
+        opacity: var(--opacity-0);
+        transform: translate(0, 100);
     }
 
-    20% {
-        opacity: 80%;
+    20 {
+        opacity: var(--opacity-80);
     }
 
-    80% {
-        opacity: 60%;
+    80 {
+        opacity: var(--opacity-60);
     }
 
-    100% {
-        opacity: 0%;
-        transform: translate(var(--bubbles-drift, 30px), -100%);
+    100 {
+        opacity: var(--opacity-0);
+        transform: translate(var(--bubbles-drift, 30px), -100);
     }
 }
 
@@ -34,84 +34,84 @@
     .bubbles::before,
     .bubbles::after {
         animation: bubbles-rise 6s infinite;
-        background: var(--bubbles-color, rgb(255 255 255 / 40%));
-        border-radius: 50%;
-        bottom: -20px;
+        background: var(--bubbles-color, rgb(255 255 255 / 40));
+        border-radius: 50;
+        bottom: -var(--spacing-5);
         content: '';
-        height: 20px;
+        height: var(--spacing-5);
         position: absolute;
-        width: 20px;
+        width: var(--spacing-5);
     }
 
     .bubbles::before {
-        left: 20%;
+        left: 20;
     }
 
     .bubbles::after {
-        animation-delay: 2s;
-        left: 60%;
+        animation-delay: var(--animation-duration-slowest);
+        left: 60;
     }
 
     .bubbles-sm::before,
     .bubbles-sm::after {
-        height: 12px;
-        width: 12px;
+        height: 1var(--border-width-thick);
+        width: 1var(--border-width-thick);
     }
 
     .bubbles-lg::before,
     .bubbles-lg::after {
-        height: 30px;
-        width: 30px;
+        height: var(--spacing-7-5);
+        width: var(--spacing-7-5);
     }
 
     .bubbles-slow::before,
     .bubbles-slow::after {
-        animation-duration: 10s;
+        animation-duration: var(--animation-duration-ultra-slow);
     }
 
     .bubbles-fast::before,
     .bubbles-fast::after {
-        animation-duration: 4s;
+        animation-duration: var(--animation-duration-ultra-slow);
     }
 
     .bubbles-many::before {
-        animation-delay: 1s;
-        left: 30%;
+        animation-delay: var(--animation-duration-slow);
+        left: 30;
     }
 
     .bubbles-many::after {
-        animation-delay: 3s;
-        left: 70%;
+        animation-delay: var(--animation-duration-ultra-slow);
+        left: 70;
     }
 
     .bubbles-color-primary::before,
     .bubbles-color-primary::after {
-        background: var(--bubbles-primary, rgb(59 130 246 / 40%));
+        background: var(--bubbles-primary, rgb(59 130 246 / 40));
     }
 
     .bubbles-color-secondary::before,
     .bubbles-color-secondary::after {
-        background: var(--bubbles-secondary, rgb(107 114 128 / 40%));
+        background: var(--bubbles-secondary, rgb(107 114 128 / 40));
     }
 
     .bubbles-color-success::before,
     .bubbles-color-success::after {
-        background: var(--bubbles-success, rgb(16 185 129 / 40%));
+        background: var(--bubbles-success, rgb(16 185 129 / 40));
     }
 
     .bubbles-color-error::before,
     .bubbles-color-error::after {
-        background: var(--bubbles-error, rgb(239 68 68 / 40%));
+        background: var(--bubbles-error, rgb(239 68 68 / 40));
     }
 
     .bubbles-color-warning::before,
     .bubbles-color-warning::after {
-        background: var(--bubbles-warning, rgb(245 158 11 / 40%));
+        background: var(--bubbles-warning, rgb(245 158 11 / 40));
     }
 
     .bubbles-color-info::before,
     .bubbles-color-info::after {
-        background: var(--bubbles-info, rgb(6 182 212 / 40%));
+        background: var(--bubbles-info, rgb(6 182 212 / 40));
     }
 }
 
@@ -120,8 +120,8 @@
     @layer components {
         .bubbles::before,
         .bubbles::after {
-            animation: none;
-            opacity: 0%;
+            animation: var(--animation-none);
+            opacity: var(--opacity-0);
         }
     }
 } 

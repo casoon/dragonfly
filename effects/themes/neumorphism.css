@@ -8,14 +8,14 @@
 @layer components {
     /* Basisvariablen für Neumorphismus */
     :root {
-        --neuro-radius: 1rem;
+        --neuro-radius: var(--spacing-4);
         --neuro-shadow-intensity: 0.1;
         --neuro-shadow-distance: 0.5rem;
-        --neuro-shadow-blur: 1rem;
+        --neuro-shadow-blur: var(--spacing-4);
         --neuro-light-shadow-color: rgb(255 255 255 / var(--neuro-shadow-intensity));
         --neuro-dark-shadow-color: rgb(0 0 0 / var(--neuro-shadow-intensity));
         --neuro-background: var(--surface-3, #f0f0f0);
-        --neuro-transition: 200ms ease-out;
+        --neuro-transition: 200ms var(--easing-decelerate);
         --neuro-surface-tint: 0.02;
     }
 
@@ -67,7 +67,7 @@
         border-radius: var(--neuro-radius);
         cursor: pointer;
         display: inline-flex;
-        font-weight: 500;
+        font-weight: var(--font-weight-medium);
         justify-content: center;
         padding: 0.75rem 1.5rem;
         position: relative;
@@ -99,7 +99,7 @@
         box-shadow: inset
             calc(var(--neuro-shadow-distance) * 0.5) calc(var(--neuro-shadow-distance) * 0.5) calc(var(--neuro-shadow-blur) * 0.7) var(--neuro-dark-shadow-color),
             inset calc(-0.5 * var(--neuro-shadow-distance)) calc(-0.5 * var(--neuro-shadow-distance)) calc(var(--neuro-shadow-blur) * 0.7) var(--neuro-light-shadow-color);
-        transform: translateY(2px);
+        transform: translateY(var(--border-width-thick));
     }
 
     /* Neumorphe Karten */
@@ -127,11 +127,11 @@
             calc(var(--neuro-shadow-distance) * 0.4) calc(var(--neuro-shadow-distance) * 0.4) calc(var(--neuro-shadow-blur) * 0.6) var(--neuro-dark-shadow-color),
             inset calc(-0.4 * var(--neuro-shadow-distance)) calc(-0.4 * var(--neuro-shadow-distance)) calc(var(--neuro-shadow-blur) * 0.6) var(--neuro-light-shadow-color);
         color: inherit;
-        font-size: 1rem;
+        font-size: var(--spacing-4);
         outline: none;
-        padding: 0.75rem 1rem;
+        padding: 0.75rem var(--spacing-4);
         transition: all var(--neuro-transition);
-        width: 100%;
+        width: 100;
     }
 
     .neuro-input:focus {
@@ -164,15 +164,15 @@
     }
 
     .neuro-checkbox:checked::after {
-        border-bottom: 2px solid var(--accent-6, currentColor);
-        border-right: 2px solid var(--accent-6, currentColor);
+        border-bottom: var(--border-width-thick) solid var(--accent-6, currentColor);
+        border-right: var(--border-width-thick) solid var(--accent-6, currentColor);
         content: '';
         display: block;
         height: 0.5rem;
-        left: 50%;
+        left: 50;
         position: absolute;
-        top: 45%;
-        transform: translate(-50%, -50%) rotate(45deg);
+        top: var(--percentage-45);
+        transform: translate(-50, -50) rotate(45deg);
         width: 0.25rem;
     }
 
@@ -197,9 +197,9 @@
     }
 
     .neuro-medium {
-        --neuro-radius: 1rem;
+        --neuro-radius: var(--spacing-4);
         --neuro-shadow-distance: 0.5rem;
-        --neuro-shadow-blur: 1rem;
+        --neuro-shadow-blur: var(--spacing-4);
     }
 
     .neuro-large {
@@ -245,7 +245,7 @@
         .neuro-card,
         .neuro-input,
         .neuro-checkbox {
-            transition: none;
+            transition: var(--transition-none);
         }
     }
 } 

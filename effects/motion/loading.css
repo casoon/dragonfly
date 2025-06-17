@@ -8,165 +8,165 @@
 /* Animationen - außerhalb von @layer definieren */
 @keyframes loading-spin {
     to {
-        transform: rotate(360deg);
+        transform: var(--transform-rotate-360);
     }
 }
 
 @keyframes loading-pulse {
-    0%, 100% {
-        opacity: 50%;
+    0, 100 {
+        opacity: var(--opacity-50);
         transform: scale(0.8);
     }
 
-    50% {
-        opacity: 100%;
-        transform: scale(1);
+    50 {
+        opacity: var(--opacity-10)0;
+        transform: var(--transform-scale-100);
     }
 }
 
 @keyframes loading-dots {
-    0%, 100% {
-        opacity: 50%;
+    0, 100 {
+        opacity: var(--opacity-50);
         transform: scale(0.7);
     }
 
-    50% {
-        opacity: 100%;
-        transform: scale(1);
+    50 {
+        opacity: var(--opacity-10)0;
+        transform: var(--transform-scale-100);
     }
 }
 
 @keyframes loading-progress {
-    0% {
-        transform: translateX(-100%);
+    0 {
+        transform: translateX(-100);
     }
 
-    100% {
-        transform: translateX(100%);
+    100 {
+        transform: translateX(100);
     }
 }
 
 @keyframes loading-skeleton {
-    0% {
-        background-position: 100% 0;
+    0 {
+        background-position: 100 0;
     }
 
-    100% {
-        background-position: -100% 0;
+    100 {
+        background-position: -100 0;
     }
 }
 
 @keyframes loading-shimmer {
-    100% {
-        transform: translateX(100%);
+    100 {
+        transform: translateX(100);
     }
 }
 
 /* Komponenten-Styles */
 @layer components {
     .loading-spinner {
-        border: 4px solid var(--loading-color, rgb(0 0 0 / 10%));
+        border: var(--spacing-1) solid var(--loading-color, rgb(0 0 0 / 10));
         border-left-color: var(--loading-spinner-color, #3b82f6);
-        border-radius: 50%;
-        height: 40px;
-        width: 40px;
+        border-radius: 50;
+        height: var(--spacing-10);
+        width: var(--spacing-10);
     }
 
     .loading-spinner-sm {
-        border-width: 2px;
-        height: 20px;
-        width: 20px;
+        border-width: var(--border-width-thick);
+        height: var(--spacing-5);
+        width: var(--spacing-5);
     }
 
     .loading-spinner-lg {
-        border-width: 6px;
-        height: 60px;
-        width: 60px;
+        border-width: var(--spacing-1-5);
+        height: var(--spacing-15);
+        width: var(--spacing-15);
     }
 
     .loading-pulse {
         background: var(--loading-pulse-color, #3b82f6);
-        border-radius: 50%;
-        height: 40px;
-        width: 40px;
+        border-radius: 50;
+        height: var(--spacing-10);
+        width: var(--spacing-10);
     }
 
     .loading-pulse-sm {
-        height: 20px;
-        width: 20px;
+        height: var(--spacing-5);
+        width: var(--spacing-5);
     }
 
     .loading-pulse-lg {
-        height: 60px;
-        width: 60px;
+        height: var(--spacing-15);
+        width: var(--spacing-15);
     }
 
     .loading-dots {
         display: flex;
-        gap: 4px;
+        gap: var(--spacing-1);
     }
 
     .loading-dots::before,
     .loading-dots::after {
         background: var(--loading-dots-color, #3b82f6);
-        border-radius: 50%;
+        border-radius: 50;
         content: '';
-        height: 8px;
-        width: 8px;
+        height: var(--spacing-2);
+        width: var(--spacing-2);
     }
 
     .loading-dots-sm::before,
     .loading-dots-sm::after {
-        height: 4px;
-        width: 4px;
+        height: var(--spacing-1);
+        width: var(--spacing-1);
     }
 
     .loading-dots-lg::before,
     .loading-dots-lg::after {
-        height: 12px;
-        width: 12px;
+        height: 1var(--border-width-thick);
+        width: 1var(--border-width-thick);
     }
 
     .loading-progress {
-        background: var(--loading-progress-bg, rgb(0 0 0 / 10%));
-        border-radius: 2px;
-        height: 4px;
+        background: var(--loading-progress-bg, rgb(0 0 0 / 10));
+        border-radius: var(--border-width-thick);
+        height: var(--spacing-1);
         overflow: hidden;
-        width: 100%;
+        width: 100;
     }
 
     .loading-progress::after {
         background: var(--loading-progress-color, #3b82f6);
         content: '';
         display: block;
-        height: 100%;
-        width: 40%;
+        height: 100;
+        width: 40;
     }
 
     .loading-progress-sm {
-        height: 2px;
+        height: var(--border-width-thick);
     }
 
     .loading-progress-lg {
-        height: 6px;
+        height: var(--spacing-1-5);
     }
 
     .loading-skeleton {
         background: linear-gradient(
             90deg,
-            var(--loading-skeleton-start, rgb(0 0 0 / 10%)) 0%,
-            var(--loading-skeleton-end, rgb(0 0 0 / 20%)) 50%,
-            var(--loading-skeleton-start, rgb(0 0 0 / 10%)) 100%
+            var(--loading-skeleton-start, rgb(0 0 0 / 10)) 0,
+            var(--loading-skeleton-end, rgb(0 0 0 / 20)) 50,
+            var(--loading-skeleton-start, rgb(0 0 0 / 10)) 100
         );
-        background-size: 200% 100%;
+        background-size: 200 100;
     }
 
     .loading-skeleton-sm {
-        background-size: 150% 100%;
+        background-size: 150 100;
     }
 
     .loading-skeleton-lg {
-        background-size: 300% 100%;
+        background-size: 300 100;
     }
 
     .loading-shimmer {
@@ -177,16 +177,16 @@
     .loading-shimmer::after {
         background: linear-gradient(
             90deg,
-            transparent 0%,
-            var(--loading-shimmer-color, rgb(255 255 255 / 20%)) 50%,
-            transparent 100%
+            transparent 0,
+            var(--loading-shimmer-color, rgb(255 255 255 / 20)) 50,
+            transparent 100
         );
         content: '';
-        height: 100%;
+        height: 100;
         left: 0;
         position: absolute;
         top: 0;
-        width: 100%;
+        width: 100;
     }
 
     .loading-color-primary {
@@ -239,36 +239,36 @@
     }
 
     .loading-pulse {
-        animation: loading-pulse 1s ease-in-out infinite;
+        animation: loading-pulse 1s var(--easing-smooth) infinite;
     }
 
     .loading-dots::before,
     .loading-dots::after {
-        animation: loading-dots 1s ease-in-out infinite;
+        animation: loading-dots 1s var(--easing-smooth) infinite;
     }
 
     .loading-dots::after {
-        animation-delay: 0.5s;
+        animation-delay: var(--animation-duration-medium);
     }
 
     .loading-progress::after {
-        animation: loading-progress 1s ease-in-out infinite;
+        animation: loading-progress 1s var(--easing-smooth) infinite;
     }
 
     .loading-skeleton {
-        animation: loading-skeleton 1.5s ease-in-out infinite;
+        animation: loading-skeleton 1.5s var(--easing-smooth) infinite;
     }
     
     .loading-skeleton-sm {
-        animation-duration: 1s;
+        animation-duration: var(--animation-duration-slow);
     }
 
     .loading-skeleton-lg {
-        animation-duration: 2s;
+        animation-duration: var(--animation-duration-slowest);
     }
 
     .loading-shimmer::after {
-        animation: loading-shimmer 1.5s ease-in-out infinite;
+        animation: loading-shimmer 1.5s var(--easing-smooth) infinite;
     }
 }
 
@@ -282,7 +282,7 @@
         .loading-progress::after,
         .loading-skeleton,
         .loading-shimmer::after {
-            animation: none !important;
+            animation: var(--animation-none) !important;
         }
     }
 } 

@@ -6,49 +6,49 @@
  */
 
 @keyframes particles-float {
-    0% {
-        opacity: 0%;
+    0 {
+        opacity: var(--opacity-0);
         transform: translate(0, 0);
     }
 
-    50% {
-        opacity: 100%;
+    50 {
+        opacity: var(--opacity-10)0;
     }
 
-    100% {
-        opacity: 0%;
+    100 {
+        opacity: var(--opacity-0);
         transform: translate(100px, -100px);
     }
 }
 
 @keyframes particles-dots {
-    0% {
-        opacity: 0%;
+    0 {
+        opacity: var(--opacity-0);
         transform: translate(0, 0);
     }
 
-    50% {
-        opacity: 100%;
+    50 {
+        opacity: var(--opacity-10)0;
     }
 
-    100% {
-        opacity: 0%;
+    100 {
+        opacity: var(--opacity-0);
         transform: translate(-100px, 100px);
     }
 }
 
 @keyframes particles-lines {
-    0% {
-        opacity: 0%;
+    0 {
+        opacity: var(--opacity-0);
         transform: translate(0, 0) rotate(0deg);
     }
 
-    50% {
-        opacity: 100%;
+    50 {
+        opacity: var(--opacity-10)0;
     }
 
-    100% {
-        opacity: 0%;
+    100 {
+        opacity: var(--opacity-0);
         transform: translate(100px, 100px) rotate(360deg);
     }
 }
@@ -62,38 +62,38 @@
     .particles::before,
     .particles::after {
         animation: particles-float 3s infinite;
-        background: var(--particle-color, rgb(255 255 255 / 50%));
-        border-radius: 50%;
+        background: var(--particle-color, rgb(255 255 255 / 50));
+        border-radius: 50;
         content: '';
-        height: 4px;
+        height: var(--spacing-1);
         position: absolute;
-        width: 4px;
+        width: var(--spacing-1);
     }
 
     .particles::after {
-        animation-delay: 1.5s;
+        animation-delay: var(--animation-duration-slower);
     }
 
     .particles-sm::before,
     .particles-sm::after {
-        height: 2px;
-        width: 2px;
+        height: var(--border-width-thick);
+        width: var(--border-width-thick);
     }
 
     .particles-lg::before,
     .particles-lg::after {
-        height: 6px;
-        width: 6px;
+        height: var(--spacing-1-5);
+        width: var(--spacing-1-5);
     }
 
     .particles-slow::before,
     .particles-slow::after {
-        animation-duration: 4s;
+        animation-duration: var(--animation-duration-ultra-slow);
     }
 
     .particles-fast::before,
     .particles-fast::after {
-        animation-duration: 2s;
+        animation-duration: var(--animation-duration-slowest);
     }
 
     .particles-dots {
@@ -104,38 +104,38 @@
     .particles-dots::before,
     .particles-dots::after {
         animation: particles-dots 3s infinite;
-        background: var(--particle-dots-color, rgb(255 255 255 / 50%));
-        border-radius: 50%;
+        background: var(--particle-dots-color, rgb(255 255 255 / 50));
+        border-radius: 50;
         content: '';
-        height: 4px;
+        height: var(--spacing-1);
         position: absolute;
-        width: 4px;
+        width: var(--spacing-1);
     }
 
     .particles-dots::after {
-        animation-delay: 1.5s;
+        animation-delay: var(--animation-duration-slower);
     }
 
     .particles-dots-sm::before,
     .particles-dots-sm::after {
-        height: 2px;
-        width: 2px;
+        height: var(--border-width-thick);
+        width: var(--border-width-thick);
     }
 
     .particles-dots-lg::before,
     .particles-dots-lg::after {
-        height: 6px;
-        width: 6px;
+        height: var(--spacing-1-5);
+        width: var(--spacing-1-5);
     }
 
     .particles-dots-slow::before,
     .particles-dots-slow::after {
-        animation-duration: 4s;
+        animation-duration: var(--animation-duration-ultra-slow);
     }
 
     .particles-dots-fast::before,
     .particles-dots-fast::after {
-        animation-duration: 2s;
+        animation-duration: var(--animation-duration-slowest);
     }
 
     .particles-lines {
@@ -146,67 +146,67 @@
     .particles-lines::before,
     .particles-lines::after {
         animation: particles-lines 3s infinite;
-        background: var(--particle-lines-color, rgb(255 255 255 / 50%));
+        background: var(--particle-lines-color, rgb(255 255 255 / 50));
         content: '';
-        height: 20px;
+        height: var(--spacing-5);
         position: absolute;
-        width: 2px;
+        width: var(--border-width-thick);
     }
 
     .particles-lines::after {
-        animation-delay: 1.5s;
+        animation-delay: var(--animation-duration-slower);
     }
 
     .particles-lines-sm::before,
     .particles-lines-sm::after {
-        height: 10px;
-        width: 1px;
+        height: var(--spacing-2-5);
+        width: var(--border-width);
     }
 
     .particles-lines-lg::before,
     .particles-lines-lg::after {
-        height: 30px;
-        width: 3px;
+        height: var(--spacing-7-5);
+        width: var(--spacing-1);
     }
 
     .particles-lines-slow::before,
     .particles-lines-slow::after {
-        animation-duration: 4s;
+        animation-duration: var(--animation-duration-ultra-slow);
     }
 
     .particles-lines-fast::before,
     .particles-lines-fast::after {
-        animation-duration: 2s;
+        animation-duration: var(--animation-duration-slowest);
     }
 
     .particles-color-primary::before,
     .particles-color-primary::after {
-        background: var(--particle-primary, rgb(59 130 246 / 50%));
+        background: var(--particle-primary, rgb(59 130 246 / 50));
     }
 
     .particles-color-secondary::before,
     .particles-color-secondary::after {
-        background: var(--particle-secondary, rgb(107 114 128 / 50%));
+        background: var(--particle-secondary, rgb(107 114 128 / 50));
     }
 
     .particles-color-success::before,
     .particles-color-success::after {
-        background: var(--particle-success, rgb(16 185 129 / 50%));
+        background: var(--particle-success, rgb(16 185 129 / 50));
     }
 
     .particles-color-error::before,
     .particles-color-error::after {
-        background: var(--particle-error, rgb(239 68 68 / 50%));
+        background: var(--particle-error, rgb(239 68 68 / 50));
     }
 
     .particles-color-warning::before,
     .particles-color-warning::after {
-        background: var(--particle-warning, rgb(245 158 11 / 50%));
+        background: var(--particle-warning, rgb(245 158 11 / 50));
     }
 
     .particles-color-info::before,
     .particles-color-info::after {
-        background: var(--particle-info, rgb(6 182 212 / 50%));
+        background: var(--particle-info, rgb(6 182 212 / 50));
     }
 }
 
@@ -219,8 +219,8 @@
         .particles-dots::after,
         .particles-lines::before,
         .particles-lines::after {
-            animation: none;
-            opacity: 0%;
+            animation: var(--animation-none);
+            opacity: var(--opacity-0);
         }
     }
 } 

@@ -6,90 +6,90 @@
  */
 
 @keyframes morph-pulse {
-    0%, 100% {
-        border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    0, 100 {
+        border-radius: 30 70 70 30 / 30 30 70 70;
     }
 
-    50% {
-        border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%;
+    50 {
+        border-radius: 70 30 30 70 / 70 70 30 30;
     }
 }
 
 @keyframes morph-pulse-sm {
-    0%, 100% {
-        border-radius: 20% 80% 80% 20% / 20% 20% 80% 80%;
+    0, 100 {
+        border-radius: 20 80 80 20 / 20 20 80 80;
     }
 
-    50% {
-        border-radius: 80% 20% 20% 80% / 80% 80% 20% 20%;
+    50 {
+        border-radius: 80 20 20 80 / 80 80 20 20;
     }
 }
 
 @keyframes morph-pulse-lg {
-    0%, 100% {
-        border-radius: 40% 60% 60% 40% / 40% 40% 60% 60%;
+    0, 100 {
+        border-radius: 40 60 60 40 / 40 40 60 60;
     }
 
-    50% {
-        border-radius: 60% 40% 40% 60% / 60% 60% 40% 40%;
+    50 {
+        border-radius: 60 40 40 60 / 60 60 40 40;
     }
 }
 
 @layer components {
     .morph {
-        transition: all 0.3s ease-in-out;
+        transition: all 0.3s var(--easing-smooth);
     }
 
     .morph:hover {
-        border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+        border-radius: 30 70 70 30 / 30 30 70 70;
     }
 
     .morph-sm:hover {
-        border-radius: 20% 80% 80% 20% / 20% 20% 80% 80%;
+        border-radius: 20 80 80 20 / 20 20 80 80;
     }
 
     .morph-lg:hover {
-        border-radius: 40% 60% 60% 40% / 40% 40% 60% 60%;
+        border-radius: 40 60 60 40 / 40 40 60 60;
     }
 
     .morph-slow {
-        transition-duration: 0.5s;
+        transition-duration: var(--animation-duration-medium);
     }
 
     .morph-fast {
-        transition-duration: 0.2s;
+        transition-duration: var(--animation-duration-fast);
     }
 
     .morph-blob {
-        transition: all 0.3s ease-in-out;
+        transition: all 0.3s var(--easing-smooth);
     }
 
     .morph-blob:hover {
-        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        border-radius: 60 40 30 70 / 60 30 70 40;
     }
 
     .morph-blob-sm:hover {
-        border-radius: 50% 50% 20% 80% / 50% 20% 80% 50%;
+        border-radius: 50 50 20 80 / 50 20 80 50;
     }
 
     .morph-blob-lg:hover {
-        border-radius: 70% 30% 40% 60% / 70% 40% 60% 30%;
+        border-radius: 70 30 40 60 / 70 40 60 30;
     }
 
     .morph-wave {
-        transition: all 0.3s ease-in-out;
+        transition: all 0.3s var(--easing-smooth);
     }
 
     .morph-wave:hover {
-        border-radius: 30% 70% 30% 70% / 30% 70% 30% 70%;
+        border-radius: 30 70 30 70 / 30 70 30 70;
     }
 
     .morph-wave-sm:hover {
-        border-radius: 20% 80% 20% 80% / 20% 80% 20% 80%;
+        border-radius: 20 80 20 80 / 20 80 20 80;
     }
 
     .morph-wave-lg:hover {
-        border-radius: 40% 60% 40% 60% / 40% 60% 40% 60%;
+        border-radius: 40 60 40 60 / 40 60 40 60;
     }
 
     .morph-pulse {
@@ -138,8 +138,8 @@
         .morph-pulse,
         .morph-pulse-sm,
         .morph-pulse-lg {
-            animation: none;
-            transition: none;
+            animation: var(--animation-none);
+            transition: var(--transition-none);
         }
     }
 } 

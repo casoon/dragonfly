@@ -6,60 +6,60 @@
  */
 
 @keyframes snow-fall-1 {
-    0% {
-        opacity: 0%;
-        transform: translateY(-20px) translateX(0);
+    0 {
+        opacity: var(--opacity-0);
+        transform: translateY(-var(--spacing-5)) translateX(0);
     }
 
-    20% {
-        opacity: 100%;
-        transform: translateY(0) translateX(10px);
+    20 {
+        opacity: var(--opacity-10)0;
+        transform: translateY(0) translateX(var(--spacing-2-5));
     }
 
-    40% {
-        transform: translateY(20px) translateX(0);
+    40 {
+        transform: translateY(var(--spacing-5)) translateX(0);
     }
 
-    60% {
-        transform: translateY(40px) translateX(-10px);
+    60 {
+        transform: translateY(40px) translateX(-var(--spacing-2-5));
     }
 
-    80% {
+    80 {
         transform: translateY(60px) translateX(0);
     }
 
-    100% {
-        opacity: 0%;
-        transform: translateY(80px) translateX(10px);
+    100 {
+        opacity: var(--opacity-0);
+        transform: translateY(80px) translateX(var(--spacing-2-5));
     }
 }
 
 @keyframes snow-fall-2 {
-    0% {
-        opacity: 0%;
-        transform: translateY(-20px) translateX(0);
+    0 {
+        opacity: var(--opacity-0);
+        transform: translateY(-var(--spacing-5)) translateX(0);
     }
 
-    20% {
-        opacity: 100%;
-        transform: translateY(0) translateX(-10px);
+    20 {
+        opacity: var(--opacity-10)0;
+        transform: translateY(0) translateX(-var(--spacing-2-5));
     }
 
-    40% {
-        transform: translateY(20px) translateX(0);
+    40 {
+        transform: translateY(var(--spacing-5)) translateX(0);
     }
 
-    60% {
-        transform: translateY(40px) translateX(10px);
+    60 {
+        transform: translateY(40px) translateX(var(--spacing-2-5));
     }
 
-    80% {
+    80 {
         transform: translateY(60px) translateX(0);
     }
 
-    100% {
-        opacity: 0%;
-        transform: translateY(80px) translateX(-10px);
+    100 {
+        opacity: var(--opacity-0);
+        transform: translateY(80px) translateX(-var(--spacing-2-5));
     }
 }
 
@@ -72,23 +72,23 @@
     .snow::before,
     .snow::after {
         animation: snow-fall-1 6s linear infinite;
-        background: var(--snow-color, rgb(255 255 255 / 90%));
-        border-radius: 50%;
+        background: var(--snow-color, rgb(255 255 255 / 90));
+        border-radius: 50;
         content: '';
-        height: 6px;
+        height: var(--spacing-1-5);
         position: absolute;
         top: -6px;
-        width: 6px;
+        width: var(--spacing-1-5);
     }
 
     .snow::before {
-        left: 30%;
+        left: 30;
     }
 
     .snow::after {
-        animation-delay: 2s;
+        animation-delay: var(--animation-duration-slowest);
         animation-name: snow-fall-2;
-        left: 60%;
+        left: 60;
     }
 
     /* Snow mit mehreren Flocken */
@@ -99,48 +99,48 @@
     .snow-many::before,
     .snow-many::after {
         animation: snow-fall-1 6s linear infinite;
-        background: var(--snow-color, rgb(255 255 255 / 90%));
-        border-radius: 50%;
+        background: var(--snow-color, rgb(255 255 255 / 90));
+        border-radius: 50;
         content: '';
-        height: 6px;
+        height: var(--spacing-1-5);
         position: absolute;
         top: -6px;
-        width: 6px;
+        width: var(--spacing-1-5);
     }
 
     .snow-many::before {
-        animation-delay: 1s;
-        left: 10%;
+        animation-delay: var(--animation-duration-slow);
+        left: 10;
     }
 
     .snow-many::after {
-        animation-delay: 3s;
+        animation-delay: var(--animation-duration-ultra-slow);
         animation-name: snow-fall-2;
-        left: 50%;
+        left: 50;
     }
 
     .snow-many .flake {
         animation: snow-fall-1 6s linear infinite;
-        animation-delay: 0.5s;
-        background: var(--snow-color, rgb(255 255 255 / 90%));
-        border-radius: 50%;
-        height: 6px;
-        left: 70%;
+        animation-delay: var(--animation-duration-medium);
+        background: var(--snow-color, rgb(255 255 255 / 90));
+        border-radius: 50;
+        height: var(--spacing-1-5);
+        left: 70;
         position: absolute;
         top: -6px;
-        width: 6px;
+        width: var(--spacing-1-5);
     }
 
     .snow-many .flake-alt {
         animation: snow-fall-2 6s linear infinite;
-        animation-delay: 1.5s;
-        background: var(--snow-color, rgb(255 255 255 / 90%));
-        border-radius: 50%;
-        height: 6px;
-        left: 90%;
+        animation-delay: var(--animation-duration-slower);
+        background: var(--snow-color, rgb(255 255 255 / 90));
+        border-radius: 50;
+        height: var(--spacing-1-5);
+        left: 90;
         position: absolute;
         top: -6px;
-        width: 6px;
+        width: var(--spacing-1-5);
     }
 
     /* Größenvarianten */
@@ -148,16 +148,16 @@
     .snow-sm::after,
     .snow-sm .flake,
     .snow-sm .flake-alt {
-        height: 4px;
-        width: 4px;
+        height: var(--spacing-1);
+        width: var(--spacing-1);
     }
 
     .snow-lg::before,
     .snow-lg::after,
     .snow-lg .flake,
     .snow-lg .flake-alt {
-        height: 8px;
-        width: 8px;
+        height: var(--spacing-2);
+        width: var(--spacing-2);
     }
 
     /* Geschwindigkeitsvarianten */
@@ -165,27 +165,27 @@
     .snow-slow::after,
     .snow-slow .flake,
     .snow-slow .flake-alt {
-        animation-duration: 10s;
+        animation-duration: var(--animation-duration-ultra-slow);
     }
 
     .snow-fast::before,
     .snow-fast::after,
     .snow-fast .flake,
     .snow-fast .flake-alt {
-        animation-duration: 4s;
+        animation-duration: var(--animation-duration-ultra-slow);
     }
 
     /* Farb-Varianten */
     .snow-blue {
-        --snow-color: rgb(230 240 255 / 90%);
+        --snow-color: rgb(230 240 255 / 90);
     }
 
     .snow-silver {
-        --snow-color: rgb(220 220 230 / 90%);
+        --snow-color: rgb(220 220 230 / 90);
     }
 
     .snow-crystal {
-        --snow-color: rgb(240 255 255 / 90%);
+        --snow-color: rgb(240 255 255 / 90);
     }
 
     /* Schneekristalle statt runder Flocken */
@@ -194,11 +194,11 @@
     .snow-crystal .flake,
     .snow-crystal .flake-alt {
         clip-path: polygon(
-            50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 
-            50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%
+            50 0, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 
+            50 70, 21% 91%, 32% 57%, 2% 35%, 39% 35%
         );
-        height: 10px;
-        width: 10px;
+        height: var(--spacing-2-5);
+        width: var(--spacing-2-5);
     }
 }
 
@@ -211,8 +211,8 @@
         .snow-many::after,
         .snow-many .flake,
         .snow-many .flake-alt {
-            animation: none;
-            opacity: 0%;
+            animation: var(--animation-none);
+            opacity: var(--opacity-0);
         }
     }
 } 

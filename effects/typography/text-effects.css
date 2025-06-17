@@ -6,49 +6,49 @@
  */
 
 @keyframes text-shine {
-    0% {
-        background-position: 200% 0;
+    0 {
+        background-position: 200 0;
     }
 
-    100% {
-        background-position: -200% 0;
+    100 {
+        background-position: -200 0;
     }
 }
 
 @layer utilities {
     .text-shadow-sm {
-        text-shadow: 0 1px 2px rgb(0 0 0 / 10%);
+        text-shadow: 0 var(--border-width) var(--border-width-thick) rgb(0 0 0 / 10);
     }
 
     .text-shadow-md {
-        text-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+        text-shadow: 0 var(--border-width-thick) var(--spacing-1) rgb(0 0 0 / 10);
     }
 
     .text-shadow-lg {
-        text-shadow: 0 4px 8px rgb(0 0 0 / 10%);
+        text-shadow: 0 var(--spacing-1) var(--spacing-2) rgb(0 0 0 / 10);
     }
 
     .text-shadow-glow {
-        text-shadow: 0 0 10px var(--text-glow-color, currentColor);
+        text-shadow: 0 0 var(--spacing-2-5) var(--text-glow-color, currentColor);
     }
 
     .text-shadow-neon {
         text-shadow: 
-            0 0 5px var(--text-neon-color, currentColor),
-            0 0 10px var(--text-neon-color, currentColor),
-            0 0 20px var(--text-neon-color, currentColor);
+            0 0 var(--spacing-1) var(--text-neon-color, currentColor),
+            0 0 var(--spacing-2-5) var(--text-neon-color, currentColor),
+            0 0 var(--spacing-5) var(--text-neon-color, currentColor);
     }
 
     .text-stroke-sm {
-        -webkit-text-stroke: 1px var(--text-stroke-color, currentColor);
+        -webkit-text-stroke: var(--border-width) var(--text-stroke-color, currentColor);
     }
 
     .text-stroke-md {
-        -webkit-text-stroke: 2px var(--text-stroke-color, currentColor);
+        -webkit-text-stroke: var(--border-width-thick) var(--text-stroke-color, currentColor);
     }
 
     .text-stroke-lg {
-        -webkit-text-stroke: 3px var(--text-stroke-color, currentColor);
+        -webkit-text-stroke: var(--spacing-1) var(--text-stroke-color, currentColor);
     }
 
     .text-gradient {
@@ -61,33 +61,33 @@
         animation: text-shine 3s linear infinite;
         background: linear-gradient(
             90deg,
-            transparent 0%,
-            rgb(255 255 255 / 20%) 50%,
-            transparent 100%
+            transparent 0,
+            rgb(255 255 255 / 20) 50,
+            transparent 100
         );
         background-clip: text;
-        background-size: 200% 100%;
+        background-size: 200 100;
         color: transparent;
     }
 
     .text-blur-sm {
-        filter: blur(1px);
+        filter: blur(var(--border-width));
     }
 
     .text-blur-md {
-        filter: blur(2px);
+        filter: blur(var(--border-width-thick));
     }
 
     .text-blur-lg {
-        filter: blur(3px);
+        filter: blur(var(--spacing-1));
     }
 
     .text-outline {
         text-shadow: 
-            -1px -1px 0 var(--text-outline-color, currentColor),
-            1px -1px 0 var(--text-outline-color, currentColor),
-            -1px 1px 0 var(--text-outline-color, currentColor),
-            1px 1px 0 var(--text-outline-color, currentColor);
+            -var(--border-width) -var(--border-width) 0 var(--text-outline-color, currentColor),
+            var(--border-width) -var(--border-width) 0 var(--text-outline-color, currentColor),
+            -var(--border-width) var(--border-width) 0 var(--text-outline-color, currentColor),
+            var(--border-width) var(--border-width) 0 var(--text-outline-color, currentColor);
     }
 }
 
@@ -95,7 +95,7 @@
 @media (prefers-reduced-motion: reduce) {
     @layer utilities {
         .text-shine {
-            animation: none;
+            animation: var(--animation-none);
         }
     }
 } 

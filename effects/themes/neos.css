@@ -9,33 +9,33 @@
     /* Basis Neo-Effekte */
     .neo {
         background: var(--neo-bg, #e0e5ec);
-        border-radius: 10px;
+        border-radius: var(--spacing-2-5);
         box-shadow: 
-            8px 8px 16px var(--neo-shadow-dark, #a3b1c6),
-            -8px -8px 16px var(--neo-shadow-light, #fff);
+            var(--spacing-2) var(--spacing-2) var(--spacing-4) var(--neo-shadow-dark, #a3b1c6),
+            -var(--spacing-2) -var(--spacing-2) var(--spacing-4) var(--neo-shadow-light, #fff);
     }
 
     .neo-inset {
         background: var(--neo-bg, #e0e5ec);
-        border-radius: 10px;
+        border-radius: var(--spacing-2-5);
         box-shadow: 
-            inset 8px 8px 16px var(--neo-shadow-dark, #a3b1c6),
-            inset -8px -8px 16px var(--neo-shadow-light, #fff);
+            inset var(--spacing-2) var(--spacing-2) var(--spacing-4) var(--neo-shadow-dark, #a3b1c6),
+            inset -var(--spacing-2) -var(--spacing-2) var(--spacing-4) var(--neo-shadow-light, #fff);
     }
 
     /* Größen-Varianten */
     .neo-sm {
-        border-radius: 6px;
+        border-radius: var(--spacing-1-5);
         box-shadow: 
-            4px 4px 8px var(--neo-shadow-dark, #a3b1c6),
-            -4px -4px 8px var(--neo-shadow-light, #fff);
+            var(--spacing-1) var(--spacing-1) var(--spacing-2) var(--neo-shadow-dark, #a3b1c6),
+            -var(--spacing-1) -var(--spacing-1) var(--spacing-2) var(--neo-shadow-light, #fff);
     }
 
     .neo-lg {
-        border-radius: 16px;
+        border-radius: var(--spacing-4);
         box-shadow: 
-            12px 12px 24px var(--neo-shadow-dark, #a3b1c6),
-            -12px -12px 24px var(--neo-shadow-light, #fff);
+            1var(--border-width-thick) 1var(--border-width-thick) 2var(--spacing-1) var(--neo-shadow-dark, #a3b1c6),
+            -1var(--border-width-thick) -1var(--border-width-thick) 2var(--spacing-1) var(--neo-shadow-light, #fff);
     }
 
     /* Hover-Effekte */
@@ -45,15 +45,15 @@
 
     .neo-hover:hover {
         box-shadow: 
-            12px 12px 24px var(--neo-shadow-dark, #a3b1c6),
-            -12px -12px 24px var(--neo-shadow-light, #fff);
-        transform: translateY(-2px);
+            1var(--border-width-thick) 1var(--border-width-thick) 2var(--spacing-1) var(--neo-shadow-dark, #a3b1c6),
+            -1var(--border-width-thick) -1var(--border-width-thick) 2var(--spacing-1) var(--neo-shadow-light, #fff);
+        transform: translateY(-var(--border-width-thick));
     }
 
     .neo-hover-inset:hover {
         box-shadow: 
-            inset 12px 12px 24px var(--neo-shadow-dark, #a3b1c6),
-            inset -12px -12px 24px var(--neo-shadow-light, #fff);
+            inset 1var(--border-width-thick) 1var(--border-width-thick) 2var(--spacing-1) var(--neo-shadow-dark, #a3b1c6),
+            inset -1var(--border-width-thick) -1var(--border-width-thick) 2var(--spacing-1) var(--neo-shadow-light, #fff);
     }
 
     /* Aktive Zustände */
@@ -63,9 +63,9 @@
 
     .neo-active:active {
         box-shadow: 
-            inset 4px 4px 8px var(--neo-shadow-dark, #a3b1c6),
-            inset -4px -4px 8px var(--neo-shadow-light, #fff);
-        transform: scale(0.98);
+            inset var(--spacing-1) var(--spacing-1) var(--spacing-2) var(--neo-shadow-dark, #a3b1c6),
+            inset -var(--spacing-1) -var(--spacing-1) var(--spacing-2) var(--neo-shadow-light, #fff);
+        transform: var(--transform-scale-98);
     }
 
     /* Farb-Varianten */
@@ -108,13 +108,13 @@
     /* Spezielle Effekte */
     .neo-glow {
         box-shadow: 
-            8px 8px 16px var(--neo-shadow-dark, #a3b1c6),
-            -8px -8px 16px var(--neo-shadow-light, #fff),
-            0 0 20px var(--neo-glow, rgb(59 130 246 / 50%));
+            var(--spacing-2) var(--spacing-2) var(--spacing-4) var(--neo-shadow-dark, #a3b1c6),
+            -var(--spacing-2) -var(--spacing-2) var(--spacing-4) var(--neo-shadow-light, #fff),
+            0 0 var(--spacing-5) var(--neo-glow, rgb(59 130 246 / 50));
     }
 
     .neo-border {
-        border: 2px solid var(--neo-border, rgb(59 130 246 / 20%));
+        border: var(--border-width-thick) solid var(--neo-border, rgb(59 130 246 / 20));
     }
 
     .neo-gradient {
@@ -132,12 +132,12 @@
         .neo-hover,
         .neo-hover-inset,
         .neo-active {
-            transition: none;
+            transition: var(--transition-none);
         }
         
         .neo-hover:hover,
         .neo-active:active {
-            transform: none;
+            transform: var(--transform-none);
         }
     }
 } 

@@ -7,7 +7,7 @@
 
 @layer utilities {
     .mask-circle {
-        mask-image: radial-gradient(circle, black 50%, transparent 100%);
+        mask-image: radial-gradient(circle, black 50, transparent 100);
     }
 
     .mask-diamond {
@@ -15,7 +15,7 @@
     }
 
     .mask-hexagon {
-        clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        clip-path: polygon(50 0, 100 25%, 100 75%, 50 100, 0 75%, 0 25%);
     }
 
     .mask-wave {
@@ -23,7 +23,7 @@
     }
 
     .mask-gradient {
-        mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+        mask-image: linear-gradient(to bottom, black 0, transparent 100);
     }
 
     .mask-blur {
@@ -45,7 +45,7 @@
 @media (prefers-reduced-motion: reduce) {
     @layer utilities {
         .mask-hover:hover {
-            transition: none;
+            transition: var(--transition-none);
         }
     }
 } 

@@ -7,11 +7,11 @@
 
 @layer utilities {
     .transform-none {
-        transform: none;
+        transform: var(--transform-none);
     }
 
     .transform-scale-sm {
-        transform: scale(0.95);
+        transform: var(--transform-scale-95);
     }
 
     .transform-scale-md {
@@ -19,7 +19,7 @@
     }
 
     .transform-scale-lg {
-        transform: scale(1.1);
+        transform: var(--transform-scale-110);
     }
 
     .transform-rotate-sm {
@@ -31,7 +31,7 @@
     }
 
     .transform-rotate-lg {
-        transform: rotate(45deg);
+        transform: var(--transform-rotate-45);
     }
 
     .transform-skew-sm {
@@ -55,7 +55,7 @@
     }
 
     .transform-translate-x-lg {
-        transform: translateX(1rem);
+        transform: translateX(var(--spacing-4));
     }
 
     .transform-translate-y-sm {
@@ -67,7 +67,7 @@
     }
 
     .transform-translate-y-lg {
-        transform: translateY(1rem);
+        transform: translateY(var(--spacing-4));
     }
 
     .transform-origin-center {
@@ -125,7 +125,7 @@
         .transform-translate-y-sm,
         .transform-translate-y-md,
         .transform-translate-y-lg {
-            transition: none;
+            transition: var(--transition-none);
         }
     }
 } 

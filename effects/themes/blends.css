@@ -98,7 +98,7 @@
         .blend-color,
         .blend-luminosity,
         .blend-normal {
-            transition: none;
+            transition: var(--transition-none);
         }
     }
 } 

@@ -87,11 +87,11 @@
         transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
     }
 
-    .transition-ease-out {
+    .transition-var(--easing-decelerate) {
         transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
     }
 
-    .transition-ease-in-out {
+    .transition-var(--easing-smooth) {
         transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     }
 }
@@ -141,8 +141,8 @@
     /* Poster Transition Anpassungen */
     ::view-transition-old(poster),
     ::view-transition-new(poster) {
-        animation: none;
-        height: 100%;
+        animation: var(--animation-none);
+        height: 100;
         mix-blend-mode: normal;
     }
 
@@ -172,12 +172,12 @@
 
     .poster-reveal ::view-transition-old(poster) {
         animation: 400ms cubic-bezier(0.4, 0, 0.2, 1) both circle-out;
-        clip-path: circle(100% at center);
+        clip-path: circle(100 at center);
     }
 
     .poster-reveal ::view-transition-new(poster) {
         animation: 400ms cubic-bezier(0.4, 0, 0.2, 1) both circle-in;
-        clip-path: circle(0% at center);
+        clip-path: circle(0 at center);
     }
 
     /* Cross-Document Transitions */
@@ -216,99 +216,99 @@
 
     /* Animations-Keyframes */
     @keyframes fade-out {
-        from { opacity: 100%; }
+        from { opacity: var(--opacity-10)0; }
 
-        to { opacity: 0%; }
+        to { opacity: var(--opacity-0); }
     }
 
     @keyframes fade-in {
-        from { opacity: 0%; }
+        from { opacity: var(--opacity-0); }
 
-        to { opacity: 100%; }
+        to { opacity: var(--opacity-10)0; }
     }
 
     @keyframes scale-down-fade-out {
-        from { opacity: 100%; transform: scale(1); }
+        from { opacity: var(--opacity-10)0; transform: var(--transform-scale-100); }
 
-        to { opacity: 0%; transform: scale(0.8); }
+        to { opacity: var(--opacity-0); transform: scale(0.8); }
     }
 
     @keyframes scale-up-fade-in {
-        from { opacity: 0%; transform: scale(0.8); }
+        from { opacity: var(--opacity-0); transform: scale(0.8); }
 
-        to { opacity: 100%; transform: scale(1); }
+        to { opacity: var(--opacity-10)0; transform: var(--transform-scale-100); }
     }
 
     @keyframes slide-left-fade-out {
-        from { opacity: 100%; transform: translateX(0); }
+        from { opacity: var(--opacity-10)0; transform: translateX(0); }
 
-        to { opacity: 0%; transform: translateX(-30px); }
+        to { opacity: var(--opacity-0); transform: translateX(-30px); }
     }
 
     @keyframes slide-right-fade-in {
-        from { opacity: 0%; transform: translateX(30px); }
+        from { opacity: var(--opacity-0); transform: translateX(30px); }
 
-        to { opacity: 100%; transform: translateX(0); }
+        to { opacity: var(--opacity-10)0; transform: translateX(0); }
     }
 
     @keyframes cross-fade {
-        from { opacity: 0%; }
+        from { opacity: var(--opacity-0); }
 
-        to { opacity: 100%; }
+        to { opacity: var(--opacity-10)0; }
     }
 
     @keyframes cross-slide-left {
-        from { transform: translateX(100%); }
+        from { transform: translateX(100); }
 
         to { transform: translateX(0); }
     }
 
     @keyframes cross-slide-right {
-        from { transform: translateX(-100%); }
+        from { transform: translateX(-100); }
 
         to { transform: translateX(0); }
     }
 
     @keyframes cross-scale {
-        from { opacity: 0%; transform: scale(0.9); }
+        from { opacity: var(--opacity-0); transform: var(--transform-scale-90); }
 
-        to { opacity: 100%; transform: scale(1); }
+        to { opacity: var(--opacity-10)0; transform: var(--transform-scale-100); }
     }
 
     @keyframes zoom-out {
-        from { opacity: 100%; transform: scale(1); }
+        from { opacity: var(--opacity-10)0; transform: var(--transform-scale-100); }
 
-        to { opacity: 0%; transform: scale(1.2); }
+        to { opacity: var(--opacity-0); transform: scale(1.2); }
     }
 
     @keyframes zoom-in {
-        from { opacity: 0%; transform: scale(0.8); }
+        from { opacity: var(--opacity-0); transform: scale(0.8); }
 
-        to { opacity: 100%; transform: scale(1); }
+        to { opacity: var(--opacity-10)0; transform: var(--transform-scale-100); }
     }
 
     @keyframes flip-out {
-        from { opacity: 100%; transform: perspective(800px) rotateY(0); }
+        from { opacity: var(--opacity-10)0; transform: perspective(800px) rotateY(0); }
 
-        to { opacity: 0%; transform: perspective(800px) rotateY(-90deg); }
+        to { opacity: var(--opacity-0); transform: perspective(800px) rotateY(-90deg); }
     }
 
     @keyframes flip-in {
-        from { opacity: 0%; transform: perspective(800px) rotateY(90deg); }
+        from { opacity: var(--opacity-0); transform: perspective(800px) rotateY(90deg); }
 
-        to { opacity: 100%; transform: perspective(800px) rotateY(0); }
+        to { opacity: var(--opacity-10)0; transform: perspective(800px) rotateY(0); }
     }
 
     @keyframes circle-out {
-        from { clip-path: circle(100% at center); }
+        from { clip-path: circle(100 at center); }
 
-        to { clip-path: circle(0% at center); }
+        to { clip-path: circle(0 at center); }
     }
 
     @keyframes circle-in {
-        from { clip-path: circle(0% at center); }
+        from { clip-path: circle(0 at center); }
 
-        to { clip-path: circle(100% at center); }
+        to { clip-path: circle(100 at center); }
     }
 }
 
@@ -323,7 +323,7 @@
         .transition-width,
         .transition-height,
         .transition-spacing {
-            transition: none;
+            transition: var(--transition-none);
         }
     }
 
@@ -338,7 +338,7 @@
         .cross-slide-left,
         .cross-slide-right,
         .cross-scale {
-            animation: none;
+            animation: var(--animation-none);
         }
     }
 } 
