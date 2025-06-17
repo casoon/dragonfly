@@ -17,11 +17,11 @@
 @import url("../tokens/index.css");
 
 /* Import semantic aliases */
-@import url("./base/aliases.css");
+@import url("./aliases.css");
 
 /* Import light/dark modes */
 @import url("./mode/light-mode.css");
 @import url("./mode/dark-mode.css");
 
 /* Import theme transitions */
-@import url("./base/theme-transitions.css"); 
+@import url("./theme-transitions.css"); 
