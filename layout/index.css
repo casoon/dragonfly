@@ -38,16 +38,16 @@
   :root {
     /* Raster-Konfiguration für grid-system.css */
     --grid-columns: 12;
-    --grid-gutter: var(--space-4);
-    --grid-gutter-sm: var(--space-2);
-    --grid-gutter-md: var(--space-4);
-    --grid-gutter-lg: var(--space-6);
-    --grid-gutter-xl: var(--space-8);
+    --grid-gutter: var(--space-4, 1rem);
+    --grid-gutter-sm: var(--space-2, 0.5rem);
+    --grid-gutter-md: var(--space-4, 1rem);
+    --grid-gutter-lg: var(--space-6, 1.5rem);
+    --grid-gutter-xl: var(--space-8, 2rem);
     
     /* Container-Abstände für containers.css */
-    --container-padding-sm: var(--space-2);
-    --container-padding-md: var(--space-4);
-    --container-padding-lg: var(--space-6);
+    --container-padding-sm: var(--space-2, 0.5rem);
+    --container-padding-md: var(--space-4, 1rem);
+    --container-padding-lg: var(--space-6, 1.5rem);
   }
 }
 
