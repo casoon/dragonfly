@@ -1,4 +1,4 @@
-# CSS Processing Tests for @casoon/ui-lib
+# CSS Processing Tests for @casoon/dragonfly
 
 These tests check whether the CSS files of the UI library can be correctly processed with Lightning CSS.
 

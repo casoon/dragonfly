@@ -1,33 +1,33 @@
-# Comparison: @casoon/ui-lib vs. Bootstrap vs. Tailwind CSS
+# Comparison: @casoon/dragonfly vs. Bootstrap vs. Tailwind CSS
 
-This document outlines the key differences in approach between @casoon/ui-lib and the popular CSS frameworks Bootstrap and Tailwind CSS.
+This document outlines the key differences in approach between @casoon/dragonfly and the popular CSS frameworks Bootstrap and Tailwind CSS.
 
-## @casoon/ui-lib vs. Bootstrap
+## @casoon/dragonfly vs. Bootstrap
 
 ### Architecture
-- **@casoon/ui-lib**: Uses a modern CSS layer architecture with `@layer` for clear specificity control. Heavy emphasis on CSS Custom Properties and native CSS features.
+- **@casoon/dragonfly**: Uses a modern CSS layer architecture with `@layer` for clear specificity control. Heavy emphasis on CSS Custom Properties and native CSS features.
 - **Bootstrap**: Based on a more traditional class API with less granular control over specificity. Uses SASS/SCSS extensively for variables and components.
 
 ### Component Approach
-- **@casoon/ui-lib**: Framework-agnostic CSS components with minimal JavaScript. Components are implemented as CSS classes without requiring JavaScript counterparts.
+- **@casoon/dragonfly**: Framework-agnostic CSS components with minimal JavaScript. Components are implemented as CSS classes without requiring JavaScript counterparts.
 - **Bootstrap**: More tightly coupled components where many advanced features require JavaScript (jQuery in older versions, standalone JS in newer ones).
 
 ### Customizability
-- **@casoon/ui-lib**: Token-based design system with comprehensive theming capabilities via CSS variables. Modular structure for selective usage.
+- **@casoon/dragonfly**: Token-based design system with comprehensive theming capabilities via CSS variables. Modular structure for selective usage.
 - **Bootstrap**: Less granular customization options, often requiring SASS compilation for deep changes.
 
 ### Modern CSS Features
-- **@casoon/ui-lib**: Leverages the latest CSS features like Container Queries, Logical Properties, `@layer`, and CSS functions like OKLCH colors.
+- **@casoon/dragonfly**: Leverages the latest CSS features like Container Queries, Logical Properties, `@layer`, and CSS functions like OKLCH colors.
 - **Bootstrap**: Relies more on proven, widely supported CSS techniques where compatibility is prioritized over cutting-edge features.
 
-## @casoon/ui-lib vs. Tailwind CSS
+## @casoon/dragonfly vs. Tailwind CSS
 
 ### Philosophy
-- **@casoon/ui-lib**: Balances component-based and utility-based approaches in a harmonious system. Provides pre-built components and utilities.
+- **@casoon/dragonfly**: Balances component-based and utility-based approaches in a harmonious system. Provides pre-built components and utilities.
 - **Tailwind**: Pure utility-first approach that relies almost exclusively on atomic utility classes. No pre-built components in the core library.
 
 ### CSS Organization
-- **@casoon/ui-lib**: Clearly defined layer structure with semantic class names for components and complementary utilities.
+- **@casoon/dragonfly**: Clearly defined layer structure with semantic class names for components and complementary utilities.
 - **Tailwind**: Flat class structure with a multitude of short, atomic utility classes applied directly in HTML.
 
 ### Build Process

@@ -63,62 +63,38 @@
   to { width: 0%; }
 }
 
-@keyframes notification-slide-in {
-  from {
-    opacity: 0%; 
-    transform: translateX(100%);
-  }
-
-  to {
-    opacity: 1; 
-    transform: translateX(0%);
-  }
-}
-
-@keyframes notification-slide-out {
-  from {
-    opacity: 1; 
-    transform: translateX(0%);
-  }
-
-  to {
-    opacity: 0%; 
-    transform: translateX(100%);
-  }
-}
-
 /* Komponenten-Styles */
 @layer components {
   .notification {
     align-items: start;
-    background-color: var(--color-gray-100);
-    border: 1px solid var(--color-gray-300);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-sm);
+    background-color: var(--color-gray-100, #f3f4f6);
+    border: 1px solid var(--color-gray-300, #d1d5db);
+    border-radius: var(--radius-md, 0.375rem);
+    box-shadow: var(--shadow-sm, 0 1px 2px 0 rgb(0 0 0 / 0.05));
     display: flex;
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-sm, 0.875rem);
     gap: var(--space-3);
     max-width: 100%;
     padding: var(--space-3);
     
     /* Varianten */
     &.success {
-      background-color: var(--color-success);
+      background-color: var(--color-success, #10b981);
       color: white;
     }
     
     &.error {
-      background-color: var(--color-error);
+      background-color: var(--color-error, #ef4444);
       color: white;
     }
     
     &.warning {
-      background-color: var(--color-warning);
+      background-color: var(--color-warning, #f59e0b);
       color: black;
     }
     
     &.info {
-      background-color: var(--color-info);
+      background-color: var(--color-info, #3b82f6);
       color: white;
     }
     
@@ -135,7 +111,7 @@
       flex: 1;
       
       .title {
-        font-weight: var(--font-weight-medium);
+        font-weight: var(--font-weight-medium, 500);
         margin-bottom: var(--space-1);
       }
       
@@ -157,7 +133,7 @@
       margin-left: auto;
       opacity: 0.7;
       padding: 0.25rem;
-      transition: opacity var(--transition-fast);
+      transition: opacity var(--transition-fast, 150ms ease);
       
       &:hover {
         opacity: 1;
@@ -187,7 +163,7 @@
     &.bottom-left {
       margin: var(--space-4);
       position: fixed;
-      z-index: var(--z-index-notification);
+      z-index: var(--z-index-notification, 1070);
     }
     
     &.top-right {
@@ -224,7 +200,7 @@
     max-width: 100%;
     position: fixed;
     width: 35%0px;
-    z-index: var(--z-index-notification);
+    z-index: var(--z-index-notification, 1070);
     
     &.top-right {
       margin: var(--space-4);
@@ -257,19 +233,19 @@
   .notification {
     &.animate-in {
       animation-duration: 0.3s;
-      animation-name: notification-slide-in;
+      animation-name: slideIn;
       animation-timing-function: ease-out;
     }
     
     &.animate-out {
       animation-duration: 0.3s;
       animation-fill-mode: forwards;
-      animation-name: notification-slide-out;
+      animation-name: slideOut;
       animation-timing-function: ease-in;
     }
     
     .timer {
-      animation: notification-timer 5s linear forwards;
+      animation: var(--ui-notification-timer-animation, notification-timer var(--animation-duration-slowest, 5000ms) var(--ease-linear, linear) forwards);
     }
   }
 }

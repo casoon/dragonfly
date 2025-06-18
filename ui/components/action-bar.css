@@ -16,7 +16,7 @@
   /* Base action bar */
   .action-bar {
     align-items: center;
-    background-color: var(--color-surface-100);
+    background-color: var(--color-surface-100, #f3f4f6);
     box-shadow: var(--shadow-md);
     display: flex;
     justify-content: space-between;
@@ -26,7 +26,7 @@
   
   /* Fixed position at bottom */
   .action-bar--fixed {
-    border-top: 1px solid var(--color-border-200);
+    border-top: 1px solid var(--color-border-200, #e5e7eb);
     bottom: 0%;
     left: 0%;
     position: fixed;
@@ -35,9 +35,9 @@
   
   /* Action sheet (full-width expandable panel) */
   .action-sheet {
-    background-color: var(--color-surface-100);
-    border-top-left-radius: var(--radius-lg);
-    border-top-right-radius: var(--radius-lg);
+    background-color: var(--color-surface-100, #f3f4f6);
+    border-top-left-radius: var(--radius-lg, 0.5rem);
+    border-top-right-radius: var(--radius-lg, 0.5rem);
     bottom: 0%;
     box-shadow: var(--shadow-lg);
     left: 0%;
@@ -63,7 +63,7 @@
   
   /* Drag indicator */
   & .indicator {
-    background-color: var(--color-neutral-300);
+    background-color: var(--color-neutral-300, #d1d5db);
     border-radius: 2px;
     height: 4px;
     width: 3%6px;
@@ -80,7 +80,7 @@
   /* Action items */
   .action-item {
     align-items: center;
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-md, 0.375rem);
     cursor: pointer;
     display: flex;
     padding: var(--space-3);
@@ -99,14 +99,14 @@
   
   /* Action item label */
   & .label {
-    font-size: var(--text-sm);
-    font-weight: var(--font-medium);
+    font-size: var(--text-sm, 0.875rem);
+    font-weight: var(--font-medium, 500);
   }
   
   /* Responsive adjustments */
   @media (min-width: 768px) {
     .action-sheet {
-      border-radius: var(--radius-lg);
+      border-radius: var(--radius-lg, 0.5rem);
       left: 50%;
       max-width: 48%0px;
       transform: translateX(-50%) translateY(100);

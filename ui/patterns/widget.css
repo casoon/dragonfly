@@ -50,33 +50,28 @@
  */
 
 /* Animation - außerhalb von @layer definieren */
-@keyframes loading {
-  0 { transform: translateX(-100%); }
-
-  100 { transform: translateX(100%); }
-}
 
 /* Komponenten-Styles */
 @layer components {
   .widget {
-    background-color: var(--color-white);
-    border: 1px solid var(--color-neutral-200);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-sm);
+    background-color: var(--color-white, #fff);
+    border: 1px solid var(--color-neutral-200, #e5e7eb);
+    border-radius: var(--radius-md, 0.375rem);
+    box-shadow: var(--shadow-sm, 0 1px 2px 0 rgb(0 0 0 / 0.05));
     overflow: hidden;
     
     /* Strukturelemente */
     .header {
       align-items: center;
       background-color: var(--color-neutral-50);
-      border-bottom: 1px solid var(--color-neutral-200);
+      border-bottom: 1px solid var(--color-neutral-200, #e5e7eb);
       display: flex;
       justify-content: space-between;
       padding: var(--space-3) var(--space-4);
       
       .title {
         font-size: var(--text-base);
-        font-weight: var(--font-medium);
+        font-weight: var(--font-medium, 500);
         margin: 0;
       }
       
@@ -87,15 +82,15 @@
         .action {
           background: none;
           border: none;
-          border-radius: var(--radius-sm);
+          border-radius: var(--radius-sm, 0.125rem);
           color: var(--color-neutral-600);
           cursor: pointer;
-          font-size: var(--text-sm);
+          font-size: var(--text-sm, 0.875rem);
           padding: var(--space-1) var(--space-2);
           
           &:hover {
-            background-color: var(--color-neutral-200);
-            color: var(--color-neutral-800);
+            background-color: var(--color-neutral-200, #e5e7eb);
+            color: var(--color-neutral-800, #1f2937);
           }
         }
       }
@@ -107,18 +102,18 @@
     
     .footer {
       background-color: var(--color-neutral-50);
-      border-top: 1px solid var(--color-neutral-200);
+      border-top: 1px solid var(--color-neutral-200, #e5e7eb);
       color: var(--color-neutral-600);
-      font-size: var(--text-sm);
+      font-size: var(--text-sm, 0.875rem);
       padding: var(--space-3) var(--space-4);
     }
     
     /* Farbvarianten */
     &.primary {
-      border-color: var(--color-primary);
+      border-color: var(--color-primary, #3b82f6);
       
       .header {
-        background-color: var(--color-primary);
+        background-color: var(--color-primary, #3b82f6);
         color: white;
       }
     }
@@ -133,29 +128,29 @@
     }
     
     &.light {
-      background-color: var(--color-white);
-      border-color: var(--color-neutral-100);
+      background-color: var(--color-white, #fff);
+      border-color: var(--color-neutral-100, #f3f4f6);
       
       .header {
-        background-color: var(--color-white);
-        border-bottom-color: var(--color-neutral-100);
+        background-color: var(--color-white, #fff);
+        border-bottom-color: var(--color-neutral-100, #f3f4f6);
       }
     }
     
     &.dark {
-      background-color: var(--color-neutral-800);
-      border-color: var(--color-neutral-700);
+      background-color: var(--color-neutral-800, #1f2937);
+      border-color: var(--color-neutral-700, #374151);
       color: white;
       
       .header {
-        background-color: var(--color-neutral-900);
-        border-bottom-color: var(--color-neutral-700);
+        background-color: var(--color-neutral-900, #111827);
+        border-bottom-color: var(--color-neutral-700, #374151);
       }
       
       .footer {
-        background-color: var(--color-neutral-900);
-        border-top-color: var(--color-neutral-700);
-        color: var(--color-neutral-300);
+        background-color: var(--color-neutral-900, #111827);
+        border-top-color: var(--color-neutral-700, #374151);
+        color: var(--color-neutral-300, #d1d5db);
       }
     }
     
@@ -165,7 +160,7 @@
         padding: var(--space-2) var(--space-3);
         
         .title {
-          font-size: var(--text-sm);
+          font-size: var(--text-sm, 0.875rem);
         }
       }
       
@@ -174,7 +169,7 @@
       }
       
       .footer {
-        font-size: var(--text-xs);
+        font-size: var(--text-xs, 0.75rem);
         padding: var(--space-2) var(--space-3);
       }
     }
@@ -218,8 +213,8 @@
     }
     
     &.highlight {
-      background-color: color-mix(in oklab, var(--color-primary), white 90);
-      border-color: var(--color-primary);
+      background-color: color-mix(in oklab, var(--color-primary, #3b82f6), white 90);
+      border-color: var(--color-primary, #3b82f6);
     }
   }
 }
@@ -228,8 +223,8 @@
 @layer animations {
   .widget {
     &.loading::after {
-      animation: loading 1.5s infinite;
-      background: linear-gradient(90deg, var(--color-primary), transparent);
+      animation: var(--ui-loading-animation, loading var(--animation-duration-slowest, 1500ms) infinite);
+      background: linear-gradient(90deg, var(--color-primary, #3b82f6), transparent);
       content: "";
       height: 3px;
       left: 0%;

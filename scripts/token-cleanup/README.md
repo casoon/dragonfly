@@ -1,76 +1,76 @@
-# Token-Bereinigungsskript
+# Token Cleanup Script
 
-Dieses Skript bereinigt Duplikate zwischen den Tokens-Dateien im `/tokens`-Verzeichnis.
+This script cleans up duplicates between the token files in the `/tokens` directory.
 
-## Zweck
+## Purpose
 
-Im Tokens-Verzeichnis existieren mehrere Dateien, die teilweise dieselben Token-Definitionen enthalten:
-- `design-tokens.css`: Hauptdatei mit Design-Tokens
-- `default-tokens.css`: Auto-generierte Tokens mit teilweise überlappenden Definitionen
-- `default-tokens.js`: JavaScript-Version der Tokens
-- `default-tokens.scss`: SCSS-Version der Tokens
+The tokens directory contains multiple files that partially contain the same token definitions:
+- `design-tokens.css`: Main file with design tokens
+- `default-tokens.css`: Auto-generated tokens with partially overlapping definitions
+- `default-tokens.js`: JavaScript version of the tokens
+- `default-tokens.scss`: SCSS version of the tokens
 
-Das Skript konsolidiert die CSS-Tokens aus `design-tokens.css` und `default-tokens.css` in eine einzige Datei `consolidated-tokens.css`.
+The script consolidates the CSS tokens from `design-tokens.css` and `default-tokens.css` into a single file `consolidated-tokens.css`.
 
-## Funktionsweise
+## How It Works
 
-1. Extrahiert alle CSS-Variablen aus beiden Dateien
-2. Identifiziert Duplikate und unterschiedliche Werte für gleiche Variablen
-3. Erstellt eine konsolidierte Version aller Tokens
-4. Kategorisiert die Tokens nach Typ (Farbe, Abstände, etc.)
-5. Speichert das Ergebnis in `consolidated-tokens.css`
+1. Extracts all CSS variables from both files
+2. Identifies duplicates and different values for the same variables
+3. Creates a consolidated version of all tokens
+4. Categorizes the tokens by type (color, spacing, etc.)
+5. Saves the result in `consolidated-tokens.css`
 
-## Enthaltene Skripte
+## Included Scripts
 
-### 1. Token-Bereinigung (`token-cleanup.js`)
+### 1. Token Cleanup (`token-cleanup.js`)
 
-Dieses Skript analysiert die vorhandenen Token-Dateien und erstellt eine konsolidierte Version.
+This script analyzes the existing token files and creates a consolidated version.
 
 ```bash
-# Im Verzeichnis scripts/token-cleanup
+# In the scripts/token-cleanup directory
 node token-cleanup.js
 ```
 
 Output:
-- Erstellt `tokens/consolidated-tokens.css`
-- Zeigt Statistiken über Duplikate und einzigartige Tokens an
-- Identifiziert und meldet Tokens mit abweichenden Werten
+- Creates `tokens/consolidated-tokens.css`
+- Shows statistics about duplicates and unique tokens
+- Identifies and reports tokens with differing values
 
-### 2. Migration zu konsolidierten Tokens (`migrate-to-consolidated.js`)
+### 2. Migration to Consolidated Tokens (`migrate-to-consolidated.js`)
 
-Dieses Skript führt die konsolidierten Tokens in das Projekt ein:
+This script introduces the consolidated tokens into the project:
 
 ```bash
-# Im Verzeichnis scripts/token-cleanup
+# In the scripts/token-cleanup directory
 node migrate-to-consolidated.js
 ```
 
-Das Skript:
-1. Erstellt Backups der vorhandenen Token-Dateien in `tokens/backup/`
-2. Aktualisiert `core/tokens.css`, um auf die neue konsolidierte Datei zu verweisen
-3. Ersetzt `design-tokens.css` mit der konsolidierten Version
-4. Entfernt die redundante `default-tokens.css`
+The script:
+1. Creates backups of existing token files in `tokens/backup/`
+2. Updates `core/tokens.css` to reference the new consolidated file
+3. Replaces `design-tokens.css` with the consolidated version
+4. Removes the redundant `default-tokens.css`
 
-## Verwendung
+## Usage
 
-Für einen vollständigen Migrationsprozess:
+For a complete migration process:
 
 ```bash
-# Schritt 1: Tokens konsolidieren
+# Step 1: Consolidate tokens
 node token-cleanup.js
 
-# Schritt 2: Prüfe die konsolidierten Tokens manuell
-# (öffne tokens/consolidated-tokens.css und überprüfe)
+# Step 2: Manually check the consolidated tokens
+# (open tokens/consolidated-tokens.css and review)
 
-# Schritt 3: Migration durchführen
+# Step 3: Perform migration
 node migrate-to-consolidated.js
 ```
 
-## Nächste Schritte
+## Next Steps
 
-Nach der Migration:
+After migration:
 
-1. Überprüfe `core/tokens.css` auf korrekte Imports
-2. Falls notwendig, aktualisiere JS- und SCSS-Versionen der Tokens mit dem Token-Generator
-3. Teste die Anwendung, um sicherzustellen, dass alle Styles korrekt gerendert werden
-4. Erwäge, den Token-Generator anzupassen, um in Zukunft Duplikate zu vermeiden 
+1. Check `core/tokens.css` for correct imports
+2. If necessary, update JS and SCSS versions of tokens with the token generator
+3. Test the application to ensure all styles render correctly
+4. Consider adapting the token generator to avoid duplicates in the future 

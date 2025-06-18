@@ -5,8 +5,8 @@
 @layer elements {
   /* Zitate */
   blockquote {
-    background-color: var(--color-background-alt);
-    border-left: 4px solid var(--color-primary);
+    background-color: var(--color-background-alt, #f9fafb);
+    border-left: 4px solid var(--color-primary, #3b82f6);
     margin: 1rem 0;
     padding: 1rem;
   }

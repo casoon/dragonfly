@@ -25,21 +25,9 @@
  * z.B. mit JavaScript-basierten Popover-Lösungen.
  */
 
-@keyframes popover-enter {
-  from {
-    opacity: 0%;
-    transform: translateY(8px) scale(0.98%);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0%) scale(1);
-  }
-}
-
 @layer components {
   .popover {
-    animation: popover-enter var(--animation-duration-normal, 300ms) cubic-bezier(0.68, -0.6, 0.32, 1.6) forwards;
+    animation: var(--ui-slide-in-spring-animation, slideIn var(--animation-duration-normal, 300ms) var(--ease-spring, cubic-bezier(0.68, -0.6, 0.32, 1.6)) forwards);
     background: var(--color-background, #fff);
     border: 1px solid var(--color-border, #e5e7eb);
     border-radius: 0.5rem;

@@ -1,0 +1,6420 @@
+@layer tokens, themes.aliases, themes.mode, themes.transitions;
+/* Datei: themes/theme-transitions.css */
+/**
+* Theme Transition Utilities
+*
+* Theme-specific transition adjustments and utility classes.
+* The @property definitions are in tokens/transitions.css.
+*
+* @layer themes.transitions
+*/
+
+@layer themes.transitions {
+/* Theme Transition Values - Light Mode */
+  :root {
+    --transition-bg: var(--color-background);
+    --transition-fg: var(--color-text);
+    --transition-border: var(--color-border);
+    --transition-surface: var(--color-surface);
+    --transition-accent: var(--color-primary);
+    --transition-shadow-opacity: 0.1;
+  }
+
+/* Theme Transition Values - Dark Mode */
+  [data-theme="dark"] {
+    --transition-bg: var(--color-background);
+    --transition-fg: var(--color-text);
+    --transition-border: var(--color-border);
+    --transition-surface: var(--color-surface);
+    --transition-accent: var(--color-primary);
+    --transition-shadow-opacity: 0.3;
+  }
+
+/* Auto Theme - System Preference */
+  @media (prefers-color-scheme: dark) {
+    [data-theme="auto"] {
+      --transition-shadow-opacity: 0.3;
+    }
+  }
+
+/* Base Transition Utility Classes */
+  .theme-transition {
+    background-color: var(--transition-bg);
+    border-color: var(--transition-border);
+    color: var(--transition-fg);
+    transition: var(--transition-colors);
+  }
+
+  .theme-transition-fast {
+    background-color: var(--transition-bg);
+    border-color: var(--transition-border);
+    color: var(--transition-fg);
+    transition:
+    background-color var(--transition-fast) var(--transition-ease-out),
+    color var(--transition-fast) var(--transition-ease-out),
+    border-color var(--transition-fast) var(--transition-ease-out);
+  }
+
+  .theme-transition-slow {
+    background-color: var(--transition-bg);
+    border-color: var(--transition-border);
+    color: var(--transition-fg);
+    transition:
+    background-color var(--transition-slow) var(--transition-ease-in-out),
+    color var(--transition-slow) var(--transition-ease-in-out),
+    border-color var(--transition-slow) var(--transition-ease-in-out);
+  }
+
+/* Component-Specific Transition Classes */
+  .card-transition {
+    background-color: var(--transition-surface);
+    border-color: var(--transition-border);
+    box-shadow:
+    0 1px 3px 0 rgb(0 0 0 / var(--transition-shadow-opacity)),
+    0 1px 2px -1px rgb(0 0 0 / var(--transition-shadow-opacity));
+    transition: var(--transition-colors), var(--transition-shadow);
+  }
+
+  .button-transition {
+    background-color: var(--transition-accent);
+    border-color: var(--transition-accent);
+    color: var(--transition-fg);
+    transition: var(--transition-colors), var(--transition-transform);
+  }
+
+  .input-transition {
+    background-color: var(--transition-surface);
+    border-color: var(--transition-border);
+    transition: var(--transition-colors), var(--transition-shadow);
+  }
+
+  .input-transition:focus {
+    border-color: var(--transition-accent);
+    box-shadow: 0 0 0 2px rgb(from var(--transition-accent) r g b / 2000%);
+  }
+
+/* Theme Switch Animation */
+  .theme-switching {
+    animation: theme-switch var(--transition-normal) var(--transition-ease-out);
+  }
+
+  @keyframes theme-switch {
+    0 { opacity: 1; }
+
+    50 { opacity: 95%; }
+
+    100 { opacity: 1; }
+  }
+
+/* Disable Transitions for Reduced Motion */
+  @media (prefers-reduced-motion: reduce) {
+    .theme-transition,
+    .theme-transition-fast,
+    .theme-transition-slow,
+    .card-transition,
+    .button-transition,
+    .input-transition {
+      transition: none;
+    }
+
+    .theme-switching {
+      animation: none;
+    }
+  }
+}
+
+/* Datei: themes/light-mode.css */
+/**
+* Light Mode Theme
+*
+* Light mode definitions with [data-theme="light"] scope.
+* Only overrides base tokens, aliases remain stable.
+*
+* @layer themes.mode
+*/
+
+@layer themes.mode {
+  [data-theme="light"] {
+/* Color Scheme */
+    color-scheme: light;
+
+/* Base Color Tokens - Only override what's needed for light mode */
+    --color-background: #fff;
+    --color-surface: #f9fafb;
+    --color-surface-elevated: #fff;
+    --color-text: #1f2937;
+    --color-text-muted: #6b7280;
+    --color-text-inverse: #fff;
+    --color-border: #e5e7eb;
+    --color-border-strong: #d1d5db;
+
+/* Primary Colors - Light Mode Values */
+    --color-primary: #06f;
+    --color-primary-50: #e6f0ff;
+    --color-primary-100: #cce0ff;
+    --color-primary-500: #06f;
+    --color-primary-600: #0052cc;
+    --color-primary-900: #001433;
+
+/* Secondary Colors - Light Mode Values */
+    --color-secondary: #5333ff;
+    --color-secondary-50: #eeeaff;
+    --color-secondary-500: #5333ff;
+    --color-secondary-900: #110a33;
+
+/* Gray Colors - Light Mode Values */
+    --color-gray-50: #f9f9fa;
+    --color-gray-100: #f3f3f5;
+    --color-gray-500: #8f96a8;
+    --color-gray-900: #1d1f24;
+
+/* Focus and Interactive States */
+    --color-focus: #4f46e5;
+    --color-focus-glow: rgb(79 70 229 / 3000%);
+  }
+}
+
+/* Datei: themes/index.css */
+/**
+* Themes Index
+*
+* Main theme system entry point. Includes only base themes and modes.
+* Theme variants must be loaded separately via CSS import or loadThemeVariant().
+*
+* Layer Structure:
+* - tokens: Base design tokens (@property definitions)
+* - themes.aliases: Semantic component aliases
+* - themes.mode: Light/dark mode definitions
+* - themes.transitions: Theme transition utilities
+*/
+
+
+/* Import base design tokens */
+/* Importierte Datei: tokens/index.css */
+/**
+* Design Token Index
+*
+* Zentraler Import aller Design Tokens für das Dragonfly Design System.
+* Diese Datei importiert alle Token-Kategorien in der richtigen Reihenfolge.
+*
+* @layer tokens
+* @version 2.0.0
+* @author Dragonfly Design System
+*/
+
+/* Core Design Tokens */
+/* Importierte Datei: tokens/colors.css */
+/**
+* Optimierte Color Properties mit @property
+*
+* Enthält nur semantische und animierbare Farb-Tokens.
+* Alle Abstufungen (z. B. -100 bis -900) werden im `@layer colors` gepflegt.
+*
+* @layer tokens.properties
+*/
+
+@layer tokens.properties {
+/* Base Colors */
+  @property --color-white {
+    inherits: true;
+    initial-value: #fff;
+    syntax: '<color>';
+  }
+
+  @property --color-black {
+    inherits: true;
+    initial-value: #000;
+    syntax: '<color>';
+  }
+
+/* Accessibility-specific colors */
+  @property --color-gray-very-dark {
+    inherits: true;
+    initial-value: #1a1a1a;
+    syntax: '<color>';
+  }
+
+  @property --color-gray-medium {
+    inherits: true;
+    initial-value: #6b6b6b;
+    syntax: '<color>';
+  }
+
+  @property --color-gray-very-light {
+    inherits: true;
+    initial-value: #f2f2f2;
+    syntax: '<color>';
+  }
+
+/* Opacity-based colors */
+  @property --color-overlay-dark {
+    inherits: true;
+    initial-value: rgb(0 0 0 / 80%);
+    syntax: '<color>';
+  }
+
+  @property --color-overlay-medium {
+    inherits: true;
+    initial-value: rgb(0 0 0 / 60%);
+    syntax: '<color>';
+  }
+
+/* Basis-Farbtokens */
+  @property --color-primary {
+    inherits: true;
+    initial-value: #06f;
+    syntax: '<color>';
+  }
+
+  @property --color-secondary {
+    inherits: true;
+    initial-value: #5333ff;
+    syntax: '<color>';
+  }
+
+  @property --color-success {
+    inherits: true;
+    initial-value: #10b981;
+    syntax: '<color>';
+  }
+
+  @property --color-warning {
+    inherits: true;
+    initial-value: #f59e0b;
+    syntax: '<color>';
+  }
+
+  @property --color-error {
+    inherits: true;
+    initial-value: #ef4444;
+    syntax: '<color>';
+  }
+
+  @property --color-info {
+    inherits: true;
+    initial-value: #06f;
+    syntax: '<color>';
+  }
+
+  @property --color-neutral {
+    inherits: true;
+    initial-value: #6b7280;
+    syntax: '<color>';
+  }
+
+/* Textfarben */
+  @property --color-text {
+    inherits: true;
+    initial-value: #1f2937;
+    syntax: '<color>';
+  }
+
+  @property --color-text-muted {
+    inherits: true;
+    initial-value: #6b7280;
+    syntax: '<color>';
+  }
+
+  @property --color-text-inverse {
+    inherits: true;
+    initial-value: #fff;
+    syntax: '<color>';
+  }
+
+/* Oberflächenfarben */
+  @property --color-background {
+    inherits: true;
+    initial-value: #fff;
+    syntax: '<color>';
+  }
+
+  @property --color-surface {
+    inherits: true;
+    initial-value: #f9fafb;
+    syntax: '<color>';
+  }
+
+  @property --color-surface-elevated {
+    inherits: true;
+    initial-value: #fff;
+    syntax: '<color>';
+  }
+
+/* Rahmenfarben */
+  @property --color-border {
+    inherits: true;
+    initial-value: #e5e7eb;
+    syntax: '<color>';
+  }
+
+  @property --color-border-strong {
+    inherits: true;
+    initial-value: #d1d5db;
+    syntax: '<color>';
+  }
+
+/* Für animierbare Transitions */
+  @property --color-transition-primary {
+    inherits: true;
+    initial-value: #06f;
+    syntax: '<color>';
+  }
+
+  @property --color-transition-surface {
+    inherits: true;
+    initial-value: #fff;
+    syntax: '<color>';
+  }
+
+  @property --color-transition-text {
+    inherits: true;
+    initial-value: #1f2937;
+    syntax: '<color>';
+  }
+
+/* Erweiterte Farbabstufungen für Komponenten */
+
+/* Primary Color Scale */
+  @property --color-primary-50 {
+    inherits: true;
+    initial-value: #eff6ff;
+    syntax: '<color>';
+  }
+
+  @property --color-primary-100 {
+    inherits: true;
+    initial-value: #dbeafe;
+    syntax: '<color>';
+  }
+
+  @property --color-primary-200 {
+    inherits: true;
+    initial-value: #bfdbfe;
+    syntax: '<color>';
+  }
+
+  @property --color-primary-300 {
+    inherits: true;
+    initial-value: #93c5fd;
+    syntax: '<color>';
+  }
+
+  @property --color-primary-400 {
+    inherits: true;
+    initial-value: #60a5fa;
+    syntax: '<color>';
+  }
+
+  @property --color-primary-500 {
+    inherits: true;
+    initial-value: #3b82f6;
+    syntax: '<color>';
+  }
+
+  @property --color-primary-600 {
+    inherits: true;
+    initial-value: #2563eb;
+    syntax: '<color>';
+  }
+
+  @property --color-primary-700 {
+    inherits: true;
+    initial-value: #1d4ed8;
+    syntax: '<color>';
+  }
+
+  @property --color-primary-800 {
+    inherits: true;
+    initial-value: #1e40af;
+    syntax: '<color>';
+  }
+
+  @property --color-primary-900 {
+    inherits: true;
+    initial-value: #1e3a8a;
+    syntax: '<color>';
+  }
+
+/* Secondary Color Scale */
+  @property --color-secondary-50 {
+    inherits: true;
+    initial-value: #f8fafc;
+    syntax: '<color>';
+  }
+
+  @property --color-secondary-100 {
+    inherits: true;
+    initial-value: #f1f5f9;
+    syntax: '<color>';
+  }
+
+  @property --color-secondary-200 {
+    inherits: true;
+    initial-value: #e2e8f0;
+    syntax: '<color>';
+  }
+
+  @property --color-secondary-300 {
+    inherits: true;
+    initial-value: #cbd5e1;
+    syntax: '<color>';
+  }
+
+  @property --color-secondary-400 {
+    inherits: true;
+    initial-value: #94a3b8;
+    syntax: '<color>';
+  }
+
+  @property --color-secondary-500 {
+    inherits: true;
+    initial-value: #64748b;
+    syntax: '<color>';
+  }
+
+  @property --color-secondary-600 {
+    inherits: true;
+    initial-value: #475569;
+    syntax: '<color>';
+  }
+
+  @property --color-secondary-700 {
+    inherits: true;
+    initial-value: #334155;
+    syntax: '<color>';
+  }
+
+  @property --color-secondary-800 {
+    inherits: true;
+    initial-value: #1e293b;
+    syntax: '<color>';
+  }
+
+  @property --color-secondary-900 {
+    inherits: true;
+    initial-value: #0f172a;
+    syntax: '<color>';
+  }
+
+/* Success Color Scale */
+  @property --color-success-50 {
+    inherits: true;
+    initial-value: #ecfdf5;
+    syntax: '<color>';
+  }
+
+  @property --color-success-100 {
+    inherits: true;
+    initial-value: #d1fae5;
+    syntax: '<color>';
+  }
+
+  @property --color-success-200 {
+    inherits: true;
+    initial-value: #a7f3d0;
+    syntax: '<color>';
+  }
+
+  @property --color-success-300 {
+    inherits: true;
+    initial-value: #6ee7b7;
+    syntax: '<color>';
+  }
+
+  @property --color-success-400 {
+    inherits: true;
+    initial-value: #34d399;
+    syntax: '<color>';
+  }
+
+  @property --color-success-500 {
+    inherits: true;
+    initial-value: #10b981;
+    syntax: '<color>';
+  }
+
+  @property --color-success-600 {
+    inherits: true;
+    initial-value: #059669;
+    syntax: '<color>';
+  }
+
+  @property --color-success-700 {
+    inherits: true;
+    initial-value: #047857;
+    syntax: '<color>';
+  }
+
+  @property --color-success-800 {
+    inherits: true;
+    initial-value: #065f46;
+    syntax: '<color>';
+  }
+
+  @property --color-success-900 {
+    inherits: true;
+    initial-value: #064e3b;
+    syntax: '<color>';
+  }
+
+/* Warning Color Scale */
+  @property --color-warning-50 {
+    inherits: true;
+    initial-value: #fffbeb;
+    syntax: '<color>';
+  }
+
+  @property --color-warning-100 {
+    inherits: true;
+    initial-value: #fef3c7;
+    syntax: '<color>';
+  }
+
+  @property --color-warning-200 {
+    inherits: true;
+    initial-value: #fde68a;
+    syntax: '<color>';
+  }
+
+  @property --color-warning-300 {
+    inherits: true;
+    initial-value: #fcd34d;
+    syntax: '<color>';
+  }
+
+  @property --color-warning-400 {
+    inherits: true;
+    initial-value: #fbbf24;
+    syntax: '<color>';
+  }
+
+  @property --color-warning-500 {
+    inherits: true;
+    initial-value: #f59e0b;
+    syntax: '<color>';
+  }
+
+  @property --color-warning-600 {
+    inherits: true;
+    initial-value: #d97706;
+    syntax: '<color>';
+  }
+
+  @property --color-warning-700 {
+    inherits: true;
+    initial-value: #b45309;
+    syntax: '<color>';
+  }
+
+  @property --color-warning-800 {
+    inherits: true;
+    initial-value: #92400e;
+    syntax: '<color>';
+  }
+
+  @property --color-warning-900 {
+    inherits: true;
+    initial-value: #78350f;
+    syntax: '<color>';
+  }
+
+/* Error Color Scale */
+  @property --color-error-50 {
+    inherits: true;
+    initial-value: #fef2f2;
+    syntax: '<color>';
+  }
+
+  @property --color-error-100 {
+    inherits: true;
+    initial-value: #fee2e2;
+    syntax: '<color>';
+  }
+
+  @property --color-error-200 {
+    inherits: true;
+    initial-value: #fecaca;
+    syntax: '<color>';
+  }
+
+  @property --color-error-300 {
+    inherits: true;
+    initial-value: #fca5a5;
+    syntax: '<color>';
+  }
+
+  @property --color-error-400 {
+    inherits: true;
+    initial-value: #f87171;
+    syntax: '<color>';
+  }
+
+  @property --color-error-500 {
+    inherits: true;
+    initial-value: #ef4444;
+    syntax: '<color>';
+  }
+
+  @property --color-error-600 {
+    inherits: true;
+    initial-value: #dc2626;
+    syntax: '<color>';
+  }
+
+  @property --color-error-700 {
+    inherits: true;
+    initial-value: #b91c1c;
+    syntax: '<color>';
+  }
+
+  @property --color-error-800 {
+    inherits: true;
+    initial-value: #991b1b;
+    syntax: '<color>';
+  }
+
+  @property --color-error-900 {
+    inherits: true;
+    initial-value: #7f1d1d;
+    syntax: '<color>';
+  }
+
+/* Info Color Scale */
+  @property --color-info-50 {
+    inherits: true;
+    initial-value: #f0f9ff;
+    syntax: '<color>';
+  }
+
+  @property --color-info-100 {
+    inherits: true;
+    initial-value: #e0f2fe;
+    syntax: '<color>';
+  }
+
+  @property --color-info-200 {
+    inherits: true;
+    initial-value: #bae6fd;
+    syntax: '<color>';
+  }
+
+  @property --color-info-300 {
+    inherits: true;
+    initial-value: #7dd3fc;
+    syntax: '<color>';
+  }
+
+  @property --color-info-400 {
+    inherits: true;
+    initial-value: #38bdf8;
+    syntax: '<color>';
+  }
+
+  @property --color-info-500 {
+    inherits: true;
+    initial-value: #0ea5e9;
+    syntax: '<color>';
+  }
+
+  @property --color-info-600 {
+    inherits: true;
+    initial-value: #0284c7;
+    syntax: '<color>';
+  }
+
+  @property --color-info-700 {
+    inherits: true;
+    initial-value: #0369a1;
+    syntax: '<color>';
+  }
+
+  @property --color-info-800 {
+    inherits: true;
+    initial-value: #075985;
+    syntax: '<color>';
+  }
+
+  @property --color-info-900 {
+    inherits: true;
+    initial-value: #0c4a6e;
+    syntax: '<color>';
+  }
+
+/* Neutral Color Scale */
+  @property --color-neutral-50 {
+    inherits: true;
+    initial-value: #f9fafb;
+    syntax: '<color>';
+  }
+
+  @property --color-neutral-100 {
+    inherits: true;
+    initial-value: #f3f4f6;
+    syntax: '<color>';
+  }
+
+  @property --color-neutral-200 {
+    inherits: true;
+    initial-value: #e5e7eb;
+    syntax: '<color>';
+  }
+
+  @property --color-neutral-300 {
+    inherits: true;
+    initial-value: #d1d5db;
+    syntax: '<color>';
+  }
+
+  @property --color-neutral-400 {
+    inherits: true;
+    initial-value: #9ca3af;
+    syntax: '<color>';
+  }
+
+  @property --color-neutral-500 {
+    inherits: true;
+    initial-value: #6b7280;
+    syntax: '<color>';
+  }
+
+  @property --color-neutral-600 {
+    inherits: true;
+    initial-value: #4b5563;
+    syntax: '<color>';
+  }
+
+  @property --color-neutral-700 {
+    inherits: true;
+    initial-value: #374151;
+    syntax: '<color>';
+  }
+
+  @property --color-neutral-800 {
+    inherits: true;
+    initial-value: #1f2937;
+    syntax: '<color>';
+  }
+
+  @property --color-neutral-900 {
+    inherits: true;
+    initial-value: #111827;
+    syntax: '<color>';
+  }
+
+/* Gray Color Scale (alias für neutral) */
+  @property --color-gray-50 {
+    inherits: true;
+    initial-value: #f9fafb;
+    syntax: '<color>';
+  }
+
+  @property --color-gray-100 {
+    inherits: true;
+    initial-value: #f3f4f6;
+    syntax: '<color>';
+  }
+
+  @property --color-gray-200 {
+    inherits: true;
+    initial-value: #e5e7eb;
+    syntax: '<color>';
+  }
+
+  @property --color-gray-300 {
+    inherits: true;
+    initial-value: #d1d5db;
+    syntax: '<color>';
+  }
+
+  @property --color-gray-400 {
+    inherits: true;
+    initial-value: #9ca3af;
+    syntax: '<color>';
+  }
+
+  @property --color-gray-500 {
+    inherits: true;
+    initial-value: #6b7280;
+    syntax: '<color>';
+  }
+
+  @property --color-gray-600 {
+    inherits: true;
+    initial-value: #4b5563;
+    syntax: '<color>';
+  }
+
+  @property --color-gray-700 {
+    inherits: true;
+    initial-value: #374151;
+    syntax: '<color>';
+  }
+
+  @property --color-gray-800 {
+    inherits: true;
+    initial-value: #1f2937;
+    syntax: '<color>';
+  }
+
+  @property --color-gray-900 {
+    inherits: true;
+    initial-value: #111827;
+    syntax: '<color>';
+  }
+
+/* Text Color Scale */
+  @property --color-text-50 {
+    inherits: true;
+    initial-value: #f9fafb;
+    syntax: '<color>';
+  }
+
+  @property --color-text-100 {
+    inherits: true;
+    initial-value: #f3f4f6;
+    syntax: '<color>';
+  }
+
+  @property --color-text-200 {
+    inherits: true;
+    initial-value: #e5e7eb;
+    syntax: '<color>';
+  }
+
+  @property --color-text-300 {
+    inherits: true;
+    initial-value: #d1d5db;
+    syntax: '<color>';
+  }
+
+  @property --color-text-400 {
+    inherits: true;
+    initial-value: #9ca3af;
+    syntax: '<color>';
+  }
+
+  @property --color-text-500 {
+    inherits: true;
+    initial-value: #6b7280;
+    syntax: '<color>';
+  }
+
+  @property --color-text-600 {
+    inherits: true;
+    initial-value: #4b5563;
+    syntax: '<color>';
+  }
+
+  @property --color-text-700 {
+    inherits: true;
+    initial-value: #374151;
+    syntax: '<color>';
+  }
+
+  @property --color-text-800 {
+    inherits: true;
+    initial-value: #1f2937;
+    syntax: '<color>';
+  }
+
+  @property --color-text-900 {
+    inherits: true;
+    initial-value: #111827;
+    syntax: '<color>';
+  }
+
+/* Surface Color Scale */
+  @property --color-surface-50 {
+    inherits: true;
+    initial-value: #fafafa;
+    syntax: '<color>';
+  }
+
+  @property --color-surface-100 {
+    inherits: true;
+    initial-value: #f5f5f5;
+    syntax: '<color>';
+  }
+
+  @property --color-surface-200 {
+    inherits: true;
+    initial-value: #eee;
+    syntax: '<color>';
+  }
+
+  @property --color-surface-300 {
+    inherits: true;
+    initial-value: #e0e0e0;
+    syntax: '<color>';
+  }
+
+/* Border Color Scale */
+  @property --color-border-50 {
+    inherits: true;
+    initial-value: #fafafa;
+    syntax: '<color>';
+  }
+
+  @property --color-border-100 {
+    inherits: true;
+    initial-value: #f4f4f5;
+    syntax: '<color>';
+  }
+
+  @property --color-border-200 {
+    inherits: true;
+    initial-value: #e4e4e7;
+    syntax: '<color>';
+  }
+
+  @property --color-border-300 {
+    inherits: true;
+    initial-value: #d4d4d8;
+    syntax: '<color>';
+  }
+}
+
+/* Fallback Values für alle Farbabstufungen */
+:root {
+/* Primary Scale */
+  --color-primary-50: #eff6ff;
+  --color-primary-100: #dbeafe;
+  --color-primary-200: #bfdbfe;
+  --color-primary-300: #93c5fd;
+  --color-primary-400: #60a5fa;
+  --color-primary-500: #3b82f6;
+  --color-primary-600: #2563eb;
+  --color-primary-700: #1d4ed8;
+  --color-primary-800: #1e40af;
+  --color-primary-900: #1e3a8a;
+
+/* Secondary Scale */
+  --color-secondary-50: #f8fafc;
+  --color-secondary-100: #f1f5f9;
+  --color-secondary-200: #e2e8f0;
+  --color-secondary-300: #cbd5e1;
+  --color-secondary-400: #94a3b8;
+  --color-secondary-500: #64748b;
+  --color-secondary-600: #475569;
+  --color-secondary-700: #334155;
+  --color-secondary-800: #1e293b;
+  --color-secondary-900: #0f172a;
+
+/* Success Scale */
+  --color-success-50: #ecfdf5;
+  --color-success-100: #d1fae5;
+  --color-success-200: #a7f3d0;
+  --color-success-300: #6ee7b7;
+  --color-success-400: #34d399;
+  --color-success-500: #10b981;
+  --color-success-600: #059669;
+  --color-success-700: #047857;
+  --color-success-800: #065f46;
+  --color-success-900: #064e3b;
+
+/* Warning Scale */
+  --color-warning-50: #fffbeb;
+  --color-warning-100: #fef3c7;
+  --color-warning-200: #fde68a;
+  --color-warning-300: #fcd34d;
+  --color-warning-400: #fbbf24;
+  --color-warning-500: #f59e0b;
+  --color-warning-600: #d97706;
+  --color-warning-700: #b45309;
+  --color-warning-800: #92400e;
+  --color-warning-900: #78350f;
+
+/* Error Scale */
+  --color-error-50: #fef2f2;
+  --color-error-100: #fee2e2;
+  --color-error-200: #fecaca;
+  --color-error-300: #fca5a5;
+  --color-error-400: #f87171;
+  --color-error-500: #ef4444;
+  --color-error-600: #dc2626;
+  --color-error-700: #b91c1c;
+  --color-error-800: #991b1b;
+  --color-error-900: #7f1d1d;
+
+/* Info Scale */
+  --color-info-50: #f0f9ff;
+  --color-info-100: #e0f2fe;
+  --color-info-200: #bae6fd;
+  --color-info-300: #7dd3fc;
+  --color-info-400: #38bdf8;
+  --color-info-500: #0ea5e9;
+  --color-info-600: #0284c7;
+  --color-info-700: #0369a1;
+  --color-info-800: #075985;
+  --color-info-900: #0c4a6e;
+
+/* Neutral/Gray Scale */
+  --color-neutral-50: #f9fafb;
+  --color-neutral-100: #f3f4f6;
+  --color-neutral-200: #e5e7eb;
+  --color-neutral-300: #d1d5db;
+  --color-neutral-400: #9ca3af;
+  --color-neutral-500: #6b7280;
+  --color-neutral-600: #4b5563;
+  --color-neutral-700: #374151;
+  --color-neutral-800: #1f2937;
+  --color-neutral-900: #111827;
+  --color-gray-50: var(--color-neutral-50);
+  --color-gray-100: var(--color-neutral-100);
+  --color-gray-200: var(--color-neutral-200);
+  --color-gray-300: var(--color-neutral-300);
+  --color-gray-400: var(--color-neutral-400);
+  --color-gray-500: var(--color-neutral-500);
+  --color-gray-600: var(--color-neutral-600);
+  --color-gray-700: var(--color-neutral-700);
+  --color-gray-800: var(--color-neutral-800);
+  --color-gray-900: var(--color-neutral-900);
+
+/* Text Scale */
+  --color-text-50: var(--color-neutral-50);
+  --color-text-100: var(--color-neutral-100);
+  --color-text-200: var(--color-neutral-200);
+  --color-text-300: var(--color-neutral-300);
+  --color-text-400: var(--color-neutral-400);
+  --color-text-500: var(--color-neutral-500);
+  --color-text-600: var(--color-neutral-600);
+  --color-text-700: var(--color-neutral-700);
+  --color-text-800: var(--color-neutral-800);
+  --color-text-900: var(--color-neutral-900);
+
+/* Surface Scale */
+  --color-surface-50: #fafafa;
+  --color-surface-100: #f5f5f5;
+  --color-surface-200: #eee;
+  --color-surface-300: #e0e0e0;
+
+/* Border Scale */
+  --color-border-50: #fafafa;
+  --color-border-100: #f4f4f5;
+  --color-border-200: #e4e4e7;
+  --color-border-300: #d4d4d8;
+
+/* Basic Utility Colors */
+  --color-white: #fff;
+  --color-black: #000;
+  --color-transparent: transparent;
+
+/* Semantic Color Aliases */
+  --color-danger: var(--color-error);
+  --color-danger-50: var(--color-error-50);
+  --color-danger-100: var(--color-error-100);
+  --color-danger-200: var(--color-error-200);
+  --color-danger-300: var(--color-error-300);
+  --color-danger-400: var(--color-error-400);
+  --color-danger-500: var(--color-error-500);
+  --color-danger-600: var(--color-error-600);
+  --color-danger-700: var(--color-error-700);
+  --color-danger-800: var(--color-error-800);
+  --color-danger-900: var(--color-error-900);
+
+/* Social Media Brand Colors */
+  --color-twitter: #1da1f2;
+  --color-facebook: #4267b2;
+  --color-linkedin: #0077b5;
+  --color-github: #181717;
+  --color-youtube: #f00;
+  --color-instagram: #e4405f;
+
+/* Additional utility colors */
+  --color-gray-very-dark: #1a1a1a;
+  --color-gray-medium: #6b6b6b;
+  --color-gray-very-light: #f2f2f2;
+  --color-overlay-dark: rgb(0 0 0 / 80%);
+  --color-overlay-medium: rgb(0 0 0 / 60%);
+}
+
+
+/* Importierte Datei: tokens/spacing.css */
+/**
+* Spacing Properties with @property Definitions
+*
+* Typed CSS custom properties for spacing using @property.
+* This enables better tooling support, autocomplete, and animation capabilities.
+*
+* @layer tokens.properties
+*/
+
+@layer tokens.properties {
+/* Base Spacing Properties - Complete Scale */
+  @property --space-0 {
+    inherits: true;
+    initial-value: 0;
+    syntax: '<length>';
+  }
+
+  @property --space-px {
+    inherits: true;
+    initial-value: 1px;
+    syntax: '<length>';
+  }
+
+  @property --space-1 {
+    inherits: true;
+    initial-value: 0.25rem;
+    syntax: '<length>';
+  }
+
+  @property --space-2 {
+    inherits: true;
+    initial-value: 0.5rem;
+    syntax: '<length>';
+  }
+
+  @property --space-3 {
+    inherits: true;
+    initial-value: 0.75rem;
+    syntax: '<length>';
+  }
+
+  @property --space-4 {
+    inherits: true;
+    initial-value: 1rem;
+    syntax: '<length>';
+  }
+
+  @property --space-5 {
+    inherits: true;
+    initial-value: 1.25rem;
+    syntax: '<length>';
+  }
+
+  @property --space-6 {
+    inherits: true;
+    initial-value: 1.5rem;
+    syntax: '<length>';
+  }
+
+  @property --space-7 {
+    inherits: true;
+    initial-value: 1.75rem;
+    syntax: '<length>';
+  }
+
+  @property --space-8 {
+    inherits: true;
+    initial-value: 2rem;
+    syntax: '<length>';
+  }
+
+  @property --space-9 {
+    inherits: true;
+    initial-value: 2.25rem;
+    syntax: '<length>';
+  }
+
+  @property --space-10 {
+    inherits: true;
+    initial-value: 2.5rem;
+    syntax: '<length>';
+  }
+
+  @property --space-11 {
+    inherits: true;
+    initial-value: 2.75rem;
+    syntax: '<length>';
+  }
+
+  @property --space-12 {
+    inherits: true;
+    initial-value: 3rem;
+    syntax: '<length>';
+  }
+
+  @property --space-14 {
+    inherits: true;
+    initial-value: 3.5rem;
+    syntax: '<length>';
+  }
+
+  @property --space-16 {
+    inherits: true;
+    initial-value: 4rem;
+    syntax: '<length>';
+  }
+
+  @property --space-20 {
+    inherits: true;
+    initial-value: 5rem;
+    syntax: '<length>';
+  }
+
+  @property --space-24 {
+    inherits: true;
+    initial-value: 6rem;
+    syntax: '<length>';
+  }
+
+  @property --space-28 {
+    inherits: true;
+    initial-value: 7rem;
+    syntax: '<length>';
+  }
+
+  @property --space-32 {
+    inherits: true;
+    initial-value: 8rem;
+    syntax: '<length>';
+  }
+
+  @property --space-36 {
+    inherits: true;
+    initial-value: 9rem;
+    syntax: '<length>';
+  }
+
+  @property --space-40 {
+    inherits: true;
+    initial-value: 10rem;
+    syntax: '<length>';
+  }
+
+  @property --space-44 {
+    inherits: true;
+    initial-value: 11rem;
+    syntax: '<length>';
+  }
+
+  @property --space-48 {
+    inherits: true;
+    initial-value: 12rem;
+    syntax: '<length>';
+  }
+
+  @property --space-52 {
+    inherits: true;
+    initial-value: 13rem;
+    syntax: '<length>';
+  }
+
+  @property --space-56 {
+    inherits: true;
+    initial-value: 14rem;
+    syntax: '<length>';
+  }
+
+  @property --space-60 {
+    inherits: true;
+    initial-value: 15rem;
+    syntax: '<length>';
+  }
+
+  @property --space-64 {
+    inherits: true;
+    initial-value: 16rem;
+    syntax: '<length>';
+  }
+
+  @property --space-72 {
+    inherits: true;
+    initial-value: 18rem;
+    syntax: '<length>';
+  }
+
+  @property --space-80 {
+    inherits: true;
+    initial-value: 20rem;
+    syntax: '<length>';
+  }
+
+  @property --space-96 {
+    inherits: true;
+    initial-value: 24rem;
+    syntax: '<length>';
+  }
+
+/* Large spacing for special cases */
+  @property --space-large-200 {
+    inherits: true;
+    initial-value: 200px;
+    syntax: '<length>';
+  }
+
+  @property --space-large-30rem {
+    inherits: true;
+    initial-value: 30rem;
+    syntax: '<length>';
+  }
+
+  @property --space-small-10px {
+    inherits: true;
+    initial-value: 10px;
+    syntax: '<length>';
+  }
+
+/* Semantic Spacing Aliases */
+  @property --space-xs {
+    inherits: true;
+    initial-value: 0.25rem;
+    syntax: '<length>';
+  }
+
+  @property --space-sm {
+    inherits: true;
+    initial-value: 0.5rem;
+    syntax: '<length>';
+  }
+
+  @property --space-md {
+    inherits: true;
+    initial-value: 1rem;
+    syntax: '<length>';
+  }
+
+  @property --space-lg {
+    inherits: true;
+    initial-value: 1.5rem;
+    syntax: '<length>';
+  }
+
+  @property --space-xl {
+    inherits: true;
+    initial-value: 2rem;
+    syntax: '<length>';
+  }
+
+  @property --space-2xl {
+    inherits: true;
+    initial-value: 3rem;
+    syntax: '<length>';
+  }
+
+  @property --space-3xl {
+    inherits: true;
+    initial-value: 4rem;
+    syntax: '<length>';
+  }
+
+/* Component-Specific Spacing Properties */
+  @property --space-button-padding-x {
+    inherits: true;
+    initial-value: 1rem;
+    syntax: '<length>';
+  }
+
+  @property --space-button-padding-y {
+    inherits: true;
+    initial-value: 0.5rem;
+    syntax: '<length>';
+  }
+
+  @property --space-card-padding {
+    inherits: true;
+    initial-value: 1.5rem;
+    syntax: '<length>';
+  }
+
+  @property --space-form-gap {
+    inherits: true;
+    initial-value: 1rem;
+    syntax: '<length>';
+  }
+
+  @property --space-section-gap {
+    inherits: true;
+    initial-value: 3rem;
+    syntax: '<length>';
+  }
+
+  @property --space-input-padding {
+    inherits: true;
+    initial-value: 0.75rem;
+    syntax: '<length>';
+  }
+
+  @property --space-modal-padding {
+    inherits: true;
+    initial-value: 1.5rem;
+    syntax: '<length>';
+  }
+
+/* Gap Properties */
+  @property --space-gap-xs {
+    inherits: true;
+    initial-value: 0.25rem;
+    syntax: '<length>';
+  }
+
+  @property --space-gap-sm {
+    inherits: true;
+    initial-value: 0.5rem;
+    syntax: '<length>';
+  }
+
+  @property --space-gap-md {
+    inherits: true;
+    initial-value: 1rem;
+    syntax: '<length>';
+  }
+
+  @property --space-gap-lg {
+    inherits: true;
+    initial-value: 1.5rem;
+    syntax: '<length>';
+  }
+
+  @property --space-gap-xl {
+    inherits: true;
+    initial-value: 2rem;
+    syntax: '<length>';
+  }
+
+/* Layout Spacing Properties */
+  @property --space-container-padding {
+    inherits: true;
+    initial-value: 1rem;
+    syntax: '<length>';
+  }
+
+  @property --space-grid-gap {
+    inherits: true;
+    initial-value: 1rem;
+    syntax: '<length>';
+  }
+
+  @property --space-flex-gap {
+    inherits: true;
+    initial-value: 1rem;
+    syntax: '<length>';
+  }
+
+/* Animatable Spacing Properties */
+  @property --space-transition-padding {
+    inherits: true;
+    initial-value: 1rem;
+    syntax: '<length>';
+  }
+
+  @property --space-transition-margin {
+    inherits: true;
+    initial-value: 1rem;
+    syntax: '<length>';
+  }
+
+  @property --space-transition-gap {
+    inherits: true;
+    initial-value: 1rem;
+    syntax: '<length>';
+  }
+
+/* Initial Value Definitions */
+  :root {
+/* Base Spacing Scale */
+    --space-0: 0;
+    --space-px: 1px;
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.25rem;
+    --space-6: 1.5rem;
+    --space-7: 1.75rem;
+    --space-8: 2rem;
+    --space-9: 2.25rem;
+    --space-10: 2.5rem;
+    --space-11: 2.75rem;
+    --space-12: 3rem;
+    --space-14: 3.5rem;
+    --space-16: 4rem;
+    --space-20: 5rem;
+    --space-24: 6rem;
+    --space-28: 7rem;
+    --space-32: 8rem;
+    --space-36: 9rem;
+    --space-40: 10rem;
+    --space-44: 11rem;
+    --space-48: 12rem;
+    --space-52: 13rem;
+    --space-56: 14rem;
+    --space-60: 15rem;
+    --space-64: 16rem;
+    --space-72: 18rem;
+    --space-80: 20rem;
+    --space-96: 24rem;
+
+/* Component Spacing */
+    --space-button-padding-x: var(--space-md);
+    --space-button-padding-y: var(--space-sm);
+    --space-card-padding: var(--space-lg);
+    --space-form-gap: var(--space-md);
+    --space-section-gap: var(--space-3xl);
+
+/* Layout Spacing */
+    --space-container-padding: var(--space-md);
+    --space-grid-gap: var(--space-md);
+    --space-flex-gap: var(--space-md);
+
+/* Transition Spacing */
+    --space-transition-padding: var(--space-md);
+    --space-transition-margin: var(--space-md);
+    --space-transition-gap: var(--space-md);
+  }
+}
+
+/* Importierte Datei: tokens/typography.css */
+/**
+* Typography Properties with @property Definitions
+*
+* Typed CSS custom properties for typography using @property.
+* This enables better tooling support, autocomplete, and animation capabilities.
+*
+* @layer tokens.properties
+*/
+
+@layer tokens.properties {
+/* Font Size Properties */
+  @property --font-size-xs {
+    inherits: true;
+    initial-value: 0.75rem;
+    syntax: '<length>';
+  }
+
+  @property --font-size-sm {
+    inherits: true;
+    initial-value: 0.875rem;
+    syntax: '<length>';
+  }
+
+  @property --font-size-base {
+    inherits: true;
+    initial-value: 1rem;
+    syntax: '<length>';
+  }
+
+  @property --font-size-lg {
+    inherits: true;
+    initial-value: 1.125rem;
+    syntax: '<length>';
+  }
+
+  @property --font-size-xl {
+    inherits: true;
+    initial-value: 1.25rem;
+    syntax: '<length>';
+  }
+
+  @property --font-size-2xl {
+    inherits: true;
+    initial-value: 1.5rem;
+    syntax: '<length>';
+  }
+
+  @property --font-size-3xl {
+    inherits: true;
+    initial-value: 1.875rem;
+    syntax: '<length>';
+  }
+
+  @property --font-size-4xl {
+    inherits: true;
+    initial-value: 2.25rem;
+    syntax: '<length>';
+  }
+
+  @property --font-size-5xl {
+    inherits: true;
+    initial-value: 3rem;
+    syntax: '<length>';
+  }
+
+  @property --font-size-6xl {
+    inherits: true;
+    initial-value: 4rem;
+    syntax: '<length>';
+  }
+
+/* Text Size Aliases (für Komponenten-Kompatibilität) */
+  @property --text-xs {
+    inherits: true;
+    initial-value: 0.75rem;
+    syntax: '<length>';
+  }
+
+  @property --text-sm {
+    inherits: true;
+    initial-value: 0.875rem;
+    syntax: '<length>';
+  }
+
+  @property --text-base {
+    inherits: true;
+    initial-value: 1rem;
+    syntax: '<length>';
+  }
+
+  @property --text-lg {
+    inherits: true;
+    initial-value: 1.125rem;
+    syntax: '<length>';
+  }
+
+  @property --text-xl {
+    inherits: true;
+    initial-value: 1.25rem;
+    syntax: '<length>';
+  }
+
+  @property --text-2xl {
+    inherits: true;
+    initial-value: 1.5rem;
+    syntax: '<length>';
+  }
+
+/* Line Height Properties */
+  @property --line-height-tight {
+    inherits: true;
+    initial-value: 1.25;
+    syntax: '<number>';
+  }
+
+  @property --line-height-snug {
+    inherits: true;
+    initial-value: 1.375;
+    syntax: '<number>';
+  }
+
+  @property --line-height-normal {
+    inherits: true;
+    initial-value: 1.5;
+    syntax: '<number>';
+  }
+
+  @property --line-height-relaxed {
+    inherits: true;
+    initial-value: 1.625;
+    syntax: '<number>';
+  }
+
+  @property --line-height-loose {
+    inherits: true;
+    initial-value: 2;
+    syntax: '<number>';
+  }
+
+/* Font Weight Properties */
+  @property --font-weight-thin {
+    inherits: true;
+    initial-value: 100;
+    syntax: '<number>';
+  }
+
+  @property --font-weight-extralight {
+    inherits: true;
+    initial-value: 200;
+    syntax: '<number>';
+  }
+
+  @property --font-weight-light {
+    inherits: true;
+    initial-value: 300;
+    syntax: '<number>';
+  }
+
+  @property --font-weight-normal {
+    inherits: true;
+    initial-value: 400;
+    syntax: '<number>';
+  }
+
+  @property --font-weight-medium {
+    inherits: true;
+    initial-value: 500;
+    syntax: '<number>';
+  }
+
+  @property --font-weight-semibold {
+    inherits: true;
+    initial-value: 600;
+    syntax: '<number>';
+  }
+
+  @property --font-weight-bold {
+    inherits: true;
+    initial-value: 700;
+    syntax: '<number>';
+  }
+
+  @property --font-weight-extrabold {
+    inherits: true;
+    initial-value: 800;
+    syntax: '<number>';
+  }
+
+  @property --font-weight-black {
+    inherits: true;
+    initial-value: 900;
+    syntax: '<number>';
+  }
+
+/* Font Weight Aliases (für Komponenten-Kompatibilität) */
+  @property --font-light {
+    inherits: true;
+    initial-value: 300;
+    syntax: '<number>';
+  }
+
+  @property --font-normal {
+    inherits: true;
+    initial-value: 400;
+    syntax: '<number>';
+  }
+
+  @property --font-medium {
+    inherits: true;
+    initial-value: 500;
+    syntax: '<number>';
+  }
+
+  @property --font-semibold {
+    inherits: true;
+    initial-value: 600;
+    syntax: '<number>';
+  }
+
+  @property --font-bold {
+    inherits: true;
+    initial-value: 700;
+    syntax: '<number>';
+  }
+
+/* Font Family Properties - Defined only in :root for better performance */
+
+/* Letter Spacing Properties */
+  @property --letter-spacing-tighter {
+    inherits: true;
+    initial-value: -0.05em;
+    syntax: '<length>';
+  }
+
+  @property --letter-spacing-tight {
+    inherits: true;
+    initial-value: -0.025em;
+    syntax: '<length>';
+  }
+
+  @property --letter-spacing-normal {
+    inherits: true;
+    initial-value: 0;
+    syntax: '<length>';
+  }
+
+  @property --letter-spacing-wide {
+    inherits: true;
+    initial-value: 0.025em;
+    syntax: '<length>';
+  }
+
+  @property --letter-spacing-wider {
+    inherits: true;
+    initial-value: 0.05em;
+    syntax: '<length>';
+  }
+
+  @property --letter-spacing-widest {
+    inherits: true;
+    initial-value: 0.1em;
+    syntax: '<length>';
+  }
+
+/* Animatable Typography Properties */
+  @property --font-size-transition {
+    inherits: true;
+    initial-value: 1rem;
+    syntax: '<length>';
+  }
+
+  @property --line-height-transition {
+    inherits: true;
+    initial-value: 1.5;
+    syntax: '<number>';
+  }
+
+  @property --letter-spacing-transition {
+    inherits: true;
+    initial-value: 0;
+    syntax: '<length>';
+  }
+}
+
+/* Initial Value Definitions */
+:root {
+/* Font Sizes */
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+  --font-size-5xl: 3rem;
+  --font-size-6xl: 4rem;
+
+/* Text Size Aliases */
+  --text-xs: var(--font-size-xs);
+  --text-sm: var(--font-size-sm);
+  --text-base: var(--font-size-base);
+  --text-lg: var(--font-size-lg);
+  --text-xl: var(--font-size-xl);
+  --text-2xl: var(--font-size-2xl);
+
+/* Line Heights */
+  --line-height-tight: 1.25;
+  --line-height-snug: 1.375;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.625;
+  --line-height-loose: 2;
+
+/* Font Weights */
+  --font-weight-thin: 100;
+  --font-weight-extralight: 200;
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  --font-weight-black: 900;
+
+/* Font Weight Aliases */
+  --font-light: var(--font-weight-light);
+  --font-normal: var(--font-weight-normal);
+  --font-medium: var(--font-weight-medium);
+  --font-semibold: var(--font-weight-semibold);
+  --font-bold: var(--font-weight-bold);
+
+/* Font Families */
+  --font-family-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  --font-family-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-family-mono: ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+
+/* Font Family Aliases (kurze Versionen für Komponenten) */
+  --font-sans: var(--font-family-sans);
+  --font-serif: var(--font-family-serif);
+  --font-mono: var(--font-family-mono);
+
+/* Letter Spacing */
+  --letter-spacing-tight: -0.025em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.025em;
+  --letter-spacing-wider: 0.05em;
+
+/* Transition Properties */
+  --font-size-transition: var(--font-size-base);
+  --line-height-transition: var(--line-height-normal);
+  --letter-spacing-transition: var(--letter-spacing-normal);
+}
+
+/* Importierte Datei: tokens/radius.css */
+/**
+* Border Radius Properties with @property Definitions
+*
+* Typed CSS custom properties for border-radius using @property.
+* This enables better tooling support, autocomplete, and animation capabilities.
+*
+* @layer tokens.properties
+*/
+
+@layer tokens.properties {
+/* Base Radius Properties */
+  @property --radius-none {
+    inherits: true;
+    initial-value: 0;
+    syntax: '<length>';
+  }
+
+  @property --radius-xs {
+    inherits: true;
+    initial-value: 0.125rem;
+    syntax: '<length>';
+  }
+
+  @property --radius-sm {
+    inherits: true;
+    initial-value: 0.25rem;
+    syntax: '<length>';
+  }
+
+  @property --radius-md {
+    inherits: true;
+    initial-value: 0.375rem;
+    syntax: '<length>';
+  }
+
+  @property --radius-lg {
+    inherits: true;
+    initial-value: 0.5rem;
+    syntax: '<length>';
+  }
+
+  @property --radius-xl {
+    inherits: true;
+    initial-value: 0.75rem;
+    syntax: '<length>';
+  }
+
+  @property --radius-2xl {
+    inherits: true;
+    initial-value: 1rem;
+    syntax: '<length>';
+  }
+
+  @property --radius-3xl {
+    inherits: true;
+    initial-value: 1.5rem;
+    syntax: '<length>';
+  }
+
+  @property --radius-full {
+    inherits: true;
+    initial-value: 9999px;
+    syntax: '<length-percentage>';
+  }
+
+/* Component-Specific Radius Properties */
+  @property --radius-button {
+    inherits: true;
+    initial-value: 0.375rem;
+    syntax: '<length>';
+  }
+
+  @property --radius-card {
+    inherits: true;
+    initial-value: 0.5rem;
+    syntax: '<length>';
+  }
+
+  @property --radius-input {
+    inherits: true;
+    initial-value: 0.375rem;
+    syntax: '<length>';
+  }
+
+  @property --radius-modal {
+    inherits: true;
+    initial-value: 0.75rem;
+    syntax: '<length>';
+  }
+
+  @property --radius-badge {
+    inherits: true;
+    initial-value: 0.25rem;
+    syntax: '<length>';
+  }
+
+  @property --radius-avatar {
+    inherits: true;
+    initial-value: 50;
+    syntax: '<length-percentage>';
+  }
+
+/* Interactive Radius Properties */
+  @property --radius-hover {
+    inherits: true;
+    initial-value: 0.5rem;
+    syntax: '<length>';
+  }
+
+  @property --radius-focus {
+    inherits: true;
+    initial-value: 0.375rem;
+    syntax: '<length>';
+  }
+
+/* Animatable Radius Properties */
+  @property --radius-transition {
+    inherits: true;
+    initial-value: 0.375rem;
+    syntax: '<length>';
+  }
+
+  @property --radius-transition-hover {
+    inherits: true;
+    initial-value: 0.5rem;
+    syntax: '<length>';
+  }
+
+/* Initial Value Definitions */
+  :root {
+/* Base Radius Scale */
+    --radius-none: 0;
+    --radius-xs: 0.125rem;
+    --radius-sm: 0.25rem;
+    --radius-md: 0.375rem;
+    --radius-lg: 0.5rem;
+    --radius-xl: 0.75rem;
+    --radius-2xl: 1rem;
+    --radius-3xl: 1.5rem;
+    --radius-full: 9999px;
+
+/* Component Radius */
+    --radius-button: var(--radius-md);
+    --radius-card: var(--radius-lg);
+    --radius-input: var(--radius-md);
+    --radius-modal: var(--radius-xl);
+    --radius-badge: var(--radius-sm);
+    --radius-avatar: 50;
+
+/* Interactive Radius */
+    --radius-hover: var(--radius-lg);
+    --radius-focus: var(--radius-md);
+
+/* Transition Radius */
+    --radius-transition: var(--radius-md);
+    --radius-transition-hover: var(--radius-lg);
+
+/* Border-Radius Aliases (für Kompatibilität mit Typography-System) */
+    --border-radius-none: var(--radius-none);
+    --border-radius-sm: var(--radius-sm);
+    --border-radius-md: var(--radius-md);
+    --border-radius-lg: var(--radius-lg);
+    --border-radius-xl: var(--radius-xl);
+    --border-radius-full: var(--radius-full);
+  }
+}
+
+/* Importierte Datei: tokens/shadows.css */
+/**
+* Shadow Properties with @property Definitions
+*
+* Typed CSS custom properties for shadows using @property.
+* This enables better tooling support, autocomplete, and animation capabilities.
+*
+* @layer tokens.properties
+*/
+
+@layer tokens.properties {
+/* Base Shadow Properties */
+  @property --shadow-none {
+    inherits: false;
+    initial-value: none;
+
+  }
+
+  @property --shadow-xs {
+    inherits: false;
+    initial-value: 0 1px 2px 0 rgb(0 0 0 / 5%);
+
+  }
+
+  @property --shadow-sm {
+    inherits: false;
+    initial-value: 0 1px 2px 0 rgb(0 0 0 / 5%);
+
+  }
+
+  @property --shadow-md {
+    inherits: false;
+    initial-value: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -2px rgb(0 0 0 / 10%);
+
+  }
+
+  @property --shadow-lg {
+    inherits: false;
+    initial-value: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -4px rgb(0 0 0 / 10%);
+
+  }
+
+  @property --shadow-xl {
+    inherits: false;
+    initial-value: 0 20px 25px -5px rgb(0 0 0 / 10%), 0 8px 10px -6px rgb(0 0 0 / 10%);
+
+  }
+
+  @property --shadow-2xl {
+    inherits: false;
+    initial-value: 0 25px 50px -12px rgb(0 0 0 / 25%);
+
+  }
+
+  @property --shadow-inner {
+    inherits: false;
+    initial-value: inset 0 2px 4px 0 rgb(0 0 0 / 5%);
+
+  }
+
+/* Component-Specific Shadow Properties */
+  @property --shadow-card {
+    inherits: false;
+    initial-value: 0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px -1px rgb(0 0 0 / 10%);
+
+  }
+
+  @property --shadow-modal {
+    inherits: false;
+    initial-value: 0 20px 25px -5px rgb(0 0 0 / 10%), 0 8px 10px -6px rgb(0 0 0 / 10%);
+
+  }
+
+  @property --shadow-dropdown {
+    inherits: false;
+    initial-value: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -4px rgb(0 0 0 / 10%);
+
+  }
+
+  @property --shadow-tooltip {
+    inherits: false;
+    initial-value: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -2px rgb(0 0 0 / 10%);
+
+  }
+
+  @property --shadow-button {
+    inherits: false;
+    initial-value: 0 1px 2px 0 rgb(0 0 0 / 5%);
+
+  }
+
+  @property --shadow-button-hover {
+    inherits: false;
+    initial-value: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -2px rgb(0 0 0 / 10%);
+
+  }
+}
+
+/* Fallback Values für alle Shadow-Definitionen */
+:root {
+/* Base Shadow Scale */
+  --shadow-none: none;
+  --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 5%);
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 5%);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -2px rgb(0 0 0 / 10%);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -4px rgb(0 0 0 / 10%);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 10%), 0 8px 10px -6px rgb(0 0 0 / 10%);
+  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 25%);
+  --shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 5%);
+
+/* Component Shadows */
+  --shadow-card: var(--shadow-sm);
+  --shadow-modal: var(--shadow-xl);
+  --shadow-dropdown: var(--shadow-lg);
+  --shadow-tooltip: var(--shadow-md);
+  --shadow-button: var(--shadow-xs);
+  --shadow-button-hover: var(--shadow-md);
+}
+
+/* Importierte Datei: tokens/layout.css */
+/* Clean Layout Tokens */
+@layer tokens.properties {
+  :root {
+    --container-sm: 640px;
+    --container-md: 768px;
+  }
+}
+
+
+/* Importierte Datei: tokens/transitions.css */
+/**
+* Transition Tokens
+*
+* @property definitions for smooth theme transitions and animations.
+* These properties enable smooth interpolation between theme values.
+*
+* @layer tokens
+*/
+
+@layer tokens {
+/* Transition Duration Properties */
+  @property --transition-fast {
+    inherits: true;
+    initial-value: 150ms;
+    syntax: '<time>';
+  }
+
+  @property --transition-normal {
+    inherits: true;
+    initial-value: 250ms;
+    syntax: '<time>';
+  }
+
+  @property --transition-slow {
+    inherits: true;
+    initial-value: 400ms;
+    syntax: '<time>';
+  }
+
+/* Extended Duration Properties (für Kompatibilität) */
+  @property --transition-duration-fast {
+    inherits: true;
+    initial-value: 150ms;
+    syntax: '<time>';
+  }
+
+  @property --transition-duration-normal {
+    inherits: true;
+    initial-value: 250ms;
+    syntax: '<time>';
+  }
+
+  @property --transition-duration-slow {
+    inherits: true;
+    initial-value: 400ms;
+    syntax: '<time>';
+  }
+
+/* Transition Easing Properties */
+  @property --transition-ease-out {
+    inherits: true;
+    initial-value: cubic-bezier(0, 0, 0.2, 1);
+    syntax: '<custom-ident> | ease | ease-in | ease-out | ease-in-out | linear | step-start | step-end';
+  }
+
+  @property --transition-ease-in {
+    inherits: true;
+    initial-value: cubic-bezier(0.4, 0, 1, 1);
+    syntax: '<custom-ident> | ease | ease-in | ease-out | ease-in-out | linear | step-start | step-end';
+  }
+
+  @property --transition-ease-in-out {
+    inherits: true;
+    initial-value: cubic-bezier(0.4, 0, 0.2, 1);
+    syntax: '<custom-ident> | ease | ease-in | ease-out | ease-in-out | linear | step-start | step-end';
+  }
+
+/* Timing Function Aliases */
+  @property --transition-timing-ease {
+    inherits: true;
+    initial-value: cubic-bezier(0.4, 0, 0.2, 1);
+    syntax: '<custom-ident> | ease | ease-in | ease-out | ease-in-out | linear | step-start | step-end';
+  }
+
+/* Animatable Color Properties for Theme Transitions */
+  @property --transition-bg {
+    inherits: true;
+    initial-value: #fff;
+    syntax: '<color>';
+  }
+
+  @property --transition-fg {
+    inherits: true;
+    initial-value: #1f2937;
+    syntax: '<color>';
+  }
+
+  @property --transition-border {
+    inherits: true;
+    initial-value: #e5e7eb;
+    syntax: '<color>';
+  }
+
+  @property --transition-surface {
+    inherits: true;
+    initial-value: #f9fafb;
+    syntax: '<color>';
+  }
+
+  @property --transition-accent {
+    inherits: true;
+    initial-value: #3b82f6;
+    syntax: '<color>';
+  }
+
+  @property --transition-shadow-opacity {
+    inherits: true;
+    initial-value: 0.1;
+    syntax: '<number>';
+  }
+
+/* Component-Specific Transition Properties */
+  @property --transition-colors {
+    inherits: true;
+    initial-value: background-color 250ms var(--transition-ease-out), color 250ms var(--transition-ease-out), border-color 250ms var(--transition-ease-out);
+    syntax: '*';
+  }
+
+  @property --transition-transform {
+    inherits: true;
+    initial-value: transform 200ms var(--transition-ease-out);
+    syntax: '*';
+  }
+
+  @property --transition-opacity {
+    inherits: true;
+    initial-value: opacity 200ms var(--transition-ease-out);
+    syntax: '*';
+  }
+
+  @property --transition-shadow {
+    inherits: true;
+    initial-value: box-shadow 200ms var(--transition-ease-out);
+    syntax: '*';
+  }
+
+  @property --transition-all {
+    inherits: true;
+    initial-value: all 250ms var(--transition-ease-out);
+    syntax: '*';
+  }
+}
+
+/* Fallback Values für Transition-Tokens */
+:root {
+/* Duration Tokens */
+  --transition-fast: 150ms;
+  --transition-normal: 250ms;
+  --transition-slow: 400ms;
+  --transition-duration-fast: var(--transition-fast);
+  --transition-duration-normal: var(--transition-normal);
+  --transition-duration-slow: var(--transition-slow);
+
+/* Timing Functions */
+  --transition-ease-out: ease-out;
+  --transition-ease-in: ease-in;
+  --transition-ease-in-out: ease-in-out;
+  --transition-timing-ease: var(--transition-ease-in-out);
+
+/* Combined Transition Properties */
+  --transition-colors: background-color var(--transition-normal) var(--transition-ease-out),
+  color var(--transition-normal) var(--transition-ease-out),
+  border-color var(--transition-normal) var(--transition-ease-out);
+  --transition-transform: transform 200ms var(--transition-ease-out);
+  --transition-opacity: opacity 200ms var(--transition-ease-out);
+  --transition-shadow: box-shadow 200ms var(--transition-ease-out);
+  --transition-all: all var(--transition-normal) var(--transition-ease-out);
+}
+
+/* Importierte Datei: tokens/effects.css */
+/**
+* Effects Properties with @property Definitions
+*
+* Typed CSS custom properties for visual effects using @property.
+* This enables better tooling support, autocomplete, and animation capabilities.
+*
+* @layer tokens.properties
+*/
+
+@layer tokens.properties {
+/* Shadow Properties */
+  @property --shadow-color {
+    inherits: true;
+    initial-value: rgb(0 0 0);
+    syntax: '<color>';
+  }
+
+  @property --shadow-opacity-sm {
+    inherits: true;
+    initial-value: 0.05;
+    syntax: '<number>';
+  }
+
+  @property --shadow-opacity-md {
+    inherits: true;
+    initial-value: 0.1;
+    syntax: '<number>';
+  }
+
+  @property --shadow-opacity-lg {
+    inherits: true;
+    initial-value: 0.15;
+    syntax: '<number>';
+  }
+
+  @property --shadow-opacity-xl {
+    inherits: true;
+    initial-value: 0.25;
+    syntax: '<number>';
+  }
+
+/* Transition Duration Properties */
+  @property --transition-duration-fast {
+    inherits: true;
+    initial-value: 150ms;
+    syntax: '<time>';
+  }
+
+  @property --transition-duration-normal {
+    inherits: true;
+    initial-value: 300ms;
+    syntax: '<time>';
+  }
+
+  @property --transition-duration-slow {
+    inherits: true;
+    initial-value: 500ms;
+    syntax: '<time>';
+  }
+
+/* Opacity Properties */
+  @property --opacity-disabled {
+    inherits: true;
+    initial-value: 0.5;
+    syntax: '<number>';
+  }
+
+  @property --opacity-hover {
+    inherits: true;
+    initial-value: 0.8;
+    syntax: '<number>';
+  }
+
+  @property --opacity-overlay {
+    inherits: true;
+    initial-value: 0.5;
+    syntax: '<number>';
+  }
+
+/* Backdrop Properties */
+  @property --color-backdrop {
+    inherits: true;
+    initial-value: rgb(0 0 0 / 5000%);
+    syntax: '<color>';
+  }
+
+  @property --color-tooltip-background {
+    inherits: true;
+    initial-value: rgb(0 0 0 / 8000%);
+    syntax: '<color>';
+  }
+
+  @property --color-tooltip-text {
+    inherits: true;
+    initial-value: #fff;
+    syntax: '<color>';
+  }
+
+/* Focus Properties */
+  @property --color-focus {
+    inherits: true;
+    initial-value: #4f46e5;
+    syntax: '<color>';
+  }
+
+  @property --color-focus-glow {
+    inherits: true;
+    initial-value: rgb(79 70 229 / 3000%);
+    syntax: '<color>';
+  }
+
+/* Gradient Properties */
+  @property --color-gradient-start {
+    inherits: true;
+    initial-value: #4f46e5;
+    syntax: '<color>';
+  }
+
+  @property --color-gradient-end {
+    inherits: true;
+    initial-value: #3b82f6;
+    syntax: '<color>';
+  }
+
+/* Background Effect Properties */
+  @property --color-background-subtle {
+    inherits: true;
+    initial-value: rgb(84 53 53 / 2%);
+    syntax: '<color>';
+  }
+
+  @property --color-background-muted {
+    inherits: true;
+    initial-value: rgb(0 0 0 / 5%);
+    syntax: '<color>';
+  }
+
+  @property --color-status {
+    inherits: true;
+    initial-value: #4f46e5;
+    syntax: '<color>';
+  }
+}
+
+/* Importierte Datei: tokens/themes.css */
+/**
+* Theme Tokens
+*
+* Comprehensive theme-specific tokens that extend the base design tokens.
+* These tokens provide a semantic layer for theme variants and enable
+* consistent theming across all components.
+*
+* @layer tokens.themes
+*/
+
+@layer tokens.themes {
+/* ================= THEME COLOR TOKENS ================= */
+
+/* Primary Theme Colors */
+  @property --theme-primary {
+    inherits: true;
+    initial-value: #4f46e5;
+    syntax: '<color>';
+  }
+
+  @property --theme-primary-hover {
+    inherits: true;
+    initial-value: #4338ca;
+    syntax: '<color>';
+  }
+
+  @property --theme-primary-active {
+    inherits: true;
+    initial-value: #3730a3;
+    syntax: '<color>';
+  }
+
+  @property --theme-secondary {
+    inherits: true;
+    initial-value: #7c3aed;
+    syntax: '<color>';
+  }
+
+  @property --theme-secondary-hover {
+    inherits: true;
+    initial-value: #6d28d9;
+    syntax: '<color>';
+  }
+
+  @property --theme-secondary-active {
+    inherits: true;
+    initial-value: #5b21b6;
+    syntax: '<color>';
+  }
+
+/* Theme Surface Colors */
+  @property --theme-background {
+    inherits: true;
+    initial-value: #fff;
+    syntax: '<color>';
+  }
+
+  @property --theme-background-subtle {
+    inherits: true;
+    initial-value: #f8fafc;
+    syntax: '<color>';
+  }
+
+  @property --theme-surface {
+    inherits: true;
+    initial-value: #f1f5f9;
+    syntax: '<color>';
+  }
+
+  @property --theme-surface-elevated {
+    inherits: true;
+    initial-value: #fff;
+    syntax: '<color>';
+  }
+
+  @property --theme-surface-overlay {
+    inherits: true;
+    initial-value: rgb(255 255 255 / 9000%);
+    syntax: '<color>';
+  }
+
+/* Theme Text Colors */
+  @property --theme-text {
+    inherits: true;
+    initial-value: #1e293b;
+    syntax: '<color>';
+  }
+
+  @property --theme-text-muted {
+    inherits: true;
+    initial-value: #64748b;
+    syntax: '<color>';
+  }
+
+  @property --theme-text-subtle {
+    inherits: true;
+    initial-value: #94a3b8;
+    syntax: '<color>';
+  }
+
+  @property --theme-text-inverse {
+    inherits: true;
+    initial-value: #fff;
+    syntax: '<color>';
+  }
+
+  @property --theme-text-on-primary {
+    inherits: true;
+    initial-value: #fff;
+    syntax: '<color>';
+  }
+
+/* Theme Border Colors */
+  @property --theme-border {
+    inherits: true;
+    initial-value: #e2e8f0;
+    syntax: '<color>';
+  }
+
+  @property --theme-border-strong {
+    inherits: true;
+    initial-value: #cbd5e1;
+    syntax: '<color>';
+  }
+
+  @property --theme-border-subtle {
+    inherits: true;
+    initial-value: #f1f5f9;
+    syntax: '<color>';
+  }
+
+  @property --theme-border-focus {
+    inherits: true;
+    initial-value: #4f46e5;
+    syntax: '<color>';
+  }
+
+/* ================= THEME EFFECT TOKENS ================= */
+
+/* Theme Shadows */
+  @property --theme-shadow-color {
+    inherits: true;
+    initial-value: rgb(0 0 0);
+    syntax: '<color>';
+  }
+
+  @property --theme-shadow-opacity-sm {
+    inherits: true;
+    initial-value: 0.05;
+    syntax: '<number>';
+  }
+
+  @property --theme-shadow-opacity-md {
+    inherits: true;
+    initial-value: 0.1;
+    syntax: '<number>';
+  }
+
+  @property --theme-shadow-opacity-lg {
+    inherits: true;
+    initial-value: 0.15;
+    syntax: '<number>';
+  }
+
+  @property --theme-shadow-opacity-xl {
+    inherits: true;
+    initial-value: 0.25;
+    syntax: '<number>';
+  }
+
+/* Theme Focus Effects */
+  @property --theme-focus-ring {
+    inherits: true;
+    initial-value: #4f46e5;
+    syntax: '<color>';
+  }
+
+  @property --theme-focus-glow {
+    inherits: true;
+    initial-value: rgb(79 70 229 / 3000%);
+    syntax: '<color>';
+  }
+
+  @property --theme-focus-ring-width {
+    inherits: true;
+    initial-value: 2px;
+    syntax: '<length>';
+  }
+
+  @property --theme-focus-ring-offset {
+    inherits: true;
+    initial-value: 2px;
+    syntax: '<length>';
+  }
+
+/* Theme Backdrop Effects */
+  @property --theme-backdrop {
+    inherits: true;
+    initial-value: rgb(0 0 0 / 5000%);
+    syntax: '<color>';
+  }
+
+  @property --theme-backdrop-blur {
+    inherits: true;
+    initial-value: 8px;
+    syntax: '<length>';
+  }
+
+/* Theme Gradient Colors */
+  @property --theme-gradient-start {
+    inherits: true;
+    initial-value: #4f46e5;
+    syntax: '<color>';
+  }
+
+  @property --theme-gradient-end {
+    inherits: true;
+    initial-value: #7c3aed;
+    syntax: '<color>';
+  }
+
+  @property --theme-gradient-accent {
+    inherits: true;
+    initial-value: #3b82f6;
+    syntax: '<color>';
+  }
+
+/* ================= THEME INTERACTION TOKENS ================= */
+
+/* Theme Hover States */
+  @property --theme-hover-opacity {
+    inherits: true;
+    initial-value: 0.8;
+    syntax: '<number>';
+  }
+
+  @property --theme-hover-scale {
+    inherits: true;
+    initial-value: 1.05;
+    syntax: '<number>';
+  }
+
+/* Theme Active States */
+  @property --theme-active-opacity {
+    inherits: true;
+    initial-value: 0.9;
+    syntax: '<number>';
+  }
+
+  @property --theme-active-scale {
+    inherits: true;
+    initial-value: 0.95;
+    syntax: '<number>';
+  }
+
+/* Theme Disabled States */
+  @property --theme-disabled-opacity {
+    inherits: true;
+    initial-value: 0.5;
+    syntax: '<number>';
+  }
+
+/* ================= THEME TRANSITION TOKENS ================= */
+
+/* Theme Transition Durations */
+  @property --theme-transition-fast {
+    inherits: true;
+    initial-value: 150ms;
+    syntax: '<time>';
+  }
+
+  @property --theme-transition-normal {
+    inherits: true;
+    initial-value: 250ms;
+    syntax: '<time>';
+  }
+
+  @property --theme-transition-slow {
+    inherits: true;
+    initial-value: 400ms;
+    syntax: '<time>';
+  }
+
+/* Theme Transition Easings */
+  @property --theme-ease-out {
+    inherits: true;
+    initial-value: cubic-bezier(0, 0, 0.2, 1);
+    syntax: '<custom-ident>';
+  }
+
+  @property --theme-ease-in {
+    inherits: true;
+    initial-value: cubic-bezier(0.4, 0, 1, 1);
+    syntax: '<custom-ident>';
+  }
+
+  @property --theme-ease-in-out {
+    inherits: true;
+    initial-value: cubic-bezier(0.4, 0, 0.2, 1);
+    syntax: '<custom-ident>';
+  }
+
+/* ================= THEME STATUS TOKENS ================= */
+
+/* Success Theme Colors */
+  @property --theme-success {
+    inherits: true;
+    initial-value: #10b981;
+    syntax: '<color>';
+  }
+
+  @property --theme-success-bg {
+    inherits: true;
+    initial-value: #ecfdf5;
+    syntax: '<color>';
+  }
+
+  @property --theme-success-border {
+    inherits: true;
+    initial-value: #a7f3d0;
+    syntax: '<color>';
+  }
+
+/* Warning Theme Colors */
+  @property --theme-warning {
+    inherits: true;
+    initial-value: #f59e0b;
+    syntax: '<color>';
+  }
+
+  @property --theme-warning-bg {
+    inherits: true;
+    initial-value: #fffbeb;
+    syntax: '<color>';
+  }
+
+  @property --theme-warning-border {
+    inherits: true;
+    initial-value: #fed7aa;
+    syntax: '<color>';
+  }
+
+/* Error Theme Colors */
+  @property --theme-error {
+    inherits: true;
+    initial-value: #ef4444;
+    syntax: '<color>';
+  }
+
+  @property --theme-error-bg {
+    inherits: true;
+    initial-value: #fef2f2;
+    syntax: '<color>';
+  }
+
+  @property --theme-error-border {
+    inherits: true;
+    initial-value: #fecaca;
+    syntax: '<color>';
+  }
+
+/* Info Theme Colors */
+  @property --theme-info {
+    inherits: true;
+    initial-value: #3b82f6;
+    syntax: '<color>';
+  }
+
+  @property --theme-info-bg {
+    inherits: true;
+    initial-value: #eff6ff;
+    syntax: '<color>';
+  }
+
+  @property --theme-info-border {
+    inherits: true;
+    initial-value: #bfdbfe;
+    syntax: '<color>';
+  }
+
+/* ================= THEME VARIANT TOKENS ================= */
+
+/* Light Theme Variant */
+  @property --theme-variant-light-bg {
+    inherits: true;
+    initial-value: #fff;
+    syntax: '<color>';
+  }
+
+  @property --theme-variant-light-text {
+    inherits: true;
+    initial-value: #1e293b;
+    syntax: '<color>';
+  }
+
+/* Dark Theme Variant */
+  @property --theme-variant-dark-bg {
+    inherits: true;
+    initial-value: #1e293b;
+    syntax: '<color>';
+  }
+
+  @property --theme-variant-dark-text {
+    inherits: true;
+    initial-value: #f1f5f9;
+    syntax: '<color>';
+  }
+
+/* High Contrast Theme Variant */
+  @property --theme-variant-contrast-bg {
+    inherits: true;
+    initial-value: #000;
+    syntax: '<color>';
+  }
+
+  @property --theme-variant-contrast-text {
+    inherits: true;
+    initial-value: #fff;
+    syntax: '<color>';
+  }
+}
+
+
+/* Importierte Datei: tokens/icons.css */
+/**
+* Icon Tokens
+*/
+
+@layer tokens.values {
+  :root {
+    --icon-size-xs: 0.75rem;
+    --icon-size-sm: 1rem;
+    --icon-size-md: 1.25rem;
+    --icon-size-lg: 1.5rem;
+    --icon-size-xl: 2rem;
+    --icon-size-2xl: 2.5rem;
+    --icon-size-3xl: 3rem;
+    --icon-size-relative-xs: 0.5em;
+    --icon-size-relative-sm: 0.75em;
+    --icon-size-relative-md: 1em;
+    --icon-size-relative-lg: 1.25em;
+    --icon-size-relative-xl: 1.5em;
+    --icon-size-relative-2xl: 2em;
+    --icon-animation-duration-normal: 1s;
+    --icon-animation-duration-slow: 2s;
+  }
+}
+
+
+
+/* Component-Specific Tokens */
+/* Importierte Datei: tokens/components.css */
+/**
+* Component-Specific Tokens
+*
+* Semantische Tokens für UI-Komponenten mit @property Definitionen.
+* Diese Tokens werden speziell für Komponenten verwendet und erweitern
+* die Basis-Token um komponentenspezifische Werte.
+*
+* @layer tokens.properties
+* @version 1.0.0
+* @author Dragonfly Design System
+*/
+
+@layer tokens.properties {
+/* Alert Component Tokens */
+  @property --alert-padding {
+    inherits: true;
+    initial-value: 1rem;
+    syntax: '<length>';
+  }
+
+  @property --alert-padding-sm {
+    inherits: true;
+    initial-value: 0.5rem;
+    syntax: '<length>';
+  }
+
+  @property --alert-padding-lg {
+    inherits: true;
+    initial-value: 1.25rem;
+    syntax: '<length>';
+  }
+
+  @property --alert-gap {
+    inherits: true;
+    initial-value: 0.75rem;
+    syntax: '<length>';
+  }
+
+  @property --alert-border-radius {
+    inherits: true;
+    initial-value: 0.5rem;
+    syntax: '<length>';
+  }
+
+/* Badge Component Tokens */
+  @property --badge-padding-xs {
+    inherits: true;
+    initial-value: 0.15rem 0.35rem;
+    syntax: '*';
+  }
+
+  @property --badge-padding-sm {
+    inherits: true;
+    initial-value: 0.2rem 0.4rem;
+    syntax: '*';
+  }
+
+  @property --badge-padding-md {
+    inherits: true;
+    initial-value: 0.25rem 0.5rem;
+    syntax: '*';
+  }
+
+  @property --badge-padding-lg {
+    inherits: true;
+    initial-value: 0.3rem 0.6rem;
+    syntax: '*';
+  }
+
+  @property --badge-min-width-xs {
+    inherits: true;
+    initial-value: 1.2rem;
+    syntax: '<length>';
+  }
+
+  @property --badge-min-width-sm {
+    inherits: true;
+    initial-value: 1.5rem;
+    syntax: '<length>';
+  }
+
+  @property --badge-min-width-md {
+    inherits: true;
+    initial-value: 1.75rem;
+    syntax: '<length>';
+  }
+
+  @property --badge-min-width-lg {
+    inherits: true;
+    initial-value: 2rem;
+    syntax: '<length>';
+  }
+
+/* Card Component Tokens */
+  @property --card-padding {
+    inherits: true;
+    initial-value: 1rem;
+    syntax: '<length>';
+  }
+
+  @property --card-padding-fluid {
+    inherits: true;
+    initial-value: 1.25rem;
+    syntax: '<length>';
+  }
+
+  @property --card-gap {
+    inherits: true;
+    initial-value: 0.75rem;
+    syntax: '<length>';
+  }
+
+  @property --card-grid-gap {
+    inherits: true;
+    initial-value: 1rem;
+    syntax: '<length>';
+  }
+
+  @property --card-grid-min-width {
+    inherits: true;
+    initial-value: 250px;
+    syntax: '<length>';
+  }
+
+/* Button Component Tokens */
+  @property --button-padding-sm {
+    inherits: true;
+    initial-value: 0.5rem 0.75rem;
+    syntax: '*';
+  }
+
+  @property --button-padding-md {
+    inherits: true;
+    initial-value: 0.75rem 1rem;
+    syntax: '*';
+  }
+
+  @property --button-padding-lg {
+    inherits: true;
+    initial-value: 1rem 1.5rem;
+    syntax: '*';
+  }
+
+  @property --button-height-sm {
+    inherits: true;
+    initial-value: 2rem;
+    syntax: '<length>';
+  }
+
+  @property --button-height-md {
+    inherits: true;
+    initial-value: 2.5rem;
+    syntax: '<length>';
+  }
+
+  @property --button-height-lg {
+    inherits: true;
+    initial-value: 3rem;
+    syntax: '<length>';
+  }
+
+/* Input Component Tokens */
+  @property --input-padding {
+    inherits: true;
+    initial-value: 0.75rem;
+    syntax: '<length>';
+  }
+
+  @property --input-height {
+    inherits: true;
+    initial-value: 2.5rem;
+    syntax: '<length>';
+  }
+
+  @property --input-border-width {
+    inherits: true;
+    initial-value: 1px;
+    syntax: '<length>';
+  }
+
+/* Modal Component Tokens */
+  @property --modal-padding {
+    inherits: true;
+    initial-value: 1.5rem;
+    syntax: '<length>';
+  }
+
+  @property --modal-header-padding {
+    inherits: true;
+    initial-value: 1.5rem 1.5rem 1rem;
+    syntax: '*';
+  }
+
+  @property --modal-footer-padding {
+    inherits: true;
+    initial-value: 1rem 1.5rem 1.5rem;
+    syntax: '*';
+  }
+
+  @property --modal-max-width {
+    inherits: true;
+    initial-value: 32rem;
+    syntax: '<length>';
+  }
+
+/* Table Component Tokens */
+  @property --table-cell-padding {
+    inherits: true;
+    initial-value: 0.75rem;
+    syntax: '<length>';
+  }
+
+  @property --table-header-padding {
+    inherits: true;
+    initial-value: 1rem 0.75rem;
+    syntax: '*';
+  }
+
+/* Avatar Component Tokens */
+  @property --avatar-size-xs {
+    inherits: true;
+    initial-value: 1.5rem;
+    syntax: '<length>';
+  }
+
+  @property --avatar-size-sm {
+    inherits: true;
+    initial-value: 2rem;
+    syntax: '<length>';
+  }
+
+  @property --avatar-size-md {
+    inherits: true;
+    initial-value: 2.5rem;
+    syntax: '<length>';
+  }
+
+  @property --avatar-size-lg {
+    inherits: true;
+    initial-value: 3rem;
+    syntax: '<length>';
+  }
+
+  @property --avatar-size-xl {
+    inherits: true;
+    initial-value: 4rem;
+    syntax: '<length>';
+  }
+
+/* Tooltip Component Tokens */
+  @property --tooltip-padding {
+    inherits: true;
+    initial-value: 0.5rem 0.75rem;
+    syntax: '*';
+  }
+
+  @property --tooltip-max-width {
+    inherits: true;
+    initial-value: 200px;
+    syntax: '<length>';
+  }
+
+  @property --tooltip-arrow-size {
+    inherits: true;
+    initial-value: 4px;
+    syntax: '<length>';
+  }
+
+/* Progress Component Tokens */
+  @property --progress-height {
+    inherits: true;
+    initial-value: 0.5rem;
+    syntax: '<length>';
+  }
+
+  @property --progress-height-sm {
+    inherits: true;
+    initial-value: 0.25rem;
+    syntax: '<length>';
+  }
+
+  @property --progress-height-lg {
+    inherits: true;
+    initial-value: 0.75rem;
+    syntax: '<length>';
+  }
+
+/* Spinner Component Tokens */
+  @property --spinner-size-sm {
+    inherits: true;
+    initial-value: 1rem;
+    syntax: '<length>';
+  }
+
+  @property --spinner-size-md {
+    inherits: true;
+    initial-value: 1.5rem;
+    syntax: '<length>';
+  }
+
+  @property --spinner-size-lg {
+    inherits: true;
+    initial-value: 2rem;
+    syntax: '<length>';
+  }
+
+  @property --spinner-border-width {
+    inherits: true;
+    initial-value: 2px;
+    syntax: '<length>';
+  }
+
+/* Breadcrumb Component Tokens */
+  @property --breadcrumb-separator-spacing {
+    inherits: true;
+    initial-value: 0.5rem;
+    syntax: '<length>';
+  }
+
+  @property --breadcrumb-item-padding {
+    inherits: true;
+    initial-value: 0.25rem 0.5rem;
+    syntax: '*';
+  }
+
+/* Tab Component Tokens */
+  @property --tab-padding {
+    inherits: true;
+    initial-value: 0.75rem 1rem;
+    syntax: '*';
+  }
+
+  @property --tab-border-width {
+    inherits: true;
+    initial-value: 2px;
+    syntax: '<length>';
+  }
+
+/* Drawer Component Tokens */
+  @property --drawer-width {
+    inherits: true;
+    initial-value: 20rem;
+    syntax: '<length>';
+  }
+
+  @property --drawer-padding {
+    inherits: true;
+    initial-value: 1.5rem;
+    syntax: '<length>';
+  }
+
+/* Pagination Component Tokens */
+  @property --pagination-item-size {
+    inherits: true;
+    initial-value: 2.5rem;
+    syntax: '<length>';
+  }
+
+  @property --pagination-gap {
+    inherits: true;
+    initial-value: 0.25rem;
+    syntax: '<length>';
+  }
+
+/* Navigation/Menu Component Tokens */
+  @property --nav-padding {
+    inherits: true;
+    initial-value: 1rem;
+    syntax: '<length>';
+  }
+
+  @property --nav-padding-compact {
+    inherits: true;
+    initial-value: 0.75rem;
+    syntax: '<length>';
+  }
+
+  @property --nav-gap {
+    inherits: true;
+    initial-value: 1rem;
+    syntax: '<length>';
+  }
+
+  @property --nav-gap-compact {
+    inherits: true;
+    initial-value: 0.5rem;
+    syntax: '<length>';
+  }
+
+  @property --nav-item-padding {
+    inherits: true;
+    initial-value: 0.5rem 0.75rem;
+    syntax: '*';
+  }
+
+  @property --nav-section-gap {
+    inherits: true;
+    initial-value: 1.5rem;
+    syntax: '<length>';
+  }
+
+/* Topbar specific tokens */
+  @property --topbar-min-height {
+    inherits: true;
+    initial-value: 3.5rem;
+    syntax: '<length>';
+  }
+
+  @property --topbar-z-index {
+    inherits: true;
+    initial-value: 100;
+    syntax: '<integer>';
+  }
+
+  @property --topbar-line-height {
+    inherits: true;
+    initial-value: 1.5;
+    syntax: '<number>';
+  }
+
+  @property --topbar-transition {
+    inherits: true;
+    initial-value: all 0.2s ease;
+    syntax: '*';
+  }
+
+/* Sidebar specific tokens */
+  @property --sidebar-width {
+    inherits: true;
+    initial-value: 16rem;
+    syntax: '<length>';
+  }
+
+  @property --sidebar-width-narrow {
+    inherits: true;
+    initial-value: 12rem;
+    syntax: '<length>';
+  }
+
+  @property --sidebar-width-wide {
+    inherits: true;
+    initial-value: 20rem;
+    syntax: '<length>';
+  }
+
+  @property --sidebar-width-collapsed {
+    inherits: true;
+    initial-value: 4rem;
+    syntax: '<length>';
+  }
+
+  @property --sidebar-z-index {
+    inherits: true;
+    initial-value: 200;
+    syntax: '<integer>';
+  }
+
+  @property --sidebar-line-height {
+    inherits: true;
+    initial-value: 1.5;
+    syntax: '<number>';
+  }
+
+  @property --sidebar-shadow {
+    inherits: true;
+    initial-value: 0 1px 3px 0 rgb(0 0 0 / 1000%);
+    syntax: '*';
+  }
+
+  @property --sidebar-transition {
+    inherits: true;
+    initial-value: width 0.3s ease;
+    syntax: '*';
+  }
+
+/* Mobile Navigation specific tokens */
+  @property --mobile-nav-width {
+    inherits: true;
+    initial-value: 20rem;
+    syntax: '<length>';
+  }
+
+  @property --mobile-nav-width-narrow {
+    inherits: true;
+    initial-value: 16rem;
+    syntax: '<length>';
+  }
+
+  @property --mobile-nav-width-wide {
+    inherits: true;
+    initial-value: 24rem;
+    syntax: '<length>';
+  }
+
+  @property --mobile-nav-height {
+    inherits: true;
+    initial-value: 100;
+    syntax: '<length>';
+  }
+
+  @property --mobile-nav-max-height {
+    inherits: true;
+    initial-value: 100;
+    syntax: '<length>';
+  }
+
+  @property --mobile-nav-z-index {
+    inherits: true;
+    initial-value: 1000;
+    syntax: '<integer>';
+  }
+
+  @property --mobile-nav-line-height {
+    inherits: true;
+    initial-value: 1.5;
+    syntax: '<number>';
+  }
+
+  @property --mobile-nav-transition {
+    inherits: true;
+    initial-value: transform 0.3s ease;
+    syntax: '*';
+  }
+
+/* Off-canvas specific tokens */
+  @property --off-canvas-width {
+    inherits: true;
+    initial-value: 20rem;
+    syntax: '<length>';
+  }
+
+  @property --off-canvas-width-narrow {
+    inherits: true;
+    initial-value: 16rem;
+    syntax: '<length>';
+  }
+
+  @property --off-canvas-width-wide {
+    inherits: true;
+    initial-value: 24rem;
+    syntax: '<length>';
+  }
+
+  @property --off-canvas-height {
+    inherits: true;
+    initial-value: 100;
+    syntax: '<length>';
+  }
+
+  @property --off-canvas-max-height {
+    inherits: true;
+    initial-value: 100;
+    syntax: '<length>';
+  }
+
+  @property --off-canvas-z-index {
+    inherits: true;
+    initial-value: 1000;
+    syntax: '<integer>';
+  }
+
+  @property --off-canvas-line-height {
+    inherits: true;
+    initial-value: 1.5;
+    syntax: '<number>';
+  }
+
+  @property --off-canvas-transition {
+    inherits: true;
+    initial-value: transform 0.3s ease;
+    syntax: '*';
+  }
+
+  @property --off-canvas-backdrop {
+    inherits: true;
+    initial-value: rgb(0 0 0 / 5000%);
+    syntax: '<color>';
+  }
+
+/* Breadcrumb specific tokens */
+  @property --breadcrumb-line-height {
+    inherits: true;
+    initial-value: 1.5;
+    syntax: '<number>';
+  }
+
+/* Container and Header tokens that are referenced */
+  @property --container-7xl {
+    inherits: true;
+    initial-value: 80rem;
+    syntax: '<length>';
+  }
+
+  @property --header-max-width {
+    inherits: true;
+    initial-value: 80rem;
+    syntax: '<length>';
+  }
+
+  @property --header-transition {
+    inherits: true;
+    initial-value: all 0.2s ease;
+    syntax: '*';
+  }
+
+/* Pattern Component Tokens */
+
+/* Blog Pattern Tokens */
+  @property --blog-max-width {
+    inherits: true;
+    initial-value: 65ch;
+    syntax: '<length>';
+  }
+
+  @property --blog-content-spacing {
+    inherits: true;
+    initial-value: 1.5rem;
+    syntax: '<length>';
+  }
+
+  @property --blog-card-hover-transform {
+    inherits: true;
+    initial-value: translateY(-4px);
+    syntax: '*';
+  }
+
+/* Tag Pattern Tokens */
+  @property --tag-padding-sm {
+    inherits: true;
+    initial-value: 0.25rem 0.5rem;
+    syntax: '*';
+  }
+
+  @property --tag-padding-md {
+    inherits: true;
+    initial-value: 0.375rem 0.75rem;
+    syntax: '*';
+  }
+
+  @property --tag-padding-lg {
+    inherits: true;
+    initial-value: 0.5rem 1rem;
+    syntax: '*';
+  }
+
+  @property --tag-border-radius {
+    inherits: true;
+    initial-value: 9999px;
+    syntax: '<length>';
+  }
+
+  @property --tag-transition {
+    inherits: true;
+    initial-value: background-color 150ms ease-in-out;
+    syntax: '*';
+  }
+
+/* Code Pattern Tokens */
+  @property --code-padding {
+    inherits: true;
+    initial-value: 1rem;
+    syntax: '<length>';
+  }
+
+  @property --code-inline-padding {
+    inherits: true;
+    initial-value: 0.25rem 0.5rem;
+    syntax: '*';
+  }
+
+  @property --code-line-height {
+    inherits: true;
+    initial-value: 1.4;
+    syntax: '<number>';
+  }
+
+/* Widget Pattern Tokens */
+  @property --widget-header-padding {
+    inherits: true;
+    initial-value: 0.75rem 1rem;
+    syntax: '*';
+  }
+
+  @property --widget-body-padding {
+    inherits: true;
+    initial-value: 1rem;
+    syntax: '<length>';
+  }
+
+  @property --widget-footer-padding {
+    inherits: true;
+    initial-value: 0.75rem 1rem;
+    syntax: '*';
+  }
+
+  @property --widget-action-padding {
+    inherits: true;
+    initial-value: 0.25rem 0.5rem;
+    syntax: '*';
+  }
+
+/* Skeleton Pattern Tokens */
+  @property --skeleton-height-sm {
+    inherits: true;
+    initial-value: 0.75rem;
+    syntax: '<length>';
+  }
+
+  @property --skeleton-height-md {
+    inherits: true;
+    initial-value: 1rem;
+    syntax: '<length>';
+  }
+
+  @property --skeleton-height-lg {
+    inherits: true;
+    initial-value: 1.5rem;
+    syntax: '<length>';
+  }
+
+  @property --skeleton-animation-duration {
+    inherits: true;
+    initial-value: 1.5s;
+    syntax: '<time>';
+  }
+
+/* Social Media Brand Colors */
+  @property --color-twitter {
+    inherits: true;
+    initial-value: #1DA1F2;
+    syntax: '<color>';
+  }
+
+  @property --color-facebook {
+    inherits: true;
+    initial-value: #4267B2;
+    syntax: '<color>';
+  }
+
+  @property --color-linkedin {
+    inherits: true;
+    initial-value: #0077B5;
+    syntax: '<color>';
+  }
+
+/* Region Component Tokens */
+
+/* Header Region Tokens */
+  @property --header-height-sm {
+    inherits: true;
+    initial-value: 48px;
+    syntax: '<length>';
+  }
+
+  @property --header-height-md {
+    inherits: true;
+    initial-value: 64px;
+    syntax: '<length>';
+  }
+
+  @property --header-height-lg {
+    inherits: true;
+    initial-value: 80px;
+    syntax: '<length>';
+  }
+
+  @property --header-z-index {
+    inherits: true;
+    initial-value: 1000;
+    syntax: '<integer>';
+  }
+
+  @property --header-line-height {
+    inherits: true;
+    initial-value: 1.5;
+    syntax: '<number>';
+  }
+
+  @property --header-logo-max-height {
+    inherits: true;
+    initial-value: 40px;
+    syntax: '<length>';
+  }
+
+  @property --header-hamburger-size {
+    inherits: true;
+    initial-value: 24px;
+    syntax: '<length>';
+  }
+
+  @property --header-mobile-breakpoint {
+    inherits: true;
+    initial-value: 768px;
+    syntax: '<length>';
+  }
+
+/* Footer Region Tokens */
+  @property --footer-columns {
+    inherits: true;
+    initial-value: 4;
+    syntax: '<integer>';
+  }
+
+  @property --footer-column-gap {
+    inherits: true;
+    initial-value: 2rem;
+    syntax: '<length>';
+  }
+
+  @property --footer-line-height {
+    inherits: true;
+    initial-value: 1.6;
+    syntax: '<number>';
+  }
+
+/* Main Content Region Tokens */
+  @property --main-max-width {
+    inherits: true;
+    initial-value: 1200px;
+    syntax: '<length>';
+  }
+
+  @property --main-max-width-narrow {
+    inherits: true;
+    initial-value: 800px;
+    syntax: '<length>';
+  }
+
+  @property --main-max-width-wide {
+    inherits: true;
+    initial-value: 1400px;
+    syntax: '<length>';
+  }
+
+  @property --main-line-height {
+    inherits: true;
+    initial-value: 1.6;
+    syntax: '<number>';
+  }
+
+  @property --main-mobile-breakpoint {
+    inherits: true;
+    initial-value: 768px;
+    syntax: '<length>';
+  }
+
+  @property --main-tablet-breakpoint {
+    inherits: true;
+    initial-value: 1024px;
+    syntax: '<length>';
+  }
+
+/* Sidebar Region Tokens */
+  @property --sidebar-grid-columns {
+    inherits: true;
+    initial-value: 3;
+    syntax: '<integer>';
+  }
+}
+
+/* Fallback Values for Component Tokens */
+:root {
+/* Alert */
+  --alert-padding: var(--space-4);
+  --alert-padding-sm: var(--space-2);
+  --alert-padding-lg: var(--space-5);
+  --alert-gap: var(--space-3);
+  --alert-border-radius: var(--radius-md);
+
+/* Badge */
+  --badge-padding-xs: 0.15rem 0.35rem;
+  --badge-padding-sm: 0.2rem 0.4rem;
+  --badge-padding-md: 0.25rem 0.5rem;
+  --badge-padding-lg: 0.3rem 0.6rem;
+  --badge-min-width-xs: 1.2rem;
+  --badge-min-width-sm: 1.5rem;
+  --badge-min-width-md: 1.75rem;
+  --badge-min-width-lg: 2rem;
+
+/* Card */
+  --card-padding: var(--space-4);
+  --card-padding-fluid: var(--space-5);
+  --card-gap: var(--space-3);
+  --card-grid-gap: var(--space-4);
+  --card-grid-min-width: 250px;
+
+/* Button */
+  --button-padding-sm: 0.5rem 0.75rem;
+  --button-padding-md: 0.75rem 1rem;
+  --button-padding-lg: 1rem 1.5rem;
+  --button-height-sm: 2rem;
+  --button-height-md: 2.5rem;
+  --button-height-lg: 3rem;
+
+/* Input */
+  --input-padding: var(--space-3);
+  --input-height: 2.5rem;
+  --input-border-width: 1px;
+
+/* Modal */
+  --modal-padding: var(--space-6);
+  --modal-header-padding: 1.5rem 1.5rem 1rem;
+  --modal-footer-padding: 1rem 1.5rem 1.5rem;
+  --modal-max-width: 32rem;
+
+/* Table */
+  --table-cell-padding: var(--space-3);
+  --table-header-padding: 1rem 0.75rem;
+
+/* Avatar */
+  --avatar-size-xs: 1.5rem;
+  --avatar-size-sm: 2rem;
+  --avatar-size-md: 2.5rem;
+  --avatar-size-lg: 3rem;
+  --avatar-size-xl: 4rem;
+
+/* Tooltip */
+  --tooltip-padding: 0.5rem 0.75rem;
+  --tooltip-max-width: 200px;
+  --tooltip-arrow-size: 4px;
+
+/* Progress */
+  --progress-height: 0.5rem;
+  --progress-height-sm: 0.25rem;
+  --progress-height-lg: 0.75rem;
+
+/* Spinner */
+  --spinner-size-sm: 1rem;
+  --spinner-size-md: 1.5rem;
+  --spinner-size-lg: 2rem;
+  --spinner-border-width: 2px;
+
+/* Breadcrumb */
+  --breadcrumb-separator-spacing: 0.5rem;
+  --breadcrumb-item-padding: 0.25rem 0.5rem;
+
+/* Tab */
+  --tab-padding: 0.75rem 1rem;
+  --tab-border-width: 2px;
+
+/* Drawer */
+  --drawer-width: 20rem;
+  --drawer-padding: var(--space-6);
+
+/* Pagination */
+  --pagination-item-size: 2.5rem;
+  --pagination-gap: 0.25rem;
+
+/* Pattern Components */
+
+/* Blog Pattern */
+  --blog-max-width: 65ch;
+  --blog-content-spacing: var(--space-6);
+  --blog-card-hover-transform: translateY(-4px);
+
+/* Tag Pattern */
+  --tag-padding-sm: 0.25rem 0.5rem;
+  --tag-padding-md: 0.375rem 0.75rem;
+  --tag-padding-lg: 0.5rem 1rem;
+  --tag-border-radius: 9999px;
+  --tag-transition: background-color 150ms ease-in-out;
+
+/* Code Pattern */
+  --code-padding: var(--space-4);
+  --code-inline-padding: var(--space-1) var(--space-2);
+  --code-line-height: 1.4;
+
+/* Widget Pattern */
+  --widget-header-padding: var(--space-3) var(--space-4);
+  --widget-body-padding: var(--space-4);
+  --widget-footer-padding: var(--space-3) var(--space-4);
+  --widget-action-padding: var(--space-1) var(--space-2);
+
+/* Skeleton Pattern */
+  --skeleton-height-sm: 0.75rem;
+  --skeleton-height-md: 1rem;
+  --skeleton-height-lg: 1.5rem;
+  --skeleton-animation-duration: 1.5s;
+
+/* Social Media Brand Colors */
+  --color-twitter: #1DA1F2;
+  --color-facebook: #4267B2;
+  --color-linkedin: #0077B5;
+
+/* Region Components */
+
+/* Header Region */
+  --header-height-sm: 48px;
+  --header-height-md: 64px;
+  --header-height-lg: 80px;
+  --header-z-index: 1000;
+  --header-line-height: 1.5;
+  --header-logo-max-height: 40px;
+  --header-hamburger-size: 24px;
+  --header-mobile-breakpoint: 768px;
+
+/* Footer Region */
+  --footer-columns: 4;
+  --footer-column-gap: var(--space-8);
+  --footer-line-height: 1.6;
+
+/* Main Content Region */
+  --main-max-width: 1200px;
+  --main-max-width-narrow: 800px;
+  --main-max-width-wide: 1400px;
+  --main-line-height: 1.6;
+  --main-mobile-breakpoint: 768px;
+  --main-tablet-breakpoint: 1024px;
+
+/* Sidebar Region */
+  --sidebar-grid-columns: 3;
+}
+
+
+
+/* Import semantic aliases */
+/* Importierte Datei: themes/aliases.css */
+/**
+* Semantic Alias Tokens
+*
+* This file defines semantic aliases that reference the base design tokens.
+* Components should use these aliases instead of direct token references.
+* This provides a semantic layer that can be easily themed and maintained.
+*
+* @layer themes.aliases
+*/
+
+@layer themes.aliases {
+  :root {
+/* Button Aliases */
+    --btn-bg: var(--color-primary);
+    --btn-bg-hover: var(--color-primary-600);
+    --btn-bg-active: var(--color-primary-700);
+    --btn-bg-disabled: var(--color-gray-300);
+    --btn-text: var(--color-text-inverse);
+    --btn-text-disabled: var(--color-text-muted);
+    --btn-border: var(--color-primary);
+    --btn-border-hover: var(--color-primary-600);
+    --btn-radius: var(--radius-button);
+    --btn-padding-x: var(--space-button-padding-x);
+    --btn-padding-y: var(--space-button-padding-y);
+    --btn-font-size: var(--font-size-base);
+    --btn-font-weight: var(--font-weight-medium);
+
+/* Button Secondary */
+    --btn-secondary-bg: var(--color-secondary);
+    --btn-secondary-bg-hover: var(--color-secondary-600);
+    --btn-secondary-text: var(--color-text-inverse);
+    --btn-secondary-border: var(--color-secondary);
+
+/* Button Outline */
+    --btn-outline-bg: transparent;
+    --btn-outline-bg-hover: var(--color-primary);
+    --btn-outline-text: var(--color-primary);
+    --btn-outline-text-hover: var(--color-text-inverse);
+    --btn-outline-border: var(--color-primary);
+
+/* Card Aliases */
+    --card-bg: var(--color-surface-elevated);
+    --card-bg-hover: var(--color-surface);
+    --card-border: var(--color-border);
+    --card-border-hover: var(--color-border-strong);
+    --card-radius: var(--radius-card);
+    --card-padding: var(--space-card-padding);
+    --card-shadow: 0 1px 3px 0 rgb(0 0 0 / 1000%), 0 1px 2px -1px rgb(0 0 0 / 1000%);
+    --card-shadow-hover: 0 4px 6px -1px rgb(0 0 0 / 1000%), 0 2px 4px -2px rgb(0 0 0 / 1000%);
+
+/* Form Aliases */
+    --form-bg: var(--color-surface-elevated);
+    --form-border: var(--color-border);
+    --form-border-focus: var(--color-primary);
+    --form-border-error: var(--color-error);
+    --form-text: var(--color-text);
+    --form-text-placeholder: var(--color-text-muted);
+    --form-radius: var(--radius-input);
+    --form-padding-x: var(--space-sm);
+    --form-padding-y: var(--space-sm);
+    --form-gap: var(--space-form-gap);
+    --form-font-size: var(--font-size-base);
+
+/* Form Error States */
+    --form-error-color: var(--color-error);
+    --form-error-bg: var(--color-error-50);
+    --form-error-border: var(--color-error);
+
+/* Form Success States */
+    --form-success-color: var(--color-success);
+    --form-success-bg: var(--color-success-50);
+    --form-success-border: var(--color-success);
+
+/* Navigation Aliases */
+    --nav-bg: var(--color-surface-elevated);
+    --nav-border: var(--color-border);
+    --nav-text: var(--color-text);
+    --nav-text-hover: var(--color-primary);
+    --nav-text-active: var(--color-primary);
+    --nav-link-padding-x: var(--space-md);
+    --nav-link-padding-y: var(--space-sm);
+
+/* Header Aliases */
+    --header-bg: var(--color-surface-elevated);
+    --header-border: var(--color-border);
+    --header-text: var(--color-text);
+    --header-height: 4rem;
+    --header-padding: var(--space-md);
+
+/* Footer Aliases */
+    --footer-bg: var(--color-surface);
+    --footer-border: var(--color-border);
+    --footer-text: var(--color-text-muted);
+    --footer-text-hover: var(--color-text);
+    --footer-padding: var(--space-xl);
+
+/* Modal Aliases */
+    --modal-bg: var(--color-surface-elevated);
+    --modal-overlay-bg: rgb(0 0 0 / 5000%);
+    --modal-border: var(--color-border);
+    --modal-radius: var(--radius-modal);
+    --modal-padding: var(--space-xl);
+    --modal-shadow: 0 20px 25px -5px rgb(0 0 0 / 1000%), 0 8px 10px -6px rgb(0 0 0 / 1000%);
+
+/* Badge Aliases */
+    --badge-bg: var(--color-gray-100);
+    --badge-text: var(--color-gray-800);
+    --badge-radius: var(--radius-badge);
+    --badge-padding-x: var(--space-xs);
+    --badge-padding-y: var(--space-0-5);
+    --badge-font-size: var(--font-size-xs);
+    --badge-font-weight: var(--font-weight-medium);
+
+/* Badge Primary */
+    --badge-primary-bg: var(--color-primary-100);
+    --badge-primary-text: var(--color-primary-800);
+
+/* Badge Success */
+    --badge-success-bg: var(--color-success-100);
+    --badge-success-text: var(--color-success-800);
+
+/* Badge Warning */
+    --badge-warning-bg: var(--color-warning-100);
+    --badge-warning-text: var(--color-warning-800);
+
+/* Badge Error */
+    --badge-error-bg: var(--color-error-100);
+    --badge-error-text: var(--color-error-800);
+
+/* Alert Aliases */
+    --alert-info-bg: var(--color-primary-50);
+    --alert-info-border: var(--color-primary-200);
+    --alert-info-text: var(--color-primary-800);
+    --alert-info-icon: var(--color-primary-600);
+    --alert-success-bg: var(--color-success-50);
+    --alert-success-border: var(--color-success-200);
+    --alert-success-text: var(--color-success-800);
+    --alert-success-icon: var(--color-success-600);
+    --alert-warning-bg: var(--color-warning-50);
+    --alert-warning-border: var(--color-warning-200);
+    --alert-warning-text: var(--color-warning-800);
+    --alert-warning-icon: var(--color-warning-600);
+    --alert-error-bg: var(--color-error-50);
+    --alert-error-border: var(--color-error-200);
+    --alert-error-text: var(--color-error-800);
+    --alert-error-icon: var(--color-error-600);
+
+/* Layout Aliases */
+    --layout-container-max-width: 120%0px;
+    --layout-container-padding: var(--space-container-padding);
+    --layout-section-gap: var(--space-section-gap);
+    --layout-grid-gap: var(--space-grid-gap);
+    --layout-flex-gap: var(--space-flex-gap);
+
+/* Typography Aliases */
+    --text-heading-color: var(--color-text);
+    --text-body-color: var(--color-text);
+    --text-muted-color: var(--color-text-muted);
+    --text-link-color: var(--color-primary);
+    --text-link-hover-color: var(--color-primary-600);
+
+/* Focus Aliases */
+    --focus-ring-color: var(--color-primary);
+    --focus-ring-width: 2px;
+    --focus-ring-offset: 2px;
+    --focus-ring-style: solid;
+
+/* Transition Aliases */
+    --transition-fast: 150ms ease;
+    --transition-normal: 250ms ease;
+    --transition-slow: 350ms ease;
+    --transition-colors: color 150ms ease, background-color 150ms ease, border-color 150ms ease;
+    --transition-transform: transform 150ms ease;
+    --transition-opacity: opacity 150ms ease;
+    --transition-shadow: box-shadow 150ms ease;
+  }
+}
+
+
+/* Import light/dark modes */
+/* Importierte Datei: themes/light-mode.css */
+/**
+* Light Mode Theme
+*
+* Light mode definitions with [data-theme="light"] scope.
+* Only overrides base tokens, aliases remain stable.
+*
+* @layer themes.mode
+*/
+
+@layer themes.mode {
+  [data-theme="light"] {
+/* Color Scheme */
+    color-scheme: light;
+
+/* Base Color Tokens - Only override what's needed for light mode */
+    --color-background: #fff;
+    --color-surface: #f9fafb;
+    --color-surface-elevated: #fff;
+    --color-text: #1f2937;
+    --color-text-muted: #6b7280;
+    --color-text-inverse: #fff;
+    --color-border: #e5e7eb;
+    --color-border-strong: #d1d5db;
+
+/* Primary Colors - Light Mode Values */
+    --color-primary: #06f;
+    --color-primary-50: #e6f0ff;
+    --color-primary-100: #cce0ff;
+    --color-primary-500: #06f;
+    --color-primary-600: #0052cc;
+    --color-primary-900: #001433;
+
+/* Secondary Colors - Light Mode Values */
+    --color-secondary: #5333ff;
+    --color-secondary-50: #eeeaff;
+    --color-secondary-500: #5333ff;
+    --color-secondary-900: #110a33;
+
+/* Gray Colors - Light Mode Values */
+    --color-gray-50: #f9f9fa;
+    --color-gray-100: #f3f3f5;
+    --color-gray-500: #8f96a8;
+    --color-gray-900: #1d1f24;
+
+/* Focus and Interactive States */
+    --color-focus: #4f46e5;
+    --color-focus-glow: rgb(79 70 229 / 3000%);
+  }
+}
+
+/* Importierte Datei: themes/dark-mode.css */
+/**
+* Dark Mode Theme
+*
+* Dark mode definitions with [data-theme="dark"] scope.
+* Only overrides base tokens, aliases remain stable.
+*
+* @layer themes.mode
+*/
+
+@layer themes.mode {
+  [data-theme="dark"] {
+/* Color Scheme */
+    color-scheme: dark;
+
+/* Base Color Tokens - Only override what's needed for dark mode */
+    --color-background: #1d1f24;
+    --color-surface: #262830;
+    --color-surface-elevated: #30333c;
+    --color-text: #f3f3f5;
+    --color-text-muted: #8f96a8;
+    --color-text-inverse: #1d1f24;
+    --color-border: #4a4e5c;
+    --color-border-strong: #6c7285;
+
+/* Primary Colors - Dark Mode Values */
+    --color-primary: #4a90e2;
+    --color-primary-50: #001433;
+    --color-primary-100: #002966;
+    --color-primary-500: #4a90e2;
+    --color-primary-600: #66a3ff;
+    --color-primary-900: #e6f0ff;
+
+/* Secondary Colors - Dark Mode Values */
+    --color-secondary: #8b7cf6;
+    --color-secondary-50: #110a33;
+    --color-secondary-500: #8b7cf6;
+    --color-secondary-900: #eeeaff;
+
+/* Gray Colors - Dark Mode Values */
+    --color-gray-50: #1d1f24;
+    --color-gray-100: #262830;
+    --color-gray-500: #8f96a8;
+    --color-gray-900: #f9f9fa;
+
+/* Focus and Interactive States */
+    --color-focus: #6366f1;
+    --color-focus-glow: rgb(99 102 241 / 4000%);
+  }
+}
+
+/**
+* Dark Mode Theme
+*
+* Diese Datei definiert das Dark Mode Theme.
+* Die Farben orientieren sich an den Variablen aus colors.css.
+* Das Theme wird über die Klasse "theme-dark-mode" aktiviert.
+*
+* Unterstützt sowohl modernen light-dark() Syntax als auch Fallbacks für ältere Browser.
+*/
+
+/* Gemeinsame Dark Mode Variablen für Wiederverwendung */
+:root {
+  --dark-mode-text: var(--color-gray-100);
+  --dark-mode-text-muted: var(--color-gray-400);
+  --dark-mode-text-light: var(--color-gray-600);
+  --dark-mode-text-inverted: var(--color-gray-900);
+  --dark-mode-background: var(--color-gray-900);
+  --dark-mode-background-alt: var(--color-gray-800);
+
+/* Dunklerer Wert für besseren Kontrast bei elevated Elementen */
+  --dark-mode-background-elevated: var(--color-gray-780);
+  --dark-mode-background-inverted: var(--color-gray-50);
+  --dark-mode-border: var(--color-gray-700);
+  --dark-mode-border-hover: var(--color-gray-600);
+  --dark-mode-border-focus: var(--color-primary-400);
+  --dark-mode-border-error: var(--color-error-400);
+  --dark-mode-shadow-sm: rgb(0 0 0 / 2000%);
+  --dark-mode-shadow-md: rgb(0 0 0 / 3000%);
+  --dark-mode-shadow-lg: rgb(0 0 0 / 4000%);
+  --dark-mode-shadow-xl: rgb(0 0 0 / 5000%);
+  --dark-mode-focus-ring: var(--color-primary-400);
+  --dark-mode-focus-ring-offset: var(--color-gray-900);
+  --dark-mode-outline: var(--color-primary-400);
+}
+
+/* Dark Mode im Theme-Präferenz-System */
+@media (prefers-color-scheme: dark) {
+  :root[style*="--theme-preference:\"auto\""] {
+/* Auto-Modus verwendet die Systempräferenz */
+    color-scheme: dark;
+
+/* Überschreibe Light Mode Variablen mit Dark Mode Äquivalenten */
+    --color-text: var(--dark-mode-text);
+    --color-text-muted: var(--dark-mode-text-muted);
+    --color-text-light: var(--dark-mode-text-light);
+    --color-text-inverted: var(--dark-mode-text-inverted);
+    --color-background: var(--dark-mode-background);
+    --color-background-alt: var(--dark-mode-background-alt);
+    --color-background-elevated: var(--dark-mode-background-elevated);
+    --color-background-inverted: var(--dark-mode-background-inverted);
+    --color-border: var(--dark-mode-border);
+    --color-border-hover: var(--dark-mode-border-hover);
+    --color-border-focus: var(--dark-mode-border-focus);
+    --color-border-error: var(--dark-mode-border-error);
+    --color-shadow-sm: var(--dark-mode-shadow-sm);
+    --color-shadow-md: var(--dark-mode-shadow-md);
+    --color-shadow-lg: var(--dark-mode-shadow-lg);
+    --color-shadow-xl: var(--dark-mode-shadow-xl);
+    --color-focus-ring: var(--dark-mode-focus-ring);
+    --color-focus-ring-offset: var(--dark-mode-focus-ring-offset);
+    --color-outline: var(--dark-mode-outline);
+  }
+}
+
+/* Explizites Dark Mode über CSS-Variablen */
+:root[style*="--theme-preference:\"dark\""] {
+  color-scheme: dark;
+
+/* Überschreibe Light Mode Variablen mit Dark Mode Äquivalenten */
+  --color-text: var(--dark-mode-text);
+  --color-text-muted: var(--dark-mode-text-muted);
+  --color-text-light: var(--dark-mode-text-light);
+  --color-text-inverted: var(--dark-mode-text-inverted);
+  --color-background: var(--dark-mode-background);
+  --color-background-alt: var(--dark-mode-background-alt);
+  --color-background-elevated: var(--dark-mode-background-elevated);
+  --color-background-inverted: var(--dark-mode-background-inverted);
+  --color-border: var(--dark-mode-border);
+  --color-border-hover: var(--dark-mode-border-hover);
+  --color-border-focus: var(--dark-mode-border-focus);
+  --color-border-error: var(--dark-mode-border-error);
+  --color-shadow-sm: var(--dark-mode-shadow-sm);
+  --color-shadow-md: var(--dark-mode-shadow-md);
+  --color-shadow-lg: var(--dark-mode-shadow-lg);
+  --color-shadow-xl: var(--dark-mode-shadow-xl);
+  --color-focus-ring: var(--dark-mode-focus-ring);
+  --color-focus-ring-offset: var(--dark-mode-focus-ring-offset);
+  --color-outline: var(--dark-mode-outline);
+}
+
+/* Dark Mode über HTML Attribute */
+html[data-theme="dark"] {
+  color-scheme: dark;
+
+/* Überschreibe Light Mode Variablen mit Dark Mode Äquivalenten */
+  --color-text: var(--dark-mode-text);
+  --color-text-muted: var(--dark-mode-text-muted);
+  --color-text-light: var(--dark-mode-text-light);
+  --color-text-inverted: var(--dark-mode-text-inverted);
+  --color-background: var(--dark-mode-background);
+  --color-background-alt: var(--dark-mode-background-alt);
+  --color-background-elevated: var(--dark-mode-background-elevated);
+  --color-background-inverted: var(--dark-mode-background-inverted);
+  --color-border: var(--dark-mode-border);
+  --color-border-hover: var(--dark-mode-border-hover);
+  --color-border-focus: var(--dark-mode-border-focus);
+  --color-border-error: var(--dark-mode-border-error);
+  --color-shadow-sm: var(--dark-mode-shadow-sm);
+  --color-shadow-md: var(--dark-mode-shadow-md);
+  --color-shadow-lg: var(--dark-mode-shadow-lg);
+  --color-shadow-xl: var(--dark-mode-shadow-xl);
+  --color-focus-ring: var(--dark-mode-focus-ring);
+  --color-focus-ring-offset: var(--dark-mode-focus-ring-offset);
+  --color-outline: var(--dark-mode-outline);
+}
+
+/* Light Mode Theme-Klassen-Implementierung für konsistente Schnittstelle */
+.theme-light-mode {
+  color-scheme: light;
+
+/* Grundlegende Light Mode Variablen */
+  --color-text: var(--color-gray-900);
+  --color-text-muted: var(--color-gray-600);
+  --color-text-light: var(--color-gray-400);
+  --color-text-inverted: var(--color-gray-100);
+  --color-background: white;
+  --color-background-alt: var(--color-gray-50);
+  --color-background-elevated: white;
+  --color-background-inverted: var(--color-gray-900);
+  --color-border: var(--color-gray-200);
+  --color-border-hover: var(--color-gray-300);
+  --color-border-focus: var(--color-primary-500);
+  --color-border-error: var(--color-error-500);
+  --color-shadow-sm: rgb(0 0 0 / 5%);
+  --color-shadow-md: rgb(0 0 0 / 1000%);
+  --color-shadow-lg: rgb(0 0 0 / 15%);
+  --color-shadow-xl: rgb(0 0 0 / 2000%);
+  --color-focus-ring: var(--color-primary-500);
+  --color-focus-ring-offset: white;
+  --color-outline: var(--color-primary-500);
+}
+
+/* Dark Mode Theme-Klassen-Implementierung */
+.theme-dark-mode {
+  color-scheme: dark;
+
+/* Verwendung der gemeinsamen Dark Mode Variablen */
+  --color-text: var(--dark-mode-text);
+  --color-text-muted: var(--dark-mode-text-muted);
+  --color-text-light: var(--dark-mode-text-light);
+  --color-text-inverted: var(--dark-mode-text-inverted);
+  --color-background: var(--dark-mode-background);
+  --color-background-alt: var(--dark-mode-background-alt);
+  --color-background-elevated: var(--dark-mode-background-elevated);
+  --color-background-inverted: var(--dark-mode-background-inverted);
+  --color-border: var(--dark-mode-border);
+  --color-border-hover: var(--dark-mode-border-hover);
+  --color-border-focus: var(--dark-mode-border-focus);
+  --color-border-error: var(--dark-mode-border-error);
+  --color-shadow-sm: var(--dark-mode-shadow-sm);
+  --color-shadow-md: var(--dark-mode-shadow-md);
+  --color-shadow-lg: var(--dark-mode-shadow-lg);
+  --color-shadow-xl: var(--dark-mode-shadow-xl);
+  --color-focus-ring: var(--dark-mode-focus-ring);
+  --color-focus-ring-offset: var(--dark-mode-focus-ring-offset);
+  --color-outline: var(--dark-mode-outline);
+}
+
+.theme-dark-mode.dark-mode {
+/* Verwendung der gemeinsamen Dark Mode Variablen */
+  --color-text: var(--dark-mode-text);
+  --color-text-muted: var(--dark-mode-text-muted);
+  --color-text-light: var(--dark-mode-text-light);
+  --color-text-inverted: var(--dark-mode-text-inverted);
+  --color-background: var(--dark-mode-background);
+  --color-background-alt: var(--dark-mode-background-alt);
+  --color-background-elevated: var(--dark-mode-background-elevated);
+  --color-background-inverted: var(--dark-mode-background-inverted);
+  --color-border: var(--dark-mode-border);
+  --color-border-hover: var(--dark-mode-border-hover);
+  --color-border-focus: var(--dark-mode-border-focus);
+  --color-border-error: var(--dark-mode-border-error);
+  --color-shadow-sm: var(--dark-mode-shadow-sm);
+  --color-shadow-md: var(--dark-mode-shadow-md);
+  --color-shadow-lg: var(--dark-mode-shadow-lg);
+  --color-shadow-xl: var(--dark-mode-shadow-xl);
+  --color-focus-ring: var(--dark-mode-focus-ring);
+  --color-focus-ring-offset: var(--dark-mode-focus-ring-offset);
+  --color-outline: var(--dark-mode-outline);
+}
+
+@layer utilities {
+/* Dark Mode Toggle Utilities */
+  .dark-mode-toggle {
+    align-items: center;
+    background-color: var(--color-bg-secondary);
+    border-radius: var(--border-radius-full);
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    padding: var(--space-2);
+    transition: background-color var(--transition-normal) var(--ease-in-out-cubic);
+  }
+
+  .dark-mode-toggle:hover {
+    background-color: var(--color-bg-tertiary);
+  }
+
+/* Dark Mode nur für bestimmte Container */
+  .dark-theme-container {
+    background-color: var(--color-bg-primary);
+    border-color: var(--color-border);
+    color: var(--color-text-primary);
+  }
+
+/* Inverse Farben für Hell/Dunkel-Kontrast */
+  .inverse-colors {
+    filter: invert(1) hue-rotate(180deg);
+  }
+
+/* Spezifische inverse Farben für Light Mode */
+  .light-theme .inverse-colors--light {
+    filter: invert(1) hue-rotate(180deg);
+  }
+
+/* Spezifische inverse Farben für Dark Mode */
+  .dark-theme .inverse-colors--dark {
+    filter: invert(1) hue-rotate(180deg);
+  }
+}
+
+
+/* Import theme transitions */
+/* Importierte Datei: themes/theme-transitions.css */
+/**
+* Theme Transition Utilities
+*
+* Theme-specific transition adjustments and utility classes.
+* The @property definitions are in tokens/transitions.css.
+*
+* @layer themes.transitions
+*/
+
+@layer themes.transitions {
+/* Theme Transition Values - Light Mode */
+  :root {
+    --transition-bg: var(--color-background);
+    --transition-fg: var(--color-text);
+    --transition-border: var(--color-border);
+    --transition-surface: var(--color-surface);
+    --transition-accent: var(--color-primary);
+    --transition-shadow-opacity: 0.1;
+  }
+
+/* Theme Transition Values - Dark Mode */
+  [data-theme="dark"] {
+    --transition-bg: var(--color-background);
+    --transition-fg: var(--color-text);
+    --transition-border: var(--color-border);
+    --transition-surface: var(--color-surface);
+    --transition-accent: var(--color-primary);
+    --transition-shadow-opacity: 0.3;
+  }
+
+/* Auto Theme - System Preference */
+  @media (prefers-color-scheme: dark) {
+    [data-theme="auto"] {
+      --transition-shadow-opacity: 0.3;
+    }
+  }
+
+/* Base Transition Utility Classes */
+  .theme-transition {
+    background-color: var(--transition-bg);
+    border-color: var(--transition-border);
+    color: var(--transition-fg);
+    transition: var(--transition-colors);
+  }
+
+  .theme-transition-fast {
+    background-color: var(--transition-bg);
+    border-color: var(--transition-border);
+    color: var(--transition-fg);
+    transition:
+    background-color var(--transition-fast) var(--transition-ease-out),
+    color var(--transition-fast) var(--transition-ease-out),
+    border-color var(--transition-fast) var(--transition-ease-out);
+  }
+
+  .theme-transition-slow {
+    background-color: var(--transition-bg);
+    border-color: var(--transition-border);
+    color: var(--transition-fg);
+    transition:
+    background-color var(--transition-slow) var(--transition-ease-in-out),
+    color var(--transition-slow) var(--transition-ease-in-out),
+    border-color var(--transition-slow) var(--transition-ease-in-out);
+  }
+
+/* Component-Specific Transition Classes */
+  .card-transition {
+    background-color: var(--transition-surface);
+    border-color: var(--transition-border);
+    box-shadow:
+    0 1px 3px 0 rgb(0 0 0 / var(--transition-shadow-opacity)),
+    0 1px 2px -1px rgb(0 0 0 / var(--transition-shadow-opacity));
+    transition: var(--transition-colors), var(--transition-shadow);
+  }
+
+  .button-transition {
+    background-color: var(--transition-accent);
+    border-color: var(--transition-accent);
+    color: var(--transition-fg);
+    transition: var(--transition-colors), var(--transition-transform);
+  }
+
+  .input-transition {
+    background-color: var(--transition-surface);
+    border-color: var(--transition-border);
+    transition: var(--transition-colors), var(--transition-shadow);
+  }
+
+  .input-transition:focus {
+    border-color: var(--transition-accent);
+    box-shadow: 0 0 0 2px rgb(from var(--transition-accent) r g b / 2000%);
+  }
+
+/* Theme Switch Animation */
+  .theme-switching {
+    animation: theme-switch var(--transition-normal) var(--transition-ease-out);
+  }
+
+  @keyframes theme-switch {
+    0 { opacity: 1; }
+
+    50 { opacity: 95%; }
+
+    100 { opacity: 1; }
+  }
+
+/* Disable Transitions for Reduced Motion */
+  @media (prefers-reduced-motion: reduce) {
+    .theme-transition,
+    .theme-transition-fast,
+    .theme-transition-slow,
+    .card-transition,
+    .button-transition,
+    .input-transition {
+      transition: none;
+    }
+
+    .theme-switching {
+      animation: none;
+    }
+  }
+}
+
+
+/* Datei: themes/dark-mode.css */
+/**
+* Dark Mode Theme
+*
+* Dark mode definitions with [data-theme="dark"] scope.
+* Only overrides base tokens, aliases remain stable.
+*
+* @layer themes.mode
+*/
+
+@layer themes.mode {
+  [data-theme="dark"] {
+/* Color Scheme */
+    color-scheme: dark;
+
+/* Base Color Tokens - Only override what's needed for dark mode */
+    --color-background: #1d1f24;
+    --color-surface: #262830;
+    --color-surface-elevated: #30333c;
+    --color-text: #f3f3f5;
+    --color-text-muted: #8f96a8;
+    --color-text-inverse: #1d1f24;
+    --color-border: #4a4e5c;
+    --color-border-strong: #6c7285;
+
+/* Primary Colors - Dark Mode Values */
+    --color-primary: #4a90e2;
+    --color-primary-50: #001433;
+    --color-primary-100: #002966;
+    --color-primary-500: #4a90e2;
+    --color-primary-600: #66a3ff;
+    --color-primary-900: #e6f0ff;
+
+/* Secondary Colors - Dark Mode Values */
+    --color-secondary: #8b7cf6;
+    --color-secondary-50: #110a33;
+    --color-secondary-500: #8b7cf6;
+    --color-secondary-900: #eeeaff;
+
+/* Gray Colors - Dark Mode Values */
+    --color-gray-50: #1d1f24;
+    --color-gray-100: #262830;
+    --color-gray-500: #8f96a8;
+    --color-gray-900: #f9f9fa;
+
+/* Focus and Interactive States */
+    --color-focus: #6366f1;
+    --color-focus-glow: rgb(99 102 241 / 4000%);
+  }
+}
+
+/**
+* Dark Mode Theme
+*
+* Diese Datei definiert das Dark Mode Theme.
+* Die Farben orientieren sich an den Variablen aus colors.css.
+* Das Theme wird über die Klasse "theme-dark-mode" aktiviert.
+*
+* Unterstützt sowohl modernen light-dark() Syntax als auch Fallbacks für ältere Browser.
+*/
+
+/* Gemeinsame Dark Mode Variablen für Wiederverwendung */
+:root {
+  --dark-mode-text: var(--color-gray-100);
+  --dark-mode-text-muted: var(--color-gray-400);
+  --dark-mode-text-light: var(--color-gray-600);
+  --dark-mode-text-inverted: var(--color-gray-900);
+  --dark-mode-background: var(--color-gray-900);
+  --dark-mode-background-alt: var(--color-gray-800);
+
+/* Dunklerer Wert für besseren Kontrast bei elevated Elementen */
+  --dark-mode-background-elevated: var(--color-gray-780);
+  --dark-mode-background-inverted: var(--color-gray-50);
+  --dark-mode-border: var(--color-gray-700);
+  --dark-mode-border-hover: var(--color-gray-600);
+  --dark-mode-border-focus: var(--color-primary-400);
+  --dark-mode-border-error: var(--color-error-400);
+  --dark-mode-shadow-sm: rgb(0 0 0 / 2000%);
+  --dark-mode-shadow-md: rgb(0 0 0 / 3000%);
+  --dark-mode-shadow-lg: rgb(0 0 0 / 4000%);
+  --dark-mode-shadow-xl: rgb(0 0 0 / 5000%);
+  --dark-mode-focus-ring: var(--color-primary-400);
+  --dark-mode-focus-ring-offset: var(--color-gray-900);
+  --dark-mode-outline: var(--color-primary-400);
+}
+
+/* Dark Mode im Theme-Präferenz-System */
+@media (prefers-color-scheme: dark) {
+  :root[style*="--theme-preference:\"auto\""] {
+/* Auto-Modus verwendet die Systempräferenz */
+    color-scheme: dark;
+
+/* Überschreibe Light Mode Variablen mit Dark Mode Äquivalenten */
+    --color-text: var(--dark-mode-text);
+    --color-text-muted: var(--dark-mode-text-muted);
+    --color-text-light: var(--dark-mode-text-light);
+    --color-text-inverted: var(--dark-mode-text-inverted);
+    --color-background: var(--dark-mode-background);
+    --color-background-alt: var(--dark-mode-background-alt);
+    --color-background-elevated: var(--dark-mode-background-elevated);
+    --color-background-inverted: var(--dark-mode-background-inverted);
+    --color-border: var(--dark-mode-border);
+    --color-border-hover: var(--dark-mode-border-hover);
+    --color-border-focus: var(--dark-mode-border-focus);
+    --color-border-error: var(--dark-mode-border-error);
+    --color-shadow-sm: var(--dark-mode-shadow-sm);
+    --color-shadow-md: var(--dark-mode-shadow-md);
+    --color-shadow-lg: var(--dark-mode-shadow-lg);
+    --color-shadow-xl: var(--dark-mode-shadow-xl);
+    --color-focus-ring: var(--dark-mode-focus-ring);
+    --color-focus-ring-offset: var(--dark-mode-focus-ring-offset);
+    --color-outline: var(--dark-mode-outline);
+  }
+}
+
+/* Explizites Dark Mode über CSS-Variablen */
+:root[style*="--theme-preference:\"dark\""] {
+  color-scheme: dark;
+
+/* Überschreibe Light Mode Variablen mit Dark Mode Äquivalenten */
+  --color-text: var(--dark-mode-text);
+  --color-text-muted: var(--dark-mode-text-muted);
+  --color-text-light: var(--dark-mode-text-light);
+  --color-text-inverted: var(--dark-mode-text-inverted);
+  --color-background: var(--dark-mode-background);
+  --color-background-alt: var(--dark-mode-background-alt);
+  --color-background-elevated: var(--dark-mode-background-elevated);
+  --color-background-inverted: var(--dark-mode-background-inverted);
+  --color-border: var(--dark-mode-border);
+  --color-border-hover: var(--dark-mode-border-hover);
+  --color-border-focus: var(--dark-mode-border-focus);
+  --color-border-error: var(--dark-mode-border-error);
+  --color-shadow-sm: var(--dark-mode-shadow-sm);
+  --color-shadow-md: var(--dark-mode-shadow-md);
+  --color-shadow-lg: var(--dark-mode-shadow-lg);
+  --color-shadow-xl: var(--dark-mode-shadow-xl);
+  --color-focus-ring: var(--dark-mode-focus-ring);
+  --color-focus-ring-offset: var(--dark-mode-focus-ring-offset);
+  --color-outline: var(--dark-mode-outline);
+}
+
+/* Dark Mode über HTML Attribute */
+html[data-theme="dark"] {
+  color-scheme: dark;
+
+/* Überschreibe Light Mode Variablen mit Dark Mode Äquivalenten */
+  --color-text: var(--dark-mode-text);
+  --color-text-muted: var(--dark-mode-text-muted);
+  --color-text-light: var(--dark-mode-text-light);
+  --color-text-inverted: var(--dark-mode-text-inverted);
+  --color-background: var(--dark-mode-background);
+  --color-background-alt: var(--dark-mode-background-alt);
+  --color-background-elevated: var(--dark-mode-background-elevated);
+  --color-background-inverted: var(--dark-mode-background-inverted);
+  --color-border: var(--dark-mode-border);
+  --color-border-hover: var(--dark-mode-border-hover);
+  --color-border-focus: var(--dark-mode-border-focus);
+  --color-border-error: var(--dark-mode-border-error);
+  --color-shadow-sm: var(--dark-mode-shadow-sm);
+  --color-shadow-md: var(--dark-mode-shadow-md);
+  --color-shadow-lg: var(--dark-mode-shadow-lg);
+  --color-shadow-xl: var(--dark-mode-shadow-xl);
+  --color-focus-ring: var(--dark-mode-focus-ring);
+  --color-focus-ring-offset: var(--dark-mode-focus-ring-offset);
+  --color-outline: var(--dark-mode-outline);
+}
+
+/* Light Mode Theme-Klassen-Implementierung für konsistente Schnittstelle */
+.theme-light-mode {
+  color-scheme: light;
+
+/* Grundlegende Light Mode Variablen */
+  --color-text: var(--color-gray-900);
+  --color-text-muted: var(--color-gray-600);
+  --color-text-light: var(--color-gray-400);
+  --color-text-inverted: var(--color-gray-100);
+  --color-background: white;
+  --color-background-alt: var(--color-gray-50);
+  --color-background-elevated: white;
+  --color-background-inverted: var(--color-gray-900);
+  --color-border: var(--color-gray-200);
+  --color-border-hover: var(--color-gray-300);
+  --color-border-focus: var(--color-primary-500);
+  --color-border-error: var(--color-error-500);
+  --color-shadow-sm: rgb(0 0 0 / 5%);
+  --color-shadow-md: rgb(0 0 0 / 1000%);
+  --color-shadow-lg: rgb(0 0 0 / 15%);
+  --color-shadow-xl: rgb(0 0 0 / 2000%);
+  --color-focus-ring: var(--color-primary-500);
+  --color-focus-ring-offset: white;
+  --color-outline: var(--color-primary-500);
+}
+
+/* Dark Mode Theme-Klassen-Implementierung */
+.theme-dark-mode {
+  color-scheme: dark;
+
+/* Verwendung der gemeinsamen Dark Mode Variablen */
+  --color-text: var(--dark-mode-text);
+  --color-text-muted: var(--dark-mode-text-muted);
+  --color-text-light: var(--dark-mode-text-light);
+  --color-text-inverted: var(--dark-mode-text-inverted);
+  --color-background: var(--dark-mode-background);
+  --color-background-alt: var(--dark-mode-background-alt);
+  --color-background-elevated: var(--dark-mode-background-elevated);
+  --color-background-inverted: var(--dark-mode-background-inverted);
+  --color-border: var(--dark-mode-border);
+  --color-border-hover: var(--dark-mode-border-hover);
+  --color-border-focus: var(--dark-mode-border-focus);
+  --color-border-error: var(--dark-mode-border-error);
+  --color-shadow-sm: var(--dark-mode-shadow-sm);
+  --color-shadow-md: var(--dark-mode-shadow-md);
+  --color-shadow-lg: var(--dark-mode-shadow-lg);
+  --color-shadow-xl: var(--dark-mode-shadow-xl);
+  --color-focus-ring: var(--dark-mode-focus-ring);
+  --color-focus-ring-offset: var(--dark-mode-focus-ring-offset);
+  --color-outline: var(--dark-mode-outline);
+}
+
+.theme-dark-mode.dark-mode {
+/* Verwendung der gemeinsamen Dark Mode Variablen */
+  --color-text: var(--dark-mode-text);
+  --color-text-muted: var(--dark-mode-text-muted);
+  --color-text-light: var(--dark-mode-text-light);
+  --color-text-inverted: var(--dark-mode-text-inverted);
+  --color-background: var(--dark-mode-background);
+  --color-background-alt: var(--dark-mode-background-alt);
+  --color-background-elevated: var(--dark-mode-background-elevated);
+  --color-background-inverted: var(--dark-mode-background-inverted);
+  --color-border: var(--dark-mode-border);
+  --color-border-hover: var(--dark-mode-border-hover);
+  --color-border-focus: var(--dark-mode-border-focus);
+  --color-border-error: var(--dark-mode-border-error);
+  --color-shadow-sm: var(--dark-mode-shadow-sm);
+  --color-shadow-md: var(--dark-mode-shadow-md);
+  --color-shadow-lg: var(--dark-mode-shadow-lg);
+  --color-shadow-xl: var(--dark-mode-shadow-xl);
+  --color-focus-ring: var(--dark-mode-focus-ring);
+  --color-focus-ring-offset: var(--dark-mode-focus-ring-offset);
+  --color-outline: var(--dark-mode-outline);
+}
+
+@layer utilities {
+/* Dark Mode Toggle Utilities */
+  .dark-mode-toggle {
+    align-items: center;
+    background-color: var(--color-bg-secondary);
+    border-radius: var(--border-radius-full);
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    padding: var(--space-2);
+    transition: background-color var(--transition-normal) var(--ease-in-out-cubic);
+  }
+
+  .dark-mode-toggle:hover {
+    background-color: var(--color-bg-tertiary);
+  }
+
+/* Dark Mode nur für bestimmte Container */
+  .dark-theme-container {
+    background-color: var(--color-bg-primary);
+    border-color: var(--color-border);
+    color: var(--color-text-primary);
+  }
+
+/* Inverse Farben für Hell/Dunkel-Kontrast */
+  .inverse-colors {
+    filter: invert(1) hue-rotate(180deg);
+  }
+
+/* Spezifische inverse Farben für Light Mode */
+  .light-theme .inverse-colors--light {
+    filter: invert(1) hue-rotate(180deg);
+  }
+
+/* Spezifische inverse Farben für Dark Mode */
+  .dark-theme .inverse-colors--dark {
+    filter: invert(1) hue-rotate(180deg);
+  }
+}
+
+/* Datei: themes/aliases.css */
+/**
+* Semantic Alias Tokens
+*
+* This file defines semantic aliases that reference the base design tokens.
+* Components should use these aliases instead of direct token references.
+* This provides a semantic layer that can be easily themed and maintained.
+*
+* @layer themes.aliases
+*/
+
+@layer themes.aliases {
+  :root {
+/* Button Aliases */
+    --btn-bg: var(--color-primary);
+    --btn-bg-hover: var(--color-primary-600);
+    --btn-bg-active: var(--color-primary-700);
+    --btn-bg-disabled: var(--color-gray-300);
+    --btn-text: var(--color-text-inverse);
+    --btn-text-disabled: var(--color-text-muted);
+    --btn-border: var(--color-primary);
+    --btn-border-hover: var(--color-primary-600);
+    --btn-radius: var(--radius-button);
+    --btn-padding-x: var(--space-button-padding-x);
+    --btn-padding-y: var(--space-button-padding-y);
+    --btn-font-size: var(--font-size-base);
+    --btn-font-weight: var(--font-weight-medium);
+
+/* Button Secondary */
+    --btn-secondary-bg: var(--color-secondary);
+    --btn-secondary-bg-hover: var(--color-secondary-600);
+    --btn-secondary-text: var(--color-text-inverse);
+    --btn-secondary-border: var(--color-secondary);
+
+/* Button Outline */
+    --btn-outline-bg: transparent;
+    --btn-outline-bg-hover: var(--color-primary);
+    --btn-outline-text: var(--color-primary);
+    --btn-outline-text-hover: var(--color-text-inverse);
+    --btn-outline-border: var(--color-primary);
+
+/* Card Aliases */
+    --card-bg: var(--color-surface-elevated);
+    --card-bg-hover: var(--color-surface);
+    --card-border: var(--color-border);
+    --card-border-hover: var(--color-border-strong);
+    --card-radius: var(--radius-card);
+    --card-padding: var(--space-card-padding);
+    --card-shadow: 0 1px 3px 0 rgb(0 0 0 / 1000%), 0 1px 2px -1px rgb(0 0 0 / 1000%);
+    --card-shadow-hover: 0 4px 6px -1px rgb(0 0 0 / 1000%), 0 2px 4px -2px rgb(0 0 0 / 1000%);
+
+/* Form Aliases */
+    --form-bg: var(--color-surface-elevated);
+    --form-border: var(--color-border);
+    --form-border-focus: var(--color-primary);
+    --form-border-error: var(--color-error);
+    --form-text: var(--color-text);
+    --form-text-placeholder: var(--color-text-muted);
+    --form-radius: var(--radius-input);
+    --form-padding-x: var(--space-sm);
+    --form-padding-y: var(--space-sm);
+    --form-gap: var(--space-form-gap);
+    --form-font-size: var(--font-size-base);
+
+/* Form Error States */
+    --form-error-color: var(--color-error);
+    --form-error-bg: var(--color-error-50);
+    --form-error-border: var(--color-error);
+
+/* Form Success States */
+    --form-success-color: var(--color-success);
+    --form-success-bg: var(--color-success-50);
+    --form-success-border: var(--color-success);
+
+/* Navigation Aliases */
+    --nav-bg: var(--color-surface-elevated);
+    --nav-border: var(--color-border);
+    --nav-text: var(--color-text);
+    --nav-text-hover: var(--color-primary);
+    --nav-text-active: var(--color-primary);
+    --nav-link-padding-x: var(--space-md);
+    --nav-link-padding-y: var(--space-sm);
+
+/* Header Aliases */
+    --header-bg: var(--color-surface-elevated);
+    --header-border: var(--color-border);
+    --header-text: var(--color-text);
+    --header-height: 4rem;
+    --header-padding: var(--space-md);
+
+/* Footer Aliases */
+    --footer-bg: var(--color-surface);
+    --footer-border: var(--color-border);
+    --footer-text: var(--color-text-muted);
+    --footer-text-hover: var(--color-text);
+    --footer-padding: var(--space-xl);
+
+/* Modal Aliases */
+    --modal-bg: var(--color-surface-elevated);
+    --modal-overlay-bg: rgb(0 0 0 / 5000%);
+    --modal-border: var(--color-border);
+    --modal-radius: var(--radius-modal);
+    --modal-padding: var(--space-xl);
+    --modal-shadow: 0 20px 25px -5px rgb(0 0 0 / 1000%), 0 8px 10px -6px rgb(0 0 0 / 1000%);
+
+/* Badge Aliases */
+    --badge-bg: var(--color-gray-100);
+    --badge-text: var(--color-gray-800);
+    --badge-radius: var(--radius-badge);
+    --badge-padding-x: var(--space-xs);
+    --badge-padding-y: var(--space-0-5);
+    --badge-font-size: var(--font-size-xs);
+    --badge-font-weight: var(--font-weight-medium);
+
+/* Badge Primary */
+    --badge-primary-bg: var(--color-primary-100);
+    --badge-primary-text: var(--color-primary-800);
+
+/* Badge Success */
+    --badge-success-bg: var(--color-success-100);
+    --badge-success-text: var(--color-success-800);
+
+/* Badge Warning */
+    --badge-warning-bg: var(--color-warning-100);
+    --badge-warning-text: var(--color-warning-800);
+
+/* Badge Error */
+    --badge-error-bg: var(--color-error-100);
+    --badge-error-text: var(--color-error-800);
+
+/* Alert Aliases */
+    --alert-info-bg: var(--color-primary-50);
+    --alert-info-border: var(--color-primary-200);
+    --alert-info-text: var(--color-primary-800);
+    --alert-info-icon: var(--color-primary-600);
+    --alert-success-bg: var(--color-success-50);
+    --alert-success-border: var(--color-success-200);
+    --alert-success-text: var(--color-success-800);
+    --alert-success-icon: var(--color-success-600);
+    --alert-warning-bg: var(--color-warning-50);
+    --alert-warning-border: var(--color-warning-200);
+    --alert-warning-text: var(--color-warning-800);
+    --alert-warning-icon: var(--color-warning-600);
+    --alert-error-bg: var(--color-error-50);
+    --alert-error-border: var(--color-error-200);
+    --alert-error-text: var(--color-error-800);
+    --alert-error-icon: var(--color-error-600);
+
+/* Layout Aliases */
+    --layout-container-max-width: 120%0px;
+    --layout-container-padding: var(--space-container-padding);
+    --layout-section-gap: var(--space-section-gap);
+    --layout-grid-gap: var(--space-grid-gap);
+    --layout-flex-gap: var(--space-flex-gap);
+
+/* Typography Aliases */
+    --text-heading-color: var(--color-text);
+    --text-body-color: var(--color-text);
+    --text-muted-color: var(--color-text-muted);
+    --text-link-color: var(--color-primary);
+    --text-link-hover-color: var(--color-primary-600);
+
+/* Focus Aliases */
+    --focus-ring-color: var(--color-primary);
+    --focus-ring-width: 2px;
+    --focus-ring-offset: 2px;
+    --focus-ring-style: solid;
+
+/* Transition Aliases */
+    --transition-fast: 150ms ease;
+    --transition-normal: 250ms ease;
+    --transition-slow: 350ms ease;
+    --transition-colors: color 150ms ease, background-color 150ms ease, border-color 150ms ease;
+    --transition-transform: transform 150ms ease;
+    --transition-opacity: opacity 150ms ease;
+    --transition-shadow: box-shadow 150ms ease;
+  }
+}
+
+/* Datei: themes/variants/winter.css */
+/**
+* Winter Theme Variant
+*
+* Standalone theme variant that can be loaded independently.
+* Uses [data-theme="winter"] scope for activation.
+* CDN-compatible and opt-in via import or JS.
+*
+* @layer themes.variants
+*/
+
+@layer themes.variants {
+  [data-theme="winter"] {
+/* Primary Colors */
+    --color-primary: #0891b2;
+    --color-secondary: #0284c7;
+
+/* Status Colors */
+    --color-success: #10b981;
+    --color-warning: #f59e0b;
+    --color-error: #ef4444;
+    --color-info: #06b6d4;
+
+/* Text Colors */
+    --color-text: #164e63;
+    --color-text-muted: #4b5563;
+    --color-text-inverse: #fff;
+
+/* Surface Colors */
+    --color-background: #f0f9ff;
+    --color-surface: #bae6fd;
+    --color-surface-elevated: #fff;
+
+/* Border Colors */
+    --color-border: #7dd3fc;
+    --color-border-strong: #38bdf8;
+
+/* Transition Colors for smooth animations */
+    --color-transition-primary: #0891b2;
+    --color-transition-surface: #f0f9ff;
+    --color-transition-text: #164e63;
+  }
+}
+
+
+/* Datei: themes/variants/vibrant.css */
+/**
+* Vibrant Theme Variant - Token-Based Version
+*
+* Standalone theme variant that can be loaded independently.
+* Uses [data-theme="vibrant"] scope for activation.
+* CDN-compatible and opt-in via import or JS.
+*
+* @layer themes.variants
+*/
+
+@layer themes.variants {
+  [data-theme="vibrant"] {
+/* Primary Colors - Vibrant electric blue/purple theme */
+    --color-primary: #3b82f6;
+    --color-secondary: #8b5cf6;
+
+/* Status Colors - Vibrant status colors */
+    --color-success: #10b981;
+    --color-warning: #f59e0b;
+    --color-error: #ef4444;
+    --color-info: #06b6d4;
+
+/* Text Colors - High contrast for vibrant theme */
+    --color-text: #1e40af;
+    --color-text-muted: var(--theme-text-muted, #4b5563);
+    --color-text-inverse: var(--theme-text-inverse, #fff);
+
+/* Surface Colors - Bright vibrant surfaces */
+    --color-background: #eff6ff;
+    --color-surface: #dbeafe;
+    --color-surface-elevated: var(--theme-surface-elevated, #fff);
+
+/* Border Colors - Vibrant borders */
+    --color-border: #93c5fd;
+    --color-border-strong: #60a5fa;
+
+/* Transition Colors for smooth animations */
+    --color-transition-primary: #3b82f6;
+    --color-transition-surface: #eff6ff;
+    --color-transition-text: #1e40af;
+
+/* Vibrant-specific theme properties */
+    --theme-vibrant-accent: #3b82f6;
+    --theme-vibrant-gradient-start: var(--theme-gradient-start, #3b82f6);
+    --theme-vibrant-gradient-end: var(--theme-gradient-end, #8b5cf6);
+
+/* Enhanced focus and interaction states */
+    --color-focus: var(--theme-focus-ring, #3b82f6);
+    --color-focus-glow: rgb(59 130 246 / 4000%);
+
+/* Enhanced shadow properties for vibrant effects */
+    --shadow-opacity-sm: 0.08;
+    --shadow-opacity-md: 0.15;
+    --shadow-opacity-lg: 0.25;
+    --shadow-opacity-xl: 0.35;
+    --shadow-color: var(--theme-shadow-color, rgb(59 130 246));
+
+/* Backdrop properties using theme backdrop tokens */
+    --color-backdrop: var(--theme-backdrop, rgb(0 0 0 / 5000%));
+    --backdrop-blur: var(--theme-backdrop-blur, 8px);
+
+/* Vibrant status background colors */
+    --color-success-bg: #ecfdf5;
+    --color-warning-bg: #fffbeb;
+    --color-error-bg: var(--theme-error-bg, #fef2f2);
+    --color-info-bg: #f0f9ff;
+
+/* Vibrant status border colors */
+    --color-success-border: #6ee7b7;
+    --color-warning-border: #fcd34d;
+    --color-error-border: #fca5a5;
+    --color-info-border: #7dd3fc;
+
+/* Enhanced interaction states for vibrant effects */
+    --hover-opacity: 0.9;
+    --hover-scale: 1.08;
+    --active-opacity: 1.0;
+    --active-scale: 0.92;
+    --disabled-opacity: var(--theme-disabled-opacity, 0.5);
+
+/* Snappy transition properties for vibrant responsiveness */
+    --transition-fast: 120ms;
+    --transition-normal: 200ms;
+    --transition-slow: 350ms;
+    --transition-ease-out: var(--theme-ease-out, cubic-bezier(0, 0, 0.2, 1));
+  }
+}
+
+/* Datei: themes/variants/sunset.css */
+/**
+* Sunset Theme Variant - Token-Based Version
+*
+* Standalone theme variant that can be loaded independently.
+* Uses [data-theme="sunset"] scope for activation.
+* CDN-compatible and opt-in via import or JS.
+*
+* @layer themes.variants
+*/
+
+@layer themes.variants {
+  [data-theme="sunset"] {
+/* Primary Colors - Sunset orange/red theme */
+    --color-primary: #ea580c;
+    --color-secondary: #dc2626;
+
+/* Status Colors - Using theme status tokens */
+    --color-success: var(--theme-success, #10b981);
+    --color-warning: var(--theme-warning, #f59e0b);
+    --color-error: var(--theme-error, #ef4444);
+    --color-info: var(--theme-info, #06b6d4);
+
+/* Text Colors - Sunset theme text */
+    --color-text: #7c2d12;
+    --color-text-muted: var(--theme-text-muted, #4b5563);
+    --color-text-inverse: var(--theme-text-inverse, #fff);
+
+/* Surface Colors - Sunset theme surfaces */
+    --color-background: #fff7ed;
+    --color-surface: #fed7aa;
+    --color-surface-elevated: var(--theme-surface-elevated, #fff);
+
+/* Border Colors - Sunset theme borders */
+    --color-border: #fdba74;
+    --color-border-strong: #fb923c;
+
+/* Transition Colors for smooth animations */
+    --color-transition-primary: #ea580c;
+    --color-transition-surface: #fff7ed;
+    --color-transition-text: #7c2d12;
+
+/* Sunset-specific theme properties */
+    --theme-sunset-accent: #ea580c;
+    --theme-sunset-gradient-start: var(--theme-gradient-start, #ea580c);
+    --theme-sunset-gradient-end: var(--theme-gradient-end, #dc2626);
+
+/* Focus and interaction states using theme tokens */
+    --color-focus: var(--theme-focus-ring, #ea580c);
+    --color-focus-glow: rgb(234 88 12 / 3000%);
+
+/* Shadow properties using theme shadow tokens */
+    --shadow-opacity-sm: var(--theme-shadow-opacity-sm, 0.05);
+    --shadow-opacity-md: var(--theme-shadow-opacity-md, 0.1);
+    --shadow-opacity-lg: var(--theme-shadow-opacity-lg, 0.15);
+    --shadow-opacity-xl: var(--theme-shadow-opacity-xl, 0.25);
+    --shadow-color: var(--theme-shadow-color, rgb(0 0 0));
+
+/* Backdrop properties using theme backdrop tokens */
+    --color-backdrop: var(--theme-backdrop, rgb(0 0 0 / 5000%));
+    --backdrop-blur: var(--theme-backdrop-blur, 8px);
+
+/* Status background colors using theme status tokens */
+    --color-success-bg: var(--theme-success-bg, #ecfdf5);
+    --color-warning-bg: var(--theme-warning-bg, #fffbeb);
+    --color-error-bg: var(--theme-error-bg, #fef2f2);
+    --color-info-bg: var(--theme-info-bg, #eff6ff);
+
+/* Status border colors using theme status tokens */
+    --color-success-border: var(--theme-success-border, #a7f3d0);
+    --color-warning-border: var(--theme-warning-border, #fed7aa);
+    --color-error-border: var(--theme-error-border, #fecaca);
+    --color-info-border: var(--theme-info-border, #bfdbfe);
+
+/* Interaction states using theme interaction tokens */
+    --hover-opacity: var(--theme-hover-opacity, 0.8);
+    --hover-scale: var(--theme-hover-scale, 1.05);
+    --active-opacity: var(--theme-active-opacity, 0.9);
+    --active-scale: var(--theme-active-scale, 0.95);
+    --disabled-opacity: var(--theme-disabled-opacity, 0.5);
+
+/* Transition properties using theme transition tokens */
+    --transition-fast: var(--theme-transition-fast, 150ms);
+    --transition-normal: var(--theme-transition-normal, 250ms);
+    --transition-slow: var(--theme-transition-slow, 400ms);
+    --transition-ease-out: var(--theme-ease-out, cubic-bezier(0, 0, 0.2, 1));
+  }
+}
+
+
+/* Datei: themes/variants/summer.css */
+/**
+* Summer Theme Variant
+*
+* Standalone theme variant that can be loaded independently.
+* Uses [data-theme="summer"] scope for activation.
+* CDN-compatible and opt-in via import or JS.
+*
+* @layer themes.variants
+*/
+
+@layer themes.variants {
+  [data-theme="summer"] {
+/* Primary Colors */
+    --color-primary: #ca8a04;
+    --color-secondary: #16a34a;
+
+/* Status Colors */
+    --color-success: #10b981;
+    --color-warning: #f59e0b;
+    --color-error: #ef4444;
+    --color-info: #06b6d4;
+
+/* Text Colors */
+    --color-text: #713f12;
+    --color-text-muted: #4b5563;
+    --color-text-inverse: #fff;
+
+/* Surface Colors */
+    --color-background: #fefce8;
+    --color-surface: #fef08a;
+    --color-surface-elevated: #fff;
+
+/* Border Colors */
+    --color-border: #facc15;
+    --color-border-strong: #eab308;
+
+/* Transition Colors for smooth animations */
+    --color-transition-primary: #ca8a04;
+    --color-transition-surface: #fefce8;
+    --color-transition-text: #713f12;
+  }
+}
+
+
+/* Datei: themes/variants/spring.css */
+/**
+* Spring Theme Variant
+*
+* Standalone theme variant that can be loaded independently.
+* Uses [data-theme="spring"] scope for activation.
+* CDN-compatible and opt-in via import or JS.
+*
+* @layer themes.variants
+*/
+
+@layer themes.variants {
+  [data-theme="spring"] {
+/* Primary Colors */
+    --color-primary: #16a34a;
+    --color-secondary: #059669;
+
+/* Status Colors */
+    --color-success: #10b981;
+    --color-warning: #f59e0b;
+    --color-error: #ef4444;
+    --color-info: #06b6d4;
+
+/* Text Colors */
+    --color-text: #14532d;
+    --color-text-muted: #4b5563;
+    --color-text-inverse: #fff;
+
+/* Surface Colors */
+    --color-background: #f0fdf4;
+    --color-surface: #bbf7d0;
+    --color-surface-elevated: #fff;
+
+/* Border Colors */
+    --color-border: #86efac;
+    --color-border-strong: #4ade80;
+
+/* Transition Colors for smooth animations */
+    --color-transition-primary: #16a34a;
+    --color-transition-surface: #f0fdf4;
+    --color-transition-text: #14532d;
+  }
+}
+
+
+/* Datei: themes/variants/retro.css */
+/**
+* Retro Theme Variant - Token-Based Version
+*
+* Standalone theme variant that can be loaded independently.
+* Uses [data-theme="retro"] scope for activation.
+* CDN-compatible and opt-in via import or JS.
+*
+* @layer themes.variants
+*/
+
+@layer themes.variants {
+  [data-theme="retro"] {
+/* Primary Colors - Retro amber/brown theme */
+    --color-primary: #d97706;
+    --color-secondary: #92400e;
+
+/* Status Colors - Retro-styled status colors */
+    --color-success: #65a30d;
+    --color-warning: #ca8a04;
+    --color-error: #dc2626;
+    --color-info: #0369a1;
+
+/* Text Colors - Retro theme text */
+    --color-text: #451a03;
+    --color-text-muted: #78716c;
+    --color-text-inverse: var(--theme-text-inverse, #fff);
+
+/* Surface Colors - Retro warm surfaces */
+    --color-background: #fefcbf;
+    --color-surface: #fef3c7;
+    --color-surface-elevated: var(--theme-surface-elevated, #fff);
+
+/* Border Colors - Retro warm borders */
+    --color-border: #fde68a;
+    --color-border-strong: #fcd34d;
+
+/* Transition Colors for smooth animations */
+    --color-transition-primary: #d97706;
+    --color-transition-surface: #fefcbf;
+    --color-transition-text: #451a03;
+
+/* Retro-specific theme properties */
+    --theme-retro-accent: #d97706;
+    --theme-retro-gradient-start: var(--theme-gradient-start, #d97706);
+    --theme-retro-gradient-end: var(--theme-gradient-end, #92400e);
+
+/* Focus and interaction states using theme tokens */
+    --color-focus: var(--theme-focus-ring, #d97706);
+    --color-focus-glow: rgb(217 119 6 / 3000%);
+
+/* Shadow properties using theme shadow tokens */
+    --shadow-opacity-sm: var(--theme-shadow-opacity-sm, 0.05);
+    --shadow-opacity-md: var(--theme-shadow-opacity-md, 0.1);
+    --shadow-opacity-lg: var(--theme-shadow-opacity-lg, 0.15);
+    --shadow-opacity-xl: var(--theme-shadow-opacity-xl, 0.25);
+    --shadow-color: var(--theme-shadow-color, rgb(69 26 3));
+
+/* Backdrop properties using theme backdrop tokens */
+    --color-backdrop: var(--theme-backdrop, rgb(0 0 0 / 5000%));
+    --backdrop-blur: var(--theme-backdrop-blur, 8px);
+
+/* Retro status background colors */
+    --color-success-bg: #f7fee7;
+    --color-warning-bg: #fffbeb;
+    --color-error-bg: var(--theme-error-bg, #fef2f2);
+    --color-info-bg: #eff6ff;
+
+/* Retro status border colors */
+    --color-success-border: #d9f99d;
+    --color-warning-border: #fed7aa;
+    --color-error-border: var(--theme-error-border, #fecaca);
+    --color-info-border: #bfdbfe;
+
+/* Interaction states using theme interaction tokens */
+    --hover-opacity: var(--theme-hover-opacity, 0.8);
+    --hover-scale: var(--theme-hover-scale, 1.05);
+    --active-opacity: var(--theme-active-opacity, 0.9);
+    --active-scale: var(--theme-active-scale, 0.95);
+    --disabled-opacity: var(--theme-disabled-opacity, 0.5);
+
+/* Transition properties using theme transition tokens */
+    --transition-fast: var(--theme-transition-fast, 150ms);
+    --transition-normal: var(--theme-transition-normal, 250ms);
+    --transition-slow: var(--theme-transition-slow, 400ms);
+    --transition-ease-out: var(--theme-ease-out, cubic-bezier(0, 0, 0.2, 1));
+  }
+}
+
+
+/* Datei: themes/variants/pastel.css */
+/**
+* Pastel Theme Variant - Token-Based Version
+*
+* Standalone theme variant that can be loaded independently.
+* Uses [data-theme="pastel"] scope for activation.
+* CDN-compatible and opt-in via import or JS.
+*
+* @layer themes.variants
+*/
+
+@layer themes.variants {
+  [data-theme="pastel"] {
+/* Primary Colors - Soft pastel pink/purple theme */
+    --color-primary: #ec4899;
+    --color-secondary: #a855f7;
+
+/* Status Colors - Soft pastel status colors */
+    --color-success: #34d399;
+    --color-warning: #fbbf24;
+    --color-error: #f87171;
+    --color-info: #60a5fa;
+
+/* Text Colors - Pastel theme text */
+    --color-text: #831843;
+    --color-text-muted: var(--theme-text-muted, #6b7280);
+    --color-text-inverse: var(--theme-text-inverse, #fff);
+
+/* Surface Colors - Soft pastel surfaces */
+    --color-background: #fdf2f8;
+    --color-surface: #fce7f3;
+    --color-surface-elevated: var(--theme-surface-elevated, #fff);
+
+/* Border Colors - Soft pastel borders */
+    --color-border: #f9a8d4;
+    --color-border-strong: #f472b6;
+
+/* Transition Colors for smooth animations */
+    --color-transition-primary: #ec4899;
+    --color-transition-surface: #fdf2f8;
+    --color-transition-text: #831843;
+
+/* Pastel-specific theme properties */
+    --theme-pastel-accent: #ec4899;
+    --theme-pastel-gradient-start: var(--theme-gradient-start, #ec4899);
+    --theme-pastel-gradient-end: var(--theme-gradient-end, #a855f7);
+
+/* Soft focus and interaction states */
+    --color-focus: var(--theme-focus-ring, #ec4899);
+    --color-focus-glow: rgb(236 72 153 / 3000%);
+
+/* Soft shadow properties */
+    --shadow-opacity-sm: var(--theme-shadow-opacity-sm, 0.05);
+    --shadow-opacity-md: var(--theme-shadow-opacity-md, 0.1);
+    --shadow-opacity-lg: var(--theme-shadow-opacity-lg, 0.15);
+    --shadow-opacity-xl: var(--theme-shadow-opacity-xl, 0.25);
+    --shadow-color: var(--theme-shadow-color, rgb(236 72 153));
+
+/* Backdrop properties using theme backdrop tokens */
+    --color-backdrop: var(--theme-backdrop, rgb(0 0 0 / 5000%));
+    --backdrop-blur: var(--theme-backdrop-blur, 8px);
+
+/* Pastel status background colors */
+    --color-success-bg: #ecfdf5;
+    --color-warning-bg: #fffbeb;
+    --color-error-bg: #fef2f2;
+    --color-info-bg: #eff6ff;
+
+/* Pastel status border colors */
+    --color-success-border: #a7f3d0;
+    --color-warning-border: #fed7aa;
+    --color-error-border: #fecaca;
+    --color-info-border: #bfdbfe;
+
+/* Gentle interaction states */
+    --hover-opacity: var(--theme-hover-opacity, 0.8);
+    --hover-scale: var(--theme-hover-scale, 1.05);
+    --active-opacity: var(--theme-active-opacity, 0.9);
+    --active-scale: var(--theme-active-scale, 0.95);
+    --disabled-opacity: var(--theme-disabled-opacity, 0.5);
+
+/* Smooth transition properties */
+    --transition-fast: var(--theme-transition-fast, 150ms);
+    --transition-normal: var(--theme-transition-normal, 250ms);
+    --transition-slow: var(--theme-transition-slow, 400ms);
+    --transition-ease-out: var(--theme-ease-out, cubic-bezier(0, 0, 0.2, 1));
+  }
+}
+
+
+/* Datei: themes/variants/ocean.css */
+/**
+* Ocean Theme Variant - Token-Based Version
+*
+* Standalone theme variant that can be loaded independently.
+* Uses [data-theme="ocean"] scope for activation.
+* CDN-compatible and opt-in via import or JS.
+*
+* @layer themes.variants
+*/
+
+@layer themes.variants {
+  [data-theme="ocean"] {
+/* Primary Colors - Ocean cyan/teal theme */
+    --color-primary: #0891b2;
+    --color-secondary: #0d9488;
+
+/* Status Colors - Using theme status tokens */
+    --color-success: var(--theme-success, #10b981);
+    --color-warning: var(--theme-warning, #f59e0b);
+    --color-error: var(--theme-error, #ef4444);
+    --color-info: var(--theme-info, #06b6d4);
+
+/* Text Colors - Ocean theme text */
+    --color-text: #134e4a;
+    --color-text-muted: var(--theme-text-muted, #4b5563);
+    --color-text-inverse: var(--theme-text-inverse, #fff);
+
+/* Surface Colors - Ocean theme surfaces */
+    --color-background: #f0fdfa;
+    --color-surface: #ccfbf1;
+    --color-surface-elevated: var(--theme-surface-elevated, #fff);
+
+/* Border Colors - Ocean theme borders */
+    --color-border: #99f6e4;
+    --color-border-strong: #5eead4;
+
+/* Transition Colors for smooth animations */
+    --color-transition-primary: #0891b2;
+    --color-transition-surface: #f0fdfa;
+    --color-transition-text: #134e4a;
+
+/* Ocean-specific theme properties */
+    --theme-ocean-accent: #0891b2;
+    --theme-ocean-gradient-start: var(--theme-gradient-start, #0891b2);
+    --theme-ocean-gradient-end: var(--theme-gradient-end, #0d9488);
+
+/* Focus and interaction states using theme tokens */
+    --color-focus: var(--theme-focus-ring, #0891b2);
+    --color-focus-glow: rgb(8 145 178 / 3000%);
+
+/* Shadow properties using theme shadow tokens */
+    --shadow-opacity-sm: var(--theme-shadow-opacity-sm, 0.05);
+    --shadow-opacity-md: var(--theme-shadow-opacity-md, 0.1);
+    --shadow-opacity-lg: var(--theme-shadow-opacity-lg, 0.15);
+    --shadow-opacity-xl: var(--theme-shadow-opacity-xl, 0.25);
+    --shadow-color: var(--theme-shadow-color, rgb(0 0 0));
+
+/* Backdrop properties using theme backdrop tokens */
+    --color-backdrop: var(--theme-backdrop, rgb(0 0 0 / 5000%));
+    --backdrop-blur: var(--theme-backdrop-blur, 8px);
+
+/* Status background colors using theme status tokens */
+    --color-success-bg: var(--theme-success-bg, #ecfdf5);
+    --color-warning-bg: var(--theme-warning-bg, #fffbeb);
+    --color-error-bg: var(--theme-error-bg, #fef2f2);
+    --color-info-bg: var(--theme-info-bg, #eff6ff);
+
+/* Status border colors using theme status tokens */
+    --color-success-border: var(--theme-success-border, #a7f3d0);
+    --color-warning-border: var(--theme-warning-border, #fed7aa);
+    --color-error-border: var(--theme-error-border, #fecaca);
+    --color-info-border: var(--theme-info-border, #bfdbfe);
+
+/* Interaction states using theme interaction tokens */
+    --hover-opacity: var(--theme-hover-opacity, 0.8);
+    --hover-scale: var(--theme-hover-scale, 1.05);
+    --active-opacity: var(--theme-active-opacity, 0.9);
+    --active-scale: var(--theme-active-scale, 0.95);
+    --disabled-opacity: var(--theme-disabled-opacity, 0.5);
+
+/* Transition properties using theme transition tokens */
+    --transition-fast: var(--theme-transition-fast, 150ms);
+    --transition-normal: var(--theme-transition-normal, 250ms);
+    --transition-slow: var(--theme-transition-slow, 400ms);
+    --transition-ease-out: var(--theme-ease-out, cubic-bezier(0, 0, 0.2, 1));
+  }
+}
+
+
+/* Datei: themes/variants/night.css */
+/**
+* Night Theme Variant - Enhanced Token-Based Version
+*
+* Standalone theme variant that can be loaded independently.
+* Uses [data-theme="night"] scope for activation.
+* CDN-compatible and opt-in via import or JS.
+*
+* Enhanced with design tokens and dark-mode-specific adjustments.
+*
+* @layer themes.variants
+*/
+
+@layer themes.variants {
+  [data-theme="night"] {
+/* Primary Colors - Purple/indigo for night theme */
+    --color-primary: #6366f1;
+    --color-secondary: #8b5cf6;
+
+/* Status Colors - Using theme status tokens */
+    --color-success: var(--theme-success, #10b981);
+    --color-warning: var(--theme-warning, #f59e0b);
+    --color-error: var(--theme-error, #ef4444);
+    --color-info: var(--theme-info, #06b6d4);
+
+/* Text Colors - Light text for dark backgrounds */
+    --color-text: #f9fafb;
+    --color-text-muted: #d1d5db;
+    --color-text-inverse: #1f2937;
+
+/* Surface Colors - Dark surfaces for night theme */
+    --color-background: #111827;
+    --color-surface: #1f2937;
+    --color-surface-elevated: #374151;
+
+/* Border Colors - Adapted for dark theme */
+    --color-border: #374151;
+    --color-border-strong: #4b5563;
+
+/* Transition Colors for smooth animations */
+    --color-transition-primary: #6366f1;
+    --color-transition-surface: #111827;
+    --color-transition-text: #f9fafb;
+
+/* Enhanced Night Theme Properties */
+    --theme-night-accent: #8b5cf6;
+    --theme-night-glow: rgb(139 92 246 / 3000%);
+    --theme-night-gradient-start: var(--theme-gradient-start, #6366f1);
+    --theme-night-gradient-end: var(--theme-gradient-end, #8b5cf6);
+
+/* Focus and interaction states adapted for dark theme */
+    --color-focus: #8b5cf6;
+    --color-focus-glow: rgb(139 92 246 / 4000%);
+
+/* Dark theme shadow adjustments - Higher opacity for visibility */
+    --shadow-color: var(--theme-shadow-color, rgb(0 0 0));
+    --shadow-opacity-sm: 0.3;
+    --shadow-opacity-md: 0.4;
+    --shadow-opacity-lg: 0.5;
+    --shadow-opacity-xl: 0.6;
+
+/* Backdrop for modals and overlays - Stronger for dark themes */
+    --color-backdrop: rgb(0 0 0 / 8000%);
+    --backdrop-blur: var(--theme-backdrop-blur, 8px);
+
+/* Enhanced status colors for dark backgrounds */
+    --color-success-bg: rgb(16 185 129 / 1000%);
+    --color-warning-bg: rgb(245 158 11 / 1000%);
+    --color-error-bg: rgb(239 68 68 / 1000%);
+    --color-info-bg: rgb(6 182 212 / 1000%);
+
+/* Status border colors - Brighter for dark theme visibility */
+    --color-success-border: rgb(16 185 129 / 3000%);
+    --color-warning-border: rgb(245 158 11 / 3000%);
+    --color-error-border: rgb(239 68 68 / 3000%);
+    --color-info-border: rgb(6 182 212 / 3000%);
+
+/* Interaction states using theme interaction tokens */
+    --hover-opacity: var(--theme-hover-opacity, 0.8);
+    --hover-scale: var(--theme-hover-scale, 1.05);
+    --active-opacity: var(--theme-active-opacity, 0.9);
+    --active-scale: var(--theme-active-scale, 0.95);
+    --disabled-opacity: var(--theme-disabled-opacity, 0.5);
+
+/* Transition properties using theme transition tokens */
+    --transition-fast: var(--theme-transition-fast, 150ms);
+    --transition-normal: var(--theme-transition-normal, 250ms);
+    --transition-slow: var(--theme-transition-slow, 400ms);
+    --transition-ease-out: var(--theme-ease-out, cubic-bezier(0, 0, 0.2, 1));
+    --transition-ease-in: var(--theme-ease-in, cubic-bezier(0.4, 0, 1, 1));
+    --transition-ease-in-out: var(--theme-ease-in-out, cubic-bezier(0.4, 0, 0.2, 1));
+
+/* Focus ring adjustments for dark theme */
+    --focus-ring-width: var(--theme-focus-ring-width, 2px);
+    --focus-ring-offset: var(--theme-focus-ring-offset, 2px);
+
+/* Surface overlay for better layering in dark theme */
+    --color-surface-overlay: rgb(55 65 81 / 9000%);
+  }
+}
+
+
+/* Datei: themes/variants/neon.css */
+/**
+* Neon Theme Variant - Enhanced Token-Based Version
+*
+* Standalone theme variant that can be loaded independently.
+* Uses [data-theme="neon"] scope for activation.
+* CDN-compatible and opt-in via import or JS.
+*
+* Enhanced with vibrant neon colors and glow effects.
+*
+* @layer themes.variants
+*/
+
+@layer themes.variants {
+  [data-theme="neon"] {
+/* Primary Colors - Vibrant neon cyan/pink theme */
+    --color-primary: #0ff;
+    --color-secondary: #f0f;
+
+/* Status Colors - Neon-enhanced status colors */
+    --color-success: #0f0;
+    --color-warning: #ff0;
+    --color-error: #ff0040;
+    --color-info: #00bfff;
+
+/* Text Colors - High contrast for neon theme */
+    --color-text: #fff;
+    --color-text-muted: #ccc;
+    --color-text-inverse: #000;
+
+/* Surface Colors - Dark surfaces for neon glow */
+    --color-background: #0a0a0a;
+    --color-surface: #1a1a1a;
+    --color-surface-elevated: #2a2a2a;
+
+/* Border Colors - Glowing neon borders */
+    --color-border: #0ff;
+    --color-border-strong: #f0f;
+
+/* Transition Colors for smooth animations */
+    --color-transition-primary: #0ff;
+    --color-transition-surface: #0a0a0a;
+    --color-transition-text: #fff;
+
+/* Neon-specific theme properties with enhanced glow */
+    --theme-neon-accent: #0ff;
+    --theme-neon-glow: rgb(0 255 255 / 8000%);
+    --theme-neon-gradient-start: var(--theme-gradient-start, #0ff);
+    --theme-neon-gradient-end: var(--theme-gradient-end, #f0f);
+
+/* Enhanced focus and interaction states for neon theme */
+    --color-focus: #0ff;
+    --color-focus-glow: rgb(0 255 255 / 8000%);
+
+/* Enhanced shadow properties for neon glow effects */
+    --shadow-color: var(--theme-shadow-color, rgb(0 255 255));
+    --shadow-opacity-sm: 0.6;
+    --shadow-opacity-md: 0.8;
+    --shadow-opacity-lg: 1.0;
+    --shadow-opacity-xl: 1.2;
+
+/* Strong backdrop for neon theme */
+    --color-backdrop: rgb(0 0 0 / 9000%);
+    --backdrop-blur: var(--theme-backdrop-blur, 8px);
+
+/* Neon-enhanced status background colors */
+    --color-success-bg: rgb(0 255 0 / 1000%);
+    --color-warning-bg: rgb(255 255 0 / 1000%);
+    --color-error-bg: rgb(255 0 64 / 1000%);
+    --color-info-bg: rgb(0 191 255 / 1000%);
+
+/* Neon status border colors with glow */
+    --color-success-border: rgb(0 255 0 / 6000%);
+    --color-warning-border: rgb(255 255 0 / 6000%);
+    --color-error-border: rgb(255 0 64 / 6000%);
+    --color-info-border: rgb(0 191 255 / 6000%);
+
+/* Enhanced interaction states for neon effects */
+    --hover-opacity: 0.9;
+    --hover-scale: var(--theme-hover-scale, 1.05);
+    --active-opacity: 1.0;
+    --active-scale: var(--theme-active-scale, 0.95);
+    --disabled-opacity: 0.3;
+
+/* Faster transitions for responsive neon effects */
+    --transition-fast: 100ms;
+    --transition-normal: 200ms;
+    --transition-slow: 300ms;
+    --transition-ease-out: var(--theme-ease-out, cubic-bezier(0, 0, 0.2, 1));
+
+/* Neon-specific glow properties */
+    --neon-glow-blur: 10px;
+    --neon-glow-spread: 2px;
+    --neon-pulse-duration: 2s;
+
+/* Surface overlay with neon tint */
+    --color-surface-overlay: rgb(26 26 26 / 95%);
+  }
+}
+
+
+/* Datei: themes/variants/monochrome.css */
+/**
+* Monochrome Theme Variant - Token-Based Version
+*
+* Standalone theme variant that can be loaded independently.
+* Uses [data-theme="monochrome"] scope for activation.
+* CDN-compatible and opt-in via import or JS.
+*
+* @layer themes.variants
+*/
+
+@layer themes.variants {
+  [data-theme="monochrome"] {
+/* Primary Colors - Pure monochrome black/white theme */
+    --color-primary: #000;
+    --color-secondary: #404040;
+
+/* Status Colors - Monochrome status colors using grayscale */
+    --color-success: #404040;
+    --color-warning: #666;
+    --color-error: #000;
+    --color-info: #808080;
+
+/* Text Colors - High contrast monochrome */
+    --color-text: #000;
+    --color-text-muted: #666;
+    --color-text-inverse: #fff;
+
+/* Surface Colors - Pure monochrome surfaces */
+    --color-background: #fff;
+    --color-surface: #f5f5f5;
+    --color-surface-elevated: #fff;
+
+/* Border Colors - Monochrome borders */
+    --color-border: #ccc;
+    --color-border-strong: #999;
+
+/* Transition Colors for smooth animations */
+    --color-transition-primary: #000;
+    --color-transition-surface: #fff;
+    --color-transition-text: #000;
+
+/* Monochrome-specific theme properties */
+    --theme-monochrome-accent: #000;
+    --theme-monochrome-gradient-start: var(--theme-gradient-start, #000);
+    --theme-monochrome-gradient-end: var(--theme-gradient-end, #404040);
+
+/* High contrast focus and interaction states */
+    --color-focus: #000;
+    --color-focus-glow: rgb(0 0 0 / 3000%);
+
+/* Monochrome shadow properties */
+    --shadow-opacity-sm: 0.1;
+    --shadow-opacity-md: 0.2;
+    --shadow-opacity-lg: 0.3;
+    --shadow-opacity-xl: 0.4;
+    --shadow-color: var(--theme-shadow-color, rgb(0 0 0));
+
+/* Backdrop properties using theme backdrop tokens */
+    --color-backdrop: rgb(0 0 0 / 8000%);
+    --backdrop-blur: var(--theme-backdrop-blur, 8px);
+
+/* Monochrome status background colors */
+    --color-success-bg: #f5f5f5;
+    --color-warning-bg: #f0f0f0;
+    --color-error-bg: #eee;
+    --color-info-bg: #fafafa;
+
+/* Monochrome status border colors */
+    --color-success-border: #ccc;
+    --color-warning-border: #bbb;
+    --color-error-border: #999;
+    --color-info-border: #ddd;
+
+/* Sharp interaction states for monochrome clarity */
+    --hover-opacity: 0.7;
+    --hover-scale: 1.02;
+    --active-opacity: 0.8;
+    --active-scale: 0.98;
+    --disabled-opacity: 0.4;
+
+/* Clean transition properties */
+    --transition-fast: var(--theme-transition-fast, 150ms);
+    --transition-normal: var(--theme-transition-normal, 250ms);
+    --transition-slow: var(--theme-transition-slow, 400ms);
+    --transition-ease-out: var(--theme-ease-out, cubic-bezier(0, 0, 0.2, 1));
+  }
+}
+
+
+/* Datei: themes/variants/minimal.css */
+/**
+* Minimal Theme Variant - Token-Based Version
+*
+* Standalone theme variant that can be loaded independently.
+* Uses [data-theme="minimal"] scope for activation.
+* CDN-compatible and opt-in via import or JS.
+*
+* @layer themes.variants
+*/
+
+@layer themes.variants {
+  [data-theme="minimal"] {
+/* Primary Colors - Minimal grayscale theme */
+    --color-primary: #374151;
+    --color-secondary: #6b7280;
+
+/* Status Colors - Subtle status colors for minimal theme */
+    --color-success: #059669;
+    --color-warning: #d97706;
+    --color-error: #dc2626;
+    --color-info: #0369a1;
+
+/* Text Colors - Minimal theme text */
+    --color-text: #111827;
+    --color-text-muted: #6b7280;
+    --color-text-inverse: var(--theme-text-inverse, #fff);
+
+/* Surface Colors - Clean minimal surfaces */
+    --color-background: #fff;
+    --color-surface: #f9fafb;
+    --color-surface-elevated: #fff;
+
+/* Border Colors - Subtle minimal borders */
+    --color-border: #e5e7eb;
+    --color-border-strong: #d1d5db;
+
+/* Transition Colors for smooth animations */
+    --color-transition-primary: #374151;
+    --color-transition-surface: #fff;
+    --color-transition-text: #111827;
+
+/* Minimal-specific theme properties */
+    --theme-minimal-accent: #374151;
+    --theme-minimal-gradient-start: var(--theme-gradient-start, #374151);
+    --theme-minimal-gradient-end: var(--theme-gradient-end, #6b7280);
+
+/* Subtle focus and interaction states */
+    --color-focus: var(--theme-focus-ring, #374151);
+    --color-focus-glow: rgb(55 65 81 / 2000%);
+
+/* Minimal shadow properties */
+    --shadow-opacity-sm: 0.03;
+    --shadow-opacity-md: 0.05;
+    --shadow-opacity-lg: 0.08;
+    --shadow-opacity-xl: 0.12;
+    --shadow-color: var(--theme-shadow-color, rgb(0 0 0));
+
+/* Backdrop properties using theme backdrop tokens */
+    --color-backdrop: var(--theme-backdrop, rgb(0 0 0 / 5000%));
+    --backdrop-blur: var(--theme-backdrop-blur, 8px);
+
+/* Minimal status background colors */
+    --color-success-bg: #f0fdf4;
+    --color-warning-bg: #fffbeb;
+    --color-error-bg: var(--theme-error-bg, #fef2f2);
+    --color-info-bg: #eff6ff;
+
+/* Minimal status border colors */
+    --color-success-border: #d1fae5;
+    --color-warning-border: #fed7aa;
+    --color-error-border: var(--theme-error-border, #fecaca);
+    --color-info-border: #dbeafe;
+
+/* Subtle interaction states */
+    --hover-opacity: 0.7;
+    --hover-scale: 1.02;
+    --active-opacity: 0.8;
+    --active-scale: 0.98;
+    --disabled-opacity: var(--theme-disabled-opacity, 0.5);
+
+/* Smooth transition properties */
+    --transition-fast: var(--theme-transition-fast, 150ms);
+    --transition-normal: var(--theme-transition-normal, 250ms);
+    --transition-slow: var(--theme-transition-slow, 400ms);
+    --transition-ease-out: var(--theme-ease-out, cubic-bezier(0, 0, 0.2, 1));
+  }
+}
+
+/* Datei: themes/variants/forest.css */
+/**
+* Forest Theme Variant - Token-Based Version
+*
+* Standalone theme variant that can be loaded independently.
+* Uses [data-theme="forest"] scope for activation.
+* CDN-compatible and opt-in via import or JS.
+*
+* @layer themes.variants
+*/
+
+@layer themes.variants {
+  [data-theme="forest"] {
+/* Primary Colors - Forest green theme */
+    --color-primary: #059669;
+    --color-secondary: #0d9488;
+
+/* Status Colors - Using theme status tokens */
+    --color-success: var(--theme-success, #10b981);
+    --color-warning: var(--theme-warning, #f59e0b);
+    --color-error: var(--theme-error, #ef4444);
+    --color-info: var(--theme-info, #06b6d4);
+
+/* Text Colors - Forest theme text */
+    --color-text: #14532d;
+    --color-text-muted: var(--theme-text-muted, #4b5563);
+    --color-text-inverse: var(--theme-text-inverse, #fff);
+
+/* Surface Colors - Forest theme surfaces */
+    --color-background: #f0fdf4;
+    --color-surface: #dcfce7;
+    --color-surface-elevated: var(--theme-surface-elevated, #fff);
+
+/* Border Colors - Forest theme borders */
+    --color-border: #bbf7d0;
+    --color-border-strong: #86efac;
+
+/* Transition Colors for smooth animations */
+    --color-transition-primary: #059669;
+    --color-transition-surface: #f0fdf4;
+    --color-transition-text: #14532d;
+
+/* Forest-specific theme properties */
+    --theme-forest-accent: #059669;
+    --theme-forest-gradient-start: var(--theme-gradient-start, #059669);
+    --theme-forest-gradient-end: var(--theme-gradient-end, #0d9488);
+
+/* Focus and interaction states using theme tokens */
+    --color-focus: var(--theme-focus-ring, #059669);
+    --color-focus-glow: rgb(5 150 105 / 3000%);
+
+/* Shadow properties using theme shadow tokens */
+    --shadow-opacity-sm: var(--theme-shadow-opacity-sm, 0.05);
+    --shadow-opacity-md: var(--theme-shadow-opacity-md, 0.1);
+    --shadow-opacity-lg: var(--theme-shadow-opacity-lg, 0.15);
+    --shadow-opacity-xl: var(--theme-shadow-opacity-xl, 0.25);
+    --shadow-color: var(--theme-shadow-color, rgb(0 0 0));
+
+/* Backdrop properties using theme backdrop tokens */
+    --color-backdrop: var(--theme-backdrop, rgb(0 0 0 / 5000%));
+    --backdrop-blur: var(--theme-backdrop-blur, 8px);
+
+/* Status background colors using theme status tokens */
+    --color-success-bg: var(--theme-success-bg, #ecfdf5);
+    --color-warning-bg: var(--theme-warning-bg, #fffbeb);
+    --color-error-bg: var(--theme-error-bg, #fef2f2);
+    --color-info-bg: var(--theme-info-bg, #eff6ff);
+
+/* Status border colors using theme status tokens */
+    --color-success-border: var(--theme-success-border, #a7f3d0);
+    --color-warning-border: var(--theme-warning-border, #fed7aa);
+    --color-error-border: var(--theme-error-border, #fecaca);
+    --color-info-border: var(--theme-info-border, #bfdbfe);
+
+/* Interaction states using theme interaction tokens */
+    --hover-opacity: var(--theme-hover-opacity, 0.8);
+    --hover-scale: var(--theme-hover-scale, 1.05);
+    --active-opacity: var(--theme-active-opacity, 0.9);
+    --active-scale: var(--theme-active-scale, 0.95);
+    --disabled-opacity: var(--theme-disabled-opacity, 0.5);
+
+/* Transition properties using theme transition tokens */
+    --transition-fast: var(--theme-transition-fast, 150ms);
+    --transition-normal: var(--theme-transition-normal, 250ms);
+    --transition-slow: var(--theme-transition-slow, 400ms);
+    --transition-ease-out: var(--theme-ease-out, cubic-bezier(0, 0, 0.2, 1));
+  }
+}
+
+
+/* Datei: themes/variants/day.css */
+/**
+* Day Theme Variant
+*
+* Standalone theme variant that can be loaded independently.
+* Uses [data-theme="day"] scope for activation.
+* CDN-compatible and opt-in via import or JS.
+*
+* @layer themes.variants
+*/
+
+@layer themes.variants {
+  [data-theme="day"] {
+/* Primary Colors - Day indigo */
+    --color-primary: #2563eb;
+    --color-secondary: #7c3aed;
+
+/* Status Colors */
+    --color-success: #10b981;
+    --color-warning: #f59e0b;
+    --color-error: #ef4444;
+    --color-info: #06b6d4;
+
+/* Text Colors */
+    --color-text: #1f2937;
+    --color-text-muted: #6b7280;
+    --color-text-inverse: #fff;
+
+/* Surface Colors */
+    --color-background: #fff;
+    --color-surface: #f9fafb;
+    --color-surface-elevated: #fff;
+
+/* Border Colors */
+    --color-border: #e5e7eb;
+    --color-border-strong: #d1d5db;
+
+/* Transition Colors for smooth animations */
+    --color-transition-primary: #2563eb;
+    --color-transition-surface: #fff;
+    --color-transition-text: #1f2937;
+  }
+}
+
+/* Datei: themes/variants/corporate.css */
+/**
+* Corporate Theme Variant - Token-Based Version
+*
+* Standalone theme variant that can be loaded independently.
+* Uses [data-theme="corporate"] scope for activation.
+* CDN-compatible and opt-in via import or JS.
+*
+* @layer themes.variants
+*/
+
+@layer themes.variants {
+  [data-theme="corporate"] {
+/* Primary Colors - Professional corporate blue/navy theme */
+    --color-primary: #1e40af;
+    --color-secondary: #1e3a8a;
+
+/* Status Colors - Professional status colors */
+    --color-success: #059669;
+    --color-warning: #d97706;
+    --color-error: #dc2626;
+    --color-info: #0369a1;
+
+/* Text Colors - Professional corporate text */
+    --color-text: #1e3a8a;
+    --color-text-muted: #64748b;
+    --color-text-inverse: var(--theme-text-inverse, #fff);
+
+/* Surface Colors - Clean corporate surfaces */
+    --color-background: #f8fafc;
+    --color-surface: #f1f5f9;
+    --color-surface-elevated: #fff;
+
+/* Border Colors - Professional borders */
+    --color-border: #cbd5e1;
+    --color-border-strong: #94a3b8;
+
+/* Transition Colors for smooth animations */
+    --color-transition-primary: #1e40af;
+    --color-transition-surface: #f8fafc;
+    --color-transition-text: #1e3a8a;
+
+/* Corporate-specific theme properties */
+    --theme-corporate-accent: #1e40af;
+    --theme-corporate-gradient-start: var(--theme-gradient-start, #1e40af);
+    --theme-corporate-gradient-end: var(--theme-gradient-end, #1e3a8a);
+
+/* Professional focus and interaction states */
+    --color-focus: var(--theme-focus-ring, #1e40af);
+    --color-focus-glow: rgb(30 64 175 / 3000%);
+
+/* Conservative shadow properties */
+    --shadow-opacity-sm: var(--theme-shadow-opacity-sm, 0.05);
+    --shadow-opacity-md: var(--theme-shadow-opacity-md, 0.1);
+    --shadow-opacity-lg: var(--theme-shadow-opacity-lg, 0.15);
+    --shadow-opacity-xl: var(--theme-shadow-opacity-xl, 0.25);
+    --shadow-color: var(--theme-shadow-color, rgb(30 64 175));
+
+/* Backdrop properties using theme backdrop tokens */
+    --color-backdrop: var(--theme-backdrop, rgb(0 0 0 / 5000%));
+    --backdrop-blur: var(--theme-backdrop-blur, 8px);
+
+/* Professional status background colors */
+    --color-success-bg: #f0fdf4;
+    --color-warning-bg: #fffbeb;
+    --color-error-bg: var(--theme-error-bg, #fef2f2);
+    --color-info-bg: #eff6ff;
+
+/* Professional status border colors */
+    --color-success-border: #bbf7d0;
+    --color-warning-border: #fed7aa;
+    --color-error-border: var(--theme-error-border, #fecaca);
+    --color-info-border: #bfdbfe;
+
+/* Conservative interaction states */
+    --hover-opacity: 0.85;
+    --hover-scale: 1.02;
+    --active-opacity: 0.9;
+    --active-scale: 0.98;
+    --disabled-opacity: var(--theme-disabled-opacity, 0.5);
+
+/* Professional transition properties */
+    --transition-fast: var(--theme-transition-fast, 150ms);
+    --transition-normal: var(--theme-transition-normal, 250ms);
+    --transition-slow: var(--theme-transition-slow, 400ms);
+    --transition-ease-out: var(--theme-ease-out, cubic-bezier(0, 0, 0.2, 1));
+  }
+}
+
+/* Datei: themes/variants/brand.css */
+/**
+* Brand Theme Variant - Token-Based Version
+*
+* Standalone theme variant that can be loaded independently.
+* Uses [data-theme="brand"] scope for activation.
+* CDN-compatible and opt-in via import or JS.
+*
+* Now uses design tokens from tokens/ directory for better consistency.
+*
+* @layer themes.variants
+*/
+
+@layer themes.variants {
+  [data-theme="brand"] {
+/* Primary Colors - Using theme tokens with fallbacks */
+    --color-primary: var(--theme-primary, #4f46e5);
+    --color-secondary: var(--theme-secondary, #7c3aed);
+
+/* Status Colors - Using theme status tokens */
+    --color-success: var(--theme-success, #10b981);
+    --color-warning: var(--theme-warning, #f59e0b);
+    --color-error: var(--theme-error, #ef4444);
+    --color-info: var(--theme-info, #06b6d4);
+
+/* Text Colors - Using theme text tokens */
+    --color-text: var(--theme-text, #1e293b);
+    --color-text-muted: var(--theme-text-muted, #64748b);
+    --color-text-inverse: var(--theme-text-inverse, #fff);
+
+/* Surface Colors - Using theme surface tokens */
+    --color-background: var(--theme-background, #fff);
+    --color-surface: var(--theme-surface, #f8fafc);
+    --color-surface-elevated: var(--theme-surface-elevated, #fff);
+
+/* Border Colors - Using theme border tokens */
+    --color-border: var(--theme-border, #e2e8f0);
+    --color-border-strong: var(--theme-border-strong, #cbd5e1);
+
+/* Transition Colors - Using theme transition tokens */
+    --color-transition-primary: var(--color-primary);
+    --color-transition-surface: var(--color-background);
+    --color-transition-text: var(--color-text);
+
+/* Enhanced with theme-specific brand properties */
+    --theme-brand-accent: #4f46e5;
+    --theme-brand-gradient-start: var(--theme-gradient-start, #4f46e5);
+    --theme-brand-gradient-end: var(--theme-gradient-end, #7c3aed);
+
+/* Focus and interaction states using theme effect tokens */
+    --color-focus: var(--theme-focus-ring, #4f46e5);
+    --color-focus-glow: var(--theme-focus-glow, rgb(79 70 229 / 3000%));
+
+/* Shadow properties using theme shadow tokens */
+    --shadow-opacity-sm: var(--theme-shadow-opacity-sm, 0.05);
+    --shadow-opacity-md: var(--theme-shadow-opacity-md, 0.1);
+    --shadow-opacity-lg: var(--theme-shadow-opacity-lg, 0.15);
+    --shadow-opacity-xl: var(--theme-shadow-opacity-xl, 0.25);
+    --shadow-color: var(--theme-shadow-color, rgb(0 0 0));
+
+/* Backdrop properties using theme backdrop tokens */
+    --color-backdrop: var(--theme-backdrop, rgb(0 0 0 / 5000%));
+    --backdrop-blur: var(--theme-backdrop-blur, 8px);
+
+/* Interaction states using theme interaction tokens */
+    --hover-opacity: var(--theme-hover-opacity, 0.8);
+    --hover-scale: var(--theme-hover-scale, 1.05);
+    --active-opacity: var(--theme-active-opacity, 0.9);
+    --active-scale: var(--theme-active-scale, 0.95);
+    --disabled-opacity: var(--theme-disabled-opacity, 0.5);
+
+/* Transition properties using theme transition tokens */
+    --transition-fast: var(--theme-transition-fast, 150ms);
+    --transition-normal: var(--theme-transition-normal, 250ms);
+    --transition-slow: var(--theme-transition-slow, 400ms);
+    --transition-ease-out: var(--theme-ease-out, cubic-bezier(0, 0, 0.2, 1));
+    --transition-ease-in: var(--theme-ease-in, cubic-bezier(0.4, 0, 1, 1));
+    --transition-ease-in-out: var(--theme-ease-in-out, cubic-bezier(0.4, 0, 0.2, 1));
+
+/* Status background colors using theme status tokens */
+    --color-success-bg: var(--theme-success-bg, #ecfdf5);
+    --color-warning-bg: var(--theme-warning-bg, #fffbeb);
+    --color-error-bg: var(--theme-error-bg, #fef2f2);
+    --color-info-bg: var(--theme-info-bg, #eff6ff);
+
+/* Status border colors using theme status tokens */
+    --color-success-border: var(--theme-success-border, #a7f3d0);
+    --color-warning-border: var(--theme-warning-border, #fed7aa);
+    --color-error-border: var(--theme-error-border, #fecaca);
+    --color-info-border: var(--theme-info-border, #bfdbfe);
+  }
+}
+
+/* Datei: themes/variants/autumn.css */
+/**
+* Autumn Theme Variant
+*
+* Standalone theme variant that can be loaded independently.
+* Uses [data-theme="autumn"] scope for activation.
+* CDN-compatible and opt-in via import or JS.
+*
+* @layer themes.variants
+*/
+
+@layer themes.variants {
+  [data-theme="autumn"] {
+/* Primary Colors */
+    --color-primary: #d97706;
+    --color-secondary: #ea580c;
+
+/* Status Colors */
+    --color-success: #10b981;
+    --color-warning: #f59e0b;
+    --color-error: #ef4444;
+    --color-info: #06b6d4;
+
+/* Text Colors */
+    --color-text: #78350f;
+    --color-text-muted: #4b5563;
+    --color-text-inverse: #fff;
+
+/* Surface Colors */
+    --color-background: #fffbeb;
+    --color-surface: #fde68a;
+    --color-surface-elevated: #fff;
+
+/* Border Colors */
+    --color-border: #fcd34d;
+    --color-border-strong: #f59e0b;
+
+/* Transition Colors for smooth animations */
+    --color-transition-primary: #d97706;
+    --color-transition-surface: #fffbeb;
+    --color-transition-text: #78350f;
+  }
+}
+

@@ -14,16 +14,29 @@
  * - Associate tags with their purpose using aria-label when needed
  */
 
+
+/**
+ * Tag Component Structure:
+ * 
+ * <span class="tag tag--primary">
+ *   <span class="tag-content">Tag text</span>
+ *   <button class="tag-remove" aria-label="Remove">&times;</button>
+ * </span>
+ * 
+ * Types: .tag--primary, .tag--secondary, .tag--success, .tag--warning, .tag--error
+ * Sizes: .tag--sm, .tag--md, .tag--lg
+ * Modifiers: .tag--removable, .tag--rounded
+ */
 @layer components {
   /* Base tag styles */
   .tag {
     align-items: center;
-    background-color: var(--color-neutral-100);
-    border-radius: var(--radius-full);
-    color: var(--color-neutral-800);
+    background-color: var(--color-neutral-100, #f3f4f6);
+    border-radius: var(--radius-full, 9999px);
+    color: var(--color-neutral-800, #1f2937);
     display: inline-flex;
-    font-size: var(--text-sm);
-    font-weight: var(--font-medium);
+    font-size: var(--text-sm, 0.875rem);
+    font-weight: var(--font-medium, 500);
     justify-content: center;
     line-height: 1%;
     max-width: 100%;
@@ -33,7 +46,7 @@
   
   /* Tag sizes */
   .tag--xs {
-    font-size: var(--text-xs);
+    font-size: var(--text-xs, 0.75rem);
     height: 1%.5rem;
     padding: 0.25rem 0.5rem;
   }
@@ -50,17 +63,17 @@
   
   .tag--lg {
     font-size: var(--text-base);
-    height: 2%.5rem;
+    height: 2.5rem;
     padding: 0.5rem 1rem;
   }
   
   /* Tag shapes */
   .tag--rounded {
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-md, 0.375rem);
   }
   
   .tag--square {
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-sm, 0.125rem);
   }
   
   /* Tag with icon */
@@ -77,7 +90,7 @@
     align-items: center;
     background: transparent;
     border: none;
-    border-radius: var(--radius-full);
+    border-radius: var(--radius-full, 9999px);
     color: currentColor;
     cursor: pointer;
     display: inline-flex;
@@ -99,33 +112,33 @@
   
   /* Tag color variants */
   .tag--primary {
-    background-color: var(--color-primary-100);
-    color: var(--color-primary-800);
+    background-color: var(--color-primary-100, #dbeafe);
+    color: var(--color-primary-800, #1e40af);
   }
   
   .tag--secondary {
-    background-color: var(--color-secondary-100);
-    color: var(--color-secondary-800);
+    background-color: var(--color-secondary-100, #f1f5f9);
+    color: var(--color-secondary-800, #1e293b);
   }
   
   .tag--success {
-    background-color: var(--color-success-100);
-    color: var(--color-success-800);
+    background-color: var(--color-success-100, #d1fae5);
+    color: var(--color-success-800, #065f46);
   }
   
   .tag--danger {
-    background-color: var(--color-error-100);
-    color: var(--color-error-800);
+    background-color: var(--color-error-100, #fee2e2);
+    color: var(--color-error-800, #991b1b);
   }
   
   .tag--warning {
-    background-color: var(--color-warning-100);
-    color: var(--color-warning-800);
+    background-color: var(--color-warning-100, #fef3c7);
+    color: var(--color-warning-800, #92400e);
   }
   
   .tag--info {
-    background-color: var(--color-info-100);
-    color: var(--color-info-800);
+    background-color: var(--color-info-100, #dbeafe);
+    color: var(--color-info-800, #1e40af);
   }
   
   /* Solid color tags */
@@ -167,7 +180,7 @@
   }
   
   .tag--outlined.tag--primary {
-    color: var(--color-primary-600);
+    color: var(--color-primary-600, #2563eb);
   }
   
   .tag--outlined.tag--secondary {
@@ -198,7 +211,7 @@
   }
   
   .tag--interactive:hover {
-    background-color: var(--color-neutral-200);
+    background-color: var(--color-neutral-200, #e5e7eb);
   }
   
   .tag--interactive:focus {
@@ -213,7 +226,7 @@
   }
   
   .tag--selected:hover {
-    background-color: var(--color-primary-600);
+    background-color: var(--color-primary-600, #2563eb);
   }
   
   /* Disabled state */
@@ -228,7 +241,7 @@
   
   /* Avatar tag */
   .tag--avatar & .avatar {
-    border-radius: var(--radius-full);
+    border-radius: var(--radius-full, 9999px);
     height: 1%.25em;
     margin-right: 00%.5em;
     object-fit: cover;
@@ -239,7 +252,7 @@
   & .counter {
     align-items: center;
     background-color: rgb(0 0 0 / 1000%);
-    border-radius: var(--radius-full);
+    border-radius: var(--radius-full, 9999px);
     display: inline-flex;
     font-size: 0.85em;
     font-weight: var(--font-bold);
@@ -271,7 +284,7 @@
   /* Responsive adjustments */
   @media (max-width: 640px) {
     .tag--responsive {
-      font-size: var(--text-xs);
+      font-size: var(--text-xs, 0.75rem);
       padding: 0.25rem 0.5rem;
     }
     

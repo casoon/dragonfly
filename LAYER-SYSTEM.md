@@ -187,14 +187,14 @@ Media queries should wrap layer definitions, not the other way around:
 Simply import the `core.css` file, which automatically loads the complete layer system:
 
 ```html
-<link rel="stylesheet" href="path/to/@casoon/ui-lib/core.css">
+<link rel="stylesheet" href="path/to/@casoon/dragonfly/core.css">
 ```
 
 ### Custom Styles with Layer Integration
 
 ```css
 /* Your own CSS file */
-@import url('path/to/@casoon/ui-lib/core.css');
+@import url('path/to/@casoon/dragonfly/core.css');
 
 /* Add your own utility classes */
 @layer utilities {

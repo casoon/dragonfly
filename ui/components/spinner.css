@@ -13,16 +13,11 @@
  */
 
 /* Animationen */
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
 
 @layer elements {
   /* Basis-Spinner */
   .spinner {
-    animation: spin var(--spinner-duration, 0.6s) linear infinite;
+    animation: spin var(--spinner-duration, 0.6s) var(--ease-linear, linear) infinite;
     border: var(--spinner-border-width, 2px) solid var(--color-neutral-200, #e5e7eb);
     border-radius: 50px;
     border-top-color: var(--color-primary-500, #3b82f6);
@@ -140,19 +135,10 @@
   
   /* Pulse Animation als Alternative */
   .spinner--pulse {
-    animation: pulse 1.5s ease-in-out infinite;
+    animation: var(--ui-pulse-animation, pulse var(--animation-duration-slowest, 1500ms) var(--easing-smooth, ease-in-out) infinite);
     background-color: var(--color-primary-500, #3b82f6);
     border: none;
     border-radius: 50px;
   }
-  
-  @keyframes pulse {
-    0, 100 {
-      opacity: 1;
-    }
 
-    50 {
-      opacity: 5000%;
-    }
-  }
 }

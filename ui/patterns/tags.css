@@ -50,9 +50,9 @@
 @layer components {
   .tag {
     align-items: center;
-    background-color: var(--color-neutral-100);
+    background-color: var(--color-neutral-100, #f3f4f6);
     border-radius: 9px;
-    color: var(--color-neutral-900);
+    color: var(--color-neutral-900, #111827);
     cursor: default;
     display: inline-flex;
     font-size: 0.875rem;
@@ -64,7 +64,7 @@
     white-space: nowrap;
     
     &:hover {
-      background-color: var(--color-neutral-200);
+      background-color: var(--color-neutral-200, #e5e7eb);
     }
     
     /* Varianten */
@@ -74,33 +74,33 @@
     
     /* Farbvarianten */
     &.primary {
-      background-color: var(--color-primary-100);
-      color: var(--color-primary-800);
+      background-color: var(--color-primary-100, #dbeafe);
+      color: var(--color-primary-800, #1e40af);
     }
     
     &.secondary {
-      background-color: var(--color-secondary-100);
-      color: var(--color-secondary-800);
+      background-color: var(--color-secondary-100, #f1f5f9);
+      color: var(--color-secondary-800, #1e293b);
     }
     
     &.success {
-      background-color: var(--color-success-100);
-      color: var(--color-success-800);
+      background-color: var(--color-success-100, #d1fae5);
+      color: var(--color-success-800, #065f46);
     }
     
     &.warning {
-      background-color: var(--color-warning-100);
-      color: var(--color-warning-800);
+      background-color: var(--color-warning-100, #fef3c7);
+      color: var(--color-warning-800, #92400e);
     }
     
     &.danger {
-      background-color: var(--color-error-100);
-      color: var(--color-error-800);
+      background-color: var(--color-error-100, #fee2e2);
+      color: var(--color-error-800, #991b1b);
     }
     
     &.info {
-      background-color: var(--color-info-100);
-      color: var(--color-info-800);
+      background-color: var(--color-info-100, #dbeafe);
+      color: var(--color-info-800, #1e40af);
     }
     
     /* Form-Varianten */
@@ -117,7 +117,7 @@
       border: 1px solid currentcolor;
       
       &.primary {
-        color: var(--color-primary-600);
+        color: var(--color-primary-600, #2563eb);
       }
     }
     

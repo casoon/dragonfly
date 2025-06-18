@@ -1,0 +1,1176 @@
+/* Datei: icons/tabler.css */
+/**
+* Tabler Icons CSS
+*
+* Diese Datei enthält die CSS-Klassen für die Tabler Icons.
+* Die Styles sind in @layer components organisiert.
+*/
+
+
+/* Base Icon */
+.ti,
+.ti-icon {
+  background-color: currentcolor;
+  display: var(--display-inline-block);
+  height: var(--spacing-6);
+  mask-position: var(--position-center);
+  mask-repeat: var(--bg-no-repeat);
+  mask-size: var(--position-100);
+  vertical-align: var(--position-middle);
+  width: var(--spacing-6);
+}
+
+/* Tabler Icons */
+.ti-home {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z'/%3E%3Cpath d='M9 22V12h6v10'/%3E%3C/svg%3E");
+}
+
+.ti-menu {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 12h18M3 6h18M3 18h18'/%3E%3C/svg%3E");
+}
+
+.ti-x {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M18 6L6 18M6 6l12 12'/%3E%3C/svg%3E");
+}
+
+.ti-search {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='M21 21l-4.35-4.35'/%3E%3C/svg%3E");
+}
+
+/* Icon Sizes */
+.ti-xs {
+  height: var(--spacing-4);
+  width: var(--spacing-4);
+}
+
+.ti-sm {
+  height: var(--spacing-5);
+  width: var(--spacing-5);
+}
+
+.ti-lg {
+  height: var(--spacing-7);
+  width: var(--spacing-7);
+}
+
+.ti-xl {
+  height: var(--spacing-8);
+  width: var(--spacing-8);
+}
+
+.ti-2xl {
+  height: var(--spacing-10);
+  width: var(--spacing-10);
+}
+
+/* Icon Alignment */
+.ti-baseline {
+  vertical-align: var(--position-baseline);
+}
+
+.ti-top {
+  vertical-align: var(--position-top);
+}
+
+.ti-middle {
+  vertical-align: var(--position-middle);
+}
+
+.ti-bottom {
+  vertical-align: var(--position-bottom);
+}
+
+/* Icon Animation */
+.ti-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* Datei: icons/remix.css */
+/**
+* Remix Icons CSS
+*
+* Diese Datei enthält die CSS-Klassen für die Remix Icons.
+* Die Styles sind in @layer components organisiert.
+*/
+
+
+/* Base Icon */
+.ri,
+.ri-icon {
+  background-color: currentcolor;
+  display: var(--display-inline-block);
+  height: var(--spacing-6);
+  mask-position: var(--position-center);
+  mask-repeat: var(--bg-no-repeat);
+  mask-size: var(--position-100);
+  vertical-align: var(--position-middle);
+  width: var(--spacing-6);
+}
+
+/* Remix Icons */
+.ri-home {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6'/%3E%3C/svg%3E");
+}
+
+.ri-menu {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 6h16M4 12h16M4 18h16'/%3E%3C/svg%3E");
+}
+
+.ri-close {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 18L18 6M6 6l12 12'/%3E%3C/svg%3E");
+}
+
+.ri-search {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'/%3E%3C/svg%3E");
+}
+
+/* Remix Varianten */
+.ri-line {
+  fill: none;
+  stroke-width: 2%;
+}
+
+.ri-fill {
+  fill: currentcolor;
+  stroke-width: 0%;
+}
+
+.ri-dual {
+  fill: currentcolor;
+  opacity: 5000%;
+  stroke-width: 2%;
+}
+
+/* Icon Sizes */
+.ri-xs {
+  height: var(--spacing-4);
+  width: var(--spacing-4);
+}
+
+.ri-sm {
+  height: var(--spacing-5);
+  width: var(--spacing-5);
+}
+
+.ri-lg {
+  height: var(--spacing-7);
+  width: var(--spacing-7);
+}
+
+.ri-xl {
+  height: var(--spacing-8);
+  width: var(--spacing-8);
+}
+
+.ri-2xl {
+  height: var(--spacing-10);
+  width: var(--spacing-10);
+}
+
+/* Icon Alignment */
+.ri-baseline {
+  vertical-align: var(--position-baseline);
+}
+
+.ri-top {
+  vertical-align: var(--position-top);
+}
+
+.ri-middle {
+  vertical-align: var(--position-middle);
+}
+
+.ri-bottom {
+  vertical-align: var(--position-bottom);
+}
+
+/* Icon Animation */
+.ri-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* Datei: icons/phosphor.css */
+/**
+* Phosphor Icons CSS
+*
+* Diese Datei enthält die CSS-Klassen für die Phosphor Icons.
+* Die Styles sind in @layer components organisiert.
+*/
+
+
+/* Base Icon */
+.ph,
+.ph-icon {
+  background-color: currentcolor;
+  display: var(--display-inline-block);
+  height: var(--spacing-6);
+  mask-position: var(--position-center);
+  mask-repeat: var(--bg-no-repeat);
+  mask-size: var(--position-100);
+  vertical-align: var(--position-middle);
+  width: var(--spacing-6);
+}
+
+/* Phosphor Icons */
+.ph-house {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath d='M218.83 103.77l-80-75.48a1.14 1.14 0 0 1-.11-.11 16 16 0 0 0-21.53 0l-.11.11-79.91 75.48A16 16 0 0 0 32 115.55V208a16 16 0 0 0 16 16h48a16 16 0 0 0 16-16v-48h32v48a16 16 0 0 0 16 16h48a16 16 0 0 0 16-16v-92.45a16 16 0 0 0-5.17-11.78zM208 208h-48v-48a16 16 0 0 0-16-16h-32a16 16 0 0 0-16 16v48H48v-92.45l.11-.1L128 40l79.9 75.43.11.1z'/%3E%3C/svg%3E");
+}
+
+.ph-list {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath d='M224 128a8 8 0 0 1-8 8H40a8 8 0 0 1 0-16h176a8 8 0 0 1 8 8zM40 72h176a8 8 0 0 0 0-16H40a8 8 0 0 0 0 16zm176 112H40a8 8 0 0 0 0 16h176a8 8 0 0 0 0-16z'/%3E%3C/svg%3E");
+}
+
+.ph-x {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath d='M205.66 194.34a8 8 0 0 1-11.32 11.32L128 139.31l-66.34 66.35a8 8 0 0 1-11.32-11.32L116.69 128 50.34 61.66a8 8 0 0 1 11.32-11.32L128 116.69l66.34-66.35a8 8 0 0 1 11.32 11.32L139.31 128z'/%3E%3C/svg%3E");
+}
+
+.ph-magnifying-glass {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath d='M229.66 218.34l-50.07-50.06a88.11 88.11 0 1 0-11.32 11.32l50.06 50.07a8 8 0 0 0 11.32-11.32zM40 112a72 72 0 1 1 72 72 72.08 72.08 0 0 1-72-72z'/%3E%3C/svg%3E");
+}
+
+/* Phosphor Varianten */
+.ph-regular {
+  fill: none;
+  stroke-width: 2%;
+}
+
+.ph-bold {
+  fill: none;
+  stroke-width: 3%;
+}
+
+.ph-fill {
+  fill: currentcolor;
+  stroke-width: 0%;
+}
+
+.ph-duotone {
+  fill: currentcolor;
+  opacity: 5000%;
+  stroke-width: 2%;
+}
+
+/* Icon Sizes */
+.ph-xs {
+  height: var(--spacing-4);
+  width: var(--spacing-4);
+}
+
+.ph-sm {
+  height: var(--spacing-5);
+  width: var(--spacing-5);
+}
+
+.ph-lg {
+  height: var(--spacing-7);
+  width: var(--spacing-7);
+}
+
+.ph-xl {
+  height: var(--spacing-8);
+  width: var(--spacing-8);
+}
+
+.ph-2xl {
+  height: var(--spacing-10);
+  width: var(--spacing-10);
+}
+
+/* Icon Alignment */
+.ph-baseline {
+  vertical-align: var(--position-baseline);
+}
+
+.ph-top {
+  vertical-align: var(--position-top);
+}
+
+.ph-middle {
+  vertical-align: var(--position-middle);
+}
+
+.ph-bottom {
+  vertical-align: var(--position-bottom);
+}
+
+/* Icon Animation */
+.ph-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* Datei: icons/mdi.css */
+/**
+* Material Design Icons CSS
+*
+* Diese Datei enthält die CSS-Klassen für die Material Design Icons.
+* Die Styles sind in @layer components organisiert.
+*/
+
+
+/* Base Icon */
+
+/* MDI als CSS Icon */
+.mdi,
+.mdi-icon {
+  background-color: currentcolor;
+  display: var(--display-inline-block);
+  height: var(--spacing-6);
+  mask-position: var(--position-center);
+  mask-repeat: var(--bg-no-repeat);
+  mask-size: var(--position-100);
+  vertical-align: var(--position-middle);
+  width: var(--spacing-6);
+}
+
+/* MDI Icons */
+.mdi-home {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z'/%3E%3C/svg%3E");
+}
+
+.mdi-menu {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z'/%3E%3C/svg%3E");
+}
+
+.mdi-close {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z'/%3E%3C/svg%3E");
+}
+
+.mdi-search {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'/%3E%3C/svg%3E");
+}
+
+/* MDI Varianten */
+.mdi-outline {
+  fill: none;
+  stroke-width: 2%;
+}
+
+.mdi-filled {
+  fill: currentcolor;
+  stroke-width: 0%;
+}
+
+.mdi-round {
+  fill: none;
+  stroke-width: 1.5;
+}
+
+.mdi-sharp {
+  fill: none;
+  stroke-width: 2%;
+}
+
+/* Icon Sizes */
+.mdi-xs {
+  height: var(--spacing-4);
+  width: var(--spacing-4);
+}
+
+.mdi-sm {
+  height: var(--spacing-5);
+  width: var(--spacing-5);
+}
+
+.mdi-lg {
+  height: var(--spacing-7);
+  width: var(--spacing-7);
+}
+
+.mdi-xl {
+  height: var(--spacing-8);
+  width: var(--spacing-8);
+}
+
+.mdi-2xl {
+  height: var(--spacing-10);
+  width: var(--spacing-10);
+}
+
+/* Icon Alignment */
+.mdi-baseline {
+  vertical-align: var(--position-baseline);
+}
+
+.mdi-top {
+  vertical-align: var(--position-top);
+}
+
+.mdi-middle {
+  vertical-align: var(--position-middle);
+}
+
+.mdi-bottom {
+  vertical-align: var(--position-bottom);
+}
+
+/* Icon Animation */
+.mdi-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* Datei: icons/lucide.css */
+/**
+* Lucide Icons CSS
+*
+* Diese Datei enthält die CSS-Klassen für die Lucide Icons.
+* Die Styles sind in @layer components organisiert.
+*/
+
+
+/* Base Icon */
+.lucide,
+.lucide-icon {
+  background-color: currentcolor;
+  display: var(--display-inline-block);
+  height: var(--spacing-6);
+  mask-position: var(--position-center);
+  mask-repeat: var(--bg-no-repeat);
+  mask-size: var(--position-100);
+  vertical-align: var(--position-middle);
+  width: var(--spacing-6);
+}
+
+/* Lucide Icons */
+.lu-home {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6'/%3E%3C/svg%3E");
+}
+
+.lu-menu {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 6h16M4 12h16M4 18h16'/%3E%3C/svg%3E");
+}
+
+.lu-x {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 18L18 6M6 6l12 12'/%3E%3C/svg%3E");
+}
+
+.lu-search {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'/%3E%3C/svg%3E");
+}
+
+/* Icon Sizes */
+.lucide-xs {
+  height: var(--spacing-4);
+  width: var(--spacing-4);
+}
+
+.lucide-sm {
+  height: var(--spacing-5);
+  width: var(--spacing-5);
+}
+
+.lucide-lg {
+  height: var(--spacing-7);
+  width: var(--spacing-7);
+}
+
+.lucide-xl {
+  height: var(--spacing-8);
+  width: var(--spacing-8);
+}
+
+.lucide-2xl {
+  height: var(--spacing-10);
+  width: var(--spacing-10);
+}
+
+/* Icon Alignment */
+.lucide-baseline {
+  vertical-align: var(--position-baseline);
+}
+
+.lucide-top {
+  vertical-align: var(--position-top);
+}
+
+.lucide-middle {
+  vertical-align: var(--position-middle);
+}
+
+.lucide-bottom {
+  vertical-align: var(--position-bottom);
+}
+
+/* Icon Animation */
+.lucide-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* Datei: icons/index.css */
+/*
+* Icon System
+*
+* Hauptdatei für das Icon-System der UI-Bibliothek.
+* Definiert das Basissystem für Icons und ihre Varianten.
+*/
+
+/*
+* Modulare Icon-Imports
+* Aktuell auskommentiert, da die Dateien noch nicht existieren.
+* Sollten mit expliziten Layer-Angaben versehen werden.
+*/
+
+/* Geplante Icon-Module (derzeit nicht implementiert) */
+
+/* @import url('./basic/basic-icons.css') layer(icons.basic); */
+
+/* @import url('./brands/brand-icons.css') layer(icons.brands); */
+
+/* @import url('./functional/functional-icons.css') layer(icons.functional); */
+
+/* @import url('./illustrations/illustration-icons.css') layer(icons.illustrations); */
+
+/**
+* Basis-Icon-System
+* Definiert Größen, Farben und Grundstile für alle Icons
+*/
+@layer icons {
+/* Basis-Icon-Klasse */
+  .icon {
+    display: var(--display-inline-block);
+    flex-shrink: 0;
+    height: var(--icon-size-md);
+    vertical-align: var(--position-middle);
+    width: var(--icon-size-md);
+  }
+
+/* Icon-Größenvarianten */
+  .icon-xs {
+    height: var(--icon-size-xs);
+    width: var(--icon-size-xs);
+  }
+
+  .icon-sm {
+    height: var(--icon-size-sm);
+    width: var(--icon-size-sm);
+  }
+
+  .icon-md {
+    height: var(--icon-size-md);
+    width: var(--icon-size-md);
+  }
+
+  .icon-lg {
+    height: var(--icon-size-lg);
+    width: var(--icon-size-lg);
+  }
+
+  .icon-xl {
+    height: var(--icon-size-xl);
+    width: var(--icon-size-xl);
+  }
+
+  .icon-2xl {
+    height: var(--icon-size-2xl);
+    width: var(--icon-size-2xl);
+  }
+
+  .icon-3xl {
+    height: var(--icon-size-3xl);
+    width: var(--icon-size-3xl);
+  }
+
+/* Icon-Farbvarianten - entsprechen den globalen Farbvariablen */
+  .icon-current { color: currentColor; }
+
+  .icon-primary { color: var(--color-primary-500); }
+
+  .icon-secondary { color: var(--color-secondary-500); }
+
+  .icon-success { color: var(--color-success); }
+
+  .icon-warning { color: var(--color-warning); }
+
+  .icon-error { color: var(--color-error); }
+
+  .icon-info { color: var(--color-info); }
+
+  .icon-muted { color: var(--color-gray-400); }
+}
+
+/* Datei: icons/heroicons.css */
+/**
+* Heroicons CSS
+*
+* Diese Datei enthält die CSS-Klassen für die Heroicons.
+* Die Styles sind in @layer components organisiert.
+*/
+
+
+/* Base Icon */
+.heroicon {
+  background-color: currentcolor;
+  display: var(--display-inline-block);
+  height: var(--spacing-6);
+  mask-position: var(--position-center);
+  mask-repeat: var(--bg-no-repeat);
+  mask-size: var(--position-100);
+  vertical-align: var(--position-middle);
+  width: var(--spacing-6);
+}
+
+/* Icon Sizes */
+.heroicon-xs {
+  height: var(--spacing-4);
+  width: var(--spacing-4);
+}
+
+.heroicon-sm {
+  height: var(--spacing-5);
+  width: var(--spacing-5);
+}
+
+.heroicon-lg {
+  height: var(--spacing-7);
+  width: var(--spacing-7);
+}
+
+.heroicon-xl {
+  height: var(--spacing-8);
+  width: var(--spacing-8);
+}
+
+.heroicon-2xl {
+  height: var(--spacing-10);
+  width: var(--spacing-10);
+}
+
+/* Icon Alignment */
+.heroicon-baseline {
+  vertical-align: var(--position-baseline);
+}
+
+.heroicon-top {
+  vertical-align: var(--position-top);
+}
+
+.heroicon-middle {
+  vertical-align: var(--position-middle);
+}
+
+.heroicon-bottom {
+  vertical-align: var(--position-bottom);
+}
+
+/* Icon Animation */
+.heroicon-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Heroicons */
+.hi,
+.hi-icon {
+  background-color: currentcolor;
+  display: var(--display-inline-block);
+  height: var(--spacing-6);
+  mask-position: var(--position-center);
+  mask-repeat: var(--bg-no-repeat);
+  mask-size: var(--position-100);
+  vertical-align: var(--position-middle);
+  width: var(--spacing-6);
+}
+
+.hi-home {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6'/%3E%3C/svg%3E");
+}
+
+.hi-menu {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 6h16M4 12h16M4 18h16'/%3E%3C/svg%3E");
+}
+
+.hi-x {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 18L18 6M6 6l12 12'/%3E%3C/svg%3E");
+}
+
+.hi-search {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'/%3E%3C/svg%3E");
+}
+
+/* Icon Sizes */
+.hi-xs {
+  height: var(--spacing-4);
+  width: var(--spacing-4);
+}
+
+.hi-sm {
+  height: var(--spacing-5);
+  width: var(--spacing-5);
+}
+
+.hi-lg {
+  height: var(--spacing-7);
+  width: var(--spacing-7);
+}
+
+.hi-xl {
+  height: var(--spacing-8);
+  width: var(--spacing-8);
+}
+
+.hi-2xl {
+  height: var(--spacing-10);
+  width: var(--spacing-10);
+}
+
+/* Icon Alignment */
+.hi-baseline {
+  vertical-align: var(--position-baseline);
+}
+
+.hi-top {
+  vertical-align: var(--position-top);
+}
+
+.hi-middle {
+  vertical-align: var(--position-middle);
+}
+
+.hi-bottom {
+  vertical-align: var(--position-bottom);
+}
+
+/* Icon Animation */
+.hi-spin {
+  animation: spin 1s linear infinite;
+}
+
+
+/* Datei: icons/fontawesome.css */
+/**
+* Font Awesome Icons CSS
+*
+* Diese Datei enthält die CSS-Klassen für die Font Awesome Icons.
+* Die Styles sind in @layer components organisiert.
+*/
+
+
+/* Font Awesome als CSS Icon */
+.fa,
+.fa-icon {
+  background-color: var(--icon-color, currentcolor);
+  display: inline-block;
+  height: 1em;
+  mask-position: center;
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  vertical-align: -0.125em;
+  width: 1em;
+}
+
+/* Font Awesome Icons */
+.fa-home {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 576 512'%3E%3Cpath d='M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.58-.29a16 16 0 0 0 15.69-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z'/%3E%3C/svg%3E");
+}
+
+.fa-bars {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath d='M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z'/%3E%3C/svg%3E");
+}
+
+.fa-times {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 352 512'%3E%3Cpath d='M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z'/%3E%3C/svg%3E");
+}
+
+.fa-search {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z'/%3E%3C/svg%3E");
+}
+
+/* Icon Sizes */
+.fa-xs {
+  height: 0.75em;
+  width: 0.75em;
+}
+
+.fa-sm {
+  height: 0.875em;
+  width: 0.875em;
+}
+
+.fa-lg {
+  height: 1.25em;
+  width: 1.25em;
+}
+
+.fa-xl {
+  height: 1.5em;
+  width: 1.5em;
+}
+
+.fa-2xl {
+  height: 2em;
+  width: 2em;
+}
+
+/* Icon Alignment */
+.fa-baseline {
+  vertical-align: baseline;
+}
+
+.fa-top {
+  vertical-align: top;
+}
+
+.fa-middle {
+  vertical-align: middle;
+}
+
+.fa-bottom {
+  vertical-align: bottom;
+}
+
+/* Icon Animation */
+.fa-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* Datei: icons/feather.css */
+/**
+* Feather Icons CSS
+*
+* Diese Datei enthält die CSS-Klassen für die Feather Icons.
+* Die Styles sind in @layer components organisiert.
+*/
+
+
+/* Base Icon */
+.feather,
+.feather-icon {
+  background-color: currentcolor;
+  display: var(--display-inline-block);
+  height: var(--spacing-6);
+  mask-position: var(--position-center);
+  mask-repeat: var(--bg-no-repeat);
+  mask-size: var(--position-100);
+  vertical-align: var(--position-middle);
+  width: var(--spacing-6);
+}
+
+/* Icon Sizes */
+.feather-xs {
+  height: var(--spacing-4);
+  width: var(--spacing-4);
+}
+
+.feather-sm {
+  height: var(--spacing-5);
+  width: var(--spacing-5);
+}
+
+.feather-lg {
+  height: var(--spacing-7);
+  width: var(--spacing-7);
+}
+
+.feather-xl {
+  height: var(--spacing-8);
+  width: var(--spacing-8);
+}
+
+.feather-2xl {
+  height: var(--spacing-10);
+  width: var(--spacing-10);
+}
+
+/* Icon Alignment */
+.feather-baseline {
+  vertical-align: var(--position-baseline);
+}
+
+.feather-top {
+  vertical-align: var(--position-top);
+}
+
+.feather-middle {
+  vertical-align: var(--position-middle);
+}
+
+.feather-bottom {
+  vertical-align: var(--position-bottom);
+}
+
+/* Icon Animation */
+.feather-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Feather Icons */
+.fe-home {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z'/%3E%3Cpath d='M9 22V12h6v10'/%3E%3C/svg%3E");
+}
+
+.fe-menu {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 12h18M3 6h18M3 18h18'/%3E%3C/svg%3E");
+}
+
+.fe-x {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M18 6L6 18M6 6l12 12'/%3E%3C/svg%3E");
+}
+
+.fe-search {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='M21 21l-4.35-4.35'/%3E%3C/svg%3E");
+}
+
+
+/* Datei: icons/bootstrap.css */
+/**
+* Bootstrap Icons CSS
+*
+* Diese Datei enthält die CSS-Klassen für die Bootstrap Icons.
+* Die Styles sind in @layer components organisiert.
+*/
+
+
+/* Base Icon */
+.bi,
+.bi-icon {
+  background-color: currentcolor;
+  display: var(--display-inline-block);
+  height: var(--spacing-6);
+  mask-position: var(--position-center);
+  mask-repeat: var(--bg-no-repeat);
+  mask-size: var(--position-100);
+  vertical-align: var(--position-middle);
+  width: var(--spacing-6);
+}
+
+/* Bootstrap Icons */
+.bi-house {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5 5 5Z'/%3E%3C/svg%3E");
+}
+
+.bi-list {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z'/%3E%3C/svg%3E");
+}
+
+.bi-x {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+}
+
+.bi-search {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'/%3E%3C/svg%3E");
+}
+
+/* Icon Sizes */
+.bi-xs {
+  height: var(--spacing-4);
+  width: var(--spacing-4);
+}
+
+.bi-sm {
+  height: var(--spacing-5);
+  width: var(--spacing-5);
+}
+
+.bi-lg {
+  height: var(--spacing-7);
+  width: var(--spacing-7);
+}
+
+.bi-xl {
+  height: var(--spacing-8);
+  width: var(--spacing-8);
+}
+
+.bi-2xl {
+  height: var(--spacing-10);
+  width: var(--spacing-10);
+}
+
+/* Icon Alignment */
+.bi-baseline {
+  vertical-align: var(--position-baseline);
+}
+
+.bi-top {
+  vertical-align: var(--position-top);
+}
+
+.bi-middle {
+  vertical-align: var(--position-middle);
+}
+
+.bi-bottom {
+  vertical-align: var(--position-bottom);
+}
+
+/* Icon Animation */
+.bi-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* Datei: icons/base.css */
+/**
+* Icon Basis-Styles
+*
+* Diese Datei enthält die grundlegenden Styles für alle Icons.
+* Die Styles sind in @layer icons organisiert.
+*
+* Verwendete Icon-Sets und deren Lizenzen:
+* - Heroicons (MIT) - https://heroicons.com
+* - Feather Icons (MIT) - https://feathericons.com
+* - Phosphor Icons (MIT) - https://phosphoricons.com
+* - Remix Icons (MIT) - https://remixicon.com
+* - Bootstrap Icons (MIT) - https://icons.getbootstrap.com
+*/
+
+
+/* Basis Icon Styles */
+.icon {
+  display: var(--display-inline-block);
+  fill: currentcolor;
+  height: var(--icon-size-relative-md);
+  stroke: currentcolor;
+  stroke-width: 0%;
+  vertical-align: var(--position-middle);
+  width: var(--icon-size-relative-md);
+}
+
+/* Größenvarianten */
+.icon-xs {
+  height: var(--icon-size-relative-xs);
+  width: var(--icon-size-relative-xs);
+}
+
+.icon-sm {
+  height: var(--icon-size-relative-sm);
+  width: var(--icon-size-relative-sm);
+}
+
+.icon-lg {
+  height: var(--icon-size-relative-lg);
+  width: var(--icon-size-relative-lg);
+}
+
+.icon-xl {
+  height: var(--icon-size-relative-xl);
+  width: var(--icon-size-relative-xl);
+}
+
+.icon-2xl {
+  height: var(--icon-size-relative-2xl);
+  width: var(--icon-size-relative-2xl);
+}
+
+/* Ausrichtung */
+.icon-baseline {
+  vertical-align: var(--position-baseline);
+}
+
+.icon-top {
+  vertical-align: var(--position-top);
+}
+
+.icon-middle {
+  vertical-align: var(--position-middle);
+}
+
+.icon-bottom {
+  vertical-align: var(--position-bottom);
+}
+
+/* Animation */
+.icon-spin {
+  animation: icon-spin var(--icon-animation-duration-slow) infinite var(--icon-animation-timing);
+}
+
+@keyframes icon-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+

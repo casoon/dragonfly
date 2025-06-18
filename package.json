@@ -1,6 +1,6 @@
 {
   "name": "@casoon/dragonfly",
-  "version": "0.7.7",
+  "version": "0.7.8",
   "description": "Modular, lightweight CSS framework and design system for modern web projects. Optimized for Astro JS, LightningCSS and Container Queries with @layer-based architecture and comprehensive accessibility.",
   "main": "index.css",
   "style": "index.css",

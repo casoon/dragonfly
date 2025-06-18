@@ -38,8 +38,8 @@
   
   /* Dialog container */
   .dialog {
-    background-color: var(--color-surface-100);
-    border-radius: var(--radius-lg);
+    background-color: var(--color-surface-100, #f3f4f6);
+    border-radius: var(--radius-lg, 0.5rem);
     box-shadow: var(--shadow-xl);
     display: flex;
     flex-direction: column;
@@ -82,16 +82,16 @@
   /* Dialog header */
   & .header {
     align-items: center;
-    border-bottom: 1px solid var(--color-border-200);
+    border-bottom: 1px solid var(--color-border-200, #e5e7eb);
     display: flex;
     justify-content: space-between;
     padding: var(--space-4) var(--space-5);
   }
   
   & .title {
-    color: var(--color-text-900);
+    color: var(--color-text-900, #111827);
     font-size: var(--text-lg);
-    font-weight: var(--font-semibold);
+    font-weight: var(--font-semibold, 600);
     margin: 0;
   }
   
@@ -100,8 +100,8 @@
     align-items: center;
     background: transparent;
     border: none;
-    border-radius: var(--radius-full);
-    color: var(--color-text-500);
+    border-radius: var(--radius-full, 9999px);
+    color: var(--color-text-500, #6b7280);
     cursor: pointer;
     display: flex;
     height: 3%2px;
@@ -112,7 +112,7 @@
   
   & .close:hover {
     background-color: var(--color-surface-200);
-    color: var(--color-text-700);
+    color: var(--color-text-700, #374151);
   }
   
   /* Dialog body */
@@ -126,7 +126,7 @@
   & .footer {
     align-items: center;
     background-color: var(--color-surface-50);
-    border-top: 1px solid var(--color-border-200);
+    border-top: 1px solid var(--color-border-200, #e5e7eb);
     display: flex;
     gap: var(--space-3);
     justify-content: flex-end;

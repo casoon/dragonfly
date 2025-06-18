@@ -39,6 +39,26 @@
  * </div>
  */
 
+
+/**
+ * Card Component Structure:
+ * 
+ * <div class="card">
+ *   <div class="card-header">
+ *     <h3 class="card-title">Card Title</h3>
+ *     <div class="card-actions"><!-- Actions --></div>
+ *   </div>
+ *   <div class="card-content">
+ *     <!-- Main card content -->
+ *   </div>
+ *   <div class="card-footer">
+ *     <!-- Footer content -->
+ *   </div>
+ * </div>
+ * 
+ * Modifiers: .card--bordered, .card--elevated, .card--compact
+ * Layout: .card--horizontal, .card--vertical
+ */
 @layer components {
   .card-grid {
     display: grid;
@@ -62,7 +82,7 @@
     }
 
     img {
-      border-radius: var(--radius-sm);
+      border-radius: var(--radius-sm, 0.125rem);
       object-fit: cover;
       width: 100%;
     }
@@ -109,7 +129,7 @@
 
     /* Varianten */
     &.primary {
-      background-color: var(--color-primary);
+      background-color: var(--color-primary, #3b82f6);
       color: white;
     }
 

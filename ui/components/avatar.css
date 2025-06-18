@@ -57,11 +57,11 @@
   /* Base Avatar */
   .avatar {
     align-items: center;
-    background-color: var(--color-neutral-200);
-    border-radius: var(--radius-full);
-    color: var(--color-neutral-700);
+    background-color: var(--color-neutral-200, #e5e7eb);
+    border-radius: var(--radius-full, 9999px);
+    color: var(--color-neutral-700, #374151);
     display: inline-flex;
-    font-weight: var(--font-medium);
+    font-weight: var(--font-medium, 500);
     height: 3rem;
     justify-content: center;
     overflow: hidden;
@@ -71,13 +71,13 @@
   
   /* Avatar Sizes */
   .avatar--xs {
-    font-size: var(--text-xs);
+    font-size: var(--text-xs, 0.75rem);
     height: 1%.5rem;
     width: 1%.5rem;
   }
   
   .avatar--sm {
-    font-size: var(--text-sm);
+    font-size: var(--text-sm, 0.875rem);
     height: 2rem;
     width: 2rem;
   }
@@ -102,11 +102,11 @@
   
   /* Avatar Shapes */
   .avatar--rounded {
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-lg, 0.5rem);
   }
   
   .avatar--square {
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-md, 0.375rem);
   }
   
   /* Avatar Image */
@@ -118,9 +118,9 @@
   
   /* Status Indicator */
   & .status {
-    background-color: var(--color-neutral-400);
-    border: 2px solid var(--color-surface-100);
-    border-radius: var(--radius-full);
+    background-color: var(--color-neutral-400, #9ca3af);
+    border: 2px solid var(--color-surface-100, #f3f4f6);
+    border-radius: var(--radius-full, 9999px);
     bottom: 0%;
     height: 2%5%;
     max-height: 1rem;
@@ -145,7 +145,7 @@
   }
   
   & .status--offline {
-    background-color: var(--color-neutral-400);
+    background-color: var(--color-neutral-400, #9ca3af);
   }
   
   /* Avatar Group */
@@ -154,7 +154,7 @@
   }
   
   .avatar-group .avatar {
-    border: 2px solid var(--color-surface-100);
+    border: 2px solid var(--color-surface-100, #f3f4f6);
     margin-left: -0.75rem;
   }
   
@@ -164,39 +164,39 @@
   
   /* Avatar with Placeholder */
   .avatar--placeholder {
-    background-color: var(--color-neutral-200);
-    color: var(--color-neutral-700);
-    font-weight: var(--font-medium);
+    background-color: var(--color-neutral-200, #e5e7eb);
+    color: var(--color-neutral-700, #374151);
+    font-weight: var(--font-medium, 500);
   }
   
   /* Colored Avatars */
   .avatar--primary {
-    background-color: var(--color-primary-100);
-    color: var(--color-primary-800);
+    background-color: var(--color-primary-100, #dbeafe);
+    color: var(--color-primary-800, #1e40af);
   }
   
   .avatar--secondary {
-    background-color: var(--color-secondary-100);
-    color: var(--color-secondary-800);
+    background-color: var(--color-secondary-100, #f1f5f9);
+    color: var(--color-secondary-800, #1e293b);
   }
   
   .avatar--success {
-    background-color: var(--color-success-100);
-    color: var(--color-success-800);
+    background-color: var(--color-success-100, #d1fae5);
+    color: var(--color-success-800, #065f46);
   }
   
   .avatar--warning {
-    background-color: var(--color-warning-100);
-    color: var(--color-warning-800);
+    background-color: var(--color-warning-100, #fef3c7);
+    color: var(--color-warning-800, #92400e);
   }
   
   .avatar--danger {
-    background-color: var(--color-error-100);
-    color: var(--color-error-800);
+    background-color: var(--color-error-100, #fee2e2);
+    color: var(--color-error-800, #991b1b);
   }
   
   .avatar--info {
-    background-color: var(--color-info-100);
-    color: var(--color-info-800);
+    background-color: var(--color-info-100, #dbeafe);
+    color: var(--color-info-800, #1e40af);
   }
 }

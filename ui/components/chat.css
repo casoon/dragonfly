@@ -18,8 +18,8 @@
   /* Chat container */
   .chat {
     background-color: var(--color-surface-50);
-    border: 1px solid var(--color-border-200);
-    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border-200, #e5e7eb);
+    border-radius: var(--radius-lg, 0.5rem);
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -30,14 +30,14 @@
   /* Chat header */
   & .header {
     align-items: center;
-    background-color: var(--color-surface-100);
-    border-bottom: 1px solid var(--color-border-200);
+    background-color: var(--color-surface-100, #f3f4f6);
+    border-bottom: 1px solid var(--color-border-200, #e5e7eb);
     display: flex;
     padding: var(--space-3) var(--space-4);
   }
   
   & .avatar {
-    border-radius: var(--radius-full);
+    border-radius: var(--radius-full, 9999px);
     height: 3%6px;
     margin-right: var(--space-3);
     object-fit: cover;
@@ -49,20 +49,20 @@
   }
   
   & .name {
-    color: var(--color-text-900);
-    font-weight: var(--font-semibold);
+    color: var(--color-text-900, #111827);
+    font-weight: var(--font-semibold, 600);
     margin: 0;
   }
   
   & .status {
     align-items: center;
-    color: var(--color-text-500);
+    color: var(--color-text-500, #6b7280);
     display: flex;
-    font-size: var(--text-xs);
+    font-size: var(--text-xs, 0.75rem);
   }
   
   & .status-indicator {
-    border-radius: var(--radius-full);
+    border-radius: var(--radius-full, 9999px);
     display: inline-block;
     height: 8px;
     margin-right: var(--space-1);
@@ -74,11 +74,11 @@
   }
   
   & .status-indicator--offline {
-    background-color: var(--color-neutral-400);
+    background-color: var(--color-neutral-400, #9ca3af);
   }
   
   & .status-indicator--typing {
-    animation: pulse 1.5s infinite;
+    animation: pulse var(--animation-duration-slowest, 1500ms) infinite;
     background-color: var(--color-warning-500);
   }
   
@@ -108,7 +108,7 @@
   
   /* Individual message */
   & .message {
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-lg, 0.5rem);
     margin-bottom: var(--space-2);
     padding: var(--space-3);
     position: relative;
@@ -124,12 +124,12 @@
   & .message--received {
     background-color: var(--color-surface-200);
     border-bottom-left-radius: var(--radius-xs);
-    color: var(--color-text-900);
+    color: var(--color-text-900, #111827);
   }
   
   /* Message metadata */
   & .message-time {
-    font-size: var(--text-xs);
+    font-size: var(--text-xs, 0.75rem);
     margin-top: var(--space-1);
     opacity: 8000%;
     text-align: right;
@@ -138,10 +138,10 @@
   /* System messages */
   & .system-message {
     align-self: center;
-    background-color: var(--color-surface-100);
-    border-radius: var(--radius-md);
+    background-color: var(--color-surface-100, #f3f4f6);
+    border-radius: var(--radius-md, 0.375rem);
     color: var(--color-text-400);
-    font-size: var(--text-xs);
+    font-size: var(--text-xs, 0.75rem);
     margin: var(--space-4) 0;
     padding: var(--space-2);
     text-align: center;
@@ -150,9 +150,9 @@
   /* Typing indicator */
   & .typing {
     align-items: center;
-    color: var(--color-text-500);
+    color: var(--color-text-500, #6b7280);
     display: flex;
-    font-size: var(--text-xs);
+    font-size: var(--text-xs, 0.75rem);
     margin-top: var(--space-2);
   }
   
@@ -162,10 +162,10 @@
   }
   
   & .typing-dot {
-    animation: typingAnimation 1.4s infinite;
+    animation: var(--ui-typing-animation, typingAnimation var(--animation-duration-slowest, 1400ms) infinite);
     animation-fill-mode: both;
     background-color: var(--color-text-400);
-    border-radius: var(--radius-full);
+    border-radius: var(--radius-full, 9999px);
     height: 6px;
     margin-right: 3px;
     width: 6px;
@@ -189,8 +189,8 @@
   
   /* Chat footer - input area */
   & .footer {
-    background-color: var(--color-surface-100);
-    border-top: 1px solid var(--color-border-200);
+    background-color: var(--color-surface-100, #f3f4f6);
+    border-top: 1px solid var(--color-border-200, #e5e7eb);
     padding: var(--space-3);
   }
   
@@ -201,8 +201,8 @@
   
   & .input {
     background-color: var(--color-surface-50);
-    border: 1px solid var(--color-border-200);
-    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border-200, #e5e7eb);
+    border-radius: var(--radius-lg, 0.5rem);
     flex: 1;
     max-height: 12%0px;
     min-height: 4%4px;
@@ -213,7 +213,7 @@
   
   & .input:focus {
     border-color: var(--color-primary-300);
-    box-shadow: 0 0 0 2px var(--color-primary-100);
+    box-shadow: 0 0 0 2px var(--color-primary-100, #dbeafe);
     outline: none;
   }
   
@@ -221,7 +221,7 @@
     align-items: center;
     background-color: var(--color-primary-500);
     border: none;
-    border-radius: var(--radius-full);
+    border-radius: var(--radius-full, 9999px);
     color: white;
     cursor: pointer;
     display: flex;
@@ -233,11 +233,11 @@
   }
   
   & .send:hover {
-    background-color: var(--color-primary-600);
+    background-color: var(--color-primary-600, #2563eb);
   }
   
   & .send:disabled {
-    background-color: var(--color-neutral-300);
+    background-color: var(--color-neutral-300, #d1d5db);
     cursor: not-allowed;
   }
   
@@ -245,8 +245,8 @@
   & .attachment {
     background: none;
     border: none;
-    border-radius: var(--radius-full);
-    color: var(--color-text-500);
+    border-radius: var(--radius-full, 9999px);
+    color: var(--color-text-500, #6b7280);
     cursor: pointer;
     margin-right: var(--space-2);
     padding: var(--space-2);

@@ -1,4 +1,4 @@
-# Browser Compatibility Tests for @casoon/ui-lib
+# Browser Compatibility Tests for @casoon/dragonfly
 
 This directory contains tests and documentation for browser compatibility of the UI library.
 

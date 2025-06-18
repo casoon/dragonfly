@@ -1,44 +1,44 @@
-# UI-Lib Core-Komponenten
+# UI-Lib Core Components
 
-Dieses Verzeichnis enthält fundamentale CSS-Definitionen für die UI-Lib.
+This directory contains fundamental CSS definitions for the UI-Lib.
 
-## Tokens und Moderne CSS-Funktionen
+## Tokens and Modern CSS Features
 
-In `tokens.css` sind alle grundlegenden Design-Tokens und moderne CSS-Funktionen definiert:
+In `tokens.css`, all fundamental design tokens and modern CSS features are defined:
 
-### Moderne CSS-Funktionen
+### Modern CSS Features
 
 ```css
 :root {
-  /* Ermöglicht flüssige Größeninterpolation mit Schlüsselwörtern */
+  /* Enables smooth size interpolation with keywords */
   interpolate-size: allow-keywords;
 }
 ```
 
-Die `interpolate-size: allow-keywords` Eigenschaft ermöglicht:
+The `interpolate-size: allow-keywords` property enables:
 
-- Flüssige Übergänge zwischen Größenwerten (z.B. Schriftgrößen, Padding, Margin) bei responsiven Designs
-- Unterstützt auch die Interpolation von Schlüsselwörtern wie `small`, `medium`, `large`
-- Besonders nützlich für Container Queries und Viewport-Größenänderungen
+- Smooth transitions between size values (e.g., font sizes, padding, margin) in responsive designs
+- Also supports interpolation of keywords like `small`, `medium`, `large`
+- Particularly useful for container queries and viewport size changes
 
-### Anwendungsbeispiele:
+### Usage Examples:
 
 ```css
-/* Flüssige Typografie mit Interpolation */
+/* Fluid typography with interpolation */
 .responsive-text {
   font-size: clamp(var(--text-sm), 5vw, var(--text-xl)); 
 }
 
-/* Abstände, die fließend skalieren */
+/* Spacing that scales smoothly */
 .adaptive-container {
   padding: clamp(var(--space-4), 5%, var(--space-8));
 }
 ```
 
-## Weitere Core-Komponenten
+## Additional Core Components
 
-- `colors.css`: Farbdefinitionen
-- `elements.css`: Grundlegende HTML-Element-Styles
-- `reset.css`: CSS-Reset und Normalisierung
-- `utilities.css`: Utility-Klassen
-- usw. 
+- `colors.css`: Color definitions
+- `elements.css`: Basic HTML element styles
+- `reset.css`: CSS reset and normalization
+- `utilities.css`: Utility classes
+- etc. 

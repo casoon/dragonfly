@@ -1,53 +1,53 @@
 # Dragonfly JavaScript Utilities
 
-Eine umfassende Sammlung von JavaScript-Utility-Funktionen für moderne Webentwicklung. Diese Utilities verhindern Over-Engineering und bieten saubere, wiederverwendbare Lösungen für häufige Programmieraufgaben.
+A comprehensive collection of JavaScript utility functions for modern web development. These utilities prevent over-engineering and provide clean, reusable solutions for common programming tasks.
 
-## 🚀 Schnellstart
+## 🚀 Quick Start
 
 ```javascript
-// Einzelne Funktionen importieren
+// Import individual functions
 import { debounce, formatDate, classNames } from './js/utils/index.js';
 
-// Alle essentiellen Funktionen
+// All essential functions
 import { essentials } from './js/utils/index.js';
 
-// Komplettes Utility-Objekt
+// Complete utility object
 import utils from './js/utils/index.js';
 ```
 
-## 📦 Verfügbare Utilities
+## 📦 Available Utilities
 
 ### ⚡ Performance & Async
 
 #### `debounce(func, delay = 300)`
-Verhindert Over-Triggering bei Input-Änderungen oder Scroll-Events.
+Prevents over-triggering on input changes or scroll events.
 
 ```javascript
-// Live-Suche die wartet bis der User aufhört zu tippen
+// Live search that waits until the user stops typing
 const handleChange = debounce((val) => searchUsers(val), 400);
 
-// Debounced Scroll Handler
+// Debounced scroll handler
 const handleScroll = debounce(() => {
   console.log('Scrolled!');
 }, 100);
 ```
 
 #### `sleep(ms)`
-Erstellt eine Verzögerung mit Promises. Nützlich für Tests, Animationen und gedrosselte Operationen.
+Creates a delay with promises. Useful for tests, animations, and throttled operations.
 
 ```javascript
 await sleep(1000);
-// Loader für Mindestzeit anzeigen
+// Show loader for minimum duration
 
-// Verzögerung zwischen API-Aufrufen
+// Delay between API calls
 for (const item of items) {
   await processItem(item);
-  await sleep(100); // Rate Limiting
+  await sleep(100); // Rate limiting
 }
 ```
 
 #### `retry(fn, options)`
-Wiederholt eine Funktion mehrmals mit exponential backoff.
+Retries a function multiple times with exponential backoff.
 
 ```javascript
 const data = await retry(
@@ -56,10 +56,10 @@ const data = await retry(
 );
 ```
 
-### 🔤 String-Manipulation
+### 🔤 String Manipulation
 
 #### `capitalize(str)`
-Kapitalisiert den ersten Buchstaben eines Strings.
+Capitalizes the first letter of a string.
 
 ```javascript
 capitalize('pending') // "Pending"
@@ -67,7 +67,7 @@ capitalize('hello world') // "Hello world"
 ```
 
 #### `titleCase(str)`, `camelCase(str)`, `kebabCase(str)`, `snakeCase(str)`
-Verschiedene String-Formatierungen.
+Various string formatting options.
 
 ```javascript
 titleCase('hello world') // "Hello World"
@@ -77,74 +77,74 @@ snakeCase('Hello World') // "hello_world"
 ```
 
 #### `truncate(str, length, suffix = '...')`
-Kürzt Strings mit Ellipsis.
+Truncates strings with ellipsis.
 
 ```javascript
 truncate('This is a very long string', 10) // "This is a..."
 ```
 
-### 📅 Datum & Zeit
+### 📅 Date & Time
 
 #### `formatDate(dateStr, options)`
-Konvertiert Datum-Strings zu lesbaren Formaten.
+Converts date strings to readable formats.
 
 ```javascript
-// Basis-Verwendung - zeigt "Apr 22, 2024"
+// Basic usage - shows "Apr 22, 2024"
 formatDate('2024-04-22')
 
-// Benutzerdefiniertes Format
+// Custom format
 formatDate('2024-04-22', { format: 'long' })
-// Ergebnis: "April 22, 2024"
+// Result: "April 22, 2024"
 
-// Verschiedene Locale
+// Different locale
 formatDate('2024-04-22', { locale: 'de-DE' })
-// Ergebnis: "22. Apr. 2024"
+// Result: "22. Apr. 2024"
 ```
 
 #### `formatRelativeDate(dateStr, locale)`
-Formatiert Datum für relative Zeit (z.B. "vor 2 Tagen", "in 3 Stunden").
+Formats date for relative time (e.g., "2 days ago", "in 3 hours").
 
 ```javascript
-formatRelativeDate('2024-04-20') // "vor 2 Tagen"
+formatRelativeDate('2024-04-20') // "2 days ago"
 ```
 
 ### 🎨 CSS & Styling
 
 #### `classNames(...args)`
-Verbindet Klassennamen bedingt. Macht bedingte Klassen sauber und lesbar.
+Conditionally joins class names. Makes conditional classes clean and readable.
 
 ```javascript
-// Basis-Verwendung
+// Basic usage
 classNames('btn', 'btn-primary') // "btn btn-primary"
 
-// Bedingte Klassen
-classNames('btn', isActive && 'btn-primary') // "btn btn-primary" oder "btn"
+// Conditional classes
+classNames('btn', isActive && 'btn-primary') // "btn btn-primary" or "btn"
 
-// Objekt-Syntax
+// Object syntax
 classNames('btn', {
   'btn-primary': isActive,
   'btn-disabled': isDisabled
 })
 
-// Array-Syntax
+// Array syntax
 classNames(['btn', 'btn-large'], isActive && 'active')
 ```
 
-### 📊 Datenverarbeitung
+### 📊 Data Processing
 
 #### `safeJsonParse(str, fallback = {})`
-Sicheres JSON-Parsing mit Fallback-Werten für fehlerhafte Daten.
+Safe JSON parsing with fallback values for malformed data.
 
 ```javascript
-// Sicheres localStorage-Parsing
+// Safe localStorage parsing
 const user = safeJsonParse(localStorage.getItem('user'));
 
-// Mit benutzerdefiniertem Fallback
+// With custom fallback
 const settings = safeJsonParse(apiResponse, { theme: 'light' });
 ```
 
 #### `isEmpty(obj)`
-Überprüft ob ein Objekt leer ist. Funktioniert besser als `Object.keys(obj).length === 0`.
+Checks if an object is empty. Works better than `Object.keys(obj).length === 0`.
 
 ```javascript
 if (isEmpty(formErrors)) submitForm();
@@ -152,28 +152,28 @@ if (isEmpty(formErrors)) submitForm();
 isEmpty({}) // true
 isEmpty({ name: 'John' }) // false
 isEmpty(null) // false
-isEmpty([]) // false (Arrays sind keine plain objects)
+isEmpty([]) // false (arrays are not plain objects)
 ```
 
 #### `uniqueArray(arr, keyFn)`
-Entfernt Duplikate aus Arrays. Funktioniert mit Primitiven und Objekten.
+Removes duplicates from arrays. Works with primitives and objects.
 
 ```javascript
-// Einfaches Array
+// Simple array
 uniqueArray([1, 2, 2, 3, 1]) // [1, 2, 3]
 
-// String-Array
+// String array
 const tags = uniqueArray([...userTags, ...defaultTags]);
 
-// Objekt-Array nach Eigenschaft
-uniqueArray(users, 'id') // Entfernt Benutzer mit doppelten IDs
+// Object array by property
+uniqueArray(users, 'id') // Removes users with duplicate IDs
 
-// Objekt-Array mit benutzerdefinierter Funktion
+// Object array with custom function
 uniqueArray(users, user => user.email.toLowerCase())
 ```
 
 #### `groupBy(arr, keyFn)`
-Gruppiert Array-Elemente nach Schlüssel.
+Groups array elements by key.
 
 ```javascript
 const users = [
@@ -189,47 +189,47 @@ groupBy(users, 'role')
 // }
 ```
 
-### 📋 Browser-APIs
+### 📋 Browser APIs
 
 #### `copyToClipboard(text)`
-Kopiert Text in die Zwischenablage. Perfekt für "Link kopieren" oder "Code kopieren" Funktionalität.
+Copies text to clipboard. Perfect for "copy link" or "copy code" functionality.
 
 ```javascript
-// Basis-Verwendung
+// Basic usage
 const success = await copyToClipboard('Hello World!');
 if (success) {
-  showToast('In Zwischenablage kopiert!');
+  showToast('Copied to clipboard!');
 }
 
-// In einer React-Komponente
-<button onClick={() => copyToClipboard(url)}>Link kopieren</button>
+// In a React component
+<button onClick={() => copyToClipboard(url)}>Copy Link</button>
 ```
 
 #### `downloadFile(url, filename)`
-Ermöglicht schnelle, benutzerfreundliche Downloads.
+Enables quick, user-friendly downloads.
 
 ```javascript
-// PDF herunterladen
+// Download PDF
 downloadFile('/resume.pdf', 'MyResume.pdf');
 
-// Daten als Datei herunterladen
+// Download data as file
 const data = JSON.stringify(userData, null, 2);
 const dataUri = `data:application/json;charset=utf-8,${encodeURIComponent(data)}`;
 downloadFile(dataUri, 'user-data.json');
 ```
 
 #### `isInViewport(element, threshold)`
-Überprüft ob ein Element im Viewport sichtbar ist.
+Checks if an element is visible in the viewport.
 
 ```javascript
 if (isInViewport(element)) {
-  // Element ist sichtbar, Animation starten
+  // Element is visible, start animation
 }
 ```
 
-## 🎯 Verwendungsbeispiele
+## 🎯 Usage Examples
 
-### Live-Suche mit Debouncing
+### Live Search with Debouncing
 ```javascript
 import { debounce } from './js/utils/index.js';
 
@@ -244,11 +244,11 @@ searchInput.addEventListener('input', (e) => {
 });
 ```
 
-### Benutzerfreundliche Datumsanzeige
+### User-Friendly Date Display
 ```javascript
 import { formatDate, formatRelativeDate } from './js/utils/index.js';
 
-// In einer Komponente
+// In a component
 function PostCard({ post }) {
   return `
     <article>
@@ -256,13 +256,13 @@ function PostCard({ post }) {
       <time datetime="${post.createdAt}">
         ${formatRelativeDate(post.createdAt)}
       </time>
-      <p>Veröffentlicht am ${formatDate(post.createdAt, { format: 'long' })}</p>
+      <p>Published on ${formatDate(post.createdAt, { format: 'long' })}</p>
     </article>
   `;
 }
 ```
 
-### Daten-Export-Funktionalität
+### Data Export Functionality
 ```javascript
 import { downloadTextAsFile, safeJsonStringify } from './js/utils/index.js';
 
@@ -272,15 +272,15 @@ function exportUserData(userData) {
 }
 ```
 
-### Formular-Validierung
+### Form Validation
 ```javascript
 import { isEmpty, classNames } from './js/utils/index.js';
 
 function validateForm(formData) {
   const errors = {};
   
-  if (!formData.email) errors.email = 'E-Mail ist erforderlich';
-  if (!formData.password) errors.password = 'Passwort ist erforderlich';
+  if (!formData.email) errors.email = 'Email is required';
+  if (!formData.password) errors.password = 'Password is required';
   
   return {
     isValid: isEmpty(errors),
@@ -288,7 +288,7 @@ function validateForm(formData) {
   };
 }
 
-// CSS-Klassen basierend auf Validierung
+// CSS classes based on validation
 function getInputClassName(fieldName, errors) {
   return classNames('input', {
     'input--error': errors[fieldName],
@@ -297,43 +297,43 @@ function getInputClassName(fieldName, errors) {
 }
 ```
 
-## 📁 Dateistruktur
+## 📁 File Structure
 
 ```
 js/utils/
-├── index.js              # Haupt-Export-Datei
-├── debounce.js           # Debounce-Funktionalität
-├── formatDate.js         # Datumsformatierung
-├── classNames.js         # CSS-Klassen-Utilities
-├── jsonHelpers.js        # JSON-Parsing-Helpers
-├── objectHelpers.js      # Objekt-Manipulation
-├── arrayHelpers.js       # Array-Utilities
-├── stringHelpers.js      # String-Manipulation
-├── asyncHelpers.js       # Async/Promise-Utilities
-├── clipboard.js          # Zwischenablage-Operationen
-├── domHelpers.js         # DOM-Manipulation
-└── README.md            # Diese Dokumentation
+├── index.js              # Main export file
+├── debounce.js           # Debounce functionality
+├── formatDate.js         # Date formatting
+├── classNames.js         # CSS class utilities
+├── jsonHelpers.js        # JSON parsing helpers
+├── objectHelpers.js      # Object manipulation
+├── arrayHelpers.js       # Array utilities
+├── stringHelpers.js      # String manipulation
+├── asyncHelpers.js       # Async/Promise utilities
+├── clipboard.js          # Clipboard operations
+├── domHelpers.js         # DOM manipulation
+└── README.md            # This documentation
 ```
 
-## 🔧 Erweiterte Verwendung
+## 🔧 Advanced Usage
 
-### Nur die essentiellen Funktionen importieren
+### Import only essential functions
 ```javascript
 import { essentials } from './js/utils/index.js';
 
 const { debounce, formatDate, classNames, copyToClipboard } = essentials;
 ```
 
-### Spezifische Module importieren
+### Import specific modules
 ```javascript
-// Nur String-Utilities
+// Only string utilities
 import { capitalize, truncate, camelCase } from './js/utils/stringHelpers.js';
 
-// Nur Array-Utilities
+// Only array utilities
 import { uniqueArray, groupBy, chunk } from './js/utils/arrayHelpers.js';
 ```
 
-### Alias-Importe verwenden
+### Use alias imports
 ```javascript
 import { 
   uniqueArray as removeDuplicates,
@@ -342,22 +342,22 @@ import {
 } from './js/utils/index.js';
 ```
 
-## 🚀 Performance-Tipps
+## 🚀 Performance Tips
 
-1. **Tree Shaking**: Importiere nur die Funktionen, die du benötigst
-2. **Debouncing**: Verwende `debounce` für häufige Events wie Scroll oder Input
-3. **Async Operations**: Nutze `parallelLimit` für kontrollierte Parallelverarbeitung
-4. **Memory Management**: `cancellable` Promises für abbrechbare Operationen
+1. **Tree Shaking**: Import only the functions you need
+2. **Debouncing**: Use `debounce` for frequent events like scroll or input
+3. **Async Operations**: Use `parallelLimit` for controlled parallel processing
+4. **Memory Management**: `cancellable` promises for abortable operations
 
-## 🤝 Beitragen
+## 🤝 Contributing
 
-Diese Utilities sind Teil des Dragonfly UI-Systems. Für Verbesserungen oder neue Funktionen:
+These utilities are part of the Dragonfly UI system. For improvements or new features:
 
-1. Folge den bestehenden Code-Konventionen
-2. Füge JSDoc-Dokumentation hinzu
-3. Schreibe aussagekräftige Beispiele
-4. Teste deine Funktionen gründlich
+1. Follow existing code conventions
+2. Add JSDoc documentation
+3. Write meaningful examples
+4. Test your functions thoroughly
 
-## 📄 Lizenz
+## 📄 License
 
-Teil des Dragonfly UI-Projekts. Siehe Haupt-Lizenz für Details. 
+Part of the Dragonfly UI project. See main license for details. 

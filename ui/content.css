@@ -2,11 +2,11 @@
 
 @layer elements {
   a {
-    color: var(--color-primary);
+    color: var(--color-primary, #3b82f6);
   }
 
   a:hover {
-    color: var(--color-primary-hover);
+    color: var(--color-primary-hover, #2563eb);
     text-decoration: underline;
   }
 
@@ -26,18 +26,18 @@
 
 @layer components {
   .content {
-    color: var(--color-gray-900);
-    font-size: var(--font-size-base);
+    color: var(--color-gray-900, #111827);
+    font-size: var(--font-size-base, 1rem);
     line-height: 1.6;
     max-width: 65ch;
   }
 
   .content h1 {
-    font-size: var(--font-size-4xl);
+    font-size: var(--font-size-4xl, 2.25rem);
   }
 
   .content h2 {
-    font-size: var(--font-size-3xl);
+    font-size: var(--font-size-3xl, 1.875rem);
   }
 
   .content p {
@@ -47,11 +47,11 @@
   }
 
   .content a {
-    color: var(--color-primary);
+    color: var(--color-primary, #3b82f6);
     text-decoration: underline;
   }
 
   .content a:hover {
-    color: var(--color-primary-dark);
+    color: var(--color-primary-dark, #1e40af);
   }
 }

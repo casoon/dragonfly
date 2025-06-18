@@ -20,7 +20,7 @@ package-lock.json
 yarn.lock
 
 # Build und Distribution
-dist/
+# dist/
 build/
 *.min.css
 *.min.css.map

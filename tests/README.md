@@ -1,4 +1,4 @@
-# Test Directory for @casoon/ui-lib
+# Test Directory for @casoon/dragonfly
 
 This directory contains tests for various aspects of the UI library.
 

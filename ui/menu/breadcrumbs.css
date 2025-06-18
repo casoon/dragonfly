@@ -51,14 +51,14 @@
     
     /* Breadcrumb colors */
     --breadcrumb-color: var(--color-neutral-600);
-    --breadcrumb-link-color: var(--color-primary-600);
-    --breadcrumb-link-hover: var(--color-primary-700);
-    --breadcrumb-current-color: var(--color-neutral-900);
-    --breadcrumb-separator-color: var(--color-neutral-400);
+    --breadcrumb-link-color: var(--color-primary-600, #2563eb);
+    --breadcrumb-link-hover: var(--color-primary-700, #1d4ed8);
+    --breadcrumb-current-color: var(--color-neutral-900, #111827);
+    --breadcrumb-separator-color: var(--color-neutral-400, #9ca3af);
     
     /* Breadcrumb typography */
-    --breadcrumb-font-size: var(--text-sm);
-    --breadcrumb-font-weight: var(--font-medium);
+    --breadcrumb-font-size: var(--text-sm, 0.875rem);
+    --breadcrumb-font-weight: var(--font-medium, 500);
     --breadcrumb-line-height: 1.5;
     
     /* Breadcrumb responsive breakpoints */
@@ -73,7 +73,7 @@
     display: flex;
     font-size: var(--breadcrumb-font-size);
     font-weight: var(--breadcrumb-font-weight);
-    line-height: var(--breadcrumb-line-height);
+    line-height: var(--breadcrumb-line-height, 1.5);
     margin: var(--space-2) 0;
     padding: var(--breadcrumb-padding);
     
@@ -101,7 +101,7 @@
         
         &:last-child {
           color: var(--breadcrumb-current-color);
-          font-weight: var(--font-semibold);
+          font-weight: var(--font-semibold, 600);
         }
       }
     }
@@ -140,7 +140,7 @@
       &[aria-current="page"] {
         color: var(--breadcrumb-current-color);
         cursor: default;
-        font-weight: var(--font-semibold);
+        font-weight: var(--font-semibold, 600);
         pointer-events: none;
       }
     }
@@ -148,7 +148,7 @@
     /* BEM current page element */
     & .current {
       color: var(--breadcrumb-current-color);
-      font-weight: var(--font-semibold);
+      font-weight: var(--font-semibold, 600);
     }
     
     /* Home icon support */
@@ -220,7 +220,7 @@
     
     /* Container query responsive adjustments */
     @container (width <= 768px) {
-      font-size: var(--text-xs);
+      font-size: var(--text-xs, 0.75rem);
       
       & ol, & ul, & .list {
         gap: var(--space-1);
@@ -291,16 +291,16 @@
   /* Breadcrumb Type: Pills */
   .breadcrumbs-pills {
     & a, & .link {
-      background-color: var(--color-neutral-100);
-      border-radius: var(--radius-full);
+      background-color: var(--color-neutral-100, #f3f4f6);
+      border-radius: var(--radius-full, 9999px);
       
       &:hover,
       &:focus {
-        background-color: var(--color-neutral-200);
+        background-color: var(--color-neutral-200, #e5e7eb);
       }
       
       &[aria-current="page"] {
-        background-color: var(--color-primary-100);
+        background-color: var(--color-primary-100, #dbeafe);
       }
     }
     
@@ -317,7 +317,7 @@
       gap: 0;
       
       & li, & .item {
-        background-color: var(--color-neutral-100);
+        background-color: var(--color-neutral-100, #f3f4f6);
         gap: 0;
         position: relative;
         
@@ -327,7 +327,7 @@
           
           &::before {
             border-bottom: 2%0px solid transparent;
-            border-left: 8px solid var(--color-neutral-100);
+            border-left: 8px solid var(--color-neutral-100, #f3f4f6);
             border-top: 2%0px solid transparent;
             content: "";
             height: 0%;
@@ -342,7 +342,7 @@
         
         &:not(:last-child)::after {
           border-bottom: 2%0px solid transparent;
-          border-left: 8px solid var(--color-neutral-100);
+          border-left: 8px solid var(--color-neutral-100, #f3f4f6);
           border-top: 2%0px solid transparent;
           content: "";
           height: 0%;
@@ -355,10 +355,10 @@
         }
         
         &:last-child {
-          background-color: var(--color-primary-100);
+          background-color: var(--color-primary-100, #dbeafe);
           
           &::before {
-            border-left-color: var(--color-primary-100);
+            border-left-color: var(--color-primary-100, #dbeafe);
           }
         }
       }
@@ -383,19 +383,19 @@
   /* Theme variants */
   .breadcrumbs {
     &.theme-dark {
-      --breadcrumb-color: var(--color-neutral-300);
+      --breadcrumb-color: var(--color-neutral-300, #d1d5db);
       --breadcrumb-link-color: var(--color-primary-400);
       --breadcrumb-link-hover: var(--color-primary-300);
-      --breadcrumb-current-color: var(--color-neutral-100);
-      --breadcrumb-separator-color: var(--color-neutral-500);
+      --breadcrumb-current-color: var(--color-neutral-100, #f3f4f6);
+      --breadcrumb-separator-color: var(--color-neutral-500, #6b7280);
       
       &.breadcrumbs-pills a,
       &.breadcrumbs-pills .link {
-        background-color: var(--color-neutral-800);
+        background-color: var(--color-neutral-800, #1f2937);
         
         &:hover,
         &:focus {
-          background-color: var(--color-neutral-700);
+          background-color: var(--color-neutral-700, #374151);
         }
         
         &[aria-current="page"] {
@@ -407,14 +407,14 @@
         & ol li,
         & ul li,
         & .item {
-          background-color: var(--color-neutral-800);
+          background-color: var(--color-neutral-800, #1f2937);
           
           &:not(:first-child)::before {
-            border-left-color: var(--color-neutral-800);
+            border-left-color: var(--color-neutral-800, #1f2937);
           }
           
           &:not(:last-child)::after {
-            border-left-color: var(--color-neutral-800);
+            border-left-color: var(--color-neutral-800, #1f2937);
           }
           
           &:last-child {
@@ -433,7 +433,7 @@
   @supports not (container-type: inline-size) {
     @media (max-width: 768px) {
       .breadcrumbs {
-        font-size: var(--text-xs);
+        font-size: var(--text-xs, 0.75rem);
         
         & ol, & ul, & .list {
           gap: var(--space-1);

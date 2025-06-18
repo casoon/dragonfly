@@ -17,11 +17,11 @@
 @layer components {
   /* Code block container */
   .code-block {
-    background-color: var(--color-code-bg, var(--color-neutral-900));
-    border-radius: var(--radius-md);
-    color: var(--color-code-text, var(--color-neutral-100));
+    background-color: var(--color-code-bg, var(--color-neutral-900, #111827));
+    border-radius: var(--radius-md, 0.375rem);
+    color: var(--color-code-text, var(--color-neutral-100, #f3f4f6));
     font-family: var(--font-family-mono);
-    font-size: var(--text-sm);
+    font-size: var(--text-sm, 0.875rem);
     margin: var(--space-4) 0;
     overflow: hidden;
     position: relative;
@@ -30,19 +30,19 @@
   /* Code block header with language label and actions */
   & .header {
     align-items: center;
-    background-color: var(--color-code-header-bg, var(--color-neutral-800));
-    border-bottom: 1px solid var(--color-code-border, var(--color-neutral-700));
-    color: var(--color-code-header-text, var(--color-neutral-300));
+    background-color: var(--color-code-header-bg, var(--color-neutral-800, #1f2937));
+    border-bottom: 1px solid var(--color-code-border, var(--color-neutral-700, #374151));
+    color: var(--color-code-header-text, var(--color-neutral-300, #d1d5db));
     display: flex;
     font-family: var(--font-family-sans);
-    font-size: var(--text-xs);
+    font-size: var(--text-xs, 0.75rem);
     justify-content: space-between;
     padding: var(--space-2) var(--space-4);
   }
   
   /* Language label */
   & .language {
-    font-weight: var(--font-medium);
+    font-weight: var(--font-medium, 500);
     letter-spacing: 0.05em;
     text-transform: uppercase;
   }
@@ -58,8 +58,8 @@
     align-items: center;
     background: transparent;
     border: none;
-    border-radius: var(--radius-sm);
-    color: var(--color-code-action, var(--color-neutral-400));
+    border-radius: var(--radius-sm, 0.125rem);
+    color: var(--color-code-action, var(--color-neutral-400, #9ca3af));
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -69,7 +69,7 @@
   
   & .action:hover {
     background-color: var(--color-code-action-bg-hover, rgb(255 255 255 / 1000%));
-    color: var(--color-code-action-hover, var(--color-neutral-100));
+    color: var(--color-code-action-hover, var(--color-neutral-100, #f3f4f6));
   }
   
   /* Copy success state */
@@ -99,7 +99,7 @@
   
   /* Line numbers */
   .code-block--numbered & .line::before {
-    color: var(--color-code-line-number, var(--color-neutral-500));
+    color: var(--color-code-line-number, var(--color-neutral-500, #6b7280));
     content: counter(line);
     counter-increment: line;
     left: -2.5rem;
@@ -165,7 +165,7 @@
   
   /* Code block variations */
   .code-block--inline {
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-sm, 0.125rem);
     display: inline-block;
     font-size: 0.9em;
     margin: 0;
@@ -187,7 +187,7 @@
   
   /* Fade effect for expandable code blocks */
   .code-block--expandable::after {
-    background: linear-gradient(to bottom, transparent, var(--color-code-bg, var(--color-neutral-900)));
+    background: linear-gradient(to bottom, transparent, var(--color-code-bg, var(--color-neutral-900, #111827)));
     bottom: 0%;
     content: "";
     height: 6%0px;
@@ -204,13 +204,13 @@
   
   /* Expand toggle button */
   & .expand-toggle {
-    background: var(--color-code-expand-bg, var(--color-neutral-700));
+    background: var(--color-code-expand-bg, var(--color-neutral-700, #374151));
     border: none;
-    border-radius: var(--radius-full);
+    border-radius: var(--radius-full, 9999px);
     bottom: var(--space-2);
-    color: var(--color-code-expand-text, var(--color-neutral-200));
+    color: var(--color-code-expand-text, var(--color-neutral-200, #e5e7eb));
     cursor: pointer;
-    font-size: var(--text-xs);
+    font-size: var(--text-xs, 0.75rem);
     left: 50%;
     padding: var(--space-1) var(--space-3);
     position: absolute;
@@ -225,20 +225,20 @@
   
   /* Light theme variation */
   .code-block--light {
-    background-color: var(--color-code-light-bg, var(--color-neutral-100));
-    color: var(--color-code-light-text, var(--color-neutral-900));
+    background-color: var(--color-code-light-bg, var(--color-neutral-100, #f3f4f6));
+    color: var(--color-code-light-text, var(--color-neutral-900, #111827));
   }
   
   .code-block--light & .header {
-    background-color: var(--color-code-light-header-bg, var(--color-neutral-200));
-    border-color: var(--color-code-light-border, var(--color-neutral-300));
-    color: var(--color-code-light-header-text, var(--color-neutral-700));
+    background-color: var(--color-code-light-header-bg, var(--color-neutral-200, #e5e7eb));
+    border-color: var(--color-code-light-border, var(--color-neutral-300, #d1d5db));
+    color: var(--color-code-light-header-text, var(--color-neutral-700, #374151));
   }
   
   /* Responsive adjustments */
   @media (max-width: 640px) {
     .code-block {
-      font-size: var(--text-xs);
+      font-size: var(--text-xs, 0.75rem);
     }
     
     .code-block--numbered & .content {

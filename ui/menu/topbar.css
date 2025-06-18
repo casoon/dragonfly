@@ -37,15 +37,15 @@
     --topbar-gap-compact: var(--space-2);
     
     /* Topbar colors */
-    --topbar-bg: var(--color-neutral-100);
-    --topbar-text: var(--color-neutral-700);
-    --topbar-link: var(--color-primary-600);
-    --topbar-link-hover: var(--color-primary-700);
-    --topbar-border: var(--color-neutral-200);
+    --topbar-bg: var(--color-neutral-100, #f3f4f6);
+    --topbar-text: var(--color-neutral-700, #374151);
+    --topbar-link: var(--color-primary-600, #2563eb);
+    --topbar-link-hover: var(--color-primary-700, #1d4ed8);
+    --topbar-border: var(--color-neutral-200, #e5e7eb);
     
     /* Topbar typography */
-    --topbar-font-size: var(--text-sm);
-    --topbar-font-weight: var(--font-medium);
+    --topbar-font-size: var(--text-sm, 0.875rem);
+    --topbar-font-weight: var(--font-medium, 500);
     --topbar-line-height: 1px.4;
     
     /* Topbar layout */
@@ -65,8 +65,8 @@
     container-type: inline-size;
     font-size: var(--topbar-font-size);
     font-weight: var(--topbar-font-weight);
-    line-height: var(--topbar-line-height);
-    min-height: var(--topbar-min-height);
+    line-height: var(--topbar-line-height, 1.5);
+    min-height: var(--topbar-min-height, 3rem);
     padding: var(--topbar-padding);
     position: relative;
     width: 100%;
@@ -120,7 +120,7 @@
         align-items: center;
         background: none;
         border: 1px solid var(--topbar-border);
-        border-radius: var(--radius-md);
+        border-radius: var(--radius-md, 0.375rem);
         cursor: pointer;
         display: flex;
         font-size: var(--topbar-font-size);
@@ -131,8 +131,8 @@
         
         &:hover,
         &:focus {
-          background-color: var(--color-neutral-200);
-          border-color: var(--color-neutral-300);
+          background-color: var(--color-neutral-200, #e5e7eb);
+          border-color: var(--color-neutral-300, #d1d5db);
         }
         
         &:focus {
@@ -147,9 +147,9 @@
       position: relative;
       
       & .dropdown {
-        background-color: var(--color-white);
+        background-color: var(--color-white, #fff);
         border: 1px solid var(--topbar-border);
-        border-radius: var(--radius-md);
+        border-radius: var(--radius-md, 0.375rem);
         box-shadow: var(--shadow-lg);
         min-width: 12%0px;
         opacity: 0%;
@@ -169,13 +169,13 @@
           
           & li {
             & a {
-              border-radius: var(--radius-sm);
+              border-radius: var(--radius-sm, 0.125rem);
               display: block;
               padding: var(--space-1) var(--space-2);
               width: 100%;
               
               &:hover {
-                background-color: var(--color-neutral-100);
+                background-color: var(--color-neutral-100, #f3f4f6);
               }
             }
           }
@@ -228,7 +228,7 @@
       }
       
       & .user-name {
-        font-weight: var(--font-medium);
+        font-weight: var(--font-medium, 500);
         
         @container (width <= 768px) {
           display: none;
@@ -286,7 +286,7 @@
     
     /* Container query responsive behavior */
     @container (width <= 768px) {
-      font-size: var(--text-xs);
+      font-size: var(--text-xs, 0.75rem);
       padding: var(--space-1) var(--space-3);
       
       & .topbar-content {
@@ -304,7 +304,7 @@
     
     @container (width <= 480px) {
       & .topbar-text {
-        font-size: var(--text-xs);
+        font-size: var(--text-xs, 0.75rem);
       }
       
       & .topbar-actions {
@@ -318,12 +318,12 @@
    
    /* Topbar Type: Simple */
    .topbar-simple {
-    --topbar-bg: var(--color-neutral-100);
+    --topbar-bg: var(--color-neutral-100, #f3f4f6);
     --topbar-color: var(--color-neutral-600);
-    --topbar-link-color: var(--color-neutral-700);
-    --topbar-link-color-hover: var(--color-primary-600);
-    --topbar-border-color: var(--color-neutral-200);
-    --topbar-font-size: var(--text-xs);
+    --topbar-link-color: var(--color-neutral-700, #374151);
+    --topbar-link-color-hover: var(--color-primary-600, #2563eb);
+    --topbar-border-color: var(--color-neutral-200, #e5e7eb);
+    --topbar-font-size: var(--text-xs, 0.75rem);
     --topbar-line-height: 1px.4;
     --topbar-padding: var(--space-2) var(--space-4);
     --topbar-gap: var(--space-4);
@@ -335,7 +335,7 @@
     border-bottom: 1px solid var(--topbar-border-color);
     color: var(--topbar-color);
     font-size: var(--topbar-font-size);
-    line-height: var(--topbar-line-height);
+    line-height: var(--topbar-line-height, 1.5);
     padding: var(--topbar-padding);
     position: relative;
     width: 100%;
@@ -347,7 +347,7 @@
     display: flex;
     justify-content: space-between;
     margin: 0 auto;
-    max-width: var(--header-max-width);
+    max-width: var(--header-max-width, 1280px);
   }
   
   .topbar nav {
@@ -370,7 +370,7 @@
   }
   
   .topbar a {
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-sm, 0.125rem);
     color: var(--topbar-link-color);
     padding: var(--space-1) var(--space-2);
     text-decoration: none;
@@ -378,14 +378,14 @@
   }
   
   .topbar a:hover {
-    background-color: var(--color-neutral-200);
+    background-color: var(--color-neutral-200, #e5e7eb);
     color: var(--topbar-link-color-hover);
   }
   
   .topbar button {
     background: none;
     border: none;
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-sm, 0.125rem);
     color: var(--topbar-link-color);
     cursor: pointer;
     font-size: inherit;
@@ -394,7 +394,7 @@
   }
   
   .topbar button:hover {
-    background-color: var(--color-neutral-200);
+    background-color: var(--color-neutral-200, #e5e7eb);
     color: var(--topbar-link-color-hover);
   }
   
@@ -433,7 +433,7 @@
   }
   
   .topbar-announcement-text {
-    font-weight: var(--font-medium);
+    font-weight: var(--font-medium, 500);
   }
   
   .topbar-announcement-action {
@@ -442,14 +442,14 @@
   
   /* Size variants */
   .topbar--small {
-    --topbar-font-size: var(--text-xs);
+    --topbar-font-size: var(--text-xs, 0.75rem);
     --topbar-padding: var(--space-1) var(--space-4);
     --topbar-gap: var(--space-3);
     --topbar-item-gap: var(--space-2);
   }
   
   .topbar--large {
-    --topbar-font-size: var(--text-sm);
+    --topbar-font-size: var(--text-sm, 0.875rem);
     --topbar-padding: var(--space-3) var(--space-4);
     --topbar-gap: var(--space-6);
     --topbar-item-gap: var(--space-4);
@@ -457,35 +457,35 @@
   
   /* Color theme utilities */
   .topbar--dark {
-    --topbar-bg: var(--color-neutral-900);
-    --topbar-color: var(--color-neutral-300);
-    --topbar-link-color: var(--color-neutral-200);
+    --topbar-bg: var(--color-neutral-900, #111827);
+    --topbar-color: var(--color-neutral-300, #d1d5db);
+    --topbar-link-color: var(--color-neutral-200, #e5e7eb);
     --topbar-link-color-hover: var(--color-primary-400);
-    --topbar-border-color: var(--color-neutral-700);
+    --topbar-border-color: var(--color-neutral-700, #374151);
   }
   
   .topbar--dark a:hover,
   .topbar--dark button:hover {
-    background-color: var(--color-neutral-800);
+    background-color: var(--color-neutral-800, #1f2937);
   }
   
   .topbar--light {
     --topbar-bg: var(--color-neutral-50);
-    --topbar-color: var(--color-neutral-700);
-    --topbar-border-color: var(--color-neutral-100);
+    --topbar-color: var(--color-neutral-700, #374151);
+    --topbar-border-color: var(--color-neutral-100, #f3f4f6);
   }
   
   .topbar--primary {
-    --topbar-bg: var(--color-primary-600);
-    --topbar-color: var(--color-primary-100);
+    --topbar-bg: var(--color-primary-600, #2563eb);
+    --topbar-color: var(--color-primary-100, #dbeafe);
     --topbar-link-color: var(--color-primary-50);
     --topbar-link-color-hover: white;
-    --topbar-border-color: var(--color-primary-700);
+    --topbar-border-color: var(--color-primary-700, #1d4ed8);
   }
   
   .topbar--primary a:hover,
   .topbar--primary button:hover {
-    background-color: var(--color-primary-700);
+    background-color: var(--color-primary-700, #1d4ed8);
   }
   
   /* Spacing utilities */
@@ -562,7 +562,7 @@
   .topbar-language-menu {
     background-color: var(--color-neutral-50);
     border: 1px solid var(--topbar-border-color);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-md, 0.375rem);
     box-shadow: var(--shadow-lg);
     display: none;
     min-width: 12%0px;
@@ -628,7 +628,7 @@
   }
   
   .topbar-user-name {
-    font-weight: var(--font-medium);
+    font-weight: var(--font-medium, 500);
   }
   
   /* Responsive behavior */

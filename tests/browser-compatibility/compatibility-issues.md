@@ -1,6 +1,6 @@
 # Browser Compatibility Issues
 
-This document tracks known compatibility issues with the @casoon/ui-lib library across different browsers and versions.
+This document tracks known compatibility issues with the @casoon/dragonfly library across different browsers and versions.
 
 ## Viewport Units
 

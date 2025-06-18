@@ -1,4 +1,4 @@
-# Web Fonts in @casoon/ui-lib
+# Web Fonts in @casoon/dragonfly
 
 This directory contains optimized WOFF2 versions of popular Google Fonts for better performance and privacy. Using self-hosted fonts eliminates external requests to Google's servers and reduces load times.
 
@@ -24,10 +24,10 @@ If you only need a specific weight of a font:
 
 ```css
 /* Import only Regular (400) */
-@import '@casoon/ui-lib/fonts/roboto/400.css';
+@import '@casoon/dragonfly/fonts/roboto/400.css';
 
 /* Or import only Bold (700) */
-@import '@casoon/ui-lib/fonts/roboto/700.css';
+@import '@casoon/dragonfly/fonts/roboto/700.css';
 ```
 
 ### Option 2: Import All Weights of a Font
@@ -35,7 +35,7 @@ If you only need a specific weight of a font:
 To import all available weights of a font:
 
 ```css
-@import '@casoon/ui-lib/fonts/roboto/index.css';
+@import '@casoon/dragonfly/fonts/roboto/index.css';
 ```
 
 ### CSS Variables and Utility Classes
@@ -56,7 +56,7 @@ When using this library in an Astro project (or any project using Vite or Webpac
 
 ```css
 /* In your Astro component or global CSS */
-@import '@casoon/ui-lib/fonts/roboto/index.css';
+@import '@casoon/dragonfly/fonts/roboto/index.css';
 ```
 
 This works out of the box with no additional plugins or manual copying required. Vite (used by Astro) or Webpack will handle the fonts automatically and optimize them for your production build.
@@ -68,8 +68,8 @@ For more direct control, you can also use Astro's asset imports:
 ```astro
 ---
 // Import font files directly
-import robotoRegular from '@casoon/ui-lib/fonts/roboto/roboto-regular.woff2';
-import robotoBold from '@casoon/ui-lib/fonts/roboto/roboto-bold.woff2';
+import robotoRegular from '@casoon/dragonfly/fonts/roboto/roboto-regular.woff2';
+import robotoBold from '@casoon/dragonfly/fonts/roboto/roboto-bold.woff2';
 ---
 
 <style define:vars={{ robotoRegular, robotoBold }}>

@@ -62,8 +62,8 @@
 /* Komponenten-Styles */
 @layer components {
   .skeleton {
-    background-color: var(--color-neutral-200);
-    border-radius: var(--radius-sm);
+    background-color: var(--color-neutral-200, #e5e7eb);
+    border-radius: var(--radius-sm, 0.125rem);
     
     /* Formvarianten */
     &.circle {
@@ -71,7 +71,7 @@
     }
     
     &.rect {
-      border-radius: var(--radius-md);
+      border-radius: var(--radius-md, 0.375rem);
     }
     
     &.text {
@@ -87,8 +87,8 @@
     }
     
     &.button {
-      border-radius: var(--radius-md);
-      height: 2%.5rem;
+      border-radius: var(--radius-md, 0.375rem);
+      height: 2.5rem;
       width: 8rem;
     }
     
@@ -139,9 +139,9 @@
   
   /* Skeleton-Kontainer */
   .skeleton-card {
-    background-color: var(--color-white);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-sm);
+    background-color: var(--color-white, #fff);
+    border-radius: var(--radius-md, 0.375rem);
+    box-shadow: var(--shadow-sm, 0 1px 2px 0 rgb(0 0 0 / 0.05));
     max-width: 2%4rem;
     padding: var(--space-4);
     width: 100%;
@@ -156,15 +156,15 @@
 /* Animations-Styles */
 @layer animations {
   .skeleton {
-    animation: pulse 1.5s ease-in-out infinite;
+    animation: var(--ui-pulse-animation, pulse var(--animation-duration-slowest, 1500ms) var(--easing-smooth, ease-in-out) infinite);
     
     /* Animationstypen */
     &.pulse {
-      animation: pulse 1.5s ease-in-out infinite;
+      animation: var(--ui-pulse-animation, pulse var(--animation-duration-slowest, 1500ms) var(--easing-smooth, ease-in-out) infinite);
     }
     
     &.wave::after {
-      animation: wave 2s infinite;
+      animation: wave var(--animation-duration-slowest, 2000ms) infinite;
       background-image: linear-gradient(
         90deg,
         rgb(255 255 255 / 0%) 0,

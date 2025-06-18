@@ -87,18 +87,18 @@
     
     /* Footer colors */
     --footer-bg: var(--color-neutral-50);
-    --footer-text: var(--color-neutral-700);
-    --footer-heading: var(--color-neutral-900);
-    --footer-link: var(--color-primary-600);
-    --footer-link-hover: var(--color-primary-700);
-    --footer-border: var(--color-neutral-200);
+    --footer-text: var(--color-neutral-700, #374151);
+    --footer-heading: var(--color-neutral-900, #111827);
+    --footer-link: var(--color-primary-600, #2563eb);
+    --footer-link-hover: var(--color-primary-700, #1d4ed8);
+    --footer-border: var(--color-neutral-200, #e5e7eb);
     
     /* Footer typography */
-    --footer-font-size: var(--text-sm);
+    --footer-font-size: var(--text-sm, 0.875rem);
     --footer-line-height: 1%.6;
     --footer-heading-size: var(--text-base);
-    --footer-heading-weight: var(--font-semibold);
-    --footer-link-weight: var(--font-medium);
+    --footer-heading-weight: var(--font-semibold, 600);
+    --footer-link-weight: var(--font-medium, 500);
     
     /* Footer layout */
     --footer-max-width: var(--container-7xl);
@@ -109,32 +109,32 @@
     /* Footer themes */
     &[data-theme="dark"],
     &.theme-dark {
-      --footer-bg: var(--color-neutral-900);
-      --footer-text: var(--color-neutral-300);
-      --footer-heading: var(--color-neutral-100);
+      --footer-bg: var(--color-neutral-900, #111827);
+      --footer-text: var(--color-neutral-300, #d1d5db);
+      --footer-heading: var(--color-neutral-100, #f3f4f6);
       --footer-link: var(--color-primary-400);
       --footer-link-hover: var(--color-primary-300);
-      --footer-border: var(--color-neutral-700);
+      --footer-border: var(--color-neutral-700, #374151);
     }
     
     &[data-theme="primary"],
     &.theme-primary {
       --footer-bg: var(--color-primary-900);
-      --footer-text: var(--color-primary-100);
-      --footer-heading: var(--color-white);
+      --footer-text: var(--color-primary-100, #dbeafe);
+      --footer-heading: var(--color-white, #fff);
       --footer-link: var(--color-primary-200);
-      --footer-link-hover: var(--color-white);
-      --footer-border: var(--color-primary-700);
+      --footer-link-hover: var(--color-white, #fff);
+      --footer-border: var(--color-primary-700, #1d4ed8);
     }
     
     &[data-theme="minimal"],
     &.theme-minimal {
       --footer-bg: transparent;
       --footer-text: var(--color-neutral-600);
-      --footer-heading: var(--color-neutral-800);
-      --footer-link: var(--color-neutral-700);
-      --footer-link-hover: var(--color-neutral-900);
-      --footer-border: var(--color-neutral-300);
+      --footer-heading: var(--color-neutral-800, #1f2937);
+      --footer-link: var(--color-neutral-700, #374151);
+      --footer-link-hover: var(--color-neutral-900, #111827);
+      --footer-border: var(--color-neutral-300, #d1d5db);
       --footer-padding: var(--space-4) 0;
     }
   }
@@ -152,7 +152,7 @@
     color: var(--footer-text);
     container-type: inline-size;
     font-size: var(--footer-font-size);
-    line-height: var(--footer-line-height);
+    line-height: var(--footer-line-height, 1.5);
     padding: var(--footer-padding);
     width: 100%;
     
@@ -287,7 +287,7 @@
     /* Copyright */
     & .copyright {
       color: var(--footer-text);
-      font-size: var(--text-sm);
+      font-size: var(--text-sm, 0.875rem);
       margin: 0;
     }
     
@@ -298,7 +298,7 @@
       
       & .social-link {
         align-items: center;
-        background-color: var(--color-neutral-100);
+        background-color: var(--color-neutral-100, #f3f4f6);
         border-radius: 50px;
         color: var(--color-neutral-600);
         display: flex;
@@ -308,7 +308,7 @@
         width: 2rem;
         
         &:hover {
-          background-color: var(--color-primary);
+          background-color: var(--color-primary, #3b82f6);
           color: white;
         }
       }
@@ -321,7 +321,7 @@
       
       & a {
         color: var(--footer-text);
-        font-size: var(--text-sm);
+        font-size: var(--text-sm, 0.875rem);
         
         &:hover {
           color: var(--footer-link-hover);
@@ -331,18 +331,18 @@
     
     /* Theme variants for original footer */
     &.light {
-      background-color: var(--color-white);
+      background-color: var(--color-white, #fff);
     }
     
     &.dark {
-      background-color: var(--color-neutral-900);
+      background-color: var(--color-neutral-900, #111827);
       
       & .heading {
-        color: var(--color-white);
+        color: var(--color-white, #fff);
       }
       
       & .link, & .address {
-        color: var(--color-neutral-300);
+        color: var(--color-neutral-300, #d1d5db);
       }
       
       & .link:hover {
@@ -350,37 +350,37 @@
       }
       
       & .bottom {
-        border-top-color: var(--color-neutral-700);
+        border-top-color: var(--color-neutral-700, #374151);
       }
       
       & .copyright, & .legal a {
-        color: var(--color-neutral-400);
+        color: var(--color-neutral-400, #9ca3af);
       }
       
       & .social-link {
-        background-color: var(--color-neutral-700);
-        color: var(--color-neutral-300);
+        background-color: var(--color-neutral-700, #374151);
+        color: var(--color-neutral-300, #d1d5db);
       }
     }
     
     &.primary {
-      background-color: var(--color-primary);
-      color: var(--color-white);
+      background-color: var(--color-primary, #3b82f6);
+      color: var(--color-white, #fff);
       
       & .heading {
-        color: var(--color-white);
+        color: var(--color-white, #fff);
       }
       
       & .link, & .address {
-        color: var(--color-primary-100);
+        color: var(--color-primary-100, #dbeafe);
       }
       
       & .link:hover {
-        color: var(--color-white);
+        color: var(--color-white, #fff);
       }
       
       & .bottom {
-        border-top-color: var(--color-primary-600);
+        border-top-color: var(--color-primary-600, #2563eb);
       }
       
       & .copyright, & .legal a {
@@ -388,8 +388,8 @@
       }
       
       & .social-link {
-        background-color: var(--color-primary-600);
-        color: var(--color-white);
+        background-color: var(--color-primary-600, #2563eb);
+        color: var(--color-white, #fff);
       }
     }
     
@@ -399,7 +399,7 @@
       padding: var(--space-4) 0;
       
       & .bottom {
-        border-top: 1px solid var(--color-neutral-200);
+        border-top: 1px solid var(--color-neutral-200, #e5e7eb);
         margin-top: 0%;
         padding-top: var(--space-4);
       }
@@ -446,7 +446,7 @@
   .footer-minimal {
     & .footer-content {
       margin: 0 auto;
-      max-width: var(--footer-max-width);
+      max-width: var(--footer-max-width, 1280px);
       width: 100%;
     }
   }
@@ -658,11 +658,11 @@
   .footer-split,
   .footer-minimal {
     &.theme-dark {
-      background-color: var(--color-neutral-900);
-      color: var(--color-neutral-300);
+      background-color: var(--color-neutral-900, #111827);
+      color: var(--color-neutral-300, #d1d5db);
       
       & h1, & h2, & h3, & h4, & h5, & h6 {
-        color: var(--color-neutral-100);
+        color: var(--color-neutral-100, #f3f4f6);
       }
       
       & a {
@@ -675,24 +675,24 @@
       }
       
       & .footer-content section h4 {
-        border-bottom-color: var(--color-neutral-700);
+        border-bottom-color: var(--color-neutral-700, #374151);
       }
       
       &.footer-minimal {
-        border-top-color: var(--color-neutral-700);
+        border-top-color: var(--color-neutral-700, #374151);
       }
       
       & .footer-stacked .footer-content > * {
-        border-bottom-color: var(--color-neutral-700);
+        border-bottom-color: var(--color-neutral-700, #374151);
       }
     }
     
     &.theme-primary {
       background-color: var(--color-primary-900);
-      color: var(--color-primary-100);
+      color: var(--color-primary-100, #dbeafe);
       
       & h1, & h2, & h3, & h4, & h5, & h6 {
-        color: var(--color-white);
+        color: var(--color-white, #fff);
       }
       
       & a {
@@ -700,20 +700,20 @@
         
         &:hover,
         &:focus {
-          color: var(--color-white);
+          color: var(--color-white, #fff);
         }
       }
       
       & .footer-content section h4 {
-        border-bottom-color: var(--color-primary-700);
+        border-bottom-color: var(--color-primary-700, #1d4ed8);
       }
       
       &.footer-minimal {
-        border-top-color: var(--color-primary-700);
+        border-top-color: var(--color-primary-700, #1d4ed8);
       }
       
       & .footer-stacked .footer-content > * {
-        border-bottom-color: var(--color-primary-700);
+        border-bottom-color: var(--color-primary-700, #1d4ed8);
       }
     }
     
@@ -722,28 +722,28 @@
       color: var(--color-neutral-600);
       
       & h1, & h2, & h3, & h4, & h5, & h6 {
-        color: var(--color-neutral-800);
+        color: var(--color-neutral-800, #1f2937);
       }
       
       & a {
-        color: var(--color-neutral-700);
+        color: var(--color-neutral-700, #374151);
         
         &:hover,
         &:focus {
-          color: var(--color-neutral-900);
+          color: var(--color-neutral-900, #111827);
         }
       }
       
       & .footer-content section h4 {
-        border-bottom-color: var(--color-neutral-300);
+        border-bottom-color: var(--color-neutral-300, #d1d5db);
       }
       
       &.footer-minimal {
-        border-top-color: var(--color-neutral-300);
+        border-top-color: var(--color-neutral-300, #d1d5db);
       }
       
       & .footer-stacked .footer-content > * {
-        border-bottom-color: var(--color-neutral-300);
+        border-bottom-color: var(--color-neutral-300, #d1d5db);
       }
     }
   }
@@ -817,11 +817,11 @@
   .footer-split,
   .footer-minimal {
     background: white !important;
-    border-top: 1px solid var(--color-neutral-900);
-    color: var(--color-neutral-900) !important;
+    border-top: 1px solid var(--color-neutral-900, #111827);
+    color: var(--color-neutral-900, #111827) !important;
     
     & a {
-      color: var(--color-neutral-900) !important;
+      color: var(--color-neutral-900, #111827) !important;
       text-decoration: underline;
     }
     

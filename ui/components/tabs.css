@@ -35,6 +35,24 @@
  * <div class="tabs lg">...</div>  <!-- Groß -->
  */
 
+
+/**
+ * Tabs Component Structure:
+ * 
+ * <div class="tabs">
+ *   <div class="tabs-list" role="tablist">
+ *     <button class="tab-item" role="tab" aria-selected="true">Tab 1</button>
+ *     <button class="tab-item" role="tab">Tab 2</button>
+ *   </div>
+ *   <div class="tab-panels">
+ *     <div class="tab-panel" role="tabpanel">Panel 1 content</div>
+ *     <div class="tab-panel" role="tabpanel" hidden>Panel 2 content</div>
+ *   </div>
+ * </div>
+ * 
+ * Variants: .tabs--vertical, .tabs--pills, .tabs--underlined
+ * Modifiers: .tabs--justify, .tabs--center
+ */
 @layer components {
   .tabs {
     display: flex;

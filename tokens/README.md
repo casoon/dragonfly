@@ -1,42 +1,42 @@
 # Design Tokens
 
-Das Dragonfly Design System verwendet ein umfassendes Token-System für konsistente Design-Werte across alle Komponenten.
+The Dragonfly Design System uses a comprehensive token system for consistent design values across all components.
 
-## Token-Kategorien
+## Token Categories
 
 ### Core Tokens
-- **`colors.css`** - Farbpaletten mit semantischen Namen und Abstufungen (50-900)
-- **`spacing.css`** - Abstand-Werte für Margins, Padding und Gaps
-- **`typography.css`** - Schriftgrößen, Gewichte und Aliase
-- **`radius.css`** - Border-Radius-Werte für verschiedene Komponenten
-- **`layout.css`** - Layout-spezifische Tokens
-- **`transitions.css`** - Animations- und Übergangswerte
-- **`effects.css`** - Schatten, Glows und visuelle Effekte
-- **`themes.css`** - Theme-spezifische Eigenschaften
+- **`colors.css`** - Color palettes with semantic names and scales (50-900)
+- **`spacing.css`** - Spacing values for margins, padding, and gaps
+- **`typography.css`** - Font sizes, weights, and aliases
+- **`radius.css`** - Border-radius values for various components
+- **`layout.css`** - Layout-specific tokens
+- **`transitions.css`** - Animation and transition values
+- **`effects.css`** - Shadows, glows, and visual effects
+- **`themes.css`** - Theme-specific properties
 
 ### Component Tokens
-- **`components.css`** - Komponentenspezifische Tokens für UI-Elemente
+- **`components.css`** - Component-specific tokens for UI elements
 
-## Token-Nutzung in Komponenten
+## Token Usage in Components
 
-### Farb-Tokens
-Die Komponenten nutzen semantische Farb-Tokens mit Abstufungen:
+### Color Tokens
+Components use semantic color tokens with scales:
 
 ```css
-/* Alert-Komponente */
+/* Alert component */
 .alert-info {
   background-color: var(--color-info-100, #e0f2fe);
   color: var(--color-info-800, #1e40af);
 }
 
-/* Badge-Komponente */
+/* Badge component */
 .badge--primary {
   background-color: var(--color-primary-500);
   color: var(--color-text-inverse, white);
 }
 ```
 
-**Verfügbare Farbskalen:**
+**Available Color Scales:**
 - `--color-primary-{50-900}`
 - `--color-secondary-{50-900}`
 - `--color-success-{50-900}`
@@ -44,13 +44,13 @@ Die Komponenten nutzen semantische Farb-Tokens mit Abstufungen:
 - `--color-error-{50-900}`
 - `--color-info-{50-900}`
 - `--color-neutral-{50-900}`
-- `--color-gray-{50-900}` (Alias für neutral)
+- `--color-gray-{50-900}` (alias for neutral)
 
-### Typography-Tokens
-Sowohl `--font-size-*` als auch `--text-*` Aliase werden unterstützt:
+### Typography Tokens
+Both `--font-size-*` and `--text-*` aliases are supported:
 
 ```css
-/* Verschiedene Schriftgrößen */
+/* Various font sizes */
 .alert {
   font-size: var(--text-sm, var(--font-size-sm, 0.875rem));
 }
@@ -61,22 +61,22 @@ Sowohl `--font-size-*` als auch `--text-*` Aliase werden unterstützt:
 }
 ```
 
-**Verfügbare Text-Größen:**
+**Available Text Sizes:**
 - `--text-xs` / `--font-size-xs` (0.75rem)
 - `--text-sm` / `--font-size-sm` (0.875rem)
 - `--text-base` / `--font-size-base` (1rem)
 - `--text-lg` / `--font-size-lg` (1.125rem)
 - `--text-xl` / `--font-size-xl` (1.25rem)
 
-**Font-Weight Aliase:**
+**Font-Weight Aliases:**
 - `--font-light` / `--font-weight-light` (300)
 - `--font-normal` / `--font-weight-normal` (400)
 - `--font-medium` / `--font-weight-medium` (500)
 - `--font-semibold` / `--font-weight-semibold` (600)
 - `--font-bold` / `--font-weight-bold` (700)
 
-### Spacing-Tokens
-Verwendet für Padding, Margins und Gaps:
+### Spacing Tokens
+Used for padding, margins, and gaps:
 
 ```css
 .alert {
@@ -86,17 +86,17 @@ Verwendet für Padding, Margins und Gaps:
 ```
 
 ### Component-Specific Tokens
-Spezielle Tokens für einzelne Komponenten:
+Special tokens for individual components:
 
 ```css
-/* Alert-spezifische Tokens */
+/* Alert-specific tokens */
 --alert-padding: var(--space-4)
 --alert-padding-sm: var(--space-2)
 --alert-padding-lg: var(--space-5)
 --alert-gap: var(--space-3)
 --alert-border-radius: var(--radius-md)
 
-/* Badge-spezifische Tokens */
+/* Badge-specific tokens */
 --badge-padding-xs: 0.15rem 0.35rem
 --badge-padding-sm: 0.2rem 0.4rem
 --badge-padding-md: 0.25rem 0.5rem
@@ -107,10 +107,10 @@ Spezielle Tokens für einzelne Komponenten:
 --badge-min-width-lg: 2rem
 ```
 
-## Token-Implementierung
+## Token Implementation
 
-### @property Definitionen
-Alle Tokens verwenden CSS `@property` für bessere Typisierung und Animation:
+### @property Definitions
+All tokens use CSS `@property` for better typing and animation:
 
 ```css
 @property --color-primary-500 {
@@ -126,8 +126,8 @@ Alle Tokens verwenden CSS `@property` für bessere Typisierung und Animation:
 }
 ```
 
-### Fallback-Werte
-Jeder Token hat einen Fallback-Wert für Browser-Kompatibilität:
+### Fallback Values
+Every token has a fallback value for browser compatibility:
 
 ```css
 .component {
@@ -136,55 +136,55 @@ Jeder Token hat einen Fallback-Wert für Browser-Kompatibilität:
 }
 ```
 
-## Migration von bestehenden Komponenten
+## Migration of Existing Components
 
-### Schritt 1: Farben aktualisieren
+### Step 1: Update colors
 ```css
-/* Vorher */
+/* Before */
 background-color: #3b82f6;
 color: #1e40af;
 
-/* Nachher */
+/* After */
 background-color: var(--color-primary-500);
 color: var(--color-primary-800);
 ```
 
-### Schritt 2: Spacing standardisieren
+### Step 2: Standardize spacing
 ```css
-/* Vorher */
+/* Before */
 padding: 1rem;
 margin: 0.5rem;
 
-/* Nachher */
+/* After */
 padding: var(--space-4);
 margin: var(--space-2);
 ```
 
-### Schritt 3: Typography-Tokens verwenden
+### Step 3: Use typography tokens
 ```css
-/* Vorher */
+/* Before */
 font-size: 0.875rem;
 font-weight: 500;
 
-/* Nachher */
+/* After */
 font-size: var(--text-sm);
 font-weight: var(--font-medium);
 ```
 
-### Schritt 4: Komponentenspezifische Tokens
+### Step 4: Component-specific tokens
 ```css
-/* Vorher */
+/* Before */
 padding: 1rem;
 border-radius: 0.5rem;
 
-/* Nachher */
+/* After */
 padding: var(--alert-padding);
 border-radius: var(--alert-border-radius);
 ```
 
-## Theme-Unterstützung
+## Theme Support
 
-Alle Tokens sind theme-aware und werden automatisch in verschiedenen Themes angepasst:
+All tokens are theme-aware and automatically adapted in different themes:
 
 ```css
 /* Light Theme */
@@ -196,14 +196,14 @@ Alle Tokens sind theme-aware und werden automatisch in verschiedenen Themes ange
 --color-background: #111827;
 ```
 
-## Browser-Kompatibilität
+## Browser Compatibility
 
-- **Moderne Browser**: Vollständige Unterstützung mit `@property`
-- **Ältere Browser**: Fallback-Werte gewährleisten Funktionalität
-- **CSS Custom Properties**: Unterstützt in allen modernen Browsern
+- **Modern Browsers**: Full support with `@property`
+- **Older Browsers**: Fallback values ensure functionality
+- **CSS Custom Properties**: Supported in all modern browsers
 
 ## Performance
 
-- Tokens werden einmal geladen und über CSS Custom Properties vererbt
-- `@property` ermöglicht optimierte Animationen
-- Minimaler Performance-Overhead durch effiziente Token-Struktur 
+- Tokens are loaded once and inherited via CSS Custom Properties
+- `@property` enables optimized animations
+- Minimal performance overhead due to efficient token structure 

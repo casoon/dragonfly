@@ -5,7 +5,7 @@ This library provides a comprehensive collection of modern UI effects for web ap
 ## Installation
 
 ```bash
-npm install @casoon/ui-lib
+npm install @casoon/dragonfly
 ```
 
 ## Integration
@@ -13,13 +13,13 @@ npm install @casoon/ui-lib
 ```css
 
 /* Import specific effect categories */
-@import '@casoon/ui-lib/effects/motion/index.css';
-@import '@casoon/ui-lib/effects/visual/index.css';
-@import '@casoon/ui-lib/effects/typography/index.css';
-@import '@casoon/ui-lib/effects/interaction/index.css';
-@import '@casoon/ui-lib/effects/layout-effects/index.css';
-@import '@casoon/ui-lib/effects/themes/index.css';
-@import '@casoon/ui-lib/effects/particles/index.css';
+@import '@casoon/dragonfly/effects/motion/index.css';
+@import '@casoon/dragonfly/effects/visual/index.css';
+@import '@casoon/dragonfly/effects/typography/index.css';
+@import '@casoon/dragonfly/effects/interaction/index.css';
+@import '@casoon/dragonfly/effects/layout-effects/index.css';
+@import '@casoon/dragonfly/effects/themes/index.css';
+@import '@casoon/dragonfly/effects/particles/index.css';
 ```
 
 ## Available Effects

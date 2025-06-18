@@ -3,6 +3,9 @@
  * 
  * Diese Datei enthält verschiedene Animation-Effekte für moderne UIs.
  * Die Effekte sind performant optimiert und berücksichtigen reduzierte Bewegung.
+ * 
+ * Includes shared UI animations for common use across components (fadeIn, slideIn, spin, pulse, etc.)
+ * Previously separate shared-ui-animations.css has been merged into this file.
  */
 
 /* Basis-Keyframes */
@@ -125,7 +128,7 @@
 }
 
 @keyframes wiggle {
-    0, 100% {
+    0%, 100% {
         transform: rotate(0deg);
     }
 
@@ -139,7 +142,7 @@
 }
 
 @keyframes float {
-    0, 100% {
+    0%, 100% {
         transform: translateX(0%);
     }
 
@@ -149,21 +152,21 @@
 }
 
 @keyframes shake {
-    0, 100% {
+    0%, 100% {
         transform: translateX(0%);
     }
 
-    10, 30, 50, 70, 90% {
+    10%, 30%, 50%, 70%, 90% {
         transform: translateX(calc(-1 * var(--shake-distance, var(--shake-distance-sm, var(--border-width)))));
     }
 
-    20, 40, 60, 80% {
+    20%, 40%, 60%, 80% {
         transform: translateX(var(--shake-distance, var(--shake-distance-sm, var(--border-width))));
     }
 }
 
 @keyframes heartbeat {
-    0, 100% {
+    0%, 100% {
         transform: var(--transform-scale-100);
     }
 
@@ -352,6 +355,33 @@
         --backdrop-blur: 0;
         --backdrop-bg-color: rgb(0 0 0 / var(--backdrop-opacity));
         --backdrop-animation-duration: var(--animation-duration-normal);
+
+        /* UI Component Animation Tokens */
+        --ui-fade-in-animation: fadeIn var(--animation-duration-normal) var(--easing-decelerate);
+        --ui-fade-out-animation: fadeOut var(--animation-duration-normal) var(--easing-decelerate);
+        --ui-slide-in-animation: slideIn var(--animation-duration-normal) var(--easing-decelerate);
+        --ui-slide-out-animation: slideOut var(--animation-duration-normal) var(--easing-decelerate);
+        --ui-slide-up-animation: slideUp var(--animation-duration-normal) var(--easing-decelerate);
+        --ui-slide-in-spring-animation: slideIn var(--animation-duration-normal) var(--ease-spring) forwards;
+        
+        /* Loading & Progress Animations */
+        --ui-spin-animation: spin var(--animation-duration-slowest) var(--ease-linear) infinite;
+        --ui-pulse-animation: pulse var(--animation-duration-slowest) var(--easing-smooth) infinite;
+        --ui-pulse-slow-animation: pulse 2s infinite;
+        --ui-loading-animation: loading var(--animation-duration-slowest) infinite;
+        --ui-progress-animation: progressIndeterminate var(--animation-duration-slowest) infinite;
+        --ui-progress-stripes-animation: progressStripes var(--animation-duration-slowest) var(--ease-linear) infinite;
+        
+        /* Component-Specific Animations */
+        --ui-notification-timer-animation: notification-timer 5s var(--ease-linear) forwards;
+        --ui-typing-animation: typingAnimation 1.4s infinite;
+        --ui-search-spin-animation: searchSpin var(--animation-duration-slowest) var(--ease-linear) infinite;
+        
+        /* Toast & Modal Animations */
+        --ui-toast-enter-animation: var(--ui-slide-in-animation);
+        --ui-toast-exit-animation: var(--ui-slide-out-animation);
+        --ui-modal-backdrop-animation: var(--ui-fade-in-animation);
+        --ui-modal-content-animation: var(--ui-slide-up-animation);
         
         /* Aktiviert Interpolation zwischen Keywords wie small, medium, large */
         interpolate-size: allow-keywords;
@@ -1556,3 +1586,99 @@
         outline-offset: var(--border-width-thick) !important;
     }
 } 
+
+/* ================= SHARED UI ANIMATIONS ================= */
+
+/* Common keyframe animations used across multiple UI components */
+
+/* Previously in separate shared-ui-animations.css - now consolidated */
+
+/* UI-SPECIFIC LOADING ANIMATIONS */
+@keyframes loading {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* UI-SPECIFIC FADE ANIMATIONS (simpler versions for components) */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+/* UI-SPECIFIC SLIDE ANIMATIONS */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* UI-SPECIFIC PROGRESS ANIMATIONS */
+@keyframes progressIndeterminate {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes progressStripes {
+    from {
+        background-position: 40px 0;
+    }
+
+    to {
+        background-position: 0 0;
+    }
+}

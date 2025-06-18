@@ -20,14 +20,14 @@
   /* Accordion container */
   .accordion {
     background-color: var(--color-surface-50);
-    border: 1px solid var(--color-border-200);
-    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border-200, #e5e7eb);
+    border-radius: var(--radius-md, 0.375rem);
     overflow: hidden;
   }
   
   /* Accordion item */
   & .item {
-    border-bottom: 1px solid var(--color-border-200);
+    border-bottom: 1px solid var(--color-border-200, #e5e7eb);
   }
   
   & .item:last-child {
@@ -37,7 +37,7 @@
   /* Accordion header/trigger */
   & .header {
     align-items: center;
-    background-color: var(--color-surface-100);
+    background-color: var(--color-surface-100, #f3f4f6);
     border: none;
     cursor: pointer;
     display: flex;
@@ -59,14 +59,14 @@
   
   /* Accordion title */
   & .title {
-    color: var(--color-text-900);
+    color: var(--color-text-900, #111827);
     flex: 1;
-    font-weight: var(--font-medium);
+    font-weight: var(--font-medium, 500);
   }
   
   /* Accordion icon */
   & .icon {
-    color: var(--color-text-500);
+    color: var(--color-text-500, #6b7280);
     transition: transform 0.3s;
   }
   
@@ -91,8 +91,8 @@
   
   /* Accordion variations */
   .accordion--bordered & .item {
-    border: 1px solid var(--color-border-200);
-    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border-200, #e5e7eb);
+    border-radius: var(--radius-md, 0.375rem);
     margin-bottom: var(--space-3);
   }
   
@@ -104,7 +104,7 @@
 
   /* Drawer container */
   .drawer {
-    background-color: var(--color-surface-100);
+    background-color: var(--color-surface-100, #f3f4f6);
     box-shadow: var(--shadow-lg);
     position: fixed;
     transition: transform 0.3s ease;
@@ -195,14 +195,14 @@
   /* Drawer header */
   & .header {
     align-items: center;
-    border-bottom: 1px solid var(--color-border-200);
+    border-bottom: 1px solid var(--color-border-200, #e5e7eb);
     display: flex;
     justify-content: space-between;
     padding: var(--space-4);
   }
   
   & .title {
-    font-weight: var(--font-semibold);
+    font-weight: var(--font-semibold, 600);
     margin: 0;
   }
   
@@ -210,8 +210,8 @@
     align-items: center;
     background: transparent;
     border: none;
-    border-radius: var(--radius-full);
-    color: var(--color-text-500);
+    border-radius: var(--radius-full, 9999px);
+    color: var(--color-text-500, #6b7280);
     cursor: pointer;
     display: flex;
     height: 3%2px;
@@ -222,7 +222,7 @@
   
   & .close:hover {
     background-color: var(--color-surface-200);
-    color: var(--color-text-700);
+    color: var(--color-text-700, #374151);
   }
   
   /* Drawer body */
@@ -234,7 +234,7 @@
   
   /* Drawer footer */
   & .footer {
-    border-top: 1px solid var(--color-border-200);
+    border-top: 1px solid var(--color-border-200, #e5e7eb);
     display: flex;
     gap: var(--space-3);
     justify-content: flex-end;

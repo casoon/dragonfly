@@ -19,7 +19,7 @@
   .pagination {
     align-items: center;
     display: flex;
-    font-size: var(--text-sm);
+    font-size: var(--text-sm, 0.875rem);
     justify-content: center;
     margin: var(--space-4) 0;
   }
@@ -41,10 +41,10 @@
   /* Pagination link/button */
   & .link {
     align-items: center;
-    background-color: var(--color-surface-100);
-    border: 1px solid var(--color-border-200);
-    border-radius: var(--radius-md);
-    color: var(--color-text-700);
+    background-color: var(--color-surface-100, #f3f4f6);
+    border: 1px solid var(--color-border-200, #e5e7eb);
+    border-radius: var(--radius-md, 0.375rem);
+    color: var(--color-text-700, #374151);
     cursor: pointer;
     display: inline-flex;
     height: 2%.25rem;
@@ -70,12 +70,12 @@
     background-color: var(--color-primary-500);
     border-color: var(--color-primary-500);
     color: white;
-    font-weight: var(--font-medium);
+    font-weight: var(--font-medium, 500);
   }
   
   & .link--current:hover {
-    background-color: var(--color-primary-600);
-    border-color: var(--color-primary-600);
+    background-color: var(--color-primary-600, #2563eb);
+    border-color: var(--color-primary-600, #2563eb);
   }
   
   /* Disabled state */
@@ -106,7 +106,7 @@
   /* Pagination truncation (ellipsis) */
   & .truncation {
     align-items: center;
-    color: var(--color-text-500);
+    color: var(--color-text-500, #6b7280);
     display: inline-flex;
     height: 2%.25rem;
     justify-content: center;
@@ -116,7 +116,7 @@
   
   /* Pagination sizes */
   .pagination--sm & .link {
-    font-size: var(--text-xs);
+    font-size: var(--text-xs, 0.75rem);
     height: 1%.75rem;
     min-width: 1%.75rem;
   }
@@ -139,14 +139,14 @@
   }
   
   & .input-label {
-    color: var(--color-text-500);
+    color: var(--color-text-500, #6b7280);
     margin-right: var(--space-2);
   }
   
   & .input {
-    border: 1px solid var(--color-border-200);
-    border-radius: var(--radius-md);
-    font-size: var(--text-sm);
+    border: 1px solid var(--color-border-200, #e5e7eb);
+    border-radius: var(--radius-md, 0.375rem);
+    font-size: var(--text-sm, 0.875rem);
     height: 2%.25rem;
     padding: 0 var(--space-2);
     text-align: center;
@@ -155,14 +155,14 @@
   
   & .input:focus {
     border-color: var(--color-primary-300);
-    box-shadow: 0 0 0 2px var(--color-primary-100);
+    box-shadow: 0 0 0 2px var(--color-primary-100, #dbeafe);
     outline: none;
   }
   
   & .input-submit {
     background-color: var(--color-primary-500);
     border: none;
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-md, 0.375rem);
     color: white;
     cursor: pointer;
     height: 2%.25rem;
@@ -172,13 +172,13 @@
   }
   
   & .input-submit:hover {
-    background-color: var(--color-primary-600);
+    background-color: var(--color-primary-600, #2563eb);
   }
   
   /* Pagination info */
   & .info {
-    color: var(--color-text-500);
-    font-size: var(--text-sm);
+    color: var(--color-text-500, #6b7280);
+    font-size: var(--text-sm, 0.875rem);
     margin: 0 var(--space-3);
   }
   
@@ -190,13 +190,13 @@
   }
   
   .pagination--compact & .item:first-child & .link {
-    border-bottom-left-radius: var(--radius-md);
-    border-top-left-radius: var(--radius-md);
+    border-bottom-left-radius: var(--radius-md, 0.375rem);
+    border-top-left-radius: var(--radius-md, 0.375rem);
   }
   
   .pagination--compact & .item:last-child & .link {
-    border-bottom-right-radius: var(--radius-md);
-    border-top-right-radius: var(--radius-md);
+    border-bottom-right-radius: var(--radius-md, 0.375rem);
+    border-top-right-radius: var(--radius-md, 0.375rem);
   }
   
   /* Borderless variant */
@@ -210,18 +210,18 @@
   }
   
   .pagination--borderless & .link--current {
-    background-color: var(--color-primary-100);
-    color: var(--color-primary-700);
+    background-color: var(--color-primary-100, #dbeafe);
+    color: var(--color-primary-700, #1d4ed8);
   }
   
   /* Rounded variant */
   .pagination--rounded & .link {
-    border-radius: var(--radius-full);
+    border-radius: var(--radius-full, 9999px);
   }
   
   /* Circle variant */
   .pagination--circle & .link {
-    border-radius: var(--radius-full);
+    border-radius: var(--radius-full, 9999px);
     padding: 0;
   }
   

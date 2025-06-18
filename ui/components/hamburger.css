@@ -60,7 +60,7 @@
       border-radius: 2px;
       display: block;
       height: 2px;
-      transition: all var(--transition-fast) ease-in-out;
+      transition: all var(--transition-fast, 150ms ease) ease-in-out;
       width: 100%;
     }
     
@@ -153,15 +153,15 @@
     
     /* Farbvarianten */
     &.light .line {
-      background-color: var(--color-white);
+      background-color: var(--color-white, #fff);
     }
     
     &.dark .line {
-      background-color: var(--color-gray-900);
+      background-color: var(--color-gray-900, #111827);
     }
     
     &.primary .line {
-      background-color: var(--color-primary);
+      background-color: var(--color-primary, #3b82f6);
     }
   }
 }
