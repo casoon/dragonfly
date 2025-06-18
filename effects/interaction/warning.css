@@ -6,61 +6,61 @@
  */
 
 @keyframes warning-pulse {
-    0, 100 {
+    0%, 100% {
         opacity: var(--opacity-100);
     }
 
-    50 {
+    50% {
         opacity: var(--opacity-70);
     }
 }
 
 @keyframes warning-pulse-sm {
-    0, 100 {
+    0%, 100% {
         opacity: var(--opacity-100);
     }
 
-    50 {
+    50% {
         opacity: var(--opacity-80);
     }
 }
 
 @keyframes warning-pulse-lg {
-    0, 100 {
+    0%, 100% {
         opacity: var(--opacity-100);
     }
 
-    50 {
+    50% {
         opacity: var(--opacity-60);
     }
 }
 
 @keyframes warning-flash {
-    0, 100 {
+    0%, 100% {
         opacity: var(--opacity-100);
     }
 
-    50 {
+    50% {
         opacity: var(--opacity-50);
     }
 }
 
 @keyframes warning-flash-sm {
-    0, 100 {
+    0%, 100% {
         opacity: var(--opacity-100);
     }
 
-    50 {
+    50% {
         opacity: var(--opacity-70);
     }
 }
 
 @keyframes warning-flash-lg {
-    0, 100 {
+    0%, 100% {
         opacity: var(--opacity-100);
     }
 
-    50 {
+    50% {
         opacity: var(--opacity-30);
     }
 }

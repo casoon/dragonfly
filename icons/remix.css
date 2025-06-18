@@ -7,17 +7,7 @@
 
 
     /* Base Icon */
-    .ri {
-        background-color: currentcolor;
-        display: var(--display-inline-block);
-        height: var(--spacing-6);
-        mask-position: var(--position-center);
-        mask-repeat: var(--bg-no-repeat);
-        mask-size: var(--position-100);
-        vertical-align: var(--position-middle);
-        width: var(--spacing-6);
-    }
-
+    .ri,
     .ri-icon {
         background-color: currentcolor;
         display: var(--display-inline-block);

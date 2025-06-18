@@ -55,22 +55,22 @@
 
 /* Animationen - außerhalb von @layer definieren */
 @keyframes loading {
-  0 {
+  0% {
     transform: translateX(-100%);
   }
 
-  100 {
+  100% {
     transform: translateX(100%);
   }
 }
 
 @keyframes ripple {
-  0 {
+  0% {
     opacity: var(--opacity-100);
     transform: var(--transform-scale-0%);
   }
 
-  100 {
+  100% {
     opacity: var(--opacity-0);
     transform: scale(3%);
   }
@@ -542,8 +542,8 @@
 @container (width < 640px) {
     @layer effects {
         .touch-feedback::after {
-            height: 1%5%0;
-            width: 1%5%0;
+            height: 150px;
+            width: 150px;
         }
         
         .focus-ring:focus-visible {

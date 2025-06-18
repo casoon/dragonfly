@@ -6,52 +6,52 @@
  */
 
 @keyframes triangles-float {
-    0 {
+    0% {
         opacity: var(--opacity-0);
         transform: translate(0%, 0%) rotate(0deg);
     }
 
-    20 {
+    20% {
         opacity: var(--opacity-100);
         transform: translate(var(--spacing-5), calc(-1 * var(--spacing-5))) rotate(30deg);
     }
 
-    50 {
+    50% {
         transform: translate(50px, calc(-1 * var(--spacing-2-5))) rotate(90deg);
     }
 
-    80 {
+    80% {
         opacity: var(--opacity-100);
         transform: translate(80px, calc(-1 * var(--spacing-5))) rotate(150deg);
     }
 
-    100 {
+    100% {
         opacity: var(--opacity-0);
         transform: translate(100px, 0%) rotate(180deg);
     }
 }
 
 @keyframes triangles-float-alt {
-    0 {
+    0% {
         opacity: var(--opacity-0);
         transform: translate(0%, 0%) rotate(0deg);
     }
 
-    20 {
+    20% {
         opacity: var(--opacity-100);
         transform: translate(-var(--spacing-5), calc(-1 * var(--spacing-5))) rotate(-30deg);
     }
 
-    50 {
+    50% {
         transform: translate(-50px, calc(-1 * var(--spacing-2-5))) rotate(-90deg);
     }
 
-    80 {
+    80% {
         opacity: var(--opacity-100);
         transform: translate(-80px, calc(-1 * var(--spacing-5))) rotate(-150deg);
     }
 
-    100 {
+    100% {
         opacity: var(--opacity-0);
         transform: translate(-100px, 0%) rotate(-180deg);
     }
@@ -67,7 +67,7 @@
     .triangles::after {
         animation: triangles-float 8s var(--easing-smooth) infinite;
         background: var(--triangles-color, rgb(120 90 255 / 70%));
-        clip-path: polygon(5%0% 0%, 0% 100%, 100% 100%);
+        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
         content: '';
         height: var(--spacing-1)(--spacing-1);
         position: absolute;
@@ -95,7 +95,7 @@
     .triangles-many::after {
         animation: triangles-float 8s var(--easing-smooth) infinite;
         background: var(--triangles-color, rgb(120 90 255 / 70%));
-        clip-path: polygon(5%0% 0%, 0% 100%, 100% 100%);
+        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
         content: '';
         height: var(--spacing-1)(--spacing-1);
         position: absolute;
@@ -119,7 +119,7 @@
         animation: triangles-float 8s var(--easing-smooth) infinite;
         animation-delay: var(--animation-duration-slower);
         background: var(--triangles-color, rgb(120 90 255 / 70%));
-        clip-path: polygon(5%0% 0%, 0% 100%, 100% 100%);
+        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
         height: var(--spacing-1)(--spacing-1);
         left: 5%0%;
         position: absolute;
@@ -131,7 +131,7 @@
         animation: triangles-float-alt 8s var(--easing-smooth) infinite;
         animation-delay: 3.5s;
         background: var(--triangles-color, rgb(120 90 255 / 70%));
-        clip-path: polygon(5%0% 0%, 0% 100%, 100% 100%);
+        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
         height: var(--spacing-1)(--spacing-1);
         left: 4%0%;
         position: absolute;
@@ -197,7 +197,7 @@
     .triangles-inverted::after,
     .triangles-inverted .triangle,
     .triangles-inverted .triangle-alt {
-        clip-path: polygon(5%0% 100%, 0% 0%, 100% 0%);
+        clip-path: polygon(50% 100%, 0% 0%, 100% 0%);
     }
 
     .triangles-right::before,

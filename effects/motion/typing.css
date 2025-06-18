@@ -7,11 +7,11 @@
 
 /* Animationen - außerhalb von @layer definieren */
 @keyframes typing-cursor {
-    0, 100 {
+    0, 100% {
         opacity: var(--opacity-100);
     }
 
-    50 {
+    50% {
         opacity: var(--opacity-0);
     }
 }
@@ -27,11 +27,11 @@
 }
 
 @keyframes typing-blink {
-    0, 100 {
+    0, 100% {
         opacity: var(--opacity-100);
     }
 
-    50 {
+    50% {
         opacity: var(--opacity-0);
     }
 }

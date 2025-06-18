@@ -59,7 +59,7 @@
     /* Breadcrumb typography */
     --breadcrumb-font-size: var(--text-sm);
     --breadcrumb-font-weight: var(--font-medium);
-    --breadcrumb-line-height: 1%.5;
+    --breadcrumb-line-height: 1.5;
     
     /* Breadcrumb responsive breakpoints */
     --breadcrumb-mobile-breakpoint: 768px;

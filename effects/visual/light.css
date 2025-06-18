@@ -6,11 +6,11 @@
  */
 
 @keyframes light-move {
-    0 { transform: translate(-25%, -25%); }
+    0% { transform: translate(-25%, -25%); }
 
-    50 { transform: translate(25%, 25%); }
+    50% { transform: translate(25%, 25%); }
 
-    100 { transform: translate(-25%, -25%); }
+    100% { transform: translate(-25%, -25%); }
 }
 
 @layer components {
@@ -22,7 +22,7 @@
     .light-spot::before {
         background: radial-gradient(
             circle at center,
-            var(--light-color, rgb(255 255 255 / 800000%)) 0,
+            var(--light-color, rgb(255 255 255 / 0.8)) 0,
             transparent 50
         );
         content: '';

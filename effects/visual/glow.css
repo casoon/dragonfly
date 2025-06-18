@@ -6,11 +6,11 @@
  */
 
 @keyframes glow-pulse {
-    0 { box-shadow: 0 0 var(--spacing-1) var(--glow-color, var(--color-primary)); }
+    0% { box-shadow: 0 0 var(--spacing-1) var(--glow-color, var(--color-primary)); }
 
-    50 { box-shadow: 0 0 var(--spacing-5) var(--glow-color, var(--color-primary)); }
+    50% { box-shadow: 0 0 var(--spacing-5) var(--glow-color, var(--color-primary)); }
 
-    100 { box-shadow: 0 0 var(--spacing-1) var(--glow-color, var(--color-primary)); }
+    100% { box-shadow: 0 0 var(--spacing-1) var(--glow-color, var(--color-primary)); }
 }
 
 @layer components {

@@ -24,13 +24,13 @@
 
 /* Animationen */
 @keyframes scroll-timeline-fade {
-    0 {
+    0% {
         opacity: 0;
-        transform: translateY(var(--spacing-5));
+        transform: translateY(var(--spacing-5, 1.25rem));
     }
 
-    100 {
-        opacity: 1000000;
+    100% {
+        opacity: 1;
         transform: translateX(0);
     }
 }
@@ -51,31 +51,31 @@
 
   /* Base Smooth Scroll */
   html {
-    scroll-behavior: var(--scroll-behavior);
-    scroll-padding-top: var(--scroll-padding-top);
+    scroll-behavior: var(--scroll-behavior, smooth);
+    scroll-padding-top: var(--scroll-padding-top, 0);
   }
 
   /* Scroll Snap */
   .scroll-snap-container {
-    height: 100;
+    height: 100vh;
     overflow-y: auto;
-    scroll-snap-type: var(--scroll-snap-type);
+    scroll-snap-type: var(--scroll-snap-type, none);
   }
 
   .scroll-snap-item {
-    scroll-margin: var(--scroll-margin);
-    scroll-snap-align: var(--scroll-snap-align);
-    scroll-snap-stop: var(--scroll-snap-stop);
+    scroll-margin: var(--scroll-margin, 0);
+    scroll-snap-align: var(--scroll-snap-align, none);
+    scroll-snap-stop: var(--scroll-snap-stop, normal);
   }
 
   /* Scroll Progress */
   .scroll-progress {
-    background: linear-gradient(to right, var(--color-primary) var(--scroll), transparent 0);
-    height: var(--spacing-1);
+    background: linear-gradient(to right, var(--color-primary, #3b82f6) var(--scroll), transparent 0);
+    height: var(--spacing-1, 0.25rem);
     left: 0;
     position: fixed;
     top: 0;
-    width: 100;
+    width: 100%;
     z-index: var(--z-50);
   }
 
@@ -88,7 +88,7 @@
 
   /* Parallax Scrolling */
   .parallax-container {
-    height: 100;
+    height: 100vh;
     overflow: hidden auto;
     perspective: var(--border-width);
   }
@@ -113,101 +113,77 @@
   /* Scroll Reveal */
   .scroll-reveal {
     opacity: 0;
-    transform: translateY(var(--spacing-5));
-    transition: all var(--transition-normal);
+    transform: translateY(var(--spacing-5, 1.25rem));
+    transition: all var(--transition-normal, 200ms ease);
   }
 
   .scroll-reveal.visible {
-    opacity: 1000000;
+    opacity: 1;
     transform: translateX(0);
   }
 
   /* Scroll Fade */
   .scroll-fade {
     opacity: 0;
-    transition: opacity var(--transition-normal);
+    transition: opacity var(--transition-normal, 200ms ease);
   }
 
   .scroll-fade.visible {
-    opacity: 1000000;
+    opacity: 1;
   }
 
   /* Scroll Scale */
   .scroll-scale {
     opacity: 0;
-    transform: scale(0.95%);
-    transition: all var(--transition-normal);
+    transform: scale(0.95);
+    transition: all var(--transition-normal, 200ms ease);
   }
 
   .scroll-scale.visible {
-    opacity: 1000000;
+    opacity: 1;
     transform: scale(1);
   }
 
-  /* Scroll Slide */
-  .scroll-slide-left {
+  /* Scroll Slide - Konsolidierte Version */
+  .scroll-slide {
     opacity: 0;
-    transform: translateX(-50px);
-    transition: all var(--transition-normal);
+    transition: all var(--transition-normal, 200ms ease);
   }
 
-  .scroll-slide-left.visible {
-    opacity: 1000000;
-    transform: translateX(0);
+  .scroll-slide.visible {
+    opacity: 1;
+    transform: translate(0, 0);
   }
 
-  .scroll-slide-right {
-    opacity: 0;
-    transform: translateX(50px);
-    transition: all var(--transition-normal);
-  }
+  /* Scroll Slide Richtungs-Varianten */
+  .scroll-slide-left { transform: translateX(-50px); }
 
-  .scroll-slide-right.visible {
-    opacity: 1000000;
-    transform: translateX(0);
-  }
+  .scroll-slide-right { transform: translateX(50px); }
 
-  .scroll-slide-up {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all var(--transition-normal);
-  }
+  .scroll-slide-up { transform: translateY(50px); }
 
-  .scroll-slide-up.visible {
-    opacity: 1000000;
-    transform: translateX(0);
-  }
-
-  .scroll-slide-down {
-    opacity: 0;
-    transform: translateY(-50px);
-    transition: all var(--transition-normal);
-  }
-
-  .scroll-slide-down.visible {
-    opacity: 1000000;
-    transform: translateX(0);
-  }
+  .scroll-slide-down { transform: translateY(-50px); }
 
   /* Scroll Rotate */
   .scroll-rotate {
     opacity: 0;
     transform: rotate(-15deg);
-    transition: all var(--transition-normal);
+    transition: all var(--transition-normal, 200ms ease);
   }
 
   .scroll-rotate.visible {
-    opacity: 1000000;
+    opacity: 1;
     transform: rotate(0);
   }
 
   /* Scroll Stagger */
   .scroll-stagger > * {
     opacity: 0;
-    transform: translateY(var(--spacing-5));
-    transition: all var(--transition-normal);
+    transform: translateY(var(--spacing-5, 1.25rem));
+    transition: all var(--transition-normal, 200ms ease);
   }
 
+  /* Stagger Delays - Kompakte Version */
   .scroll-stagger > *:nth-child(1) { transition-delay: 0.1s; }
 
   .scroll-stagger > *:nth-child(2) { transition-delay: 0.2s; }
@@ -219,53 +195,53 @@
   .scroll-stagger > *:nth-child(5) { transition-delay: 0.5s; }
 
   .scroll-stagger.visible > * {
-    opacity: 1000000;
+    opacity: 1;
     transform: translateX(0);
   }
 
   /* Scroll Progress Bar */
   .scroll-progress-bar {
     background: var(--slider-track-color);
-    height: var(--spacing-1);
+    height: var(--spacing-1, 0.25rem);
     left: 0;
     position: fixed;
     top: 0;
-    width: 100;
+    width: 100%;
   }
 
   .scroll-progress-bar::before {
-    background: var(--color-primary);
+    background: var(--color-primary, #3b82f6);
     content: '';
-    height: 100;
+    height: 100vh;
     left: 0;
     position: absolute;
     top: 0;
-    transition: width var(--transition-normal);
+    transition: width var(--transition-normal, 200ms ease);
     width: var(--scroll);
   }
 
   /* Scroll to Top Button */
   .scroll-to-top {
     align-items: center;
-    background: var(--color-primary);
+    background: var(--color-primary, #3b82f6);
     border-radius: 5px;
-    bottom: var(--spacing-5);
-    color: var(--color-white);
+    bottom: var(--spacing-5, 1.25rem);
+    color: var(--color-white, #fff);
     cursor: pointer;
     display: flex;
-    height: var(--spacing-10);
+    height: var(--spacing-10, 2.5rem);
     justify-content: center;
     opacity: 0;
     position: fixed;
-    right: var(--spacing-5);
-    transform: translateY(var(--spacing-5));
-    transition: all var(--transition-normal);
-    width: var(--spacing-10);
+    right: var(--spacing-5, 1.25rem);
+    transform: translateY(var(--spacing-5, 1.25rem));
+    transition: all var(--transition-normal, 200ms ease);
+    width: var(--spacing-10, 2.5rem);
     z-index: var(--z-50);
   }
 
   .scroll-to-top.visible {
-    opacity: 1000000;
+    opacity: 1;
     transform: translateX(0);
   }
 
@@ -277,7 +253,7 @@
   /* Scroll Spy Navigation */
   .scroll-spy-nav {
     position: fixed;
-    right: var(--spacing-5);
+    right: var(--spacing-5, 1.25rem);
     top: 50;
     transform: translateX(-50);
   }
@@ -288,12 +264,12 @@
     display: block;
     height: var(--space-small-10px);
     margin: var(--space-small-10px) 0;
-    transition: all var(--transition-normal);
+    transition: all var(--transition-normal, 200ms ease);
     width: var(--space-small-10px);
   }
 
   .scroll-spy-nav a.active {
-    background: var(--color-primary);
+    background: var(--color-primary, #3b82f6);
     transform: scale(1.2);
   }
 
@@ -345,22 +321,17 @@
     }
     
     .focus-ring:focus-visible {
-        box-shadow: 0 0 0 var(--border-width) var(--color-primary);
+        box-shadow: 0 0 0 var(--border-width) var(--color-primary, #3b82f6);
     }
   }
 
   @media (min-width: 640px) {
-    .scroll-fade-staggered > *:nth-child(2) {
-      animation-delay: 0.1s;
-    }
+    /* Fade Stagger Delays - Kompakte Version */
+    .scroll-fade-staggered > *:nth-child(2) { animation-delay: 0.1s; }
 
-    .scroll-fade-staggered > *:nth-child(3) {
-      animation-delay: 0.2s;
-    }
+    .scroll-fade-staggered > *:nth-child(3) { animation-delay: 0.2s; }
 
-    .scroll-fade-staggered > *:nth-child(4) {
-      animation-delay: 0.3s;
-    }
+    .scroll-fade-staggered > *:nth-child(4) { animation-delay: 0.3s; }
   }
 
   @media (min-width: 768px) {
@@ -389,137 +360,9 @@
     .scroll-parallax,
     .scroll-fade-staggered > * {
       animation: none;
-      opacity: 1000000;
+      opacity: 1;
       transform: none;
       transition: none;
     }
   }
-
-
-@layer components {
-    /* Smooth Scroll */
-    html {
-        scroll-behavior: smooth;
-    }
-
-    /* Scroll Container */
-    .scroll-container {
-        color: var(--color-white);
-        height: var(--position-100);
-        margin: var(--spacing-2);
-        overflow: auto hidden;
-        position: var(--position-relative);
-    }
-
-    /* Scroll Content */
-    .scroll-content {
-        height: var(--position-100);
-        left: var(--position-0);
-        overflow: var(--display-hidden) var(--display-auto);
-        -webkit-overflow-scrolling: touch;
-        position: var(--position-absolute);
-        top: var(--position-0);
-        width: var(--position-100);
-    }
-
-    /* Scroll Track */
-    .scroll-track {
-        background-color: var(--bg-transparent);
-        height: var(--position-100);
-        position: var(--position-absolute);
-        right: var(--position-0);
-        top: var(--position-0);
-        width: var(--spacing-2);
-    }
-
-    /* Scroll Thumb */
-    .scroll-thumb {
-        background-color: var(--bg-gray-300);
-        border-radius: var(--radius-full);
-        cursor: var(--display-pointer);
-        height: var(--spacing-20);
-        position: var(--position-absolute);
-        right: var(--position-0);
-        top: var(--position-0);
-        width: var(--spacing-2);
-    }
-
-    /* Scroll Thumb Hover */
-    .scroll-thumb:hover {
-        background-color: var(--bg-gray-400);
-    }
-
-    /* Scroll Thumb Active */
-    .scroll-thumb:active {
-        background-color: var(--bg-gray-500);
-    }
-
-    /* Scroll Button */
-    .scroll-button {
-        align-items: var(--position-center);
-        background-color: var(--bg-primary-500);
-        border-radius: var(--radius-full);
-        bottom: var(--spacing-5);
-        color: var(--color-white);
-        cursor: var(--display-pointer);
-        display: var(--display-flex);
-        height: var(--spacing-10);
-        justify-content: var(--position-center);
-        opacity: var(--position-0);
-        position: var(--position-fixed);
-        right: var(--spacing-5);
-        transition: var(--transition-all);
-        width: var(--spacing-10);
-    }
-
-    /* Scroll Button Visible */
-    .scroll-button.visible {
-        opacity: var(--position-1);
-    }
-
-    /* Scroll Button Hover */
-    .scroll-button:hover {
-        background-color: var(--bg-primary-600);
-    }
-
-    /* Scroll Button Active */
-    .scroll-button:active {
-        background-color: var(--bg-primary-700);
-    }
-
-    /* Scroll Progress */
-    .scroll-progress {
-        background-color: var(--bg-gray-200);
-        border-radius: var(--radius-full);
-        height: var(--spacing-20);
-        position: var(--position-fixed);
-        right: var(--spacing-5);
-        top: var(--position-50);
-        transform: translateY(var(--position-50));
-        width: var(--spacing-2);
-    }
-
-    /* Scroll Progress Bar */
-    .scroll-progress-bar {
-        background-color: var(--bg-primary-500);
-        border-radius: var(--radius-full);
-        height: var(--position-0);
-        left: var(--position-0);
-        position: var(--position-absolute);
-        top: var(--position-0);
-        transition: var(--transition-all);
-        width: var(--position-100);
-    }
-
-    /* Scroll Progress Text */
-    .scroll-progress-text {
-        color: var(--text-gray-500);
-        font-size: var(--font-size-xs);
-        left: var(--position-50);
-        margin: var(--spacing-2) var(--position-0);
-        position: var(--position-absolute);
-        top: var(--position-50);
-        transform: translate(var(--position-50), var(--position-50));
-    }
-  } 
-} 
+}

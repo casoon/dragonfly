@@ -6,11 +6,11 @@
  */
 
 @keyframes skeleton-loading {
-    0 {
+    0% {
         background-position: 200% 0;
     }
 
-    100 {
+    100% {
         background-position: -200 0;
     }
 }
@@ -29,12 +29,12 @@
 
     .skeleton-sm {
         animation-duration: var(--animation-duration-slow);
-        background-size: 1%5%0 100;
+        background-size: 150px 100;
     }
 
     .skeleton-lg {
         animation-duration: var(--animation-duration-slowest);
-        background-size: 30%0% 100;
+        background-size: 300px 100%;
     }
 
     .skeleton-text {

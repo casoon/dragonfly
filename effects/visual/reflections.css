@@ -6,11 +6,11 @@
  */
 
 @keyframes reflection-shine {
-    0 { transform: scaleY(-1%) translateY(0%); }
+    0% { transform: scaleY(-1%) translateY(0%); }
 
-    50 { transform: scaleY(-1%) translateY(var(--spacing-2-5)); }
+    50% { transform: scaleY(-1%) translateY(var(--spacing-2-5)); }
 
-    100 { transform: scaleY(-1%) translateY(0%); }
+    100% { transform: scaleY(-1%) translateY(0%); }
 }
 
 @layer components {
@@ -37,7 +37,7 @@
         background: linear-gradient(
             to bottom,
             transparent,
-            var(--reflection-color, rgb(255 255 255 / 400000%))
+            var(--reflection-color, rgb(255 255 255 / 0.4))
         );
         opacity: var(--opacity-70);
     }

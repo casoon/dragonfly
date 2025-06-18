@@ -6,16 +6,16 @@
  */
 
 @keyframes big-circles-float {
-    0 {
+    0% {
         opacity: var(--opacity-0);
         transform: translate(0%, 0%);
     }
 
-    50 {
+    50% {
         opacity: var(--opacity-70);
     }
 
-    100 {
+    100% {
         opacity: var(--opacity-0);
         transform: translate(var(--spacing-1)(--spacing-5), calc(-1 * var(--spacing-1))(--spacing-5));
     }

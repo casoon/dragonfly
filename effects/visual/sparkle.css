@@ -7,19 +7,19 @@
 
 /* Animationen - außerhalb von @layer definieren */
 @keyframes sparkle-effect {
-    0 {
+    0% {
         opacity: var(--opacity-0);
-        transform: var(--transform-scale-0%);
+        transform: var(--transform-scale-0);
     }
 
-    50 {
+    50% {
         opacity: var(--opacity-100);
         transform: var(--transform-scale-100);
     }
 
-    100 {
+    100% {
         opacity: var(--opacity-0);
-        transform: var(--transform-scale-0%);
+        transform: var(--transform-scale-0);
     }
 }
 
@@ -32,7 +32,7 @@
 
     .sparkle::before,
     .sparkle::after {
-        background-color: var(--sparkle-color, rgb(255 255 255 / 800000%));
+        background-color: var(--sparkle-color, rgb(255 255 255 / 0.8));
         border-radius: 5px;
         content: '';
         height: var(--spacing-1);
@@ -53,7 +53,7 @@
     .sparkle-many::before,
     .sparkle-many::after,
     .sparkle-many span {
-        background-color: var(--sparkle-color, rgb(255 255 255 / 800000%));
+        background-color: var(--sparkle-color, rgb(255 255 255 / 0.8));
         border-radius: 5px;
         content: '';
         height: var(--spacing-1);

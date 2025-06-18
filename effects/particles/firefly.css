@@ -6,42 +6,42 @@
  */
 
 @keyframes firefly-float {
-    0 {
+    0% {
         opacity: var(--opacity-0);
         transform: translate(0%, 0%);
     }
 
-    20 {
+    20% {
         opacity: var(--opacity-80);
     }
 
-    40 {
+    40% {
         opacity: var(--opacity-30);
         transform: translate(30px, calc(-1 * var(--spacing-5)));
     }
 
-    60 {
+    60% {
         opacity: var(--opacity-100);
         transform: translate(60px, 0%);
     }
 
-    80 {
+    80% {
         opacity: var(--opacity-40);
         transform: translate(30px, var(--spacing-5));
     }
 
-    100 {
+    100% {
         opacity: var(--opacity-0);
         transform: translate(0%, 0%);
     }
 }
 
 @keyframes firefly-glow {
-    0, 100 {
+    0, 100% {
         box-shadow: 0 0 var(--spacing-2) var(--border-width-thick) var(--firefly-glow-color, rgb(255 255 180 / 70%));
     }
 
-    50 {
+    50% {
         box-shadow: 0 0 var(--spacing-1)(--border-width-thick) var(--spacing-1) var(--firefly-glow-color, rgb(255 255 180 / 90%));
     }
 }

@@ -55,7 +55,7 @@
 }
 
 @keyframes neon-flicker {
-    0, 19%, 21%, 23%, 25%, 54%, 56%, 100 {
+    0, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
         text-shadow: var(--spacing-0) var(--spacing-0) var(--spacing-5) currentcolor,
                     var(--spacing-0) var(--spacing-0) var(--spacing-10) currentcolor,
                     var(--spacing-0) var(--spacing-0) var(--spacing-20) currentcolor;
@@ -67,15 +67,15 @@
 }
 
 @keyframes flicker {
-    0, 100 { opacity: var(--opacity-100); }
+    0, 100% { opacity: var(--opacity-100); }
 
-    30 { opacity: var(--opacity-70); }
+    30% { opacity: var(--opacity-70); }
 
-    50 { opacity: var(--opacity-100); }
+    50% { opacity: var(--opacity-100); }
 
-    70 { opacity: var(--opacity-80); }
+    70% { opacity: var(--opacity-80); }
 
-    90 { opacity: var(--opacity-50); }
+    90% { opacity: var(--opacity-50); }
 }
 
 /* Effekte-Definitionen in Layer */

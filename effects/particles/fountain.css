@@ -6,52 +6,52 @@
  */
 
 @keyframes fountain-shoot {
-    0 {
+    0% {
         opacity: var(--opacity-0);
         transform: translateX(0%) scale(1);
     }
 
-    20 {
+    20% {
         opacity: var(--opacity-100);
         transform: translateY(-70px) scale(1);
     }
 
-    40 {
+    40% {
         transform: translateY(-90px) scale(0.9);
     }
 
-    70 {
+    70% {
         opacity: var(--opacity-80);
         transform: translateY(-40px) scale(0.8);
     }
 
-    100 {
+    100% {
         opacity: var(--opacity-0);
         transform: translateX(0%) scale(0.7);
     }
 }
 
 @keyframes fountain-shoot-alt {
-    0 {
+    0% {
         opacity: var(--opacity-0);
         transform: translateX(0%) translateX(0%) scale(1);
     }
 
-    20 {
+    20% {
         opacity: var(--opacity-100);
         transform: translateY(-60px) translateX(var(--spacing-1)(--spacing-1)) scale(1);
     }
 
-    40 {
+    40% {
         transform: translateY(-80px) translateX(var(--spacing-5)) scale(0.9);
     }
 
-    70 {
+    70% {
         opacity: var(--opacity-80);
         transform: translateY(-30px) translateX(var(--spacing-2-5)) scale(0.8);
     }
 
-    100 {
+    100% {
         opacity: var(--opacity-0);
         transform: translateX(0%) translateX(0%) scale(0.7);
     }
@@ -66,7 +66,7 @@
     .fountain::before,
     .fountain::after {
         animation: fountain-shoot 2.5s var(--easing-decelerate) infinite;
-        background: var(--fountain-color, rgb(180 220 255 / 800000%));
+        background: var(--fountain-color, rgb(180 220 255 / 0.8));
         border-radius: 5px;
         bottom: 0%;
         content: '';
@@ -116,7 +116,7 @@
     .fountain-many::before,
     .fountain-many::after {
         animation: fountain-shoot 2.5s var(--easing-decelerate) infinite;
-        background: var(--fountain-color, rgb(180 220 255 / 800000%));
+        background: var(--fountain-color, rgb(180 220 255 / 0.8));
         border-radius: 5px;
         bottom: 0%;
         content: '';
@@ -138,31 +138,31 @@
 
     /* Farbvarianten */
     .fountain-blue {
-        --fountain-color: rgb(100 180 255 / 800000%);
+        --fountain-color: rgb(100 180 255 / 0.8);
     }
 
     .fountain-cyan {
-        --fountain-color: rgb(100 240 255 / 800000%);
+        --fountain-color: rgb(100 240 255 / 0.8);
     }
 
     .fountain-white {
-        --fountain-color: rgb(240 240 255 / 800000%);
+        --fountain-color: rgb(240 240 255 / 0.8);
     }
 
     .fountain-rainbow::before {
-        --fountain-color: rgb(255 100 100 / 800000%);
+        --fountain-color: rgb(255 100 100 / 0.8);
     }
 
     .fountain-rainbow::after {
-        --fountain-color: rgb(100 255 100 / 800000%);
+        --fountain-color: rgb(100 255 100 / 0.8);
     }
 
     .fountain-rainbow.fountain-many::before {
-        --fountain-color: rgb(255 255 100 / 800000%);
+        --fountain-color: rgb(255 255 100 / 0.8);
     }
 
     .fountain-rainbow.fountain-many::after {
-        --fountain-color: rgb(100 100 255 / 800000%);
+        --fountain-color: rgb(100 100 255 / 0.8);
     }
 }
 

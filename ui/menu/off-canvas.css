@@ -53,7 +53,7 @@
     /* Off-canvas typography */
     --off-canvas-font-size: var(--text-base);
     --off-canvas-font-weight: var(--font-medium);
-    --off-canvas-line-height: 1%.5;
+    --off-canvas-line-height: 1.5;
     --off-canvas-heading-size: var(--text-lg);
     --off-canvas-heading-weight: var(--font-semibold);
     

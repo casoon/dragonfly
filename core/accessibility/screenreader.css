@@ -15,9 +15,11 @@
   
   /* 
    * Versteckt Elemente nur visuell, aber hält sie für Screenreader zugänglich.
-   * Verwende diese Klasse für Elemente, die nur für Screenreader gedacht sind.
+   * Konsolidierte Definitionen für alle sr-only Varianten.
    */
-  .sr-only {
+  .sr-only,
+  .sr-only-focusable:not(:focus),
+  .sr-announcer {
     border-width: 0;
     clip: rect(0, 0, 0, 0);
     height: var(--border-width);
@@ -79,18 +81,7 @@
    * Spezifische Klassen für häufig benötigte Screenreader-Texte.
    */
   
-  /* Für Text, der nur bei Hover/Fokus angezeigt werden soll */
-  .sr-only-focusable:not(:focus) {
-    border-width: 0;
-    clip: rect(0, 0, 0, 0);
-    height: var(--border-width);
-    margin: calc(-1 * var(--border-width));
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    white-space: nowrap;
-    width: var(--border-width);
-  }
+  /* Für Text, der nur bei Hover/Fokus angezeigt werden soll - bereits in konsolidierter Definition enthalten */
   
   /* Für Text, der nur auf kleinen Bildschirmen ausgeblendet werden soll */
   @media (max-width: 640px) {
@@ -124,18 +115,9 @@
     outline-offset: var(--border-width-thick);
   }
   
-  /* Container für Benachrichtigungen, die für Screenreader bestimmt sind */
+  /* Container für Benachrichtigungen, die für Screenreader bestimmt sind - bereits in konsolidierter Definition enthalten */
   .sr-announcer {
-    border-width: 0;
-    clip: rect(0, 0, 0, 0);
-    height: var(--border-width);
-    margin: calc(-1 * var(--border-width));
-    overflow: hidden;
-    padding: 0;
-    pointer-events: none;
-    position: absolute;
-    white-space: nowrap;
-    width: var(--border-width);
+    pointer-events: none; /* Zusätzliche Eigenschaft nur für Announcer */
   }
   
   /*

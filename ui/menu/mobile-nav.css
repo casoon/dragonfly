@@ -55,7 +55,7 @@
     /* Mobile nav typography */
     --mobile-nav-font-size: var(--text-base);
     --mobile-nav-font-weight: var(--font-medium);
-    --mobile-nav-line-height: 1%.5;
+    --mobile-nav-line-height: 1.5;
     --mobile-nav-heading-size: var(--text-lg);
     --mobile-nav-heading-weight: var(--font-semibold);
     

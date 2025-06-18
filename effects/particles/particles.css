@@ -6,48 +6,48 @@
  */
 
 @keyframes particles-float {
-    0 {
+    0% {
         opacity: var(--opacity-0);
         transform: translate(0%, 0%);
     }
 
-    50 {
+    50% {
         opacity: var(--opacity-100);
     }
 
-    100 {
+    100% {
         opacity: var(--opacity-0);
         transform: translate(100px, -100px);
     }
 }
 
 @keyframes particles-dots {
-    0 {
+    0% {
         opacity: var(--opacity-0);
         transform: translate(0%, 0%);
     }
 
-    50 {
+    50% {
         opacity: var(--opacity-100);
     }
 
-    100 {
+    100% {
         opacity: var(--opacity-0);
         transform: translate(-100px, 100px);
     }
 }
 
 @keyframes particles-lines {
-    0 {
+    0% {
         opacity: var(--opacity-0);
         transform: translate(0%, 0%) rotate(0deg);
     }
 
-    50 {
+    50% {
         opacity: var(--opacity-100);
     }
 
-    100 {
+    100% {
         opacity: var(--opacity-0);
         transform: translate(100px, 100px) rotate(360deg);
     }

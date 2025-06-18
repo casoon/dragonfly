@@ -48,6 +48,7 @@
   [role="tab"][aria-selected="true"] {
     border-bottom-color: var(--color-primary-500);
     color: var(--color-primary-600);
+    font-weight: var(--font-weight-medium); /* Konsolidiert von separater Definition */
   }
   
   [role="tabpanel"] {
@@ -130,10 +131,7 @@
     /* Zusätzliche Stile für erweiterte Elemente */
   }
   
-  /* Ausgewählte Elemente */
-  [aria-selected="true"] {
-    font-weight: var(--font-weight-medium);
-  }
+  /* Ausgewählte Elemente - bereits in [role="tab"][aria-selected="true"] konsolidiert */
   
   /* Aktive Elemente */
   [aria-current="page"],

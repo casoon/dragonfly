@@ -68,10 +68,11 @@
     cursor: pointer;
   }
   
-  [disabled], 
-  [aria-disabled="true"] {
+  [disabled] {
     cursor: not-allowed !important;
   }
+  
+  /* [aria-disabled="true"] bereits in screenreader.css definiert */
   
   /* Globale Einstellungen für Tap-Targets */
   a, button, [role="button"], [type="button"], [type="submit"], [type="reset"] {

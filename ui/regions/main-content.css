@@ -324,7 +324,7 @@
       color: var(--color-neutral-100);
       font-family: var(--font-mono);
       font-size: var(--text-sm);
-      line-height: 1%.5;
+      line-height: 1.5;
       margin: var(--space-6) 0;
       overflow-x: auto;
       padding: var(--space-4);

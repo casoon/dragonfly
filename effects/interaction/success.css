@@ -6,69 +6,69 @@
  */
 
 @keyframes success-bounce {
-    0, 20, 50, 80, 100 {
+    0%, 20%, 50%, 80%, 100% {
         transform: translateX(0%);
     }
 
-    40 {
+    40% {
         transform: translateY(calc(-1% * var(--spacing-2-5)));
     }
 
-    60 {
+    60% {
         transform: translateY(calc(-1% * var(--spacing-1)));
     }
 }
 
 @keyframes success-bounce-sm {
-    0, 20, 50, 80, 100 {
+    0%, 20%, 50%, 80%, 100% {
         transform: translateX(0%);
     }
 
-    40 {
+    40% {
         transform: translateY(calc(-1% * var(--spacing-1)));
     }
 
-    60 {
+    60% {
         transform: translateY(calc(-1 * var(--border-width-thick)));
     }
 }
 
 @keyframes success-bounce-lg {
-    0, 20, 50, 80, 100 {
+    0%, 20%, 50%, 80%, 100% {
         transform: translateX(0%);
     }
 
-    40 {
+    40% {
         transform: translateY(calc(-1% * var(--spacing-5)));
     }
 
-    60 {
+    60% {
         transform: translateY(calc(-1% * var(--spacing-2-5)));
     }
 }
 
 @keyframes success-pulse {
-    0, 100 {
+    0%, 100% {
         opacity: var(--opacity-100);
     }
 
-    50 {
+    50% {
         opacity: var(--opacity-70);
     }
 }
 
 @keyframes success-check {
-    0 {
+    0% {
         opacity: var(--opacity-0);
         transform: translate(-50%, -50%) scale(0);
     }
 
-    50 {
+    50% {
         opacity: var(--opacity-100);
         transform: translate(-50%, -50%) scale(1.2);
     }
 
-    100 {
+    100% {
         opacity: var(--opacity-100);
         transform: translate(-50%, -50%) scale(1);
     }

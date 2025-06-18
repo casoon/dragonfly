@@ -7,18 +7,9 @@
 
 
     /* Base Icon */
-    .mdi {
-        background-color: currentcolor;
-        display: var(--display-inline-block);
-        height: var(--spacing-6);
-        mask-position: var(--position-center);
-        mask-repeat: var(--bg-no-repeat);
-        mask-size: var(--position-100);
-        vertical-align: var(--position-middle);
-        width: var(--spacing-6);
-    }
 
     /* MDI als CSS Icon */
+    .mdi,
     .mdi-icon {
         background-color: currentcolor;
         display: var(--display-inline-block);
@@ -60,7 +51,7 @@
 
     .mdi-round {
         fill: none;
-        stroke-width: 1%.5;
+        stroke-width: 1.5;
     }
 
     .mdi-sharp {
